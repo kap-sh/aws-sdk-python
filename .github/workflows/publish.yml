@@ -1,0 +1,38 @@
+name: Publish Service to PyPI
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: AWS service to publish
+        required: true
+        type: choice
+        options:
+          - dynamodb
+          - ec2
+          - ecs
+          - eks
+          - lambda
+          - s3
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Build package
+        run: uv build
+        working-directory: services/${{ inputs.service }}
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: services/${{ inputs.service }}/dist/

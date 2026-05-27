@@ -1,0 +1,10 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#VerifiedAccessEndpointPortRangeList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.verified_access_endpoint_port_range
+
+VerifiedAccessEndpointPortRangeList: TypeAlias = list[
+    "aws_sdk_ec2.types.verified_access_endpoint_port_range.VerifiedAccessEndpointPortRange"
+]

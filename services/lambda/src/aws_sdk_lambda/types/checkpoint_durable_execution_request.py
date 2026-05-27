@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#CheckpointDurableExecutionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_lambda.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lambda.types.checkpoint_token
+    import aws_sdk_lambda.types.client_token
+    import aws_sdk_lambda.types.durable_execution_arn
+    import aws_sdk_lambda.types.operation_updates
+
+
+class CheckpointDurableExecutionRequest(TypedDict):
+    durable_execution_arn: (
+        "aws_sdk_lambda.types.durable_execution_arn.DurableExecutionArn"
+    )
+    """<p>The Amazon Resource Name (ARN) of the durable execution.</p>"""
+    checkpoint_token: "aws_sdk_lambda.types.checkpoint_token.CheckpointToken"
+    """<p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>"""
+    updates: NotRequired["aws_sdk_lambda.types.operation_updates.OperationUpdates"]
+    """<p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>"""
+    client_token: NotRequired["aws_sdk_lambda.types.client_token.ClientToken"]
+    """<p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CheckpointDurableExecutionRequest) -> dict:
+    out: dict = {}
+    out["CheckpointToken"] = value["checkpoint_token"]
+    if "updates" in value:
+        import aws_sdk_lambda.types.operation_updates
+
+        out["Updates"] = aws_sdk_lambda.types.operation_updates.serialize_json(
+            value["updates"]
+        )
+    if "client_token" in value:
+        out["ClientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> CheckpointDurableExecutionRequest:
+    out: CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
+    if "CheckpointToken" in data:
+        out["checkpoint_token"] = data["CheckpointToken"]
+    else:
+        raise DeserializationError(
+            "CheckpointDurableExecutionRequest.checkpoint_token required"
+        )
+    if "Updates" in data:
+        import aws_sdk_lambda.types.operation_updates
+
+        out["updates"] = aws_sdk_lambda.types.operation_updates.deserialize_json(
+            data["Updates"]
+        )
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    return out

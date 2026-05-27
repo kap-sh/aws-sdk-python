@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#GetHostReservationPurchasePreview``."""
+
+from __future__ import annotations
+from typing import TYPE_CHECKING
+import zapros
+import aws_sdk_ec2._auth._signers
+from aws_sdk_ec2._services._pipeline import AsyncOperationOptions, OperationOptions
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.get_host_reservation_purchase_preview_request
+    import aws_sdk_ec2.types.get_host_reservation_purchase_preview_result
+
+
+def get_host_reservation_purchase_preview(
+    options: OperationOptions,
+    input: aws_sdk_ec2.types.get_host_reservation_purchase_preview_request.GetHostReservationPurchasePreviewRequest,
+) -> tuple[
+    aws_sdk_ec2.types.get_host_reservation_purchase_preview_result.GetHostReservationPurchasePreviewResult,
+    zapros.Response,
+]:
+    raise NotImplementedError("operation dispatch not yet generated")
+
+
+async def async_get_host_reservation_purchase_preview(
+    options: AsyncOperationOptions,
+    input: aws_sdk_ec2.types.get_host_reservation_purchase_preview_request.GetHostReservationPurchasePreviewRequest,
+) -> tuple[
+    aws_sdk_ec2.types.get_host_reservation_purchase_preview_result.GetHostReservationPurchasePreviewResult,
+    zapros.Response,
+]:
+    raise NotImplementedError("operation dispatch not yet generated")

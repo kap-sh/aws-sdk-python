@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ModifyLaunchTemplateRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.boolean
+    import aws_sdk_ec2.types.launch_template_id
+    import aws_sdk_ec2.types.launch_template_name
+    import aws_sdk_ec2.types.string
+
+
+class ModifyLaunchTemplateRequest(TypedDict):
+    dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
+    """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+    client_token: NotRequired["aws_sdk_ec2.types.string.String"]
+    """<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>"""
+    launch_template_id: NotRequired[
+        "aws_sdk_ec2.types.launch_template_id.LaunchTemplateId"
+    ]
+    """<p>The ID of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>"""
+    launch_template_name: NotRequired[
+        "aws_sdk_ec2.types.launch_template_name.LaunchTemplateName"
+    ]
+    """<p>The name of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>"""
+    default_version: NotRequired["aws_sdk_ec2.types.string.String"]
+    """<p>The version number of the launch template to set as the default version.</p>"""

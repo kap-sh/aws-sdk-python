@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.s3#ListPartsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_s3._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import aws_sdk_s3.types.account_id
+    import aws_sdk_s3.types.bucket_name
+    import aws_sdk_s3.types.max_parts
+    import aws_sdk_s3.types.multipart_upload_id
+    import aws_sdk_s3.types.object_key
+    import aws_sdk_s3.types.part_number_marker
+    import aws_sdk_s3.types.request_payer
+    import aws_sdk_s3.types.sse_customer_algorithm
+    import aws_sdk_s3.types.sse_customer_key
+    import aws_sdk_s3.types.sse_customer_key_md5
+
+
+class ListPartsRequest(TypedDict):
+    bucket: "aws_sdk_s3.types.bucket_name.BucketName"
+    """<p>The name of the bucket to which the parts are being uploaded. </p> <p> <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code> <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html\">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>Object Lambda access points are not supported by directory buckets.</p> </note> <p> <b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html\">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    key: "aws_sdk_s3.types.object_key.ObjectKey"
+    """<p>Object key for which the multipart upload was initiated.</p>"""
+    max_parts: NotRequired["aws_sdk_s3.types.max_parts.MaxParts"]
+    """<p>Sets the maximum number of parts to return.</p>"""
+    part_number_marker: NotRequired[
+        "aws_sdk_s3.types.part_number_marker.PartNumberMarker"
+    ]
+    """<p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>"""
+    upload_id: "aws_sdk_s3.types.multipart_upload_id.MultipartUploadId"
+    """<p>Upload ID identifying the multipart upload whose parts are being listed.</p>"""
+    request_payer: NotRequired["aws_sdk_s3.types.request_payer.RequestPayer"]
+    expected_bucket_owner: NotRequired["aws_sdk_s3.types.account_id.AccountId"]
+    """<p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>"""
+    sse_customer_algorithm: NotRequired[
+        "aws_sdk_s3.types.sse_customer_algorithm.SSECustomerAlgorithm"
+    ]
+    """<p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
+    sse_customer_key: NotRequired["aws_sdk_s3.types.sse_customer_key.SSECustomerKey"]
+    """<p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
+    sse_customer_key_md5: NotRequired[
+        "aws_sdk_s3.types.sse_customer_key_md5.SSECustomerKeyMD5"
+    ]
+    """<p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: ListPartsRequest, parent: Element, tag: str) -> None:
+    SubElement(parent, tag)
+
+
+def deserialize_xml(el: Element) -> ListPartsRequest:
+    out: ListPartsRequest = {}  # type: ignore[typeddict-item]
+    return out

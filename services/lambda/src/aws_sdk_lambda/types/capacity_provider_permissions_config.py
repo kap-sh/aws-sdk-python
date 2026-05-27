@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#CapacityProviderPermissionsConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_lambda.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lambda.types.role_arn
+
+
+class CapacityProviderPermissionsConfig(TypedDict):
+    capacity_provider_operator_role_arn: "aws_sdk_lambda.types.role_arn.RoleArn"
+    """<p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CapacityProviderPermissionsConfig) -> dict:
+    out: dict = {}
+    out["CapacityProviderOperatorRoleArn"] = value[
+        "capacity_provider_operator_role_arn"
+    ]
+    return out
+
+
+def deserialize_json(data: dict) -> CapacityProviderPermissionsConfig:
+    out: CapacityProviderPermissionsConfig = {}  # type: ignore[typeddict-item]
+    if "CapacityProviderOperatorRoleArn" in data:
+        out["capacity_provider_operator_role_arn"] = data[
+            "CapacityProviderOperatorRoleArn"
+        ]
+    else:
+        raise DeserializationError(
+            "CapacityProviderPermissionsConfig.capacity_provider_operator_role_arn required"
+        )
+    return out

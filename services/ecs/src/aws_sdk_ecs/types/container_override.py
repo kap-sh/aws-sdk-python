@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.ecs#ContainerOverride``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ecs.types.boxed_integer
+    import aws_sdk_ecs.types.environment_files
+    import aws_sdk_ecs.types.environment_variables
+    import aws_sdk_ecs.types.resource_requirements
+    import aws_sdk_ecs.types.string
+    import aws_sdk_ecs.types.string_list
+
+
+class ContainerOverride(TypedDict):
+    name: NotRequired["aws_sdk_ecs.types.string.String"]
+    """<p>The name of the container that receives the override. This parameter is required if any override is specified.</p>"""
+    command: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
+    """<p>The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.</p>"""
+    environment: NotRequired[
+        "aws_sdk_ecs.types.environment_variables.EnvironmentVariables"
+    ]
+    """<p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.</p>"""
+    environment_files: NotRequired[
+        "aws_sdk_ecs.types.environment_files.EnvironmentFiles"
+    ]
+    """<p>A list of files containing the environment variables to pass to a container, instead of the value from the container definition.</p>"""
+    cpu: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
+    """<p>The number of <code>cpu</code> units reserved for the container, instead of the default value from the task definition. You must also specify a container name.</p>"""
+    memory: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
+    """<p>The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.</p>"""
+    memory_reservation: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
+    """<p>The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.</p>"""
+    resource_requirements: NotRequired[
+        "aws_sdk_ecs.types.resource_requirements.ResourceRequirements"
+    ]
+    """<p>The type and amount of a resource to assign to a container, instead of the default value from the task definition. The supported resources are GPUs and Neuron devices.</p>"""

@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.s3#ExistingObjectReplicationStatus``."""
+
+from typing import Literal, TypeAlias, cast
+from aws_sdk_s3.errors import DeserializationError
+from aws_sdk_s3._protocol.xml import Element, SubElement
+
+ExistingObjectReplicationStatus: TypeAlias = Literal[
+    "Enabled",
+    "Disabled",
+]
+
+
+# --- restXml ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "Enabled",
+        "Disabled",
+    )
+)
+
+
+def to_xml_text(value: ExistingObjectReplicationStatus) -> str:
+    return value
+
+
+def from_xml_text(text: str) -> ExistingObjectReplicationStatus:
+    if text not in _VALUES:
+        raise DeserializationError(
+            f"unknown ExistingObjectReplicationStatus value: {text!r}"
+        )
+    return cast(ExistingObjectReplicationStatus, text)
+
+
+def serialize_xml(
+    value: ExistingObjectReplicationStatus, parent: Element, tag: str
+) -> None:
+    SubElement(parent, tag).text = to_xml_text(value)
+
+
+def deserialize_xml(el: Element) -> ExistingObjectReplicationStatus:
+    return from_xml_text(el.text or "")

@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#DescribePodIdentityAssociationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_eks.types.string
+
+
+class DescribePodIdentityAssociationRequest(TypedDict):
+    cluster_name: "aws_sdk_eks.types.string.String"
+    """<p>The name of the cluster that the association is in.</p>"""
+    association_id: "aws_sdk_eks.types.string.String"
+    """<p>The ID of the association that you want the description of.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribePodIdentityAssociationRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribePodIdentityAssociationRequest:
+    out: DescribePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
+    return out

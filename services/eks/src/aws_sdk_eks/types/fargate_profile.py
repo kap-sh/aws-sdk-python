@@ -1,0 +1,129 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#FargateProfile``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_eks.types.fargate_profile_health
+    import aws_sdk_eks.types.fargate_profile_selectors
+    import aws_sdk_eks.types.fargate_profile_status
+    import aws_sdk_eks.types.string
+    import aws_sdk_eks.types.string_list
+    import aws_sdk_eks.types.tag_map
+    import aws_sdk_eks.types.timestamp
+
+
+class FargateProfile(TypedDict):
+    fargate_profile_name: NotRequired["aws_sdk_eks.types.string.String"]
+    """<p>The name of the Fargate profile.</p>"""
+    fargate_profile_arn: NotRequired["aws_sdk_eks.types.string.String"]
+    """<p>The full Amazon Resource Name (ARN) of the Fargate profile.</p>"""
+    cluster_name: NotRequired["aws_sdk_eks.types.string.String"]
+    """<p>The name of your cluster.</p>"""
+    created_at: NotRequired["aws_sdk_eks.types.timestamp.Timestamp"]
+    """<p>The Unix epoch timestamp at object creation.</p>"""
+    pod_execution_role_arn: NotRequired["aws_sdk_eks.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the <code>Pod</code> execution role to use for any <code>Pod</code> that matches the selectors in the Fargate profile. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html\"> <code>Pod</code> execution role</a> in the <i>Amazon EKS User Guide</i>.</p>"""
+    subnets: NotRequired["aws_sdk_eks.types.string_list.StringList"]
+    """<p>The IDs of subnets to launch a <code>Pod</code> into.</p>"""
+    selectors: NotRequired[
+        "aws_sdk_eks.types.fargate_profile_selectors.FargateProfileSelectors"
+    ]
+    """<p>The selectors to match for a <code>Pod</code> to use this Fargate profile.</p>"""
+    status: NotRequired["aws_sdk_eks.types.fargate_profile_status.FargateProfileStatus"]
+    """<p>The current status of the Fargate profile.</p>"""
+    tags: NotRequired["aws_sdk_eks.types.tag_map.TagMap"]
+    """<p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or Amazon Web Services resources.</p>"""
+    health: NotRequired["aws_sdk_eks.types.fargate_profile_health.FargateProfileHealth"]
+    """<p>The health status of the Fargate profile. If there are issues with your Fargate profile's health, they are listed here.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FargateProfile) -> dict:
+    out: dict = {}
+    if "fargate_profile_name" in value:
+        out["fargateProfileName"] = value["fargate_profile_name"]
+    if "fargate_profile_arn" in value:
+        out["fargateProfileArn"] = value["fargate_profile_arn"]
+    if "cluster_name" in value:
+        out["clusterName"] = value["cluster_name"]
+    if "created_at" in value:
+        import aws_sdk_eks.types.timestamp
+
+        out["createdAt"] = aws_sdk_eks.types.timestamp.serialize_json(
+            value["created_at"]
+        )
+    if "pod_execution_role_arn" in value:
+        out["podExecutionRoleArn"] = value["pod_execution_role_arn"]
+    if "subnets" in value:
+        import aws_sdk_eks.types.string_list
+
+        out["subnets"] = aws_sdk_eks.types.string_list.serialize_json(value["subnets"])
+    if "selectors" in value:
+        import aws_sdk_eks.types.fargate_profile_selectors
+
+        out["selectors"] = aws_sdk_eks.types.fargate_profile_selectors.serialize_json(
+            value["selectors"]
+        )
+    if "status" in value:
+        import aws_sdk_eks.types.fargate_profile_status
+
+        out["status"] = aws_sdk_eks.types.fargate_profile_status.serialize_json(
+            value["status"]
+        )
+    if "tags" in value:
+        import aws_sdk_eks.types.tag_map
+
+        out["tags"] = aws_sdk_eks.types.tag_map.serialize_json(value["tags"])
+    if "health" in value:
+        import aws_sdk_eks.types.fargate_profile_health
+
+        out["health"] = aws_sdk_eks.types.fargate_profile_health.serialize_json(
+            value["health"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> FargateProfile:
+    out: FargateProfile = {}  # type: ignore[typeddict-item]
+    if "fargateProfileName" in data:
+        out["fargate_profile_name"] = data["fargateProfileName"]
+    if "fargateProfileArn" in data:
+        out["fargate_profile_arn"] = data["fargateProfileArn"]
+    if "clusterName" in data:
+        out["cluster_name"] = data["clusterName"]
+    if "createdAt" in data:
+        import aws_sdk_eks.types.timestamp
+
+        out["created_at"] = aws_sdk_eks.types.timestamp.deserialize_json(
+            data["createdAt"]
+        )
+    if "podExecutionRoleArn" in data:
+        out["pod_execution_role_arn"] = data["podExecutionRoleArn"]
+    if "subnets" in data:
+        import aws_sdk_eks.types.string_list
+
+        out["subnets"] = aws_sdk_eks.types.string_list.deserialize_json(data["subnets"])
+    if "selectors" in data:
+        import aws_sdk_eks.types.fargate_profile_selectors
+
+        out["selectors"] = aws_sdk_eks.types.fargate_profile_selectors.deserialize_json(
+            data["selectors"]
+        )
+    if "status" in data:
+        import aws_sdk_eks.types.fargate_profile_status
+
+        out["status"] = aws_sdk_eks.types.fargate_profile_status.deserialize_json(
+            data["status"]
+        )
+    if "tags" in data:
+        import aws_sdk_eks.types.tag_map
+
+        out["tags"] = aws_sdk_eks.types.tag_map.deserialize_json(data["tags"])
+    if "health" in data:
+        import aws_sdk_eks.types.fargate_profile_health
+
+        out["health"] = aws_sdk_eks.types.fargate_profile_health.deserialize_json(
+            data["health"]
+        )
+    return out

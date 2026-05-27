@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#UnsuccessfulItem``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.string
+    import aws_sdk_ec2.types.unsuccessful_item_error
+
+
+class UnsuccessfulItem(TypedDict):
+    error: NotRequired[
+        "aws_sdk_ec2.types.unsuccessful_item_error.UnsuccessfulItemError"
+    ]
+    """<p>Information about the error.</p>"""
+    resource_id: NotRequired["aws_sdk_ec2.types.string.String"]
+    """<p>The ID of the resource.</p>"""

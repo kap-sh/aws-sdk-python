@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.s3#TooManyParts``."""
+
+from typing import TypedDict
+from aws_sdk_s3._protocol.xml import Element, SubElement
+from aws_sdk_s3.errors import ServiceError
+
+
+class TooManyParts_(TypedDict):
+    pass
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: TooManyParts_, parent: Element, tag: str) -> None:
+    SubElement(parent, tag)
+
+
+def deserialize_xml(el: Element) -> TooManyParts_:
+    out: TooManyParts_ = {}  # type: ignore[typeddict-item]
+    return out
+
+
+class TooManyParts(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.s3#TooManyParts``."""
+
+    code: str | None = "TooManyParts"
+
+    def __init__(self, data: TooManyParts_):
+        super().__init__(
+            "client", is_throttling_error=False, is_retryable=False, code="TooManyParts"
+        )
+        self.data = data
+
+    @classmethod
+    def from_xml(cls, el: Element) -> "TooManyParts":
+        return cls(deserialize_xml(el))

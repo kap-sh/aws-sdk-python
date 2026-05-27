@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#LogType``."""
+
+from typing import Literal, TypeAlias, cast
+from aws_sdk_eks.errors import DeserializationError
+
+LogType: TypeAlias = Literal[
+    "api",
+    "audit",
+    "authenticator",
+    "controllerManager",
+    "scheduler",
+]
+
+
+# --- restJson1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "api",
+        "audit",
+        "authenticator",
+        "controllerManager",
+        "scheduler",
+    )
+)
+
+
+def serialize_json(value: LogType) -> str:
+    return value
+
+
+def deserialize_json(data: str) -> LogType:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown LogType value: {data!r}")
+    return cast(LogType, data)

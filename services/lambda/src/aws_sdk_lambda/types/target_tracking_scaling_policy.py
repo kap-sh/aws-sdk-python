@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#TargetTrackingScalingPolicy``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_lambda.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lambda.types.capacity_provider_predefined_metric_type
+    import aws_sdk_lambda.types.metric_target_value
+
+
+class TargetTrackingScalingPolicy(TypedDict):
+    predefined_metric_type: "aws_sdk_lambda.types.capacity_provider_predefined_metric_type.CapacityProviderPredefinedMetricType"
+    """<p>The predefined metric type to track for scaling decisions.</p>"""
+    target_value: "aws_sdk_lambda.types.metric_target_value.MetricTargetValue"
+    """<p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TargetTrackingScalingPolicy) -> dict:
+    out: dict = {}
+    import aws_sdk_lambda.types.capacity_provider_predefined_metric_type
+
+    out["PredefinedMetricType"] = (
+        aws_sdk_lambda.types.capacity_provider_predefined_metric_type.serialize_json(
+            value["predefined_metric_type"]
+        )
+    )
+    out["TargetValue"] = value["target_value"]
+    return out
+
+
+def deserialize_json(data: dict) -> TargetTrackingScalingPolicy:
+    out: TargetTrackingScalingPolicy = {}  # type: ignore[typeddict-item]
+    if "PredefinedMetricType" in data:
+        import aws_sdk_lambda.types.capacity_provider_predefined_metric_type
+
+        out["predefined_metric_type"] = (
+            aws_sdk_lambda.types.capacity_provider_predefined_metric_type.deserialize_json(
+                data["PredefinedMetricType"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "TargetTrackingScalingPolicy.predefined_metric_type required"
+        )
+    if "TargetValue" in data:
+        out["target_value"] = data["TargetValue"]
+    else:
+        raise DeserializationError("TargetTrackingScalingPolicy.target_value required")
+    return out

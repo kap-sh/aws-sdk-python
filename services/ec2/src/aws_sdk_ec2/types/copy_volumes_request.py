@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#CopyVolumesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.boolean
+    import aws_sdk_ec2.types.integer
+    import aws_sdk_ec2.types.string
+    import aws_sdk_ec2.types.tag_specification_list
+    import aws_sdk_ec2.types.volume_id
+    import aws_sdk_ec2.types.volume_type
+
+
+class CopyVolumesRequest(TypedDict):
+    source_volume_id: NotRequired["aws_sdk_ec2.types.volume_id.VolumeId"]
+    """<p>The ID of the source EBS volume to copy.</p>"""
+    iops: NotRequired["aws_sdk_ec2.types.integer.Integer"]
+    """<p>The number of I/O operations per second (IOPS) to provision for the volume copy. Required for <code>io1</code> and <code>io2</code> volumes. Optional for <code>gp3</code> volumes. Omit for all other volume types. Full provisioned IOPS performance can be achieved only once the volume copy is fully initialized. </p> <p>Valid ranges:</p> <ul> <li> <p>gp3: <code>3,000 </code>(<i>default</i>)<code> - 80,000</code> IOPS</p> </li> <li> <p>io1: <code>100 - 64,000</code> IOPS</p> </li> <li> <p>io2: <code>100 - 256,000</code> IOPS</p> </li> </ul> <note> <p> <a href=\"https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html\"> Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.</p> </note>"""
+    size: NotRequired["aws_sdk_ec2.types.integer.Integer"]
+    """<p>The size of the volume copy, in GiBs. The size must be equal to or greater than the size of the source volume. If not specified, the size defaults to the size of the source volume.</p> <p>Maximum supported sizes:</p> <ul> <li> <p>gp2: <code>16,384</code> GiB</p> </li> <li> <p>gp3: <code>65,536</code> GiB</p> </li> <li> <p>io1: <code>16,384</code> GiB</p> </li> <li> <p>io2: <code>65,536</code> GiB</p> </li> <li> <p>st1 and sc1: <code>16,384</code> GiB</p> </li> <li> <p>standard: <code>1024</code> GiB</p> </li> </ul>"""
+    volume_type: NotRequired["aws_sdk_ec2.types.volume_type.VolumeType"]
+    """<p>The volume type for the volume copy. If not specified, the volume type defaults to <code>gp2</code>.</p>"""
+    dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
+    """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+    tag_specifications: NotRequired[
+        "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
+    ]
+    """<p>The tags to apply to the volume copy during creation.</p>"""
+    multi_attach_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
+    """<p>Indicates whether to enable Amazon EBS Multi-Attach for the volume copy. If you enable Multi-Attach, you can attach the volume to up to 16 Nitro instances in the same Availability Zone simultaneously. Supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html\"> Amazon EBS Multi-Attach</a>.</p>"""
+    throughput: NotRequired["aws_sdk_ec2.types.integer.Integer"]
+    """<p>The throughput to provision for the volume copy, in MiB/s. Supported for <code>gp3</code> volumes only. Omit for all other volume types. Full provisioned throughput performance can be achieved only once the volume copy is fully initialized.</p> <p>Valid Range: <code>125 - 2000</code> MiB/s</p> <p></p>"""
+    client_token: NotRequired["aws_sdk_ec2.types.string.String"]
+    """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\"> Ensure Idempotency</a>.</p>"""

@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.dynamodb#ProvisionedThroughputOverride``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_dynamodb.types.positive_long_object
+
+
+class ProvisionedThroughputOverride(TypedDict):
+    read_capacity_units: NotRequired[
+        "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
+    ]
+    """<p>Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.</p>"""

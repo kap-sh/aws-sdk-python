@@ -1,0 +1,15 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#DescribeHostReservationOfferingsResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.host_offering_set
+    import aws_sdk_ec2.types.string
+
+
+class DescribeHostReservationOfferingsResult(TypedDict):
+    next_token: NotRequired["aws_sdk_ec2.types.string.String"]
+    """<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"""
+    offering_set: NotRequired["aws_sdk_ec2.types.host_offering_set.HostOfferingSet"]
+    """<p>Information about the offerings.</p>"""

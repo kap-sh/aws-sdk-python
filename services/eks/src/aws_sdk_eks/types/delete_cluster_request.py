@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#DeleteClusterRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_eks.types.string
+
+
+class DeleteClusterRequest(TypedDict):
+    name: "aws_sdk_eks.types.string.String"
+    """<p>The name of the cluster to delete.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteClusterRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteClusterRequest:
+    out: DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,331 @@
+"""Generated from Smithy shape ``com.amazonaws.s3#PutObject``."""
+
+from __future__ import annotations
+from typing import TYPE_CHECKING, Never, Any
+from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
+import zapros
+from urllib.parse import quote
+from aws_sdk_s3.errors import UnknownServiceError
+from aws_sdk_s3._protocol.errors import parse_error_metadata
+from aws_sdk_s3._protocol.xml import fromstring
+import aws_sdk_s3._auth._signers
+from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
+
+if TYPE_CHECKING:
+    import aws_sdk_s3.types.put_object_request
+    import aws_sdk_s3.types.put_object_output
+
+
+def handle_error(response: zapros.Response) -> Never:
+    root = fromstring(response.read())
+    code, message = parse_error_metadata(root)
+    match code:
+        case "EncryptionTypeMismatch":
+            import aws_sdk_s3.errors.encryption_type_mismatch
+
+            raise aws_sdk_s3.errors.encryption_type_mismatch.EncryptionTypeMismatch.from_xml(
+                root
+            )
+        case "InvalidRequest":
+            import aws_sdk_s3.errors.invalid_request
+
+            raise aws_sdk_s3.errors.invalid_request.InvalidRequest.from_xml(root)
+        case "InvalidWriteOffset":
+            import aws_sdk_s3.errors.invalid_write_offset
+
+            raise aws_sdk_s3.errors.invalid_write_offset.InvalidWriteOffset.from_xml(
+                root
+            )
+        case "TooManyParts":
+            import aws_sdk_s3.errors.too_many_parts
+
+            raise aws_sdk_s3.errors.too_many_parts.TooManyParts.from_xml(root)
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_s3.types.put_object_output.PutObjectOutput:
+    out: aws_sdk_s3.types.put_object_output.PutObjectOutput = {}  # type: ignore[typeddict-item]
+    if "x-amz-expiration" in response.headers:
+        out["expiration"] = str(response.headers["x-amz-expiration"])
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    if "x-amz-checksum-crc32" in response.headers:
+        out["checksum_crc32"] = str(response.headers["x-amz-checksum-crc32"])
+    if "x-amz-checksum-crc32c" in response.headers:
+        out["checksum_crc32_c"] = str(response.headers["x-amz-checksum-crc32c"])
+    if "x-amz-checksum-crc64nvme" in response.headers:
+        out["checksum_crc64_nvme"] = str(response.headers["x-amz-checksum-crc64nvme"])
+    if "x-amz-checksum-sha1" in response.headers:
+        out["checksum_sha1"] = str(response.headers["x-amz-checksum-sha1"])
+    if "x-amz-checksum-sha256" in response.headers:
+        out["checksum_sha256"] = str(response.headers["x-amz-checksum-sha256"])
+    if "x-amz-checksum-sha512" in response.headers:
+        out["checksum_sha512"] = str(response.headers["x-amz-checksum-sha512"])
+    if "x-amz-checksum-md5" in response.headers:
+        out["checksum_md5"] = str(response.headers["x-amz-checksum-md5"])
+    if "x-amz-checksum-xxhash64" in response.headers:
+        out["checksum_xxhash64"] = str(response.headers["x-amz-checksum-xxhash64"])
+    if "x-amz-checksum-xxhash3" in response.headers:
+        out["checksum_xxhash3"] = str(response.headers["x-amz-checksum-xxhash3"])
+    if "x-amz-checksum-xxhash128" in response.headers:
+        out["checksum_xxhash128"] = str(response.headers["x-amz-checksum-xxhash128"])
+    if "x-amz-checksum-type" in response.headers:
+        import aws_sdk_s3.types.checksum_type
+
+        out["checksum_type"] = aws_sdk_s3.types.checksum_type.from_xml_text(
+            response.headers["x-amz-checksum-type"]
+        )
+    if "x-amz-server-side-encryption" in response.headers:
+        import aws_sdk_s3.types.server_side_encryption
+
+        out["server_side_encryption"] = (
+            aws_sdk_s3.types.server_side_encryption.from_xml_text(
+                response.headers["x-amz-server-side-encryption"]
+            )
+        )
+    if "x-amz-version-id" in response.headers:
+        out["version_id"] = str(response.headers["x-amz-version-id"])
+    if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
+        out["sse_customer_algorithm"] = str(
+            response.headers["x-amz-server-side-encryption-customer-algorithm"]
+        )
+    if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
+        out["sse_customer_key_md5"] = str(
+            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
+        )
+    if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
+        out["ssekms_key_id"] = str(
+            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
+        )
+    if "x-amz-server-side-encryption-context" in response.headers:
+        out["ssekms_encryption_context"] = str(
+            response.headers["x-amz-server-side-encryption-context"]
+        )
+    if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
+        out["bucket_key_enabled"] = (
+            response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
+            == "true"
+        )
+    if "x-amz-object-size" in response.headers:
+        out["size"] = int(response.headers["x-amz-object-size"])
+    if "x-amz-request-charged" in response.headers:
+        import aws_sdk_s3.types.request_charged
+
+        out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_s3._auth._signers.Signer | None:
+    if auth_schemes:
+        for scheme in auth_schemes:
+            match scheme["name"]:
+                case "sigv4" | "sigv4a" | "sigv4-s3express" if (
+                    options.credentials_provider is not None
+                ):
+                    return aws_sdk_s3._auth._signers.SigV4Signer(
+                        options.credentials_provider, auth_scheme=scheme
+                    )
+                case "none":
+                    return None
+                case _:
+                    raise RuntimeError(
+                        f"Could not find provider for auth scheme {scheme['name']!r}"
+                    )
+    if options.credentials_provider is not None:
+        if options.region is None:
+            raise RuntimeError("options.region is required for SigV4 signing")
+        return aws_sdk_s3._auth._signers.SigV4Signer(
+            options.credentials_provider,
+            auth_scheme={
+                "name": "sigv4",
+                "signingName": "s3",
+                "signingRegion": options.region,
+                "disableDoubleEncoding": False,
+                "disableNormalizePath": False,
+            },
+        )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_s3.types.put_object_request.PutObjectRequest,
+) -> zapros.Request:
+    endpoint = resolve(  # noqa: F841
+        EndpointParams(
+            Bucket=input.get("bucket"),
+            Region=options.region,
+            UseFIPS=options.use_fips,
+            UseDualStack=options.use_dual_stack,
+            Endpoint=options.endpoint,
+            ForcePathStyle=options.force_path_style,
+            Accelerate=options.accelerate,
+            UseGlobalEndpoint=options.use_global_endpoint,
+            UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
+            Key=input.get("key"),
+            Prefix=options.prefix,
+            CopySource=options.copy_source,
+            DisableAccessPoints=options.disable_access_points,
+            DisableMultiRegionAccessPoints=options.disable_multi_region_access_points,
+            UseArnRegion=options.use_arn_region,
+            UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
+            DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
+        )
+    )
+    url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=PutObject"
+    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    if "acl" in input:
+        headers["x-amz-acl"] = str(input["acl"])
+    if "cache_control" in input:
+        headers["Cache-Control"] = str(input["cache_control"])
+    if "content_disposition" in input:
+        headers["Content-Disposition"] = str(input["content_disposition"])
+    if "content_encoding" in input:
+        headers["Content-Encoding"] = str(input["content_encoding"])
+    if "content_language" in input:
+        headers["Content-Language"] = str(input["content_language"])
+    if "content_length" in input:
+        headers["Content-Length"] = str(input["content_length"])
+    if "content_md5" in input:
+        headers["Content-MD5"] = str(input["content_md5"])
+    if "content_type" in input:
+        headers["Content-Type"] = str(input["content_type"])
+    if "checksum_algorithm" in input:
+        headers["x-amz-sdk-checksum-algorithm"] = str(input["checksum_algorithm"])
+    if "checksum_crc32" in input:
+        headers["x-amz-checksum-crc32"] = str(input["checksum_crc32"])
+    if "checksum_crc32_c" in input:
+        headers["x-amz-checksum-crc32c"] = str(input["checksum_crc32_c"])
+    if "checksum_crc64_nvme" in input:
+        headers["x-amz-checksum-crc64nvme"] = str(input["checksum_crc64_nvme"])
+    if "checksum_sha1" in input:
+        headers["x-amz-checksum-sha1"] = str(input["checksum_sha1"])
+    if "checksum_sha256" in input:
+        headers["x-amz-checksum-sha256"] = str(input["checksum_sha256"])
+    if "checksum_sha512" in input:
+        headers["x-amz-checksum-sha512"] = str(input["checksum_sha512"])
+    if "checksum_md5" in input:
+        headers["x-amz-checksum-md5"] = str(input["checksum_md5"])
+    if "checksum_xxhash64" in input:
+        headers["x-amz-checksum-xxhash64"] = str(input["checksum_xxhash64"])
+    if "checksum_xxhash3" in input:
+        headers["x-amz-checksum-xxhash3"] = str(input["checksum_xxhash3"])
+    if "checksum_xxhash128" in input:
+        headers["x-amz-checksum-xxhash128"] = str(input["checksum_xxhash128"])
+    if "expires" in input:
+        headers["Expires"] = str(input["expires"])
+    if "if_match" in input:
+        headers["If-Match"] = str(input["if_match"])
+    if "if_none_match" in input:
+        headers["If-None-Match"] = str(input["if_none_match"])
+    if "grant_full_control" in input:
+        headers["x-amz-grant-full-control"] = str(input["grant_full_control"])
+    if "grant_read" in input:
+        headers["x-amz-grant-read"] = str(input["grant_read"])
+    if "grant_read_acp" in input:
+        headers["x-amz-grant-read-acp"] = str(input["grant_read_acp"])
+    if "grant_write_acp" in input:
+        headers["x-amz-grant-write-acp"] = str(input["grant_write_acp"])
+    if "write_offset_bytes" in input:
+        headers["x-amz-write-offset-bytes"] = str(input["write_offset_bytes"])
+    if "server_side_encryption" in input:
+        headers["x-amz-server-side-encryption"] = str(input["server_side_encryption"])
+    if "storage_class" in input:
+        headers["x-amz-storage-class"] = str(input["storage_class"])
+    if "website_redirect_location" in input:
+        headers["x-amz-website-redirect-location"] = str(
+            input["website_redirect_location"]
+        )
+    if "sse_customer_algorithm" in input:
+        headers["x-amz-server-side-encryption-customer-algorithm"] = str(
+            input["sse_customer_algorithm"]
+        )
+    if "sse_customer_key" in input:
+        headers["x-amz-server-side-encryption-customer-key"] = str(
+            input["sse_customer_key"]
+        )
+    if "sse_customer_key_md5" in input:
+        headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
+            input["sse_customer_key_md5"]
+        )
+    if "ssekms_key_id" in input:
+        headers["x-amz-server-side-encryption-aws-kms-key-id"] = str(
+            input["ssekms_key_id"]
+        )
+    if "ssekms_encryption_context" in input:
+        headers["x-amz-server-side-encryption-context"] = str(
+            input["ssekms_encryption_context"]
+        )
+    if "bucket_key_enabled" in input:
+        headers["x-amz-server-side-encryption-bucket-key-enabled"] = str(
+            input["bucket_key_enabled"]
+        )
+    if "request_payer" in input:
+        headers["x-amz-request-payer"] = str(input["request_payer"])
+    if "tagging" in input:
+        headers["x-amz-tagging"] = str(input["tagging"])
+    if "object_lock_mode" in input:
+        headers["x-amz-object-lock-mode"] = str(input["object_lock_mode"])
+    if "object_lock_retain_until_date" in input:
+        headers["x-amz-object-lock-retain-until-date"] = str(
+            input["object_lock_retain_until_date"]
+        )
+    if "object_lock_legal_hold_status" in input:
+        headers["x-amz-object-lock-legal-hold"] = str(
+            input["object_lock_legal_hold_status"]
+        )
+    if "expected_bucket_owner" in input:
+        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
+    body = input["body"]
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url,
+        "PUT",
+        headers=headers,
+        body=body,  # type: ignore
+        context={"signer": signer},  # type: ignore
+    )
+
+
+def put_object(
+    options: OperationOptions,
+    input: aws_sdk_s3.types.put_object_request.PutObjectRequest,
+) -> tuple[aws_sdk_s3.types.put_object_output.PutObjectOutput, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response, is_async=False), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_put_object(
+    options: AsyncOperationOptions,
+    input: aws_sdk_s3.types.put_object_request.PutObjectRequest,
+) -> tuple[aws_sdk_s3.types.put_object_output.PutObjectOutput, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return handle_response(response, is_async=True), response
+    except BaseException:
+        response.close()
+        raise

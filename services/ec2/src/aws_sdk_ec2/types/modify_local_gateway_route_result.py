@@ -1,0 +1,12 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ModifyLocalGatewayRouteResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.local_gateway_route
+
+
+class ModifyLocalGatewayRouteResult(TypedDict):
+    route: NotRequired["aws_sdk_ec2.types.local_gateway_route.LocalGatewayRoute"]
+    """<p>Information about the local gateway route table.</p>"""

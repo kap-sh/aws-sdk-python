@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ThroughResourcesStatement``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.resource_statement
+
+
+class ThroughResourcesStatement(TypedDict):
+    resource_statement: NotRequired[
+        "aws_sdk_ec2.types.resource_statement.ResourceStatement"
+    ]
+    """<p>The resource statement.</p>"""

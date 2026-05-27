@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#DescribeInstanceStatusRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.boolean
+    import aws_sdk_ec2.types.filter_list
+    import aws_sdk_ec2.types.instance_id_string_list
+    import aws_sdk_ec2.types.integer
+    import aws_sdk_ec2.types.string
+
+
+class DescribeInstanceStatusRequest(TypedDict):
+    instance_ids: NotRequired[
+        "aws_sdk_ec2.types.instance_id_string_list.InstanceIdStringList"
+    ]
+    """<p>The instance IDs.</p> <p>Default: Describes all your instances.</p> <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>"""
+    max_results: NotRequired["aws_sdk_ec2.types.integer.Integer"]
+    """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You cannot specify this parameter and the instance IDs parameter in the same request.</p>"""
+    next_token: NotRequired["aws_sdk_ec2.types.string.String"]
+    """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
+    include_managed_resources: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
+    """<p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>"""
+    dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
+    """<p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+    filters: NotRequired["aws_sdk_ec2.types.filter_list.FilterList"]
+    """<p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone of the instance.</p> </li> <li> <p> <code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code> | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code> | <code>instance-stop</code>).</p> </li> <li> <p> <code>event.description</code> - A description of the event.</p> </li> <li> <p> <code>event.instance-event-id</code> - The ID of the event whose date and time you are modifying.</p> </li> <li> <p> <code>event.not-after</code> - The latest end time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before</code> - The earliest start time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before-deadline</code> - The deadline for starting the event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-status.reachability</code> - Filters on instance status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>instance-status.status</code> - The status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed instance.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the instance. Only valid for managed instances, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>system-status.reachability</code> - Filters on system status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>system-status.status</code> - The system status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>attached-ebs-status.status</code> - The status of the attached EBS volume for the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> </ul>"""
+    include_all_instances: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
+    """<p>When <code>true</code>, includes the health status for all instances. When <code>false</code>, includes the health status for running instances only.</p> <p>Default: <code>false</code> </p>"""

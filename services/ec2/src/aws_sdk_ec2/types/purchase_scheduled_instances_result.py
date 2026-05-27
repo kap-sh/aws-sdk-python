@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#PurchaseScheduledInstancesResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.purchased_scheduled_instance_set
+
+
+class PurchaseScheduledInstancesResult(TypedDict):
+    scheduled_instance_set: NotRequired[
+        "aws_sdk_ec2.types.purchased_scheduled_instance_set.PurchasedScheduledInstanceSet"
+    ]
+    """<p>Information about the Scheduled Instances.</p>"""

@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#TraceHeader``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lambda.types.x_amzn_trace_id
+
+
+class TraceHeader(TypedDict):
+    x_amzn_trace_id: NotRequired["aws_sdk_lambda.types.x_amzn_trace_id.XAmznTraceId"]
+    """<p>The X-Ray trace header associated with the durable execution.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TraceHeader) -> dict:
+    out: dict = {}
+    if "x_amzn_trace_id" in value:
+        out["XAmznTraceId"] = value["x_amzn_trace_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> TraceHeader:
+    out: TraceHeader = {}  # type: ignore[typeddict-item]
+    if "XAmznTraceId" in data:
+        out["x_amzn_trace_id"] = data["XAmznTraceId"]
+    return out

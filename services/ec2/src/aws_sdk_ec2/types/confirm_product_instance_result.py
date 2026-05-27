@@ -1,0 +1,16 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ConfirmProductInstanceResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.boolean
+    import aws_sdk_ec2.types.string
+
+ConfirmProductInstanceResult = TypedDict(
+    "ConfirmProductInstanceResult",
+    {
+        "return": NotRequired["aws_sdk_ec2.types.boolean.Boolean"],
+        "owner_id": NotRequired["aws_sdk_ec2.types.string.String"],
+    },
+)

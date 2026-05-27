@@ -1,0 +1,1083 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_lambda._services._pipeline import (
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+)
+import aws_sdk_lambda._auth._signers
+import aws_sdk_lambda._auth._sigv4
+
+if TYPE_CHECKING:
+    from aws_sdk_lambda._services.aws_gir_api_service import (
+        LambdaClient,
+        LambdaClientConfig,
+    )
+    from aws_sdk_lambda._services.async_aws_gir_api_service import (
+        AsyncLambdaClient,
+        AsyncLambdaClientConfig,
+    )
+    import aws_sdk_lambda.types.amazon_managed_kafka_event_source_config
+    import aws_sdk_lambda.types.arn
+    import aws_sdk_lambda.types.batch_size
+    import aws_sdk_lambda.types.bisect_batch_on_function_error
+    import aws_sdk_lambda.types.create_event_source_mapping_request
+    import aws_sdk_lambda.types.date
+    import aws_sdk_lambda.types.delete_event_source_mapping_request
+    import aws_sdk_lambda.types.destination_config
+    import aws_sdk_lambda.types.document_db_event_source_config
+    import aws_sdk_lambda.types.enabled
+    import aws_sdk_lambda.types.event_source_mapping_configuration
+    import aws_sdk_lambda.types.event_source_mapping_logging_config
+    import aws_sdk_lambda.types.event_source_mapping_metrics_config
+    import aws_sdk_lambda.types.event_source_position
+    import aws_sdk_lambda.types.filter_criteria
+    import aws_sdk_lambda.types.function_response_type_list
+    import aws_sdk_lambda.types.get_event_source_mapping_request
+    import aws_sdk_lambda.types.kms_key_arn
+    import aws_sdk_lambda.types.list_event_source_mappings_request
+    import aws_sdk_lambda.types.list_event_source_mappings_response
+    import aws_sdk_lambda.types.max_list_items
+    import aws_sdk_lambda.types.maximum_batching_window_in_seconds
+    import aws_sdk_lambda.types.maximum_record_age_in_seconds
+    import aws_sdk_lambda.types.maximum_retry_attempts_event_source_mapping
+    import aws_sdk_lambda.types.namespaced_function_name
+    import aws_sdk_lambda.types.parallelization_factor
+    import aws_sdk_lambda.types.provisioned_poller_config
+    import aws_sdk_lambda.types.queues
+    import aws_sdk_lambda.types.scaling_config
+    import aws_sdk_lambda.types.self_managed_event_source
+    import aws_sdk_lambda.types.self_managed_kafka_event_source_config
+    import aws_sdk_lambda.types.source_access_configurations
+    import aws_sdk_lambda.types.string
+    import aws_sdk_lambda.types.tags
+    import aws_sdk_lambda.types.topics
+    import aws_sdk_lambda.types.tumbling_window_in_seconds
+    import aws_sdk_lambda.types.update_event_source_mapping_request
+
+
+class EventSourceMapping:
+    def __init__(self, service: LambdaClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        function_name: "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        event_source_arn: Optional["aws_sdk_lambda.types.arn.Arn"] = None,
+        enabled: Optional["aws_sdk_lambda.types.enabled.Enabled"] = None,
+        batch_size: Optional["aws_sdk_lambda.types.batch_size.BatchSize"] = None,
+        filter_criteria: Optional[
+            "aws_sdk_lambda.types.filter_criteria.FilterCriteria"
+        ] = None,
+        maximum_batching_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_batching_window_in_seconds.MaximumBatchingWindowInSeconds"
+        ] = None,
+        parallelization_factor: Optional[
+            "aws_sdk_lambda.types.parallelization_factor.ParallelizationFactor"
+        ] = None,
+        starting_position: Optional[
+            "aws_sdk_lambda.types.event_source_position.EventSourcePosition"
+        ] = None,
+        starting_position_timestamp: Optional["aws_sdk_lambda.types.date.Date"] = None,
+        destination_config: Optional[
+            "aws_sdk_lambda.types.destination_config.DestinationConfig"
+        ] = None,
+        maximum_record_age_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_record_age_in_seconds.MaximumRecordAgeInSeconds"
+        ] = None,
+        bisect_batch_on_function_error: Optional[
+            "aws_sdk_lambda.types.bisect_batch_on_function_error.BisectBatchOnFunctionError"
+        ] = None,
+        maximum_retry_attempts: Optional[
+            "aws_sdk_lambda.types.maximum_retry_attempts_event_source_mapping.MaximumRetryAttemptsEventSourceMapping"
+        ] = None,
+        tags: Optional["aws_sdk_lambda.types.tags.Tags"] = None,
+        tumbling_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.tumbling_window_in_seconds.TumblingWindowInSeconds"
+        ] = None,
+        topics: Optional["aws_sdk_lambda.types.topics.Topics"] = None,
+        queues: Optional["aws_sdk_lambda.types.queues.Queues"] = None,
+        source_access_configurations: Optional[
+            "aws_sdk_lambda.types.source_access_configurations.SourceAccessConfigurations"
+        ] = None,
+        self_managed_event_source: Optional[
+            "aws_sdk_lambda.types.self_managed_event_source.SelfManagedEventSource"
+        ] = None,
+        function_response_types: Optional[
+            "aws_sdk_lambda.types.function_response_type_list.FunctionResponseTypeList"
+        ] = None,
+        amazon_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.amazon_managed_kafka_event_source_config.AmazonManagedKafkaEventSourceConfig"
+        ] = None,
+        self_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.self_managed_kafka_event_source_config.SelfManagedKafkaEventSourceConfig"
+        ] = None,
+        scaling_config: Optional[
+            "aws_sdk_lambda.types.scaling_config.ScalingConfig"
+        ] = None,
+        document_db_event_source_config: Optional[
+            "aws_sdk_lambda.types.document_db_event_source_config.DocumentDBEventSourceConfig"
+        ] = None,
+        kms_key_arn: Optional["aws_sdk_lambda.types.kms_key_arn.KMSKeyArn"] = None,
+        metrics_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_metrics_config.EventSourceMappingMetricsConfig"
+        ] = None,
+        logging_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_logging_config.EventSourceMappingLoggingConfig"
+        ] = None,
+        provisioned_poller_config: Optional[
+            "aws_sdk_lambda.types.provisioned_poller_config.ProvisionedPollerConfig"
+        ] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html\"> Amazon DocumentDB</a> </p> </li> </ul> <p>The following error handling options are available for stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> – Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, Kafka topic, or Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations\">Adding a destination</a>.</p> </li> </ul> <p>The following option is available only for DynamoDB and Kinesis event sources:</p> <ul> <li> <p> <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration\"> Amazon DocumentDB</a> </p> </li> </ul>
+
+        Args:
+            event_source_arn: <p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+            enabled: <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p> <p>Default: True</p>
+            batch_size: <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>
+            filter_criteria: <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>
+            maximum_batching_window_in_seconds: <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+            parallelization_factor: <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+            starting_position: <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
+            starting_position_timestamp: <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
+            destination_config: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+            maximum_record_age_in_seconds: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
+            bisect_batch_on_function_error: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
+            maximum_retry_attempts: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+            tags: <p>A list of tags to apply to the event source mapping.</p>
+            tumbling_window_in_seconds: <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+            topics: <p>The name of the Kafka topic.</p>
+            queues: <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
+            source_access_configurations: <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+            self_managed_event_source: <p>The self-managed Apache Kafka cluster to receive records from.</p>
+            function_response_types: <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+            amazon_managed_kafka_event_source_config: <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+            self_managed_kafka_event_source_config: <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+            scaling_config: <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency\">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+            document_db_event_source_config: <p>Specific configuration settings for a DocumentDB event source.</p>
+            kms_key_arn: <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics\">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+            metrics_config: <p>The metrics configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics\">Event source mapping metrics</a>.</p>
+            logging_config: <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html\">Event source mapping logging</a>.</p>
+            provisioned_poller_config: <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode\">provisioned mode</a>.</p>
+
+        Examples:
+            To create a mapping between an event source and an AWS Lambda function
+            The following example creates a mapping between an SQS queue and the my-function Lambda function.
+
+            >>> client.create(event_source_arn='arn:aws:sqs:us-west-2:123456789012:my-queue', function_name='my-function', batch_size=5)
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.create_event_source_mapping
+
+            output, http_response = (
+                aws_sdk_lambda._operations.aws_gir_api_service.create_event_source_mapping.create_event_source_mapping(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        if event_source_arn is not None:
+            input["event_source_arn"] = event_source_arn
+        input["function_name"] = function_name
+        if enabled is not None:
+            input["enabled"] = enabled
+        if batch_size is not None:
+            input["batch_size"] = batch_size
+        if filter_criteria is not None:
+            input["filter_criteria"] = filter_criteria
+        if maximum_batching_window_in_seconds is not None:
+            input["maximum_batching_window_in_seconds"] = (
+                maximum_batching_window_in_seconds
+            )
+        if parallelization_factor is not None:
+            input["parallelization_factor"] = parallelization_factor
+        if starting_position is not None:
+            input["starting_position"] = starting_position
+        if starting_position_timestamp is not None:
+            input["starting_position_timestamp"] = starting_position_timestamp
+        if destination_config is not None:
+            input["destination_config"] = destination_config
+        if maximum_record_age_in_seconds is not None:
+            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+        if bisect_batch_on_function_error is not None:
+            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+        if maximum_retry_attempts is not None:
+            input["maximum_retry_attempts"] = maximum_retry_attempts
+        if tags is not None:
+            input["tags"] = tags
+        if tumbling_window_in_seconds is not None:
+            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+        if topics is not None:
+            input["topics"] = topics
+        if queues is not None:
+            input["queues"] = queues
+        if source_access_configurations is not None:
+            input["source_access_configurations"] = source_access_configurations
+        if self_managed_event_source is not None:
+            input["self_managed_event_source"] = self_managed_event_source
+        if function_response_types is not None:
+            input["function_response_types"] = function_response_types
+        if amazon_managed_kafka_event_source_config is not None:
+            input["amazon_managed_kafka_event_source_config"] = (
+                amazon_managed_kafka_event_source_config
+            )
+        if self_managed_kafka_event_source_config is not None:
+            input["self_managed_kafka_event_source_config"] = (
+                self_managed_kafka_event_source_config
+            )
+        if scaling_config is not None:
+            input["scaling_config"] = scaling_config
+        if document_db_event_source_config is not None:
+            input["document_db_event_source_config"] = document_db_event_source_config
+        if kms_key_arn is not None:
+            input["kms_key_arn"] = kms_key_arn
+        if metrics_config is not None:
+            input["metrics_config"] = metrics_config
+        if logging_config is not None:
+            input["logging_config"] = logging_config
+        if provisioned_poller_config is not None:
+            input["provisioned_poller_config"] = provisioned_poller_config
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        uuid: "aws_sdk_lambda.types.string.String",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+
+        Args:
+            uuid: <p>The identifier of the event source mapping.</p>
+
+        Examples:
+            To get a Lambda function's event source mapping
+            The following example returns details about an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
+
+            >>> client.read(uuid='14e0db71-xmpl-4eb5-b481-8945cf9d10c2')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.get_event_source_mapping
+
+            output, http_response = (
+                aws_sdk_lambda._operations.aws_gir_api_service.get_event_source_mapping.get_event_source_mapping(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input["uuid"] = uuid
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update(
+        self,
+        uuid: "aws_sdk_lambda.types.string.String",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        function_name: Optional[
+            "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
+        ] = None,
+        enabled: Optional["aws_sdk_lambda.types.enabled.Enabled"] = None,
+        batch_size: Optional["aws_sdk_lambda.types.batch_size.BatchSize"] = None,
+        filter_criteria: Optional[
+            "aws_sdk_lambda.types.filter_criteria.FilterCriteria"
+        ] = None,
+        maximum_batching_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_batching_window_in_seconds.MaximumBatchingWindowInSeconds"
+        ] = None,
+        destination_config: Optional[
+            "aws_sdk_lambda.types.destination_config.DestinationConfig"
+        ] = None,
+        maximum_record_age_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_record_age_in_seconds.MaximumRecordAgeInSeconds"
+        ] = None,
+        bisect_batch_on_function_error: Optional[
+            "aws_sdk_lambda.types.bisect_batch_on_function_error.BisectBatchOnFunctionError"
+        ] = None,
+        maximum_retry_attempts: Optional[
+            "aws_sdk_lambda.types.maximum_retry_attempts_event_source_mapping.MaximumRetryAttemptsEventSourceMapping"
+        ] = None,
+        parallelization_factor: Optional[
+            "aws_sdk_lambda.types.parallelization_factor.ParallelizationFactor"
+        ] = None,
+        source_access_configurations: Optional[
+            "aws_sdk_lambda.types.source_access_configurations.SourceAccessConfigurations"
+        ] = None,
+        tumbling_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.tumbling_window_in_seconds.TumblingWindowInSeconds"
+        ] = None,
+        function_response_types: Optional[
+            "aws_sdk_lambda.types.function_response_type_list.FunctionResponseTypeList"
+        ] = None,
+        scaling_config: Optional[
+            "aws_sdk_lambda.types.scaling_config.ScalingConfig"
+        ] = None,
+        amazon_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.amazon_managed_kafka_event_source_config.AmazonManagedKafkaEventSourceConfig"
+        ] = None,
+        self_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.self_managed_kafka_event_source_config.SelfManagedKafkaEventSourceConfig"
+        ] = None,
+        document_db_event_source_config: Optional[
+            "aws_sdk_lambda.types.document_db_event_source_config.DocumentDBEventSourceConfig"
+        ] = None,
+        kms_key_arn: Optional["aws_sdk_lambda.types.kms_key_arn.KMSKeyArn"] = None,
+        metrics_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_metrics_config.EventSourceMappingMetricsConfig"
+        ] = None,
+        logging_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_logging_config.EventSourceMappingLoggingConfig"
+        ] = None,
+        provisioned_poller_config: Optional[
+            "aws_sdk_lambda.types.provisioned_poller_config.ProvisionedPollerConfig"
+        ] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html\"> Amazon DocumentDB</a> </p> </li> </ul> <p>The following error handling options are available for stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> – Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, Kafka topic, or Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations\">Adding a destination</a>.</p> </li> </ul> <p>The following option is available only for DynamoDB and Kinesis event sources:</p> <ul> <li> <p> <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration\"> Amazon DocumentDB</a> </p> </li> </ul>
+
+        Args:
+            uuid: <p>The identifier of the event source mapping.</p>
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+            enabled: <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p> <p>Default: True</p>
+            batch_size: <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>
+            filter_criteria: <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>
+            maximum_batching_window_in_seconds: <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+            destination_config: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+            maximum_record_age_in_seconds: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
+            bisect_batch_on_function_error: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
+            maximum_retry_attempts: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+            parallelization_factor: <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+            source_access_configurations: <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+            tumbling_window_in_seconds: <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+            function_response_types: <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+            scaling_config: <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency\">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+            document_db_event_source_config: <p>Specific configuration settings for a DocumentDB event source.</p>
+            kms_key_arn: <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics\">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+            metrics_config: <p>The metrics configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics\">Event source mapping metrics</a>.</p>
+            provisioned_poller_config: <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode\">provisioned mode</a>.</p>
+
+        Examples:
+            To update a Lambda function event source mapping
+            This operation updates a Lambda function event source mapping
+
+            >>> client.update(uuid='1234xCy789012', function_name='myFunction', enabled=True, batch_size=123)
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.update_event_source_mapping
+
+            output, http_response = (
+                aws_sdk_lambda._operations.aws_gir_api_service.update_event_source_mapping.update_event_source_mapping(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input["uuid"] = uuid
+        if function_name is not None:
+            input["function_name"] = function_name
+        if enabled is not None:
+            input["enabled"] = enabled
+        if batch_size is not None:
+            input["batch_size"] = batch_size
+        if filter_criteria is not None:
+            input["filter_criteria"] = filter_criteria
+        if maximum_batching_window_in_seconds is not None:
+            input["maximum_batching_window_in_seconds"] = (
+                maximum_batching_window_in_seconds
+            )
+        if destination_config is not None:
+            input["destination_config"] = destination_config
+        if maximum_record_age_in_seconds is not None:
+            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+        if bisect_batch_on_function_error is not None:
+            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+        if maximum_retry_attempts is not None:
+            input["maximum_retry_attempts"] = maximum_retry_attempts
+        if parallelization_factor is not None:
+            input["parallelization_factor"] = parallelization_factor
+        if source_access_configurations is not None:
+            input["source_access_configurations"] = source_access_configurations
+        if tumbling_window_in_seconds is not None:
+            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+        if function_response_types is not None:
+            input["function_response_types"] = function_response_types
+        if scaling_config is not None:
+            input["scaling_config"] = scaling_config
+        if amazon_managed_kafka_event_source_config is not None:
+            input["amazon_managed_kafka_event_source_config"] = (
+                amazon_managed_kafka_event_source_config
+            )
+        if self_managed_kafka_event_source_config is not None:
+            input["self_managed_kafka_event_source_config"] = (
+                self_managed_kafka_event_source_config
+            )
+        if document_db_event_source_config is not None:
+            input["document_db_event_source_config"] = document_db_event_source_config
+        if kms_key_arn is not None:
+            input["kms_key_arn"] = kms_key_arn
+        if metrics_config is not None:
+            input["metrics_config"] = metrics_config
+        if logging_config is not None:
+            input["logging_config"] = logging_config
+        if provisioned_poller_config is not None:
+            input["provisioned_poller_config"] = provisioned_poller_config
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        uuid: "aws_sdk_lambda.types.string.String",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Deletes an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html\">event source mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p> <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>
+
+        Args:
+            uuid: <p>The identifier of the event source mapping.</p>
+
+        Examples:
+            To delete a Lambda function event source mapping
+            The following example deletes an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
+
+            >>> client.delete(uuid='14e0db71-xmpl-4eb5-b481-8945cf9d10c2')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.delete_event_source_mapping
+
+            output, http_response = (
+                aws_sdk_lambda._operations.aws_gir_api_service.delete_event_source_mapping.delete_event_source_mapping(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input["uuid"] = uuid
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        event_source_arn: Optional["aws_sdk_lambda.types.arn.Arn"] = None,
+        function_name: Optional[
+            "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
+        ] = None,
+        marker: Optional["aws_sdk_lambda.types.string.String"] = None,
+        max_items: Optional["aws_sdk_lambda.types.max_list_items.MaxListItems"] = None,
+    ) -> "aws_sdk_lambda.types.list_event_source_mappings_response.ListEventSourceMappingsResponse":
+        """<p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a single event source.</p>
+
+        Args:
+            event_source_arn: <p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+            marker: <p>A pagination token returned by a previous call.</p>
+            max_items: <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of 100 items in each response, even if you set the number higher.</p>
+
+        Examples:
+            To list the event source mappings for a function
+            The following example returns a list of the event source mappings for a function named my-function.
+
+            >>> client.list(function_name='my-function')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_lambda.types.list_event_source_mappings_response.ListEventSourceMappingsResponse"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.list_event_source_mappings
+
+            output, http_response = (
+                aws_sdk_lambda._operations.aws_gir_api_service.list_event_source_mappings.list_event_source_mappings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        if event_source_arn is not None:
+            input["event_source_arn"] = event_source_arn
+        if function_name is not None:
+            input["function_name"] = function_name
+        if marker is not None:
+            input["marker"] = marker
+        if max_items is not None:
+            input["max_items"] = max_items
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncEventSourceMapping:
+    def __init__(self, service: AsyncLambdaClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        function_name: "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        event_source_arn: Optional["aws_sdk_lambda.types.arn.Arn"] = None,
+        enabled: Optional["aws_sdk_lambda.types.enabled.Enabled"] = None,
+        batch_size: Optional["aws_sdk_lambda.types.batch_size.BatchSize"] = None,
+        filter_criteria: Optional[
+            "aws_sdk_lambda.types.filter_criteria.FilterCriteria"
+        ] = None,
+        maximum_batching_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_batching_window_in_seconds.MaximumBatchingWindowInSeconds"
+        ] = None,
+        parallelization_factor: Optional[
+            "aws_sdk_lambda.types.parallelization_factor.ParallelizationFactor"
+        ] = None,
+        starting_position: Optional[
+            "aws_sdk_lambda.types.event_source_position.EventSourcePosition"
+        ] = None,
+        starting_position_timestamp: Optional["aws_sdk_lambda.types.date.Date"] = None,
+        destination_config: Optional[
+            "aws_sdk_lambda.types.destination_config.DestinationConfig"
+        ] = None,
+        maximum_record_age_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_record_age_in_seconds.MaximumRecordAgeInSeconds"
+        ] = None,
+        bisect_batch_on_function_error: Optional[
+            "aws_sdk_lambda.types.bisect_batch_on_function_error.BisectBatchOnFunctionError"
+        ] = None,
+        maximum_retry_attempts: Optional[
+            "aws_sdk_lambda.types.maximum_retry_attempts_event_source_mapping.MaximumRetryAttemptsEventSourceMapping"
+        ] = None,
+        tags: Optional["aws_sdk_lambda.types.tags.Tags"] = None,
+        tumbling_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.tumbling_window_in_seconds.TumblingWindowInSeconds"
+        ] = None,
+        topics: Optional["aws_sdk_lambda.types.topics.Topics"] = None,
+        queues: Optional["aws_sdk_lambda.types.queues.Queues"] = None,
+        source_access_configurations: Optional[
+            "aws_sdk_lambda.types.source_access_configurations.SourceAccessConfigurations"
+        ] = None,
+        self_managed_event_source: Optional[
+            "aws_sdk_lambda.types.self_managed_event_source.SelfManagedEventSource"
+        ] = None,
+        function_response_types: Optional[
+            "aws_sdk_lambda.types.function_response_type_list.FunctionResponseTypeList"
+        ] = None,
+        amazon_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.amazon_managed_kafka_event_source_config.AmazonManagedKafkaEventSourceConfig"
+        ] = None,
+        self_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.self_managed_kafka_event_source_config.SelfManagedKafkaEventSourceConfig"
+        ] = None,
+        scaling_config: Optional[
+            "aws_sdk_lambda.types.scaling_config.ScalingConfig"
+        ] = None,
+        document_db_event_source_config: Optional[
+            "aws_sdk_lambda.types.document_db_event_source_config.DocumentDBEventSourceConfig"
+        ] = None,
+        kms_key_arn: Optional["aws_sdk_lambda.types.kms_key_arn.KMSKeyArn"] = None,
+        metrics_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_metrics_config.EventSourceMappingMetricsConfig"
+        ] = None,
+        logging_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_logging_config.EventSourceMappingLoggingConfig"
+        ] = None,
+        provisioned_poller_config: Optional[
+            "aws_sdk_lambda.types.provisioned_poller_config.ProvisionedPollerConfig"
+        ] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html\"> Amazon DocumentDB</a> </p> </li> </ul> <p>The following error handling options are available for stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> – Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, Kafka topic, or Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations\">Adding a destination</a>.</p> </li> </ul> <p>The following option is available only for DynamoDB and Kinesis event sources:</p> <ul> <li> <p> <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration\"> Amazon DocumentDB</a> </p> </li> </ul>
+
+        Args:
+            event_source_arn: <p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+            enabled: <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p> <p>Default: True</p>
+            batch_size: <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>
+            filter_criteria: <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>
+            maximum_batching_window_in_seconds: <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+            parallelization_factor: <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+            starting_position: <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
+            starting_position_timestamp: <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
+            destination_config: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+            maximum_record_age_in_seconds: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
+            bisect_batch_on_function_error: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
+            maximum_retry_attempts: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+            tags: <p>A list of tags to apply to the event source mapping.</p>
+            tumbling_window_in_seconds: <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+            topics: <p>The name of the Kafka topic.</p>
+            queues: <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
+            source_access_configurations: <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+            self_managed_event_source: <p>The self-managed Apache Kafka cluster to receive records from.</p>
+            function_response_types: <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+            amazon_managed_kafka_event_source_config: <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+            self_managed_kafka_event_source_config: <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+            scaling_config: <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency\">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+            document_db_event_source_config: <p>Specific configuration settings for a DocumentDB event source.</p>
+            kms_key_arn: <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics\">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+            metrics_config: <p>The metrics configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics\">Event source mapping metrics</a>.</p>
+            logging_config: <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html\">Event source mapping logging</a>.</p>
+            provisioned_poller_config: <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode\">provisioned mode</a>.</p>
+
+        Examples:
+            To create a mapping between an event source and an AWS Lambda function
+            The following example creates a mapping between an SQS queue and the my-function Lambda function.
+
+            >>> await client.create(event_source_arn='arn:aws:sqs:us-west-2:123456789012:my-queue', function_name='my-function', batch_size=5)
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.create_event_source_mapping
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_lambda._operations.aws_gir_api_service.create_event_source_mapping.async_create_event_source_mapping(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        if event_source_arn is not None:
+            input["event_source_arn"] = event_source_arn
+        input["function_name"] = function_name
+        if enabled is not None:
+            input["enabled"] = enabled
+        if batch_size is not None:
+            input["batch_size"] = batch_size
+        if filter_criteria is not None:
+            input["filter_criteria"] = filter_criteria
+        if maximum_batching_window_in_seconds is not None:
+            input["maximum_batching_window_in_seconds"] = (
+                maximum_batching_window_in_seconds
+            )
+        if parallelization_factor is not None:
+            input["parallelization_factor"] = parallelization_factor
+        if starting_position is not None:
+            input["starting_position"] = starting_position
+        if starting_position_timestamp is not None:
+            input["starting_position_timestamp"] = starting_position_timestamp
+        if destination_config is not None:
+            input["destination_config"] = destination_config
+        if maximum_record_age_in_seconds is not None:
+            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+        if bisect_batch_on_function_error is not None:
+            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+        if maximum_retry_attempts is not None:
+            input["maximum_retry_attempts"] = maximum_retry_attempts
+        if tags is not None:
+            input["tags"] = tags
+        if tumbling_window_in_seconds is not None:
+            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+        if topics is not None:
+            input["topics"] = topics
+        if queues is not None:
+            input["queues"] = queues
+        if source_access_configurations is not None:
+            input["source_access_configurations"] = source_access_configurations
+        if self_managed_event_source is not None:
+            input["self_managed_event_source"] = self_managed_event_source
+        if function_response_types is not None:
+            input["function_response_types"] = function_response_types
+        if amazon_managed_kafka_event_source_config is not None:
+            input["amazon_managed_kafka_event_source_config"] = (
+                amazon_managed_kafka_event_source_config
+            )
+        if self_managed_kafka_event_source_config is not None:
+            input["self_managed_kafka_event_source_config"] = (
+                self_managed_kafka_event_source_config
+            )
+        if scaling_config is not None:
+            input["scaling_config"] = scaling_config
+        if document_db_event_source_config is not None:
+            input["document_db_event_source_config"] = document_db_event_source_config
+        if kms_key_arn is not None:
+            input["kms_key_arn"] = kms_key_arn
+        if metrics_config is not None:
+            input["metrics_config"] = metrics_config
+        if logging_config is not None:
+            input["logging_config"] = logging_config
+        if provisioned_poller_config is not None:
+            input["provisioned_poller_config"] = provisioned_poller_config
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        uuid: "aws_sdk_lambda.types.string.String",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+
+        Args:
+            uuid: <p>The identifier of the event source mapping.</p>
+
+        Examples:
+            To get a Lambda function's event source mapping
+            The following example returns details about an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
+
+            >>> await client.read(uuid='14e0db71-xmpl-4eb5-b481-8945cf9d10c2')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.get_event_source_mapping
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_lambda._operations.aws_gir_api_service.get_event_source_mapping.async_get_event_source_mapping(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input["uuid"] = uuid
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update(
+        self,
+        uuid: "aws_sdk_lambda.types.string.String",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        function_name: Optional[
+            "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
+        ] = None,
+        enabled: Optional["aws_sdk_lambda.types.enabled.Enabled"] = None,
+        batch_size: Optional["aws_sdk_lambda.types.batch_size.BatchSize"] = None,
+        filter_criteria: Optional[
+            "aws_sdk_lambda.types.filter_criteria.FilterCriteria"
+        ] = None,
+        maximum_batching_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_batching_window_in_seconds.MaximumBatchingWindowInSeconds"
+        ] = None,
+        destination_config: Optional[
+            "aws_sdk_lambda.types.destination_config.DestinationConfig"
+        ] = None,
+        maximum_record_age_in_seconds: Optional[
+            "aws_sdk_lambda.types.maximum_record_age_in_seconds.MaximumRecordAgeInSeconds"
+        ] = None,
+        bisect_batch_on_function_error: Optional[
+            "aws_sdk_lambda.types.bisect_batch_on_function_error.BisectBatchOnFunctionError"
+        ] = None,
+        maximum_retry_attempts: Optional[
+            "aws_sdk_lambda.types.maximum_retry_attempts_event_source_mapping.MaximumRetryAttemptsEventSourceMapping"
+        ] = None,
+        parallelization_factor: Optional[
+            "aws_sdk_lambda.types.parallelization_factor.ParallelizationFactor"
+        ] = None,
+        source_access_configurations: Optional[
+            "aws_sdk_lambda.types.source_access_configurations.SourceAccessConfigurations"
+        ] = None,
+        tumbling_window_in_seconds: Optional[
+            "aws_sdk_lambda.types.tumbling_window_in_seconds.TumblingWindowInSeconds"
+        ] = None,
+        function_response_types: Optional[
+            "aws_sdk_lambda.types.function_response_type_list.FunctionResponseTypeList"
+        ] = None,
+        scaling_config: Optional[
+            "aws_sdk_lambda.types.scaling_config.ScalingConfig"
+        ] = None,
+        amazon_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.amazon_managed_kafka_event_source_config.AmazonManagedKafkaEventSourceConfig"
+        ] = None,
+        self_managed_kafka_event_source_config: Optional[
+            "aws_sdk_lambda.types.self_managed_kafka_event_source_config.SelfManagedKafkaEventSourceConfig"
+        ] = None,
+        document_db_event_source_config: Optional[
+            "aws_sdk_lambda.types.document_db_event_source_config.DocumentDBEventSourceConfig"
+        ] = None,
+        kms_key_arn: Optional["aws_sdk_lambda.types.kms_key_arn.KMSKeyArn"] = None,
+        metrics_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_metrics_config.EventSourceMappingMetricsConfig"
+        ] = None,
+        logging_config: Optional[
+            "aws_sdk_lambda.types.event_source_mapping_logging_config.EventSourceMappingLoggingConfig"
+        ] = None,
+        provisioned_poller_config: Optional[
+            "aws_sdk_lambda.types.provisioned_poller_config.ProvisionedPollerConfig"
+        ] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html\"> Amazon DocumentDB</a> </p> </li> </ul> <p>The following error handling options are available for stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> – Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, Kafka topic, or Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations\">Adding a destination</a>.</p> </li> </ul> <p>The following option is available only for DynamoDB and Kinesis event sources:</p> <ul> <li> <p> <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration\"> Amazon DocumentDB</a> </p> </li> </ul>
+
+        Args:
+            uuid: <p>The identifier of the event source mapping.</p>
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+            enabled: <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p> <p>Default: True</p>
+            batch_size: <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>
+            filter_criteria: <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>
+            maximum_batching_window_in_seconds: <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+            destination_config: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+            maximum_record_age_in_seconds: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
+            bisect_batch_on_function_error: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
+            maximum_retry_attempts: <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+            parallelization_factor: <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+            source_access_configurations: <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+            tumbling_window_in_seconds: <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+            function_response_types: <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+            scaling_config: <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency\">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+            document_db_event_source_config: <p>Specific configuration settings for a DocumentDB event source.</p>
+            kms_key_arn: <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics\">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+            metrics_config: <p>The metrics configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics\">Event source mapping metrics</a>.</p>
+            provisioned_poller_config: <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode\">provisioned mode</a>.</p>
+
+        Examples:
+            To update a Lambda function event source mapping
+            This operation updates a Lambda function event source mapping
+
+            >>> await client.update(uuid='1234xCy789012', function_name='myFunction', enabled=True, batch_size=123)
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.update_event_source_mapping
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_lambda._operations.aws_gir_api_service.update_event_source_mapping.async_update_event_source_mapping(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input["uuid"] = uuid
+        if function_name is not None:
+            input["function_name"] = function_name
+        if enabled is not None:
+            input["enabled"] = enabled
+        if batch_size is not None:
+            input["batch_size"] = batch_size
+        if filter_criteria is not None:
+            input["filter_criteria"] = filter_criteria
+        if maximum_batching_window_in_seconds is not None:
+            input["maximum_batching_window_in_seconds"] = (
+                maximum_batching_window_in_seconds
+            )
+        if destination_config is not None:
+            input["destination_config"] = destination_config
+        if maximum_record_age_in_seconds is not None:
+            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+        if bisect_batch_on_function_error is not None:
+            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+        if maximum_retry_attempts is not None:
+            input["maximum_retry_attempts"] = maximum_retry_attempts
+        if parallelization_factor is not None:
+            input["parallelization_factor"] = parallelization_factor
+        if source_access_configurations is not None:
+            input["source_access_configurations"] = source_access_configurations
+        if tumbling_window_in_seconds is not None:
+            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+        if function_response_types is not None:
+            input["function_response_types"] = function_response_types
+        if scaling_config is not None:
+            input["scaling_config"] = scaling_config
+        if amazon_managed_kafka_event_source_config is not None:
+            input["amazon_managed_kafka_event_source_config"] = (
+                amazon_managed_kafka_event_source_config
+            )
+        if self_managed_kafka_event_source_config is not None:
+            input["self_managed_kafka_event_source_config"] = (
+                self_managed_kafka_event_source_config
+            )
+        if document_db_event_source_config is not None:
+            input["document_db_event_source_config"] = document_db_event_source_config
+        if kms_key_arn is not None:
+            input["kms_key_arn"] = kms_key_arn
+        if metrics_config is not None:
+            input["metrics_config"] = metrics_config
+        if logging_config is not None:
+            input["logging_config"] = logging_config
+        if provisioned_poller_config is not None:
+            input["provisioned_poller_config"] = provisioned_poller_config
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        uuid: "aws_sdk_lambda.types.string.String",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+    ) -> "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration":
+        """<p>Deletes an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html\">event source mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p> <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>
+
+        Args:
+            uuid: <p>The identifier of the event source mapping.</p>
+
+        Examples:
+            To delete a Lambda function event source mapping
+            The following example deletes an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
+
+            >>> await client.delete(uuid='14e0db71-xmpl-4eb5-b481-8945cf9d10c2')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.delete_event_source_mapping
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_lambda._operations.aws_gir_api_service.delete_event_source_mapping.async_delete_event_source_mapping(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input["uuid"] = uuid
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        event_source_arn: Optional["aws_sdk_lambda.types.arn.Arn"] = None,
+        function_name: Optional[
+            "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
+        ] = None,
+        marker: Optional["aws_sdk_lambda.types.string.String"] = None,
+        max_items: Optional["aws_sdk_lambda.types.max_list_items.MaxListItems"] = None,
+    ) -> "aws_sdk_lambda.types.list_event_source_mappings_response.ListEventSourceMappingsResponse":
+        """<p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a single event source.</p>
+
+        Args:
+            event_source_arn: <p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+            marker: <p>A pagination token returned by a previous call.</p>
+            max_items: <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of 100 items in each response, even if you set the number higher.</p>
+
+        Examples:
+            To list the event source mappings for a function
+            The following example returns a list of the event source mappings for a function named my-function.
+
+            >>> await client.list(function_name='my-function')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_lambda.types.list_event_source_mappings_response.ListEventSourceMappingsResponse"
+        ]:
+            import aws_sdk_lambda._operations.aws_gir_api_service.list_event_source_mappings
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_lambda._operations.aws_gir_api_service.list_event_source_mappings.async_list_event_source_mappings(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        if event_source_arn is not None:
+            input["event_source_arn"] = event_source_arn
+        if function_name is not None:
+            input["function_name"] = function_name
+        if marker is not None:
+            input["marker"] = marker
+        if max_items is not None:
+            input["max_items"] = max_items
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

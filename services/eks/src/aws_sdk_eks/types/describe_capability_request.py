@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#DescribeCapabilityRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_eks.types.string
+
+
+class DescribeCapabilityRequest(TypedDict):
+    cluster_name: "aws_sdk_eks.types.string.String"
+    """<p>The name of the Amazon EKS cluster that contains the capability you want to describe.</p>"""
+    capability_name: "aws_sdk_eks.types.string.String"
+    """<p>The name of the capability to describe.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeCapabilityRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeCapabilityRequest:
+    out: DescribeCapabilityRequest = {}  # type: ignore[typeddict-item]
+    return out

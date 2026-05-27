@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#DescribeInsightsRefreshRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_eks.types.string
+
+
+class DescribeInsightsRefreshRequest(TypedDict):
+    cluster_name: "aws_sdk_eks.types.string.String"
+    """<p>The name of the cluster associated with the insights refresh operation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeInsightsRefreshRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeInsightsRefreshRequest:
+    out: DescribeInsightsRefreshRequest = {}  # type: ignore[typeddict-item]
+    return out

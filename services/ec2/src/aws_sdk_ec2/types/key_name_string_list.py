@@ -1,0 +1,8 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#KeyNameStringList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2.types.key_pair_name
+
+KeyNameStringList: TypeAlias = list["aws_sdk_ec2.types.key_pair_name.KeyPairName"]
