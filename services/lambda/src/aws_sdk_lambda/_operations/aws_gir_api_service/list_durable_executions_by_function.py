@@ -173,5 +173,5 @@ async def async_list_durable_executions_by_function(
             handle_error(response)
         return handle_response(response, is_async=True), response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

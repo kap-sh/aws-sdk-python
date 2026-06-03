@@ -155,8 +155,5 @@ class ProfileCredentialsProvider(CredentialsProvider):
 
 def default_aws_credentials_chain() -> IdentityProvider[Credentials]:
     return CachedProvider(
-        ChainedProvider(
-            EnvCredentialsProvider(),
-            ProfileCredentialsProvider(),
-        )
+        ChainedProvider(EnvCredentialsProvider(), ProfileCredentialsProvider())
     )

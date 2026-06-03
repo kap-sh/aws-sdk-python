@@ -139,5 +139,5 @@ async def async_delete_function_url_config(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

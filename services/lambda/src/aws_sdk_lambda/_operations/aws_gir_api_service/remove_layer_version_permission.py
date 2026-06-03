@@ -150,5 +150,5 @@ async def async_remove_layer_version_permission(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

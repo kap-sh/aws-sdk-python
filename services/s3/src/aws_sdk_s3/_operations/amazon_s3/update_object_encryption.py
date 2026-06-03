@@ -180,5 +180,5 @@ async def async_update_object_encryption(
             handle_error(response)
         return handle_response(response, is_async=True), response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

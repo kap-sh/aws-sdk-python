@@ -4,8 +4,8 @@ from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_lambda.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_lambda.types.invoke_with_response_stream_complete_event
     import aws_sdk_lambda.types.invoke_response_stream_update
+    import aws_sdk_lambda.types.invoke_with_response_stream_complete_event
 
 
 class _InvokeWithResponseStreamResponseEvent_PayloadChunk(TypedDict):

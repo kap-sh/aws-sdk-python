@@ -144,5 +144,5 @@ async def async_create_bucket_metadata_table_configuration(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

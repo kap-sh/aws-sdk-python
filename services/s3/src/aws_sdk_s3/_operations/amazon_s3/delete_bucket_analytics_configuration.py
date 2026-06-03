@@ -130,5 +130,5 @@ async def async_delete_bucket_analytics_configuration(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

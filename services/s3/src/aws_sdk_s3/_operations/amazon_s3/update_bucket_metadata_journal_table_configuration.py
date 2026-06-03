@@ -144,5 +144,5 @@ async def async_update_bucket_metadata_journal_table_configuration(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

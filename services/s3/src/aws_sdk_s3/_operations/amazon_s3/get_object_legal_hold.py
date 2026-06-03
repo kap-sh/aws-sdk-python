@@ -154,5 +154,5 @@ async def async_get_object_legal_hold(
             handle_error(response)
         return handle_response(response, is_async=True), response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

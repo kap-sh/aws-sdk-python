@@ -2183,8 +2183,8 @@ class S3Client:
 
     def presigned_delete_object(
         self,
-        bucket: Optional["aws_sdk_s3.types.bucket_name.BucketName"] = None,
-        key: Optional["aws_sdk_s3.types.object_key.ObjectKey"] = None,
+        bucket: "aws_sdk_s3.types.bucket_name.BucketName",
+        key: "aws_sdk_s3.types.object_key.ObjectKey",
         expire_in: int = 3600,
         *,
         config_overrides: Optional[S3ClientConfig] = None,
@@ -3579,8 +3579,8 @@ class S3Client:
 
     def presigned_get_object(
         self,
-        bucket: Optional["aws_sdk_s3.types.bucket_name.BucketName"] = None,
-        key: Optional["aws_sdk_s3.types.object_key.ObjectKey"] = None,
+        bucket: "aws_sdk_s3.types.bucket_name.BucketName",
+        key: "aws_sdk_s3.types.object_key.ObjectKey",
         expire_in: int = 3600,
         *,
         config_overrides: Optional[S3ClientConfig] = None,
@@ -4424,8 +4424,8 @@ class S3Client:
 
     def presigned_head_object(
         self,
-        bucket: Optional["aws_sdk_s3.types.bucket_name.BucketName"] = None,
-        key: Optional["aws_sdk_s3.types.object_key.ObjectKey"] = None,
+        bucket: "aws_sdk_s3.types.bucket_name.BucketName",
+        key: "aws_sdk_s3.types.object_key.ObjectKey",
         expire_in: int = 3600,
         *,
         config_overrides: Optional[S3ClientConfig] = None,
@@ -6941,8 +6941,8 @@ class S3Client:
 
     def presigned_put_object(
         self,
-        bucket: Optional["aws_sdk_s3.types.bucket_name.BucketName"] = None,
-        key: Optional["aws_sdk_s3.types.object_key.ObjectKey"] = None,
+        bucket: "aws_sdk_s3.types.bucket_name.BucketName",
+        key: "aws_sdk_s3.types.object_key.ObjectKey",
         expire_in: int = 3600,
         *,
         config_overrides: Optional[S3ClientConfig] = None,
@@ -8160,12 +8160,10 @@ class S3Client:
 
     def presigned_upload_part(
         self,
-        bucket: Optional["aws_sdk_s3.types.bucket_name.BucketName"] = None,
-        key: Optional["aws_sdk_s3.types.object_key.ObjectKey"] = None,
-        part_number: Optional["aws_sdk_s3.types.part_number.PartNumber"] = None,
-        upload_id: Optional[
-            "aws_sdk_s3.types.multipart_upload_id.MultipartUploadId"
-        ] = None,
+        bucket: "aws_sdk_s3.types.bucket_name.BucketName",
+        key: "aws_sdk_s3.types.object_key.ObjectKey",
+        part_number: "aws_sdk_s3.types.part_number.PartNumber",
+        upload_id: "aws_sdk_s3.types.multipart_upload_id.MultipartUploadId",
         expire_in: int = 3600,
         *,
         config_overrides: Optional[S3ClientConfig] = None,

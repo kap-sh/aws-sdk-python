@@ -142,5 +142,5 @@ async def async_put_bucket_intelligent_tiering_configuration(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

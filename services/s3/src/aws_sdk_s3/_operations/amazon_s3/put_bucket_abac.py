@@ -142,5 +142,5 @@ async def async_put_bucket_abac(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

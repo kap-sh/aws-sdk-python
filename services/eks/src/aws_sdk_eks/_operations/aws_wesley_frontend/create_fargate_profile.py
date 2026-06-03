@@ -168,5 +168,5 @@ async def async_create_fargate_profile(
             handle_error(response)
         return handle_response(response, is_async=True), response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

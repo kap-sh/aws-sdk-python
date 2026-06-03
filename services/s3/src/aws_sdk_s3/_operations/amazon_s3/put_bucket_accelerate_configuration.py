@@ -140,5 +140,5 @@ async def async_put_bucket_accelerate_configuration(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

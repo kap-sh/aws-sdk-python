@@ -144,5 +144,5 @@ async def async_put_public_access_block(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

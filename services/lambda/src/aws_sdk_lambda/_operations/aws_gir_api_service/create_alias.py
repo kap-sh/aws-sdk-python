@@ -166,5 +166,5 @@ async def async_create_alias(
             handle_error(response)
         return handle_response(response, is_async=True), response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

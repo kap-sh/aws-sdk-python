@@ -176,5 +176,5 @@ async def async_list_objects_v2(
             handle_error(response)
         return handle_response(response, is_async=True), response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise

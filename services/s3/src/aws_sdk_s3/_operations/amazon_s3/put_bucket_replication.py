@@ -144,5 +144,5 @@ async def async_put_bucket_replication(
             handle_error(response)
         return None, response
     except BaseException:
-        response.close()
+        await response.aclose()
         raise
