@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.secretsmanager#BatchGetSecretValueRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_secrets_manager.types.filters_list_type
+    import aws_sdk_secrets_manager.types.max_results_batch_type
+    import aws_sdk_secrets_manager.types.next_token_type
+    import aws_sdk_secrets_manager.types.secret_id_list_type
+
+
+class BatchGetSecretValueRequest(TypedDict):
+    secret_id_list: NotRequired[
+        "aws_sdk_secrets_manager.types.secret_id_list_type.SecretIdListType"
+    ]
+    """<p>The ARN or names of the secrets to retrieve. You must include <code>Filters</code> or <code>SecretIdList</code>, but not both.</p>"""
+    filters: NotRequired[
+        "aws_sdk_secrets_manager.types.filters_list_type.FiltersListType"
+    ]
+    """<p>The filters to choose which secrets to retrieve. You must include <code>Filters</code> or <code>SecretIdList</code>, but not both.</p>"""
+    max_results: NotRequired[
+        "aws_sdk_secrets_manager.types.max_results_batch_type.MaxResultsBatchType"
+    ]
+    """<p>The number of results to include in the response.</p> <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>BatchGetSecretValue</code> again with the value from <code>NextToken</code>. To use this parameter, you must also use the <code>Filters</code> parameter.</p>"""
+    next_token: NotRequired[
+        "aws_sdk_secrets_manager.types.next_token_type.NextTokenType"
+    ]
+    """<p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>BatchGetSecretValue</code> again with this value.</p>"""

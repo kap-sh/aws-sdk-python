@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.secretsmanager#InvalidRequestException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_secrets_manager.types.error_message
+
+
+class InvalidRequestException_(TypedDict):
+    message: NotRequired["aws_sdk_secrets_manager.types.error_message.ErrorMessage"]
+
+
+class InvalidRequestException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.secretsmanager#InvalidRequestException``."""
+
+    code: str | None = "InvalidRequestException"
+
+    def __init__(self, data: InvalidRequestException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidRequestException",
+        )
+        self.data = data

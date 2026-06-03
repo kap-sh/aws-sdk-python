@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.secretsmanager#Filter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_secrets_manager.types.filter_name_string_type
+    import aws_sdk_secrets_manager.types.filter_values_string_list
+
+
+class Filter(TypedDict):
+    key: NotRequired[
+        "aws_sdk_secrets_manager.types.filter_name_string_type.FilterNameStringType"
+    ]
+    """<p>The following are keys you can use:</p> <ul> <li> <p> <b>description</b>: Prefix match, not case-sensitive.</p> </li> <li> <p> <b>name</b>: Prefix match, case-sensitive.</p> </li> <li> <p> <b>tag-key</b>: Prefix match, case-sensitive.</p> </li> <li> <p> <b>tag-value</b>: Prefix match, case-sensitive.</p> </li> <li> <p> <b>primary-region</b>: Prefix match, case-sensitive.</p> </li> <li> <p> <b>owning-service</b>: Prefix match, case-sensitive.</p> </li> <li> <p> <b>all</b>: Breaks the filter value string into words and then searches all attributes for matches. Not case-sensitive.</p> </li> </ul>"""
+    values: NotRequired[
+        "aws_sdk_secrets_manager.types.filter_values_string_list.FilterValuesStringList"
+    ]
+    """<p>The keyword to filter for.</p> <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>"""

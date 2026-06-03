@@ -53,7 +53,9 @@ See the README for each service under the [`services/`](services/) directory for
 | EC2 | `aws-sdk-ec2` |
 | ECS | `aws-sdk-ecs` |
 | EKS | `aws-sdk-eks` |
+| KMS | `aws-sdk-kms` |
 | Lambda | `aws-sdk-lambda` |
 | S3 | `aws-sdk-s3` |
+| Secrets Manager | `aws-sdk-secrets-manager` |
 
 More services coming soon.

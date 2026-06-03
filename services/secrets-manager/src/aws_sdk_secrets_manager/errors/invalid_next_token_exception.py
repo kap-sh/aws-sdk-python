@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.secretsmanager#InvalidNextTokenException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_secrets_manager.types.error_message
+
+
+class InvalidNextTokenException_(TypedDict):
+    message: NotRequired["aws_sdk_secrets_manager.types.error_message.ErrorMessage"]
+
+
+class InvalidNextTokenException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.secretsmanager#InvalidNextTokenException``."""
+
+    code: str | None = "InvalidNextTokenException"
+
+    def __init__(self, data: InvalidNextTokenException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidNextTokenException",
+        )
+        self.data = data

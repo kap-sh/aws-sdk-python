@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.kms#TagResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import awd_sdk_kms.types.key_id_type
+    import awd_sdk_kms.types.tag_list
+
+
+class TagResourceRequest(TypedDict):
+    key_id: "awd_sdk_kms.types.key_id_type.KeyIdType"
+    """<p>Identifies a customer managed key in the account and Region.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>"""
+    tags: "awd_sdk_kms.types.tag_list.TagList"
+    """<p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string. </p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>"""

@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.secretsmanager#PutResourcePolicyRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_secrets_manager.types.boolean_type
+    import aws_sdk_secrets_manager.types.non_empty_resource_policy_type
+    import aws_sdk_secrets_manager.types.secret_id_type
+
+
+class PutResourcePolicyRequest(TypedDict):
+    secret_id: "aws_sdk_secrets_manager.types.secret_id_type.SecretIdType"
+    """<p>The ARN or name of the secret to attach the resource-based policy.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>"""
+    resource_policy: "aws_sdk_secrets_manager.types.non_empty_resource_policy_type.NonEmptyResourcePolicyType"
+    """<p>A JSON-formatted string for an Amazon Web Services resource-based policy. For example policies, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html\">Permissions policy examples</a>.</p>"""
+    block_public_policy: "aws_sdk_secrets_manager.types.boolean_type.BooleanType"
+    """<p>Specifies whether to block resource-based policies that allow broad access to the secret, for example those that use a wildcard for the principal. By default, public policies aren't blocked.</p> <important> <p>Resource policy validation and the BlockPublicPolicy parameter help protect your resources by preventing public access from being granted through the resource policies that are directly attached to your secrets. In addition to using these features, carefully inspect the following policies to confirm that they do not grant public access:</p> <ul> <li> <p>Identity-based policies attached to associated Amazon Web Services principals (for example, IAM roles)</p> </li> <li> <p>Resource-based policies attached to associated Amazon Web Services resources (for example, Key Management Service (KMS) keys)</p> </li> </ul> <p>To review permissions to your secrets, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/determine-acccess_examine-iam-policies.html\">Determine who has permissions to your secrets</a>.</p> </important>"""

@@ -12,8 +12,10 @@ on:
           - ec2
           - ecs
           - eks
+          - kms
           - lambda
           - s3
+          - secrets-manager
 
 permissions:
   contents: read
