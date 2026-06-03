@@ -11,5 +11,5 @@ from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
-from ._services.amazon_s3 import S3Client as S3Client
-from ._services.async_amazon_s3 import AsyncS3Client as AsyncS3Client
+from ._services.s3 import S3Client as S3Client
+from ._services.async_s3 import AsyncS3Client as AsyncS3Client

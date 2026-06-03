@@ -5,13 +5,13 @@ from typing import TYPE_CHECKING, TypeAlias, TypedDict
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string_set_attribute_value
     import aws_sdk_dynamodb.types.number_attribute_value
-    import aws_sdk_dynamodb.types.null_attribute_value
-    import aws_sdk_dynamodb.types.boolean_attribute_value
-    import aws_sdk_dynamodb.types.list_attribute_value
     import aws_sdk_dynamodb.types.binary_set_attribute_value
-    import aws_sdk_dynamodb.types.number_set_attribute_value
-    import aws_sdk_dynamodb.types.string_attribute_value
     import aws_sdk_dynamodb.types.map_attribute_value
+    import aws_sdk_dynamodb.types.string_attribute_value
+    import aws_sdk_dynamodb.types.null_attribute_value
+    import aws_sdk_dynamodb.types.number_set_attribute_value
+    import aws_sdk_dynamodb.types.list_attribute_value
+    import aws_sdk_dynamodb.types.boolean_attribute_value
     import aws_sdk_dynamodb.types.binary_attribute_value
 
 

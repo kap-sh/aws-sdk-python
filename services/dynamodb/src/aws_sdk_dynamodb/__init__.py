@@ -11,7 +11,5 @@ from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
-from ._services.dynamo_db_20120810 import DynamoDBClient as DynamoDBClient
-from ._services.async_dynamo_db_20120810 import (
-    AsyncDynamoDBClient as AsyncDynamoDBClient,
-)
+from ._services.dynamo_db import DynamoDBClient as DynamoDBClient
+from ._services.async_dynamo_db import AsyncDynamoDBClient as AsyncDynamoDBClient

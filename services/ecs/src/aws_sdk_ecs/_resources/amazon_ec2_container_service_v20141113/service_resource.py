@@ -9,14 +9,8 @@ from aws_sdk_ecs._services._pipeline import (
 )
 
 if TYPE_CHECKING:
-    from aws_sdk_ecs._services.amazon_ec2_container_service_v20141113 import (
-        ECSClient,
-        ECSClientConfig,
-    )
-    from aws_sdk_ecs._services.async_amazon_ec2_container_service_v20141113 import (
-        AsyncECSClient,
-        AsyncECSClientConfig,
-    )
+    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
+    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
     import aws_sdk_ecs.types.availability_zone_rebalancing
     import aws_sdk_ecs.types.boolean
     import aws_sdk_ecs.types.boxed_boolean

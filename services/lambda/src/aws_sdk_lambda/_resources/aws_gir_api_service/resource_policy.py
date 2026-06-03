@@ -1,10 +1,8 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from aws_sdk_lambda._services.aws_gir_api_service import (
-        LambdaClient,
-    )
-    from aws_sdk_lambda._services.async_aws_gir_api_service import (
+    from aws_sdk_lambda._services._lambda import LambdaClient
+    from aws_sdk_lambda._services.async__lambda import (
         AsyncLambdaClient,
     )
 

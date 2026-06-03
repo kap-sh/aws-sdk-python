@@ -11,5 +11,5 @@ from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
-from ._services.amazon_ec2 import EC2Client as EC2Client
-from ._services.async_amazon_ec2 import AsyncEC2Client as AsyncEC2Client
+from ._services.ec2 import EC2Client as EC2Client
+from ._services.async_ec2 import AsyncEC2Client as AsyncEC2Client

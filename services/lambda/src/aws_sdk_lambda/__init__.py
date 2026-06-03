@@ -11,5 +11,5 @@ from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
-from ._services.aws_gir_api_service import LambdaClient as LambdaClient
-from ._services.async_aws_gir_api_service import AsyncLambdaClient as AsyncLambdaClient
+from ._services._lambda import LambdaClient as LambdaClient
+from ._services.async__lambda import AsyncLambdaClient as AsyncLambdaClient

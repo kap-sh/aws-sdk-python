@@ -11,7 +11,5 @@ from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
-from ._services.amazon_ec2_container_service_v20141113 import ECSClient as ECSClient
-from ._services.async_amazon_ec2_container_service_v20141113 import (
-    AsyncECSClient as AsyncECSClient,
-)
+from ._services.ecs import ECSClient as ECSClient
+from ._services.async_ecs import AsyncECSClient as AsyncECSClient

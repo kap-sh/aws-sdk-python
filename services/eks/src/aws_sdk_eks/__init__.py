@@ -11,5 +11,5 @@ from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
-from ._services.aws_wesley_frontend import EKSClient as EKSClient
-from ._services.async_aws_wesley_frontend import AsyncEKSClient as AsyncEKSClient
+from ._services.eks import EKSClient as EKSClient
+from ._services.async_eks import AsyncEKSClient as AsyncEKSClient
