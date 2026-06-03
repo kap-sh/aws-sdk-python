@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.kms#XksProxyConfigurationType``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_kms.types.account_id_type
+    import aws_sdk_kms.types.xks_proxy_authentication_access_key_id_type
+    import aws_sdk_kms.types.xks_proxy_connectivity_type
+    import aws_sdk_kms.types.xks_proxy_uri_endpoint_type
+    import aws_sdk_kms.types.xks_proxy_uri_path_type
+    import aws_sdk_kms.types.xks_proxy_vpc_endpoint_service_name_type
+
+
+class XksProxyConfigurationType(TypedDict):
+    connectivity: NotRequired[
+        "aws_sdk_kms.types.xks_proxy_connectivity_type.XksProxyConnectivityType"
+    ]
+    """<p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>"""
+    access_key_id: NotRequired[
+        "aws_sdk_kms.types.xks_proxy_authentication_access_key_id_type.XksProxyAuthenticationAccessKeyIdType"
+    ]
+    """<p>The part of the external key store <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential\">proxy authentication credential</a> that uniquely identifies the secret access key.</p>"""
+    uri_endpoint: NotRequired[
+        "aws_sdk_kms.types.xks_proxy_uri_endpoint_type.XksProxyUriEndpointType"
+    ]
+    """<p>The URI endpoint for the external key store proxy.</p> <p>If the external key store proxy has a public endpoint, it is displayed here.</p> <p>If the external key store proxy uses an Amazon VPC endpoint service name, this field displays the private DNS name associated with the VPC endpoint service.</p>"""
+    uri_path: NotRequired[
+        "aws_sdk_kms.types.xks_proxy_uri_path_type.XksProxyUriPathType"
+    ]
+    """<p>The path to the external key store proxy APIs.</p>"""
+    vpc_endpoint_service_name: NotRequired[
+        "aws_sdk_kms.types.xks_proxy_vpc_endpoint_service_name_type.XksProxyVpcEndpointServiceNameType"
+    ]
+    """<p>The Amazon VPC endpoint service used to communicate with the external key store proxy. This field appears only when the external key store proxy uses an Amazon VPC endpoint service to communicate with KMS.</p>"""
+    vpc_endpoint_service_owner: NotRequired[
+        "aws_sdk_kms.types.account_id_type.AccountIdType"
+    ]
+    """<p>The Amazon Web Services account ID that owns the Amazon VPC endpoint service used to communicate with the external key store proxy (XKS). This field appears only when the XKS uses an VPC endpoint service to communicate with KMS.</p>"""

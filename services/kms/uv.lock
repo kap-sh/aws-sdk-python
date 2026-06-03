@@ -21,7 +21,7 @@ wheels = [
 ]
 
 [[package]]
-name = "awd-sdk-kms"
+name = "aws-sdk-kms"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

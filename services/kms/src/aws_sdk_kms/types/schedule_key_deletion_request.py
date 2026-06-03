@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.kms#ScheduleKeyDeletionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_kms.types.key_id_type
+    import aws_sdk_kms.types.pending_window_in_days_type
+
+
+class ScheduleKeyDeletionRequest(TypedDict):
+    key_id: "aws_sdk_kms.types.key_id_type.KeyIdType"
+    """<p>The unique identifier of the KMS key to delete.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>"""
+    pending_window_in_days: NotRequired[
+        "aws_sdk_kms.types.pending_window_in_days_type.PendingWindowInDaysType"
+    ]
+    """<p>The waiting period, specified in number of days. After the waiting period ends, KMS deletes the KMS key.</p> <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p> <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30. You can use the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days\"> <code>kms:ScheduleKeyDeletionPendingWindowInDays</code> </a> condition key to further constrain the values that principals can specify in the <code>PendingWindowInDays</code> parameter.</p>"""

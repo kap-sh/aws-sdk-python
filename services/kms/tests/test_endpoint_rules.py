@@ -1,7 +1,7 @@
 
 import pytest
-from awd_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from awd_sdk_kms._rule_engine._endpoint_runtime import EndpointError
+from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_kms._rule_engine._endpoint_runtime import EndpointError
 import re
 import zapros
 
