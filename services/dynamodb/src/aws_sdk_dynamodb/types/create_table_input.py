@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_definitions
@@ -79,3 +80,227 @@ class CreateTableInput(TypedDict):
         "aws_sdk_dynamodb.types.global_table_settings_replication_mode.GlobalTableSettingsReplicationMode"
     ]
     """<p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CreateTableInput) -> dict:
+    out: dict = {}
+    if "attribute_definitions" in value:
+        import aws_sdk_dynamodb.types.attribute_definitions
+
+        out["AttributeDefinitions"] = (
+            aws_sdk_dynamodb.types.attribute_definitions.serialize_aws_json_1_0(
+                value["attribute_definitions"]
+            )
+        )
+    out["TableName"] = value["table_name"]
+    if "key_schema" in value:
+        import aws_sdk_dynamodb.types.key_schema
+
+        out["KeySchema"] = aws_sdk_dynamodb.types.key_schema.serialize_aws_json_1_0(
+            value["key_schema"]
+        )
+    if "local_secondary_indexes" in value:
+        import aws_sdk_dynamodb.types.local_secondary_index_list
+
+        out["LocalSecondaryIndexes"] = (
+            aws_sdk_dynamodb.types.local_secondary_index_list.serialize_aws_json_1_0(
+                value["local_secondary_indexes"]
+            )
+        )
+    if "global_secondary_indexes" in value:
+        import aws_sdk_dynamodb.types.global_secondary_index_list
+
+        out["GlobalSecondaryIndexes"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_list.serialize_aws_json_1_0(
+                value["global_secondary_indexes"]
+            )
+        )
+    if "billing_mode" in value:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["BillingMode"] = aws_sdk_dynamodb.types.billing_mode.serialize_aws_json_1_0(
+            value["billing_mode"]
+        )
+    if "provisioned_throughput" in value:
+        import aws_sdk_dynamodb.types.provisioned_throughput
+
+        out["ProvisionedThroughput"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput.serialize_aws_json_1_0(
+                value["provisioned_throughput"]
+            )
+        )
+    if "stream_specification" in value:
+        import aws_sdk_dynamodb.types.stream_specification
+
+        out["StreamSpecification"] = (
+            aws_sdk_dynamodb.types.stream_specification.serialize_aws_json_1_0(
+                value["stream_specification"]
+            )
+        )
+    if "sse_specification" in value:
+        import aws_sdk_dynamodb.types.sse_specification
+
+        out["SSESpecification"] = (
+            aws_sdk_dynamodb.types.sse_specification.serialize_aws_json_1_0(
+                value["sse_specification"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_dynamodb.types.tag_list
+
+        out["Tags"] = aws_sdk_dynamodb.types.tag_list.serialize_aws_json_1_0(
+            value["tags"]
+        )
+    if "table_class" in value:
+        import aws_sdk_dynamodb.types.table_class
+
+        out["TableClass"] = aws_sdk_dynamodb.types.table_class.serialize_aws_json_1_0(
+            value["table_class"]
+        )
+    if "deletion_protection_enabled" in value:
+        out["DeletionProtectionEnabled"] = value["deletion_protection_enabled"]
+    if "warm_throughput" in value:
+        import aws_sdk_dynamodb.types.warm_throughput
+
+        out["WarmThroughput"] = (
+            aws_sdk_dynamodb.types.warm_throughput.serialize_aws_json_1_0(
+                value["warm_throughput"]
+            )
+        )
+    if "resource_policy" in value:
+        out["ResourcePolicy"] = value["resource_policy"]
+    if "on_demand_throughput" in value:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["OnDemandThroughput"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.serialize_aws_json_1_0(
+                value["on_demand_throughput"]
+            )
+        )
+    if "global_table_source_arn" in value:
+        out["GlobalTableSourceArn"] = value["global_table_source_arn"]
+    if "global_table_settings_replication_mode" in value:
+        import aws_sdk_dynamodb.types.global_table_settings_replication_mode
+
+        out["GlobalTableSettingsReplicationMode"] = (
+            aws_sdk_dynamodb.types.global_table_settings_replication_mode.serialize_aws_json_1_0(
+                value["global_table_settings_replication_mode"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CreateTableInput:
+    out: CreateTableInput = {}  # type: ignore[typeddict-item]
+    if "AttributeDefinitions" in data:
+        import aws_sdk_dynamodb.types.attribute_definitions
+
+        out["attribute_definitions"] = (
+            aws_sdk_dynamodb.types.attribute_definitions.deserialize_aws_json_1_0(
+                data["AttributeDefinitions"]
+            )
+        )
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("CreateTableInput.table_name required")
+    if "KeySchema" in data:
+        import aws_sdk_dynamodb.types.key_schema
+
+        out["key_schema"] = aws_sdk_dynamodb.types.key_schema.deserialize_aws_json_1_0(
+            data["KeySchema"]
+        )
+    if "LocalSecondaryIndexes" in data:
+        import aws_sdk_dynamodb.types.local_secondary_index_list
+
+        out["local_secondary_indexes"] = (
+            aws_sdk_dynamodb.types.local_secondary_index_list.deserialize_aws_json_1_0(
+                data["LocalSecondaryIndexes"]
+            )
+        )
+    if "GlobalSecondaryIndexes" in data:
+        import aws_sdk_dynamodb.types.global_secondary_index_list
+
+        out["global_secondary_indexes"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_list.deserialize_aws_json_1_0(
+                data["GlobalSecondaryIndexes"]
+            )
+        )
+    if "BillingMode" in data:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["billing_mode"] = (
+            aws_sdk_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
+                data["BillingMode"]
+            )
+        )
+    if "ProvisionedThroughput" in data:
+        import aws_sdk_dynamodb.types.provisioned_throughput
+
+        out["provisioned_throughput"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput.deserialize_aws_json_1_0(
+                data["ProvisionedThroughput"]
+            )
+        )
+    if "StreamSpecification" in data:
+        import aws_sdk_dynamodb.types.stream_specification
+
+        out["stream_specification"] = (
+            aws_sdk_dynamodb.types.stream_specification.deserialize_aws_json_1_0(
+                data["StreamSpecification"]
+            )
+        )
+    if "SSESpecification" in data:
+        import aws_sdk_dynamodb.types.sse_specification
+
+        out["sse_specification"] = (
+            aws_sdk_dynamodb.types.sse_specification.deserialize_aws_json_1_0(
+                data["SSESpecification"]
+            )
+        )
+    if "Tags" in data:
+        import aws_sdk_dynamodb.types.tag_list
+
+        out["tags"] = aws_sdk_dynamodb.types.tag_list.deserialize_aws_json_1_0(
+            data["Tags"]
+        )
+    if "TableClass" in data:
+        import aws_sdk_dynamodb.types.table_class
+
+        out["table_class"] = (
+            aws_sdk_dynamodb.types.table_class.deserialize_aws_json_1_0(
+                data["TableClass"]
+            )
+        )
+    if "DeletionProtectionEnabled" in data:
+        out["deletion_protection_enabled"] = data["DeletionProtectionEnabled"]
+    if "WarmThroughput" in data:
+        import aws_sdk_dynamodb.types.warm_throughput
+
+        out["warm_throughput"] = (
+            aws_sdk_dynamodb.types.warm_throughput.deserialize_aws_json_1_0(
+                data["WarmThroughput"]
+            )
+        )
+    if "ResourcePolicy" in data:
+        out["resource_policy"] = data["ResourcePolicy"]
+    if "OnDemandThroughput" in data:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["on_demand_throughput"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.deserialize_aws_json_1_0(
+                data["OnDemandThroughput"]
+            )
+        )
+    if "GlobalTableSourceArn" in data:
+        out["global_table_source_arn"] = data["GlobalTableSourceArn"]
+    if "GlobalTableSettingsReplicationMode" in data:
+        import aws_sdk_dynamodb.types.global_table_settings_replication_mode
+
+        out["global_table_settings_replication_mode"] = (
+            aws_sdk_dynamodb.types.global_table_settings_replication_mode.deserialize_aws_json_1_0(
+                data["GlobalTableSettingsReplicationMode"]
+            )
+        )
+    return out

@@ -23,3 +23,54 @@ class ContributorInsightsSummary(TypedDict):
         "aws_sdk_dynamodb.types.contributor_insights_mode.ContributorInsightsMode"
     ]
     """<p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ContributorInsightsSummary) -> dict:
+    out: dict = {}
+    if "table_name" in value:
+        out["TableName"] = value["table_name"]
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "contributor_insights_status" in value:
+        import aws_sdk_dynamodb.types.contributor_insights_status
+
+        out["ContributorInsightsStatus"] = (
+            aws_sdk_dynamodb.types.contributor_insights_status.serialize_aws_json_1_0(
+                value["contributor_insights_status"]
+            )
+        )
+    if "contributor_insights_mode" in value:
+        import aws_sdk_dynamodb.types.contributor_insights_mode
+
+        out["ContributorInsightsMode"] = (
+            aws_sdk_dynamodb.types.contributor_insights_mode.serialize_aws_json_1_0(
+                value["contributor_insights_mode"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ContributorInsightsSummary:
+    out: ContributorInsightsSummary = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "ContributorInsightsStatus" in data:
+        import aws_sdk_dynamodb.types.contributor_insights_status
+
+        out["contributor_insights_status"] = (
+            aws_sdk_dynamodb.types.contributor_insights_status.deserialize_aws_json_1_0(
+                data["ContributorInsightsStatus"]
+            )
+        )
+    if "ContributorInsightsMode" in data:
+        import aws_sdk_dynamodb.types.contributor_insights_mode
+
+        out["contributor_insights_mode"] = (
+            aws_sdk_dynamodb.types.contributor_insights_mode.deserialize_aws_json_1_0(
+                data["ContributorInsightsMode"]
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_updates
@@ -65,3 +66,180 @@ class UpdateItemInput(TypedDict):
         "aws_sdk_dynamodb.types.return_values_on_condition_check_failure.ReturnValuesOnConditionCheckFailure"
     ]
     """<p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p> <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateItemInput) -> dict:
+    out: dict = {}
+    out["TableName"] = value["table_name"]
+    import aws_sdk_dynamodb.types.key
+
+    out["Key"] = aws_sdk_dynamodb.types.key.serialize_aws_json_1_0(value["key"])
+    if "attribute_updates" in value:
+        import aws_sdk_dynamodb.types.attribute_updates
+
+        out["AttributeUpdates"] = (
+            aws_sdk_dynamodb.types.attribute_updates.serialize_aws_json_1_0(
+                value["attribute_updates"]
+            )
+        )
+    if "expected" in value:
+        import aws_sdk_dynamodb.types.expected_attribute_map
+
+        out["Expected"] = (
+            aws_sdk_dynamodb.types.expected_attribute_map.serialize_aws_json_1_0(
+                value["expected"]
+            )
+        )
+    if "conditional_operator" in value:
+        import aws_sdk_dynamodb.types.conditional_operator
+
+        out["ConditionalOperator"] = (
+            aws_sdk_dynamodb.types.conditional_operator.serialize_aws_json_1_0(
+                value["conditional_operator"]
+            )
+        )
+    if "return_values" in value:
+        import aws_sdk_dynamodb.types.return_value
+
+        out["ReturnValues"] = (
+            aws_sdk_dynamodb.types.return_value.serialize_aws_json_1_0(
+                value["return_values"]
+            )
+        )
+    if "return_consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["ReturnConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.serialize_aws_json_1_0(
+                value["return_consumed_capacity"]
+            )
+        )
+    if "return_item_collection_metrics" in value:
+        import aws_sdk_dynamodb.types.return_item_collection_metrics
+
+        out["ReturnItemCollectionMetrics"] = (
+            aws_sdk_dynamodb.types.return_item_collection_metrics.serialize_aws_json_1_0(
+                value["return_item_collection_metrics"]
+            )
+        )
+    if "update_expression" in value:
+        out["UpdateExpression"] = value["update_expression"]
+    if "condition_expression" in value:
+        out["ConditionExpression"] = value["condition_expression"]
+    if "expression_attribute_names" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["ExpressionAttributeNames"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.serialize_aws_json_1_0(
+                value["expression_attribute_names"]
+            )
+        )
+    if "expression_attribute_values" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["ExpressionAttributeValues"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.serialize_aws_json_1_0(
+                value["expression_attribute_values"]
+            )
+        )
+    if "return_values_on_condition_check_failure" in value:
+        import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
+
+        out["ReturnValuesOnConditionCheckFailure"] = (
+            aws_sdk_dynamodb.types.return_values_on_condition_check_failure.serialize_aws_json_1_0(
+                value["return_values_on_condition_check_failure"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
+    out: UpdateItemInput = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("UpdateItemInput.table_name required")
+    if "Key" in data:
+        import aws_sdk_dynamodb.types.key
+
+        out["key"] = aws_sdk_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
+    else:
+        raise DeserializationError("UpdateItemInput.key required")
+    if "AttributeUpdates" in data:
+        import aws_sdk_dynamodb.types.attribute_updates
+
+        out["attribute_updates"] = (
+            aws_sdk_dynamodb.types.attribute_updates.deserialize_aws_json_1_0(
+                data["AttributeUpdates"]
+            )
+        )
+    if "Expected" in data:
+        import aws_sdk_dynamodb.types.expected_attribute_map
+
+        out["expected"] = (
+            aws_sdk_dynamodb.types.expected_attribute_map.deserialize_aws_json_1_0(
+                data["Expected"]
+            )
+        )
+    if "ConditionalOperator" in data:
+        import aws_sdk_dynamodb.types.conditional_operator
+
+        out["conditional_operator"] = (
+            aws_sdk_dynamodb.types.conditional_operator.deserialize_aws_json_1_0(
+                data["ConditionalOperator"]
+            )
+        )
+    if "ReturnValues" in data:
+        import aws_sdk_dynamodb.types.return_value
+
+        out["return_values"] = (
+            aws_sdk_dynamodb.types.return_value.deserialize_aws_json_1_0(
+                data["ReturnValues"]
+            )
+        )
+    if "ReturnConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["return_consumed_capacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.deserialize_aws_json_1_0(
+                data["ReturnConsumedCapacity"]
+            )
+        )
+    if "ReturnItemCollectionMetrics" in data:
+        import aws_sdk_dynamodb.types.return_item_collection_metrics
+
+        out["return_item_collection_metrics"] = (
+            aws_sdk_dynamodb.types.return_item_collection_metrics.deserialize_aws_json_1_0(
+                data["ReturnItemCollectionMetrics"]
+            )
+        )
+    if "UpdateExpression" in data:
+        out["update_expression"] = data["UpdateExpression"]
+    if "ConditionExpression" in data:
+        out["condition_expression"] = data["ConditionExpression"]
+    if "ExpressionAttributeNames" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["expression_attribute_names"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeNames"]
+            )
+        )
+    if "ExpressionAttributeValues" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["expression_attribute_values"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeValues"]
+            )
+        )
+    if "ReturnValuesOnConditionCheckFailure" in data:
+        import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
+
+        out["return_values_on_condition_check_failure"] = (
+            aws_sdk_dynamodb.types.return_values_on_condition_check_failure.deserialize_aws_json_1_0(
+                data["ReturnValuesOnConditionCheckFailure"]
+            )
+        )
+    return out

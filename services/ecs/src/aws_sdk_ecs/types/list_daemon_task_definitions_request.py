@@ -30,3 +30,72 @@ class ListDaemonTaskDefinitionsRequest(TypedDict):
     """<p>The <code>nextToken</code> value returned from a <code>ListDaemonTaskDefinitions</code> request indicating that more results are available to fulfill the request and further calls will be needed. If <code>maxResults</code> was provided, it's possible for the number of results to be fewer than <code>maxResults</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"""
     max_results: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The maximum number of daemon task definition results that <code>ListDaemonTaskDefinitions</code> returned in paginated output. When this parameter is used, <code>ListDaemonTaskDefinitions</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListDaemonTaskDefinitions</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListDaemonTaskDefinitions</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListDaemonTaskDefinitionsRequest) -> dict:
+    out: dict = {}
+    if "family_prefix" in value:
+        out["familyPrefix"] = value["family_prefix"]
+    if "family" in value:
+        out["family"] = value["family"]
+    if "revision" in value:
+        import aws_sdk_ecs.types.daemon_task_definition_revision_filter
+
+        out["revision"] = (
+            aws_sdk_ecs.types.daemon_task_definition_revision_filter.serialize_aws_json_1_1(
+                value["revision"]
+            )
+        )
+    if "status" in value:
+        import aws_sdk_ecs.types.daemon_task_definition_status_filter
+
+        out["status"] = (
+            aws_sdk_ecs.types.daemon_task_definition_status_filter.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "sort" in value:
+        import aws_sdk_ecs.types.sort_order
+
+        out["sort"] = aws_sdk_ecs.types.sort_order.serialize_aws_json_1_1(value["sort"])
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsRequest:
+    out: ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+    if "familyPrefix" in data:
+        out["family_prefix"] = data["familyPrefix"]
+    if "family" in data:
+        out["family"] = data["family"]
+    if "revision" in data:
+        import aws_sdk_ecs.types.daemon_task_definition_revision_filter
+
+        out["revision"] = (
+            aws_sdk_ecs.types.daemon_task_definition_revision_filter.deserialize_aws_json_1_1(
+                data["revision"]
+            )
+        )
+    if "status" in data:
+        import aws_sdk_ecs.types.daemon_task_definition_status_filter
+
+        out["status"] = (
+            aws_sdk_ecs.types.daemon_task_definition_status_filter.deserialize_aws_json_1_1(
+                data["status"]
+            )
+        )
+    if "sort" in data:
+        import aws_sdk_ecs.types.sort_order
+
+        out["sort"] = aws_sdk_ecs.types.sort_order.deserialize_aws_json_1_1(
+            data["sort"]
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -43,3 +44,85 @@ class ServiceManagedEBSVolumeConfiguration(TypedDict):
         "aws_sdk_ecs.types.task_filesystem_type.TaskFilesystemType"
     ]
     """<p>The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.</p> <p>The available Linux filesystem types are <code>ext3</code>, <code>ext4</code>, and <code>xfs</code>. If no value is specified, the <code>xfs</code> filesystem type is used by default.</p> <p>The available Windows filesystem types are <code>NTFS</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceManagedEBSVolumeConfiguration) -> dict:
+    out: dict = {}
+    if "encrypted" in value:
+        out["encrypted"] = value["encrypted"]
+    if "kms_key_id" in value:
+        out["kmsKeyId"] = value["kms_key_id"]
+    if "volume_type" in value:
+        out["volumeType"] = value["volume_type"]
+    if "size_in_gi_b" in value:
+        out["sizeInGiB"] = value["size_in_gi_b"]
+    if "snapshot_id" in value:
+        out["snapshotId"] = value["snapshot_id"]
+    if "volume_initialization_rate" in value:
+        out["volumeInitializationRate"] = value["volume_initialization_rate"]
+    if "iops" in value:
+        out["iops"] = value["iops"]
+    if "throughput" in value:
+        out["throughput"] = value["throughput"]
+    if "tag_specifications" in value:
+        import aws_sdk_ecs.types.ebs_tag_specifications
+
+        out["tagSpecifications"] = (
+            aws_sdk_ecs.types.ebs_tag_specifications.serialize_aws_json_1_1(
+                value["tag_specifications"]
+            )
+        )
+    out["roleArn"] = value["role_arn"]
+    if "filesystem_type" in value:
+        import aws_sdk_ecs.types.task_filesystem_type
+
+        out["filesystemType"] = (
+            aws_sdk_ecs.types.task_filesystem_type.serialize_aws_json_1_1(
+                value["filesystem_type"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceManagedEBSVolumeConfiguration:
+    out: ServiceManagedEBSVolumeConfiguration = {}  # type: ignore[typeddict-item]
+    if "encrypted" in data:
+        out["encrypted"] = data["encrypted"]
+    if "kmsKeyId" in data:
+        out["kms_key_id"] = data["kmsKeyId"]
+    if "volumeType" in data:
+        out["volume_type"] = data["volumeType"]
+    if "sizeInGiB" in data:
+        out["size_in_gi_b"] = data["sizeInGiB"]
+    if "snapshotId" in data:
+        out["snapshot_id"] = data["snapshotId"]
+    if "volumeInitializationRate" in data:
+        out["volume_initialization_rate"] = data["volumeInitializationRate"]
+    if "iops" in data:
+        out["iops"] = data["iops"]
+    if "throughput" in data:
+        out["throughput"] = data["throughput"]
+    if "tagSpecifications" in data:
+        import aws_sdk_ecs.types.ebs_tag_specifications
+
+        out["tag_specifications"] = (
+            aws_sdk_ecs.types.ebs_tag_specifications.deserialize_aws_json_1_1(
+                data["tagSpecifications"]
+            )
+        )
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    else:
+        raise DeserializationError(
+            "ServiceManagedEBSVolumeConfiguration.role_arn required"
+        )
+    if "filesystemType" in data:
+        import aws_sdk_ecs.types.task_filesystem_type
+
+        out["filesystem_type"] = (
+            aws_sdk_ecs.types.task_filesystem_type.deserialize_aws_json_1_1(
+                data["filesystemType"]
+            )
+        )
+    return out

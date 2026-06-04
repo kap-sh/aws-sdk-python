@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.auto_repair_configuration
@@ -28,3 +29,88 @@ class CreateManagedInstancesProviderConfiguration(TypedDict):
         "aws_sdk_ecs.types.auto_repair_configuration.AutoRepairConfiguration"
     ]
     """<p>The auto repair configuration for the Amazon ECS Managed Instances capacity provider. Use this to enable or disable automatic replacement of container instances that are detected as unhealthy.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateManagedInstancesProviderConfiguration) -> dict:
+    out: dict = {}
+    out["infrastructureRoleArn"] = value["infrastructure_role_arn"]
+    import aws_sdk_ecs.types.instance_launch_template
+
+    out["instanceLaunchTemplate"] = (
+        aws_sdk_ecs.types.instance_launch_template.serialize_aws_json_1_1(
+            value["instance_launch_template"]
+        )
+    )
+    if "propagate_tags" in value:
+        import aws_sdk_ecs.types.propagate_mi_tags
+
+        out["propagateTags"] = (
+            aws_sdk_ecs.types.propagate_mi_tags.serialize_aws_json_1_1(
+                value["propagate_tags"]
+            )
+        )
+    if "infrastructure_optimization" in value:
+        import aws_sdk_ecs.types.infrastructure_optimization
+
+        out["infrastructureOptimization"] = (
+            aws_sdk_ecs.types.infrastructure_optimization.serialize_aws_json_1_1(
+                value["infrastructure_optimization"]
+            )
+        )
+    if "auto_repair_configuration" in value:
+        import aws_sdk_ecs.types.auto_repair_configuration
+
+        out["autoRepairConfiguration"] = (
+            aws_sdk_ecs.types.auto_repair_configuration.serialize_aws_json_1_1(
+                value["auto_repair_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateManagedInstancesProviderConfiguration:
+    out: CreateManagedInstancesProviderConfiguration = {}  # type: ignore[typeddict-item]
+    if "infrastructureRoleArn" in data:
+        out["infrastructure_role_arn"] = data["infrastructureRoleArn"]
+    else:
+        raise DeserializationError(
+            "CreateManagedInstancesProviderConfiguration.infrastructure_role_arn required"
+        )
+    if "instanceLaunchTemplate" in data:
+        import aws_sdk_ecs.types.instance_launch_template
+
+        out["instance_launch_template"] = (
+            aws_sdk_ecs.types.instance_launch_template.deserialize_aws_json_1_1(
+                data["instanceLaunchTemplate"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateManagedInstancesProviderConfiguration.instance_launch_template required"
+        )
+    if "propagateTags" in data:
+        import aws_sdk_ecs.types.propagate_mi_tags
+
+        out["propagate_tags"] = (
+            aws_sdk_ecs.types.propagate_mi_tags.deserialize_aws_json_1_1(
+                data["propagateTags"]
+            )
+        )
+    if "infrastructureOptimization" in data:
+        import aws_sdk_ecs.types.infrastructure_optimization
+
+        out["infrastructure_optimization"] = (
+            aws_sdk_ecs.types.infrastructure_optimization.deserialize_aws_json_1_1(
+                data["infrastructureOptimization"]
+            )
+        )
+    if "autoRepairConfiguration" in data:
+        import aws_sdk_ecs.types.auto_repair_configuration
+
+        out["auto_repair_configuration"] = (
+            aws_sdk_ecs.types.auto_repair_configuration.deserialize_aws_json_1_1(
+                data["autoRepairConfiguration"]
+            )
+        )
+    return out

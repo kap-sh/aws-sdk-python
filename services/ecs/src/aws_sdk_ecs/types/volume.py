@@ -36,3 +36,98 @@ class Volume(TypedDict):
     """<p>This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.</p>"""
     configured_at_launch: NotRequired["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"]
     """<p>Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.</p> <p>To configure a volume at launch time, use this task definition revision and specify a <code>volumeConfigurations</code> object when calling the <code>CreateService</code>, <code>UpdateService</code>, <code>RunTask</code> or <code>StartTask</code> APIs.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Volume) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "host" in value:
+        import aws_sdk_ecs.types.host_volume_properties
+
+        out["host"] = aws_sdk_ecs.types.host_volume_properties.serialize_aws_json_1_1(
+            value["host"]
+        )
+    if "docker_volume_configuration" in value:
+        import aws_sdk_ecs.types.docker_volume_configuration
+
+        out["dockerVolumeConfiguration"] = (
+            aws_sdk_ecs.types.docker_volume_configuration.serialize_aws_json_1_1(
+                value["docker_volume_configuration"]
+            )
+        )
+    if "efs_volume_configuration" in value:
+        import aws_sdk_ecs.types.efs_volume_configuration
+
+        out["efsVolumeConfiguration"] = (
+            aws_sdk_ecs.types.efs_volume_configuration.serialize_aws_json_1_1(
+                value["efs_volume_configuration"]
+            )
+        )
+    if "s3files_volume_configuration" in value:
+        import aws_sdk_ecs.types.s3_files_volume_configuration
+
+        out["s3filesVolumeConfiguration"] = (
+            aws_sdk_ecs.types.s3_files_volume_configuration.serialize_aws_json_1_1(
+                value["s3files_volume_configuration"]
+            )
+        )
+    if "fsx_windows_file_server_volume_configuration" in value:
+        import aws_sdk_ecs.types.f_sx_windows_file_server_volume_configuration
+
+        out["fsxWindowsFileServerVolumeConfiguration"] = (
+            aws_sdk_ecs.types.f_sx_windows_file_server_volume_configuration.serialize_aws_json_1_1(
+                value["fsx_windows_file_server_volume_configuration"]
+            )
+        )
+    if "configured_at_launch" in value:
+        out["configuredAtLaunch"] = value["configured_at_launch"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Volume:
+    out: Volume = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "host" in data:
+        import aws_sdk_ecs.types.host_volume_properties
+
+        out["host"] = aws_sdk_ecs.types.host_volume_properties.deserialize_aws_json_1_1(
+            data["host"]
+        )
+    if "dockerVolumeConfiguration" in data:
+        import aws_sdk_ecs.types.docker_volume_configuration
+
+        out["docker_volume_configuration"] = (
+            aws_sdk_ecs.types.docker_volume_configuration.deserialize_aws_json_1_1(
+                data["dockerVolumeConfiguration"]
+            )
+        )
+    if "efsVolumeConfiguration" in data:
+        import aws_sdk_ecs.types.efs_volume_configuration
+
+        out["efs_volume_configuration"] = (
+            aws_sdk_ecs.types.efs_volume_configuration.deserialize_aws_json_1_1(
+                data["efsVolumeConfiguration"]
+            )
+        )
+    if "s3filesVolumeConfiguration" in data:
+        import aws_sdk_ecs.types.s3_files_volume_configuration
+
+        out["s3files_volume_configuration"] = (
+            aws_sdk_ecs.types.s3_files_volume_configuration.deserialize_aws_json_1_1(
+                data["s3filesVolumeConfiguration"]
+            )
+        )
+    if "fsxWindowsFileServerVolumeConfiguration" in data:
+        import aws_sdk_ecs.types.f_sx_windows_file_server_volume_configuration
+
+        out["fsx_windows_file_server_volume_configuration"] = (
+            aws_sdk_ecs.types.f_sx_windows_file_server_volume_configuration.deserialize_aws_json_1_1(
+                data["fsxWindowsFileServerVolumeConfiguration"]
+            )
+        )
+    if "configuredAtLaunch" in data:
+        out["configured_at_launch"] = data["configuredAtLaunch"]
+    return out

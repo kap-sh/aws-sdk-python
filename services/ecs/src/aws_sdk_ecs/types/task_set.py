@@ -77,3 +77,229 @@ class TaskSet(TypedDict):
         "aws_sdk_ecs.types.deployment_ephemeral_storage.DeploymentEphemeralStorage"
     ]
     """<p>The Fargate ephemeral storage settings for the task set.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TaskSet) -> dict:
+    out: dict = {}
+    if "id" in value:
+        out["id"] = value["id"]
+    if "task_set_arn" in value:
+        out["taskSetArn"] = value["task_set_arn"]
+    if "service_arn" in value:
+        out["serviceArn"] = value["service_arn"]
+    if "cluster_arn" in value:
+        out["clusterArn"] = value["cluster_arn"]
+    if "started_by" in value:
+        out["startedBy"] = value["started_by"]
+    if "external_id" in value:
+        out["externalId"] = value["external_id"]
+    if "status" in value:
+        out["status"] = value["status"]
+    if "task_definition" in value:
+        out["taskDefinition"] = value["task_definition"]
+    out["computedDesiredCount"] = value.get("computed_desired_count", 0)
+    out["pendingCount"] = value.get("pending_count", 0)
+    out["runningCount"] = value.get("running_count", 0)
+    if "created_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["createdAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["created_at"]
+        )
+    if "updated_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["updatedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["updated_at"]
+        )
+    if "launch_type" in value:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launchType"] = aws_sdk_ecs.types.launch_type.serialize_aws_json_1_1(
+            value["launch_type"]
+        )
+    if "capacity_provider_strategy" in value:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacityProviderStrategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.serialize_aws_json_1_1(
+                value["capacity_provider_strategy"]
+            )
+        )
+    if "platform_version" in value:
+        out["platformVersion"] = value["platform_version"]
+    if "platform_family" in value:
+        out["platformFamily"] = value["platform_family"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "load_balancers" in value:
+        import aws_sdk_ecs.types.load_balancers
+
+        out["loadBalancers"] = aws_sdk_ecs.types.load_balancers.serialize_aws_json_1_1(
+            value["load_balancers"]
+        )
+    if "service_registries" in value:
+        import aws_sdk_ecs.types.service_registries
+
+        out["serviceRegistries"] = (
+            aws_sdk_ecs.types.service_registries.serialize_aws_json_1_1(
+                value["service_registries"]
+            )
+        )
+    if "scale" in value:
+        import aws_sdk_ecs.types.scale
+
+        out["scale"] = aws_sdk_ecs.types.scale.serialize_aws_json_1_1(value["scale"])
+    if "stability_status" in value:
+        import aws_sdk_ecs.types.stability_status
+
+        out["stabilityStatus"] = (
+            aws_sdk_ecs.types.stability_status.serialize_aws_json_1_1(
+                value["stability_status"]
+            )
+        )
+    if "stability_status_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stabilityStatusAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["stability_status_at"]
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "fargate_ephemeral_storage" in value:
+        import aws_sdk_ecs.types.deployment_ephemeral_storage
+
+        out["fargateEphemeralStorage"] = (
+            aws_sdk_ecs.types.deployment_ephemeral_storage.serialize_aws_json_1_1(
+                value["fargate_ephemeral_storage"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TaskSet:
+    out: TaskSet = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "taskSetArn" in data:
+        out["task_set_arn"] = data["taskSetArn"]
+    if "serviceArn" in data:
+        out["service_arn"] = data["serviceArn"]
+    if "clusterArn" in data:
+        out["cluster_arn"] = data["clusterArn"]
+    if "startedBy" in data:
+        out["started_by"] = data["startedBy"]
+    if "externalId" in data:
+        out["external_id"] = data["externalId"]
+    if "status" in data:
+        out["status"] = data["status"]
+    if "taskDefinition" in data:
+        out["task_definition"] = data["taskDefinition"]
+    if "computedDesiredCount" in data:
+        out["computed_desired_count"] = data["computedDesiredCount"]
+    else:
+        out["computed_desired_count"] = 0
+    if "pendingCount" in data:
+        out["pending_count"] = data["pendingCount"]
+    else:
+        out["pending_count"] = 0
+    if "runningCount" in data:
+        out["running_count"] = data["runningCount"]
+    else:
+        out["running_count"] = 0
+    if "createdAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["created_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["createdAt"]
+        )
+    if "updatedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["updated_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["updatedAt"]
+        )
+    if "launchType" in data:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launch_type"] = aws_sdk_ecs.types.launch_type.deserialize_aws_json_1_1(
+            data["launchType"]
+        )
+    if "capacityProviderStrategy" in data:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacity_provider_strategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.deserialize_aws_json_1_1(
+                data["capacityProviderStrategy"]
+            )
+        )
+    if "platformVersion" in data:
+        out["platform_version"] = data["platformVersion"]
+    if "platformFamily" in data:
+        out["platform_family"] = data["platformFamily"]
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "loadBalancers" in data:
+        import aws_sdk_ecs.types.load_balancers
+
+        out["load_balancers"] = (
+            aws_sdk_ecs.types.load_balancers.deserialize_aws_json_1_1(
+                data["loadBalancers"]
+            )
+        )
+    if "serviceRegistries" in data:
+        import aws_sdk_ecs.types.service_registries
+
+        out["service_registries"] = (
+            aws_sdk_ecs.types.service_registries.deserialize_aws_json_1_1(
+                data["serviceRegistries"]
+            )
+        )
+    if "scale" in data:
+        import aws_sdk_ecs.types.scale
+
+        out["scale"] = aws_sdk_ecs.types.scale.deserialize_aws_json_1_1(data["scale"])
+    if "stabilityStatus" in data:
+        import aws_sdk_ecs.types.stability_status
+
+        out["stability_status"] = (
+            aws_sdk_ecs.types.stability_status.deserialize_aws_json_1_1(
+                data["stabilityStatus"]
+            )
+        )
+    if "stabilityStatusAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stability_status_at"] = (
+            aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+                data["stabilityStatusAt"]
+            )
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "fargateEphemeralStorage" in data:
+        import aws_sdk_ecs.types.deployment_ephemeral_storage
+
+        out["fargate_ephemeral_storage"] = (
+            aws_sdk_ecs.types.deployment_ephemeral_storage.deserialize_aws_json_1_1(
+                data["fargateEphemeralStorage"]
+            )
+        )
+    return out

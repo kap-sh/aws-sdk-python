@@ -20,3 +20,50 @@ class ExecuteCommandConfiguration(TypedDict):
         "aws_sdk_ecs.types.execute_command_log_configuration.ExecuteCommandLogConfiguration"
     ]
     """<p>The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When <code>logging=OVERRIDE</code> is specified, a <code>logConfiguration</code> must be provided.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExecuteCommandConfiguration) -> dict:
+    out: dict = {}
+    if "kms_key_id" in value:
+        out["kmsKeyId"] = value["kms_key_id"]
+    if "logging" in value:
+        import aws_sdk_ecs.types.execute_command_logging
+
+        out["logging"] = (
+            aws_sdk_ecs.types.execute_command_logging.serialize_aws_json_1_1(
+                value["logging"]
+            )
+        )
+    if "log_configuration" in value:
+        import aws_sdk_ecs.types.execute_command_log_configuration
+
+        out["logConfiguration"] = (
+            aws_sdk_ecs.types.execute_command_log_configuration.serialize_aws_json_1_1(
+                value["log_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandConfiguration:
+    out: ExecuteCommandConfiguration = {}  # type: ignore[typeddict-item]
+    if "kmsKeyId" in data:
+        out["kms_key_id"] = data["kmsKeyId"]
+    if "logging" in data:
+        import aws_sdk_ecs.types.execute_command_logging
+
+        out["logging"] = (
+            aws_sdk_ecs.types.execute_command_logging.deserialize_aws_json_1_1(
+                data["logging"]
+            )
+        )
+    if "logConfiguration" in data:
+        import aws_sdk_ecs.types.execute_command_log_configuration
+
+        out["log_configuration"] = (
+            aws_sdk_ecs.types.execute_command_log_configuration.deserialize_aws_json_1_1(
+                data["logConfiguration"]
+            )
+        )
+    return out

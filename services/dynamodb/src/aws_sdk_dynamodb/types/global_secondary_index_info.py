@@ -25,3 +25,74 @@ class GlobalSecondaryIndexInfo(TypedDict):
     on_demand_throughput: NotRequired[
         "aws_sdk_dynamodb.types.on_demand_throughput.OnDemandThroughput"
     ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GlobalSecondaryIndexInfo) -> dict:
+    out: dict = {}
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "key_schema" in value:
+        import aws_sdk_dynamodb.types.key_schema
+
+        out["KeySchema"] = aws_sdk_dynamodb.types.key_schema.serialize_aws_json_1_0(
+            value["key_schema"]
+        )
+    if "projection" in value:
+        import aws_sdk_dynamodb.types.projection
+
+        out["Projection"] = aws_sdk_dynamodb.types.projection.serialize_aws_json_1_0(
+            value["projection"]
+        )
+    if "provisioned_throughput" in value:
+        import aws_sdk_dynamodb.types.provisioned_throughput
+
+        out["ProvisionedThroughput"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput.serialize_aws_json_1_0(
+                value["provisioned_throughput"]
+            )
+        )
+    if "on_demand_throughput" in value:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["OnDemandThroughput"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.serialize_aws_json_1_0(
+                value["on_demand_throughput"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexInfo:
+    out: GlobalSecondaryIndexInfo = {}  # type: ignore[typeddict-item]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "KeySchema" in data:
+        import aws_sdk_dynamodb.types.key_schema
+
+        out["key_schema"] = aws_sdk_dynamodb.types.key_schema.deserialize_aws_json_1_0(
+            data["KeySchema"]
+        )
+    if "Projection" in data:
+        import aws_sdk_dynamodb.types.projection
+
+        out["projection"] = aws_sdk_dynamodb.types.projection.deserialize_aws_json_1_0(
+            data["Projection"]
+        )
+    if "ProvisionedThroughput" in data:
+        import aws_sdk_dynamodb.types.provisioned_throughput
+
+        out["provisioned_throughput"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput.deserialize_aws_json_1_0(
+                data["ProvisionedThroughput"]
+            )
+        )
+    if "OnDemandThroughput" in data:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["on_demand_throughput"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.deserialize_aws_json_1_0(
+                data["OnDemandThroughput"]
+            )
+        )
+    return out

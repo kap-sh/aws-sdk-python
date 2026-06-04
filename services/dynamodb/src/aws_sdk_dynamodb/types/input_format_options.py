@@ -10,3 +10,26 @@ if TYPE_CHECKING:
 class InputFormatOptions(TypedDict):
     csv: NotRequired["aws_sdk_dynamodb.types.csv_options.CsvOptions"]
     """<p> The options for imported source files in CSV format. The values are Delimiter and HeaderList. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: InputFormatOptions) -> dict:
+    out: dict = {}
+    if "csv" in value:
+        import aws_sdk_dynamodb.types.csv_options
+
+        out["Csv"] = aws_sdk_dynamodb.types.csv_options.serialize_aws_json_1_0(
+            value["csv"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> InputFormatOptions:
+    out: InputFormatOptions = {}  # type: ignore[typeddict-item]
+    if "Csv" in data:
+        import aws_sdk_dynamodb.types.csv_options
+
+        out["csv"] = aws_sdk_dynamodb.types.csv_options.deserialize_aws_json_1_0(
+            data["Csv"]
+        )
+    return out

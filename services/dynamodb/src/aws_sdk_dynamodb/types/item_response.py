@@ -10,3 +10,26 @@ if TYPE_CHECKING:
 class ItemResponse(TypedDict):
     item: NotRequired["aws_sdk_dynamodb.types.attribute_map.AttributeMap"]
     """<p>Map of attribute data consisting of the data type and attribute value.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ItemResponse) -> dict:
+    out: dict = {}
+    if "item" in value:
+        import aws_sdk_dynamodb.types.attribute_map
+
+        out["Item"] = aws_sdk_dynamodb.types.attribute_map.serialize_aws_json_1_0(
+            value["item"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ItemResponse:
+    out: ItemResponse = {}  # type: ignore[typeddict-item]
+    if "Item" in data:
+        import aws_sdk_dynamodb.types.attribute_map
+
+        out["item"] = aws_sdk_dynamodb.types.attribute_map.deserialize_aws_json_1_0(
+            data["Item"]
+        )
+    return out

@@ -31,3 +31,94 @@ class RegisterContainerInstanceRequest(TypedDict):
     """<p>The devices that are available on the container instance. The supported device types are GPUs and Neuron devices.</p>"""
     tags: NotRequired["aws_sdk_ecs.types.tags.Tags"]
     """<p>The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RegisterContainerInstanceRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    if "instance_identity_document" in value:
+        out["instanceIdentityDocument"] = value["instance_identity_document"]
+    if "instance_identity_document_signature" in value:
+        out["instanceIdentityDocumentSignature"] = value[
+            "instance_identity_document_signature"
+        ]
+    if "total_resources" in value:
+        import aws_sdk_ecs.types.resources
+
+        out["totalResources"] = aws_sdk_ecs.types.resources.serialize_aws_json_1_1(
+            value["total_resources"]
+        )
+    if "version_info" in value:
+        import aws_sdk_ecs.types.version_info
+
+        out["versionInfo"] = aws_sdk_ecs.types.version_info.serialize_aws_json_1_1(
+            value["version_info"]
+        )
+    if "container_instance_arn" in value:
+        out["containerInstanceArn"] = value["container_instance_arn"]
+    if "attributes" in value:
+        import aws_sdk_ecs.types.attributes
+
+        out["attributes"] = aws_sdk_ecs.types.attributes.serialize_aws_json_1_1(
+            value["attributes"]
+        )
+    if "platform_devices" in value:
+        import aws_sdk_ecs.types.platform_devices
+
+        out["platformDevices"] = (
+            aws_sdk_ecs.types.platform_devices.serialize_aws_json_1_1(
+                value["platform_devices"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RegisterContainerInstanceRequest:
+    out: RegisterContainerInstanceRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "instanceIdentityDocument" in data:
+        out["instance_identity_document"] = data["instanceIdentityDocument"]
+    if "instanceIdentityDocumentSignature" in data:
+        out["instance_identity_document_signature"] = data[
+            "instanceIdentityDocumentSignature"
+        ]
+    if "totalResources" in data:
+        import aws_sdk_ecs.types.resources
+
+        out["total_resources"] = aws_sdk_ecs.types.resources.deserialize_aws_json_1_1(
+            data["totalResources"]
+        )
+    if "versionInfo" in data:
+        import aws_sdk_ecs.types.version_info
+
+        out["version_info"] = aws_sdk_ecs.types.version_info.deserialize_aws_json_1_1(
+            data["versionInfo"]
+        )
+    if "containerInstanceArn" in data:
+        out["container_instance_arn"] = data["containerInstanceArn"]
+    if "attributes" in data:
+        import aws_sdk_ecs.types.attributes
+
+        out["attributes"] = aws_sdk_ecs.types.attributes.deserialize_aws_json_1_1(
+            data["attributes"]
+        )
+    if "platformDevices" in data:
+        import aws_sdk_ecs.types.platform_devices
+
+        out["platform_devices"] = (
+            aws_sdk_ecs.types.platform_devices.deserialize_aws_json_1_1(
+                data["platformDevices"]
+            )
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    return out

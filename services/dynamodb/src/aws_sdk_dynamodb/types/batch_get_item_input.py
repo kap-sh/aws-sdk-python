@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.batch_get_request_map
@@ -14,3 +15,47 @@ class BatchGetItemInput(TypedDict):
     return_consumed_capacity: NotRequired[
         "aws_sdk_dynamodb.types.return_consumed_capacity.ReturnConsumedCapacity"
     ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BatchGetItemInput) -> dict:
+    out: dict = {}
+    import aws_sdk_dynamodb.types.batch_get_request_map
+
+    out["RequestItems"] = (
+        aws_sdk_dynamodb.types.batch_get_request_map.serialize_aws_json_1_0(
+            value["request_items"]
+        )
+    )
+    if "return_consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["ReturnConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.serialize_aws_json_1_0(
+                value["return_consumed_capacity"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> BatchGetItemInput:
+    out: BatchGetItemInput = {}  # type: ignore[typeddict-item]
+    if "RequestItems" in data:
+        import aws_sdk_dynamodb.types.batch_get_request_map
+
+        out["request_items"] = (
+            aws_sdk_dynamodb.types.batch_get_request_map.deserialize_aws_json_1_0(
+                data["RequestItems"]
+            )
+        )
+    else:
+        raise DeserializationError("BatchGetItemInput.request_items required")
+    if "ReturnConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["return_consumed_capacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.deserialize_aws_json_1_0(
+                data["ReturnConsumedCapacity"]
+            )
+        )
+    return out

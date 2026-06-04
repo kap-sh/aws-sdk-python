@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.client_token
@@ -46,3 +47,116 @@ class ExportTableToPointInTimeInput(TypedDict):
         "aws_sdk_dynamodb.types.incremental_export_specification.IncrementalExportSpecification"
     ]
     """<p>Optional object containing the parameters specific to an incremental export.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ExportTableToPointInTimeInput) -> dict:
+    out: dict = {}
+    out["TableArn"] = value["table_arn"]
+    if "export_time" in value:
+        import aws_sdk_dynamodb.types.export_time
+
+        out["ExportTime"] = aws_sdk_dynamodb.types.export_time.serialize_aws_json_1_0(
+            value["export_time"]
+        )
+    if "client_token" in value:
+        out["ClientToken"] = value["client_token"]
+    out["S3Bucket"] = value["s3_bucket"]
+    if "s3_bucket_owner" in value:
+        out["S3BucketOwner"] = value["s3_bucket_owner"]
+    if "s3_prefix" in value:
+        out["S3Prefix"] = value["s3_prefix"]
+    if "s3_sse_algorithm" in value:
+        import aws_sdk_dynamodb.types.s3_sse_algorithm
+
+        out["S3SseAlgorithm"] = (
+            aws_sdk_dynamodb.types.s3_sse_algorithm.serialize_aws_json_1_0(
+                value["s3_sse_algorithm"]
+            )
+        )
+    if "s3_sse_kms_key_id" in value:
+        out["S3SseKmsKeyId"] = value["s3_sse_kms_key_id"]
+    if "export_format" in value:
+        import aws_sdk_dynamodb.types.export_format
+
+        out["ExportFormat"] = (
+            aws_sdk_dynamodb.types.export_format.serialize_aws_json_1_0(
+                value["export_format"]
+            )
+        )
+    if "export_type" in value:
+        import aws_sdk_dynamodb.types.export_type
+
+        out["ExportType"] = aws_sdk_dynamodb.types.export_type.serialize_aws_json_1_0(
+            value["export_type"]
+        )
+    if "incremental_export_specification" in value:
+        import aws_sdk_dynamodb.types.incremental_export_specification
+
+        out["IncrementalExportSpecification"] = (
+            aws_sdk_dynamodb.types.incremental_export_specification.serialize_aws_json_1_0(
+                value["incremental_export_specification"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ExportTableToPointInTimeInput:
+    out: ExportTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
+    if "TableArn" in data:
+        out["table_arn"] = data["TableArn"]
+    else:
+        raise DeserializationError("ExportTableToPointInTimeInput.table_arn required")
+    if "ExportTime" in data:
+        import aws_sdk_dynamodb.types.export_time
+
+        out["export_time"] = (
+            aws_sdk_dynamodb.types.export_time.deserialize_aws_json_1_0(
+                data["ExportTime"]
+            )
+        )
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    if "S3Bucket" in data:
+        out["s3_bucket"] = data["S3Bucket"]
+    else:
+        raise DeserializationError("ExportTableToPointInTimeInput.s3_bucket required")
+    if "S3BucketOwner" in data:
+        out["s3_bucket_owner"] = data["S3BucketOwner"]
+    if "S3Prefix" in data:
+        out["s3_prefix"] = data["S3Prefix"]
+    if "S3SseAlgorithm" in data:
+        import aws_sdk_dynamodb.types.s3_sse_algorithm
+
+        out["s3_sse_algorithm"] = (
+            aws_sdk_dynamodb.types.s3_sse_algorithm.deserialize_aws_json_1_0(
+                data["S3SseAlgorithm"]
+            )
+        )
+    if "S3SseKmsKeyId" in data:
+        out["s3_sse_kms_key_id"] = data["S3SseKmsKeyId"]
+    if "ExportFormat" in data:
+        import aws_sdk_dynamodb.types.export_format
+
+        out["export_format"] = (
+            aws_sdk_dynamodb.types.export_format.deserialize_aws_json_1_0(
+                data["ExportFormat"]
+            )
+        )
+    if "ExportType" in data:
+        import aws_sdk_dynamodb.types.export_type
+
+        out["export_type"] = (
+            aws_sdk_dynamodb.types.export_type.deserialize_aws_json_1_0(
+                data["ExportType"]
+            )
+        )
+    if "IncrementalExportSpecification" in data:
+        import aws_sdk_dynamodb.types.incremental_export_specification
+
+        out["incremental_export_specification"] = (
+            aws_sdk_dynamodb.types.incremental_export_specification.deserialize_aws_json_1_0(
+                data["IncrementalExportSpecification"]
+            )
+        )
+    return out

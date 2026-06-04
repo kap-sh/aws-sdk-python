@@ -22,3 +22,62 @@ class BatchGetItemOutput(TypedDict):
         "aws_sdk_dynamodb.types.consumed_capacity_multiple.ConsumedCapacityMultiple"
     ]
     """<p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p> <p>Each element consists of:</p> <ul> <li> <p> <code>TableName</code> - The table that consumed the provisioned throughput.</p> </li> <li> <p> <code>CapacityUnits</code> - The total number of capacity units consumed.</p> </li> </ul>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BatchGetItemOutput) -> dict:
+    out: dict = {}
+    if "responses" in value:
+        import aws_sdk_dynamodb.types.batch_get_response_map
+
+        out["Responses"] = (
+            aws_sdk_dynamodb.types.batch_get_response_map.serialize_aws_json_1_0(
+                value["responses"]
+            )
+        )
+    if "unprocessed_keys" in value:
+        import aws_sdk_dynamodb.types.batch_get_request_map
+
+        out["UnprocessedKeys"] = (
+            aws_sdk_dynamodb.types.batch_get_request_map.serialize_aws_json_1_0(
+                value["unprocessed_keys"]
+            )
+        )
+    if "consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.consumed_capacity_multiple
+
+        out["ConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.consumed_capacity_multiple.serialize_aws_json_1_0(
+                value["consumed_capacity"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> BatchGetItemOutput:
+    out: BatchGetItemOutput = {}  # type: ignore[typeddict-item]
+    if "Responses" in data:
+        import aws_sdk_dynamodb.types.batch_get_response_map
+
+        out["responses"] = (
+            aws_sdk_dynamodb.types.batch_get_response_map.deserialize_aws_json_1_0(
+                data["Responses"]
+            )
+        )
+    if "UnprocessedKeys" in data:
+        import aws_sdk_dynamodb.types.batch_get_request_map
+
+        out["unprocessed_keys"] = (
+            aws_sdk_dynamodb.types.batch_get_request_map.deserialize_aws_json_1_0(
+                data["UnprocessedKeys"]
+            )
+        )
+    if "ConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.consumed_capacity_multiple
+
+        out["consumed_capacity"] = (
+            aws_sdk_dynamodb.types.consumed_capacity_multiple.deserialize_aws_json_1_0(
+                data["ConsumedCapacity"]
+            )
+        )
+    return out

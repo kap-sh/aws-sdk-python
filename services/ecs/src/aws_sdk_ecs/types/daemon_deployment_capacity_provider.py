@@ -15,3 +15,26 @@ class DaemonDeploymentCapacityProvider(TypedDict):
     """<p>The number of instances running daemon tasks on this capacity provider.</p>"""
     draining_instance_count: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The number of instances being drained on this capacity provider during the deployment.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DaemonDeploymentCapacityProvider) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "running_instance_count" in value:
+        out["runningInstanceCount"] = value["running_instance_count"]
+    if "draining_instance_count" in value:
+        out["drainingInstanceCount"] = value["draining_instance_count"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DaemonDeploymentCapacityProvider:
+    out: DaemonDeploymentCapacityProvider = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "runningInstanceCount" in data:
+        out["running_instance_count"] = data["runningInstanceCount"]
+    if "drainingInstanceCount" in data:
+        out["draining_instance_count"] = data["drainingInstanceCount"]
+    return out

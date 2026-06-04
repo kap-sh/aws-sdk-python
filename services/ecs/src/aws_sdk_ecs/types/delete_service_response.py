@@ -10,3 +10,26 @@ if TYPE_CHECKING:
 class DeleteServiceResponse(TypedDict):
     service: NotRequired["aws_sdk_ecs.types.service.Service"]
     """<p>The full description of the deleted service.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteServiceResponse) -> dict:
+    out: dict = {}
+    if "service" in value:
+        import aws_sdk_ecs.types.service
+
+        out["service"] = aws_sdk_ecs.types.service.serialize_aws_json_1_1(
+            value["service"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteServiceResponse:
+    out: DeleteServiceResponse = {}  # type: ignore[typeddict-item]
+    if "service" in data:
+        import aws_sdk_ecs.types.service
+
+        out["service"] = aws_sdk_ecs.types.service.deserialize_aws_json_1_1(
+            data["service"]
+        )
+    return out

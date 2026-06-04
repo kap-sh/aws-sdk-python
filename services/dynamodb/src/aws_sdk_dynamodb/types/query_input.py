@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_name_list
@@ -81,3 +82,185 @@ class QueryInput(TypedDict):
         "aws_sdk_dynamodb.types.expression_attribute_value_map.ExpressionAttributeValueMap"
     ]
     """<p>One or more values that can be substituted in an expression.</p> <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p> <p> <code>Available | Backordered | Discontinued</code> </p> <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p> <p> <code>{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }</code> </p> <p>You could then use these values in an expression, such as this:</p> <p> <code>ProductStatus IN (:avail, :back, :disc)</code> </p> <p>For more information on expression attribute values, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html\">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: QueryInput) -> dict:
+    out: dict = {}
+    out["TableName"] = value["table_name"]
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "select" in value:
+        import aws_sdk_dynamodb.types.select
+
+        out["Select"] = aws_sdk_dynamodb.types.select.serialize_aws_json_1_0(
+            value["select"]
+        )
+    if "attributes_to_get" in value:
+        import aws_sdk_dynamodb.types.attribute_name_list
+
+        out["AttributesToGet"] = (
+            aws_sdk_dynamodb.types.attribute_name_list.serialize_aws_json_1_0(
+                value["attributes_to_get"]
+            )
+        )
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    if "consistent_read" in value:
+        out["ConsistentRead"] = value["consistent_read"]
+    if "key_conditions" in value:
+        import aws_sdk_dynamodb.types.key_conditions
+
+        out["KeyConditions"] = (
+            aws_sdk_dynamodb.types.key_conditions.serialize_aws_json_1_0(
+                value["key_conditions"]
+            )
+        )
+    if "query_filter" in value:
+        import aws_sdk_dynamodb.types.filter_condition_map
+
+        out["QueryFilter"] = (
+            aws_sdk_dynamodb.types.filter_condition_map.serialize_aws_json_1_0(
+                value["query_filter"]
+            )
+        )
+    if "conditional_operator" in value:
+        import aws_sdk_dynamodb.types.conditional_operator
+
+        out["ConditionalOperator"] = (
+            aws_sdk_dynamodb.types.conditional_operator.serialize_aws_json_1_0(
+                value["conditional_operator"]
+            )
+        )
+    if "scan_index_forward" in value:
+        out["ScanIndexForward"] = value["scan_index_forward"]
+    if "exclusive_start_key" in value:
+        import aws_sdk_dynamodb.types.key
+
+        out["ExclusiveStartKey"] = aws_sdk_dynamodb.types.key.serialize_aws_json_1_0(
+            value["exclusive_start_key"]
+        )
+    if "return_consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["ReturnConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.serialize_aws_json_1_0(
+                value["return_consumed_capacity"]
+            )
+        )
+    if "projection_expression" in value:
+        out["ProjectionExpression"] = value["projection_expression"]
+    if "filter_expression" in value:
+        out["FilterExpression"] = value["filter_expression"]
+    if "key_condition_expression" in value:
+        out["KeyConditionExpression"] = value["key_condition_expression"]
+    if "expression_attribute_names" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["ExpressionAttributeNames"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.serialize_aws_json_1_0(
+                value["expression_attribute_names"]
+            )
+        )
+    if "expression_attribute_values" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["ExpressionAttributeValues"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.serialize_aws_json_1_0(
+                value["expression_attribute_values"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> QueryInput:
+    out: QueryInput = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("QueryInput.table_name required")
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "Select" in data:
+        import aws_sdk_dynamodb.types.select
+
+        out["select"] = aws_sdk_dynamodb.types.select.deserialize_aws_json_1_0(
+            data["Select"]
+        )
+    if "AttributesToGet" in data:
+        import aws_sdk_dynamodb.types.attribute_name_list
+
+        out["attributes_to_get"] = (
+            aws_sdk_dynamodb.types.attribute_name_list.deserialize_aws_json_1_0(
+                data["AttributesToGet"]
+            )
+        )
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    if "ConsistentRead" in data:
+        out["consistent_read"] = data["ConsistentRead"]
+    if "KeyConditions" in data:
+        import aws_sdk_dynamodb.types.key_conditions
+
+        out["key_conditions"] = (
+            aws_sdk_dynamodb.types.key_conditions.deserialize_aws_json_1_0(
+                data["KeyConditions"]
+            )
+        )
+    if "QueryFilter" in data:
+        import aws_sdk_dynamodb.types.filter_condition_map
+
+        out["query_filter"] = (
+            aws_sdk_dynamodb.types.filter_condition_map.deserialize_aws_json_1_0(
+                data["QueryFilter"]
+            )
+        )
+    if "ConditionalOperator" in data:
+        import aws_sdk_dynamodb.types.conditional_operator
+
+        out["conditional_operator"] = (
+            aws_sdk_dynamodb.types.conditional_operator.deserialize_aws_json_1_0(
+                data["ConditionalOperator"]
+            )
+        )
+    if "ScanIndexForward" in data:
+        out["scan_index_forward"] = data["ScanIndexForward"]
+    if "ExclusiveStartKey" in data:
+        import aws_sdk_dynamodb.types.key
+
+        out["exclusive_start_key"] = (
+            aws_sdk_dynamodb.types.key.deserialize_aws_json_1_0(
+                data["ExclusiveStartKey"]
+            )
+        )
+    if "ReturnConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["return_consumed_capacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.deserialize_aws_json_1_0(
+                data["ReturnConsumedCapacity"]
+            )
+        )
+    if "ProjectionExpression" in data:
+        out["projection_expression"] = data["ProjectionExpression"]
+    if "FilterExpression" in data:
+        out["filter_expression"] = data["FilterExpression"]
+    if "KeyConditionExpression" in data:
+        out["key_condition_expression"] = data["KeyConditionExpression"]
+    if "ExpressionAttributeNames" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["expression_attribute_names"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeNames"]
+            )
+        )
+    if "ExpressionAttributeValues" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["expression_attribute_values"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeValues"]
+            )
+        )
+    return out

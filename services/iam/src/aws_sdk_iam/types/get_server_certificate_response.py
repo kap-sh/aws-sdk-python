@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#GetServerCertificateResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_iam.errors import DeserializationError
+from aws_sdk_iam._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_iam.types.server_certificate
+
+
+class GetServerCertificateResponse(TypedDict):
+    server_certificate: "aws_sdk_iam.types.server_certificate.ServerCertificate"
+    """<p>A structure containing details about the server certificate.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: GetServerCertificateResponse, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    import aws_sdk_iam.types.server_certificate
+
+    aws_sdk_iam.types.server_certificate.serialize_query(
+        value["server_certificate"], pairs, f"{prefix}.ServerCertificate"
+    )
+
+
+def deserialize_query(el: Element) -> GetServerCertificateResponse:
+    out: GetServerCertificateResponse = {}  # type: ignore[typeddict-item]
+    child_server_certificate = el.find("ServerCertificate")
+    if child_server_certificate is not None:
+        import aws_sdk_iam.types.server_certificate
+
+        out["server_certificate"] = (
+            aws_sdk_iam.types.server_certificate.deserialize_query(
+                child_server_certificate
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetServerCertificateResponse.server_certificate required"
+        )
+    return out

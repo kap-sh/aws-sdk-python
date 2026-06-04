@@ -12,6 +12,21 @@ class ReplicaNotFoundException_(TypedDict):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
 
 
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ReplicaNotFoundException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ReplicaNotFoundException_:
+    out: ReplicaNotFoundException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class ReplicaNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dynamodb#ReplicaNotFoundException``."""
 
@@ -25,3 +40,7 @@ class ReplicaNotFoundException(ServiceError):
             code="ReplicaNotFoundException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "ReplicaNotFoundException":
+        return cls(deserialize_aws_json_1_0(data))

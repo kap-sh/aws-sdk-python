@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.backup_arn
@@ -32,3 +33,91 @@ class BackupDetails(TypedDict):
     """<p>Time at which the backup was created. This is the request time of the backup. </p>"""
     backup_expiry_date_time: NotRequired["aws_sdk_dynamodb.types.date.Date"]
     """<p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BackupDetails) -> dict:
+    out: dict = {}
+    out["BackupArn"] = value["backup_arn"]
+    out["BackupName"] = value["backup_name"]
+    if "backup_size_bytes" in value:
+        out["BackupSizeBytes"] = value["backup_size_bytes"]
+    import aws_sdk_dynamodb.types.backup_status
+
+    out["BackupStatus"] = aws_sdk_dynamodb.types.backup_status.serialize_aws_json_1_0(
+        value["backup_status"]
+    )
+    import aws_sdk_dynamodb.types.backup_type
+
+    out["BackupType"] = aws_sdk_dynamodb.types.backup_type.serialize_aws_json_1_0(
+        value["backup_type"]
+    )
+    import aws_sdk_dynamodb.types.backup_creation_date_time
+
+    out["BackupCreationDateTime"] = (
+        aws_sdk_dynamodb.types.backup_creation_date_time.serialize_aws_json_1_0(
+            value["backup_creation_date_time"]
+        )
+    )
+    if "backup_expiry_date_time" in value:
+        import aws_sdk_dynamodb.types.date
+
+        out["BackupExpiryDateTime"] = (
+            aws_sdk_dynamodb.types.date.serialize_aws_json_1_0(
+                value["backup_expiry_date_time"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> BackupDetails:
+    out: BackupDetails = {}  # type: ignore[typeddict-item]
+    if "BackupArn" in data:
+        out["backup_arn"] = data["BackupArn"]
+    else:
+        raise DeserializationError("BackupDetails.backup_arn required")
+    if "BackupName" in data:
+        out["backup_name"] = data["BackupName"]
+    else:
+        raise DeserializationError("BackupDetails.backup_name required")
+    if "BackupSizeBytes" in data:
+        out["backup_size_bytes"] = data["BackupSizeBytes"]
+    if "BackupStatus" in data:
+        import aws_sdk_dynamodb.types.backup_status
+
+        out["backup_status"] = (
+            aws_sdk_dynamodb.types.backup_status.deserialize_aws_json_1_0(
+                data["BackupStatus"]
+            )
+        )
+    else:
+        raise DeserializationError("BackupDetails.backup_status required")
+    if "BackupType" in data:
+        import aws_sdk_dynamodb.types.backup_type
+
+        out["backup_type"] = (
+            aws_sdk_dynamodb.types.backup_type.deserialize_aws_json_1_0(
+                data["BackupType"]
+            )
+        )
+    else:
+        raise DeserializationError("BackupDetails.backup_type required")
+    if "BackupCreationDateTime" in data:
+        import aws_sdk_dynamodb.types.backup_creation_date_time
+
+        out["backup_creation_date_time"] = (
+            aws_sdk_dynamodb.types.backup_creation_date_time.deserialize_aws_json_1_0(
+                data["BackupCreationDateTime"]
+            )
+        )
+    else:
+        raise DeserializationError("BackupDetails.backup_creation_date_time required")
+    if "BackupExpiryDateTime" in data:
+        import aws_sdk_dynamodb.types.date
+
+        out["backup_expiry_date_time"] = (
+            aws_sdk_dynamodb.types.date.deserialize_aws_json_1_0(
+                data["BackupExpiryDateTime"]
+            )
+        )
+    return out

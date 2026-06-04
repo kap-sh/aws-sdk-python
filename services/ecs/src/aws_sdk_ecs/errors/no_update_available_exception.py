@@ -13,6 +13,21 @@ class NoUpdateAvailableException_(TypedDict):
     """<p> Message that describes the cause of the exception.</p>"""
 
 
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: NoUpdateAvailableException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> NoUpdateAvailableException_:
+    out: NoUpdateAvailableException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class NoUpdateAvailableException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.ecs#NoUpdateAvailableException``."""
 
@@ -26,3 +41,7 @@ class NoUpdateAvailableException(ServiceError):
             code="NoUpdateAvailableException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "NoUpdateAvailableException":
+        return cls(deserialize_aws_json_1_1(data))

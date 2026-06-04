@@ -13,3 +13,30 @@ class ClusterSetting(TypedDict):
     """<p>The name of the cluster setting. The value is <code>containerInsights</code>.</p>"""
     value: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The value to set for the cluster setting. The supported values are <code>enhanced</code>, <code>enabled</code>, and <code>disabled</code>. </p> <p>To use Container Insights with enhanced observability, set the <code>containerInsights</code> account setting to <code>enhanced</code>.</p> <p>To use Container Insights, set the <code>containerInsights</code> account setting to <code>enabled</code>.</p> <p>If a cluster value is specified, it will override the <code>containerInsights</code> value set with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html\">PutAccountSetting</a> or <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html\">PutAccountSettingDefault</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ClusterSetting) -> dict:
+    out: dict = {}
+    if "name" in value:
+        import aws_sdk_ecs.types.cluster_setting_name
+
+        out["name"] = aws_sdk_ecs.types.cluster_setting_name.serialize_aws_json_1_1(
+            value["name"]
+        )
+    if "value" in value:
+        out["value"] = value["value"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ClusterSetting:
+    out: ClusterSetting = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        import aws_sdk_ecs.types.cluster_setting_name
+
+        out["name"] = aws_sdk_ecs.types.cluster_setting_name.deserialize_aws_json_1_1(
+            data["name"]
+        )
+    if "value" in data:
+        out["value"] = data["value"]
+    return out

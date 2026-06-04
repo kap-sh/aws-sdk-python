@@ -22,3 +22,47 @@ class ExecuteCommandResponse(TypedDict):
     """<p>The details of the SSM session that was created for this instance of execute-command.</p>"""
     task_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the task.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExecuteCommandResponse) -> dict:
+    out: dict = {}
+    if "cluster_arn" in value:
+        out["clusterArn"] = value["cluster_arn"]
+    if "container_arn" in value:
+        out["containerArn"] = value["container_arn"]
+    if "container_name" in value:
+        out["containerName"] = value["container_name"]
+    out["interactive"] = value.get("interactive", False)
+    if "session" in value:
+        import aws_sdk_ecs.types.session
+
+        out["session"] = aws_sdk_ecs.types.session.serialize_aws_json_1_1(
+            value["session"]
+        )
+    if "task_arn" in value:
+        out["taskArn"] = value["task_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandResponse:
+    out: ExecuteCommandResponse = {}  # type: ignore[typeddict-item]
+    if "clusterArn" in data:
+        out["cluster_arn"] = data["clusterArn"]
+    if "containerArn" in data:
+        out["container_arn"] = data["containerArn"]
+    if "containerName" in data:
+        out["container_name"] = data["containerName"]
+    if "interactive" in data:
+        out["interactive"] = data["interactive"]
+    else:
+        out["interactive"] = False
+    if "session" in data:
+        import aws_sdk_ecs.types.session
+
+        out["session"] = aws_sdk_ecs.types.session.deserialize_aws_json_1_1(
+            data["session"]
+        )
+    if "taskArn" in data:
+        out["task_arn"] = data["taskArn"]
+    return out

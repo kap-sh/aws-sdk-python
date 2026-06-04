@@ -15,3 +15,34 @@ class UpdateGlobalTableSettingsOutput(TypedDict):
         "aws_sdk_dynamodb.types.replica_settings_description_list.ReplicaSettingsDescriptionList"
     ]
     """<p>The Region-specific settings for the global table.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateGlobalTableSettingsOutput) -> dict:
+    out: dict = {}
+    if "global_table_name" in value:
+        out["GlobalTableName"] = value["global_table_name"]
+    if "replica_settings" in value:
+        import aws_sdk_dynamodb.types.replica_settings_description_list
+
+        out["ReplicaSettings"] = (
+            aws_sdk_dynamodb.types.replica_settings_description_list.serialize_aws_json_1_0(
+                value["replica_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsOutput:
+    out: UpdateGlobalTableSettingsOutput = {}  # type: ignore[typeddict-item]
+    if "GlobalTableName" in data:
+        out["global_table_name"] = data["GlobalTableName"]
+    if "ReplicaSettings" in data:
+        import aws_sdk_dynamodb.types.replica_settings_description_list
+
+        out["replica_settings"] = (
+            aws_sdk_dynamodb.types.replica_settings_description_list.deserialize_aws_json_1_0(
+                data["ReplicaSettings"]
+            )
+        )
+    return out

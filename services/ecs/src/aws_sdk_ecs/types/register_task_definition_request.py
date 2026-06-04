@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -69,3 +70,210 @@ class RegisterTaskDefinitionRequest(TypedDict):
     """<p>The operating system that your tasks definitions run on.</p>"""
     enable_fault_injection: NotRequired["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"]
     """<p>Enables fault injection when you register your task definition and allows for fault injection requests to be accepted from the task's containers. The default value is <code>false</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RegisterTaskDefinitionRequest) -> dict:
+    out: dict = {}
+    out["family"] = value["family"]
+    if "task_role_arn" in value:
+        out["taskRoleArn"] = value["task_role_arn"]
+    if "execution_role_arn" in value:
+        out["executionRoleArn"] = value["execution_role_arn"]
+    if "network_mode" in value:
+        import aws_sdk_ecs.types.network_mode
+
+        out["networkMode"] = aws_sdk_ecs.types.network_mode.serialize_aws_json_1_1(
+            value["network_mode"]
+        )
+    import aws_sdk_ecs.types.container_definitions
+
+    out["containerDefinitions"] = (
+        aws_sdk_ecs.types.container_definitions.serialize_aws_json_1_1(
+            value["container_definitions"]
+        )
+    )
+    if "volumes" in value:
+        import aws_sdk_ecs.types.volume_list
+
+        out["volumes"] = aws_sdk_ecs.types.volume_list.serialize_aws_json_1_1(
+            value["volumes"]
+        )
+    if "placement_constraints" in value:
+        import aws_sdk_ecs.types.task_definition_placement_constraints
+
+        out["placementConstraints"] = (
+            aws_sdk_ecs.types.task_definition_placement_constraints.serialize_aws_json_1_1(
+                value["placement_constraints"]
+            )
+        )
+    if "requires_compatibilities" in value:
+        import aws_sdk_ecs.types.compatibility_list
+
+        out["requiresCompatibilities"] = (
+            aws_sdk_ecs.types.compatibility_list.serialize_aws_json_1_1(
+                value["requires_compatibilities"]
+            )
+        )
+    if "cpu" in value:
+        out["cpu"] = value["cpu"]
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "pid_mode" in value:
+        import aws_sdk_ecs.types.pid_mode
+
+        out["pidMode"] = aws_sdk_ecs.types.pid_mode.serialize_aws_json_1_1(
+            value["pid_mode"]
+        )
+    if "ipc_mode" in value:
+        import aws_sdk_ecs.types.ipc_mode
+
+        out["ipcMode"] = aws_sdk_ecs.types.ipc_mode.serialize_aws_json_1_1(
+            value["ipc_mode"]
+        )
+    if "proxy_configuration" in value:
+        import aws_sdk_ecs.types.proxy_configuration
+
+        out["proxyConfiguration"] = (
+            aws_sdk_ecs.types.proxy_configuration.serialize_aws_json_1_1(
+                value["proxy_configuration"]
+            )
+        )
+    if "inference_accelerators" in value:
+        import aws_sdk_ecs.types.inference_accelerators
+
+        out["inferenceAccelerators"] = (
+            aws_sdk_ecs.types.inference_accelerators.serialize_aws_json_1_1(
+                value["inference_accelerators"]
+            )
+        )
+    if "ephemeral_storage" in value:
+        import aws_sdk_ecs.types.ephemeral_storage
+
+        out["ephemeralStorage"] = (
+            aws_sdk_ecs.types.ephemeral_storage.serialize_aws_json_1_1(
+                value["ephemeral_storage"]
+            )
+        )
+    if "runtime_platform" in value:
+        import aws_sdk_ecs.types.runtime_platform
+
+        out["runtimePlatform"] = (
+            aws_sdk_ecs.types.runtime_platform.serialize_aws_json_1_1(
+                value["runtime_platform"]
+            )
+        )
+    if "enable_fault_injection" in value:
+        out["enableFaultInjection"] = value["enable_fault_injection"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
+    out: RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+    if "family" in data:
+        out["family"] = data["family"]
+    else:
+        raise DeserializationError("RegisterTaskDefinitionRequest.family required")
+    if "taskRoleArn" in data:
+        out["task_role_arn"] = data["taskRoleArn"]
+    if "executionRoleArn" in data:
+        out["execution_role_arn"] = data["executionRoleArn"]
+    if "networkMode" in data:
+        import aws_sdk_ecs.types.network_mode
+
+        out["network_mode"] = aws_sdk_ecs.types.network_mode.deserialize_aws_json_1_1(
+            data["networkMode"]
+        )
+    if "containerDefinitions" in data:
+        import aws_sdk_ecs.types.container_definitions
+
+        out["container_definitions"] = (
+            aws_sdk_ecs.types.container_definitions.deserialize_aws_json_1_1(
+                data["containerDefinitions"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "RegisterTaskDefinitionRequest.container_definitions required"
+        )
+    if "volumes" in data:
+        import aws_sdk_ecs.types.volume_list
+
+        out["volumes"] = aws_sdk_ecs.types.volume_list.deserialize_aws_json_1_1(
+            data["volumes"]
+        )
+    if "placementConstraints" in data:
+        import aws_sdk_ecs.types.task_definition_placement_constraints
+
+        out["placement_constraints"] = (
+            aws_sdk_ecs.types.task_definition_placement_constraints.deserialize_aws_json_1_1(
+                data["placementConstraints"]
+            )
+        )
+    if "requiresCompatibilities" in data:
+        import aws_sdk_ecs.types.compatibility_list
+
+        out["requires_compatibilities"] = (
+            aws_sdk_ecs.types.compatibility_list.deserialize_aws_json_1_1(
+                data["requiresCompatibilities"]
+            )
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "pidMode" in data:
+        import aws_sdk_ecs.types.pid_mode
+
+        out["pid_mode"] = aws_sdk_ecs.types.pid_mode.deserialize_aws_json_1_1(
+            data["pidMode"]
+        )
+    if "ipcMode" in data:
+        import aws_sdk_ecs.types.ipc_mode
+
+        out["ipc_mode"] = aws_sdk_ecs.types.ipc_mode.deserialize_aws_json_1_1(
+            data["ipcMode"]
+        )
+    if "proxyConfiguration" in data:
+        import aws_sdk_ecs.types.proxy_configuration
+
+        out["proxy_configuration"] = (
+            aws_sdk_ecs.types.proxy_configuration.deserialize_aws_json_1_1(
+                data["proxyConfiguration"]
+            )
+        )
+    if "inferenceAccelerators" in data:
+        import aws_sdk_ecs.types.inference_accelerators
+
+        out["inference_accelerators"] = (
+            aws_sdk_ecs.types.inference_accelerators.deserialize_aws_json_1_1(
+                data["inferenceAccelerators"]
+            )
+        )
+    if "ephemeralStorage" in data:
+        import aws_sdk_ecs.types.ephemeral_storage
+
+        out["ephemeral_storage"] = (
+            aws_sdk_ecs.types.ephemeral_storage.deserialize_aws_json_1_1(
+                data["ephemeralStorage"]
+            )
+        )
+    if "runtimePlatform" in data:
+        import aws_sdk_ecs.types.runtime_platform
+
+        out["runtime_platform"] = (
+            aws_sdk_ecs.types.runtime_platform.deserialize_aws_json_1_1(
+                data["runtimePlatform"]
+            )
+        )
+    if "enableFaultInjection" in data:
+        out["enable_fault_injection"] = data["enableFaultInjection"]
+    return out

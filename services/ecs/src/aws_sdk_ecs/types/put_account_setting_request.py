@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.setting_name
@@ -15,3 +16,34 @@ class PutAccountSettingRequest(TypedDict):
     """<p>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>, <code>disabled</code>, <code>enhanced</code>, <code>on</code>, and <code>off</code>.</p> <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the <code>name</code>, the following are the valid values:</p> <ul> <li> <p> <code>0</code> - Amazon Web Services sends the notification, and immediately retires the affected tasks.</p> </li> <li> <p> <code>7</code> - Amazon Web Services sends the notification, and waits 7 calendar days to retire the tasks.</p> </li> <li> <p> <code>14</code> - Amazon Web Services sends the notification, and waits 14 calendar days to retire the tasks.</p> </li> </ul>"""
     principal_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the principal, which can be a user, role, or the root user. If you specify the root user, it modifies the account setting for all users, roles, and the root user of the account unless a user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.</p> <p>In order to use this parameter, you must be the root user, or the principal.</p> <note> <p>You must use the root user when you set the Fargate wait time (<code>fargateTaskRetirementWaitPeriod</code>). </p> <p>Federated users assume the account setting of the root user and can't have explicit account settings set for them.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutAccountSettingRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_ecs.types.setting_name
+
+    out["name"] = aws_sdk_ecs.types.setting_name.serialize_aws_json_1_1(value["name"])
+    out["value"] = value["value"]
+    if "principal_arn" in value:
+        out["principalArn"] = value["principal_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutAccountSettingRequest:
+    out: PutAccountSettingRequest = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        import aws_sdk_ecs.types.setting_name
+
+        out["name"] = aws_sdk_ecs.types.setting_name.deserialize_aws_json_1_1(
+            data["name"]
+        )
+    else:
+        raise DeserializationError("PutAccountSettingRequest.name required")
+    if "value" in data:
+        out["value"] = data["value"]
+    else:
+        raise DeserializationError("PutAccountSettingRequest.value required")
+    if "principalArn" in data:
+        out["principal_arn"] = data["principalArn"]
+    return out

@@ -15,3 +15,44 @@ class BillingModeSummary(TypedDict):
         "aws_sdk_dynamodb.types.date.Date"
     ]
     """<p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BillingModeSummary) -> dict:
+    out: dict = {}
+    if "billing_mode" in value:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["BillingMode"] = aws_sdk_dynamodb.types.billing_mode.serialize_aws_json_1_0(
+            value["billing_mode"]
+        )
+    if "last_update_to_pay_per_request_date_time" in value:
+        import aws_sdk_dynamodb.types.date
+
+        out["LastUpdateToPayPerRequestDateTime"] = (
+            aws_sdk_dynamodb.types.date.serialize_aws_json_1_0(
+                value["last_update_to_pay_per_request_date_time"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> BillingModeSummary:
+    out: BillingModeSummary = {}  # type: ignore[typeddict-item]
+    if "BillingMode" in data:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["billing_mode"] = (
+            aws_sdk_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
+                data["BillingMode"]
+            )
+        )
+    if "LastUpdateToPayPerRequestDateTime" in data:
+        import aws_sdk_dynamodb.types.date
+
+        out["last_update_to_pay_per_request_date_time"] = (
+            aws_sdk_dynamodb.types.date.deserialize_aws_json_1_0(
+                data["LastUpdateToPayPerRequestDateTime"]
+            )
+        )
+    return out

@@ -27,3 +27,71 @@ class ServiceConnectConfiguration(TypedDict):
         "aws_sdk_ecs.types.service_connect_access_log_configuration.ServiceConnectAccessLogConfiguration"
     ]
     """<p>The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.</p> <note> <p>To enable access logs, you must also specify a <code>logConfiguration</code> in the <code>serviceConnectConfiguration</code>.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceConnectConfiguration) -> dict:
+    out: dict = {}
+    out["enabled"] = value.get("enabled", False)
+    if "namespace" in value:
+        out["namespace"] = value["namespace"]
+    if "services" in value:
+        import aws_sdk_ecs.types.service_connect_service_list
+
+        out["services"] = (
+            aws_sdk_ecs.types.service_connect_service_list.serialize_aws_json_1_1(
+                value["services"]
+            )
+        )
+    if "log_configuration" in value:
+        import aws_sdk_ecs.types.log_configuration
+
+        out["logConfiguration"] = (
+            aws_sdk_ecs.types.log_configuration.serialize_aws_json_1_1(
+                value["log_configuration"]
+            )
+        )
+    if "access_log_configuration" in value:
+        import aws_sdk_ecs.types.service_connect_access_log_configuration
+
+        out["accessLogConfiguration"] = (
+            aws_sdk_ecs.types.service_connect_access_log_configuration.serialize_aws_json_1_1(
+                value["access_log_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceConnectConfiguration:
+    out: ServiceConnectConfiguration = {}  # type: ignore[typeddict-item]
+    if "enabled" in data:
+        out["enabled"] = data["enabled"]
+    else:
+        out["enabled"] = False
+    if "namespace" in data:
+        out["namespace"] = data["namespace"]
+    if "services" in data:
+        import aws_sdk_ecs.types.service_connect_service_list
+
+        out["services"] = (
+            aws_sdk_ecs.types.service_connect_service_list.deserialize_aws_json_1_1(
+                data["services"]
+            )
+        )
+    if "logConfiguration" in data:
+        import aws_sdk_ecs.types.log_configuration
+
+        out["log_configuration"] = (
+            aws_sdk_ecs.types.log_configuration.deserialize_aws_json_1_1(
+                data["logConfiguration"]
+            )
+        )
+    if "accessLogConfiguration" in data:
+        import aws_sdk_ecs.types.service_connect_access_log_configuration
+
+        out["access_log_configuration"] = (
+            aws_sdk_ecs.types.service_connect_access_log_configuration.deserialize_aws_json_1_1(
+                data["accessLogConfiguration"]
+            )
+        )
+    return out

@@ -22,3 +22,62 @@ class BatchWriteItemOutput(TypedDict):
         "aws_sdk_dynamodb.types.consumed_capacity_multiple.ConsumedCapacityMultiple"
     ]
     """<p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p> <p>Each element consists of:</p> <ul> <li> <p> <code>TableName</code> - The table that consumed the provisioned throughput.</p> </li> <li> <p> <code>CapacityUnits</code> - The total number of capacity units consumed.</p> </li> </ul>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BatchWriteItemOutput) -> dict:
+    out: dict = {}
+    if "unprocessed_items" in value:
+        import aws_sdk_dynamodb.types.batch_write_item_request_map
+
+        out["UnprocessedItems"] = (
+            aws_sdk_dynamodb.types.batch_write_item_request_map.serialize_aws_json_1_0(
+                value["unprocessed_items"]
+            )
+        )
+    if "item_collection_metrics" in value:
+        import aws_sdk_dynamodb.types.item_collection_metrics_per_table
+
+        out["ItemCollectionMetrics"] = (
+            aws_sdk_dynamodb.types.item_collection_metrics_per_table.serialize_aws_json_1_0(
+                value["item_collection_metrics"]
+            )
+        )
+    if "consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.consumed_capacity_multiple
+
+        out["ConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.consumed_capacity_multiple.serialize_aws_json_1_0(
+                value["consumed_capacity"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> BatchWriteItemOutput:
+    out: BatchWriteItemOutput = {}  # type: ignore[typeddict-item]
+    if "UnprocessedItems" in data:
+        import aws_sdk_dynamodb.types.batch_write_item_request_map
+
+        out["unprocessed_items"] = (
+            aws_sdk_dynamodb.types.batch_write_item_request_map.deserialize_aws_json_1_0(
+                data["UnprocessedItems"]
+            )
+        )
+    if "ItemCollectionMetrics" in data:
+        import aws_sdk_dynamodb.types.item_collection_metrics_per_table
+
+        out["item_collection_metrics"] = (
+            aws_sdk_dynamodb.types.item_collection_metrics_per_table.deserialize_aws_json_1_0(
+                data["ItemCollectionMetrics"]
+            )
+        )
+    if "ConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.consumed_capacity_multiple
+
+        out["consumed_capacity"] = (
+            aws_sdk_dynamodb.types.consumed_capacity_multiple.deserialize_aws_json_1_0(
+                data["ConsumedCapacity"]
+            )
+        )
+    return out

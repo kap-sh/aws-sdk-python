@@ -20,3 +20,62 @@ class IncrementalExportSpecification(TypedDict):
         "aws_sdk_dynamodb.types.export_view_type.ExportViewType"
     ]
     """<p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: IncrementalExportSpecification) -> dict:
+    out: dict = {}
+    if "export_from_time" in value:
+        import aws_sdk_dynamodb.types.export_from_time
+
+        out["ExportFromTime"] = (
+            aws_sdk_dynamodb.types.export_from_time.serialize_aws_json_1_0(
+                value["export_from_time"]
+            )
+        )
+    if "export_to_time" in value:
+        import aws_sdk_dynamodb.types.export_to_time
+
+        out["ExportToTime"] = (
+            aws_sdk_dynamodb.types.export_to_time.serialize_aws_json_1_0(
+                value["export_to_time"]
+            )
+        )
+    if "export_view_type" in value:
+        import aws_sdk_dynamodb.types.export_view_type
+
+        out["ExportViewType"] = (
+            aws_sdk_dynamodb.types.export_view_type.serialize_aws_json_1_0(
+                value["export_view_type"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> IncrementalExportSpecification:
+    out: IncrementalExportSpecification = {}  # type: ignore[typeddict-item]
+    if "ExportFromTime" in data:
+        import aws_sdk_dynamodb.types.export_from_time
+
+        out["export_from_time"] = (
+            aws_sdk_dynamodb.types.export_from_time.deserialize_aws_json_1_0(
+                data["ExportFromTime"]
+            )
+        )
+    if "ExportToTime" in data:
+        import aws_sdk_dynamodb.types.export_to_time
+
+        out["export_to_time"] = (
+            aws_sdk_dynamodb.types.export_to_time.deserialize_aws_json_1_0(
+                data["ExportToTime"]
+            )
+        )
+    if "ExportViewType" in data:
+        import aws_sdk_dynamodb.types.export_view_type
+
+        out["export_view_type"] = (
+            aws_sdk_dynamodb.types.export_view_type.deserialize_aws_json_1_0(
+                data["ExportViewType"]
+            )
+        )
+    return out

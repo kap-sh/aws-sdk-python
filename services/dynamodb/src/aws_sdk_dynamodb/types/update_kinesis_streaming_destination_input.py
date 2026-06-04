@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.stream_arn
@@ -18,3 +19,44 @@ class UpdateKinesisStreamingDestinationInput(TypedDict):
         "aws_sdk_dynamodb.types.update_kinesis_streaming_configuration.UpdateKinesisStreamingConfiguration"
     ]
     """<p>The command to update the Kinesis stream configuration.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateKinesisStreamingDestinationInput) -> dict:
+    out: dict = {}
+    out["TableName"] = value["table_name"]
+    out["StreamArn"] = value["stream_arn"]
+    if "update_kinesis_streaming_configuration" in value:
+        import aws_sdk_dynamodb.types.update_kinesis_streaming_configuration
+
+        out["UpdateKinesisStreamingConfiguration"] = (
+            aws_sdk_dynamodb.types.update_kinesis_streaming_configuration.serialize_aws_json_1_0(
+                value["update_kinesis_streaming_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateKinesisStreamingDestinationInput:
+    out: UpdateKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError(
+            "UpdateKinesisStreamingDestinationInput.table_name required"
+        )
+    if "StreamArn" in data:
+        out["stream_arn"] = data["StreamArn"]
+    else:
+        raise DeserializationError(
+            "UpdateKinesisStreamingDestinationInput.stream_arn required"
+        )
+    if "UpdateKinesisStreamingConfiguration" in data:
+        import aws_sdk_dynamodb.types.update_kinesis_streaming_configuration
+
+        out["update_kinesis_streaming_configuration"] = (
+            aws_sdk_dynamodb.types.update_kinesis_streaming_configuration.deserialize_aws_json_1_0(
+                data["UpdateKinesisStreamingConfiguration"]
+            )
+        )
+    return out

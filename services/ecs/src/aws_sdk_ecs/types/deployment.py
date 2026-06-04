@@ -77,3 +77,222 @@ class Deployment(TypedDict):
         "aws_sdk_ecs.types.vpc_lattice_configurations.VpcLatticeConfigurations"
     ]
     """<p>The VPC Lattice configuration for the service deployment.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Deployment) -> dict:
+    out: dict = {}
+    if "id" in value:
+        out["id"] = value["id"]
+    if "status" in value:
+        out["status"] = value["status"]
+    if "task_definition" in value:
+        out["taskDefinition"] = value["task_definition"]
+    out["desiredCount"] = value.get("desired_count", 0)
+    out["pendingCount"] = value.get("pending_count", 0)
+    out["runningCount"] = value.get("running_count", 0)
+    out["failedTasks"] = value.get("failed_tasks", 0)
+    if "created_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["createdAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["created_at"]
+        )
+    if "updated_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["updatedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["updated_at"]
+        )
+    if "capacity_provider_strategy" in value:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacityProviderStrategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.serialize_aws_json_1_1(
+                value["capacity_provider_strategy"]
+            )
+        )
+    if "launch_type" in value:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launchType"] = aws_sdk_ecs.types.launch_type.serialize_aws_json_1_1(
+            value["launch_type"]
+        )
+    if "platform_version" in value:
+        out["platformVersion"] = value["platform_version"]
+    if "platform_family" in value:
+        out["platformFamily"] = value["platform_family"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "rollout_state" in value:
+        import aws_sdk_ecs.types.deployment_rollout_state
+
+        out["rolloutState"] = (
+            aws_sdk_ecs.types.deployment_rollout_state.serialize_aws_json_1_1(
+                value["rollout_state"]
+            )
+        )
+    if "rollout_state_reason" in value:
+        out["rolloutStateReason"] = value["rollout_state_reason"]
+    if "service_connect_configuration" in value:
+        import aws_sdk_ecs.types.service_connect_configuration
+
+        out["serviceConnectConfiguration"] = (
+            aws_sdk_ecs.types.service_connect_configuration.serialize_aws_json_1_1(
+                value["service_connect_configuration"]
+            )
+        )
+    if "service_connect_resources" in value:
+        import aws_sdk_ecs.types.service_connect_service_resource_list
+
+        out["serviceConnectResources"] = (
+            aws_sdk_ecs.types.service_connect_service_resource_list.serialize_aws_json_1_1(
+                value["service_connect_resources"]
+            )
+        )
+    if "volume_configurations" in value:
+        import aws_sdk_ecs.types.service_volume_configurations
+
+        out["volumeConfigurations"] = (
+            aws_sdk_ecs.types.service_volume_configurations.serialize_aws_json_1_1(
+                value["volume_configurations"]
+            )
+        )
+    if "fargate_ephemeral_storage" in value:
+        import aws_sdk_ecs.types.deployment_ephemeral_storage
+
+        out["fargateEphemeralStorage"] = (
+            aws_sdk_ecs.types.deployment_ephemeral_storage.serialize_aws_json_1_1(
+                value["fargate_ephemeral_storage"]
+            )
+        )
+    if "vpc_lattice_configurations" in value:
+        import aws_sdk_ecs.types.vpc_lattice_configurations
+
+        out["vpcLatticeConfigurations"] = (
+            aws_sdk_ecs.types.vpc_lattice_configurations.serialize_aws_json_1_1(
+                value["vpc_lattice_configurations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Deployment:
+    out: Deployment = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "status" in data:
+        out["status"] = data["status"]
+    if "taskDefinition" in data:
+        out["task_definition"] = data["taskDefinition"]
+    if "desiredCount" in data:
+        out["desired_count"] = data["desiredCount"]
+    else:
+        out["desired_count"] = 0
+    if "pendingCount" in data:
+        out["pending_count"] = data["pendingCount"]
+    else:
+        out["pending_count"] = 0
+    if "runningCount" in data:
+        out["running_count"] = data["runningCount"]
+    else:
+        out["running_count"] = 0
+    if "failedTasks" in data:
+        out["failed_tasks"] = data["failedTasks"]
+    else:
+        out["failed_tasks"] = 0
+    if "createdAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["created_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["createdAt"]
+        )
+    if "updatedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["updated_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["updatedAt"]
+        )
+    if "capacityProviderStrategy" in data:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacity_provider_strategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.deserialize_aws_json_1_1(
+                data["capacityProviderStrategy"]
+            )
+        )
+    if "launchType" in data:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launch_type"] = aws_sdk_ecs.types.launch_type.deserialize_aws_json_1_1(
+            data["launchType"]
+        )
+    if "platformVersion" in data:
+        out["platform_version"] = data["platformVersion"]
+    if "platformFamily" in data:
+        out["platform_family"] = data["platformFamily"]
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "rolloutState" in data:
+        import aws_sdk_ecs.types.deployment_rollout_state
+
+        out["rollout_state"] = (
+            aws_sdk_ecs.types.deployment_rollout_state.deserialize_aws_json_1_1(
+                data["rolloutState"]
+            )
+        )
+    if "rolloutStateReason" in data:
+        out["rollout_state_reason"] = data["rolloutStateReason"]
+    if "serviceConnectConfiguration" in data:
+        import aws_sdk_ecs.types.service_connect_configuration
+
+        out["service_connect_configuration"] = (
+            aws_sdk_ecs.types.service_connect_configuration.deserialize_aws_json_1_1(
+                data["serviceConnectConfiguration"]
+            )
+        )
+    if "serviceConnectResources" in data:
+        import aws_sdk_ecs.types.service_connect_service_resource_list
+
+        out["service_connect_resources"] = (
+            aws_sdk_ecs.types.service_connect_service_resource_list.deserialize_aws_json_1_1(
+                data["serviceConnectResources"]
+            )
+        )
+    if "volumeConfigurations" in data:
+        import aws_sdk_ecs.types.service_volume_configurations
+
+        out["volume_configurations"] = (
+            aws_sdk_ecs.types.service_volume_configurations.deserialize_aws_json_1_1(
+                data["volumeConfigurations"]
+            )
+        )
+    if "fargateEphemeralStorage" in data:
+        import aws_sdk_ecs.types.deployment_ephemeral_storage
+
+        out["fargate_ephemeral_storage"] = (
+            aws_sdk_ecs.types.deployment_ephemeral_storage.deserialize_aws_json_1_1(
+                data["fargateEphemeralStorage"]
+            )
+        )
+    if "vpcLatticeConfigurations" in data:
+        import aws_sdk_ecs.types.vpc_lattice_configurations
+
+        out["vpc_lattice_configurations"] = (
+            aws_sdk_ecs.types.vpc_lattice_configurations.deserialize_aws_json_1_1(
+                data["vpcLatticeConfigurations"]
+            )
+        )
+    return out

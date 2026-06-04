@@ -21,3 +21,58 @@ class DaemonLinuxParameters(TypedDict):
     """<p>Run an <code>init</code> process inside the container that forwards signals and reaps processes.</p>"""
     tmpfs: NotRequired["aws_sdk_ecs.types.tmpfs_list.TmpfsList"]
     """<p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DaemonLinuxParameters) -> dict:
+    out: dict = {}
+    if "capabilities" in value:
+        import aws_sdk_ecs.types.kernel_capabilities
+
+        out["capabilities"] = (
+            aws_sdk_ecs.types.kernel_capabilities.serialize_aws_json_1_1(
+                value["capabilities"]
+            )
+        )
+    if "devices" in value:
+        import aws_sdk_ecs.types.devices_list
+
+        out["devices"] = aws_sdk_ecs.types.devices_list.serialize_aws_json_1_1(
+            value["devices"]
+        )
+    if "init_process_enabled" in value:
+        out["initProcessEnabled"] = value["init_process_enabled"]
+    if "tmpfs" in value:
+        import aws_sdk_ecs.types.tmpfs_list
+
+        out["tmpfs"] = aws_sdk_ecs.types.tmpfs_list.serialize_aws_json_1_1(
+            value["tmpfs"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DaemonLinuxParameters:
+    out: DaemonLinuxParameters = {}  # type: ignore[typeddict-item]
+    if "capabilities" in data:
+        import aws_sdk_ecs.types.kernel_capabilities
+
+        out["capabilities"] = (
+            aws_sdk_ecs.types.kernel_capabilities.deserialize_aws_json_1_1(
+                data["capabilities"]
+            )
+        )
+    if "devices" in data:
+        import aws_sdk_ecs.types.devices_list
+
+        out["devices"] = aws_sdk_ecs.types.devices_list.deserialize_aws_json_1_1(
+            data["devices"]
+        )
+    if "initProcessEnabled" in data:
+        out["init_process_enabled"] = data["initProcessEnabled"]
+    if "tmpfs" in data:
+        import aws_sdk_ecs.types.tmpfs_list
+
+        out["tmpfs"] = aws_sdk_ecs.types.tmpfs_list.deserialize_aws_json_1_1(
+            data["tmpfs"]
+        )
+    return out

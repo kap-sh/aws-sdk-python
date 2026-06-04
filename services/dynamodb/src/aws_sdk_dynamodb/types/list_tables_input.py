@@ -17,3 +17,22 @@ class ListTablesInput(TypedDict):
         "aws_sdk_dynamodb.types.list_tables_input_limit.ListTablesInputLimit"
     ]
     """<p>A maximum number of table names to return. If this parameter is not specified, the limit is 100.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListTablesInput) -> dict:
+    out: dict = {}
+    if "exclusive_start_table_name" in value:
+        out["ExclusiveStartTableName"] = value["exclusive_start_table_name"]
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListTablesInput:
+    out: ListTablesInput = {}  # type: ignore[typeddict-item]
+    if "ExclusiveStartTableName" in data:
+        out["exclusive_start_table_name"] = data["ExclusiveStartTableName"]
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -34,3 +35,95 @@ class ExpressGatewayContainer(TypedDict):
     """<p>The environment variables to pass to the container.</p>"""
     secrets: NotRequired["aws_sdk_ecs.types.secret_list.SecretList"]
     """<p>The secrets to pass to the container.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExpressGatewayContainer) -> dict:
+    out: dict = {}
+    out["image"] = value["image"]
+    if "container_port" in value:
+        out["containerPort"] = value["container_port"]
+    if "aws_logs_configuration" in value:
+        import aws_sdk_ecs.types.express_gateway_service_aws_logs_configuration
+
+        out["awsLogsConfiguration"] = (
+            aws_sdk_ecs.types.express_gateway_service_aws_logs_configuration.serialize_aws_json_1_1(
+                value["aws_logs_configuration"]
+            )
+        )
+    if "repository_credentials" in value:
+        import aws_sdk_ecs.types.express_gateway_repository_credentials
+
+        out["repositoryCredentials"] = (
+            aws_sdk_ecs.types.express_gateway_repository_credentials.serialize_aws_json_1_1(
+                value["repository_credentials"]
+            )
+        )
+    if "command" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["command"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["command"]
+        )
+    if "environment" in value:
+        import aws_sdk_ecs.types.environment_variables
+
+        out["environment"] = (
+            aws_sdk_ecs.types.environment_variables.serialize_aws_json_1_1(
+                value["environment"]
+            )
+        )
+    if "secrets" in value:
+        import aws_sdk_ecs.types.secret_list
+
+        out["secrets"] = aws_sdk_ecs.types.secret_list.serialize_aws_json_1_1(
+            value["secrets"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayContainer:
+    out: ExpressGatewayContainer = {}  # type: ignore[typeddict-item]
+    if "image" in data:
+        out["image"] = data["image"]
+    else:
+        raise DeserializationError("ExpressGatewayContainer.image required")
+    if "containerPort" in data:
+        out["container_port"] = data["containerPort"]
+    if "awsLogsConfiguration" in data:
+        import aws_sdk_ecs.types.express_gateway_service_aws_logs_configuration
+
+        out["aws_logs_configuration"] = (
+            aws_sdk_ecs.types.express_gateway_service_aws_logs_configuration.deserialize_aws_json_1_1(
+                data["awsLogsConfiguration"]
+            )
+        )
+    if "repositoryCredentials" in data:
+        import aws_sdk_ecs.types.express_gateway_repository_credentials
+
+        out["repository_credentials"] = (
+            aws_sdk_ecs.types.express_gateway_repository_credentials.deserialize_aws_json_1_1(
+                data["repositoryCredentials"]
+            )
+        )
+    if "command" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["command"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["command"]
+        )
+    if "environment" in data:
+        import aws_sdk_ecs.types.environment_variables
+
+        out["environment"] = (
+            aws_sdk_ecs.types.environment_variables.deserialize_aws_json_1_1(
+                data["environment"]
+            )
+        )
+    if "secrets" in data:
+        import aws_sdk_ecs.types.secret_list
+
+        out["secrets"] = aws_sdk_ecs.types.secret_list.deserialize_aws_json_1_1(
+            data["secrets"]
+        )
+    return out

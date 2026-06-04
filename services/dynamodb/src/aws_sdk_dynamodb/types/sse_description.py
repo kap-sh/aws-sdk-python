@@ -21,3 +21,58 @@ class SSEDescription(TypedDict):
     """<p>The KMS key ARN used for the KMS encryption.</p>"""
     inaccessible_encryption_date_time: NotRequired["aws_sdk_dynamodb.types.date.Date"]
     """<p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's KMS key is accessible again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: SSEDescription) -> dict:
+    out: dict = {}
+    if "status" in value:
+        import aws_sdk_dynamodb.types.sse_status
+
+        out["Status"] = aws_sdk_dynamodb.types.sse_status.serialize_aws_json_1_0(
+            value["status"]
+        )
+    if "sse_type" in value:
+        import aws_sdk_dynamodb.types.sse_type
+
+        out["SSEType"] = aws_sdk_dynamodb.types.sse_type.serialize_aws_json_1_0(
+            value["sse_type"]
+        )
+    if "kms_master_key_arn" in value:
+        out["KMSMasterKeyArn"] = value["kms_master_key_arn"]
+    if "inaccessible_encryption_date_time" in value:
+        import aws_sdk_dynamodb.types.date
+
+        out["InaccessibleEncryptionDateTime"] = (
+            aws_sdk_dynamodb.types.date.serialize_aws_json_1_0(
+                value["inaccessible_encryption_date_time"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> SSEDescription:
+    out: SSEDescription = {}  # type: ignore[typeddict-item]
+    if "Status" in data:
+        import aws_sdk_dynamodb.types.sse_status
+
+        out["status"] = aws_sdk_dynamodb.types.sse_status.deserialize_aws_json_1_0(
+            data["Status"]
+        )
+    if "SSEType" in data:
+        import aws_sdk_dynamodb.types.sse_type
+
+        out["sse_type"] = aws_sdk_dynamodb.types.sse_type.deserialize_aws_json_1_0(
+            data["SSEType"]
+        )
+    if "KMSMasterKeyArn" in data:
+        out["kms_master_key_arn"] = data["KMSMasterKeyArn"]
+    if "InaccessibleEncryptionDateTime" in data:
+        import aws_sdk_dynamodb.types.date
+
+        out["inaccessible_encryption_date_time"] = (
+            aws_sdk_dynamodb.types.date.deserialize_aws_json_1_0(
+                data["InaccessibleEncryptionDateTime"]
+            )
+        )
+    return out

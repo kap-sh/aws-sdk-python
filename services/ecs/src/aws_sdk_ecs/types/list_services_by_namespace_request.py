@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -15,3 +16,27 @@ class ListServicesByNamespaceRequest(TypedDict):
     """<p>The <code>nextToken</code> value that's returned from a <code>ListServicesByNamespace</code> request. It indicates that more results are available to fulfill the request and further calls are needed. If <code>maxResults</code> is returned, it is possible the number of results is less than <code>maxResults</code>.</p>"""
     max_results: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The maximum number of service results that <code>ListServicesByNamespace</code> returns in paginated output. When this parameter is used, <code>ListServicesByNamespace</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListServicesByNamespace</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListServicesByNamespace</code> returns up to 10 results and a <code>nextToken</code> value if applicable.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListServicesByNamespaceRequest) -> dict:
+    out: dict = {}
+    out["namespace"] = value["namespace"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListServicesByNamespaceRequest:
+    out: ListServicesByNamespaceRequest = {}  # type: ignore[typeddict-item]
+    if "namespace" in data:
+        out["namespace"] = data["namespace"]
+    else:
+        raise DeserializationError("ListServicesByNamespaceRequest.namespace required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    return out

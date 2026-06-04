@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.port_number
@@ -18,3 +19,39 @@ class ServiceConnectClientAlias(TypedDict):
         "aws_sdk_ecs.types.service_connect_test_traffic_rules.ServiceConnectTestTrafficRules"
     ]
     """<p>The configuration for test traffic routing rules used during blue/green deployments with Amazon ECS Service Connect. This allows you to route a portion of traffic to the new service revision of your service for testing before shifting all production traffic.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceConnectClientAlias) -> dict:
+    out: dict = {}
+    out["port"] = value["port"]
+    if "dns_name" in value:
+        out["dnsName"] = value["dns_name"]
+    if "test_traffic_rules" in value:
+        import aws_sdk_ecs.types.service_connect_test_traffic_rules
+
+        out["testTrafficRules"] = (
+            aws_sdk_ecs.types.service_connect_test_traffic_rules.serialize_aws_json_1_1(
+                value["test_traffic_rules"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceConnectClientAlias:
+    out: ServiceConnectClientAlias = {}  # type: ignore[typeddict-item]
+    if "port" in data:
+        out["port"] = data["port"]
+    else:
+        raise DeserializationError("ServiceConnectClientAlias.port required")
+    if "dnsName" in data:
+        out["dns_name"] = data["dnsName"]
+    if "testTrafficRules" in data:
+        import aws_sdk_ecs.types.service_connect_test_traffic_rules
+
+        out["test_traffic_rules"] = (
+            aws_sdk_ecs.types.service_connect_test_traffic_rules.deserialize_aws_json_1_1(
+                data["testTrafficRules"]
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.assign_public_ip
@@ -15,3 +16,55 @@ class AwsVpcConfiguration(TypedDict):
     """<p>The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.</p> <note> <p>All specified security groups must be from the same VPC.</p> </note>"""
     assign_public_ip: NotRequired["aws_sdk_ecs.types.assign_public_ip.AssignPublicIp"]
     """<p>Whether the task's elastic network interface receives a public IP address. </p> <p>Consider the following when you set this value:</p> <ul> <li> <p>When you use <code>create-service</code> or <code>update-service</code>, the default is <code>DISABLED</code>. </p> </li> <li> <p>When the service <code>deploymentController</code> is <code>ECS</code>, the value must be <code>DISABLED</code>. </p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AwsVpcConfiguration) -> dict:
+    out: dict = {}
+    import aws_sdk_ecs.types.string_list
+
+    out["subnets"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+        value["subnets"]
+    )
+    if "security_groups" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["securityGroups"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["security_groups"]
+        )
+    if "assign_public_ip" in value:
+        import aws_sdk_ecs.types.assign_public_ip
+
+        out["assignPublicIp"] = (
+            aws_sdk_ecs.types.assign_public_ip.serialize_aws_json_1_1(
+                value["assign_public_ip"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AwsVpcConfiguration:
+    out: AwsVpcConfiguration = {}  # type: ignore[typeddict-item]
+    if "subnets" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["subnets"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["subnets"]
+        )
+    else:
+        raise DeserializationError("AwsVpcConfiguration.subnets required")
+    if "securityGroups" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["security_groups"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["securityGroups"]
+        )
+    if "assignPublicIp" in data:
+        import aws_sdk_ecs.types.assign_public_ip
+
+        out["assign_public_ip"] = (
+            aws_sdk_ecs.types.assign_public_ip.deserialize_aws_json_1_1(
+                data["assignPublicIp"]
+            )
+        )
+    return out

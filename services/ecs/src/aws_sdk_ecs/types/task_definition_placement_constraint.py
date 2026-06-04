@@ -15,3 +15,34 @@ class TaskDefinitionPlacementConstraint(TypedDict):
     """<p>The type of constraint. The <code>MemberOf</code> constraint restricts selection to be from a group of valid candidates.</p>"""
     expression: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>A cluster query language expression to apply to the constraint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster query language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TaskDefinitionPlacementConstraint) -> dict:
+    out: dict = {}
+    if "type" in value:
+        import aws_sdk_ecs.types.task_definition_placement_constraint_type
+
+        out["type"] = (
+            aws_sdk_ecs.types.task_definition_placement_constraint_type.serialize_aws_json_1_1(
+                value["type"]
+            )
+        )
+    if "expression" in value:
+        out["expression"] = value["expression"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TaskDefinitionPlacementConstraint:
+    out: TaskDefinitionPlacementConstraint = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_ecs.types.task_definition_placement_constraint_type
+
+        out["type"] = (
+            aws_sdk_ecs.types.task_definition_placement_constraint_type.deserialize_aws_json_1_1(
+                data["type"]
+            )
+        )
+    if "expression" in data:
+        out["expression"] = data["expression"]
+    return out

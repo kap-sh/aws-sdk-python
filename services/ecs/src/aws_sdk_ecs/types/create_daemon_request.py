@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
@@ -37,3 +38,101 @@ class CreateDaemonRequest(TypedDict):
     """<p>Determines whether the execute command functionality is turned on for the daemon. If <code>true</code>, the execute command functionality is turned on for all tasks in the daemon.</p>"""
     client_token: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateDaemonRequest) -> dict:
+    out: dict = {}
+    out["daemonName"] = value["daemon_name"]
+    if "cluster_arn" in value:
+        out["clusterArn"] = value["cluster_arn"]
+    out["daemonTaskDefinitionArn"] = value["daemon_task_definition_arn"]
+    import aws_sdk_ecs.types.string_list
+
+    out["capacityProviderArns"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+        value["capacity_provider_arns"]
+    )
+    if "deployment_configuration" in value:
+        import aws_sdk_ecs.types.daemon_deployment_configuration
+
+        out["deploymentConfiguration"] = (
+            aws_sdk_ecs.types.daemon_deployment_configuration.serialize_aws_json_1_1(
+                value["deployment_configuration"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "propagate_tags" in value:
+        import aws_sdk_ecs.types.daemon_propagate_tags
+
+        out["propagateTags"] = (
+            aws_sdk_ecs.types.daemon_propagate_tags.serialize_aws_json_1_1(
+                value["propagate_tags"]
+            )
+        )
+    out["enableECSManagedTags"] = value.get("enable_ecs_managed_tags", False)
+    out["enableExecuteCommand"] = value.get("enable_execute_command", False)
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateDaemonRequest:
+    out: CreateDaemonRequest = {}  # type: ignore[typeddict-item]
+    if "daemonName" in data:
+        out["daemon_name"] = data["daemonName"]
+    else:
+        raise DeserializationError("CreateDaemonRequest.daemon_name required")
+    if "clusterArn" in data:
+        out["cluster_arn"] = data["clusterArn"]
+    if "daemonTaskDefinitionArn" in data:
+        out["daemon_task_definition_arn"] = data["daemonTaskDefinitionArn"]
+    else:
+        raise DeserializationError(
+            "CreateDaemonRequest.daemon_task_definition_arn required"
+        )
+    if "capacityProviderArns" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["capacity_provider_arns"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["capacityProviderArns"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateDaemonRequest.capacity_provider_arns required"
+        )
+    if "deploymentConfiguration" in data:
+        import aws_sdk_ecs.types.daemon_deployment_configuration
+
+        out["deployment_configuration"] = (
+            aws_sdk_ecs.types.daemon_deployment_configuration.deserialize_aws_json_1_1(
+                data["deploymentConfiguration"]
+            )
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "propagateTags" in data:
+        import aws_sdk_ecs.types.daemon_propagate_tags
+
+        out["propagate_tags"] = (
+            aws_sdk_ecs.types.daemon_propagate_tags.deserialize_aws_json_1_1(
+                data["propagateTags"]
+            )
+        )
+    if "enableECSManagedTags" in data:
+        out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
+    else:
+        out["enable_ecs_managed_tags"] = False
+    if "enableExecuteCommand" in data:
+        out["enable_execute_command"] = data["enableExecuteCommand"]
+    else:
+        out["enable_execute_command"] = False
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

@@ -29,3 +29,44 @@ class ManagedScaling(TypedDict):
         "aws_sdk_ecs.types.managed_scaling_instance_warmup_period.ManagedScalingInstanceWarmupPeriod"
     ]
     """<p>The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of <code>300</code> seconds is used.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ManagedScaling) -> dict:
+    out: dict = {}
+    if "status" in value:
+        import aws_sdk_ecs.types.managed_scaling_status
+
+        out["status"] = aws_sdk_ecs.types.managed_scaling_status.serialize_aws_json_1_1(
+            value["status"]
+        )
+    if "target_capacity" in value:
+        out["targetCapacity"] = value["target_capacity"]
+    if "minimum_scaling_step_size" in value:
+        out["minimumScalingStepSize"] = value["minimum_scaling_step_size"]
+    if "maximum_scaling_step_size" in value:
+        out["maximumScalingStepSize"] = value["maximum_scaling_step_size"]
+    if "instance_warmup_period" in value:
+        out["instanceWarmupPeriod"] = value["instance_warmup_period"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ManagedScaling:
+    out: ManagedScaling = {}  # type: ignore[typeddict-item]
+    if "status" in data:
+        import aws_sdk_ecs.types.managed_scaling_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.managed_scaling_status.deserialize_aws_json_1_1(
+                data["status"]
+            )
+        )
+    if "targetCapacity" in data:
+        out["target_capacity"] = data["targetCapacity"]
+    if "minimumScalingStepSize" in data:
+        out["minimum_scaling_step_size"] = data["minimumScalingStepSize"]
+    if "maximumScalingStepSize" in data:
+        out["maximum_scaling_step_size"] = data["maximumScalingStepSize"]
+    if "instanceWarmupPeriod" in data:
+        out["instance_warmup_period"] = data["instanceWarmupPeriod"]
+    return out

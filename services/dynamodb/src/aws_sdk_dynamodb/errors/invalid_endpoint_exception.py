@@ -12,6 +12,21 @@ class InvalidEndpointException_(TypedDict):
     message: NotRequired["aws_sdk_dynamodb.types.string.String"]
 
 
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: InvalidEndpointException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> InvalidEndpointException_:
+    out: InvalidEndpointException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
 class InvalidEndpointException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dynamodb#InvalidEndpointException``."""
 
@@ -25,3 +40,7 @@ class InvalidEndpointException(ServiceError):
             code="InvalidEndpointException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "InvalidEndpointException":
+        return cls(deserialize_aws_json_1_0(data))

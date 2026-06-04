@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
@@ -15,3 +16,37 @@ class DescribeTaskDefinitionRequest(TypedDict):
         "aws_sdk_ecs.types.task_definition_field_list.TaskDefinitionFieldList"
     ]
     """<p>Determines whether to see the resource tags for the task definition. If <code>TAGS</code> is specified, the tags are included in the response. If this field is omitted, tags aren't included in the response.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeTaskDefinitionRequest) -> dict:
+    out: dict = {}
+    out["taskDefinition"] = value["task_definition"]
+    if "include" in value:
+        import aws_sdk_ecs.types.task_definition_field_list
+
+        out["include"] = (
+            aws_sdk_ecs.types.task_definition_field_list.serialize_aws_json_1_1(
+                value["include"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeTaskDefinitionRequest:
+    out: DescribeTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+    if "taskDefinition" in data:
+        out["task_definition"] = data["taskDefinition"]
+    else:
+        raise DeserializationError(
+            "DescribeTaskDefinitionRequest.task_definition required"
+        )
+    if "include" in data:
+        import aws_sdk_ecs.types.task_definition_field_list
+
+        out["include"] = (
+            aws_sdk_ecs.types.task_definition_field_list.deserialize_aws_json_1_1(
+                data["include"]
+            )
+        )
+    return out

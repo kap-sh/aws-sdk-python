@@ -18,3 +18,54 @@ class DaemonRollback(TypedDict):
     """<p>The ARN of the daemon revision deployed as part of the rollback.</p>"""
     rollback_capacity_providers: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The capacity providers involved in the rollback.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DaemonRollback) -> dict:
+    out: dict = {}
+    if "reason" in value:
+        out["reason"] = value["reason"]
+    if "started_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["startedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["started_at"]
+        )
+    if "rollback_target_daemon_revision_arn" in value:
+        out["rollbackTargetDaemonRevisionArn"] = value[
+            "rollback_target_daemon_revision_arn"
+        ]
+    if "rollback_capacity_providers" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["rollbackCapacityProviders"] = (
+            aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+                value["rollback_capacity_providers"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DaemonRollback:
+    out: DaemonRollback = {}  # type: ignore[typeddict-item]
+    if "reason" in data:
+        out["reason"] = data["reason"]
+    if "startedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["started_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["startedAt"]
+        )
+    if "rollbackTargetDaemonRevisionArn" in data:
+        out["rollback_target_daemon_revision_arn"] = data[
+            "rollbackTargetDaemonRevisionArn"
+        ]
+    if "rollbackCapacityProviders" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["rollback_capacity_providers"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["rollbackCapacityProviders"]
+            )
+        )
+    return out

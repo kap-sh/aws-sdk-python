@@ -22,3 +22,46 @@ class LoadBalancer(TypedDict):
         "aws_sdk_ecs.types.advanced_configuration.AdvancedConfiguration"
     ]
     """<p>The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: LoadBalancer) -> dict:
+    out: dict = {}
+    if "target_group_arn" in value:
+        out["targetGroupArn"] = value["target_group_arn"]
+    if "load_balancer_name" in value:
+        out["loadBalancerName"] = value["load_balancer_name"]
+    if "container_name" in value:
+        out["containerName"] = value["container_name"]
+    if "container_port" in value:
+        out["containerPort"] = value["container_port"]
+    if "advanced_configuration" in value:
+        import aws_sdk_ecs.types.advanced_configuration
+
+        out["advancedConfiguration"] = (
+            aws_sdk_ecs.types.advanced_configuration.serialize_aws_json_1_1(
+                value["advanced_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> LoadBalancer:
+    out: LoadBalancer = {}  # type: ignore[typeddict-item]
+    if "targetGroupArn" in data:
+        out["target_group_arn"] = data["targetGroupArn"]
+    if "loadBalancerName" in data:
+        out["load_balancer_name"] = data["loadBalancerName"]
+    if "containerName" in data:
+        out["container_name"] = data["containerName"]
+    if "containerPort" in data:
+        out["container_port"] = data["containerPort"]
+    if "advancedConfiguration" in data:
+        import aws_sdk_ecs.types.advanced_configuration
+
+        out["advanced_configuration"] = (
+            aws_sdk_ecs.types.advanced_configuration.deserialize_aws_json_1_1(
+                data["advancedConfiguration"]
+            )
+        )
+    return out

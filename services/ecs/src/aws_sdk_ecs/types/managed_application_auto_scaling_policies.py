@@ -8,3 +8,30 @@ if TYPE_CHECKING:
 ManagedApplicationAutoScalingPolicies: TypeAlias = list[
     "aws_sdk_ecs.types.managed_application_auto_scaling_policy.ManagedApplicationAutoScalingPolicy"
 ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ManagedApplicationAutoScalingPolicies) -> list:
+    import aws_sdk_ecs.types.managed_application_auto_scaling_policy
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_ecs.types.managed_application_auto_scaling_policy.serialize_aws_json_1_1(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> ManagedApplicationAutoScalingPolicies:
+    import aws_sdk_ecs.types.managed_application_auto_scaling_policy
+
+    out: ManagedApplicationAutoScalingPolicies = []
+    for item in data:
+        out.append(
+            aws_sdk_ecs.types.managed_application_auto_scaling_policy.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

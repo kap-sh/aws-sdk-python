@@ -103,3 +103,334 @@ class Task(TypedDict):
         "aws_sdk_ecs.types.task_ephemeral_storage.TaskEphemeralStorage"
     ]
     """<p>The Fargate ephemeral storage settings for the task.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Task) -> dict:
+    out: dict = {}
+    if "attachments" in value:
+        import aws_sdk_ecs.types.attachments
+
+        out["attachments"] = aws_sdk_ecs.types.attachments.serialize_aws_json_1_1(
+            value["attachments"]
+        )
+    if "attributes" in value:
+        import aws_sdk_ecs.types.attributes
+
+        out["attributes"] = aws_sdk_ecs.types.attributes.serialize_aws_json_1_1(
+            value["attributes"]
+        )
+    if "availability_zone" in value:
+        out["availabilityZone"] = value["availability_zone"]
+    if "capacity_provider_name" in value:
+        out["capacityProviderName"] = value["capacity_provider_name"]
+    if "cluster_arn" in value:
+        out["clusterArn"] = value["cluster_arn"]
+    if "connectivity" in value:
+        import aws_sdk_ecs.types.connectivity
+
+        out["connectivity"] = aws_sdk_ecs.types.connectivity.serialize_aws_json_1_1(
+            value["connectivity"]
+        )
+    if "connectivity_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["connectivityAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["connectivity_at"]
+        )
+    if "container_instance_arn" in value:
+        out["containerInstanceArn"] = value["container_instance_arn"]
+    if "containers" in value:
+        import aws_sdk_ecs.types.containers
+
+        out["containers"] = aws_sdk_ecs.types.containers.serialize_aws_json_1_1(
+            value["containers"]
+        )
+    if "cpu" in value:
+        out["cpu"] = value["cpu"]
+    if "created_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["createdAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["created_at"]
+        )
+    if "desired_status" in value:
+        out["desiredStatus"] = value["desired_status"]
+    out["enableExecuteCommand"] = value.get("enable_execute_command", False)
+    if "execution_stopped_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["executionStoppedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["execution_stopped_at"]
+        )
+    if "group" in value:
+        out["group"] = value["group"]
+    if "health_status" in value:
+        import aws_sdk_ecs.types.health_status
+
+        out["healthStatus"] = aws_sdk_ecs.types.health_status.serialize_aws_json_1_1(
+            value["health_status"]
+        )
+    if "inference_accelerators" in value:
+        import aws_sdk_ecs.types.inference_accelerators
+
+        out["inferenceAccelerators"] = (
+            aws_sdk_ecs.types.inference_accelerators.serialize_aws_json_1_1(
+                value["inference_accelerators"]
+            )
+        )
+    if "last_status" in value:
+        out["lastStatus"] = value["last_status"]
+    if "launch_type" in value:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launchType"] = aws_sdk_ecs.types.launch_type.serialize_aws_json_1_1(
+            value["launch_type"]
+        )
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "overrides" in value:
+        import aws_sdk_ecs.types.task_override
+
+        out["overrides"] = aws_sdk_ecs.types.task_override.serialize_aws_json_1_1(
+            value["overrides"]
+        )
+    if "platform_version" in value:
+        out["platformVersion"] = value["platform_version"]
+    if "platform_family" in value:
+        out["platformFamily"] = value["platform_family"]
+    if "pull_started_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["pullStartedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["pull_started_at"]
+        )
+    if "pull_stopped_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["pullStoppedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["pull_stopped_at"]
+        )
+    if "started_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["startedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["started_at"]
+        )
+    if "started_by" in value:
+        out["startedBy"] = value["started_by"]
+    if "stop_code" in value:
+        import aws_sdk_ecs.types.task_stop_code
+
+        out["stopCode"] = aws_sdk_ecs.types.task_stop_code.serialize_aws_json_1_1(
+            value["stop_code"]
+        )
+    if "stopped_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stoppedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["stopped_at"]
+        )
+    if "stopped_reason" in value:
+        out["stoppedReason"] = value["stopped_reason"]
+    if "stopping_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stoppingAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["stopping_at"]
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "task_arn" in value:
+        out["taskArn"] = value["task_arn"]
+    if "task_definition_arn" in value:
+        out["taskDefinitionArn"] = value["task_definition_arn"]
+    out["version"] = value.get("version", 0)
+    if "ephemeral_storage" in value:
+        import aws_sdk_ecs.types.ephemeral_storage
+
+        out["ephemeralStorage"] = (
+            aws_sdk_ecs.types.ephemeral_storage.serialize_aws_json_1_1(
+                value["ephemeral_storage"]
+            )
+        )
+    if "fargate_ephemeral_storage" in value:
+        import aws_sdk_ecs.types.task_ephemeral_storage
+
+        out["fargateEphemeralStorage"] = (
+            aws_sdk_ecs.types.task_ephemeral_storage.serialize_aws_json_1_1(
+                value["fargate_ephemeral_storage"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Task:
+    out: Task = {}  # type: ignore[typeddict-item]
+    if "attachments" in data:
+        import aws_sdk_ecs.types.attachments
+
+        out["attachments"] = aws_sdk_ecs.types.attachments.deserialize_aws_json_1_1(
+            data["attachments"]
+        )
+    if "attributes" in data:
+        import aws_sdk_ecs.types.attributes
+
+        out["attributes"] = aws_sdk_ecs.types.attributes.deserialize_aws_json_1_1(
+            data["attributes"]
+        )
+    if "availabilityZone" in data:
+        out["availability_zone"] = data["availabilityZone"]
+    if "capacityProviderName" in data:
+        out["capacity_provider_name"] = data["capacityProviderName"]
+    if "clusterArn" in data:
+        out["cluster_arn"] = data["clusterArn"]
+    if "connectivity" in data:
+        import aws_sdk_ecs.types.connectivity
+
+        out["connectivity"] = aws_sdk_ecs.types.connectivity.deserialize_aws_json_1_1(
+            data["connectivity"]
+        )
+    if "connectivityAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["connectivity_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["connectivityAt"]
+        )
+    if "containerInstanceArn" in data:
+        out["container_instance_arn"] = data["containerInstanceArn"]
+    if "containers" in data:
+        import aws_sdk_ecs.types.containers
+
+        out["containers"] = aws_sdk_ecs.types.containers.deserialize_aws_json_1_1(
+            data["containers"]
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    if "createdAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["created_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["createdAt"]
+        )
+    if "desiredStatus" in data:
+        out["desired_status"] = data["desiredStatus"]
+    if "enableExecuteCommand" in data:
+        out["enable_execute_command"] = data["enableExecuteCommand"]
+    else:
+        out["enable_execute_command"] = False
+    if "executionStoppedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["execution_stopped_at"] = (
+            aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+                data["executionStoppedAt"]
+            )
+        )
+    if "group" in data:
+        out["group"] = data["group"]
+    if "healthStatus" in data:
+        import aws_sdk_ecs.types.health_status
+
+        out["health_status"] = aws_sdk_ecs.types.health_status.deserialize_aws_json_1_1(
+            data["healthStatus"]
+        )
+    if "inferenceAccelerators" in data:
+        import aws_sdk_ecs.types.inference_accelerators
+
+        out["inference_accelerators"] = (
+            aws_sdk_ecs.types.inference_accelerators.deserialize_aws_json_1_1(
+                data["inferenceAccelerators"]
+            )
+        )
+    if "lastStatus" in data:
+        out["last_status"] = data["lastStatus"]
+    if "launchType" in data:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launch_type"] = aws_sdk_ecs.types.launch_type.deserialize_aws_json_1_1(
+            data["launchType"]
+        )
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "overrides" in data:
+        import aws_sdk_ecs.types.task_override
+
+        out["overrides"] = aws_sdk_ecs.types.task_override.deserialize_aws_json_1_1(
+            data["overrides"]
+        )
+    if "platformVersion" in data:
+        out["platform_version"] = data["platformVersion"]
+    if "platformFamily" in data:
+        out["platform_family"] = data["platformFamily"]
+    if "pullStartedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["pull_started_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["pullStartedAt"]
+        )
+    if "pullStoppedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["pull_stopped_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["pullStoppedAt"]
+        )
+    if "startedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["started_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["startedAt"]
+        )
+    if "startedBy" in data:
+        out["started_by"] = data["startedBy"]
+    if "stopCode" in data:
+        import aws_sdk_ecs.types.task_stop_code
+
+        out["stop_code"] = aws_sdk_ecs.types.task_stop_code.deserialize_aws_json_1_1(
+            data["stopCode"]
+        )
+    if "stoppedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stopped_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["stoppedAt"]
+        )
+    if "stoppedReason" in data:
+        out["stopped_reason"] = data["stoppedReason"]
+    if "stoppingAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stopping_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["stoppingAt"]
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "taskArn" in data:
+        out["task_arn"] = data["taskArn"]
+    if "taskDefinitionArn" in data:
+        out["task_definition_arn"] = data["taskDefinitionArn"]
+    if "version" in data:
+        out["version"] = data["version"]
+    else:
+        out["version"] = 0
+    if "ephemeralStorage" in data:
+        import aws_sdk_ecs.types.ephemeral_storage
+
+        out["ephemeral_storage"] = (
+            aws_sdk_ecs.types.ephemeral_storage.deserialize_aws_json_1_1(
+                data["ephemeralStorage"]
+            )
+        )
+    if "fargateEphemeralStorage" in data:
+        import aws_sdk_ecs.types.task_ephemeral_storage
+
+        out["fargate_ephemeral_storage"] = (
+            aws_sdk_ecs.types.task_ephemeral_storage.deserialize_aws_json_1_1(
+                data["fargateEphemeralStorage"]
+            )
+        )
+    return out

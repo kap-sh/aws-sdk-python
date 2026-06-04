@@ -18,3 +18,34 @@ class SSESpecification(TypedDict):
         "aws_sdk_dynamodb.types.kms_master_key_id.KMSMasterKeyId"
     ]
     """<p>The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key <code>alias/aws/dynamodb</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: SSESpecification) -> dict:
+    out: dict = {}
+    if "enabled" in value:
+        out["Enabled"] = value["enabled"]
+    if "sse_type" in value:
+        import aws_sdk_dynamodb.types.sse_type
+
+        out["SSEType"] = aws_sdk_dynamodb.types.sse_type.serialize_aws_json_1_0(
+            value["sse_type"]
+        )
+    if "kms_master_key_id" in value:
+        out["KMSMasterKeyId"] = value["kms_master_key_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> SSESpecification:
+    out: SSESpecification = {}  # type: ignore[typeddict-item]
+    if "Enabled" in data:
+        out["enabled"] = data["Enabled"]
+    if "SSEType" in data:
+        import aws_sdk_dynamodb.types.sse_type
+
+        out["sse_type"] = aws_sdk_dynamodb.types.sse_type.deserialize_aws_json_1_0(
+            data["SSEType"]
+        )
+    if "KMSMasterKeyId" in data:
+        out["kms_master_key_id"] = data["KMSMasterKeyId"]
+    return out

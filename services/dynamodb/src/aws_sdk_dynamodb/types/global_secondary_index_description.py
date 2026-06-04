@@ -45,3 +45,120 @@ class GlobalSecondaryIndexDescription(TypedDict):
         "aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description.GlobalSecondaryIndexWarmThroughputDescription"
     ]
     """<p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GlobalSecondaryIndexDescription) -> dict:
+    out: dict = {}
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "key_schema" in value:
+        import aws_sdk_dynamodb.types.key_schema
+
+        out["KeySchema"] = aws_sdk_dynamodb.types.key_schema.serialize_aws_json_1_0(
+            value["key_schema"]
+        )
+    if "projection" in value:
+        import aws_sdk_dynamodb.types.projection
+
+        out["Projection"] = aws_sdk_dynamodb.types.projection.serialize_aws_json_1_0(
+            value["projection"]
+        )
+    if "index_status" in value:
+        import aws_sdk_dynamodb.types.index_status
+
+        out["IndexStatus"] = aws_sdk_dynamodb.types.index_status.serialize_aws_json_1_0(
+            value["index_status"]
+        )
+    if "backfilling" in value:
+        out["Backfilling"] = value["backfilling"]
+    if "provisioned_throughput" in value:
+        import aws_sdk_dynamodb.types.provisioned_throughput_description
+
+        out["ProvisionedThroughput"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput_description.serialize_aws_json_1_0(
+                value["provisioned_throughput"]
+            )
+        )
+    if "index_size_bytes" in value:
+        out["IndexSizeBytes"] = value["index_size_bytes"]
+    if "item_count" in value:
+        out["ItemCount"] = value["item_count"]
+    if "index_arn" in value:
+        out["IndexArn"] = value["index_arn"]
+    if "on_demand_throughput" in value:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["OnDemandThroughput"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.serialize_aws_json_1_0(
+                value["on_demand_throughput"]
+            )
+        )
+    if "warm_throughput" in value:
+        import aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description
+
+        out["WarmThroughput"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description.serialize_aws_json_1_0(
+                value["warm_throughput"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexDescription:
+    out: GlobalSecondaryIndexDescription = {}  # type: ignore[typeddict-item]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "KeySchema" in data:
+        import aws_sdk_dynamodb.types.key_schema
+
+        out["key_schema"] = aws_sdk_dynamodb.types.key_schema.deserialize_aws_json_1_0(
+            data["KeySchema"]
+        )
+    if "Projection" in data:
+        import aws_sdk_dynamodb.types.projection
+
+        out["projection"] = aws_sdk_dynamodb.types.projection.deserialize_aws_json_1_0(
+            data["Projection"]
+        )
+    if "IndexStatus" in data:
+        import aws_sdk_dynamodb.types.index_status
+
+        out["index_status"] = (
+            aws_sdk_dynamodb.types.index_status.deserialize_aws_json_1_0(
+                data["IndexStatus"]
+            )
+        )
+    if "Backfilling" in data:
+        out["backfilling"] = data["Backfilling"]
+    if "ProvisionedThroughput" in data:
+        import aws_sdk_dynamodb.types.provisioned_throughput_description
+
+        out["provisioned_throughput"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput_description.deserialize_aws_json_1_0(
+                data["ProvisionedThroughput"]
+            )
+        )
+    if "IndexSizeBytes" in data:
+        out["index_size_bytes"] = data["IndexSizeBytes"]
+    if "ItemCount" in data:
+        out["item_count"] = data["ItemCount"]
+    if "IndexArn" in data:
+        out["index_arn"] = data["IndexArn"]
+    if "OnDemandThroughput" in data:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["on_demand_throughput"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.deserialize_aws_json_1_0(
+                data["OnDemandThroughput"]
+            )
+        )
+    if "WarmThroughput" in data:
+        import aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description
+
+        out["warm_throughput"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description.deserialize_aws_json_1_0(
+                data["WarmThroughput"]
+            )
+        )
+    return out

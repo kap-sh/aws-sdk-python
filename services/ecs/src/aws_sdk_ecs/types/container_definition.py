@@ -135,3 +135,455 @@ class ContainerDefinition(TypedDict):
     """<p>The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html\">Custom Log Routing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
     credential_specs: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>A list of ARNs in SSM or Amazon S3 to a credential spec (<code>CredSpec</code>) file that configures the container for Active Directory authentication. We recommend that you use this parameter instead of the <code>dockerSecurityOptions</code>. The maximum number of ARNs is 1.</p> <p>There are two formats for each ARN.</p> <dl> <dt>credentialspecdomainless:MyARN</dt> <dd> <p>You use <code>credentialspecdomainless:MyARN</code> to provide a <code>CredSpec</code> with an additional section for a secret in Secrets Manager. You provide the login credentials to the domain in the secret.</p> <p>Each task that runs on any container instance can join different domains.</p> <p>You can use this format without joining the container instance to a domain.</p> </dd> <dt>credentialspec:MyARN</dt> <dd> <p>You use <code>credentialspec:MyARN</code> to provide a <code>CredSpec</code> for a single domain.</p> <p>You must join the container instance to the domain before you start any tasks that use this task definition.</p> </dd> </dl> <p>In both formats, replace <code>MyARN</code> with the ARN in SSM or Amazon S3.</p> <p>If you provide a <code>credentialspecdomainless:MyARN</code>, the <code>credspec</code> must provide a ARN in Secrets Manager for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html\">Using gMSAs for Windows Containers</a> and <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html\">Using gMSAs for Linux Containers</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ContainerDefinition) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "image" in value:
+        out["image"] = value["image"]
+    if "repository_credentials" in value:
+        import aws_sdk_ecs.types.repository_credentials
+
+        out["repositoryCredentials"] = (
+            aws_sdk_ecs.types.repository_credentials.serialize_aws_json_1_1(
+                value["repository_credentials"]
+            )
+        )
+    out["cpu"] = value.get("cpu", 0)
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "memory_reservation" in value:
+        out["memoryReservation"] = value["memory_reservation"]
+    if "links" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["links"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["links"]
+        )
+    if "port_mappings" in value:
+        import aws_sdk_ecs.types.port_mapping_list
+
+        out["portMappings"] = (
+            aws_sdk_ecs.types.port_mapping_list.serialize_aws_json_1_1(
+                value["port_mappings"]
+            )
+        )
+    if "essential" in value:
+        out["essential"] = value["essential"]
+    if "restart_policy" in value:
+        import aws_sdk_ecs.types.container_restart_policy
+
+        out["restartPolicy"] = (
+            aws_sdk_ecs.types.container_restart_policy.serialize_aws_json_1_1(
+                value["restart_policy"]
+            )
+        )
+    if "entry_point" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["entryPoint"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["entry_point"]
+        )
+    if "command" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["command"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["command"]
+        )
+    if "environment" in value:
+        import aws_sdk_ecs.types.environment_variables
+
+        out["environment"] = (
+            aws_sdk_ecs.types.environment_variables.serialize_aws_json_1_1(
+                value["environment"]
+            )
+        )
+    if "environment_files" in value:
+        import aws_sdk_ecs.types.environment_files
+
+        out["environmentFiles"] = (
+            aws_sdk_ecs.types.environment_files.serialize_aws_json_1_1(
+                value["environment_files"]
+            )
+        )
+    if "mount_points" in value:
+        import aws_sdk_ecs.types.mount_point_list
+
+        out["mountPoints"] = aws_sdk_ecs.types.mount_point_list.serialize_aws_json_1_1(
+            value["mount_points"]
+        )
+    if "volumes_from" in value:
+        import aws_sdk_ecs.types.volume_from_list
+
+        out["volumesFrom"] = aws_sdk_ecs.types.volume_from_list.serialize_aws_json_1_1(
+            value["volumes_from"]
+        )
+    if "linux_parameters" in value:
+        import aws_sdk_ecs.types.linux_parameters
+
+        out["linuxParameters"] = (
+            aws_sdk_ecs.types.linux_parameters.serialize_aws_json_1_1(
+                value["linux_parameters"]
+            )
+        )
+    if "secrets" in value:
+        import aws_sdk_ecs.types.secret_list
+
+        out["secrets"] = aws_sdk_ecs.types.secret_list.serialize_aws_json_1_1(
+            value["secrets"]
+        )
+    if "depends_on" in value:
+        import aws_sdk_ecs.types.container_dependencies
+
+        out["dependsOn"] = (
+            aws_sdk_ecs.types.container_dependencies.serialize_aws_json_1_1(
+                value["depends_on"]
+            )
+        )
+    if "start_timeout" in value:
+        out["startTimeout"] = value["start_timeout"]
+    if "stop_timeout" in value:
+        out["stopTimeout"] = value["stop_timeout"]
+    if "version_consistency" in value:
+        import aws_sdk_ecs.types.version_consistency
+
+        out["versionConsistency"] = (
+            aws_sdk_ecs.types.version_consistency.serialize_aws_json_1_1(
+                value["version_consistency"]
+            )
+        )
+    if "hostname" in value:
+        out["hostname"] = value["hostname"]
+    if "user" in value:
+        out["user"] = value["user"]
+    if "working_directory" in value:
+        out["workingDirectory"] = value["working_directory"]
+    if "disable_networking" in value:
+        out["disableNetworking"] = value["disable_networking"]
+    if "privileged" in value:
+        out["privileged"] = value["privileged"]
+    if "readonly_root_filesystem" in value:
+        out["readonlyRootFilesystem"] = value["readonly_root_filesystem"]
+    if "dns_servers" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["dnsServers"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["dns_servers"]
+        )
+    if "dns_search_domains" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["dnsSearchDomains"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["dns_search_domains"]
+        )
+    if "extra_hosts" in value:
+        import aws_sdk_ecs.types.host_entry_list
+
+        out["extraHosts"] = aws_sdk_ecs.types.host_entry_list.serialize_aws_json_1_1(
+            value["extra_hosts"]
+        )
+    if "docker_security_options" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["dockerSecurityOptions"] = (
+            aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+                value["docker_security_options"]
+            )
+        )
+    if "interactive" in value:
+        out["interactive"] = value["interactive"]
+    if "pseudo_terminal" in value:
+        out["pseudoTerminal"] = value["pseudo_terminal"]
+    if "docker_labels" in value:
+        import aws_sdk_ecs.types.docker_labels_map
+
+        out["dockerLabels"] = (
+            aws_sdk_ecs.types.docker_labels_map.serialize_aws_json_1_1(
+                value["docker_labels"]
+            )
+        )
+    if "ulimits" in value:
+        import aws_sdk_ecs.types.ulimit_list
+
+        out["ulimits"] = aws_sdk_ecs.types.ulimit_list.serialize_aws_json_1_1(
+            value["ulimits"]
+        )
+    if "log_configuration" in value:
+        import aws_sdk_ecs.types.log_configuration
+
+        out["logConfiguration"] = (
+            aws_sdk_ecs.types.log_configuration.serialize_aws_json_1_1(
+                value["log_configuration"]
+            )
+        )
+    if "health_check" in value:
+        import aws_sdk_ecs.types.health_check
+
+        out["healthCheck"] = aws_sdk_ecs.types.health_check.serialize_aws_json_1_1(
+            value["health_check"]
+        )
+    if "system_controls" in value:
+        import aws_sdk_ecs.types.system_controls
+
+        out["systemControls"] = (
+            aws_sdk_ecs.types.system_controls.serialize_aws_json_1_1(
+                value["system_controls"]
+            )
+        )
+    if "resource_requirements" in value:
+        import aws_sdk_ecs.types.resource_requirements
+
+        out["resourceRequirements"] = (
+            aws_sdk_ecs.types.resource_requirements.serialize_aws_json_1_1(
+                value["resource_requirements"]
+            )
+        )
+    if "firelens_configuration" in value:
+        import aws_sdk_ecs.types.firelens_configuration
+
+        out["firelensConfiguration"] = (
+            aws_sdk_ecs.types.firelens_configuration.serialize_aws_json_1_1(
+                value["firelens_configuration"]
+            )
+        )
+    if "credential_specs" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["credentialSpecs"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["credential_specs"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ContainerDefinition:
+    out: ContainerDefinition = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "image" in data:
+        out["image"] = data["image"]
+    if "repositoryCredentials" in data:
+        import aws_sdk_ecs.types.repository_credentials
+
+        out["repository_credentials"] = (
+            aws_sdk_ecs.types.repository_credentials.deserialize_aws_json_1_1(
+                data["repositoryCredentials"]
+            )
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    else:
+        out["cpu"] = 0
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "memoryReservation" in data:
+        out["memory_reservation"] = data["memoryReservation"]
+    if "links" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["links"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["links"]
+        )
+    if "portMappings" in data:
+        import aws_sdk_ecs.types.port_mapping_list
+
+        out["port_mappings"] = (
+            aws_sdk_ecs.types.port_mapping_list.deserialize_aws_json_1_1(
+                data["portMappings"]
+            )
+        )
+    if "essential" in data:
+        out["essential"] = data["essential"]
+    if "restartPolicy" in data:
+        import aws_sdk_ecs.types.container_restart_policy
+
+        out["restart_policy"] = (
+            aws_sdk_ecs.types.container_restart_policy.deserialize_aws_json_1_1(
+                data["restartPolicy"]
+            )
+        )
+    if "entryPoint" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["entry_point"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["entryPoint"]
+        )
+    if "command" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["command"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["command"]
+        )
+    if "environment" in data:
+        import aws_sdk_ecs.types.environment_variables
+
+        out["environment"] = (
+            aws_sdk_ecs.types.environment_variables.deserialize_aws_json_1_1(
+                data["environment"]
+            )
+        )
+    if "environmentFiles" in data:
+        import aws_sdk_ecs.types.environment_files
+
+        out["environment_files"] = (
+            aws_sdk_ecs.types.environment_files.deserialize_aws_json_1_1(
+                data["environmentFiles"]
+            )
+        )
+    if "mountPoints" in data:
+        import aws_sdk_ecs.types.mount_point_list
+
+        out["mount_points"] = (
+            aws_sdk_ecs.types.mount_point_list.deserialize_aws_json_1_1(
+                data["mountPoints"]
+            )
+        )
+    if "volumesFrom" in data:
+        import aws_sdk_ecs.types.volume_from_list
+
+        out["volumes_from"] = (
+            aws_sdk_ecs.types.volume_from_list.deserialize_aws_json_1_1(
+                data["volumesFrom"]
+            )
+        )
+    if "linuxParameters" in data:
+        import aws_sdk_ecs.types.linux_parameters
+
+        out["linux_parameters"] = (
+            aws_sdk_ecs.types.linux_parameters.deserialize_aws_json_1_1(
+                data["linuxParameters"]
+            )
+        )
+    if "secrets" in data:
+        import aws_sdk_ecs.types.secret_list
+
+        out["secrets"] = aws_sdk_ecs.types.secret_list.deserialize_aws_json_1_1(
+            data["secrets"]
+        )
+    if "dependsOn" in data:
+        import aws_sdk_ecs.types.container_dependencies
+
+        out["depends_on"] = (
+            aws_sdk_ecs.types.container_dependencies.deserialize_aws_json_1_1(
+                data["dependsOn"]
+            )
+        )
+    if "startTimeout" in data:
+        out["start_timeout"] = data["startTimeout"]
+    if "stopTimeout" in data:
+        out["stop_timeout"] = data["stopTimeout"]
+    if "versionConsistency" in data:
+        import aws_sdk_ecs.types.version_consistency
+
+        out["version_consistency"] = (
+            aws_sdk_ecs.types.version_consistency.deserialize_aws_json_1_1(
+                data["versionConsistency"]
+            )
+        )
+    if "hostname" in data:
+        out["hostname"] = data["hostname"]
+    if "user" in data:
+        out["user"] = data["user"]
+    if "workingDirectory" in data:
+        out["working_directory"] = data["workingDirectory"]
+    if "disableNetworking" in data:
+        out["disable_networking"] = data["disableNetworking"]
+    if "privileged" in data:
+        out["privileged"] = data["privileged"]
+    if "readonlyRootFilesystem" in data:
+        out["readonly_root_filesystem"] = data["readonlyRootFilesystem"]
+    if "dnsServers" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["dns_servers"] = aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+            data["dnsServers"]
+        )
+    if "dnsSearchDomains" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["dns_search_domains"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["dnsSearchDomains"]
+            )
+        )
+    if "extraHosts" in data:
+        import aws_sdk_ecs.types.host_entry_list
+
+        out["extra_hosts"] = aws_sdk_ecs.types.host_entry_list.deserialize_aws_json_1_1(
+            data["extraHosts"]
+        )
+    if "dockerSecurityOptions" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["docker_security_options"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["dockerSecurityOptions"]
+            )
+        )
+    if "interactive" in data:
+        out["interactive"] = data["interactive"]
+    if "pseudoTerminal" in data:
+        out["pseudo_terminal"] = data["pseudoTerminal"]
+    if "dockerLabels" in data:
+        import aws_sdk_ecs.types.docker_labels_map
+
+        out["docker_labels"] = (
+            aws_sdk_ecs.types.docker_labels_map.deserialize_aws_json_1_1(
+                data["dockerLabels"]
+            )
+        )
+    if "ulimits" in data:
+        import aws_sdk_ecs.types.ulimit_list
+
+        out["ulimits"] = aws_sdk_ecs.types.ulimit_list.deserialize_aws_json_1_1(
+            data["ulimits"]
+        )
+    if "logConfiguration" in data:
+        import aws_sdk_ecs.types.log_configuration
+
+        out["log_configuration"] = (
+            aws_sdk_ecs.types.log_configuration.deserialize_aws_json_1_1(
+                data["logConfiguration"]
+            )
+        )
+    if "healthCheck" in data:
+        import aws_sdk_ecs.types.health_check
+
+        out["health_check"] = aws_sdk_ecs.types.health_check.deserialize_aws_json_1_1(
+            data["healthCheck"]
+        )
+    if "systemControls" in data:
+        import aws_sdk_ecs.types.system_controls
+
+        out["system_controls"] = (
+            aws_sdk_ecs.types.system_controls.deserialize_aws_json_1_1(
+                data["systemControls"]
+            )
+        )
+    if "resourceRequirements" in data:
+        import aws_sdk_ecs.types.resource_requirements
+
+        out["resource_requirements"] = (
+            aws_sdk_ecs.types.resource_requirements.deserialize_aws_json_1_1(
+                data["resourceRequirements"]
+            )
+        )
+    if "firelensConfiguration" in data:
+        import aws_sdk_ecs.types.firelens_configuration
+
+        out["firelens_configuration"] = (
+            aws_sdk_ecs.types.firelens_configuration.deserialize_aws_json_1_1(
+                data["firelensConfiguration"]
+            )
+        )
+    if "credentialSpecs" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["credential_specs"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["credentialSpecs"]
+            )
+        )
+    return out

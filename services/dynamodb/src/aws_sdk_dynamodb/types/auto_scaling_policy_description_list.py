@@ -8,3 +8,30 @@ if TYPE_CHECKING:
 AutoScalingPolicyDescriptionList: TypeAlias = list[
     "aws_sdk_dynamodb.types.auto_scaling_policy_description.AutoScalingPolicyDescription"
 ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: AutoScalingPolicyDescriptionList) -> list:
+    import aws_sdk_dynamodb.types.auto_scaling_policy_description
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_dynamodb.types.auto_scaling_policy_description.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> AutoScalingPolicyDescriptionList:
+    import aws_sdk_dynamodb.types.auto_scaling_policy_description
+
+    out: AutoScalingPolicyDescriptionList = []
+    for item in data:
+        out.append(
+            aws_sdk_dynamodb.types.auto_scaling_policy_description.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

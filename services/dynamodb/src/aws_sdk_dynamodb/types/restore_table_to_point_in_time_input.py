@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.billing_mode
@@ -52,3 +53,141 @@ class RestoreTableToPointInTimeInput(TypedDict):
         "aws_sdk_dynamodb.types.sse_specification.SSESpecification"
     ]
     """<p>The new server-side encryption settings for the restored table.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: RestoreTableToPointInTimeInput) -> dict:
+    out: dict = {}
+    if "source_table_arn" in value:
+        out["SourceTableArn"] = value["source_table_arn"]
+    if "source_table_name" in value:
+        out["SourceTableName"] = value["source_table_name"]
+    out["TargetTableName"] = value["target_table_name"]
+    if "use_latest_restorable_time" in value:
+        out["UseLatestRestorableTime"] = value["use_latest_restorable_time"]
+    if "restore_date_time" in value:
+        import aws_sdk_dynamodb.types.date
+
+        out["RestoreDateTime"] = aws_sdk_dynamodb.types.date.serialize_aws_json_1_0(
+            value["restore_date_time"]
+        )
+    if "billing_mode_override" in value:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["BillingModeOverride"] = (
+            aws_sdk_dynamodb.types.billing_mode.serialize_aws_json_1_0(
+                value["billing_mode_override"]
+            )
+        )
+    if "global_secondary_index_override" in value:
+        import aws_sdk_dynamodb.types.global_secondary_index_list
+
+        out["GlobalSecondaryIndexOverride"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_list.serialize_aws_json_1_0(
+                value["global_secondary_index_override"]
+            )
+        )
+    if "local_secondary_index_override" in value:
+        import aws_sdk_dynamodb.types.local_secondary_index_list
+
+        out["LocalSecondaryIndexOverride"] = (
+            aws_sdk_dynamodb.types.local_secondary_index_list.serialize_aws_json_1_0(
+                value["local_secondary_index_override"]
+            )
+        )
+    if "provisioned_throughput_override" in value:
+        import aws_sdk_dynamodb.types.provisioned_throughput
+
+        out["ProvisionedThroughputOverride"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput.serialize_aws_json_1_0(
+                value["provisioned_throughput_override"]
+            )
+        )
+    if "on_demand_throughput_override" in value:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["OnDemandThroughputOverride"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.serialize_aws_json_1_0(
+                value["on_demand_throughput_override"]
+            )
+        )
+    if "sse_specification_override" in value:
+        import aws_sdk_dynamodb.types.sse_specification
+
+        out["SSESpecificationOverride"] = (
+            aws_sdk_dynamodb.types.sse_specification.serialize_aws_json_1_0(
+                value["sse_specification_override"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> RestoreTableToPointInTimeInput:
+    out: RestoreTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
+    if "SourceTableArn" in data:
+        out["source_table_arn"] = data["SourceTableArn"]
+    if "SourceTableName" in data:
+        out["source_table_name"] = data["SourceTableName"]
+    if "TargetTableName" in data:
+        out["target_table_name"] = data["TargetTableName"]
+    else:
+        raise DeserializationError(
+            "RestoreTableToPointInTimeInput.target_table_name required"
+        )
+    if "UseLatestRestorableTime" in data:
+        out["use_latest_restorable_time"] = data["UseLatestRestorableTime"]
+    if "RestoreDateTime" in data:
+        import aws_sdk_dynamodb.types.date
+
+        out["restore_date_time"] = aws_sdk_dynamodb.types.date.deserialize_aws_json_1_0(
+            data["RestoreDateTime"]
+        )
+    if "BillingModeOverride" in data:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["billing_mode_override"] = (
+            aws_sdk_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
+                data["BillingModeOverride"]
+            )
+        )
+    if "GlobalSecondaryIndexOverride" in data:
+        import aws_sdk_dynamodb.types.global_secondary_index_list
+
+        out["global_secondary_index_override"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_list.deserialize_aws_json_1_0(
+                data["GlobalSecondaryIndexOverride"]
+            )
+        )
+    if "LocalSecondaryIndexOverride" in data:
+        import aws_sdk_dynamodb.types.local_secondary_index_list
+
+        out["local_secondary_index_override"] = (
+            aws_sdk_dynamodb.types.local_secondary_index_list.deserialize_aws_json_1_0(
+                data["LocalSecondaryIndexOverride"]
+            )
+        )
+    if "ProvisionedThroughputOverride" in data:
+        import aws_sdk_dynamodb.types.provisioned_throughput
+
+        out["provisioned_throughput_override"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput.deserialize_aws_json_1_0(
+                data["ProvisionedThroughputOverride"]
+            )
+        )
+    if "OnDemandThroughputOverride" in data:
+        import aws_sdk_dynamodb.types.on_demand_throughput
+
+        out["on_demand_throughput_override"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput.deserialize_aws_json_1_0(
+                data["OnDemandThroughputOverride"]
+            )
+        )
+    if "SSESpecificationOverride" in data:
+        import aws_sdk_dynamodb.types.sse_specification
+
+        out["sse_specification_override"] = (
+            aws_sdk_dynamodb.types.sse_specification.deserialize_aws_json_1_0(
+                data["SSESpecificationOverride"]
+            )
+        )
+    return out

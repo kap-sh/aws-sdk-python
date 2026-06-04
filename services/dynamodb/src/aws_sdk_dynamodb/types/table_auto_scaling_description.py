@@ -18,3 +18,48 @@ class TableAutoScalingDescription(TypedDict):
         "aws_sdk_dynamodb.types.replica_auto_scaling_description_list.ReplicaAutoScalingDescriptionList"
     ]
     """<p>Represents replicas of the global table.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: TableAutoScalingDescription) -> dict:
+    out: dict = {}
+    if "table_name" in value:
+        out["TableName"] = value["table_name"]
+    if "table_status" in value:
+        import aws_sdk_dynamodb.types.table_status
+
+        out["TableStatus"] = aws_sdk_dynamodb.types.table_status.serialize_aws_json_1_0(
+            value["table_status"]
+        )
+    if "replicas" in value:
+        import aws_sdk_dynamodb.types.replica_auto_scaling_description_list
+
+        out["Replicas"] = (
+            aws_sdk_dynamodb.types.replica_auto_scaling_description_list.serialize_aws_json_1_0(
+                value["replicas"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> TableAutoScalingDescription:
+    out: TableAutoScalingDescription = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    if "TableStatus" in data:
+        import aws_sdk_dynamodb.types.table_status
+
+        out["table_status"] = (
+            aws_sdk_dynamodb.types.table_status.deserialize_aws_json_1_0(
+                data["TableStatus"]
+            )
+        )
+    if "Replicas" in data:
+        import aws_sdk_dynamodb.types.replica_auto_scaling_description_list
+
+        out["replicas"] = (
+            aws_sdk_dynamodb.types.replica_auto_scaling_description_list.deserialize_aws_json_1_0(
+                data["Replicas"]
+            )
+        )
+    return out

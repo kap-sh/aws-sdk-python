@@ -20,3 +20,68 @@ class ReplicaGlobalSecondaryIndexAutoScalingDescription(TypedDict):
     provisioned_write_capacity_auto_scaling_settings: NotRequired[
         "aws_sdk_dynamodb.types.auto_scaling_settings_description.AutoScalingSettingsDescription"
     ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(
+    value: ReplicaGlobalSecondaryIndexAutoScalingDescription,
+) -> dict:
+    out: dict = {}
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "index_status" in value:
+        import aws_sdk_dynamodb.types.index_status
+
+        out["IndexStatus"] = aws_sdk_dynamodb.types.index_status.serialize_aws_json_1_0(
+            value["index_status"]
+        )
+    if "provisioned_read_capacity_auto_scaling_settings" in value:
+        import aws_sdk_dynamodb.types.auto_scaling_settings_description
+
+        out["ProvisionedReadCapacityAutoScalingSettings"] = (
+            aws_sdk_dynamodb.types.auto_scaling_settings_description.serialize_aws_json_1_0(
+                value["provisioned_read_capacity_auto_scaling_settings"]
+            )
+        )
+    if "provisioned_write_capacity_auto_scaling_settings" in value:
+        import aws_sdk_dynamodb.types.auto_scaling_settings_description
+
+        out["ProvisionedWriteCapacityAutoScalingSettings"] = (
+            aws_sdk_dynamodb.types.auto_scaling_settings_description.serialize_aws_json_1_0(
+                value["provisioned_write_capacity_auto_scaling_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> ReplicaGlobalSecondaryIndexAutoScalingDescription:
+    out: ReplicaGlobalSecondaryIndexAutoScalingDescription = {}  # type: ignore[typeddict-item]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "IndexStatus" in data:
+        import aws_sdk_dynamodb.types.index_status
+
+        out["index_status"] = (
+            aws_sdk_dynamodb.types.index_status.deserialize_aws_json_1_0(
+                data["IndexStatus"]
+            )
+        )
+    if "ProvisionedReadCapacityAutoScalingSettings" in data:
+        import aws_sdk_dynamodb.types.auto_scaling_settings_description
+
+        out["provisioned_read_capacity_auto_scaling_settings"] = (
+            aws_sdk_dynamodb.types.auto_scaling_settings_description.deserialize_aws_json_1_0(
+                data["ProvisionedReadCapacityAutoScalingSettings"]
+            )
+        )
+    if "ProvisionedWriteCapacityAutoScalingSettings" in data:
+        import aws_sdk_dynamodb.types.auto_scaling_settings_description
+
+        out["provisioned_write_capacity_auto_scaling_settings"] = (
+            aws_sdk_dynamodb.types.auto_scaling_settings_description.deserialize_aws_json_1_0(
+                data["ProvisionedWriteCapacityAutoScalingSettings"]
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.client_token
@@ -31,3 +32,101 @@ class ImportTableInput(TypedDict):
         "aws_sdk_dynamodb.types.table_creation_parameters.TableCreationParameters"
     )
     """<p>Parameters for the table to import the data into. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ImportTableInput) -> dict:
+    out: dict = {}
+    if "client_token" in value:
+        out["ClientToken"] = value["client_token"]
+    import aws_sdk_dynamodb.types.s3_bucket_source
+
+    out["S3BucketSource"] = (
+        aws_sdk_dynamodb.types.s3_bucket_source.serialize_aws_json_1_0(
+            value["s3_bucket_source"]
+        )
+    )
+    import aws_sdk_dynamodb.types.input_format
+
+    out["InputFormat"] = aws_sdk_dynamodb.types.input_format.serialize_aws_json_1_0(
+        value["input_format"]
+    )
+    if "input_format_options" in value:
+        import aws_sdk_dynamodb.types.input_format_options
+
+        out["InputFormatOptions"] = (
+            aws_sdk_dynamodb.types.input_format_options.serialize_aws_json_1_0(
+                value["input_format_options"]
+            )
+        )
+    if "input_compression_type" in value:
+        import aws_sdk_dynamodb.types.input_compression_type
+
+        out["InputCompressionType"] = (
+            aws_sdk_dynamodb.types.input_compression_type.serialize_aws_json_1_0(
+                value["input_compression_type"]
+            )
+        )
+    import aws_sdk_dynamodb.types.table_creation_parameters
+
+    out["TableCreationParameters"] = (
+        aws_sdk_dynamodb.types.table_creation_parameters.serialize_aws_json_1_0(
+            value["table_creation_parameters"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ImportTableInput:
+    out: ImportTableInput = {}  # type: ignore[typeddict-item]
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    if "S3BucketSource" in data:
+        import aws_sdk_dynamodb.types.s3_bucket_source
+
+        out["s3_bucket_source"] = (
+            aws_sdk_dynamodb.types.s3_bucket_source.deserialize_aws_json_1_0(
+                data["S3BucketSource"]
+            )
+        )
+    else:
+        raise DeserializationError("ImportTableInput.s3_bucket_source required")
+    if "InputFormat" in data:
+        import aws_sdk_dynamodb.types.input_format
+
+        out["input_format"] = (
+            aws_sdk_dynamodb.types.input_format.deserialize_aws_json_1_0(
+                data["InputFormat"]
+            )
+        )
+    else:
+        raise DeserializationError("ImportTableInput.input_format required")
+    if "InputFormatOptions" in data:
+        import aws_sdk_dynamodb.types.input_format_options
+
+        out["input_format_options"] = (
+            aws_sdk_dynamodb.types.input_format_options.deserialize_aws_json_1_0(
+                data["InputFormatOptions"]
+            )
+        )
+    if "InputCompressionType" in data:
+        import aws_sdk_dynamodb.types.input_compression_type
+
+        out["input_compression_type"] = (
+            aws_sdk_dynamodb.types.input_compression_type.deserialize_aws_json_1_0(
+                data["InputCompressionType"]
+            )
+        )
+    if "TableCreationParameters" in data:
+        import aws_sdk_dynamodb.types.table_creation_parameters
+
+        out["table_creation_parameters"] = (
+            aws_sdk_dynamodb.types.table_creation_parameters.deserialize_aws_json_1_0(
+                data["TableCreationParameters"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ImportTableInput.table_creation_parameters required"
+        )
+    return out

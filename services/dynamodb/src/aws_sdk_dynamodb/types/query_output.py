@@ -23,3 +23,64 @@ class QueryOutput(TypedDict):
         "aws_sdk_dynamodb.types.consumed_capacity.ConsumedCapacity"
     ]
     """<p>The capacity units consumed by the <code>Query</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption\">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: QueryOutput) -> dict:
+    out: dict = {}
+    if "items" in value:
+        import aws_sdk_dynamodb.types.item_list
+
+        out["Items"] = aws_sdk_dynamodb.types.item_list.serialize_aws_json_1_0(
+            value["items"]
+        )
+    out["Count"] = value.get("count", 0)
+    out["ScannedCount"] = value.get("scanned_count", 0)
+    if "last_evaluated_key" in value:
+        import aws_sdk_dynamodb.types.key
+
+        out["LastEvaluatedKey"] = aws_sdk_dynamodb.types.key.serialize_aws_json_1_0(
+            value["last_evaluated_key"]
+        )
+    if "consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.consumed_capacity
+
+        out["ConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.consumed_capacity.serialize_aws_json_1_0(
+                value["consumed_capacity"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> QueryOutput:
+    out: QueryOutput = {}  # type: ignore[typeddict-item]
+    if "Items" in data:
+        import aws_sdk_dynamodb.types.item_list
+
+        out["items"] = aws_sdk_dynamodb.types.item_list.deserialize_aws_json_1_0(
+            data["Items"]
+        )
+    if "Count" in data:
+        out["count"] = data["Count"]
+    else:
+        out["count"] = 0
+    if "ScannedCount" in data:
+        out["scanned_count"] = data["ScannedCount"]
+    else:
+        out["scanned_count"] = 0
+    if "LastEvaluatedKey" in data:
+        import aws_sdk_dynamodb.types.key
+
+        out["last_evaluated_key"] = aws_sdk_dynamodb.types.key.deserialize_aws_json_1_0(
+            data["LastEvaluatedKey"]
+        )
+    if "ConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.consumed_capacity
+
+        out["consumed_capacity"] = (
+            aws_sdk_dynamodb.types.consumed_capacity.deserialize_aws_json_1_0(
+                data["ConsumedCapacity"]
+            )
+        )
+    return out

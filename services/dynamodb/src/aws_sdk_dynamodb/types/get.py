@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.expression_attribute_name_map
@@ -23,3 +24,48 @@ class Get(TypedDict):
         "aws_sdk_dynamodb.types.expression_attribute_name_map.ExpressionAttributeNameMap"
     ]
     """<p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Get) -> dict:
+    out: dict = {}
+    import aws_sdk_dynamodb.types.key
+
+    out["Key"] = aws_sdk_dynamodb.types.key.serialize_aws_json_1_0(value["key"])
+    out["TableName"] = value["table_name"]
+    if "projection_expression" in value:
+        out["ProjectionExpression"] = value["projection_expression"]
+    if "expression_attribute_names" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["ExpressionAttributeNames"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.serialize_aws_json_1_0(
+                value["expression_attribute_names"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Get:
+    out: Get = {}  # type: ignore[typeddict-item]
+    if "Key" in data:
+        import aws_sdk_dynamodb.types.key
+
+        out["key"] = aws_sdk_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
+    else:
+        raise DeserializationError("Get.key required")
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("Get.table_name required")
+    if "ProjectionExpression" in data:
+        out["projection_expression"] = data["ProjectionExpression"]
+    if "ExpressionAttributeNames" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["expression_attribute_names"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeNames"]
+            )
+        )
+    return out

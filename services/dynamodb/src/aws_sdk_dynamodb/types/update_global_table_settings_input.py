@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.auto_scaling_settings_update
@@ -35,3 +36,95 @@ class UpdateGlobalTableSettingsInput(TypedDict):
         "aws_sdk_dynamodb.types.replica_settings_update_list.ReplicaSettingsUpdateList"
     ]
     """<p>Represents the settings for a global table in a Region that will be modified.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateGlobalTableSettingsInput) -> dict:
+    out: dict = {}
+    out["GlobalTableName"] = value["global_table_name"]
+    if "global_table_billing_mode" in value:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["GlobalTableBillingMode"] = (
+            aws_sdk_dynamodb.types.billing_mode.serialize_aws_json_1_0(
+                value["global_table_billing_mode"]
+            )
+        )
+    if "global_table_provisioned_write_capacity_units" in value:
+        out["GlobalTableProvisionedWriteCapacityUnits"] = value[
+            "global_table_provisioned_write_capacity_units"
+        ]
+    if "global_table_provisioned_write_capacity_auto_scaling_settings_update" in value:
+        import aws_sdk_dynamodb.types.auto_scaling_settings_update
+
+        out["GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"] = (
+            aws_sdk_dynamodb.types.auto_scaling_settings_update.serialize_aws_json_1_0(
+                value[
+                    "global_table_provisioned_write_capacity_auto_scaling_settings_update"
+                ]
+            )
+        )
+    if "global_table_global_secondary_index_settings_update" in value:
+        import aws_sdk_dynamodb.types.global_table_global_secondary_index_settings_update_list
+
+        out["GlobalTableGlobalSecondaryIndexSettingsUpdate"] = (
+            aws_sdk_dynamodb.types.global_table_global_secondary_index_settings_update_list.serialize_aws_json_1_0(
+                value["global_table_global_secondary_index_settings_update"]
+            )
+        )
+    if "replica_settings_update" in value:
+        import aws_sdk_dynamodb.types.replica_settings_update_list
+
+        out["ReplicaSettingsUpdate"] = (
+            aws_sdk_dynamodb.types.replica_settings_update_list.serialize_aws_json_1_0(
+                value["replica_settings_update"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsInput:
+    out: UpdateGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
+    if "GlobalTableName" in data:
+        out["global_table_name"] = data["GlobalTableName"]
+    else:
+        raise DeserializationError(
+            "UpdateGlobalTableSettingsInput.global_table_name required"
+        )
+    if "GlobalTableBillingMode" in data:
+        import aws_sdk_dynamodb.types.billing_mode
+
+        out["global_table_billing_mode"] = (
+            aws_sdk_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
+                data["GlobalTableBillingMode"]
+            )
+        )
+    if "GlobalTableProvisionedWriteCapacityUnits" in data:
+        out["global_table_provisioned_write_capacity_units"] = data[
+            "GlobalTableProvisionedWriteCapacityUnits"
+        ]
+    if "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate" in data:
+        import aws_sdk_dynamodb.types.auto_scaling_settings_update
+
+        out["global_table_provisioned_write_capacity_auto_scaling_settings_update"] = (
+            aws_sdk_dynamodb.types.auto_scaling_settings_update.deserialize_aws_json_1_0(
+                data["GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"]
+            )
+        )
+    if "GlobalTableGlobalSecondaryIndexSettingsUpdate" in data:
+        import aws_sdk_dynamodb.types.global_table_global_secondary_index_settings_update_list
+
+        out["global_table_global_secondary_index_settings_update"] = (
+            aws_sdk_dynamodb.types.global_table_global_secondary_index_settings_update_list.deserialize_aws_json_1_0(
+                data["GlobalTableGlobalSecondaryIndexSettingsUpdate"]
+            )
+        )
+    if "ReplicaSettingsUpdate" in data:
+        import aws_sdk_dynamodb.types.replica_settings_update_list
+
+        out["replica_settings_update"] = (
+            aws_sdk_dynamodb.types.replica_settings_update_list.deserialize_aws_json_1_0(
+                data["ReplicaSettingsUpdate"]
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.capacity_provider_strategy
@@ -47,3 +48,131 @@ class CreateTaskSetRequest(TypedDict):
     """<p>An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>"""
     tags: NotRequired["aws_sdk_ecs.types.tags.Tags"]
     """<p>The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both. When a service is deleted, the tags are deleted.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateTaskSetRequest) -> dict:
+    out: dict = {}
+    out["service"] = value["service"]
+    out["cluster"] = value["cluster"]
+    if "external_id" in value:
+        out["externalId"] = value["external_id"]
+    out["taskDefinition"] = value["task_definition"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "load_balancers" in value:
+        import aws_sdk_ecs.types.load_balancers
+
+        out["loadBalancers"] = aws_sdk_ecs.types.load_balancers.serialize_aws_json_1_1(
+            value["load_balancers"]
+        )
+    if "service_registries" in value:
+        import aws_sdk_ecs.types.service_registries
+
+        out["serviceRegistries"] = (
+            aws_sdk_ecs.types.service_registries.serialize_aws_json_1_1(
+                value["service_registries"]
+            )
+        )
+    if "launch_type" in value:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launchType"] = aws_sdk_ecs.types.launch_type.serialize_aws_json_1_1(
+            value["launch_type"]
+        )
+    if "capacity_provider_strategy" in value:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacityProviderStrategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.serialize_aws_json_1_1(
+                value["capacity_provider_strategy"]
+            )
+        )
+    if "platform_version" in value:
+        out["platformVersion"] = value["platform_version"]
+    if "scale" in value:
+        import aws_sdk_ecs.types.scale
+
+        out["scale"] = aws_sdk_ecs.types.scale.serialize_aws_json_1_1(value["scale"])
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateTaskSetRequest:
+    out: CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
+    if "service" in data:
+        out["service"] = data["service"]
+    else:
+        raise DeserializationError("CreateTaskSetRequest.service required")
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    else:
+        raise DeserializationError("CreateTaskSetRequest.cluster required")
+    if "externalId" in data:
+        out["external_id"] = data["externalId"]
+    if "taskDefinition" in data:
+        out["task_definition"] = data["taskDefinition"]
+    else:
+        raise DeserializationError("CreateTaskSetRequest.task_definition required")
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "loadBalancers" in data:
+        import aws_sdk_ecs.types.load_balancers
+
+        out["load_balancers"] = (
+            aws_sdk_ecs.types.load_balancers.deserialize_aws_json_1_1(
+                data["loadBalancers"]
+            )
+        )
+    if "serviceRegistries" in data:
+        import aws_sdk_ecs.types.service_registries
+
+        out["service_registries"] = (
+            aws_sdk_ecs.types.service_registries.deserialize_aws_json_1_1(
+                data["serviceRegistries"]
+            )
+        )
+    if "launchType" in data:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launch_type"] = aws_sdk_ecs.types.launch_type.deserialize_aws_json_1_1(
+            data["launchType"]
+        )
+    if "capacityProviderStrategy" in data:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacity_provider_strategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.deserialize_aws_json_1_1(
+                data["capacityProviderStrategy"]
+            )
+        )
+    if "platformVersion" in data:
+        out["platform_version"] = data["platformVersion"]
+    if "scale" in data:
+        import aws_sdk_ecs.types.scale
+
+        out["scale"] = aws_sdk_ecs.types.scale.deserialize_aws_json_1_1(data["scale"])
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    return out

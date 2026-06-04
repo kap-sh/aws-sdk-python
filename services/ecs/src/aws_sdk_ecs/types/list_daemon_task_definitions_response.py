@@ -15,3 +15,34 @@ class ListDaemonTaskDefinitionsResponse(TypedDict):
     """<p>The list of daemon task definition summaries.</p>"""
     next_token: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The <code>nextToken</code> value to include in a future <code>ListDaemonTaskDefinitions</code> request. When the results of a <code>ListDaemonTaskDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListDaemonTaskDefinitionsResponse) -> dict:
+    out: dict = {}
+    if "daemon_task_definitions" in value:
+        import aws_sdk_ecs.types.daemon_task_definition_summaries
+
+        out["daemonTaskDefinitions"] = (
+            aws_sdk_ecs.types.daemon_task_definition_summaries.serialize_aws_json_1_1(
+                value["daemon_task_definitions"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsResponse:
+    out: ListDaemonTaskDefinitionsResponse = {}  # type: ignore[typeddict-item]
+    if "daemonTaskDefinitions" in data:
+        import aws_sdk_ecs.types.daemon_task_definition_summaries
+
+        out["daemon_task_definitions"] = (
+            aws_sdk_ecs.types.daemon_task_definition_summaries.deserialize_aws_json_1_1(
+                data["daemonTaskDefinitions"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

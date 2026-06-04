@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.availability_zone_rebalancing
@@ -91,3 +92,258 @@ class UpdateServiceRequest(TypedDict):
         "aws_sdk_ecs.types.vpc_lattice_configurations.VpcLatticeConfigurations"
     ]
     """<p>An object representing the VPC Lattice configuration for the service being updated.</p> <p>This parameter triggers a new service deployment.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateServiceRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    out["service"] = value["service"]
+    if "desired_count" in value:
+        out["desiredCount"] = value["desired_count"]
+    if "task_definition" in value:
+        out["taskDefinition"] = value["task_definition"]
+    if "capacity_provider_strategy" in value:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacityProviderStrategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.serialize_aws_json_1_1(
+                value["capacity_provider_strategy"]
+            )
+        )
+    if "deployment_configuration" in value:
+        import aws_sdk_ecs.types.deployment_configuration
+
+        out["deploymentConfiguration"] = (
+            aws_sdk_ecs.types.deployment_configuration.serialize_aws_json_1_1(
+                value["deployment_configuration"]
+            )
+        )
+    if "availability_zone_rebalancing" in value:
+        import aws_sdk_ecs.types.availability_zone_rebalancing
+
+        out["availabilityZoneRebalancing"] = (
+            aws_sdk_ecs.types.availability_zone_rebalancing.serialize_aws_json_1_1(
+                value["availability_zone_rebalancing"]
+            )
+        )
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "placement_constraints" in value:
+        import aws_sdk_ecs.types.placement_constraints
+
+        out["placementConstraints"] = (
+            aws_sdk_ecs.types.placement_constraints.serialize_aws_json_1_1(
+                value["placement_constraints"]
+            )
+        )
+    if "placement_strategy" in value:
+        import aws_sdk_ecs.types.placement_strategies
+
+        out["placementStrategy"] = (
+            aws_sdk_ecs.types.placement_strategies.serialize_aws_json_1_1(
+                value["placement_strategy"]
+            )
+        )
+    if "platform_version" in value:
+        out["platformVersion"] = value["platform_version"]
+    out["forceNewDeployment"] = value.get("force_new_deployment", False)
+    if "health_check_grace_period_seconds" in value:
+        out["healthCheckGracePeriodSeconds"] = value[
+            "health_check_grace_period_seconds"
+        ]
+    if "deployment_controller" in value:
+        import aws_sdk_ecs.types.deployment_controller
+
+        out["deploymentController"] = (
+            aws_sdk_ecs.types.deployment_controller.serialize_aws_json_1_1(
+                value["deployment_controller"]
+            )
+        )
+    if "enable_execute_command" in value:
+        out["enableExecuteCommand"] = value["enable_execute_command"]
+    if "enable_ecs_managed_tags" in value:
+        out["enableECSManagedTags"] = value["enable_ecs_managed_tags"]
+    if "load_balancers" in value:
+        import aws_sdk_ecs.types.load_balancers
+
+        out["loadBalancers"] = aws_sdk_ecs.types.load_balancers.serialize_aws_json_1_1(
+            value["load_balancers"]
+        )
+    if "propagate_tags" in value:
+        import aws_sdk_ecs.types.propagate_tags
+
+        out["propagateTags"] = aws_sdk_ecs.types.propagate_tags.serialize_aws_json_1_1(
+            value["propagate_tags"]
+        )
+    if "service_registries" in value:
+        import aws_sdk_ecs.types.service_registries
+
+        out["serviceRegistries"] = (
+            aws_sdk_ecs.types.service_registries.serialize_aws_json_1_1(
+                value["service_registries"]
+            )
+        )
+    if "service_connect_configuration" in value:
+        import aws_sdk_ecs.types.service_connect_configuration
+
+        out["serviceConnectConfiguration"] = (
+            aws_sdk_ecs.types.service_connect_configuration.serialize_aws_json_1_1(
+                value["service_connect_configuration"]
+            )
+        )
+    if "volume_configurations" in value:
+        import aws_sdk_ecs.types.service_volume_configurations
+
+        out["volumeConfigurations"] = (
+            aws_sdk_ecs.types.service_volume_configurations.serialize_aws_json_1_1(
+                value["volume_configurations"]
+            )
+        )
+    if "vpc_lattice_configurations" in value:
+        import aws_sdk_ecs.types.vpc_lattice_configurations
+
+        out["vpcLatticeConfigurations"] = (
+            aws_sdk_ecs.types.vpc_lattice_configurations.serialize_aws_json_1_1(
+                value["vpc_lattice_configurations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateServiceRequest:
+    out: UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "service" in data:
+        out["service"] = data["service"]
+    else:
+        raise DeserializationError("UpdateServiceRequest.service required")
+    if "desiredCount" in data:
+        out["desired_count"] = data["desiredCount"]
+    if "taskDefinition" in data:
+        out["task_definition"] = data["taskDefinition"]
+    if "capacityProviderStrategy" in data:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["capacity_provider_strategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.deserialize_aws_json_1_1(
+                data["capacityProviderStrategy"]
+            )
+        )
+    if "deploymentConfiguration" in data:
+        import aws_sdk_ecs.types.deployment_configuration
+
+        out["deployment_configuration"] = (
+            aws_sdk_ecs.types.deployment_configuration.deserialize_aws_json_1_1(
+                data["deploymentConfiguration"]
+            )
+        )
+    if "availabilityZoneRebalancing" in data:
+        import aws_sdk_ecs.types.availability_zone_rebalancing
+
+        out["availability_zone_rebalancing"] = (
+            aws_sdk_ecs.types.availability_zone_rebalancing.deserialize_aws_json_1_1(
+                data["availabilityZoneRebalancing"]
+            )
+        )
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "placementConstraints" in data:
+        import aws_sdk_ecs.types.placement_constraints
+
+        out["placement_constraints"] = (
+            aws_sdk_ecs.types.placement_constraints.deserialize_aws_json_1_1(
+                data["placementConstraints"]
+            )
+        )
+    if "placementStrategy" in data:
+        import aws_sdk_ecs.types.placement_strategies
+
+        out["placement_strategy"] = (
+            aws_sdk_ecs.types.placement_strategies.deserialize_aws_json_1_1(
+                data["placementStrategy"]
+            )
+        )
+    if "platformVersion" in data:
+        out["platform_version"] = data["platformVersion"]
+    if "forceNewDeployment" in data:
+        out["force_new_deployment"] = data["forceNewDeployment"]
+    else:
+        out["force_new_deployment"] = False
+    if "healthCheckGracePeriodSeconds" in data:
+        out["health_check_grace_period_seconds"] = data["healthCheckGracePeriodSeconds"]
+    if "deploymentController" in data:
+        import aws_sdk_ecs.types.deployment_controller
+
+        out["deployment_controller"] = (
+            aws_sdk_ecs.types.deployment_controller.deserialize_aws_json_1_1(
+                data["deploymentController"]
+            )
+        )
+    if "enableExecuteCommand" in data:
+        out["enable_execute_command"] = data["enableExecuteCommand"]
+    if "enableECSManagedTags" in data:
+        out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
+    if "loadBalancers" in data:
+        import aws_sdk_ecs.types.load_balancers
+
+        out["load_balancers"] = (
+            aws_sdk_ecs.types.load_balancers.deserialize_aws_json_1_1(
+                data["loadBalancers"]
+            )
+        )
+    if "propagateTags" in data:
+        import aws_sdk_ecs.types.propagate_tags
+
+        out["propagate_tags"] = (
+            aws_sdk_ecs.types.propagate_tags.deserialize_aws_json_1_1(
+                data["propagateTags"]
+            )
+        )
+    if "serviceRegistries" in data:
+        import aws_sdk_ecs.types.service_registries
+
+        out["service_registries"] = (
+            aws_sdk_ecs.types.service_registries.deserialize_aws_json_1_1(
+                data["serviceRegistries"]
+            )
+        )
+    if "serviceConnectConfiguration" in data:
+        import aws_sdk_ecs.types.service_connect_configuration
+
+        out["service_connect_configuration"] = (
+            aws_sdk_ecs.types.service_connect_configuration.deserialize_aws_json_1_1(
+                data["serviceConnectConfiguration"]
+            )
+        )
+    if "volumeConfigurations" in data:
+        import aws_sdk_ecs.types.service_volume_configurations
+
+        out["volume_configurations"] = (
+            aws_sdk_ecs.types.service_volume_configurations.deserialize_aws_json_1_1(
+                data["volumeConfigurations"]
+            )
+        )
+    if "vpcLatticeConfigurations" in data:
+        import aws_sdk_ecs.types.vpc_lattice_configurations
+
+        out["vpc_lattice_configurations"] = (
+            aws_sdk_ecs.types.vpc_lattice_configurations.deserialize_aws_json_1_1(
+                data["vpcLatticeConfigurations"]
+            )
+        )
+    return out

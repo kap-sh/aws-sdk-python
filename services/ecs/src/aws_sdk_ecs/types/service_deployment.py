@@ -69,3 +69,230 @@ class ServiceDeployment(TypedDict):
         "aws_sdk_ecs.types.service_deployment_alarms.ServiceDeploymentAlarms"
     ]
     """<p>The CloudWatch alarms that determine when a service deployment fails.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceDeployment) -> dict:
+    out: dict = {}
+    if "service_deployment_arn" in value:
+        out["serviceDeploymentArn"] = value["service_deployment_arn"]
+    if "service_arn" in value:
+        out["serviceArn"] = value["service_arn"]
+    if "cluster_arn" in value:
+        out["clusterArn"] = value["cluster_arn"]
+    if "created_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["createdAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["created_at"]
+        )
+    if "started_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["startedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["started_at"]
+        )
+    if "finished_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["finishedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["finished_at"]
+        )
+    if "stopped_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stoppedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["stopped_at"]
+        )
+    if "updated_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["updatedAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["updated_at"]
+        )
+    if "source_service_revisions" in value:
+        import aws_sdk_ecs.types.service_revisions_summary_list
+
+        out["sourceServiceRevisions"] = (
+            aws_sdk_ecs.types.service_revisions_summary_list.serialize_aws_json_1_1(
+                value["source_service_revisions"]
+            )
+        )
+    if "target_service_revision" in value:
+        import aws_sdk_ecs.types.service_revision_summary
+
+        out["targetServiceRevision"] = (
+            aws_sdk_ecs.types.service_revision_summary.serialize_aws_json_1_1(
+                value["target_service_revision"]
+            )
+        )
+    if "status" in value:
+        import aws_sdk_ecs.types.service_deployment_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.service_deployment_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "status_reason" in value:
+        out["statusReason"] = value["status_reason"]
+    if "lifecycle_stage" in value:
+        import aws_sdk_ecs.types.service_deployment_lifecycle_stage
+
+        out["lifecycleStage"] = (
+            aws_sdk_ecs.types.service_deployment_lifecycle_stage.serialize_aws_json_1_1(
+                value["lifecycle_stage"]
+            )
+        )
+    if "lifecycle_hook_details" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_detail_list
+
+        out["lifecycleHookDetails"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_detail_list.serialize_aws_json_1_1(
+                value["lifecycle_hook_details"]
+            )
+        )
+    if "deployment_configuration" in value:
+        import aws_sdk_ecs.types.deployment_configuration
+
+        out["deploymentConfiguration"] = (
+            aws_sdk_ecs.types.deployment_configuration.serialize_aws_json_1_1(
+                value["deployment_configuration"]
+            )
+        )
+    if "rollback" in value:
+        import aws_sdk_ecs.types.rollback
+
+        out["rollback"] = aws_sdk_ecs.types.rollback.serialize_aws_json_1_1(
+            value["rollback"]
+        )
+    if "deployment_circuit_breaker" in value:
+        import aws_sdk_ecs.types.service_deployment_circuit_breaker
+
+        out["deploymentCircuitBreaker"] = (
+            aws_sdk_ecs.types.service_deployment_circuit_breaker.serialize_aws_json_1_1(
+                value["deployment_circuit_breaker"]
+            )
+        )
+    if "alarms" in value:
+        import aws_sdk_ecs.types.service_deployment_alarms
+
+        out["alarms"] = (
+            aws_sdk_ecs.types.service_deployment_alarms.serialize_aws_json_1_1(
+                value["alarms"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
+    out: ServiceDeployment = {}  # type: ignore[typeddict-item]
+    if "serviceDeploymentArn" in data:
+        out["service_deployment_arn"] = data["serviceDeploymentArn"]
+    if "serviceArn" in data:
+        out["service_arn"] = data["serviceArn"]
+    if "clusterArn" in data:
+        out["cluster_arn"] = data["clusterArn"]
+    if "createdAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["created_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["createdAt"]
+        )
+    if "startedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["started_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["startedAt"]
+        )
+    if "finishedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["finished_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["finishedAt"]
+        )
+    if "stoppedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["stopped_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["stoppedAt"]
+        )
+    if "updatedAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["updated_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["updatedAt"]
+        )
+    if "sourceServiceRevisions" in data:
+        import aws_sdk_ecs.types.service_revisions_summary_list
+
+        out["source_service_revisions"] = (
+            aws_sdk_ecs.types.service_revisions_summary_list.deserialize_aws_json_1_1(
+                data["sourceServiceRevisions"]
+            )
+        )
+    if "targetServiceRevision" in data:
+        import aws_sdk_ecs.types.service_revision_summary
+
+        out["target_service_revision"] = (
+            aws_sdk_ecs.types.service_revision_summary.deserialize_aws_json_1_1(
+                data["targetServiceRevision"]
+            )
+        )
+    if "status" in data:
+        import aws_sdk_ecs.types.service_deployment_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.service_deployment_status.deserialize_aws_json_1_1(
+                data["status"]
+            )
+        )
+    if "statusReason" in data:
+        out["status_reason"] = data["statusReason"]
+    if "lifecycleStage" in data:
+        import aws_sdk_ecs.types.service_deployment_lifecycle_stage
+
+        out["lifecycle_stage"] = (
+            aws_sdk_ecs.types.service_deployment_lifecycle_stage.deserialize_aws_json_1_1(
+                data["lifecycleStage"]
+            )
+        )
+    if "lifecycleHookDetails" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_detail_list
+
+        out["lifecycle_hook_details"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_detail_list.deserialize_aws_json_1_1(
+                data["lifecycleHookDetails"]
+            )
+        )
+    if "deploymentConfiguration" in data:
+        import aws_sdk_ecs.types.deployment_configuration
+
+        out["deployment_configuration"] = (
+            aws_sdk_ecs.types.deployment_configuration.deserialize_aws_json_1_1(
+                data["deploymentConfiguration"]
+            )
+        )
+    if "rollback" in data:
+        import aws_sdk_ecs.types.rollback
+
+        out["rollback"] = aws_sdk_ecs.types.rollback.deserialize_aws_json_1_1(
+            data["rollback"]
+        )
+    if "deploymentCircuitBreaker" in data:
+        import aws_sdk_ecs.types.service_deployment_circuit_breaker
+
+        out["deployment_circuit_breaker"] = (
+            aws_sdk_ecs.types.service_deployment_circuit_breaker.deserialize_aws_json_1_1(
+                data["deploymentCircuitBreaker"]
+            )
+        )
+    if "alarms" in data:
+        import aws_sdk_ecs.types.service_deployment_alarms
+
+        out["alarms"] = (
+            aws_sdk_ecs.types.service_deployment_alarms.deserialize_aws_json_1_1(
+                data["alarms"]
+            )
+        )
+    return out

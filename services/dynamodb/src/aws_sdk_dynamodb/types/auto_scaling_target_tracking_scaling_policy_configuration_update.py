@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.boolean_object
@@ -22,3 +23,37 @@ class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(TypedDict):
     """<p>The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.</p>"""
     target_value: "aws_sdk_dynamodb.types.double_object.DoubleObject"
     """<p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(
+    value: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+) -> dict:
+    out: dict = {}
+    if "disable_scale_in" in value:
+        out["DisableScaleIn"] = value["disable_scale_in"]
+    if "scale_in_cooldown" in value:
+        out["ScaleInCooldown"] = value["scale_in_cooldown"]
+    if "scale_out_cooldown" in value:
+        out["ScaleOutCooldown"] = value["scale_out_cooldown"]
+    out["TargetValue"] = value["target_value"]
+    return out
+
+
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> AutoScalingTargetTrackingScalingPolicyConfigurationUpdate:
+    out: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = {}  # type: ignore[typeddict-item]
+    if "DisableScaleIn" in data:
+        out["disable_scale_in"] = data["DisableScaleIn"]
+    if "ScaleInCooldown" in data:
+        out["scale_in_cooldown"] = data["ScaleInCooldown"]
+    if "ScaleOutCooldown" in data:
+        out["scale_out_cooldown"] = data["ScaleOutCooldown"]
+    if "TargetValue" in data:
+        out["target_value"] = data["TargetValue"]
+    else:
+        raise DeserializationError(
+            "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.target_value required"
+        )
+    return out

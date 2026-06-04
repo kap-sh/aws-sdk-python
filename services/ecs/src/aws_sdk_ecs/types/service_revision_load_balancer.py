@@ -12,3 +12,22 @@ class ServiceRevisionLoadBalancer(TypedDict):
     """<p>The Amazon Resource Name (ARN) of the target group associated with the service revision.</p>"""
     production_listener_rule: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the production listener rule or listener that directs traffic to the target group associated with the service revision.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceRevisionLoadBalancer) -> dict:
+    out: dict = {}
+    if "target_group_arn" in value:
+        out["targetGroupArn"] = value["target_group_arn"]
+    if "production_listener_rule" in value:
+        out["productionListenerRule"] = value["production_listener_rule"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceRevisionLoadBalancer:
+    out: ServiceRevisionLoadBalancer = {}  # type: ignore[typeddict-item]
+    if "targetGroupArn" in data:
+        out["target_group_arn"] = data["targetGroupArn"]
+    if "productionListenerRule" in data:
+        out["production_listener_rule"] = data["productionListenerRule"]
+    return out

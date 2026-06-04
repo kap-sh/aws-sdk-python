@@ -55,3 +55,148 @@ class Container(TypedDict):
         "aws_sdk_ecs.types.neuron_device_ids.NeuronDeviceIds"
     ]
     """<p>The IDs of each Neuron device assigned to the container.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Container) -> dict:
+    out: dict = {}
+    if "container_arn" in value:
+        out["containerArn"] = value["container_arn"]
+    if "task_arn" in value:
+        out["taskArn"] = value["task_arn"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "image" in value:
+        out["image"] = value["image"]
+    if "image_digest" in value:
+        out["imageDigest"] = value["image_digest"]
+    if "runtime_id" in value:
+        out["runtimeId"] = value["runtime_id"]
+    if "last_status" in value:
+        out["lastStatus"] = value["last_status"]
+    if "exit_code" in value:
+        out["exitCode"] = value["exit_code"]
+    if "reason" in value:
+        out["reason"] = value["reason"]
+    if "network_bindings" in value:
+        import aws_sdk_ecs.types.network_bindings
+
+        out["networkBindings"] = (
+            aws_sdk_ecs.types.network_bindings.serialize_aws_json_1_1(
+                value["network_bindings"]
+            )
+        )
+    if "network_interfaces" in value:
+        import aws_sdk_ecs.types.network_interfaces
+
+        out["networkInterfaces"] = (
+            aws_sdk_ecs.types.network_interfaces.serialize_aws_json_1_1(
+                value["network_interfaces"]
+            )
+        )
+    if "health_status" in value:
+        import aws_sdk_ecs.types.health_status
+
+        out["healthStatus"] = aws_sdk_ecs.types.health_status.serialize_aws_json_1_1(
+            value["health_status"]
+        )
+    if "managed_agents" in value:
+        import aws_sdk_ecs.types.managed_agents
+
+        out["managedAgents"] = aws_sdk_ecs.types.managed_agents.serialize_aws_json_1_1(
+            value["managed_agents"]
+        )
+    if "cpu" in value:
+        out["cpu"] = value["cpu"]
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "memory_reservation" in value:
+        out["memoryReservation"] = value["memory_reservation"]
+    if "gpu_ids" in value:
+        import aws_sdk_ecs.types.gpu_ids
+
+        out["gpuIds"] = aws_sdk_ecs.types.gpu_ids.serialize_aws_json_1_1(
+            value["gpu_ids"]
+        )
+    if "neuron_device_ids" in value:
+        import aws_sdk_ecs.types.neuron_device_ids
+
+        out["neuronDeviceIds"] = (
+            aws_sdk_ecs.types.neuron_device_ids.serialize_aws_json_1_1(
+                value["neuron_device_ids"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Container:
+    out: Container = {}  # type: ignore[typeddict-item]
+    if "containerArn" in data:
+        out["container_arn"] = data["containerArn"]
+    if "taskArn" in data:
+        out["task_arn"] = data["taskArn"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "image" in data:
+        out["image"] = data["image"]
+    if "imageDigest" in data:
+        out["image_digest"] = data["imageDigest"]
+    if "runtimeId" in data:
+        out["runtime_id"] = data["runtimeId"]
+    if "lastStatus" in data:
+        out["last_status"] = data["lastStatus"]
+    if "exitCode" in data:
+        out["exit_code"] = data["exitCode"]
+    if "reason" in data:
+        out["reason"] = data["reason"]
+    if "networkBindings" in data:
+        import aws_sdk_ecs.types.network_bindings
+
+        out["network_bindings"] = (
+            aws_sdk_ecs.types.network_bindings.deserialize_aws_json_1_1(
+                data["networkBindings"]
+            )
+        )
+    if "networkInterfaces" in data:
+        import aws_sdk_ecs.types.network_interfaces
+
+        out["network_interfaces"] = (
+            aws_sdk_ecs.types.network_interfaces.deserialize_aws_json_1_1(
+                data["networkInterfaces"]
+            )
+        )
+    if "healthStatus" in data:
+        import aws_sdk_ecs.types.health_status
+
+        out["health_status"] = aws_sdk_ecs.types.health_status.deserialize_aws_json_1_1(
+            data["healthStatus"]
+        )
+    if "managedAgents" in data:
+        import aws_sdk_ecs.types.managed_agents
+
+        out["managed_agents"] = (
+            aws_sdk_ecs.types.managed_agents.deserialize_aws_json_1_1(
+                data["managedAgents"]
+            )
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "memoryReservation" in data:
+        out["memory_reservation"] = data["memoryReservation"]
+    if "gpuIds" in data:
+        import aws_sdk_ecs.types.gpu_ids
+
+        out["gpu_ids"] = aws_sdk_ecs.types.gpu_ids.deserialize_aws_json_1_1(
+            data["gpuIds"]
+        )
+    if "neuronDeviceIds" in data:
+        import aws_sdk_ecs.types.neuron_device_ids
+
+        out["neuron_device_ids"] = (
+            aws_sdk_ecs.types.neuron_device_ids.deserialize_aws_json_1_1(
+                data["neuronDeviceIds"]
+            )
+        )
+    return out

@@ -8,3 +8,30 @@ if TYPE_CHECKING:
 LocalSecondaryIndexDescriptionList: TypeAlias = list[
     "aws_sdk_dynamodb.types.local_secondary_index_description.LocalSecondaryIndexDescription"
 ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: LocalSecondaryIndexDescriptionList) -> list:
+    import aws_sdk_dynamodb.types.local_secondary_index_description
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_dynamodb.types.local_secondary_index_description.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> LocalSecondaryIndexDescriptionList:
+    import aws_sdk_dynamodb.types.local_secondary_index_description
+
+    out: LocalSecondaryIndexDescriptionList = []
+    for item in data:
+        out.append(
+            aws_sdk_dynamodb.types.local_secondary_index_description.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

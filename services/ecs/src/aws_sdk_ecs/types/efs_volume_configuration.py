@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -25,3 +26,59 @@ class EFSVolumeConfiguration(TypedDict):
         "aws_sdk_ecs.types.efs_authorization_config.EFSAuthorizationConfig"
     ]
     """<p>The authorization configuration details for the Amazon EFS file system.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EFSVolumeConfiguration) -> dict:
+    out: dict = {}
+    out["fileSystemId"] = value["file_system_id"]
+    if "root_directory" in value:
+        out["rootDirectory"] = value["root_directory"]
+    if "transit_encryption" in value:
+        import aws_sdk_ecs.types.efs_transit_encryption
+
+        out["transitEncryption"] = (
+            aws_sdk_ecs.types.efs_transit_encryption.serialize_aws_json_1_1(
+                value["transit_encryption"]
+            )
+        )
+    if "transit_encryption_port" in value:
+        out["transitEncryptionPort"] = value["transit_encryption_port"]
+    if "authorization_config" in value:
+        import aws_sdk_ecs.types.efs_authorization_config
+
+        out["authorizationConfig"] = (
+            aws_sdk_ecs.types.efs_authorization_config.serialize_aws_json_1_1(
+                value["authorization_config"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EFSVolumeConfiguration:
+    out: EFSVolumeConfiguration = {}  # type: ignore[typeddict-item]
+    if "fileSystemId" in data:
+        out["file_system_id"] = data["fileSystemId"]
+    else:
+        raise DeserializationError("EFSVolumeConfiguration.file_system_id required")
+    if "rootDirectory" in data:
+        out["root_directory"] = data["rootDirectory"]
+    if "transitEncryption" in data:
+        import aws_sdk_ecs.types.efs_transit_encryption
+
+        out["transit_encryption"] = (
+            aws_sdk_ecs.types.efs_transit_encryption.deserialize_aws_json_1_1(
+                data["transitEncryption"]
+            )
+        )
+    if "transitEncryptionPort" in data:
+        out["transit_encryption_port"] = data["transitEncryptionPort"]
+    if "authorizationConfig" in data:
+        import aws_sdk_ecs.types.efs_authorization_config
+
+        out["authorization_config"] = (
+            aws_sdk_ecs.types.efs_authorization_config.deserialize_aws_json_1_1(
+                data["authorizationConfig"]
+            )
+        )
+    return out

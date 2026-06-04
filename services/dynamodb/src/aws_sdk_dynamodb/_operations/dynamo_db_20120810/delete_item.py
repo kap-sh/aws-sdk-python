@@ -1,8 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DeleteItem``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Never, Any
+from aws_sdk_dynamodb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 import zapros
+from aws_sdk_dynamodb.errors import UnknownServiceError
+from aws_sdk_dynamodb._protocol.errors import parse_error_metadata_json
+import json
 import aws_sdk_dynamodb._auth._signers
 from aws_sdk_dynamodb._services._pipeline import AsyncOperationOptions, OperationOptions
 
@@ -11,15 +15,185 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.delete_item_output
 
 
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "ConditionalCheckFailedException":
+            import aws_sdk_dynamodb.errors.conditional_check_failed_exception
+
+            raise aws_sdk_dynamodb.errors.conditional_check_failed_exception.ConditionalCheckFailedException.from_aws_json_1_0(
+                data
+            )
+        case "InternalServerError":
+            import aws_sdk_dynamodb.errors.internal_server_error
+
+            raise aws_sdk_dynamodb.errors.internal_server_error.InternalServerError.from_aws_json_1_0(
+                data
+            )
+        case "InvalidEndpointException":
+            import aws_sdk_dynamodb.errors.invalid_endpoint_exception
+
+            raise aws_sdk_dynamodb.errors.invalid_endpoint_exception.InvalidEndpointException.from_aws_json_1_0(
+                data
+            )
+        case "ItemCollectionSizeLimitExceededException":
+            import aws_sdk_dynamodb.errors.item_collection_size_limit_exceeded_exception
+
+            raise aws_sdk_dynamodb.errors.item_collection_size_limit_exceeded_exception.ItemCollectionSizeLimitExceededException.from_aws_json_1_0(
+                data
+            )
+        case "ProvisionedThroughputExceededException":
+            import aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception
+
+            raise aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_0(
+                data
+            )
+        case "ReplicatedWriteConflictException":
+            import aws_sdk_dynamodb.errors.replicated_write_conflict_exception
+
+            raise aws_sdk_dynamodb.errors.replicated_write_conflict_exception.ReplicatedWriteConflictException.from_aws_json_1_0(
+                data
+            )
+        case "RequestLimitExceeded":
+            import aws_sdk_dynamodb.errors.request_limit_exceeded
+
+            raise aws_sdk_dynamodb.errors.request_limit_exceeded.RequestLimitExceeded.from_aws_json_1_0(
+                data
+            )
+        case "ResourceNotFoundException":
+            import aws_sdk_dynamodb.errors.resource_not_found_exception
+
+            raise aws_sdk_dynamodb.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
+                data
+            )
+        case "ThrottlingException":
+            import aws_sdk_dynamodb.errors.throttling_exception
+
+            raise aws_sdk_dynamodb.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
+                data
+            )
+        case "TransactionConflictException":
+            import aws_sdk_dynamodb.errors.transaction_conflict_exception
+
+            raise aws_sdk_dynamodb.errors.transaction_conflict_exception.TransactionConflictException.from_aws_json_1_0(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput:
+    import aws_sdk_dynamodb.types.delete_item_output
+
+    out: aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput = (
+        aws_sdk_dynamodb.types.delete_item_output.deserialize_aws_json_1_0(
+            json.loads(response.read())
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_dynamodb._auth._signers.Signer | None:
+    if auth_schemes:
+        for scheme in auth_schemes:
+            match scheme["name"]:
+                case "sigv4" | "sigv4a" | "sigv4-s3express" if (
+                    options.credentials_provider is not None
+                ):
+                    return aws_sdk_dynamodb._auth._signers.SigV4Signer(
+                        options.credentials_provider, auth_scheme=scheme
+                    )
+                case "none":
+                    return None
+                case _:
+                    raise RuntimeError(
+                        f"Could not find provider for auth scheme {scheme['name']!r}"
+                    )
+    if options.credentials_provider is not None:
+        if options.region is None:
+            raise RuntimeError("options.region is required for SigV4 signing")
+        return aws_sdk_dynamodb._auth._signers.SigV4Signer(
+            options.credentials_provider,
+            auth_scheme={
+                "name": "sigv4",
+                "signingName": "dynamodb",
+                "signingRegion": options.region,
+                "disableDoubleEncoding": False,
+                "disableNormalizePath": False,
+            },
+        )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_dynamodb.types.delete_item_input.DeleteItemInput,
+) -> zapros.Request:
+    endpoint = resolve(  # noqa: F841
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+            AccountId=options.account_id,
+            AccountIdEndpointMode=options.account_id_endpoint_mode,
+            ResourceArn=input.get("table_name"),
+            ResourceArnList=options.resource_arn_list,
+        )
+    )
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteItem"
+    import aws_sdk_dynamodb.types.delete_item_input
+
+    body: bytes | None = json.dumps(
+        aws_sdk_dynamodb.types.delete_item_input.serialize_aws_json_1_0(input)
+    ).encode()
+    headers["content-type"] = "application/x-amz-json-1.0"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url,
+        "POST",
+        headers=headers,
+        body=body,  # type: ignore
+        context={"signer": signer},  # type: ignore
+    )
+
+
 def delete_item(
     options: OperationOptions,
     input: aws_sdk_dynamodb.types.delete_item_input.DeleteItemInput,
 ) -> tuple[aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput, zapros.Response]:
-    raise NotImplementedError("operation dispatch not yet generated")
+    response = options.client.handler.handle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response, is_async=False), response
+    except BaseException:
+        response.close()
+        raise
 
 
 async def async_delete_item(
     options: AsyncOperationOptions,
     input: aws_sdk_dynamodb.types.delete_item_input.DeleteItemInput,
 ) -> tuple[aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput, zapros.Response]:
-    raise NotImplementedError("operation dispatch not yet generated")
+    response = await options.client.handler.ahandle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return handle_response(response, is_async=True), response
+    except BaseException:
+        await response.aclose()
+        raise

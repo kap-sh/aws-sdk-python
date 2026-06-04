@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attachment_state_changes
@@ -13,3 +14,37 @@ class SubmitAttachmentStateChangesRequest(TypedDict):
     """<p>The short name or full ARN of the cluster that hosts the container instance the attachment belongs to.</p>"""
     attachments: "aws_sdk_ecs.types.attachment_state_changes.AttachmentStateChanges"
     """<p>Any attachments associated with the state change request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SubmitAttachmentStateChangesRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    import aws_sdk_ecs.types.attachment_state_changes
+
+    out["attachments"] = (
+        aws_sdk_ecs.types.attachment_state_changes.serialize_aws_json_1_1(
+            value["attachments"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SubmitAttachmentStateChangesRequest:
+    out: SubmitAttachmentStateChangesRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "attachments" in data:
+        import aws_sdk_ecs.types.attachment_state_changes
+
+        out["attachments"] = (
+            aws_sdk_ecs.types.attachment_state_changes.deserialize_aws_json_1_1(
+                data["attachments"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "SubmitAttachmentStateChangesRequest.attachments required"
+        )
+    return out

@@ -23,3 +23,62 @@ class ExpectedAttributeValue(TypedDict):
         "aws_sdk_dynamodb.types.attribute_value_list.AttributeValueList"
     ]
     """<p>One or more values to evaluate against the supplied attribute. The number of values in the list depends on the <code>ComparisonOperator</code> being used.</p> <p>For type Number, value comparisons are numeric.</p> <p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>a</code> is greater than <code>B</code>. For a list of code values, see <a href=\"http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p> <p>For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p> <p>For information on specifying data types in JSON, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html\">JSON Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ExpectedAttributeValue) -> dict:
+    out: dict = {}
+    if "value" in value:
+        import aws_sdk_dynamodb.types.attribute_value
+
+        out["Value"] = aws_sdk_dynamodb.types.attribute_value.serialize_aws_json_1_0(
+            value["value"]
+        )
+    if "exists" in value:
+        out["Exists"] = value["exists"]
+    if "comparison_operator" in value:
+        import aws_sdk_dynamodb.types.comparison_operator
+
+        out["ComparisonOperator"] = (
+            aws_sdk_dynamodb.types.comparison_operator.serialize_aws_json_1_0(
+                value["comparison_operator"]
+            )
+        )
+    if "attribute_value_list" in value:
+        import aws_sdk_dynamodb.types.attribute_value_list
+
+        out["AttributeValueList"] = (
+            aws_sdk_dynamodb.types.attribute_value_list.serialize_aws_json_1_0(
+                value["attribute_value_list"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ExpectedAttributeValue:
+    out: ExpectedAttributeValue = {}  # type: ignore[typeddict-item]
+    if "Value" in data:
+        import aws_sdk_dynamodb.types.attribute_value
+
+        out["value"] = aws_sdk_dynamodb.types.attribute_value.deserialize_aws_json_1_0(
+            data["Value"]
+        )
+    if "Exists" in data:
+        out["exists"] = data["Exists"]
+    if "ComparisonOperator" in data:
+        import aws_sdk_dynamodb.types.comparison_operator
+
+        out["comparison_operator"] = (
+            aws_sdk_dynamodb.types.comparison_operator.deserialize_aws_json_1_0(
+                data["ComparisonOperator"]
+            )
+        )
+    if "AttributeValueList" in data:
+        import aws_sdk_dynamodb.types.attribute_value_list
+
+        out["attribute_value_list"] = (
+            aws_sdk_dynamodb.types.attribute_value_list.deserialize_aws_json_1_0(
+                data["AttributeValueList"]
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.condition_expression
@@ -33,3 +34,80 @@ class Delete(TypedDict):
         "aws_sdk_dynamodb.types.return_values_on_condition_check_failure.ReturnValuesOnConditionCheckFailure"
     ]
     """<p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Delete</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Delete) -> dict:
+    out: dict = {}
+    import aws_sdk_dynamodb.types.key
+
+    out["Key"] = aws_sdk_dynamodb.types.key.serialize_aws_json_1_0(value["key"])
+    out["TableName"] = value["table_name"]
+    if "condition_expression" in value:
+        out["ConditionExpression"] = value["condition_expression"]
+    if "expression_attribute_names" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["ExpressionAttributeNames"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.serialize_aws_json_1_0(
+                value["expression_attribute_names"]
+            )
+        )
+    if "expression_attribute_values" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["ExpressionAttributeValues"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.serialize_aws_json_1_0(
+                value["expression_attribute_values"]
+            )
+        )
+    if "return_values_on_condition_check_failure" in value:
+        import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
+
+        out["ReturnValuesOnConditionCheckFailure"] = (
+            aws_sdk_dynamodb.types.return_values_on_condition_check_failure.serialize_aws_json_1_0(
+                value["return_values_on_condition_check_failure"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Delete:
+    out: Delete = {}  # type: ignore[typeddict-item]
+    if "Key" in data:
+        import aws_sdk_dynamodb.types.key
+
+        out["key"] = aws_sdk_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
+    else:
+        raise DeserializationError("Delete.key required")
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("Delete.table_name required")
+    if "ConditionExpression" in data:
+        out["condition_expression"] = data["ConditionExpression"]
+    if "ExpressionAttributeNames" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["expression_attribute_names"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeNames"]
+            )
+        )
+    if "ExpressionAttributeValues" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["expression_attribute_values"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeValues"]
+            )
+        )
+    if "ReturnValuesOnConditionCheckFailure" in data:
+        import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
+
+        out["return_values_on_condition_check_failure"] = (
+            aws_sdk_dynamodb.types.return_values_on_condition_check_failure.deserialize_aws_json_1_0(
+                data["ReturnValuesOnConditionCheckFailure"]
+            )
+        )
+    return out

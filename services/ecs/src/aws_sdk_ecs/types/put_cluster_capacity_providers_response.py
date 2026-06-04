@@ -10,3 +10,26 @@ if TYPE_CHECKING:
 class PutClusterCapacityProvidersResponse(TypedDict):
     cluster: NotRequired["aws_sdk_ecs.types.cluster.Cluster"]
     """<p>Details about the cluster.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutClusterCapacityProvidersResponse) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        import aws_sdk_ecs.types.cluster
+
+        out["cluster"] = aws_sdk_ecs.types.cluster.serialize_aws_json_1_1(
+            value["cluster"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutClusterCapacityProvidersResponse:
+    out: PutClusterCapacityProvidersResponse = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        import aws_sdk_ecs.types.cluster
+
+        out["cluster"] = aws_sdk_ecs.types.cluster.deserialize_aws_json_1_1(
+            data["cluster"]
+        )
+    return out

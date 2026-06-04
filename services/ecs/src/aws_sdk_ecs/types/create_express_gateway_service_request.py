@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.express_gateway_container
@@ -42,3 +43,111 @@ class CreateExpressGatewayServiceRequest(TypedDict):
     """<p>The auto-scaling configuration for the Express service. This defines how the service automatically adjusts the number of running tasks based on demand.</p> <p>You can specify the minimum and maximum number of tasks, the scaling metric (CPU utilization, memory utilization, or request count per target), and the target value for the metric. If not specified, the default target value for an Express service is 60.</p>"""
     tags: NotRequired["aws_sdk_ecs.types.tags.Tags"]
     """<p>The metadata that you apply to the Express service to help categorize and organize it. Each tag consists of a key and an optional value. You can apply up to 50 tags to a service.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateExpressGatewayServiceRequest) -> dict:
+    out: dict = {}
+    out["executionRoleArn"] = value["execution_role_arn"]
+    out["infrastructureRoleArn"] = value["infrastructure_role_arn"]
+    if "service_name" in value:
+        out["serviceName"] = value["service_name"]
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    if "health_check_path" in value:
+        out["healthCheckPath"] = value["health_check_path"]
+    import aws_sdk_ecs.types.express_gateway_container
+
+    out["primaryContainer"] = (
+        aws_sdk_ecs.types.express_gateway_container.serialize_aws_json_1_1(
+            value["primary_container"]
+        )
+    )
+    if "task_role_arn" in value:
+        out["taskRoleArn"] = value["task_role_arn"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.express_gateway_service_network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.express_gateway_service_network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "cpu" in value:
+        out["cpu"] = value["cpu"]
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "scaling_target" in value:
+        import aws_sdk_ecs.types.express_gateway_scaling_target
+
+        out["scalingTarget"] = (
+            aws_sdk_ecs.types.express_gateway_scaling_target.serialize_aws_json_1_1(
+                value["scaling_target"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateExpressGatewayServiceRequest:
+    out: CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+    if "executionRoleArn" in data:
+        out["execution_role_arn"] = data["executionRoleArn"]
+    else:
+        raise DeserializationError(
+            "CreateExpressGatewayServiceRequest.execution_role_arn required"
+        )
+    if "infrastructureRoleArn" in data:
+        out["infrastructure_role_arn"] = data["infrastructureRoleArn"]
+    else:
+        raise DeserializationError(
+            "CreateExpressGatewayServiceRequest.infrastructure_role_arn required"
+        )
+    if "serviceName" in data:
+        out["service_name"] = data["serviceName"]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "healthCheckPath" in data:
+        out["health_check_path"] = data["healthCheckPath"]
+    if "primaryContainer" in data:
+        import aws_sdk_ecs.types.express_gateway_container
+
+        out["primary_container"] = (
+            aws_sdk_ecs.types.express_gateway_container.deserialize_aws_json_1_1(
+                data["primaryContainer"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateExpressGatewayServiceRequest.primary_container required"
+        )
+    if "taskRoleArn" in data:
+        out["task_role_arn"] = data["taskRoleArn"]
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.express_gateway_service_network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.express_gateway_service_network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "scalingTarget" in data:
+        import aws_sdk_ecs.types.express_gateway_scaling_target
+
+        out["scaling_target"] = (
+            aws_sdk_ecs.types.express_gateway_scaling_target.deserialize_aws_json_1_1(
+                data["scalingTarget"]
+            )
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    return out

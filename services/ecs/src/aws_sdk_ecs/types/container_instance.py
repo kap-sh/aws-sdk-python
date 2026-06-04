@@ -59,3 +59,170 @@ class ContainerInstance(TypedDict):
         "aws_sdk_ecs.types.container_instance_health_status.ContainerInstanceHealthStatus"
     ]
     """<p>An object representing the health status of the container instance.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ContainerInstance) -> dict:
+    out: dict = {}
+    if "container_instance_arn" in value:
+        out["containerInstanceArn"] = value["container_instance_arn"]
+    if "ec2_instance_id" in value:
+        out["ec2InstanceId"] = value["ec2_instance_id"]
+    if "capacity_provider_name" in value:
+        out["capacityProviderName"] = value["capacity_provider_name"]
+    out["version"] = value.get("version", 0)
+    if "version_info" in value:
+        import aws_sdk_ecs.types.version_info
+
+        out["versionInfo"] = aws_sdk_ecs.types.version_info.serialize_aws_json_1_1(
+            value["version_info"]
+        )
+    if "remaining_resources" in value:
+        import aws_sdk_ecs.types.resources
+
+        out["remainingResources"] = aws_sdk_ecs.types.resources.serialize_aws_json_1_1(
+            value["remaining_resources"]
+        )
+    if "registered_resources" in value:
+        import aws_sdk_ecs.types.resources
+
+        out["registeredResources"] = aws_sdk_ecs.types.resources.serialize_aws_json_1_1(
+            value["registered_resources"]
+        )
+    if "status" in value:
+        out["status"] = value["status"]
+    if "status_reason" in value:
+        out["statusReason"] = value["status_reason"]
+    out["agentConnected"] = value.get("agent_connected", False)
+    out["runningTasksCount"] = value.get("running_tasks_count", 0)
+    out["pendingTasksCount"] = value.get("pending_tasks_count", 0)
+    if "agent_update_status" in value:
+        import aws_sdk_ecs.types.agent_update_status
+
+        out["agentUpdateStatus"] = (
+            aws_sdk_ecs.types.agent_update_status.serialize_aws_json_1_1(
+                value["agent_update_status"]
+            )
+        )
+    if "attributes" in value:
+        import aws_sdk_ecs.types.attributes
+
+        out["attributes"] = aws_sdk_ecs.types.attributes.serialize_aws_json_1_1(
+            value["attributes"]
+        )
+    if "registered_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["registeredAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["registered_at"]
+        )
+    if "attachments" in value:
+        import aws_sdk_ecs.types.attachments
+
+        out["attachments"] = aws_sdk_ecs.types.attachments.serialize_aws_json_1_1(
+            value["attachments"]
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "health_status" in value:
+        import aws_sdk_ecs.types.container_instance_health_status
+
+        out["healthStatus"] = (
+            aws_sdk_ecs.types.container_instance_health_status.serialize_aws_json_1_1(
+                value["health_status"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ContainerInstance:
+    out: ContainerInstance = {}  # type: ignore[typeddict-item]
+    if "containerInstanceArn" in data:
+        out["container_instance_arn"] = data["containerInstanceArn"]
+    if "ec2InstanceId" in data:
+        out["ec2_instance_id"] = data["ec2InstanceId"]
+    if "capacityProviderName" in data:
+        out["capacity_provider_name"] = data["capacityProviderName"]
+    if "version" in data:
+        out["version"] = data["version"]
+    else:
+        out["version"] = 0
+    if "versionInfo" in data:
+        import aws_sdk_ecs.types.version_info
+
+        out["version_info"] = aws_sdk_ecs.types.version_info.deserialize_aws_json_1_1(
+            data["versionInfo"]
+        )
+    if "remainingResources" in data:
+        import aws_sdk_ecs.types.resources
+
+        out["remaining_resources"] = (
+            aws_sdk_ecs.types.resources.deserialize_aws_json_1_1(
+                data["remainingResources"]
+            )
+        )
+    if "registeredResources" in data:
+        import aws_sdk_ecs.types.resources
+
+        out["registered_resources"] = (
+            aws_sdk_ecs.types.resources.deserialize_aws_json_1_1(
+                data["registeredResources"]
+            )
+        )
+    if "status" in data:
+        out["status"] = data["status"]
+    if "statusReason" in data:
+        out["status_reason"] = data["statusReason"]
+    if "agentConnected" in data:
+        out["agent_connected"] = data["agentConnected"]
+    else:
+        out["agent_connected"] = False
+    if "runningTasksCount" in data:
+        out["running_tasks_count"] = data["runningTasksCount"]
+    else:
+        out["running_tasks_count"] = 0
+    if "pendingTasksCount" in data:
+        out["pending_tasks_count"] = data["pendingTasksCount"]
+    else:
+        out["pending_tasks_count"] = 0
+    if "agentUpdateStatus" in data:
+        import aws_sdk_ecs.types.agent_update_status
+
+        out["agent_update_status"] = (
+            aws_sdk_ecs.types.agent_update_status.deserialize_aws_json_1_1(
+                data["agentUpdateStatus"]
+            )
+        )
+    if "attributes" in data:
+        import aws_sdk_ecs.types.attributes
+
+        out["attributes"] = aws_sdk_ecs.types.attributes.deserialize_aws_json_1_1(
+            data["attributes"]
+        )
+    if "registeredAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["registered_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["registeredAt"]
+        )
+    if "attachments" in data:
+        import aws_sdk_ecs.types.attachments
+
+        out["attachments"] = aws_sdk_ecs.types.attachments.deserialize_aws_json_1_1(
+            data["attachments"]
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "healthStatus" in data:
+        import aws_sdk_ecs.types.container_instance_health_status
+
+        out["health_status"] = (
+            aws_sdk_ecs.types.container_instance_health_status.deserialize_aws_json_1_1(
+                data["healthStatus"]
+            )
+        )
+    return out

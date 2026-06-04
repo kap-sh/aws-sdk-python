@@ -21,3 +21,54 @@ class DockerVolumeConfiguration(TypedDict):
     """<p>A map of Docker driver-specific options passed through. This parameter maps to <code>DriverOpts</code> in the docker create-volume command and the <code>xxopt</code> option to docker volume create.</p>"""
     labels: NotRequired["aws_sdk_ecs.types.string_map.StringMap"]
     """<p>Custom metadata to add to your Docker volume. This parameter maps to <code>Labels</code> in the docker container create command and the <code>xxlabel</code> option to docker volume create.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DockerVolumeConfiguration) -> dict:
+    out: dict = {}
+    if "scope" in value:
+        import aws_sdk_ecs.types.scope
+
+        out["scope"] = aws_sdk_ecs.types.scope.serialize_aws_json_1_1(value["scope"])
+    if "autoprovision" in value:
+        out["autoprovision"] = value["autoprovision"]
+    if "driver" in value:
+        out["driver"] = value["driver"]
+    if "driver_opts" in value:
+        import aws_sdk_ecs.types.string_map
+
+        out["driverOpts"] = aws_sdk_ecs.types.string_map.serialize_aws_json_1_1(
+            value["driver_opts"]
+        )
+    if "labels" in value:
+        import aws_sdk_ecs.types.string_map
+
+        out["labels"] = aws_sdk_ecs.types.string_map.serialize_aws_json_1_1(
+            value["labels"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DockerVolumeConfiguration:
+    out: DockerVolumeConfiguration = {}  # type: ignore[typeddict-item]
+    if "scope" in data:
+        import aws_sdk_ecs.types.scope
+
+        out["scope"] = aws_sdk_ecs.types.scope.deserialize_aws_json_1_1(data["scope"])
+    if "autoprovision" in data:
+        out["autoprovision"] = data["autoprovision"]
+    if "driver" in data:
+        out["driver"] = data["driver"]
+    if "driverOpts" in data:
+        import aws_sdk_ecs.types.string_map
+
+        out["driver_opts"] = aws_sdk_ecs.types.string_map.deserialize_aws_json_1_1(
+            data["driverOpts"]
+        )
+    if "labels" in data:
+        import aws_sdk_ecs.types.string_map
+
+        out["labels"] = aws_sdk_ecs.types.string_map.deserialize_aws_json_1_1(
+            data["labels"]
+        )
+    return out

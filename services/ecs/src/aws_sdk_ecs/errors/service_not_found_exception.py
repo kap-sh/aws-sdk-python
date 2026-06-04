@@ -13,6 +13,21 @@ class ServiceNotFoundException_(TypedDict):
     """<p> Message that describes the cause of the exception.</p>"""
 
 
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceNotFoundException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceNotFoundException_:
+    out: ServiceNotFoundException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class ServiceNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.ecs#ServiceNotFoundException``."""
 
@@ -26,3 +41,7 @@ class ServiceNotFoundException(ServiceError):
             code="ServiceNotFoundException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "ServiceNotFoundException":
+        return cls(deserialize_aws_json_1_1(data))

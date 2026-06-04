@@ -34,3 +34,100 @@ class CreateClusterRequest(TypedDict):
         "aws_sdk_ecs.types.cluster_service_connect_defaults_request.ClusterServiceConnectDefaultsRequest"
     ]
     """<p>Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to <code>true</code> in the <code>ServiceConnectConfiguration</code>. You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default parameter.</p> <p>Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html\">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateClusterRequest) -> dict:
+    out: dict = {}
+    if "cluster_name" in value:
+        out["clusterName"] = value["cluster_name"]
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "settings" in value:
+        import aws_sdk_ecs.types.cluster_settings
+
+        out["settings"] = aws_sdk_ecs.types.cluster_settings.serialize_aws_json_1_1(
+            value["settings"]
+        )
+    if "configuration" in value:
+        import aws_sdk_ecs.types.cluster_configuration
+
+        out["configuration"] = (
+            aws_sdk_ecs.types.cluster_configuration.serialize_aws_json_1_1(
+                value["configuration"]
+            )
+        )
+    if "capacity_providers" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["capacityProviders"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["capacity_providers"]
+        )
+    if "default_capacity_provider_strategy" in value:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["defaultCapacityProviderStrategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.serialize_aws_json_1_1(
+                value["default_capacity_provider_strategy"]
+            )
+        )
+    if "service_connect_defaults" in value:
+        import aws_sdk_ecs.types.cluster_service_connect_defaults_request
+
+        out["serviceConnectDefaults"] = (
+            aws_sdk_ecs.types.cluster_service_connect_defaults_request.serialize_aws_json_1_1(
+                value["service_connect_defaults"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateClusterRequest:
+    out: CreateClusterRequest = {}  # type: ignore[typeddict-item]
+    if "clusterName" in data:
+        out["cluster_name"] = data["clusterName"]
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "settings" in data:
+        import aws_sdk_ecs.types.cluster_settings
+
+        out["settings"] = aws_sdk_ecs.types.cluster_settings.deserialize_aws_json_1_1(
+            data["settings"]
+        )
+    if "configuration" in data:
+        import aws_sdk_ecs.types.cluster_configuration
+
+        out["configuration"] = (
+            aws_sdk_ecs.types.cluster_configuration.deserialize_aws_json_1_1(
+                data["configuration"]
+            )
+        )
+    if "capacityProviders" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["capacity_providers"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["capacityProviders"]
+            )
+        )
+    if "defaultCapacityProviderStrategy" in data:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["default_capacity_provider_strategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.deserialize_aws_json_1_1(
+                data["defaultCapacityProviderStrategy"]
+            )
+        )
+    if "serviceConnectDefaults" in data:
+        import aws_sdk_ecs.types.cluster_service_connect_defaults_request
+
+        out["service_connect_defaults"] = (
+            aws_sdk_ecs.types.cluster_service_connect_defaults_request.deserialize_aws_json_1_1(
+                data["serviceConnectDefaults"]
+            )
+        )
+    return out

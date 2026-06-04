@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_name_list
@@ -76,3 +77,169 @@ class ScanInput(TypedDict):
         "aws_sdk_dynamodb.types.consistent_read.ConsistentRead"
     ]
     """<p>A Boolean value that determines the read consistency model during the scan:</p> <ul> <li> <p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from <code>Scan</code> might not contain the results from other recently completed write operations (<code>PutItem</code>, <code>UpdateItem</code>, or <code>DeleteItem</code>).</p> </li> <li> <p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p> </li> </ul> <p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p> <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ScanInput) -> dict:
+    out: dict = {}
+    out["TableName"] = value["table_name"]
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "attributes_to_get" in value:
+        import aws_sdk_dynamodb.types.attribute_name_list
+
+        out["AttributesToGet"] = (
+            aws_sdk_dynamodb.types.attribute_name_list.serialize_aws_json_1_0(
+                value["attributes_to_get"]
+            )
+        )
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    if "select" in value:
+        import aws_sdk_dynamodb.types.select
+
+        out["Select"] = aws_sdk_dynamodb.types.select.serialize_aws_json_1_0(
+            value["select"]
+        )
+    if "scan_filter" in value:
+        import aws_sdk_dynamodb.types.filter_condition_map
+
+        out["ScanFilter"] = (
+            aws_sdk_dynamodb.types.filter_condition_map.serialize_aws_json_1_0(
+                value["scan_filter"]
+            )
+        )
+    if "conditional_operator" in value:
+        import aws_sdk_dynamodb.types.conditional_operator
+
+        out["ConditionalOperator"] = (
+            aws_sdk_dynamodb.types.conditional_operator.serialize_aws_json_1_0(
+                value["conditional_operator"]
+            )
+        )
+    if "exclusive_start_key" in value:
+        import aws_sdk_dynamodb.types.key
+
+        out["ExclusiveStartKey"] = aws_sdk_dynamodb.types.key.serialize_aws_json_1_0(
+            value["exclusive_start_key"]
+        )
+    if "return_consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["ReturnConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.serialize_aws_json_1_0(
+                value["return_consumed_capacity"]
+            )
+        )
+    if "total_segments" in value:
+        out["TotalSegments"] = value["total_segments"]
+    if "segment" in value:
+        out["Segment"] = value["segment"]
+    if "projection_expression" in value:
+        out["ProjectionExpression"] = value["projection_expression"]
+    if "filter_expression" in value:
+        out["FilterExpression"] = value["filter_expression"]
+    if "expression_attribute_names" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["ExpressionAttributeNames"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.serialize_aws_json_1_0(
+                value["expression_attribute_names"]
+            )
+        )
+    if "expression_attribute_values" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["ExpressionAttributeValues"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.serialize_aws_json_1_0(
+                value["expression_attribute_values"]
+            )
+        )
+    if "consistent_read" in value:
+        out["ConsistentRead"] = value["consistent_read"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ScanInput:
+    out: ScanInput = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("ScanInput.table_name required")
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "AttributesToGet" in data:
+        import aws_sdk_dynamodb.types.attribute_name_list
+
+        out["attributes_to_get"] = (
+            aws_sdk_dynamodb.types.attribute_name_list.deserialize_aws_json_1_0(
+                data["AttributesToGet"]
+            )
+        )
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    if "Select" in data:
+        import aws_sdk_dynamodb.types.select
+
+        out["select"] = aws_sdk_dynamodb.types.select.deserialize_aws_json_1_0(
+            data["Select"]
+        )
+    if "ScanFilter" in data:
+        import aws_sdk_dynamodb.types.filter_condition_map
+
+        out["scan_filter"] = (
+            aws_sdk_dynamodb.types.filter_condition_map.deserialize_aws_json_1_0(
+                data["ScanFilter"]
+            )
+        )
+    if "ConditionalOperator" in data:
+        import aws_sdk_dynamodb.types.conditional_operator
+
+        out["conditional_operator"] = (
+            aws_sdk_dynamodb.types.conditional_operator.deserialize_aws_json_1_0(
+                data["ConditionalOperator"]
+            )
+        )
+    if "ExclusiveStartKey" in data:
+        import aws_sdk_dynamodb.types.key
+
+        out["exclusive_start_key"] = (
+            aws_sdk_dynamodb.types.key.deserialize_aws_json_1_0(
+                data["ExclusiveStartKey"]
+            )
+        )
+    if "ReturnConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["return_consumed_capacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.deserialize_aws_json_1_0(
+                data["ReturnConsumedCapacity"]
+            )
+        )
+    if "TotalSegments" in data:
+        out["total_segments"] = data["TotalSegments"]
+    if "Segment" in data:
+        out["segment"] = data["Segment"]
+    if "ProjectionExpression" in data:
+        out["projection_expression"] = data["ProjectionExpression"]
+    if "FilterExpression" in data:
+        out["filter_expression"] = data["FilterExpression"]
+    if "ExpressionAttributeNames" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["expression_attribute_names"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeNames"]
+            )
+        )
+    if "ExpressionAttributeValues" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["expression_attribute_values"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeValues"]
+            )
+        )
+    if "ConsistentRead" in data:
+        out["consistent_read"] = data["ConsistentRead"]
+    return out

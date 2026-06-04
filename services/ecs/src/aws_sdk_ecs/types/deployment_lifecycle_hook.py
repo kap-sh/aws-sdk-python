@@ -31,3 +31,74 @@ class DeploymentLifecycleHook(TypedDict):
         "aws_sdk_ecs.types.deployment_lifecycle_hook_timeout_configuration.DeploymentLifecycleHookTimeoutConfiguration"
     ]
     """<p>The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeploymentLifecycleHook) -> dict:
+    out: dict = {}
+    if "target_type" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_target_type
+
+        out["targetType"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_target_type.serialize_aws_json_1_1(
+                value["target_type"]
+            )
+        )
+    if "hook_target_arn" in value:
+        out["hookTargetArn"] = value["hook_target_arn"]
+    if "role_arn" in value:
+        out["roleArn"] = value["role_arn"]
+    if "lifecycle_stages" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_stage_list
+
+        out["lifecycleStages"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_stage_list.serialize_aws_json_1_1(
+                value["lifecycle_stages"]
+            )
+        )
+    if "hook_details" in value:
+        out["hookDetails"] = value["hook_details"]
+    if "timeout_configuration" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_timeout_configuration
+
+        out["timeoutConfiguration"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_timeout_configuration.serialize_aws_json_1_1(
+                value["timeout_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeploymentLifecycleHook:
+    out: DeploymentLifecycleHook = {}  # type: ignore[typeddict-item]
+    if "targetType" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_target_type
+
+        out["target_type"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_target_type.deserialize_aws_json_1_1(
+                data["targetType"]
+            )
+        )
+    if "hookTargetArn" in data:
+        out["hook_target_arn"] = data["hookTargetArn"]
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    if "lifecycleStages" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_stage_list
+
+        out["lifecycle_stages"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_stage_list.deserialize_aws_json_1_1(
+                data["lifecycleStages"]
+            )
+        )
+    if "hookDetails" in data:
+        out["hook_details"] = data["hookDetails"]
+    if "timeoutConfiguration" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_timeout_configuration
+
+        out["timeout_configuration"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_timeout_configuration.deserialize_aws_json_1_1(
+                data["timeoutConfiguration"]
+            )
+        )
+    return out

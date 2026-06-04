@@ -5,9 +5,9 @@ from aws_sdk_s3.errors import DeserializationError, SerializationError
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 if TYPE_CHECKING:
-    import aws_sdk_s3.types.tag
-    import aws_sdk_s3.types.metrics_and_operator
     import aws_sdk_s3.types.prefix
+    import aws_sdk_s3.types.metrics_and_operator
+    import aws_sdk_s3.types.tag
     import aws_sdk_s3.types.access_point_arn
 
 

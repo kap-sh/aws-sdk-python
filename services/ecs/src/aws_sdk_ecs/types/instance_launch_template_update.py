@@ -45,3 +45,122 @@ class InstanceLaunchTemplateUpdate(TypedDict):
         "aws_sdk_ecs.types.capacity_reservation_request.CapacityReservationRequest"
     ]
     """<p>The updated capacity reservations specifications for Amazon ECS Managed Instances. Changes to capacity reservations settings apply to new instances launched after the update.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InstanceLaunchTemplateUpdate) -> dict:
+    out: dict = {}
+    if "ec2_instance_profile_arn" in value:
+        out["ec2InstanceProfileArn"] = value["ec2_instance_profile_arn"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.managed_instances_network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.managed_instances_network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "storage_configuration" in value:
+        import aws_sdk_ecs.types.managed_instances_storage_configuration
+
+        out["storageConfiguration"] = (
+            aws_sdk_ecs.types.managed_instances_storage_configuration.serialize_aws_json_1_1(
+                value["storage_configuration"]
+            )
+        )
+    if "instance_metadata_tags_propagation" in value:
+        out["instanceMetadataTagsPropagation"] = value[
+            "instance_metadata_tags_propagation"
+        ]
+    if "local_storage_configuration" in value:
+        import aws_sdk_ecs.types.managed_instances_local_storage_configuration
+
+        out["localStorageConfiguration"] = (
+            aws_sdk_ecs.types.managed_instances_local_storage_configuration.serialize_aws_json_1_1(
+                value["local_storage_configuration"]
+            )
+        )
+    if "monitoring" in value:
+        import aws_sdk_ecs.types.managed_instances_monitoring_options
+
+        out["monitoring"] = (
+            aws_sdk_ecs.types.managed_instances_monitoring_options.serialize_aws_json_1_1(
+                value["monitoring"]
+            )
+        )
+    if "instance_requirements" in value:
+        import aws_sdk_ecs.types.instance_requirements_request
+
+        out["instanceRequirements"] = (
+            aws_sdk_ecs.types.instance_requirements_request.serialize_aws_json_1_1(
+                value["instance_requirements"]
+            )
+        )
+    if "capacity_reservations" in value:
+        import aws_sdk_ecs.types.capacity_reservation_request
+
+        out["capacityReservations"] = (
+            aws_sdk_ecs.types.capacity_reservation_request.serialize_aws_json_1_1(
+                value["capacity_reservations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
+    out: InstanceLaunchTemplateUpdate = {}  # type: ignore[typeddict-item]
+    if "ec2InstanceProfileArn" in data:
+        out["ec2_instance_profile_arn"] = data["ec2InstanceProfileArn"]
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.managed_instances_network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.managed_instances_network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "storageConfiguration" in data:
+        import aws_sdk_ecs.types.managed_instances_storage_configuration
+
+        out["storage_configuration"] = (
+            aws_sdk_ecs.types.managed_instances_storage_configuration.deserialize_aws_json_1_1(
+                data["storageConfiguration"]
+            )
+        )
+    if "instanceMetadataTagsPropagation" in data:
+        out["instance_metadata_tags_propagation"] = data[
+            "instanceMetadataTagsPropagation"
+        ]
+    if "localStorageConfiguration" in data:
+        import aws_sdk_ecs.types.managed_instances_local_storage_configuration
+
+        out["local_storage_configuration"] = (
+            aws_sdk_ecs.types.managed_instances_local_storage_configuration.deserialize_aws_json_1_1(
+                data["localStorageConfiguration"]
+            )
+        )
+    if "monitoring" in data:
+        import aws_sdk_ecs.types.managed_instances_monitoring_options
+
+        out["monitoring"] = (
+            aws_sdk_ecs.types.managed_instances_monitoring_options.deserialize_aws_json_1_1(
+                data["monitoring"]
+            )
+        )
+    if "instanceRequirements" in data:
+        import aws_sdk_ecs.types.instance_requirements_request
+
+        out["instance_requirements"] = (
+            aws_sdk_ecs.types.instance_requirements_request.deserialize_aws_json_1_1(
+                data["instanceRequirements"]
+            )
+        )
+    if "capacityReservations" in data:
+        import aws_sdk_ecs.types.capacity_reservation_request
+
+        out["capacity_reservations"] = (
+            aws_sdk_ecs.types.capacity_reservation_request.deserialize_aws_json_1_1(
+                data["capacityReservations"]
+            )
+        )
+    return out

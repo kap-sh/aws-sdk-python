@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.confirm_remove_self_resource_access
@@ -21,3 +22,28 @@ class PutResourcePolicyInput(TypedDict):
     """<p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p> <note> <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p> </note> <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>"""
     confirm_remove_self_resource_access: "aws_sdk_dynamodb.types.confirm_remove_self_resource_access.ConfirmRemoveSelfResourceAccess"
     """<p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: PutResourcePolicyInput) -> dict:
+    out: dict = {}
+    out["ResourceArn"] = value["resource_arn"]
+    out["Policy"] = value["policy"]
+    if "expected_revision_id" in value:
+        out["ExpectedRevisionId"] = value["expected_revision_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> PutResourcePolicyInput:
+    out: PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    else:
+        raise DeserializationError("PutResourcePolicyInput.resource_arn required")
+    if "Policy" in data:
+        out["policy"] = data["Policy"]
+    else:
+        raise DeserializationError("PutResourcePolicyInput.policy required")
+    if "ExpectedRevisionId" in data:
+        out["expected_revision_id"] = data["ExpectedRevisionId"]
+    return out

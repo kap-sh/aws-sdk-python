@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
@@ -45,3 +46,126 @@ class StartTaskRequest(TypedDict):
         "aws_sdk_ecs.types.task_volume_configurations.TaskVolumeConfigurations"
     ]
     """<p>The details of the volume that was <code>configuredAtLaunch</code>. You can configure the size, volumeType, IOPS, throughput, snapshot and encryption in <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskManagedEBSVolumeConfiguration.html\">TaskManagedEBSVolumeConfiguration</a>. The <code>name</code> of the volume must match the <code>name</code> from the task definition.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: StartTaskRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    import aws_sdk_ecs.types.string_list
+
+    out["containerInstances"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+        value["container_instances"]
+    )
+    out["enableECSManagedTags"] = value.get("enable_ecs_managed_tags", False)
+    out["enableExecuteCommand"] = value.get("enable_execute_command", False)
+    if "group" in value:
+        out["group"] = value["group"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "overrides" in value:
+        import aws_sdk_ecs.types.task_override
+
+        out["overrides"] = aws_sdk_ecs.types.task_override.serialize_aws_json_1_1(
+            value["overrides"]
+        )
+    if "propagate_tags" in value:
+        import aws_sdk_ecs.types.propagate_tags
+
+        out["propagateTags"] = aws_sdk_ecs.types.propagate_tags.serialize_aws_json_1_1(
+            value["propagate_tags"]
+        )
+    if "reference_id" in value:
+        out["referenceId"] = value["reference_id"]
+    if "started_by" in value:
+        out["startedBy"] = value["started_by"]
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    out["taskDefinition"] = value["task_definition"]
+    if "volume_configurations" in value:
+        import aws_sdk_ecs.types.task_volume_configurations
+
+        out["volumeConfigurations"] = (
+            aws_sdk_ecs.types.task_volume_configurations.serialize_aws_json_1_1(
+                value["volume_configurations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> StartTaskRequest:
+    out: StartTaskRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "containerInstances" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["container_instances"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["containerInstances"]
+            )
+        )
+    else:
+        raise DeserializationError("StartTaskRequest.container_instances required")
+    if "enableECSManagedTags" in data:
+        out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
+    else:
+        out["enable_ecs_managed_tags"] = False
+    if "enableExecuteCommand" in data:
+        out["enable_execute_command"] = data["enableExecuteCommand"]
+    else:
+        out["enable_execute_command"] = False
+    if "group" in data:
+        out["group"] = data["group"]
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "overrides" in data:
+        import aws_sdk_ecs.types.task_override
+
+        out["overrides"] = aws_sdk_ecs.types.task_override.deserialize_aws_json_1_1(
+            data["overrides"]
+        )
+    if "propagateTags" in data:
+        import aws_sdk_ecs.types.propagate_tags
+
+        out["propagate_tags"] = (
+            aws_sdk_ecs.types.propagate_tags.deserialize_aws_json_1_1(
+                data["propagateTags"]
+            )
+        )
+    if "referenceId" in data:
+        out["reference_id"] = data["referenceId"]
+    if "startedBy" in data:
+        out["started_by"] = data["startedBy"]
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "taskDefinition" in data:
+        out["task_definition"] = data["taskDefinition"]
+    else:
+        raise DeserializationError("StartTaskRequest.task_definition required")
+    if "volumeConfigurations" in data:
+        import aws_sdk_ecs.types.task_volume_configurations
+
+        out["volume_configurations"] = (
+            aws_sdk_ecs.types.task_volume_configurations.deserialize_aws_json_1_1(
+                data["volumeConfigurations"]
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.port_number
@@ -28,3 +29,73 @@ class ServiceConnectService(TypedDict):
         "aws_sdk_ecs.types.service_connect_tls_configuration.ServiceConnectTlsConfiguration"
     ]
     """<p>A reference to an object that represents a Transport Layer Security (TLS) configuration.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceConnectService) -> dict:
+    out: dict = {}
+    out["portName"] = value["port_name"]
+    if "discovery_name" in value:
+        out["discoveryName"] = value["discovery_name"]
+    if "client_aliases" in value:
+        import aws_sdk_ecs.types.service_connect_client_alias_list
+
+        out["clientAliases"] = (
+            aws_sdk_ecs.types.service_connect_client_alias_list.serialize_aws_json_1_1(
+                value["client_aliases"]
+            )
+        )
+    if "ingress_port_override" in value:
+        out["ingressPortOverride"] = value["ingress_port_override"]
+    if "timeout" in value:
+        import aws_sdk_ecs.types.timeout_configuration
+
+        out["timeout"] = aws_sdk_ecs.types.timeout_configuration.serialize_aws_json_1_1(
+            value["timeout"]
+        )
+    if "tls" in value:
+        import aws_sdk_ecs.types.service_connect_tls_configuration
+
+        out["tls"] = (
+            aws_sdk_ecs.types.service_connect_tls_configuration.serialize_aws_json_1_1(
+                value["tls"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceConnectService:
+    out: ServiceConnectService = {}  # type: ignore[typeddict-item]
+    if "portName" in data:
+        out["port_name"] = data["portName"]
+    else:
+        raise DeserializationError("ServiceConnectService.port_name required")
+    if "discoveryName" in data:
+        out["discovery_name"] = data["discoveryName"]
+    if "clientAliases" in data:
+        import aws_sdk_ecs.types.service_connect_client_alias_list
+
+        out["client_aliases"] = (
+            aws_sdk_ecs.types.service_connect_client_alias_list.deserialize_aws_json_1_1(
+                data["clientAliases"]
+            )
+        )
+    if "ingressPortOverride" in data:
+        out["ingress_port_override"] = data["ingressPortOverride"]
+    if "timeout" in data:
+        import aws_sdk_ecs.types.timeout_configuration
+
+        out["timeout"] = (
+            aws_sdk_ecs.types.timeout_configuration.deserialize_aws_json_1_1(
+                data["timeout"]
+            )
+        )
+    if "tls" in data:
+        import aws_sdk_ecs.types.service_connect_tls_configuration
+
+        out["tls"] = (
+            aws_sdk_ecs.types.service_connect_tls_configuration.deserialize_aws_json_1_1(
+                data["tls"]
+            )
+        )
+    return out

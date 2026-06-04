@@ -31,3 +31,72 @@ class ListTasksRequest(TypedDict):
     """<p>The launch type to use when filtering the <code>ListTasks</code> results.</p>"""
     daemon_name: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The name of the daemon to use when filtering the <code>ListTasks</code> results. Specifying a <code>daemonName</code> limits the results to tasks that belong to that daemon.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListTasksRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    if "container_instance" in value:
+        out["containerInstance"] = value["container_instance"]
+    if "family" in value:
+        out["family"] = value["family"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "started_by" in value:
+        out["startedBy"] = value["started_by"]
+    if "service_name" in value:
+        out["serviceName"] = value["service_name"]
+    if "desired_status" in value:
+        import aws_sdk_ecs.types.desired_status
+
+        out["desiredStatus"] = aws_sdk_ecs.types.desired_status.serialize_aws_json_1_1(
+            value["desired_status"]
+        )
+    if "launch_type" in value:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launchType"] = aws_sdk_ecs.types.launch_type.serialize_aws_json_1_1(
+            value["launch_type"]
+        )
+    if "daemon_name" in value:
+        out["daemonName"] = value["daemon_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListTasksRequest:
+    out: ListTasksRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "containerInstance" in data:
+        out["container_instance"] = data["containerInstance"]
+    if "family" in data:
+        out["family"] = data["family"]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "startedBy" in data:
+        out["started_by"] = data["startedBy"]
+    if "serviceName" in data:
+        out["service_name"] = data["serviceName"]
+    if "desiredStatus" in data:
+        import aws_sdk_ecs.types.desired_status
+
+        out["desired_status"] = (
+            aws_sdk_ecs.types.desired_status.deserialize_aws_json_1_1(
+                data["desiredStatus"]
+            )
+        )
+    if "launchType" in data:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launch_type"] = aws_sdk_ecs.types.launch_type.deserialize_aws_json_1_1(
+            data["launchType"]
+        )
+    if "daemonName" in data:
+        out["daemon_name"] = data["daemonName"]
+    return out

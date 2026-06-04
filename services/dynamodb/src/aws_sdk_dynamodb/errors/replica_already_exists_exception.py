@@ -12,6 +12,21 @@ class ReplicaAlreadyExistsException_(TypedDict):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
 
 
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ReplicaAlreadyExistsException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ReplicaAlreadyExistsException_:
+    out: ReplicaAlreadyExistsException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class ReplicaAlreadyExistsException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dynamodb#ReplicaAlreadyExistsException``."""
 
@@ -25,3 +40,7 @@ class ReplicaAlreadyExistsException(ServiceError):
             code="ReplicaAlreadyExistsException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "ReplicaAlreadyExistsException":
+        return cls(deserialize_aws_json_1_0(data))

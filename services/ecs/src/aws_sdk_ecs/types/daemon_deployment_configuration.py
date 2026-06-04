@@ -20,3 +20,39 @@ class DaemonDeploymentConfiguration(TypedDict):
     """<p>The CloudWatch alarm configuration for the daemon deployment. When alarms are triggered during a deployment, the deployment can be automatically rolled back.</p>"""
     bake_time_in_minutes: "aws_sdk_ecs.types.integer.Integer"
     """<p>The amount of time (in minutes) to wait after a successful deployment step before proceeding. This allows time to monitor for issues before continuing. The default value is 0.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DaemonDeploymentConfiguration) -> dict:
+    out: dict = {}
+    if "drain_percent" in value:
+        out["drainPercent"] = value["drain_percent"]
+    if "alarms" in value:
+        import aws_sdk_ecs.types.daemon_alarm_configuration
+
+        out["alarms"] = (
+            aws_sdk_ecs.types.daemon_alarm_configuration.serialize_aws_json_1_1(
+                value["alarms"]
+            )
+        )
+    out["bakeTimeInMinutes"] = value.get("bake_time_in_minutes", 0)
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DaemonDeploymentConfiguration:
+    out: DaemonDeploymentConfiguration = {}  # type: ignore[typeddict-item]
+    if "drainPercent" in data:
+        out["drain_percent"] = data["drainPercent"]
+    if "alarms" in data:
+        import aws_sdk_ecs.types.daemon_alarm_configuration
+
+        out["alarms"] = (
+            aws_sdk_ecs.types.daemon_alarm_configuration.deserialize_aws_json_1_1(
+                data["alarms"]
+            )
+        )
+    if "bakeTimeInMinutes" in data:
+        out["bake_time_in_minutes"] = data["bakeTimeInMinutes"]
+    else:
+        out["bake_time_in_minutes"] = 0
+    return out

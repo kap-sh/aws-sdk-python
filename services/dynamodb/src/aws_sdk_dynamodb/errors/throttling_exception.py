@@ -19,6 +19,37 @@ class ThrottlingException_(TypedDict):
     """<p>A list of <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html\">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled. </p>"""
 
 
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ThrottlingException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    if "throttling_reasons" in value:
+        import aws_sdk_dynamodb.types.throttling_reason_list
+
+        out["throttlingReasons"] = (
+            aws_sdk_dynamodb.types.throttling_reason_list.serialize_aws_json_1_0(
+                value["throttling_reasons"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ThrottlingException_:
+    out: ThrottlingException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    if "throttlingReasons" in data:
+        import aws_sdk_dynamodb.types.throttling_reason_list
+
+        out["throttling_reasons"] = (
+            aws_sdk_dynamodb.types.throttling_reason_list.deserialize_aws_json_1_0(
+                data["throttlingReasons"]
+            )
+        )
+    return out
+
+
 class ThrottlingException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dynamodb#ThrottlingException``."""
 
@@ -32,3 +63,7 @@ class ThrottlingException(ServiceError):
             code="ThrottlingException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "ThrottlingException":
+        return cls(deserialize_aws_json_1_0(data))

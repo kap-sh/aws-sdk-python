@@ -40,3 +40,116 @@ class DeploymentConfiguration(TypedDict):
         "aws_sdk_ecs.types.canary_configuration.CanaryConfiguration"
     ]
     """<p>Configuration for canary deployment strategy. Only valid when the deployment strategy is <code>CANARY</code>. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeploymentConfiguration) -> dict:
+    out: dict = {}
+    if "deployment_circuit_breaker" in value:
+        import aws_sdk_ecs.types.deployment_circuit_breaker
+
+        out["deploymentCircuitBreaker"] = (
+            aws_sdk_ecs.types.deployment_circuit_breaker.serialize_aws_json_1_1(
+                value["deployment_circuit_breaker"]
+            )
+        )
+    if "maximum_percent" in value:
+        out["maximumPercent"] = value["maximum_percent"]
+    if "minimum_healthy_percent" in value:
+        out["minimumHealthyPercent"] = value["minimum_healthy_percent"]
+    if "alarms" in value:
+        import aws_sdk_ecs.types.deployment_alarms
+
+        out["alarms"] = aws_sdk_ecs.types.deployment_alarms.serialize_aws_json_1_1(
+            value["alarms"]
+        )
+    if "strategy" in value:
+        import aws_sdk_ecs.types.deployment_strategy
+
+        out["strategy"] = aws_sdk_ecs.types.deployment_strategy.serialize_aws_json_1_1(
+            value["strategy"]
+        )
+    if "bake_time_in_minutes" in value:
+        out["bakeTimeInMinutes"] = value["bake_time_in_minutes"]
+    if "lifecycle_hooks" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_list
+
+        out["lifecycleHooks"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_list.serialize_aws_json_1_1(
+                value["lifecycle_hooks"]
+            )
+        )
+    if "linear_configuration" in value:
+        import aws_sdk_ecs.types.linear_configuration
+
+        out["linearConfiguration"] = (
+            aws_sdk_ecs.types.linear_configuration.serialize_aws_json_1_1(
+                value["linear_configuration"]
+            )
+        )
+    if "canary_configuration" in value:
+        import aws_sdk_ecs.types.canary_configuration
+
+        out["canaryConfiguration"] = (
+            aws_sdk_ecs.types.canary_configuration.serialize_aws_json_1_1(
+                value["canary_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeploymentConfiguration:
+    out: DeploymentConfiguration = {}  # type: ignore[typeddict-item]
+    if "deploymentCircuitBreaker" in data:
+        import aws_sdk_ecs.types.deployment_circuit_breaker
+
+        out["deployment_circuit_breaker"] = (
+            aws_sdk_ecs.types.deployment_circuit_breaker.deserialize_aws_json_1_1(
+                data["deploymentCircuitBreaker"]
+            )
+        )
+    if "maximumPercent" in data:
+        out["maximum_percent"] = data["maximumPercent"]
+    if "minimumHealthyPercent" in data:
+        out["minimum_healthy_percent"] = data["minimumHealthyPercent"]
+    if "alarms" in data:
+        import aws_sdk_ecs.types.deployment_alarms
+
+        out["alarms"] = aws_sdk_ecs.types.deployment_alarms.deserialize_aws_json_1_1(
+            data["alarms"]
+        )
+    if "strategy" in data:
+        import aws_sdk_ecs.types.deployment_strategy
+
+        out["strategy"] = (
+            aws_sdk_ecs.types.deployment_strategy.deserialize_aws_json_1_1(
+                data["strategy"]
+            )
+        )
+    if "bakeTimeInMinutes" in data:
+        out["bake_time_in_minutes"] = data["bakeTimeInMinutes"]
+    if "lifecycleHooks" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_list
+
+        out["lifecycle_hooks"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_list.deserialize_aws_json_1_1(
+                data["lifecycleHooks"]
+            )
+        )
+    if "linearConfiguration" in data:
+        import aws_sdk_ecs.types.linear_configuration
+
+        out["linear_configuration"] = (
+            aws_sdk_ecs.types.linear_configuration.deserialize_aws_json_1_1(
+                data["linearConfiguration"]
+            )
+        )
+    if "canaryConfiguration" in data:
+        import aws_sdk_ecs.types.canary_configuration
+
+        out["canary_configuration"] = (
+            aws_sdk_ecs.types.canary_configuration.deserialize_aws_json_1_1(
+                data["canaryConfiguration"]
+            )
+        )
+    return out

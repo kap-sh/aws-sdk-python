@@ -17,3 +17,30 @@ class ServiceRegistry(TypedDict):
     """<p>The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the <code>bridge</code> or <code>host</code> network mode, you must specify a <code>containerName</code> and <code>containerPort</code> combination from the task definition. If the task definition that your service task specifies uses the <code>awsvpc</code> network mode and a type SRV DNS record is used, you must specify either a <code>containerName</code> and <code>containerPort</code> combination or a <code>port</code> value. However, you can't specify both.</p>"""
     container_port: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the <code>bridge</code> or <code>host</code> network mode, you must specify a <code>containerName</code> and <code>containerPort</code> combination from the task definition. If the task definition your service task specifies uses the <code>awsvpc</code> network mode and a type SRV DNS record is used, you must specify either a <code>containerName</code> and <code>containerPort</code> combination or a <code>port</code> value. However, you can't specify both.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceRegistry) -> dict:
+    out: dict = {}
+    if "registry_arn" in value:
+        out["registryArn"] = value["registry_arn"]
+    if "port" in value:
+        out["port"] = value["port"]
+    if "container_name" in value:
+        out["containerName"] = value["container_name"]
+    if "container_port" in value:
+        out["containerPort"] = value["container_port"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceRegistry:
+    out: ServiceRegistry = {}  # type: ignore[typeddict-item]
+    if "registryArn" in data:
+        out["registry_arn"] = data["registryArn"]
+    if "port" in data:
+        out["port"] = data["port"]
+    if "containerName" in data:
+        out["container_name"] = data["containerName"]
+    if "containerPort" in data:
+        out["container_port"] = data["containerPort"]
+    return out

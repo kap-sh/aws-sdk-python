@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.batch_write_item_request_map
@@ -21,3 +22,63 @@ class BatchWriteItemInput(TypedDict):
         "aws_sdk_dynamodb.types.return_item_collection_metrics.ReturnItemCollectionMetrics"
     ]
     """<p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BatchWriteItemInput) -> dict:
+    out: dict = {}
+    import aws_sdk_dynamodb.types.batch_write_item_request_map
+
+    out["RequestItems"] = (
+        aws_sdk_dynamodb.types.batch_write_item_request_map.serialize_aws_json_1_0(
+            value["request_items"]
+        )
+    )
+    if "return_consumed_capacity" in value:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["ReturnConsumedCapacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.serialize_aws_json_1_0(
+                value["return_consumed_capacity"]
+            )
+        )
+    if "return_item_collection_metrics" in value:
+        import aws_sdk_dynamodb.types.return_item_collection_metrics
+
+        out["ReturnItemCollectionMetrics"] = (
+            aws_sdk_dynamodb.types.return_item_collection_metrics.serialize_aws_json_1_0(
+                value["return_item_collection_metrics"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> BatchWriteItemInput:
+    out: BatchWriteItemInput = {}  # type: ignore[typeddict-item]
+    if "RequestItems" in data:
+        import aws_sdk_dynamodb.types.batch_write_item_request_map
+
+        out["request_items"] = (
+            aws_sdk_dynamodb.types.batch_write_item_request_map.deserialize_aws_json_1_0(
+                data["RequestItems"]
+            )
+        )
+    else:
+        raise DeserializationError("BatchWriteItemInput.request_items required")
+    if "ReturnConsumedCapacity" in data:
+        import aws_sdk_dynamodb.types.return_consumed_capacity
+
+        out["return_consumed_capacity"] = (
+            aws_sdk_dynamodb.types.return_consumed_capacity.deserialize_aws_json_1_0(
+                data["ReturnConsumedCapacity"]
+            )
+        )
+    if "ReturnItemCollectionMetrics" in data:
+        import aws_sdk_dynamodb.types.return_item_collection_metrics
+
+        out["return_item_collection_metrics"] = (
+            aws_sdk_dynamodb.types.return_item_collection_metrics.deserialize_aws_json_1_0(
+                data["ReturnItemCollectionMetrics"]
+            )
+        )
+    return out

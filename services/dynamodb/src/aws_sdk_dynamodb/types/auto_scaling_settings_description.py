@@ -29,3 +29,46 @@ class AutoScalingSettingsDescription(TypedDict):
         "aws_sdk_dynamodb.types.auto_scaling_policy_description_list.AutoScalingPolicyDescriptionList"
     ]
     """<p>Information about the scaling policies.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: AutoScalingSettingsDescription) -> dict:
+    out: dict = {}
+    if "minimum_units" in value:
+        out["MinimumUnits"] = value["minimum_units"]
+    if "maximum_units" in value:
+        out["MaximumUnits"] = value["maximum_units"]
+    if "auto_scaling_disabled" in value:
+        out["AutoScalingDisabled"] = value["auto_scaling_disabled"]
+    if "auto_scaling_role_arn" in value:
+        out["AutoScalingRoleArn"] = value["auto_scaling_role_arn"]
+    if "scaling_policies" in value:
+        import aws_sdk_dynamodb.types.auto_scaling_policy_description_list
+
+        out["ScalingPolicies"] = (
+            aws_sdk_dynamodb.types.auto_scaling_policy_description_list.serialize_aws_json_1_0(
+                value["scaling_policies"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> AutoScalingSettingsDescription:
+    out: AutoScalingSettingsDescription = {}  # type: ignore[typeddict-item]
+    if "MinimumUnits" in data:
+        out["minimum_units"] = data["MinimumUnits"]
+    if "MaximumUnits" in data:
+        out["maximum_units"] = data["MaximumUnits"]
+    if "AutoScalingDisabled" in data:
+        out["auto_scaling_disabled"] = data["AutoScalingDisabled"]
+    if "AutoScalingRoleArn" in data:
+        out["auto_scaling_role_arn"] = data["AutoScalingRoleArn"]
+    if "ScalingPolicies" in data:
+        import aws_sdk_dynamodb.types.auto_scaling_policy_description_list
+
+        out["scaling_policies"] = (
+            aws_sdk_dynamodb.types.auto_scaling_policy_description_list.deserialize_aws_json_1_0(
+                data["ScalingPolicies"]
+            )
+        )
+    return out

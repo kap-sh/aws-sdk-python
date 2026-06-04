@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.express_gateway_container
@@ -35,3 +36,89 @@ class UpdateExpressGatewayServiceRequest(TypedDict):
         "aws_sdk_ecs.types.express_gateway_scaling_target.ExpressGatewayScalingTarget"
     ]
     """<p>The auto-scaling configuration for the Express service.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateExpressGatewayServiceRequest) -> dict:
+    out: dict = {}
+    out["serviceArn"] = value["service_arn"]
+    if "execution_role_arn" in value:
+        out["executionRoleArn"] = value["execution_role_arn"]
+    if "health_check_path" in value:
+        out["healthCheckPath"] = value["health_check_path"]
+    if "primary_container" in value:
+        import aws_sdk_ecs.types.express_gateway_container
+
+        out["primaryContainer"] = (
+            aws_sdk_ecs.types.express_gateway_container.serialize_aws_json_1_1(
+                value["primary_container"]
+            )
+        )
+    if "task_role_arn" in value:
+        out["taskRoleArn"] = value["task_role_arn"]
+    if "network_configuration" in value:
+        import aws_sdk_ecs.types.express_gateway_service_network_configuration
+
+        out["networkConfiguration"] = (
+            aws_sdk_ecs.types.express_gateway_service_network_configuration.serialize_aws_json_1_1(
+                value["network_configuration"]
+            )
+        )
+    if "cpu" in value:
+        out["cpu"] = value["cpu"]
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "scaling_target" in value:
+        import aws_sdk_ecs.types.express_gateway_scaling_target
+
+        out["scalingTarget"] = (
+            aws_sdk_ecs.types.express_gateway_scaling_target.serialize_aws_json_1_1(
+                value["scaling_target"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateExpressGatewayServiceRequest:
+    out: UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+    if "serviceArn" in data:
+        out["service_arn"] = data["serviceArn"]
+    else:
+        raise DeserializationError(
+            "UpdateExpressGatewayServiceRequest.service_arn required"
+        )
+    if "executionRoleArn" in data:
+        out["execution_role_arn"] = data["executionRoleArn"]
+    if "healthCheckPath" in data:
+        out["health_check_path"] = data["healthCheckPath"]
+    if "primaryContainer" in data:
+        import aws_sdk_ecs.types.express_gateway_container
+
+        out["primary_container"] = (
+            aws_sdk_ecs.types.express_gateway_container.deserialize_aws_json_1_1(
+                data["primaryContainer"]
+            )
+        )
+    if "taskRoleArn" in data:
+        out["task_role_arn"] = data["taskRoleArn"]
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.express_gateway_service_network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.express_gateway_service_network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "scalingTarget" in data:
+        import aws_sdk_ecs.types.express_gateway_scaling_target
+
+        out["scaling_target"] = (
+            aws_sdk_ecs.types.express_gateway_scaling_target.deserialize_aws_json_1_1(
+                data["scalingTarget"]
+            )
+        )
+    return out

@@ -30,3 +30,82 @@ class DeploymentLifecycleHookDetail(TypedDict):
         "aws_sdk_ecs.types.deployment_lifecycle_hook_action.DeploymentLifecycleHookAction"
     ]
     """<p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are <code>CONTINUE</code> and <code>ROLLBACK</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeploymentLifecycleHookDetail) -> dict:
+    out: dict = {}
+    if "hook_id" in value:
+        out["hookId"] = value["hook_id"]
+    if "target_type" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_target_type
+
+        out["targetType"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_target_type.serialize_aws_json_1_1(
+                value["target_type"]
+            )
+        )
+    if "target_arn" in value:
+        out["targetArn"] = value["target_arn"]
+    if "status" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "expires_at" in value:
+        import aws_sdk_ecs.types.timestamp
+
+        out["expiresAt"] = aws_sdk_ecs.types.timestamp.serialize_aws_json_1_1(
+            value["expires_at"]
+        )
+    if "timeout_action" in value:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_action
+
+        out["timeoutAction"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_action.serialize_aws_json_1_1(
+                value["timeout_action"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeploymentLifecycleHookDetail:
+    out: DeploymentLifecycleHookDetail = {}  # type: ignore[typeddict-item]
+    if "hookId" in data:
+        out["hook_id"] = data["hookId"]
+    if "targetType" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_target_type
+
+        out["target_type"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_target_type.deserialize_aws_json_1_1(
+                data["targetType"]
+            )
+        )
+    if "targetArn" in data:
+        out["target_arn"] = data["targetArn"]
+    if "status" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_status.deserialize_aws_json_1_1(
+                data["status"]
+            )
+        )
+    if "expiresAt" in data:
+        import aws_sdk_ecs.types.timestamp
+
+        out["expires_at"] = aws_sdk_ecs.types.timestamp.deserialize_aws_json_1_1(
+            data["expiresAt"]
+        )
+    if "timeoutAction" in data:
+        import aws_sdk_ecs.types.deployment_lifecycle_hook_action
+
+        out["timeout_action"] = (
+            aws_sdk_ecs.types.deployment_lifecycle_hook_action.deserialize_aws_json_1_1(
+                data["timeoutAction"]
+            )
+        )
+    return out

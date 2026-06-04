@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -50,3 +51,148 @@ class InstanceLaunchTemplate(TypedDict):
         "aws_sdk_ecs.types.capacity_reservation_request.CapacityReservationRequest"
     ]
     """<p>Capacity reservation specifications. You can specify:</p> <ul> <li> <p>Capacity reservation preference</p> </li> <li> <p>Reservation resource group to be used for targeted capacity reservations</p> </li> </ul> <p>Amazon ECS will launch instances according to the specified criteria.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InstanceLaunchTemplate) -> dict:
+    out: dict = {}
+    out["ec2InstanceProfileArn"] = value["ec2_instance_profile_arn"]
+    import aws_sdk_ecs.types.managed_instances_network_configuration
+
+    out["networkConfiguration"] = (
+        aws_sdk_ecs.types.managed_instances_network_configuration.serialize_aws_json_1_1(
+            value["network_configuration"]
+        )
+    )
+    if "storage_configuration" in value:
+        import aws_sdk_ecs.types.managed_instances_storage_configuration
+
+        out["storageConfiguration"] = (
+            aws_sdk_ecs.types.managed_instances_storage_configuration.serialize_aws_json_1_1(
+                value["storage_configuration"]
+            )
+        )
+    if "local_storage_configuration" in value:
+        import aws_sdk_ecs.types.managed_instances_local_storage_configuration
+
+        out["localStorageConfiguration"] = (
+            aws_sdk_ecs.types.managed_instances_local_storage_configuration.serialize_aws_json_1_1(
+                value["local_storage_configuration"]
+            )
+        )
+    if "monitoring" in value:
+        import aws_sdk_ecs.types.managed_instances_monitoring_options
+
+        out["monitoring"] = (
+            aws_sdk_ecs.types.managed_instances_monitoring_options.serialize_aws_json_1_1(
+                value["monitoring"]
+            )
+        )
+    if "capacity_option_type" in value:
+        import aws_sdk_ecs.types.capacity_option_type
+
+        out["capacityOptionType"] = (
+            aws_sdk_ecs.types.capacity_option_type.serialize_aws_json_1_1(
+                value["capacity_option_type"]
+            )
+        )
+    if "instance_metadata_tags_propagation" in value:
+        out["instanceMetadataTagsPropagation"] = value[
+            "instance_metadata_tags_propagation"
+        ]
+    if "instance_requirements" in value:
+        import aws_sdk_ecs.types.instance_requirements_request
+
+        out["instanceRequirements"] = (
+            aws_sdk_ecs.types.instance_requirements_request.serialize_aws_json_1_1(
+                value["instance_requirements"]
+            )
+        )
+    if "fips_enabled" in value:
+        out["fipsEnabled"] = value["fips_enabled"]
+    if "capacity_reservations" in value:
+        import aws_sdk_ecs.types.capacity_reservation_request
+
+        out["capacityReservations"] = (
+            aws_sdk_ecs.types.capacity_reservation_request.serialize_aws_json_1_1(
+                value["capacity_reservations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
+    out: InstanceLaunchTemplate = {}  # type: ignore[typeddict-item]
+    if "ec2InstanceProfileArn" in data:
+        out["ec2_instance_profile_arn"] = data["ec2InstanceProfileArn"]
+    else:
+        raise DeserializationError(
+            "InstanceLaunchTemplate.ec2_instance_profile_arn required"
+        )
+    if "networkConfiguration" in data:
+        import aws_sdk_ecs.types.managed_instances_network_configuration
+
+        out["network_configuration"] = (
+            aws_sdk_ecs.types.managed_instances_network_configuration.deserialize_aws_json_1_1(
+                data["networkConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "InstanceLaunchTemplate.network_configuration required"
+        )
+    if "storageConfiguration" in data:
+        import aws_sdk_ecs.types.managed_instances_storage_configuration
+
+        out["storage_configuration"] = (
+            aws_sdk_ecs.types.managed_instances_storage_configuration.deserialize_aws_json_1_1(
+                data["storageConfiguration"]
+            )
+        )
+    if "localStorageConfiguration" in data:
+        import aws_sdk_ecs.types.managed_instances_local_storage_configuration
+
+        out["local_storage_configuration"] = (
+            aws_sdk_ecs.types.managed_instances_local_storage_configuration.deserialize_aws_json_1_1(
+                data["localStorageConfiguration"]
+            )
+        )
+    if "monitoring" in data:
+        import aws_sdk_ecs.types.managed_instances_monitoring_options
+
+        out["monitoring"] = (
+            aws_sdk_ecs.types.managed_instances_monitoring_options.deserialize_aws_json_1_1(
+                data["monitoring"]
+            )
+        )
+    if "capacityOptionType" in data:
+        import aws_sdk_ecs.types.capacity_option_type
+
+        out["capacity_option_type"] = (
+            aws_sdk_ecs.types.capacity_option_type.deserialize_aws_json_1_1(
+                data["capacityOptionType"]
+            )
+        )
+    if "instanceMetadataTagsPropagation" in data:
+        out["instance_metadata_tags_propagation"] = data[
+            "instanceMetadataTagsPropagation"
+        ]
+    if "instanceRequirements" in data:
+        import aws_sdk_ecs.types.instance_requirements_request
+
+        out["instance_requirements"] = (
+            aws_sdk_ecs.types.instance_requirements_request.deserialize_aws_json_1_1(
+                data["instanceRequirements"]
+            )
+        )
+    if "fipsEnabled" in data:
+        out["fips_enabled"] = data["fipsEnabled"]
+    if "capacityReservations" in data:
+        import aws_sdk_ecs.types.capacity_reservation_request
+
+        out["capacity_reservations"] = (
+            aws_sdk_ecs.types.capacity_reservation_request.deserialize_aws_json_1_1(
+                data["capacityReservations"]
+            )
+        )
+    return out

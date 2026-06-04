@@ -16,6 +16,33 @@ class ConflictException_(TypedDict):
     """<p> Message that describes the cause of the exception.</p>"""
 
 
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ConflictException_) -> dict:
+    out: dict = {}
+    if "resource_ids" in value:
+        import aws_sdk_ecs.types.resource_ids
+
+        out["resourceIds"] = aws_sdk_ecs.types.resource_ids.serialize_aws_json_1_1(
+            value["resource_ids"]
+        )
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ConflictException_:
+    out: ConflictException_ = {}  # type: ignore[typeddict-item]
+    if "resourceIds" in data:
+        import aws_sdk_ecs.types.resource_ids
+
+        out["resource_ids"] = aws_sdk_ecs.types.resource_ids.deserialize_aws_json_1_1(
+            data["resourceIds"]
+        )
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.ecs#ConflictException``."""
 
@@ -29,3 +56,7 @@ class ConflictException(ServiceError):
             code="ConflictException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "ConflictException":
+        return cls(deserialize_aws_json_1_1(data))

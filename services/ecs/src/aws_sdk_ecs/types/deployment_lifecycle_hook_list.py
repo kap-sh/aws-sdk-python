@@ -8,3 +8,26 @@ if TYPE_CHECKING:
 DeploymentLifecycleHookList: TypeAlias = list[
     "aws_sdk_ecs.types.deployment_lifecycle_hook.DeploymentLifecycleHook"
 ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeploymentLifecycleHookList) -> list:
+    import aws_sdk_ecs.types.deployment_lifecycle_hook
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_ecs.types.deployment_lifecycle_hook.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> DeploymentLifecycleHookList:
+    import aws_sdk_ecs.types.deployment_lifecycle_hook
+
+    out: DeploymentLifecycleHookList = []
+    for item in data:
+        out.append(
+            aws_sdk_ecs.types.deployment_lifecycle_hook.deserialize_aws_json_1_1(item)
+        )
+    return out

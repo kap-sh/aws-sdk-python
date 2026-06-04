@@ -15,3 +15,34 @@ class ListDaemonDeploymentsResponse(TypedDict):
         "aws_sdk_ecs.types.daemon_deployment_summary_list.DaemonDeploymentSummaryList"
     ]
     """<p>The list of daemon deployment summaries.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListDaemonDeploymentsResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "daemon_deployments" in value:
+        import aws_sdk_ecs.types.daemon_deployment_summary_list
+
+        out["daemonDeployments"] = (
+            aws_sdk_ecs.types.daemon_deployment_summary_list.serialize_aws_json_1_1(
+                value["daemon_deployments"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListDaemonDeploymentsResponse:
+    out: ListDaemonDeploymentsResponse = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "daemonDeployments" in data:
+        import aws_sdk_ecs.types.daemon_deployment_summary_list
+
+        out["daemon_deployments"] = (
+            aws_sdk_ecs.types.daemon_deployment_summary_list.deserialize_aws_json_1_1(
+                data["daemonDeployments"]
+            )
+        )
+    return out

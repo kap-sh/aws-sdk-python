@@ -5,10 +5,10 @@ from aws_sdk_s3.errors import DeserializationError, SerializationError
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 if TYPE_CHECKING:
-    import aws_sdk_s3.types.progress_event
     import aws_sdk_s3.types.records_event
-    import aws_sdk_s3.types.continuation_event
     import aws_sdk_s3.types.stats_event
+    import aws_sdk_s3.types.progress_event
+    import aws_sdk_s3.types.continuation_event
     import aws_sdk_s3.types.end_event
 
 

@@ -31,3 +31,78 @@ class TaskOverride(TypedDict):
         "aws_sdk_ecs.types.ephemeral_storage.EphemeralStorage"
     ]
     """<p>The ephemeral storage setting override for the task.</p> <note> <p>This parameter is only supported for tasks hosted on Fargate that use the following platform versions:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> <li> <p>Windows platform version <code>1.0.0</code> or later.</p> </li> </ul> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TaskOverride) -> dict:
+    out: dict = {}
+    if "container_overrides" in value:
+        import aws_sdk_ecs.types.container_overrides
+
+        out["containerOverrides"] = (
+            aws_sdk_ecs.types.container_overrides.serialize_aws_json_1_1(
+                value["container_overrides"]
+            )
+        )
+    if "cpu" in value:
+        out["cpu"] = value["cpu"]
+    if "inference_accelerator_overrides" in value:
+        import aws_sdk_ecs.types.inference_accelerator_overrides
+
+        out["inferenceAcceleratorOverrides"] = (
+            aws_sdk_ecs.types.inference_accelerator_overrides.serialize_aws_json_1_1(
+                value["inference_accelerator_overrides"]
+            )
+        )
+    if "execution_role_arn" in value:
+        out["executionRoleArn"] = value["execution_role_arn"]
+    if "memory" in value:
+        out["memory"] = value["memory"]
+    if "task_role_arn" in value:
+        out["taskRoleArn"] = value["task_role_arn"]
+    if "ephemeral_storage" in value:
+        import aws_sdk_ecs.types.ephemeral_storage
+
+        out["ephemeralStorage"] = (
+            aws_sdk_ecs.types.ephemeral_storage.serialize_aws_json_1_1(
+                value["ephemeral_storage"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TaskOverride:
+    out: TaskOverride = {}  # type: ignore[typeddict-item]
+    if "containerOverrides" in data:
+        import aws_sdk_ecs.types.container_overrides
+
+        out["container_overrides"] = (
+            aws_sdk_ecs.types.container_overrides.deserialize_aws_json_1_1(
+                data["containerOverrides"]
+            )
+        )
+    if "cpu" in data:
+        out["cpu"] = data["cpu"]
+    if "inferenceAcceleratorOverrides" in data:
+        import aws_sdk_ecs.types.inference_accelerator_overrides
+
+        out["inference_accelerator_overrides"] = (
+            aws_sdk_ecs.types.inference_accelerator_overrides.deserialize_aws_json_1_1(
+                data["inferenceAcceleratorOverrides"]
+            )
+        )
+    if "executionRoleArn" in data:
+        out["execution_role_arn"] = data["executionRoleArn"]
+    if "memory" in data:
+        out["memory"] = data["memory"]
+    if "taskRoleArn" in data:
+        out["task_role_arn"] = data["taskRoleArn"]
+    if "ephemeralStorage" in data:
+        import aws_sdk_ecs.types.ephemeral_storage
+
+        out["ephemeral_storage"] = (
+            aws_sdk_ecs.types.ephemeral_storage.deserialize_aws_json_1_1(
+                data["ephemeralStorage"]
+            )
+        )
+    return out

@@ -25,3 +25,66 @@ class ReplicaGlobalSecondaryIndexDescription(TypedDict):
         "aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description.GlobalSecondaryIndexWarmThroughputDescription"
     ]
     """<p>Represents the warm throughput of the global secondary index for this replica.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ReplicaGlobalSecondaryIndexDescription) -> dict:
+    out: dict = {}
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "provisioned_throughput_override" in value:
+        import aws_sdk_dynamodb.types.provisioned_throughput_override
+
+        out["ProvisionedThroughputOverride"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput_override.serialize_aws_json_1_0(
+                value["provisioned_throughput_override"]
+            )
+        )
+    if "on_demand_throughput_override" in value:
+        import aws_sdk_dynamodb.types.on_demand_throughput_override
+
+        out["OnDemandThroughputOverride"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput_override.serialize_aws_json_1_0(
+                value["on_demand_throughput_override"]
+            )
+        )
+    if "warm_throughput" in value:
+        import aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description
+
+        out["WarmThroughput"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description.serialize_aws_json_1_0(
+                value["warm_throughput"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ReplicaGlobalSecondaryIndexDescription:
+    out: ReplicaGlobalSecondaryIndexDescription = {}  # type: ignore[typeddict-item]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "ProvisionedThroughputOverride" in data:
+        import aws_sdk_dynamodb.types.provisioned_throughput_override
+
+        out["provisioned_throughput_override"] = (
+            aws_sdk_dynamodb.types.provisioned_throughput_override.deserialize_aws_json_1_0(
+                data["ProvisionedThroughputOverride"]
+            )
+        )
+    if "OnDemandThroughputOverride" in data:
+        import aws_sdk_dynamodb.types.on_demand_throughput_override
+
+        out["on_demand_throughput_override"] = (
+            aws_sdk_dynamodb.types.on_demand_throughput_override.deserialize_aws_json_1_0(
+                data["OnDemandThroughputOverride"]
+            )
+        )
+    if "WarmThroughput" in data:
+        import aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description
+
+        out["warm_throughput"] = (
+            aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description.deserialize_aws_json_1_0(
+                data["WarmThroughput"]
+            )
+        )
+    return out

@@ -55,3 +55,160 @@ class Cluster(TypedDict):
         "aws_sdk_ecs.types.cluster_service_connect_defaults.ClusterServiceConnectDefaults"
     ]
     """<p>Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to <code>true</code> in the <code>ServiceConnectConfiguration</code>. You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default parameter.</p> <p>Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html\">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Cluster) -> dict:
+    out: dict = {}
+    if "cluster_arn" in value:
+        out["clusterArn"] = value["cluster_arn"]
+    if "cluster_name" in value:
+        out["clusterName"] = value["cluster_name"]
+    if "configuration" in value:
+        import aws_sdk_ecs.types.cluster_configuration
+
+        out["configuration"] = (
+            aws_sdk_ecs.types.cluster_configuration.serialize_aws_json_1_1(
+                value["configuration"]
+            )
+        )
+    if "status" in value:
+        out["status"] = value["status"]
+    out["registeredContainerInstancesCount"] = value.get(
+        "registered_container_instances_count", 0
+    )
+    out["runningTasksCount"] = value.get("running_tasks_count", 0)
+    out["pendingTasksCount"] = value.get("pending_tasks_count", 0)
+    out["activeServicesCount"] = value.get("active_services_count", 0)
+    if "statistics" in value:
+        import aws_sdk_ecs.types.statistics
+
+        out["statistics"] = aws_sdk_ecs.types.statistics.serialize_aws_json_1_1(
+            value["statistics"]
+        )
+    if "tags" in value:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "settings" in value:
+        import aws_sdk_ecs.types.cluster_settings
+
+        out["settings"] = aws_sdk_ecs.types.cluster_settings.serialize_aws_json_1_1(
+            value["settings"]
+        )
+    if "capacity_providers" in value:
+        import aws_sdk_ecs.types.string_list
+
+        out["capacityProviders"] = aws_sdk_ecs.types.string_list.serialize_aws_json_1_1(
+            value["capacity_providers"]
+        )
+    if "default_capacity_provider_strategy" in value:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["defaultCapacityProviderStrategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.serialize_aws_json_1_1(
+                value["default_capacity_provider_strategy"]
+            )
+        )
+    if "attachments" in value:
+        import aws_sdk_ecs.types.attachments
+
+        out["attachments"] = aws_sdk_ecs.types.attachments.serialize_aws_json_1_1(
+            value["attachments"]
+        )
+    if "attachments_status" in value:
+        out["attachmentsStatus"] = value["attachments_status"]
+    if "service_connect_defaults" in value:
+        import aws_sdk_ecs.types.cluster_service_connect_defaults
+
+        out["serviceConnectDefaults"] = (
+            aws_sdk_ecs.types.cluster_service_connect_defaults.serialize_aws_json_1_1(
+                value["service_connect_defaults"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Cluster:
+    out: Cluster = {}  # type: ignore[typeddict-item]
+    if "clusterArn" in data:
+        out["cluster_arn"] = data["clusterArn"]
+    if "clusterName" in data:
+        out["cluster_name"] = data["clusterName"]
+    if "configuration" in data:
+        import aws_sdk_ecs.types.cluster_configuration
+
+        out["configuration"] = (
+            aws_sdk_ecs.types.cluster_configuration.deserialize_aws_json_1_1(
+                data["configuration"]
+            )
+        )
+    if "status" in data:
+        out["status"] = data["status"]
+    if "registeredContainerInstancesCount" in data:
+        out["registered_container_instances_count"] = data[
+            "registeredContainerInstancesCount"
+        ]
+    else:
+        out["registered_container_instances_count"] = 0
+    if "runningTasksCount" in data:
+        out["running_tasks_count"] = data["runningTasksCount"]
+    else:
+        out["running_tasks_count"] = 0
+    if "pendingTasksCount" in data:
+        out["pending_tasks_count"] = data["pendingTasksCount"]
+    else:
+        out["pending_tasks_count"] = 0
+    if "activeServicesCount" in data:
+        out["active_services_count"] = data["activeServicesCount"]
+    else:
+        out["active_services_count"] = 0
+    if "statistics" in data:
+        import aws_sdk_ecs.types.statistics
+
+        out["statistics"] = aws_sdk_ecs.types.statistics.deserialize_aws_json_1_1(
+            data["statistics"]
+        )
+    if "tags" in data:
+        import aws_sdk_ecs.types.tags
+
+        out["tags"] = aws_sdk_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "settings" in data:
+        import aws_sdk_ecs.types.cluster_settings
+
+        out["settings"] = aws_sdk_ecs.types.cluster_settings.deserialize_aws_json_1_1(
+            data["settings"]
+        )
+    if "capacityProviders" in data:
+        import aws_sdk_ecs.types.string_list
+
+        out["capacity_providers"] = (
+            aws_sdk_ecs.types.string_list.deserialize_aws_json_1_1(
+                data["capacityProviders"]
+            )
+        )
+    if "defaultCapacityProviderStrategy" in data:
+        import aws_sdk_ecs.types.capacity_provider_strategy
+
+        out["default_capacity_provider_strategy"] = (
+            aws_sdk_ecs.types.capacity_provider_strategy.deserialize_aws_json_1_1(
+                data["defaultCapacityProviderStrategy"]
+            )
+        )
+    if "attachments" in data:
+        import aws_sdk_ecs.types.attachments
+
+        out["attachments"] = aws_sdk_ecs.types.attachments.deserialize_aws_json_1_1(
+            data["attachments"]
+        )
+    if "attachmentsStatus" in data:
+        out["attachments_status"] = data["attachmentsStatus"]
+    if "serviceConnectDefaults" in data:
+        import aws_sdk_ecs.types.cluster_service_connect_defaults
+
+        out["service_connect_defaults"] = (
+            aws_sdk_ecs.types.cluster_service_connect_defaults.deserialize_aws_json_1_1(
+                data["serviceConnectDefaults"]
+            )
+        )
+    return out

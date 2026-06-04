@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.condition_expression
@@ -33,3 +34,88 @@ class Put(TypedDict):
         "aws_sdk_dynamodb.types.return_values_on_condition_check_failure.ReturnValuesOnConditionCheckFailure"
     ]
     """<p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Put</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Put) -> dict:
+    out: dict = {}
+    import aws_sdk_dynamodb.types.put_item_input_attribute_map
+
+    out["Item"] = (
+        aws_sdk_dynamodb.types.put_item_input_attribute_map.serialize_aws_json_1_0(
+            value["item"]
+        )
+    )
+    out["TableName"] = value["table_name"]
+    if "condition_expression" in value:
+        out["ConditionExpression"] = value["condition_expression"]
+    if "expression_attribute_names" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["ExpressionAttributeNames"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.serialize_aws_json_1_0(
+                value["expression_attribute_names"]
+            )
+        )
+    if "expression_attribute_values" in value:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["ExpressionAttributeValues"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.serialize_aws_json_1_0(
+                value["expression_attribute_values"]
+            )
+        )
+    if "return_values_on_condition_check_failure" in value:
+        import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
+
+        out["ReturnValuesOnConditionCheckFailure"] = (
+            aws_sdk_dynamodb.types.return_values_on_condition_check_failure.serialize_aws_json_1_0(
+                value["return_values_on_condition_check_failure"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Put:
+    out: Put = {}  # type: ignore[typeddict-item]
+    if "Item" in data:
+        import aws_sdk_dynamodb.types.put_item_input_attribute_map
+
+        out["item"] = (
+            aws_sdk_dynamodb.types.put_item_input_attribute_map.deserialize_aws_json_1_0(
+                data["Item"]
+            )
+        )
+    else:
+        raise DeserializationError("Put.item required")
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("Put.table_name required")
+    if "ConditionExpression" in data:
+        out["condition_expression"] = data["ConditionExpression"]
+    if "ExpressionAttributeNames" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_name_map
+
+        out["expression_attribute_names"] = (
+            aws_sdk_dynamodb.types.expression_attribute_name_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeNames"]
+            )
+        )
+    if "ExpressionAttributeValues" in data:
+        import aws_sdk_dynamodb.types.expression_attribute_value_map
+
+        out["expression_attribute_values"] = (
+            aws_sdk_dynamodb.types.expression_attribute_value_map.deserialize_aws_json_1_0(
+                data["ExpressionAttributeValues"]
+            )
+        )
+    if "ReturnValuesOnConditionCheckFailure" in data:
+        import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
+
+        out["return_values_on_condition_check_failure"] = (
+            aws_sdk_dynamodb.types.return_values_on_condition_check_failure.deserialize_aws_json_1_0(
+                data["ReturnValuesOnConditionCheckFailure"]
+            )
+        )
+    return out

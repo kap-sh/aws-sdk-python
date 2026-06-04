@@ -22,3 +22,46 @@ class ListContainerInstancesRequest(TypedDict):
         "aws_sdk_ecs.types.container_instance_status.ContainerInstanceStatus"
     ]
     """<p>Filters the container instances by status. For example, if you specify the <code>DRAINING</code> status, the results include only container instances that have been set to <code>DRAINING</code> using <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerInstancesState.html\">UpdateContainerInstancesState</a>. If you don't specify this parameter, the The default is to include container instances set to all states other than <code>INACTIVE</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListContainerInstancesRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    if "filter" in value:
+        out["filter"] = value["filter"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "status" in value:
+        import aws_sdk_ecs.types.container_instance_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.container_instance_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListContainerInstancesRequest:
+    out: ListContainerInstancesRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "filter" in data:
+        out["filter"] = data["filter"]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "status" in data:
+        import aws_sdk_ecs.types.container_instance_status
+
+        out["status"] = (
+            aws_sdk_ecs.types.container_instance_status.deserialize_aws_json_1_1(
+                data["status"]
+            )
+        )
+    return out

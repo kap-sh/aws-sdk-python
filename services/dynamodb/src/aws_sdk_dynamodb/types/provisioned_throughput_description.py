@@ -26,3 +26,58 @@ class ProvisionedThroughputDescription(TypedDict):
         "aws_sdk_dynamodb.types.non_negative_long_object.NonNegativeLongObject"
     ]
     """<p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ProvisionedThroughputDescription) -> dict:
+    out: dict = {}
+    if "last_increase_date_time" in value:
+        import aws_sdk_dynamodb.types.date
+
+        out["LastIncreaseDateTime"] = (
+            aws_sdk_dynamodb.types.date.serialize_aws_json_1_0(
+                value["last_increase_date_time"]
+            )
+        )
+    if "last_decrease_date_time" in value:
+        import aws_sdk_dynamodb.types.date
+
+        out["LastDecreaseDateTime"] = (
+            aws_sdk_dynamodb.types.date.serialize_aws_json_1_0(
+                value["last_decrease_date_time"]
+            )
+        )
+    if "number_of_decreases_today" in value:
+        out["NumberOfDecreasesToday"] = value["number_of_decreases_today"]
+    if "read_capacity_units" in value:
+        out["ReadCapacityUnits"] = value["read_capacity_units"]
+    if "write_capacity_units" in value:
+        out["WriteCapacityUnits"] = value["write_capacity_units"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ProvisionedThroughputDescription:
+    out: ProvisionedThroughputDescription = {}  # type: ignore[typeddict-item]
+    if "LastIncreaseDateTime" in data:
+        import aws_sdk_dynamodb.types.date
+
+        out["last_increase_date_time"] = (
+            aws_sdk_dynamodb.types.date.deserialize_aws_json_1_0(
+                data["LastIncreaseDateTime"]
+            )
+        )
+    if "LastDecreaseDateTime" in data:
+        import aws_sdk_dynamodb.types.date
+
+        out["last_decrease_date_time"] = (
+            aws_sdk_dynamodb.types.date.deserialize_aws_json_1_0(
+                data["LastDecreaseDateTime"]
+            )
+        )
+    if "NumberOfDecreasesToday" in data:
+        out["number_of_decreases_today"] = data["NumberOfDecreasesToday"]
+    if "ReadCapacityUnits" in data:
+        out["read_capacity_units"] = data["ReadCapacityUnits"]
+    if "WriteCapacityUnits" in data:
+        out["write_capacity_units"] = data["WriteCapacityUnits"]
+    return out

@@ -12,6 +12,21 @@ class TableNotFoundException_(TypedDict):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
 
 
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: TableNotFoundException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> TableNotFoundException_:
+    out: TableNotFoundException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class TableNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dynamodb#TableNotFoundException``."""
 
@@ -25,3 +40,7 @@ class TableNotFoundException(ServiceError):
             code="TableNotFoundException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "TableNotFoundException":
+        return cls(deserialize_aws_json_1_0(data))

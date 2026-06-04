@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskManagedEBSVolumeTerminationPolicy``."""
 
 from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -9,3 +10,21 @@ if TYPE_CHECKING:
 class TaskManagedEBSVolumeTerminationPolicy(TypedDict):
     delete_on_termination: "aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"
     """<p>Indicates whether the volume should be deleted on when the task stops. If a value of <code>true</code> is specified, Amazon ECS deletes the Amazon EBS volume on your behalf when the task goes into the <code>STOPPED</code> state. If no value is specified, the default value is <code>true</code> is used. When set to <code>false</code>, Amazon ECS leaves the volume in your account.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TaskManagedEBSVolumeTerminationPolicy) -> dict:
+    out: dict = {}
+    out["deleteOnTermination"] = value["delete_on_termination"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TaskManagedEBSVolumeTerminationPolicy:
+    out: TaskManagedEBSVolumeTerminationPolicy = {}  # type: ignore[typeddict-item]
+    if "deleteOnTermination" in data:
+        out["delete_on_termination"] = data["deleteOnTermination"]
+    else:
+        raise DeserializationError(
+            "TaskManagedEBSVolumeTerminationPolicy.delete_on_termination required"
+        )
+    return out

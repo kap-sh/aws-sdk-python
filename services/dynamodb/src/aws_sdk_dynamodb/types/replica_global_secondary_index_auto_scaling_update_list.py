@@ -8,3 +8,34 @@ if TYPE_CHECKING:
 ReplicaGlobalSecondaryIndexAutoScalingUpdateList: TypeAlias = list[
     "aws_sdk_dynamodb.types.replica_global_secondary_index_auto_scaling_update.ReplicaGlobalSecondaryIndexAutoScalingUpdate"
 ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(
+    value: ReplicaGlobalSecondaryIndexAutoScalingUpdateList,
+) -> list:
+    import aws_sdk_dynamodb.types.replica_global_secondary_index_auto_scaling_update
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_dynamodb.types.replica_global_secondary_index_auto_scaling_update.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(
+    data: list,
+) -> ReplicaGlobalSecondaryIndexAutoScalingUpdateList:
+    import aws_sdk_dynamodb.types.replica_global_secondary_index_auto_scaling_update
+
+    out: ReplicaGlobalSecondaryIndexAutoScalingUpdateList = []
+    for item in data:
+        out.append(
+            aws_sdk_dynamodb.types.replica_global_secondary_index_auto_scaling_update.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

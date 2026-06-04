@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#PutUserPermissionsBoundaryRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_iam.errors import DeserializationError
+from aws_sdk_iam._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_iam.types.arn_type
+    import aws_sdk_iam.types.user_name_type
+
+
+class PutUserPermissionsBoundaryRequest(TypedDict):
+    user_name: "aws_sdk_iam.types.user_name_type.userNameType"
+    """<p>The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.</p>"""
+    permissions_boundary: "aws_sdk_iam.types.arn_type.arnType"
+    """<p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p> <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p> <p>For more information about policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types\">Policy types </a> in the <i>IAM User Guide</i>.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: PutUserPermissionsBoundaryRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+    pairs.append((f"{prefix}.PermissionsBoundary", str(value["permissions_boundary"])))
+
+
+def deserialize_query(el: Element) -> PutUserPermissionsBoundaryRequest:
+    out: PutUserPermissionsBoundaryRequest = {}  # type: ignore[typeddict-item]
+    child_user_name = el.find("UserName")
+    if child_user_name is not None:
+        out["user_name"] = str(child_user_name.text or "")
+    else:
+        raise DeserializationError(
+            "PutUserPermissionsBoundaryRequest.user_name required"
+        )
+    child_permissions_boundary = el.find("PermissionsBoundary")
+    if child_permissions_boundary is not None:
+        out["permissions_boundary"] = str(child_permissions_boundary.text or "")
+    else:
+        raise DeserializationError(
+            "PutUserPermissionsBoundaryRequest.permissions_boundary required"
+        )
+    return out

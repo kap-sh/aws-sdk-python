@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -17,3 +18,33 @@ class S3FilesVolumeConfiguration(TypedDict):
     """<p>The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html\">S3 Files mount helper</a>.</p>"""
     access_point_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the <code>S3FilesVolumeConfiguration</code> must either be omitted or set to <code>/</code> which will enforce the path set on the S3 Files access point. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html\">Creating S3 Files access points</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: S3FilesVolumeConfiguration) -> dict:
+    out: dict = {}
+    out["fileSystemArn"] = value["file_system_arn"]
+    if "root_directory" in value:
+        out["rootDirectory"] = value["root_directory"]
+    if "transit_encryption_port" in value:
+        out["transitEncryptionPort"] = value["transit_encryption_port"]
+    if "access_point_arn" in value:
+        out["accessPointArn"] = value["access_point_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> S3FilesVolumeConfiguration:
+    out: S3FilesVolumeConfiguration = {}  # type: ignore[typeddict-item]
+    if "fileSystemArn" in data:
+        out["file_system_arn"] = data["fileSystemArn"]
+    else:
+        raise DeserializationError(
+            "S3FilesVolumeConfiguration.file_system_arn required"
+        )
+    if "rootDirectory" in data:
+        out["root_directory"] = data["rootDirectory"]
+    if "transitEncryptionPort" in data:
+        out["transit_encryption_port"] = data["transitEncryptionPort"]
+    if "accessPointArn" in data:
+        out["access_point_arn"] = data["accessPointArn"]
+    return out

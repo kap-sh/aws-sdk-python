@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.accelerator_count_request
@@ -117,3 +118,354 @@ class InstanceRequirementsRequest(TypedDict):
         "aws_sdk_ecs.types.boxed_integer.BoxedInteger"
     ]
     """<p>The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InstanceRequirementsRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_ecs.types.v_cpu_count_range_request
+
+    out["vCpuCount"] = (
+        aws_sdk_ecs.types.v_cpu_count_range_request.serialize_aws_json_1_1(
+            value["v_cpu_count"]
+        )
+    )
+    import aws_sdk_ecs.types.memory_mi_b_request
+
+    out["memoryMiB"] = aws_sdk_ecs.types.memory_mi_b_request.serialize_aws_json_1_1(
+        value["memory_mi_b"]
+    )
+    if "cpu_manufacturers" in value:
+        import aws_sdk_ecs.types.cpu_manufacturer_set
+
+        out["cpuManufacturers"] = (
+            aws_sdk_ecs.types.cpu_manufacturer_set.serialize_aws_json_1_1(
+                value["cpu_manufacturers"]
+            )
+        )
+    if "memory_gi_b_per_v_cpu" in value:
+        import aws_sdk_ecs.types.memory_gi_b_per_v_cpu_request
+
+        out["memoryGiBPerVCpu"] = (
+            aws_sdk_ecs.types.memory_gi_b_per_v_cpu_request.serialize_aws_json_1_1(
+                value["memory_gi_b_per_v_cpu"]
+            )
+        )
+    if "excluded_instance_types" in value:
+        import aws_sdk_ecs.types.excluded_instance_type_set
+
+        out["excludedInstanceTypes"] = (
+            aws_sdk_ecs.types.excluded_instance_type_set.serialize_aws_json_1_1(
+                value["excluded_instance_types"]
+            )
+        )
+    if "instance_generations" in value:
+        import aws_sdk_ecs.types.instance_generation_set
+
+        out["instanceGenerations"] = (
+            aws_sdk_ecs.types.instance_generation_set.serialize_aws_json_1_1(
+                value["instance_generations"]
+            )
+        )
+    if "spot_max_price_percentage_over_lowest_price" in value:
+        out["spotMaxPricePercentageOverLowestPrice"] = value[
+            "spot_max_price_percentage_over_lowest_price"
+        ]
+    if "on_demand_max_price_percentage_over_lowest_price" in value:
+        out["onDemandMaxPricePercentageOverLowestPrice"] = value[
+            "on_demand_max_price_percentage_over_lowest_price"
+        ]
+    if "bare_metal" in value:
+        import aws_sdk_ecs.types.bare_metal
+
+        out["bareMetal"] = aws_sdk_ecs.types.bare_metal.serialize_aws_json_1_1(
+            value["bare_metal"]
+        )
+    if "burstable_performance" in value:
+        import aws_sdk_ecs.types.burstable_performance
+
+        out["burstablePerformance"] = (
+            aws_sdk_ecs.types.burstable_performance.serialize_aws_json_1_1(
+                value["burstable_performance"]
+            )
+        )
+    if "require_hibernate_support" in value:
+        out["requireHibernateSupport"] = value["require_hibernate_support"]
+    if "network_interface_count" in value:
+        import aws_sdk_ecs.types.network_interface_count_request
+
+        out["networkInterfaceCount"] = (
+            aws_sdk_ecs.types.network_interface_count_request.serialize_aws_json_1_1(
+                value["network_interface_count"]
+            )
+        )
+    if "local_storage" in value:
+        import aws_sdk_ecs.types.local_storage
+
+        out["localStorage"] = aws_sdk_ecs.types.local_storage.serialize_aws_json_1_1(
+            value["local_storage"]
+        )
+    if "local_storage_types" in value:
+        import aws_sdk_ecs.types.local_storage_type_set
+
+        out["localStorageTypes"] = (
+            aws_sdk_ecs.types.local_storage_type_set.serialize_aws_json_1_1(
+                value["local_storage_types"]
+            )
+        )
+    if "total_local_storage_gb" in value:
+        import aws_sdk_ecs.types.total_local_storage_gb_request
+
+        out["totalLocalStorageGB"] = (
+            aws_sdk_ecs.types.total_local_storage_gb_request.serialize_aws_json_1_1(
+                value["total_local_storage_gb"]
+            )
+        )
+    if "baseline_ebs_bandwidth_mbps" in value:
+        import aws_sdk_ecs.types.baseline_ebs_bandwidth_mbps_request
+
+        out["baselineEbsBandwidthMbps"] = (
+            aws_sdk_ecs.types.baseline_ebs_bandwidth_mbps_request.serialize_aws_json_1_1(
+                value["baseline_ebs_bandwidth_mbps"]
+            )
+        )
+    if "accelerator_types" in value:
+        import aws_sdk_ecs.types.accelerator_type_set
+
+        out["acceleratorTypes"] = (
+            aws_sdk_ecs.types.accelerator_type_set.serialize_aws_json_1_1(
+                value["accelerator_types"]
+            )
+        )
+    if "accelerator_count" in value:
+        import aws_sdk_ecs.types.accelerator_count_request
+
+        out["acceleratorCount"] = (
+            aws_sdk_ecs.types.accelerator_count_request.serialize_aws_json_1_1(
+                value["accelerator_count"]
+            )
+        )
+    if "accelerator_manufacturers" in value:
+        import aws_sdk_ecs.types.accelerator_manufacturer_set
+
+        out["acceleratorManufacturers"] = (
+            aws_sdk_ecs.types.accelerator_manufacturer_set.serialize_aws_json_1_1(
+                value["accelerator_manufacturers"]
+            )
+        )
+    if "accelerator_names" in value:
+        import aws_sdk_ecs.types.accelerator_name_set
+
+        out["acceleratorNames"] = (
+            aws_sdk_ecs.types.accelerator_name_set.serialize_aws_json_1_1(
+                value["accelerator_names"]
+            )
+        )
+    if "accelerator_total_memory_mi_b" in value:
+        import aws_sdk_ecs.types.accelerator_total_memory_mi_b_request
+
+        out["acceleratorTotalMemoryMiB"] = (
+            aws_sdk_ecs.types.accelerator_total_memory_mi_b_request.serialize_aws_json_1_1(
+                value["accelerator_total_memory_mi_b"]
+            )
+        )
+    if "network_bandwidth_gbps" in value:
+        import aws_sdk_ecs.types.network_bandwidth_gbps_request
+
+        out["networkBandwidthGbps"] = (
+            aws_sdk_ecs.types.network_bandwidth_gbps_request.serialize_aws_json_1_1(
+                value["network_bandwidth_gbps"]
+            )
+        )
+    if "allowed_instance_types" in value:
+        import aws_sdk_ecs.types.allowed_instance_type_set
+
+        out["allowedInstanceTypes"] = (
+            aws_sdk_ecs.types.allowed_instance_type_set.serialize_aws_json_1_1(
+                value["allowed_instance_types"]
+            )
+        )
+    if "max_spot_price_as_percentage_of_optimal_on_demand_price" in value:
+        out["maxSpotPriceAsPercentageOfOptimalOnDemandPrice"] = value[
+            "max_spot_price_as_percentage_of_optimal_on_demand_price"
+        ]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
+    out: InstanceRequirementsRequest = {}  # type: ignore[typeddict-item]
+    if "vCpuCount" in data:
+        import aws_sdk_ecs.types.v_cpu_count_range_request
+
+        out["v_cpu_count"] = (
+            aws_sdk_ecs.types.v_cpu_count_range_request.deserialize_aws_json_1_1(
+                data["vCpuCount"]
+            )
+        )
+    else:
+        raise DeserializationError("InstanceRequirementsRequest.v_cpu_count required")
+    if "memoryMiB" in data:
+        import aws_sdk_ecs.types.memory_mi_b_request
+
+        out["memory_mi_b"] = (
+            aws_sdk_ecs.types.memory_mi_b_request.deserialize_aws_json_1_1(
+                data["memoryMiB"]
+            )
+        )
+    else:
+        raise DeserializationError("InstanceRequirementsRequest.memory_mi_b required")
+    if "cpuManufacturers" in data:
+        import aws_sdk_ecs.types.cpu_manufacturer_set
+
+        out["cpu_manufacturers"] = (
+            aws_sdk_ecs.types.cpu_manufacturer_set.deserialize_aws_json_1_1(
+                data["cpuManufacturers"]
+            )
+        )
+    if "memoryGiBPerVCpu" in data:
+        import aws_sdk_ecs.types.memory_gi_b_per_v_cpu_request
+
+        out["memory_gi_b_per_v_cpu"] = (
+            aws_sdk_ecs.types.memory_gi_b_per_v_cpu_request.deserialize_aws_json_1_1(
+                data["memoryGiBPerVCpu"]
+            )
+        )
+    if "excludedInstanceTypes" in data:
+        import aws_sdk_ecs.types.excluded_instance_type_set
+
+        out["excluded_instance_types"] = (
+            aws_sdk_ecs.types.excluded_instance_type_set.deserialize_aws_json_1_1(
+                data["excludedInstanceTypes"]
+            )
+        )
+    if "instanceGenerations" in data:
+        import aws_sdk_ecs.types.instance_generation_set
+
+        out["instance_generations"] = (
+            aws_sdk_ecs.types.instance_generation_set.deserialize_aws_json_1_1(
+                data["instanceGenerations"]
+            )
+        )
+    if "spotMaxPricePercentageOverLowestPrice" in data:
+        out["spot_max_price_percentage_over_lowest_price"] = data[
+            "spotMaxPricePercentageOverLowestPrice"
+        ]
+    if "onDemandMaxPricePercentageOverLowestPrice" in data:
+        out["on_demand_max_price_percentage_over_lowest_price"] = data[
+            "onDemandMaxPricePercentageOverLowestPrice"
+        ]
+    if "bareMetal" in data:
+        import aws_sdk_ecs.types.bare_metal
+
+        out["bare_metal"] = aws_sdk_ecs.types.bare_metal.deserialize_aws_json_1_1(
+            data["bareMetal"]
+        )
+    if "burstablePerformance" in data:
+        import aws_sdk_ecs.types.burstable_performance
+
+        out["burstable_performance"] = (
+            aws_sdk_ecs.types.burstable_performance.deserialize_aws_json_1_1(
+                data["burstablePerformance"]
+            )
+        )
+    if "requireHibernateSupport" in data:
+        out["require_hibernate_support"] = data["requireHibernateSupport"]
+    if "networkInterfaceCount" in data:
+        import aws_sdk_ecs.types.network_interface_count_request
+
+        out["network_interface_count"] = (
+            aws_sdk_ecs.types.network_interface_count_request.deserialize_aws_json_1_1(
+                data["networkInterfaceCount"]
+            )
+        )
+    if "localStorage" in data:
+        import aws_sdk_ecs.types.local_storage
+
+        out["local_storage"] = aws_sdk_ecs.types.local_storage.deserialize_aws_json_1_1(
+            data["localStorage"]
+        )
+    if "localStorageTypes" in data:
+        import aws_sdk_ecs.types.local_storage_type_set
+
+        out["local_storage_types"] = (
+            aws_sdk_ecs.types.local_storage_type_set.deserialize_aws_json_1_1(
+                data["localStorageTypes"]
+            )
+        )
+    if "totalLocalStorageGB" in data:
+        import aws_sdk_ecs.types.total_local_storage_gb_request
+
+        out["total_local_storage_gb"] = (
+            aws_sdk_ecs.types.total_local_storage_gb_request.deserialize_aws_json_1_1(
+                data["totalLocalStorageGB"]
+            )
+        )
+    if "baselineEbsBandwidthMbps" in data:
+        import aws_sdk_ecs.types.baseline_ebs_bandwidth_mbps_request
+
+        out["baseline_ebs_bandwidth_mbps"] = (
+            aws_sdk_ecs.types.baseline_ebs_bandwidth_mbps_request.deserialize_aws_json_1_1(
+                data["baselineEbsBandwidthMbps"]
+            )
+        )
+    if "acceleratorTypes" in data:
+        import aws_sdk_ecs.types.accelerator_type_set
+
+        out["accelerator_types"] = (
+            aws_sdk_ecs.types.accelerator_type_set.deserialize_aws_json_1_1(
+                data["acceleratorTypes"]
+            )
+        )
+    if "acceleratorCount" in data:
+        import aws_sdk_ecs.types.accelerator_count_request
+
+        out["accelerator_count"] = (
+            aws_sdk_ecs.types.accelerator_count_request.deserialize_aws_json_1_1(
+                data["acceleratorCount"]
+            )
+        )
+    if "acceleratorManufacturers" in data:
+        import aws_sdk_ecs.types.accelerator_manufacturer_set
+
+        out["accelerator_manufacturers"] = (
+            aws_sdk_ecs.types.accelerator_manufacturer_set.deserialize_aws_json_1_1(
+                data["acceleratorManufacturers"]
+            )
+        )
+    if "acceleratorNames" in data:
+        import aws_sdk_ecs.types.accelerator_name_set
+
+        out["accelerator_names"] = (
+            aws_sdk_ecs.types.accelerator_name_set.deserialize_aws_json_1_1(
+                data["acceleratorNames"]
+            )
+        )
+    if "acceleratorTotalMemoryMiB" in data:
+        import aws_sdk_ecs.types.accelerator_total_memory_mi_b_request
+
+        out["accelerator_total_memory_mi_b"] = (
+            aws_sdk_ecs.types.accelerator_total_memory_mi_b_request.deserialize_aws_json_1_1(
+                data["acceleratorTotalMemoryMiB"]
+            )
+        )
+    if "networkBandwidthGbps" in data:
+        import aws_sdk_ecs.types.network_bandwidth_gbps_request
+
+        out["network_bandwidth_gbps"] = (
+            aws_sdk_ecs.types.network_bandwidth_gbps_request.deserialize_aws_json_1_1(
+                data["networkBandwidthGbps"]
+            )
+        )
+    if "allowedInstanceTypes" in data:
+        import aws_sdk_ecs.types.allowed_instance_type_set
+
+        out["allowed_instance_types"] = (
+            aws_sdk_ecs.types.allowed_instance_type_set.deserialize_aws_json_1_1(
+                data["allowedInstanceTypes"]
+            )
+        )
+    if "maxSpotPriceAsPercentageOfOptimalOnDemandPrice" in data:
+        out["max_spot_price_as_percentage_of_optimal_on_demand_price"] = data[
+            "maxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+        ]
+    return out

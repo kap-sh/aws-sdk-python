@@ -12,3 +12,18 @@ class PutResourcePolicyOutput(TypedDict):
         "aws_sdk_dynamodb.types.policy_revision_id.PolicyRevisionId"
     ]
     """<p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: PutResourcePolicyOutput) -> dict:
+    out: dict = {}
+    if "revision_id" in value:
+        out["RevisionId"] = value["revision_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> PutResourcePolicyOutput:
+    out: PutResourcePolicyOutput = {}  # type: ignore[typeddict-item]
+    if "RevisionId" in data:
+        out["revision_id"] = data["RevisionId"]
+    return out

@@ -12,6 +12,21 @@ class IdempotentParameterMismatchException_(TypedDict):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
 
 
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: IdempotentParameterMismatchException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> IdempotentParameterMismatchException_:
+    out: IdempotentParameterMismatchException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
 class IdempotentParameterMismatchException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dynamodb#IdempotentParameterMismatchException``."""
 
@@ -25,3 +40,7 @@ class IdempotentParameterMismatchException(ServiceError):
             code="IdempotentParameterMismatchException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "IdempotentParameterMismatchException":
+        return cls(deserialize_aws_json_1_0(data))

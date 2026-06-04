@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#RemoveUserFromGroupRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_iam.errors import DeserializationError
+from aws_sdk_iam._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_iam.types.existing_user_name_type
+    import aws_sdk_iam.types.group_name_type
+
+
+class RemoveUserFromGroupRequest(TypedDict):
+    group_name: "aws_sdk_iam.types.group_name_type.groupNameType"
+    """<p>The name of the group to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    user_name: "aws_sdk_iam.types.existing_user_name_type.existingUserNameType"
+    """<p>The name of the user to remove.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: RemoveUserFromGroupRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+
+
+def deserialize_query(el: Element) -> RemoveUserFromGroupRequest:
+    out: RemoveUserFromGroupRequest = {}  # type: ignore[typeddict-item]
+    child_group_name = el.find("GroupName")
+    if child_group_name is not None:
+        out["group_name"] = str(child_group_name.text or "")
+    else:
+        raise DeserializationError("RemoveUserFromGroupRequest.group_name required")
+    child_user_name = el.find("UserName")
+    if child_user_name is not None:
+        out["user_name"] = str(child_user_name.text or "")
+    else:
+        raise DeserializationError("RemoveUserFromGroupRequest.user_name required")
+    return out

@@ -28,3 +28,70 @@ class ListServicesRequest(TypedDict):
         "aws_sdk_ecs.types.resource_management_type.ResourceManagementType"
     ]
     """<p>The resourceManagementType type to use when filtering the <code>ListServices</code> results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListServicesRequest) -> dict:
+    out: dict = {}
+    if "cluster" in value:
+        out["cluster"] = value["cluster"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "launch_type" in value:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launchType"] = aws_sdk_ecs.types.launch_type.serialize_aws_json_1_1(
+            value["launch_type"]
+        )
+    if "scheduling_strategy" in value:
+        import aws_sdk_ecs.types.scheduling_strategy
+
+        out["schedulingStrategy"] = (
+            aws_sdk_ecs.types.scheduling_strategy.serialize_aws_json_1_1(
+                value["scheduling_strategy"]
+            )
+        )
+    if "resource_management_type" in value:
+        import aws_sdk_ecs.types.resource_management_type
+
+        out["resourceManagementType"] = (
+            aws_sdk_ecs.types.resource_management_type.serialize_aws_json_1_1(
+                value["resource_management_type"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListServicesRequest:
+    out: ListServicesRequest = {}  # type: ignore[typeddict-item]
+    if "cluster" in data:
+        out["cluster"] = data["cluster"]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "launchType" in data:
+        import aws_sdk_ecs.types.launch_type
+
+        out["launch_type"] = aws_sdk_ecs.types.launch_type.deserialize_aws_json_1_1(
+            data["launchType"]
+        )
+    if "schedulingStrategy" in data:
+        import aws_sdk_ecs.types.scheduling_strategy
+
+        out["scheduling_strategy"] = (
+            aws_sdk_ecs.types.scheduling_strategy.deserialize_aws_json_1_1(
+                data["schedulingStrategy"]
+            )
+        )
+    if "resourceManagementType" in data:
+        import aws_sdk_ecs.types.resource_management_type
+
+        out["resource_management_type"] = (
+            aws_sdk_ecs.types.resource_management_type.deserialize_aws_json_1_1(
+                data["resourceManagementType"]
+            )
+        )
+    return out
