@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -18,3 +19,38 @@ class PurchaseScheduledInstancesRequest(TypedDict):
         "aws_sdk_ec2.types.purchase_request_set.PurchaseRequestSet"
     ]
     """<p>The purchase requests.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: PurchaseScheduledInstancesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "purchase_requests" in value:
+        import aws_sdk_ec2.types.purchase_request_set
+
+        aws_sdk_ec2.types.purchase_request_set.serialize_ec2_query(
+            value["purchase_requests"], pairs, f"{prefix}.PurchaseRequests"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> PurchaseScheduledInstancesRequest:
+    out: PurchaseScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("PurchaseRequests") is not None:
+        import aws_sdk_ec2.types.purchase_request_set
+
+        out["purchase_requests"] = (
+            aws_sdk_ec2.types.purchase_request_set.deserialize_ec2_query(
+                el, "PurchaseRequests"
+            )
+        )
+    return out

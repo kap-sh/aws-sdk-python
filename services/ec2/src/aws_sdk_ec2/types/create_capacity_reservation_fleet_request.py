@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -41,3 +42,113 @@ class CreateCapacityReservationFleetRequest(TypedDict):
     """<p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateCapacityReservationFleetRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "allocation_strategy" in value:
+        pairs.append(
+            (f"{prefix}.AllocationStrategy", str(value["allocation_strategy"]))
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "instance_type_specifications" in value:
+        import aws_sdk_ec2.types.reservation_fleet_instance_specification_list
+
+        aws_sdk_ec2.types.reservation_fleet_instance_specification_list.serialize_ec2_query(
+            value["instance_type_specifications"],
+            pairs,
+            f"{prefix}.InstanceTypeSpecifications",
+        )
+    if "tenancy" in value:
+        import aws_sdk_ec2.types.fleet_capacity_reservation_tenancy
+
+        aws_sdk_ec2.types.fleet_capacity_reservation_tenancy.serialize_ec2_query(
+            value["tenancy"], pairs, f"{prefix}.Tenancy"
+        )
+    if "total_target_capacity" in value:
+        pairs.append(
+            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+        )
+    if "end_date" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["end_date"], pairs, f"{prefix}.EndDate"
+        )
+    if "instance_match_criteria" in value:
+        import aws_sdk_ec2.types.fleet_instance_match_criteria
+
+        aws_sdk_ec2.types.fleet_instance_match_criteria.serialize_ec2_query(
+            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetRequest:
+    out: CreateCapacityReservationFleetRequest = {}  # type: ignore[typeddict-item]
+    child_allocation_strategy = el.find("AllocationStrategy")
+    if child_allocation_strategy is not None:
+        out["allocation_strategy"] = str(child_allocation_strategy.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    if el.find("InstanceTypeSpecifications") is not None:
+        import aws_sdk_ec2.types.reservation_fleet_instance_specification_list
+
+        out["instance_type_specifications"] = (
+            aws_sdk_ec2.types.reservation_fleet_instance_specification_list.deserialize_ec2_query(
+                el, "InstanceTypeSpecifications"
+            )
+        )
+    child_tenancy = el.find("Tenancy")
+    if child_tenancy is not None:
+        import aws_sdk_ec2.types.fleet_capacity_reservation_tenancy
+
+        out["tenancy"] = (
+            aws_sdk_ec2.types.fleet_capacity_reservation_tenancy.deserialize_ec2_query(
+                child_tenancy
+            )
+        )
+    child_total_target_capacity = el.find("TotalTargetCapacity")
+    if child_total_target_capacity is not None:
+        out["total_target_capacity"] = int(child_total_target_capacity.text or "")
+    child_end_date = el.find("EndDate")
+    if child_end_date is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["end_date"] = aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+            child_end_date
+        )
+    child_instance_match_criteria = el.find("InstanceMatchCriteria")
+    if child_instance_match_criteria is not None:
+        import aws_sdk_ec2.types.fleet_instance_match_criteria
+
+        out["instance_match_criteria"] = (
+            aws_sdk_ec2.types.fleet_instance_match_criteria.deserialize_ec2_query(
+                child_instance_match_criteria
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

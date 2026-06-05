@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -32,3 +33,79 @@ class CreateIpamPrefixListResolverTargetRequest(TypedDict):
     """<p>The tags to apply to the IPAM prefix list resolver target during creation. Tags help you organize and manage your Amazon Web Services resources.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateIpamPrefixListResolverTargetRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_prefix_list_resolver_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.IpamPrefixListResolverId",
+                str(value["ipam_prefix_list_resolver_id"]),
+            )
+        )
+    if "prefix_list_id" in value:
+        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+    if "prefix_list_region" in value:
+        pairs.append((f"{prefix}.PrefixListRegion", str(value["prefix_list_region"])))
+    if "desired_version" in value:
+        pairs.append((f"{prefix}.DesiredVersion", str(value["desired_version"])))
+    if "track_latest_version" in value:
+        pairs.append(
+            (
+                f"{prefix}.TrackLatestVersion",
+                "true" if value["track_latest_version"] else "false",
+            )
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> CreateIpamPrefixListResolverTargetRequest:
+    out: CreateIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_prefix_list_resolver_id = el.find("IpamPrefixListResolverId")
+    if child_ipam_prefix_list_resolver_id is not None:
+        out["ipam_prefix_list_resolver_id"] = str(
+            child_ipam_prefix_list_resolver_id.text or ""
+        )
+    child_prefix_list_id = el.find("PrefixListId")
+    if child_prefix_list_id is not None:
+        out["prefix_list_id"] = str(child_prefix_list_id.text or "")
+    child_prefix_list_region = el.find("PrefixListRegion")
+    if child_prefix_list_region is not None:
+        out["prefix_list_region"] = str(child_prefix_list_region.text or "")
+    child_desired_version = el.find("DesiredVersion")
+    if child_desired_version is not None:
+        out["desired_version"] = int(child_desired_version.text or "")
+    child_track_latest_version = el.find("TrackLatestVersion")
+    if child_track_latest_version is not None:
+        out["track_latest_version"] = (
+            child_track_latest_version.text or ""
+        ).lower() == "true"
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    return out

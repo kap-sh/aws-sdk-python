@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CpuManufacturer``."""
 
-from typing import Literal, TypeAlias
+from typing import Literal, TypeAlias, cast
+from aws_sdk_ec2.errors import DeserializationError
+from aws_sdk_ec2._protocol.xml import Element
 
 CpuManufacturer: TypeAlias = Literal[
     "intel",
@@ -8,3 +10,44 @@ CpuManufacturer: TypeAlias = Literal[
     "amazon-web-services",
     "apple",
 ]
+
+
+# --- ec2Query ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "intel",
+        "amd",
+        "amazon-web-services",
+        "apple",
+    )
+)
+
+
+_VALUES: frozenset[str] = frozenset(
+    (
+        "intel",
+        "amd",
+        "amazon-web-services",
+        "apple",
+    )
+)
+
+
+def to_ec2_query_text(value: CpuManufacturer) -> str:
+    return value
+
+
+def from_ec2_query_text(text: str) -> CpuManufacturer:
+    if text not in _VALUES:
+        raise DeserializationError(f"unknown CpuManufacturer value: {text!r}")
+    return cast(CpuManufacturer, text)
+
+
+def serialize_ec2_query(
+    value: CpuManufacturer, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_ec2_query_text(value)))
+
+
+def deserialize_ec2_query(el: Element) -> CpuManufacturer:
+    return from_ec2_query_text(el.text or "")

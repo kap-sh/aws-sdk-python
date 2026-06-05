@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -32,3 +33,77 @@ class CreateReplaceRootVolumeTaskRequest(TypedDict):
     """<p>Indicates whether to automatically delete the original root volume after the root volume replacement task completes. To delete the original root volume, specify <code>true</code>. If you choose to keep the original root volume after the replacement task completes, you must manually delete it when you no longer need it.</p>"""
     volume_initialization_rate: NotRequired["aws_sdk_ec2.types.long.Long"]
     """<p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the replacement root volume. This is also known as <i>volume initialization</i>. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.</p> <p>Omit this parameter if:</p> <ul> <li> <p>You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.</p> <note> <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.</p> </note> </li> <li> <p>You want to create a volume that is initialized at the default rate.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html\"> Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid range: 100 - 300 MiB/s</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateReplaceRootVolumeTaskRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_id" in value:
+        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+    if "snapshot_id" in value:
+        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "image_id" in value:
+        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+    if "delete_replaced_root_volume" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeleteReplacedRootVolume",
+                "true" if value["delete_replaced_root_volume"] else "false",
+            )
+        )
+    if "volume_initialization_rate" in value:
+        pairs.append(
+            (
+                f"{prefix}.VolumeInitializationRate",
+                str(value["volume_initialization_rate"]),
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateReplaceRootVolumeTaskRequest:
+    out: CreateReplaceRootVolumeTaskRequest = {}  # type: ignore[typeddict-item]
+    child_instance_id = el.find("InstanceId")
+    if child_instance_id is not None:
+        out["instance_id"] = str(child_instance_id.text or "")
+    child_snapshot_id = el.find("SnapshotId")
+    if child_snapshot_id is not None:
+        out["snapshot_id"] = str(child_snapshot_id.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_image_id = el.find("ImageId")
+    if child_image_id is not None:
+        out["image_id"] = str(child_image_id.text or "")
+    child_delete_replaced_root_volume = el.find("DeleteReplacedRootVolume")
+    if child_delete_replaced_root_volume is not None:
+        out["delete_replaced_root_volume"] = (
+            child_delete_replaced_root_volume.text or ""
+        ).lower() == "true"
+    child_volume_initialization_rate = el.find("VolumeInitializationRate")
+    if child_volume_initialization_rate is not None:
+        out["volume_initialization_rate"] = int(
+            child_volume_initialization_rate.text or ""
+        )
+    return out

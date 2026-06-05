@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.account_id
@@ -119,3 +120,346 @@ class CapacityReservation(TypedDict):
         "aws_sdk_ec2.types.interruption_info.InterruptionInfo"
     ]
     """<p> Information about the interruption configuration and association with the source reservation for interruptible Capacity Reservations. </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CapacityReservation, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "capacity_reservation_id" in value:
+        pairs.append(
+            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+        )
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+    if "capacity_reservation_arn" in value:
+        pairs.append(
+            (f"{prefix}.CapacityReservationArn", str(value["capacity_reservation_arn"]))
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "instance_platform" in value:
+        import aws_sdk_ec2.types.capacity_reservation_instance_platform
+
+        aws_sdk_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
+            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+        )
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "tenancy" in value:
+        import aws_sdk_ec2.types.capacity_reservation_tenancy
+
+        aws_sdk_ec2.types.capacity_reservation_tenancy.serialize_ec2_query(
+            value["tenancy"], pairs, f"{prefix}.Tenancy"
+        )
+    if "total_instance_count" in value:
+        pairs.append(
+            (f"{prefix}.TotalInstanceCount", str(value["total_instance_count"]))
+        )
+    if "available_instance_count" in value:
+        pairs.append(
+            (f"{prefix}.AvailableInstanceCount", str(value["available_instance_count"]))
+        )
+    if "ebs_optimized" in value:
+        pairs.append(
+            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+        )
+    if "ephemeral_storage" in value:
+        pairs.append(
+            (
+                f"{prefix}.EphemeralStorage",
+                "true" if value["ephemeral_storage"] else "false",
+            )
+        )
+    if "state" in value:
+        import aws_sdk_ec2.types.capacity_reservation_state
+
+        aws_sdk_ec2.types.capacity_reservation_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "start_date" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["start_date"], pairs, f"{prefix}.StartDate"
+        )
+    if "end_date" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["end_date"], pairs, f"{prefix}.EndDate"
+        )
+    if "end_date_type" in value:
+        import aws_sdk_ec2.types.end_date_type
+
+        aws_sdk_ec2.types.end_date_type.serialize_ec2_query(
+            value["end_date_type"], pairs, f"{prefix}.EndDateType"
+        )
+    if "instance_match_criteria" in value:
+        import aws_sdk_ec2.types.instance_match_criteria
+
+        aws_sdk_ec2.types.instance_match_criteria.serialize_ec2_query(
+            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+        )
+    if "create_date" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["create_date"], pairs, f"{prefix}.CreateDate"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "outpost_arn" in value:
+        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+    if "capacity_reservation_fleet_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.CapacityReservationFleetId",
+                str(value["capacity_reservation_fleet_id"]),
+            )
+        )
+    if "placement_group_arn" in value:
+        pairs.append((f"{prefix}.PlacementGroupArn", str(value["placement_group_arn"])))
+    if "capacity_allocations" in value:
+        import aws_sdk_ec2.types.capacity_allocations
+
+        aws_sdk_ec2.types.capacity_allocations.serialize_ec2_query(
+            value["capacity_allocations"], pairs, f"{prefix}.CapacityAllocationSet"
+        )
+    if "reservation_type" in value:
+        import aws_sdk_ec2.types.capacity_reservation_type
+
+        aws_sdk_ec2.types.capacity_reservation_type.serialize_ec2_query(
+            value["reservation_type"], pairs, f"{prefix}.ReservationType"
+        )
+    if "unused_reservation_billing_owner_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.UnusedReservationBillingOwnerId",
+                str(value["unused_reservation_billing_owner_id"]),
+            )
+        )
+    if "commitment_info" in value:
+        import aws_sdk_ec2.types.capacity_reservation_commitment_info
+
+        aws_sdk_ec2.types.capacity_reservation_commitment_info.serialize_ec2_query(
+            value["commitment_info"], pairs, f"{prefix}.CommitmentInfo"
+        )
+    if "delivery_preference" in value:
+        import aws_sdk_ec2.types.capacity_reservation_delivery_preference
+
+        aws_sdk_ec2.types.capacity_reservation_delivery_preference.serialize_ec2_query(
+            value["delivery_preference"], pairs, f"{prefix}.DeliveryPreference"
+        )
+    if "capacity_block_id" in value:
+        pairs.append((f"{prefix}.CapacityBlockId", str(value["capacity_block_id"])))
+    if "interruptible" in value:
+        pairs.append(
+            (f"{prefix}.Interruptible", "true" if value["interruptible"] else "false")
+        )
+    if "interruptible_capacity_allocation" in value:
+        import aws_sdk_ec2.types.interruptible_capacity_allocation
+
+        aws_sdk_ec2.types.interruptible_capacity_allocation.serialize_ec2_query(
+            value["interruptible_capacity_allocation"],
+            pairs,
+            f"{prefix}.InterruptibleCapacityAllocation",
+        )
+    if "interruption_info" in value:
+        import aws_sdk_ec2.types.interruption_info
+
+        aws_sdk_ec2.types.interruption_info.serialize_ec2_query(
+            value["interruption_info"], pairs, f"{prefix}.InterruptionInfo"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CapacityReservation:
+    out: CapacityReservation = {}  # type: ignore[typeddict-item]
+    child_capacity_reservation_id = el.find("CapacityReservationId")
+    if child_capacity_reservation_id is not None:
+        out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    child_capacity_reservation_arn = el.find("CapacityReservationArn")
+    if child_capacity_reservation_arn is not None:
+        out["capacity_reservation_arn"] = str(child_capacity_reservation_arn.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_instance_platform = el.find("InstancePlatform")
+    if child_instance_platform is not None:
+        import aws_sdk_ec2.types.capacity_reservation_instance_platform
+
+        out["instance_platform"] = (
+            aws_sdk_ec2.types.capacity_reservation_instance_platform.deserialize_ec2_query(
+                child_instance_platform
+            )
+        )
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_tenancy = el.find("Tenancy")
+    if child_tenancy is not None:
+        import aws_sdk_ec2.types.capacity_reservation_tenancy
+
+        out["tenancy"] = (
+            aws_sdk_ec2.types.capacity_reservation_tenancy.deserialize_ec2_query(
+                child_tenancy
+            )
+        )
+    child_total_instance_count = el.find("TotalInstanceCount")
+    if child_total_instance_count is not None:
+        out["total_instance_count"] = int(child_total_instance_count.text or "")
+    child_available_instance_count = el.find("AvailableInstanceCount")
+    if child_available_instance_count is not None:
+        out["available_instance_count"] = int(child_available_instance_count.text or "")
+    child_ebs_optimized = el.find("EbsOptimized")
+    if child_ebs_optimized is not None:
+        out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
+    child_ephemeral_storage = el.find("EphemeralStorage")
+    if child_ephemeral_storage is not None:
+        out["ephemeral_storage"] = (
+            child_ephemeral_storage.text or ""
+        ).lower() == "true"
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.capacity_reservation_state
+
+        out["state"] = (
+            aws_sdk_ec2.types.capacity_reservation_state.deserialize_ec2_query(
+                child_state
+            )
+        )
+    child_start_date = el.find("StartDate")
+    if child_start_date is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["start_date"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_start_date
+            )
+        )
+    child_end_date = el.find("EndDate")
+    if child_end_date is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["end_date"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_end_date
+        )
+    child_end_date_type = el.find("EndDateType")
+    if child_end_date_type is not None:
+        import aws_sdk_ec2.types.end_date_type
+
+        out["end_date_type"] = aws_sdk_ec2.types.end_date_type.deserialize_ec2_query(
+            child_end_date_type
+        )
+    child_instance_match_criteria = el.find("InstanceMatchCriteria")
+    if child_instance_match_criteria is not None:
+        import aws_sdk_ec2.types.instance_match_criteria
+
+        out["instance_match_criteria"] = (
+            aws_sdk_ec2.types.instance_match_criteria.deserialize_ec2_query(
+                child_instance_match_criteria
+            )
+        )
+    child_create_date = el.find("CreateDate")
+    if child_create_date is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["create_date"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_create_date
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_outpost_arn = el.find("OutpostArn")
+    if child_outpost_arn is not None:
+        out["outpost_arn"] = str(child_outpost_arn.text or "")
+    child_capacity_reservation_fleet_id = el.find("CapacityReservationFleetId")
+    if child_capacity_reservation_fleet_id is not None:
+        out["capacity_reservation_fleet_id"] = str(
+            child_capacity_reservation_fleet_id.text or ""
+        )
+    child_placement_group_arn = el.find("PlacementGroupArn")
+    if child_placement_group_arn is not None:
+        out["placement_group_arn"] = str(child_placement_group_arn.text or "")
+    if el.find("CapacityAllocationSet") is not None:
+        import aws_sdk_ec2.types.capacity_allocations
+
+        out["capacity_allocations"] = (
+            aws_sdk_ec2.types.capacity_allocations.deserialize_ec2_query(
+                el, "CapacityAllocationSet"
+            )
+        )
+    child_reservation_type = el.find("ReservationType")
+    if child_reservation_type is not None:
+        import aws_sdk_ec2.types.capacity_reservation_type
+
+        out["reservation_type"] = (
+            aws_sdk_ec2.types.capacity_reservation_type.deserialize_ec2_query(
+                child_reservation_type
+            )
+        )
+    child_unused_reservation_billing_owner_id = el.find(
+        "UnusedReservationBillingOwnerId"
+    )
+    if child_unused_reservation_billing_owner_id is not None:
+        out["unused_reservation_billing_owner_id"] = str(
+            child_unused_reservation_billing_owner_id.text or ""
+        )
+    child_commitment_info = el.find("CommitmentInfo")
+    if child_commitment_info is not None:
+        import aws_sdk_ec2.types.capacity_reservation_commitment_info
+
+        out["commitment_info"] = (
+            aws_sdk_ec2.types.capacity_reservation_commitment_info.deserialize_ec2_query(
+                child_commitment_info
+            )
+        )
+    child_delivery_preference = el.find("DeliveryPreference")
+    if child_delivery_preference is not None:
+        import aws_sdk_ec2.types.capacity_reservation_delivery_preference
+
+        out["delivery_preference"] = (
+            aws_sdk_ec2.types.capacity_reservation_delivery_preference.deserialize_ec2_query(
+                child_delivery_preference
+            )
+        )
+    child_capacity_block_id = el.find("CapacityBlockId")
+    if child_capacity_block_id is not None:
+        out["capacity_block_id"] = str(child_capacity_block_id.text or "")
+    child_interruptible = el.find("Interruptible")
+    if child_interruptible is not None:
+        out["interruptible"] = (child_interruptible.text or "").lower() == "true"
+    child_interruptible_capacity_allocation = el.find("InterruptibleCapacityAllocation")
+    if child_interruptible_capacity_allocation is not None:
+        import aws_sdk_ec2.types.interruptible_capacity_allocation
+
+        out["interruptible_capacity_allocation"] = (
+            aws_sdk_ec2.types.interruptible_capacity_allocation.deserialize_ec2_query(
+                child_interruptible_capacity_allocation
+            )
+        )
+    child_interruption_info = el.find("InterruptionInfo")
+    if child_interruption_info is not None:
+        import aws_sdk_ec2.types.interruption_info
+
+        out["interruption_info"] = (
+            aws_sdk_ec2.types.interruption_info.deserialize_ec2_query(
+                child_interruption_info
+            )
+        )
+    return out

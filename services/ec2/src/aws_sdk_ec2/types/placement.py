@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -35,3 +36,74 @@ class Placement(TypedDict):
     """<p>The ID of the placement group that the instance is in.</p> <p>On input, you can specify <code>GroupId</code> or <code>GroupName</code>, but not both.</p>"""
     availability_zone: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Availability Zone of the instance.</p> <p>On input, you can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>, but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.</p> <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\">CreateFleet</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: Placement, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "affinity" in value:
+        pairs.append((f"{prefix}.Affinity", str(value["affinity"])))
+    if "group_name" in value:
+        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+    if "partition_number" in value:
+        pairs.append((f"{prefix}.PartitionNumber", str(value["partition_number"])))
+    if "host_id" in value:
+        pairs.append((f"{prefix}.HostId", str(value["host_id"])))
+    if "tenancy" in value:
+        import aws_sdk_ec2.types.tenancy
+
+        aws_sdk_ec2.types.tenancy.serialize_ec2_query(
+            value["tenancy"], pairs, f"{prefix}.Tenancy"
+        )
+    if "spread_domain" in value:
+        pairs.append((f"{prefix}.SpreadDomain", str(value["spread_domain"])))
+    if "host_resource_group_arn" in value:
+        pairs.append(
+            (f"{prefix}.HostResourceGroupArn", str(value["host_resource_group_arn"]))
+        )
+    if "group_id" in value:
+        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+
+
+def deserialize_ec2_query(el: Element) -> Placement:
+    out: Placement = {}  # type: ignore[typeddict-item]
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_affinity = el.find("Affinity")
+    if child_affinity is not None:
+        out["affinity"] = str(child_affinity.text or "")
+    child_group_name = el.find("GroupName")
+    if child_group_name is not None:
+        out["group_name"] = str(child_group_name.text or "")
+    child_partition_number = el.find("PartitionNumber")
+    if child_partition_number is not None:
+        out["partition_number"] = int(child_partition_number.text or "")
+    child_host_id = el.find("HostId")
+    if child_host_id is not None:
+        out["host_id"] = str(child_host_id.text or "")
+    child_tenancy = el.find("Tenancy")
+    if child_tenancy is not None:
+        import aws_sdk_ec2.types.tenancy
+
+        out["tenancy"] = aws_sdk_ec2.types.tenancy.deserialize_ec2_query(child_tenancy)
+    child_spread_domain = el.find("SpreadDomain")
+    if child_spread_domain is not None:
+        out["spread_domain"] = str(child_spread_domain.text or "")
+    child_host_resource_group_arn = el.find("HostResourceGroupArn")
+    if child_host_resource_group_arn is not None:
+        out["host_resource_group_arn"] = str(child_host_resource_group_arn.text or "")
+    child_group_id = el.find("GroupId")
+    if child_group_id is not None:
+        out["group_id"] = str(child_group_id.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    return out

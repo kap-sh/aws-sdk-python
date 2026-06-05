@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -18,3 +19,45 @@ class VpnStaticRoute(TypedDict):
     """<p>Indicates how the routes were provided.</p>"""
     state: NotRequired["aws_sdk_ec2.types.vpn_state.VpnState"]
     """<p>The current state of the static route.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: VpnStaticRoute, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "destination_cidr_block" in value:
+        pairs.append(
+            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+        )
+    if "source" in value:
+        import aws_sdk_ec2.types.vpn_static_route_source
+
+        aws_sdk_ec2.types.vpn_static_route_source.serialize_ec2_query(
+            value["source"], pairs, f"{prefix}.Source"
+        )
+    if "state" in value:
+        import aws_sdk_ec2.types.vpn_state
+
+        aws_sdk_ec2.types.vpn_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> VpnStaticRoute:
+    out: VpnStaticRoute = {}  # type: ignore[typeddict-item]
+    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    if child_destination_cidr_block is not None:
+        out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
+    child_source = el.find("Source")
+    if child_source is not None:
+        import aws_sdk_ec2.types.vpn_static_route_source
+
+        out["source"] = aws_sdk_ec2.types.vpn_static_route_source.deserialize_ec2_query(
+            child_source
+        )
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.vpn_state
+
+        out["state"] = aws_sdk_ec2.types.vpn_state.deserialize_ec2_query(child_state)
+    return out

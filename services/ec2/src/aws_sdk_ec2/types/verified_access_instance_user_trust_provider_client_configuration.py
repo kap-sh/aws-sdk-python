@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -33,3 +34,87 @@ class VerifiedAccessInstanceUserTrustProviderClientConfiguration(TypedDict):
     """<p>The OAuth 2.0 client secret.</p>"""
     pkce_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether Proof of Key Code Exchange (PKCE) is enabled.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "type" in value:
+        import aws_sdk_ec2.types.user_trust_provider_type
+
+        aws_sdk_ec2.types.user_trust_provider_type.serialize_ec2_query(
+            value["type"], pairs, f"{prefix}.Type"
+        )
+    if "scopes" in value:
+        pairs.append((f"{prefix}.Scopes", str(value["scopes"])))
+    if "issuer" in value:
+        pairs.append((f"{prefix}.Issuer", str(value["issuer"])))
+    if "authorization_endpoint" in value:
+        pairs.append(
+            (f"{prefix}.AuthorizationEndpoint", str(value["authorization_endpoint"]))
+        )
+    if "public_signing_key_endpoint" in value:
+        pairs.append(
+            (
+                f"{prefix}.PublicSigningKeyEndpoint",
+                str(value["public_signing_key_endpoint"]),
+            )
+        )
+    if "token_endpoint" in value:
+        pairs.append((f"{prefix}.TokenEndpoint", str(value["token_endpoint"])))
+    if "user_info_endpoint" in value:
+        pairs.append((f"{prefix}.UserInfoEndpoint", str(value["user_info_endpoint"])))
+    if "client_id" in value:
+        pairs.append((f"{prefix}.ClientId", str(value["client_id"])))
+    if "client_secret" in value:
+        pairs.append((f"{prefix}.ClientSecret", str(value["client_secret"])))
+    if "pkce_enabled" in value:
+        pairs.append(
+            (f"{prefix}.PkceEnabled", "true" if value["pkce_enabled"] else "false")
+        )
+
+
+def deserialize_ec2_query(
+    el: Element,
+) -> VerifiedAccessInstanceUserTrustProviderClientConfiguration:
+    out: VerifiedAccessInstanceUserTrustProviderClientConfiguration = {}  # type: ignore[typeddict-item]
+    child_type = el.find("Type")
+    if child_type is not None:
+        import aws_sdk_ec2.types.user_trust_provider_type
+
+        out["type"] = aws_sdk_ec2.types.user_trust_provider_type.deserialize_ec2_query(
+            child_type
+        )
+    child_scopes = el.find("Scopes")
+    if child_scopes is not None:
+        out["scopes"] = str(child_scopes.text or "")
+    child_issuer = el.find("Issuer")
+    if child_issuer is not None:
+        out["issuer"] = str(child_issuer.text or "")
+    child_authorization_endpoint = el.find("AuthorizationEndpoint")
+    if child_authorization_endpoint is not None:
+        out["authorization_endpoint"] = str(child_authorization_endpoint.text or "")
+    child_public_signing_key_endpoint = el.find("PublicSigningKeyEndpoint")
+    if child_public_signing_key_endpoint is not None:
+        out["public_signing_key_endpoint"] = str(
+            child_public_signing_key_endpoint.text or ""
+        )
+    child_token_endpoint = el.find("TokenEndpoint")
+    if child_token_endpoint is not None:
+        out["token_endpoint"] = str(child_token_endpoint.text or "")
+    child_user_info_endpoint = el.find("UserInfoEndpoint")
+    if child_user_info_endpoint is not None:
+        out["user_info_endpoint"] = str(child_user_info_endpoint.text or "")
+    child_client_id = el.find("ClientId")
+    if child_client_id is not None:
+        out["client_id"] = str(child_client_id.text or "")
+    child_client_secret = el.find("ClientSecret")
+    if child_client_secret is not None:
+        out["client_secret"] = str(child_client_secret.text or "")
+    child_pkce_enabled = el.find("PkceEnabled")
+    if child_pkce_enabled is not None:
+        out["pkce_enabled"] = (child_pkce_enabled.text or "").lower() == "true"
+    return out

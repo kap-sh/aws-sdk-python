@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.address_family
@@ -31,3 +32,77 @@ class CreateIpamPrefixListResolverRequest(TypedDict):
     """<p>The tags to apply to the IPAM prefix list resolver during creation. Tags help you organize and manage your Amazon Web Services resources.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateIpamPrefixListResolverRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_id" in value:
+        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "address_family" in value:
+        import aws_sdk_ec2.types.address_family
+
+        aws_sdk_ec2.types.address_family.serialize_ec2_query(
+            value["address_family"], pairs, f"{prefix}.AddressFamily"
+        )
+    if "rules" in value:
+        import aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set
+
+        aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set.serialize_ec2_query(
+            value["rules"], pairs, f"{prefix}.Rules"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> CreateIpamPrefixListResolverRequest:
+    out: CreateIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_id = el.find("IpamId")
+    if child_ipam_id is not None:
+        out["ipam_id"] = str(child_ipam_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_address_family = el.find("AddressFamily")
+    if child_address_family is not None:
+        import aws_sdk_ec2.types.address_family
+
+        out["address_family"] = aws_sdk_ec2.types.address_family.deserialize_ec2_query(
+            child_address_family
+        )
+    if el.find("Rules") is not None:
+        import aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set
+
+        out["rules"] = (
+            aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set.deserialize_ec2_query(
+                el, "Rules"
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    return out

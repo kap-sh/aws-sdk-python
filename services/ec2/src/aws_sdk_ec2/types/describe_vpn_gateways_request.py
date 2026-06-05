@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -18,3 +19,45 @@ class DescribeVpnGatewaysRequest(TypedDict):
     """<p>One or more virtual private gateway IDs.</p> <p>Default: Describes all your virtual private gateways.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeVpnGatewaysRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "vpn_gateway_ids" in value:
+        import aws_sdk_ec2.types.vpn_gateway_id_string_list
+
+        aws_sdk_ec2.types.vpn_gateway_id_string_list.serialize_ec2_query(
+            value["vpn_gateway_ids"], pairs, f"{prefix}.VpnGatewayIds"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeVpnGatewaysRequest:
+    out: DescribeVpnGatewaysRequest = {}  # type: ignore[typeddict-item]
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    if el.find("VpnGatewayIds") is not None:
+        import aws_sdk_ec2.types.vpn_gateway_id_string_list
+
+        out["vpn_gateway_ids"] = (
+            aws_sdk_ec2.types.vpn_gateway_id_string_list.deserialize_ec2_query(
+                el, "VpnGatewayIds"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

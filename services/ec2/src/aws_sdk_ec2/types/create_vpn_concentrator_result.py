@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_concentrator
@@ -10,3 +11,29 @@ if TYPE_CHECKING:
 class CreateVpnConcentratorResult(TypedDict):
     vpn_concentrator: NotRequired["aws_sdk_ec2.types.vpn_concentrator.VpnConcentrator"]
     """<p>Information about the VPN concentrator.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateVpnConcentratorResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "vpn_concentrator" in value:
+        import aws_sdk_ec2.types.vpn_concentrator
+
+        aws_sdk_ec2.types.vpn_concentrator.serialize_ec2_query(
+            value["vpn_concentrator"], pairs, f"{prefix}.VpnConcentrator"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateVpnConcentratorResult:
+    out: CreateVpnConcentratorResult = {}  # type: ignore[typeddict-item]
+    child_vpn_concentrator = el.find("VpnConcentrator")
+    if child_vpn_concentrator is not None:
+        import aws_sdk_ec2.types.vpn_concentrator
+
+        out["vpn_concentrator"] = (
+            aws_sdk_ec2.types.vpn_concentrator.deserialize_ec2_query(
+                child_vpn_concentrator
+            )
+        )
+    return out

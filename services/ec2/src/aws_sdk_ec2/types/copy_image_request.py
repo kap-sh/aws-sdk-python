@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -51,3 +52,120 @@ class CopyImageRequest(TypedDict):
     """<p>The ID of the Local Zone for the new AMI (for example, <code>cnn1-pkx1-az1</code>).</p> <p>Only one of <code>DestinationAvailabilityZone</code>, <code>DestinationAvailabilityZoneId</code>, or <code>DestinationOutpostArn</code> can be specified.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CopyImageRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "source_image_id" in value:
+        pairs.append((f"{prefix}.SourceImageId", str(value["source_image_id"])))
+    if "source_region" in value:
+        pairs.append((f"{prefix}.SourceRegion", str(value["source_region"])))
+    if "destination_outpost_arn" in value:
+        pairs.append(
+            (f"{prefix}.DestinationOutpostArn", str(value["destination_outpost_arn"]))
+        )
+    if "copy_image_tags" in value:
+        pairs.append(
+            (f"{prefix}.CopyImageTags", "true" if value["copy_image_tags"] else "false")
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "snapshot_copy_completion_duration_minutes" in value:
+        pairs.append(
+            (
+                f"{prefix}.SnapshotCopyCompletionDurationMinutes",
+                str(value["snapshot_copy_completion_duration_minutes"]),
+            )
+        )
+    if "destination_availability_zone" in value:
+        pairs.append(
+            (
+                f"{prefix}.DestinationAvailabilityZone",
+                str(value["destination_availability_zone"]),
+            )
+        )
+    if "destination_availability_zone_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.DestinationAvailabilityZoneId",
+                str(value["destination_availability_zone_id"]),
+            )
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> CopyImageRequest:
+    out: CopyImageRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_source_image_id = el.find("SourceImageId")
+    if child_source_image_id is not None:
+        out["source_image_id"] = str(child_source_image_id.text or "")
+    child_source_region = el.find("SourceRegion")
+    if child_source_region is not None:
+        out["source_region"] = str(child_source_region.text or "")
+    child_destination_outpost_arn = el.find("DestinationOutpostArn")
+    if child_destination_outpost_arn is not None:
+        out["destination_outpost_arn"] = str(child_destination_outpost_arn.text or "")
+    child_copy_image_tags = el.find("CopyImageTags")
+    if child_copy_image_tags is not None:
+        out["copy_image_tags"] = (child_copy_image_tags.text or "").lower() == "true"
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_snapshot_copy_completion_duration_minutes = el.find(
+        "SnapshotCopyCompletionDurationMinutes"
+    )
+    if child_snapshot_copy_completion_duration_minutes is not None:
+        out["snapshot_copy_completion_duration_minutes"] = int(
+            child_snapshot_copy_completion_duration_minutes.text or ""
+        )
+    child_destination_availability_zone = el.find("DestinationAvailabilityZone")
+    if child_destination_availability_zone is not None:
+        out["destination_availability_zone"] = str(
+            child_destination_availability_zone.text or ""
+        )
+    child_destination_availability_zone_id = el.find("DestinationAvailabilityZoneId")
+    if child_destination_availability_zone_id is not None:
+        out["destination_availability_zone_id"] = str(
+            child_destination_availability_zone_id.text or ""
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

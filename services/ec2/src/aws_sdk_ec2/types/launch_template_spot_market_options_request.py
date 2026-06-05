@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.date_time
@@ -26,3 +27,73 @@ class LaunchTemplateSpotMarketOptionsRequest(TypedDict):
         "aws_sdk_ec2.types.instance_interruption_behavior.InstanceInterruptionBehavior"
     ]
     """<p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: LaunchTemplateSpotMarketOptionsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "max_price" in value:
+        pairs.append((f"{prefix}.MaxPrice", str(value["max_price"])))
+    if "spot_instance_type" in value:
+        import aws_sdk_ec2.types.spot_instance_type
+
+        aws_sdk_ec2.types.spot_instance_type.serialize_ec2_query(
+            value["spot_instance_type"], pairs, f"{prefix}.SpotInstanceType"
+        )
+    if "block_duration_minutes" in value:
+        pairs.append(
+            (f"{prefix}.BlockDurationMinutes", str(value["block_duration_minutes"]))
+        )
+    if "valid_until" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+        )
+    if "instance_interruption_behavior" in value:
+        import aws_sdk_ec2.types.instance_interruption_behavior
+
+        aws_sdk_ec2.types.instance_interruption_behavior.serialize_ec2_query(
+            value["instance_interruption_behavior"],
+            pairs,
+            f"{prefix}.InstanceInterruptionBehavior",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> LaunchTemplateSpotMarketOptionsRequest:
+    out: LaunchTemplateSpotMarketOptionsRequest = {}  # type: ignore[typeddict-item]
+    child_max_price = el.find("MaxPrice")
+    if child_max_price is not None:
+        out["max_price"] = str(child_max_price.text or "")
+    child_spot_instance_type = el.find("SpotInstanceType")
+    if child_spot_instance_type is not None:
+        import aws_sdk_ec2.types.spot_instance_type
+
+        out["spot_instance_type"] = (
+            aws_sdk_ec2.types.spot_instance_type.deserialize_ec2_query(
+                child_spot_instance_type
+            )
+        )
+    child_block_duration_minutes = el.find("BlockDurationMinutes")
+    if child_block_duration_minutes is not None:
+        out["block_duration_minutes"] = int(child_block_duration_minutes.text or "")
+    child_valid_until = el.find("ValidUntil")
+    if child_valid_until is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_until"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_until
+        )
+    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    if child_instance_interruption_behavior is not None:
+        import aws_sdk_ec2.types.instance_interruption_behavior
+
+        out["instance_interruption_behavior"] = (
+            aws_sdk_ec2.types.instance_interruption_behavior.deserialize_ec2_query(
+                child_instance_interruption_behavior
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.architecture_values
@@ -103,3 +104,332 @@ class Image(TypedDict):
     """<p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>"""
     platform: NotRequired["aws_sdk_ec2.types.platform_values.PlatformValues"]
     """<p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: Image, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "platform_details" in value:
+        pairs.append((f"{prefix}.PlatformDetails", str(value["platform_details"])))
+    if "usage_operation" in value:
+        pairs.append((f"{prefix}.UsageOperation", str(value["usage_operation"])))
+    if "block_device_mappings" in value:
+        import aws_sdk_ec2.types.block_device_mapping_list
+
+        aws_sdk_ec2.types.block_device_mapping_list.serialize_ec2_query(
+            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMapping"
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "ena_support" in value:
+        pairs.append(
+            (f"{prefix}.EnaSupport", "true" if value["ena_support"] else "false")
+        )
+    if "hypervisor" in value:
+        import aws_sdk_ec2.types.hypervisor_type
+
+        aws_sdk_ec2.types.hypervisor_type.serialize_ec2_query(
+            value["hypervisor"], pairs, f"{prefix}.Hypervisor"
+        )
+    if "image_owner_alias" in value:
+        pairs.append((f"{prefix}.ImageOwnerAlias", str(value["image_owner_alias"])))
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "root_device_name" in value:
+        pairs.append((f"{prefix}.RootDeviceName", str(value["root_device_name"])))
+    if "root_device_type" in value:
+        import aws_sdk_ec2.types.device_type
+
+        aws_sdk_ec2.types.device_type.serialize_ec2_query(
+            value["root_device_type"], pairs, f"{prefix}.RootDeviceType"
+        )
+    if "sriov_net_support" in value:
+        pairs.append((f"{prefix}.SriovNetSupport", str(value["sriov_net_support"])))
+    if "state_reason" in value:
+        import aws_sdk_ec2.types.state_reason
+
+        aws_sdk_ec2.types.state_reason.serialize_ec2_query(
+            value["state_reason"], pairs, f"{prefix}.StateReason"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "virtualization_type" in value:
+        import aws_sdk_ec2.types.virtualization_type
+
+        aws_sdk_ec2.types.virtualization_type.serialize_ec2_query(
+            value["virtualization_type"], pairs, f"{prefix}.VirtualizationType"
+        )
+    if "boot_mode" in value:
+        import aws_sdk_ec2.types.boot_mode_values
+
+        aws_sdk_ec2.types.boot_mode_values.serialize_ec2_query(
+            value["boot_mode"], pairs, f"{prefix}.BootMode"
+        )
+    if "tpm_support" in value:
+        import aws_sdk_ec2.types.tpm_support_values
+
+        aws_sdk_ec2.types.tpm_support_values.serialize_ec2_query(
+            value["tpm_support"], pairs, f"{prefix}.TpmSupport"
+        )
+    if "deprecation_time" in value:
+        pairs.append((f"{prefix}.DeprecationTime", str(value["deprecation_time"])))
+    if "imds_support" in value:
+        import aws_sdk_ec2.types.imds_support_values
+
+        aws_sdk_ec2.types.imds_support_values.serialize_ec2_query(
+            value["imds_support"], pairs, f"{prefix}.ImdsSupport"
+        )
+    if "source_instance_id" in value:
+        pairs.append((f"{prefix}.SourceInstanceId", str(value["source_instance_id"])))
+    if "deregistration_protection" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeregistrationProtection",
+                str(value["deregistration_protection"]),
+            )
+        )
+    if "last_launched_time" in value:
+        pairs.append((f"{prefix}.LastLaunchedTime", str(value["last_launched_time"])))
+    if "image_allowed" in value:
+        pairs.append(
+            (f"{prefix}.ImageAllowed", "true" if value["image_allowed"] else "false")
+        )
+    if "source_image_id" in value:
+        pairs.append((f"{prefix}.SourceImageId", str(value["source_image_id"])))
+    if "source_image_region" in value:
+        pairs.append((f"{prefix}.SourceImageRegion", str(value["source_image_region"])))
+    if "free_tier_eligible" in value:
+        pairs.append(
+            (
+                f"{prefix}.FreeTierEligible",
+                "true" if value["free_tier_eligible"] else "false",
+            )
+        )
+    if "image_id" in value:
+        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+    if "image_location" in value:
+        pairs.append((f"{prefix}.ImageLocation", str(value["image_location"])))
+    if "state" in value:
+        import aws_sdk_ec2.types.image_state
+
+        aws_sdk_ec2.types.image_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.ImageState"
+        )
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.ImageOwnerId", str(value["owner_id"])))
+    if "creation_date" in value:
+        pairs.append((f"{prefix}.CreationDate", str(value["creation_date"])))
+    if "public" in value:
+        pairs.append((f"{prefix}.IsPublic", "true" if value["public"] else "false"))
+    if "product_codes" in value:
+        import aws_sdk_ec2.types.product_code_list
+
+        aws_sdk_ec2.types.product_code_list.serialize_ec2_query(
+            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+        )
+    if "architecture" in value:
+        import aws_sdk_ec2.types.architecture_values
+
+        aws_sdk_ec2.types.architecture_values.serialize_ec2_query(
+            value["architecture"], pairs, f"{prefix}.Architecture"
+        )
+    if "image_type" in value:
+        import aws_sdk_ec2.types.image_type_values
+
+        aws_sdk_ec2.types.image_type_values.serialize_ec2_query(
+            value["image_type"], pairs, f"{prefix}.ImageType"
+        )
+    if "kernel_id" in value:
+        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+    if "ramdisk_id" in value:
+        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+    if "platform" in value:
+        import aws_sdk_ec2.types.platform_values
+
+        aws_sdk_ec2.types.platform_values.serialize_ec2_query(
+            value["platform"], pairs, f"{prefix}.Platform"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> Image:
+    out: Image = {}  # type: ignore[typeddict-item]
+    child_platform_details = el.find("PlatformDetails")
+    if child_platform_details is not None:
+        out["platform_details"] = str(child_platform_details.text or "")
+    child_usage_operation = el.find("UsageOperation")
+    if child_usage_operation is not None:
+        out["usage_operation"] = str(child_usage_operation.text or "")
+    if el.find("BlockDeviceMapping") is not None:
+        import aws_sdk_ec2.types.block_device_mapping_list
+
+        out["block_device_mappings"] = (
+            aws_sdk_ec2.types.block_device_mapping_list.deserialize_ec2_query(
+                el, "BlockDeviceMapping"
+            )
+        )
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_ena_support = el.find("EnaSupport")
+    if child_ena_support is not None:
+        out["ena_support"] = (child_ena_support.text or "").lower() == "true"
+    child_hypervisor = el.find("Hypervisor")
+    if child_hypervisor is not None:
+        import aws_sdk_ec2.types.hypervisor_type
+
+        out["hypervisor"] = aws_sdk_ec2.types.hypervisor_type.deserialize_ec2_query(
+            child_hypervisor
+        )
+    child_image_owner_alias = el.find("ImageOwnerAlias")
+    if child_image_owner_alias is not None:
+        out["image_owner_alias"] = str(child_image_owner_alias.text or "")
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_root_device_name = el.find("RootDeviceName")
+    if child_root_device_name is not None:
+        out["root_device_name"] = str(child_root_device_name.text or "")
+    child_root_device_type = el.find("RootDeviceType")
+    if child_root_device_type is not None:
+        import aws_sdk_ec2.types.device_type
+
+        out["root_device_type"] = aws_sdk_ec2.types.device_type.deserialize_ec2_query(
+            child_root_device_type
+        )
+    child_sriov_net_support = el.find("SriovNetSupport")
+    if child_sriov_net_support is not None:
+        out["sriov_net_support"] = str(child_sriov_net_support.text or "")
+    child_state_reason = el.find("StateReason")
+    if child_state_reason is not None:
+        import aws_sdk_ec2.types.state_reason
+
+        out["state_reason"] = aws_sdk_ec2.types.state_reason.deserialize_ec2_query(
+            child_state_reason
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_virtualization_type = el.find("VirtualizationType")
+    if child_virtualization_type is not None:
+        import aws_sdk_ec2.types.virtualization_type
+
+        out["virtualization_type"] = (
+            aws_sdk_ec2.types.virtualization_type.deserialize_ec2_query(
+                child_virtualization_type
+            )
+        )
+    child_boot_mode = el.find("BootMode")
+    if child_boot_mode is not None:
+        import aws_sdk_ec2.types.boot_mode_values
+
+        out["boot_mode"] = aws_sdk_ec2.types.boot_mode_values.deserialize_ec2_query(
+            child_boot_mode
+        )
+    child_tpm_support = el.find("TpmSupport")
+    if child_tpm_support is not None:
+        import aws_sdk_ec2.types.tpm_support_values
+
+        out["tpm_support"] = aws_sdk_ec2.types.tpm_support_values.deserialize_ec2_query(
+            child_tpm_support
+        )
+    child_deprecation_time = el.find("DeprecationTime")
+    if child_deprecation_time is not None:
+        out["deprecation_time"] = str(child_deprecation_time.text or "")
+    child_imds_support = el.find("ImdsSupport")
+    if child_imds_support is not None:
+        import aws_sdk_ec2.types.imds_support_values
+
+        out["imds_support"] = (
+            aws_sdk_ec2.types.imds_support_values.deserialize_ec2_query(
+                child_imds_support
+            )
+        )
+    child_source_instance_id = el.find("SourceInstanceId")
+    if child_source_instance_id is not None:
+        out["source_instance_id"] = str(child_source_instance_id.text or "")
+    child_deregistration_protection = el.find("DeregistrationProtection")
+    if child_deregistration_protection is not None:
+        out["deregistration_protection"] = str(
+            child_deregistration_protection.text or ""
+        )
+    child_last_launched_time = el.find("LastLaunchedTime")
+    if child_last_launched_time is not None:
+        out["last_launched_time"] = str(child_last_launched_time.text or "")
+    child_image_allowed = el.find("ImageAllowed")
+    if child_image_allowed is not None:
+        out["image_allowed"] = (child_image_allowed.text or "").lower() == "true"
+    child_source_image_id = el.find("SourceImageId")
+    if child_source_image_id is not None:
+        out["source_image_id"] = str(child_source_image_id.text or "")
+    child_source_image_region = el.find("SourceImageRegion")
+    if child_source_image_region is not None:
+        out["source_image_region"] = str(child_source_image_region.text or "")
+    child_free_tier_eligible = el.find("FreeTierEligible")
+    if child_free_tier_eligible is not None:
+        out["free_tier_eligible"] = (
+            child_free_tier_eligible.text or ""
+        ).lower() == "true"
+    child_image_id = el.find("ImageId")
+    if child_image_id is not None:
+        out["image_id"] = str(child_image_id.text or "")
+    child_image_location = el.find("ImageLocation")
+    if child_image_location is not None:
+        out["image_location"] = str(child_image_location.text or "")
+    child_state = el.find("ImageState")
+    if child_state is not None:
+        import aws_sdk_ec2.types.image_state
+
+        out["state"] = aws_sdk_ec2.types.image_state.deserialize_ec2_query(child_state)
+    child_owner_id = el.find("ImageOwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    child_creation_date = el.find("CreationDate")
+    if child_creation_date is not None:
+        out["creation_date"] = str(child_creation_date.text or "")
+    child_public = el.find("IsPublic")
+    if child_public is not None:
+        out["public"] = (child_public.text or "").lower() == "true"
+    if el.find("ProductCodes") is not None:
+        import aws_sdk_ec2.types.product_code_list
+
+        out["product_codes"] = (
+            aws_sdk_ec2.types.product_code_list.deserialize_ec2_query(
+                el, "ProductCodes"
+            )
+        )
+    child_architecture = el.find("Architecture")
+    if child_architecture is not None:
+        import aws_sdk_ec2.types.architecture_values
+
+        out["architecture"] = (
+            aws_sdk_ec2.types.architecture_values.deserialize_ec2_query(
+                child_architecture
+            )
+        )
+    child_image_type = el.find("ImageType")
+    if child_image_type is not None:
+        import aws_sdk_ec2.types.image_type_values
+
+        out["image_type"] = aws_sdk_ec2.types.image_type_values.deserialize_ec2_query(
+            child_image_type
+        )
+    child_kernel_id = el.find("KernelId")
+    if child_kernel_id is not None:
+        out["kernel_id"] = str(child_kernel_id.text or "")
+    child_ramdisk_id = el.find("RamdiskId")
+    if child_ramdisk_id is not None:
+        out["ramdisk_id"] = str(child_ramdisk_id.text or "")
+    child_platform = el.find("Platform")
+    if child_platform is not None:
+        import aws_sdk_ec2.types.platform_values
+
+        out["platform"] = aws_sdk_ec2.types.platform_values.deserialize_ec2_query(
+            child_platform
+        )
+    return out

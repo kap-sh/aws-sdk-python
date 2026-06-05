@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.network_node_set
@@ -25,3 +26,65 @@ class CapacityReservationTopology(TypedDict):
     """<p>The ID of the Availability Zone or Local Zone that the Capacity Reservation is in.</p>"""
     availability_zone: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The name of the Availability Zone or Local Zone that the Capacity Reservation is in.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CapacityReservationTopology, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "capacity_reservation_id" in value:
+        pairs.append(
+            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+        )
+    if "capacity_block_id" in value:
+        pairs.append((f"{prefix}.CapacityBlockId", str(value["capacity_block_id"])))
+    if "state" in value:
+        pairs.append((f"{prefix}.State", str(value["state"])))
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "group_name" in value:
+        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+    if "network_nodes" in value:
+        import aws_sdk_ec2.types.network_node_set
+
+        aws_sdk_ec2.types.network_node_set.serialize_ec2_query(
+            value["network_nodes"], pairs, f"{prefix}.NetworkNodeSet"
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+
+
+def deserialize_ec2_query(el: Element) -> CapacityReservationTopology:
+    out: CapacityReservationTopology = {}  # type: ignore[typeddict-item]
+    child_capacity_reservation_id = el.find("CapacityReservationId")
+    if child_capacity_reservation_id is not None:
+        out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
+    child_capacity_block_id = el.find("CapacityBlockId")
+    if child_capacity_block_id is not None:
+        out["capacity_block_id"] = str(child_capacity_block_id.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        out["state"] = str(child_state.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_group_name = el.find("GroupName")
+    if child_group_name is not None:
+        out["group_name"] = str(child_group_name.text or "")
+    if el.find("NetworkNodeSet") is not None:
+        import aws_sdk_ec2.types.network_node_set
+
+        out["network_nodes"] = aws_sdk_ec2.types.network_node_set.deserialize_ec2_query(
+            el, "NetworkNodeSet"
+        )
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    return out

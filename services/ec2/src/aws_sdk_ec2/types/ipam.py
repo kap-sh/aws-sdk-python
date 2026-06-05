@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -66,3 +67,174 @@ class Ipam(TypedDict):
         "aws_sdk_ec2.types.ipam_metered_account.IpamMeteredAccount"
     ]
     """<p>A metered account is an Amazon Web Services account that is charged for active IP addresses managed in IPAM. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html\">Enable cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <p>Possible values:</p> <ul> <li> <p> <code>ipam-owner</code> (default): The Amazon Web Services account which owns the IPAM is charged for all active IP addresses managed in IPAM.</p> </li> <li> <p> <code>resource-owner</code>: The Amazon Web Services account that owns the IP address is charged for the active IP address.</p> </li> </ul>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(value: Ipam, pairs: list[tuple[str, str]], prefix: str) -> None:
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+    if "ipam_id" in value:
+        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+    if "ipam_arn" in value:
+        pairs.append((f"{prefix}.IpamArn", str(value["ipam_arn"])))
+    if "ipam_region" in value:
+        pairs.append((f"{prefix}.IpamRegion", str(value["ipam_region"])))
+    if "public_default_scope_id" in value:
+        pairs.append(
+            (f"{prefix}.PublicDefaultScopeId", str(value["public_default_scope_id"]))
+        )
+    if "private_default_scope_id" in value:
+        pairs.append(
+            (f"{prefix}.PrivateDefaultScopeId", str(value["private_default_scope_id"]))
+        )
+    if "scope_count" in value:
+        pairs.append((f"{prefix}.ScopeCount", str(value["scope_count"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "operating_regions" in value:
+        import aws_sdk_ec2.types.ipam_operating_region_set
+
+        aws_sdk_ec2.types.ipam_operating_region_set.serialize_ec2_query(
+            value["operating_regions"], pairs, f"{prefix}.OperatingRegionSet"
+        )
+    if "state" in value:
+        import aws_sdk_ec2.types.ipam_state
+
+        aws_sdk_ec2.types.ipam_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "default_resource_discovery_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.DefaultResourceDiscoveryId",
+                str(value["default_resource_discovery_id"]),
+            )
+        )
+    if "default_resource_discovery_association_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.DefaultResourceDiscoveryAssociationId",
+                str(value["default_resource_discovery_association_id"]),
+            )
+        )
+    if "resource_discovery_association_count" in value:
+        pairs.append(
+            (
+                f"{prefix}.ResourceDiscoveryAssociationCount",
+                str(value["resource_discovery_association_count"]),
+            )
+        )
+    if "state_message" in value:
+        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+    if "tier" in value:
+        import aws_sdk_ec2.types.ipam_tier
+
+        aws_sdk_ec2.types.ipam_tier.serialize_ec2_query(
+            value["tier"], pairs, f"{prefix}.Tier"
+        )
+    if "enable_private_gua" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnablePrivateGua",
+                "true" if value["enable_private_gua"] else "false",
+            )
+        )
+    if "metered_account" in value:
+        import aws_sdk_ec2.types.ipam_metered_account
+
+        aws_sdk_ec2.types.ipam_metered_account.serialize_ec2_query(
+            value["metered_account"], pairs, f"{prefix}.MeteredAccount"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> Ipam:
+    out: Ipam = {}  # type: ignore[typeddict-item]
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    child_ipam_id = el.find("IpamId")
+    if child_ipam_id is not None:
+        out["ipam_id"] = str(child_ipam_id.text or "")
+    child_ipam_arn = el.find("IpamArn")
+    if child_ipam_arn is not None:
+        out["ipam_arn"] = str(child_ipam_arn.text or "")
+    child_ipam_region = el.find("IpamRegion")
+    if child_ipam_region is not None:
+        out["ipam_region"] = str(child_ipam_region.text or "")
+    child_public_default_scope_id = el.find("PublicDefaultScopeId")
+    if child_public_default_scope_id is not None:
+        out["public_default_scope_id"] = str(child_public_default_scope_id.text or "")
+    child_private_default_scope_id = el.find("PrivateDefaultScopeId")
+    if child_private_default_scope_id is not None:
+        out["private_default_scope_id"] = str(child_private_default_scope_id.text or "")
+    child_scope_count = el.find("ScopeCount")
+    if child_scope_count is not None:
+        out["scope_count"] = int(child_scope_count.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    if el.find("OperatingRegionSet") is not None:
+        import aws_sdk_ec2.types.ipam_operating_region_set
+
+        out["operating_regions"] = (
+            aws_sdk_ec2.types.ipam_operating_region_set.deserialize_ec2_query(
+                el, "OperatingRegionSet"
+            )
+        )
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.ipam_state
+
+        out["state"] = aws_sdk_ec2.types.ipam_state.deserialize_ec2_query(child_state)
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_default_resource_discovery_id = el.find("DefaultResourceDiscoveryId")
+    if child_default_resource_discovery_id is not None:
+        out["default_resource_discovery_id"] = str(
+            child_default_resource_discovery_id.text or ""
+        )
+    child_default_resource_discovery_association_id = el.find(
+        "DefaultResourceDiscoveryAssociationId"
+    )
+    if child_default_resource_discovery_association_id is not None:
+        out["default_resource_discovery_association_id"] = str(
+            child_default_resource_discovery_association_id.text or ""
+        )
+    child_resource_discovery_association_count = el.find(
+        "ResourceDiscoveryAssociationCount"
+    )
+    if child_resource_discovery_association_count is not None:
+        out["resource_discovery_association_count"] = int(
+            child_resource_discovery_association_count.text or ""
+        )
+    child_state_message = el.find("StateMessage")
+    if child_state_message is not None:
+        out["state_message"] = str(child_state_message.text or "")
+    child_tier = el.find("Tier")
+    if child_tier is not None:
+        import aws_sdk_ec2.types.ipam_tier
+
+        out["tier"] = aws_sdk_ec2.types.ipam_tier.deserialize_ec2_query(child_tier)
+    child_enable_private_gua = el.find("EnablePrivateGua")
+    if child_enable_private_gua is not None:
+        out["enable_private_gua"] = (
+            child_enable_private_gua.text or ""
+        ).lower() == "true"
+    child_metered_account = el.find("MeteredAccount")
+    if child_metered_account is not None:
+        import aws_sdk_ec2.types.ipam_metered_account
+
+        out["metered_account"] = (
+            aws_sdk_ec2.types.ipam_metered_account.deserialize_ec2_query(
+                child_metered_account
+            )
+        )
+    return out

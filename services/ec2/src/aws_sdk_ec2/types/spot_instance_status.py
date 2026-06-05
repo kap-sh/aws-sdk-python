@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.date_time
@@ -15,3 +16,37 @@ class SpotInstanceStatus(TypedDict):
     """<p>The description for the status code.</p>"""
     update_time: NotRequired["aws_sdk_ec2.types.date_time.DateTime"]
     """<p>The date and time of the most recent status update, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: SpotInstanceStatus, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "code" in value:
+        pairs.append((f"{prefix}.Code", str(value["code"])))
+    if "message" in value:
+        pairs.append((f"{prefix}.Message", str(value["message"])))
+    if "update_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["update_time"], pairs, f"{prefix}.UpdateTime"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> SpotInstanceStatus:
+    out: SpotInstanceStatus = {}  # type: ignore[typeddict-item]
+    child_code = el.find("Code")
+    if child_code is not None:
+        out["code"] = str(child_code.text or "")
+    child_message = el.find("Message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    child_update_time = el.find("UpdateTime")
+    if child_update_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["update_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_update_time
+        )
+    return out

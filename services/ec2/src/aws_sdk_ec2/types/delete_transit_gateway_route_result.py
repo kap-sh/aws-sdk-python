@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_route
@@ -10,3 +11,27 @@ if TYPE_CHECKING:
 class DeleteTransitGatewayRouteResult(TypedDict):
     route: NotRequired["aws_sdk_ec2.types.transit_gateway_route.TransitGatewayRoute"]
     """<p>Information about the route.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DeleteTransitGatewayRouteResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "route" in value:
+        import aws_sdk_ec2.types.transit_gateway_route
+
+        aws_sdk_ec2.types.transit_gateway_route.serialize_ec2_query(
+            value["route"], pairs, f"{prefix}.Route"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DeleteTransitGatewayRouteResult:
+    out: DeleteTransitGatewayRouteResult = {}  # type: ignore[typeddict-item]
+    child_route = el.find("Route")
+    if child_route is not None:
+        import aws_sdk_ec2.types.transit_gateway_route
+
+        out["route"] = aws_sdk_ec2.types.transit_gateway_route.deserialize_ec2_query(
+            child_route
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.architecture_values
@@ -47,3 +48,137 @@ class ImportInstanceLaunchSpecification(TypedDict):
     """<p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).</p>"""
     private_ip_address: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ImportInstanceLaunchSpecification, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "architecture" in value:
+        import aws_sdk_ec2.types.architecture_values
+
+        aws_sdk_ec2.types.architecture_values.serialize_ec2_query(
+            value["architecture"], pairs, f"{prefix}.Architecture"
+        )
+    if "group_names" in value:
+        import aws_sdk_ec2.types.security_group_string_list
+
+        aws_sdk_ec2.types.security_group_string_list.serialize_ec2_query(
+            value["group_names"], pairs, f"{prefix}.GroupNames"
+        )
+    if "group_ids" in value:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        aws_sdk_ec2.types.security_group_id_string_list.serialize_ec2_query(
+            value["group_ids"], pairs, f"{prefix}.GroupIds"
+        )
+    if "additional_info" in value:
+        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+    if "user_data" in value:
+        import aws_sdk_ec2.types.user_data
+
+        aws_sdk_ec2.types.user_data.serialize_ec2_query(
+            value["user_data"], pairs, f"{prefix}.UserData"
+        )
+    if "instance_type" in value:
+        import aws_sdk_ec2.types.instance_type
+
+        aws_sdk_ec2.types.instance_type.serialize_ec2_query(
+            value["instance_type"], pairs, f"{prefix}.InstanceType"
+        )
+    if "placement" in value:
+        import aws_sdk_ec2.types.placement
+
+        aws_sdk_ec2.types.placement.serialize_ec2_query(
+            value["placement"], pairs, f"{prefix}.Placement"
+        )
+    if "monitoring" in value:
+        pairs.append(
+            (f"{prefix}.Monitoring", "true" if value["monitoring"] else "false")
+        )
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "instance_initiated_shutdown_behavior" in value:
+        import aws_sdk_ec2.types.shutdown_behavior
+
+        aws_sdk_ec2.types.shutdown_behavior.serialize_ec2_query(
+            value["instance_initiated_shutdown_behavior"],
+            pairs,
+            f"{prefix}.InstanceInitiatedShutdownBehavior",
+        )
+    if "private_ip_address" in value:
+        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+
+
+def deserialize_ec2_query(el: Element) -> ImportInstanceLaunchSpecification:
+    out: ImportInstanceLaunchSpecification = {}  # type: ignore[typeddict-item]
+    child_architecture = el.find("Architecture")
+    if child_architecture is not None:
+        import aws_sdk_ec2.types.architecture_values
+
+        out["architecture"] = (
+            aws_sdk_ec2.types.architecture_values.deserialize_ec2_query(
+                child_architecture
+            )
+        )
+    if el.find("GroupNames") is not None:
+        import aws_sdk_ec2.types.security_group_string_list
+
+        out["group_names"] = (
+            aws_sdk_ec2.types.security_group_string_list.deserialize_ec2_query(
+                el, "GroupNames"
+            )
+        )
+    if el.find("GroupIds") is not None:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        out["group_ids"] = (
+            aws_sdk_ec2.types.security_group_id_string_list.deserialize_ec2_query(
+                el, "GroupIds"
+            )
+        )
+    child_additional_info = el.find("AdditionalInfo")
+    if child_additional_info is not None:
+        out["additional_info"] = str(child_additional_info.text or "")
+    child_user_data = el.find("UserData")
+    if child_user_data is not None:
+        import aws_sdk_ec2.types.user_data
+
+        out["user_data"] = aws_sdk_ec2.types.user_data.deserialize_ec2_query(
+            child_user_data
+        )
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        import aws_sdk_ec2.types.instance_type
+
+        out["instance_type"] = aws_sdk_ec2.types.instance_type.deserialize_ec2_query(
+            child_instance_type
+        )
+    child_placement = el.find("Placement")
+    if child_placement is not None:
+        import aws_sdk_ec2.types.placement
+
+        out["placement"] = aws_sdk_ec2.types.placement.deserialize_ec2_query(
+            child_placement
+        )
+    child_monitoring = el.find("Monitoring")
+    if child_monitoring is not None:
+        out["monitoring"] = (child_monitoring.text or "").lower() == "true"
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_instance_initiated_shutdown_behavior = el.find(
+        "InstanceInitiatedShutdownBehavior"
+    )
+    if child_instance_initiated_shutdown_behavior is not None:
+        import aws_sdk_ec2.types.shutdown_behavior
+
+        out["instance_initiated_shutdown_behavior"] = (
+            aws_sdk_ec2.types.shutdown_behavior.deserialize_ec2_query(
+                child_instance_initiated_shutdown_behavior
+            )
+        )
+    child_private_ip_address = el.find("PrivateIpAddress")
+    if child_private_ip_address is not None:
+        out["private_ip_address"] = str(child_private_ip_address.text or "")
+    return out

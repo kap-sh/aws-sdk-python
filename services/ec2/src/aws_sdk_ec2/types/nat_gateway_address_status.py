@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#NatGatewayAddressStatus``."""
 
-from typing import Literal, TypeAlias
+from typing import Literal, TypeAlias, cast
+from aws_sdk_ec2.errors import DeserializationError
+from aws_sdk_ec2._protocol.xml import Element
 
 NatGatewayAddressStatus: TypeAlias = Literal[
     "assigning",
@@ -10,3 +12,48 @@ NatGatewayAddressStatus: TypeAlias = Literal[
     "succeeded",
     "failed",
 ]
+
+
+# --- ec2Query ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "assigning",
+        "unassigning",
+        "associating",
+        "disassociating",
+        "succeeded",
+        "failed",
+    )
+)
+
+
+_VALUES: frozenset[str] = frozenset(
+    (
+        "assigning",
+        "unassigning",
+        "associating",
+        "disassociating",
+        "succeeded",
+        "failed",
+    )
+)
+
+
+def to_ec2_query_text(value: NatGatewayAddressStatus) -> str:
+    return value
+
+
+def from_ec2_query_text(text: str) -> NatGatewayAddressStatus:
+    if text not in _VALUES:
+        raise DeserializationError(f"unknown NatGatewayAddressStatus value: {text!r}")
+    return cast(NatGatewayAddressStatus, text)
+
+
+def serialize_ec2_query(
+    value: NatGatewayAddressStatus, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_ec2_query_text(value)))
+
+
+def deserialize_ec2_query(el: Element) -> NatGatewayAddressStatus:
+    return from_ec2_query_text(el.text or "")

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.dedicated_host_id_list
@@ -18,3 +19,54 @@ class InstanceEventWindowAssociationRequest(TypedDict):
         "aws_sdk_ec2.types.dedicated_host_id_list.DedicatedHostIdList"
     ]
     """<p>The IDs of the Dedicated Hosts to associate with the event window.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InstanceEventWindowAssociationRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "instance_ids" in value:
+        import aws_sdk_ec2.types.instance_id_list
+
+        aws_sdk_ec2.types.instance_id_list.serialize_ec2_query(
+            value["instance_ids"], pairs, f"{prefix}.InstanceIds"
+        )
+    if "instance_tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["instance_tags"], pairs, f"{prefix}.InstanceTags"
+        )
+    if "dedicated_host_ids" in value:
+        import aws_sdk_ec2.types.dedicated_host_id_list
+
+        aws_sdk_ec2.types.dedicated_host_id_list.serialize_ec2_query(
+            value["dedicated_host_ids"], pairs, f"{prefix}.DedicatedHostIds"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> InstanceEventWindowAssociationRequest:
+    out: InstanceEventWindowAssociationRequest = {}  # type: ignore[typeddict-item]
+    if el.find("InstanceIds") is not None:
+        import aws_sdk_ec2.types.instance_id_list
+
+        out["instance_ids"] = aws_sdk_ec2.types.instance_id_list.deserialize_ec2_query(
+            el, "InstanceIds"
+        )
+    if el.find("InstanceTags") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["instance_tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(
+            el, "InstanceTags"
+        )
+    if el.find("DedicatedHostIds") is not None:
+        import aws_sdk_ec2.types.dedicated_host_id_list
+
+        out["dedicated_host_ids"] = (
+            aws_sdk_ec2.types.dedicated_host_id_list.deserialize_ec2_query(
+                el, "DedicatedHostIds"
+            )
+        )
+    return out

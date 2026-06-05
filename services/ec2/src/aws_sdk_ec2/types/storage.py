@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.s3_storage
@@ -10,3 +11,25 @@ if TYPE_CHECKING:
 class Storage(TypedDict):
     s3: NotRequired["aws_sdk_ec2.types.s3_storage.S3Storage"]
     """<p>An Amazon S3 storage location.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: Storage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "s3" in value:
+        import aws_sdk_ec2.types.s3_storage
+
+        aws_sdk_ec2.types.s3_storage.serialize_ec2_query(
+            value["s3"], pairs, f"{prefix}.S3"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> Storage:
+    out: Storage = {}  # type: ignore[typeddict-item]
+    child_s3 = el.find("S3")
+    if child_s3 is not None:
+        import aws_sdk_ec2.types.s3_storage
+
+        out["s3"] = aws_sdk_ec2.types.s3_storage.deserialize_ec2_query(child_s3)
+    return out

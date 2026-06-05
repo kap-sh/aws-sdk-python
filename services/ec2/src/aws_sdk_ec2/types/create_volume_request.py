@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -55,3 +56,135 @@ class CreateVolumeRequest(TypedDict):
     """<p>Reserved for internal use.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateVolumeRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "iops" in value:
+        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "outpost_arn" in value:
+        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+    if "size" in value:
+        pairs.append((f"{prefix}.Size", str(value["size"])))
+    if "snapshot_id" in value:
+        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+    if "volume_type" in value:
+        import aws_sdk_ec2.types.volume_type
+
+        aws_sdk_ec2.types.volume_type.serialize_ec2_query(
+            value["volume_type"], pairs, f"{prefix}.VolumeType"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "multi_attach_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.MultiAttachEnabled",
+                "true" if value["multi_attach_enabled"] else "false",
+            )
+        )
+    if "throughput" in value:
+        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "volume_initialization_rate" in value:
+        pairs.append(
+            (
+                f"{prefix}.VolumeInitializationRate",
+                str(value["volume_initialization_rate"]),
+            )
+        )
+    if "operator" in value:
+        import aws_sdk_ec2.types.operator_request
+
+        aws_sdk_ec2.types.operator_request.serialize_ec2_query(
+            value["operator"], pairs, f"{prefix}.Operator"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> CreateVolumeRequest:
+    out: CreateVolumeRequest = {}  # type: ignore[typeddict-item]
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_iops = el.find("Iops")
+    if child_iops is not None:
+        out["iops"] = int(child_iops.text or "")
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_outpost_arn = el.find("OutpostArn")
+    if child_outpost_arn is not None:
+        out["outpost_arn"] = str(child_outpost_arn.text or "")
+    child_size = el.find("Size")
+    if child_size is not None:
+        out["size"] = int(child_size.text or "")
+    child_snapshot_id = el.find("SnapshotId")
+    if child_snapshot_id is not None:
+        out["snapshot_id"] = str(child_snapshot_id.text or "")
+    child_volume_type = el.find("VolumeType")
+    if child_volume_type is not None:
+        import aws_sdk_ec2.types.volume_type
+
+        out["volume_type"] = aws_sdk_ec2.types.volume_type.deserialize_ec2_query(
+            child_volume_type
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_multi_attach_enabled = el.find("MultiAttachEnabled")
+    if child_multi_attach_enabled is not None:
+        out["multi_attach_enabled"] = (
+            child_multi_attach_enabled.text or ""
+        ).lower() == "true"
+    child_throughput = el.find("Throughput")
+    if child_throughput is not None:
+        out["throughput"] = int(child_throughput.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_volume_initialization_rate = el.find("VolumeInitializationRate")
+    if child_volume_initialization_rate is not None:
+        out["volume_initialization_rate"] = int(
+            child_volume_initialization_rate.text or ""
+        )
+    child_operator = el.find("Operator")
+    if child_operator is not None:
+        import aws_sdk_ec2.types.operator_request
+
+        out["operator"] = aws_sdk_ec2.types.operator_request.deserialize_ec2_query(
+            child_operator
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -81,3 +82,197 @@ class CreateCapacityReservationRequest(TypedDict):
         "aws_sdk_ec2.types.capacity_reservation_delivery_preference.CapacityReservationDeliveryPreference"
     ]
     """<note> <p>Required for future-dated Capacity Reservations only. To create a Capacity Reservation for immediate use, omit this parameter. </p> </note> <p>Indicates that the requested capacity will be delivered in addition to any running instances or reserved capacity that you have in your account at the requested date and time.</p> <p>The only supported value is <code>incremental</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateCapacityReservationRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "instance_platform" in value:
+        import aws_sdk_ec2.types.capacity_reservation_instance_platform
+
+        aws_sdk_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
+            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+        )
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "tenancy" in value:
+        import aws_sdk_ec2.types.capacity_reservation_tenancy
+
+        aws_sdk_ec2.types.capacity_reservation_tenancy.serialize_ec2_query(
+            value["tenancy"], pairs, f"{prefix}.Tenancy"
+        )
+    if "instance_count" in value:
+        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+    if "ebs_optimized" in value:
+        pairs.append(
+            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+        )
+    if "ephemeral_storage" in value:
+        pairs.append(
+            (
+                f"{prefix}.EphemeralStorage",
+                "true" if value["ephemeral_storage"] else "false",
+            )
+        )
+    if "end_date" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["end_date"], pairs, f"{prefix}.EndDate"
+        )
+    if "end_date_type" in value:
+        import aws_sdk_ec2.types.end_date_type
+
+        aws_sdk_ec2.types.end_date_type.serialize_ec2_query(
+            value["end_date_type"], pairs, f"{prefix}.EndDateType"
+        )
+    if "instance_match_criteria" in value:
+        import aws_sdk_ec2.types.instance_match_criteria
+
+        aws_sdk_ec2.types.instance_match_criteria.serialize_ec2_query(
+            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "outpost_arn" in value:
+        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+    if "placement_group_arn" in value:
+        pairs.append((f"{prefix}.PlacementGroupArn", str(value["placement_group_arn"])))
+    if "start_date" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["start_date"], pairs, f"{prefix}.StartDate"
+        )
+    if "commitment_duration" in value:
+        pairs.append(
+            (f"{prefix}.CommitmentDuration", str(value["commitment_duration"]))
+        )
+    if "delivery_preference" in value:
+        import aws_sdk_ec2.types.capacity_reservation_delivery_preference
+
+        aws_sdk_ec2.types.capacity_reservation_delivery_preference.serialize_ec2_query(
+            value["delivery_preference"], pairs, f"{prefix}.DeliveryPreference"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateCapacityReservationRequest:
+    out: CreateCapacityReservationRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_instance_platform = el.find("InstancePlatform")
+    if child_instance_platform is not None:
+        import aws_sdk_ec2.types.capacity_reservation_instance_platform
+
+        out["instance_platform"] = (
+            aws_sdk_ec2.types.capacity_reservation_instance_platform.deserialize_ec2_query(
+                child_instance_platform
+            )
+        )
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_tenancy = el.find("Tenancy")
+    if child_tenancy is not None:
+        import aws_sdk_ec2.types.capacity_reservation_tenancy
+
+        out["tenancy"] = (
+            aws_sdk_ec2.types.capacity_reservation_tenancy.deserialize_ec2_query(
+                child_tenancy
+            )
+        )
+    child_instance_count = el.find("InstanceCount")
+    if child_instance_count is not None:
+        out["instance_count"] = int(child_instance_count.text or "")
+    child_ebs_optimized = el.find("EbsOptimized")
+    if child_ebs_optimized is not None:
+        out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
+    child_ephemeral_storage = el.find("EphemeralStorage")
+    if child_ephemeral_storage is not None:
+        out["ephemeral_storage"] = (
+            child_ephemeral_storage.text or ""
+        ).lower() == "true"
+    child_end_date = el.find("EndDate")
+    if child_end_date is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["end_date"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_end_date
+        )
+    child_end_date_type = el.find("EndDateType")
+    if child_end_date_type is not None:
+        import aws_sdk_ec2.types.end_date_type
+
+        out["end_date_type"] = aws_sdk_ec2.types.end_date_type.deserialize_ec2_query(
+            child_end_date_type
+        )
+    child_instance_match_criteria = el.find("InstanceMatchCriteria")
+    if child_instance_match_criteria is not None:
+        import aws_sdk_ec2.types.instance_match_criteria
+
+        out["instance_match_criteria"] = (
+            aws_sdk_ec2.types.instance_match_criteria.deserialize_ec2_query(
+                child_instance_match_criteria
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_outpost_arn = el.find("OutpostArn")
+    if child_outpost_arn is not None:
+        out["outpost_arn"] = str(child_outpost_arn.text or "")
+    child_placement_group_arn = el.find("PlacementGroupArn")
+    if child_placement_group_arn is not None:
+        out["placement_group_arn"] = str(child_placement_group_arn.text or "")
+    child_start_date = el.find("StartDate")
+    if child_start_date is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["start_date"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_start_date
+            )
+        )
+    child_commitment_duration = el.find("CommitmentDuration")
+    if child_commitment_duration is not None:
+        out["commitment_duration"] = int(child_commitment_duration.text or "")
+    child_delivery_preference = el.find("DeliveryPreference")
+    if child_delivery_preference is not None:
+        import aws_sdk_ec2.types.capacity_reservation_delivery_preference
+
+        out["delivery_preference"] = (
+            aws_sdk_ec2.types.capacity_reservation_delivery_preference.deserialize_ec2_query(
+                child_delivery_preference
+            )
+        )
+    return out

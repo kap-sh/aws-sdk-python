@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -21,3 +22,53 @@ class StopInstancesRequest(TypedDict):
     """<p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
     force: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Forces the instance to stop. The instance will first attempt a graceful shutdown, which includes flushing file system caches and metadata. If the graceful shutdown fails to complete within the timeout period, the instance shuts down forcibly without flushing the file system caches and metadata.</p> <p>After using this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\">Troubleshoot Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>false</code> </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: StopInstancesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_ids" in value:
+        import aws_sdk_ec2.types.instance_id_string_list
+
+        aws_sdk_ec2.types.instance_id_string_list.serialize_ec2_query(
+            value["instance_ids"], pairs, f"{prefix}.InstanceIds"
+        )
+    if "hibernate" in value:
+        pairs.append((f"{prefix}.Hibernate", "true" if value["hibernate"] else "false"))
+    if "skip_os_shutdown" in value:
+        pairs.append(
+            (
+                f"{prefix}.SkipOsShutdown",
+                "true" if value["skip_os_shutdown"] else "false",
+            )
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "force" in value:
+        pairs.append((f"{prefix}.Force", "true" if value["force"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> StopInstancesRequest:
+    out: StopInstancesRequest = {}  # type: ignore[typeddict-item]
+    if el.find("InstanceIds") is not None:
+        import aws_sdk_ec2.types.instance_id_string_list
+
+        out["instance_ids"] = (
+            aws_sdk_ec2.types.instance_id_string_list.deserialize_ec2_query(
+                el, "InstanceIds"
+            )
+        )
+    child_hibernate = el.find("Hibernate")
+    if child_hibernate is not None:
+        out["hibernate"] = (child_hibernate.text or "").lower() == "true"
+    child_skip_os_shutdown = el.find("SkipOsShutdown")
+    if child_skip_os_shutdown is not None:
+        out["skip_os_shutdown"] = (child_skip_os_shutdown.text or "").lower() == "true"
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_force = el.find("Force")
+    if child_force is not None:
+        out["force"] = (child_force.text or "").lower() == "true"
+    return out

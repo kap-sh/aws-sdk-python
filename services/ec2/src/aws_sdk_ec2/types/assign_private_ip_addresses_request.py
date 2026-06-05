@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -28,3 +29,76 @@ class AssignPrivateIpAddressesRequest(TypedDict):
     """<p>The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.</p>"""
     allow_reassignment: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: AssignPrivateIpAddressesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "ipv4_prefixes" in value:
+        import aws_sdk_ec2.types.ip_prefix_list
+
+        aws_sdk_ec2.types.ip_prefix_list.serialize_ec2_query(
+            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4Prefixes"
+        )
+    if "ipv4_prefix_count" in value:
+        pairs.append((f"{prefix}.Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
+    if "network_interface_id" in value:
+        pairs.append(
+            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+        )
+    if "private_ip_addresses" in value:
+        import aws_sdk_ec2.types.private_ip_address_string_list
+
+        aws_sdk_ec2.types.private_ip_address_string_list.serialize_ec2_query(
+            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddress"
+        )
+    if "secondary_private_ip_address_count" in value:
+        pairs.append(
+            (
+                f"{prefix}.SecondaryPrivateIpAddressCount",
+                str(value["secondary_private_ip_address_count"]),
+            )
+        )
+    if "allow_reassignment" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllowReassignment",
+                "true" if value["allow_reassignment"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> AssignPrivateIpAddressesRequest:
+    out: AssignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
+    if el.find("Ipv4Prefixes") is not None:
+        import aws_sdk_ec2.types.ip_prefix_list
+
+        out["ipv4_prefixes"] = aws_sdk_ec2.types.ip_prefix_list.deserialize_ec2_query(
+            el, "Ipv4Prefixes"
+        )
+    child_ipv4_prefix_count = el.find("Ipv4PrefixCount")
+    if child_ipv4_prefix_count is not None:
+        out["ipv4_prefix_count"] = int(child_ipv4_prefix_count.text or "")
+    child_network_interface_id = el.find("NetworkInterfaceId")
+    if child_network_interface_id is not None:
+        out["network_interface_id"] = str(child_network_interface_id.text or "")
+    if el.find("PrivateIpAddress") is not None:
+        import aws_sdk_ec2.types.private_ip_address_string_list
+
+        out["private_ip_addresses"] = (
+            aws_sdk_ec2.types.private_ip_address_string_list.deserialize_ec2_query(
+                el, "PrivateIpAddress"
+            )
+        )
+    child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")
+    if child_secondary_private_ip_address_count is not None:
+        out["secondary_private_ip_address_count"] = int(
+            child_secondary_private_ip_address_count.text or ""
+        )
+    child_allow_reassignment = el.find("AllowReassignment")
+    if child_allow_reassignment is not None:
+        out["allow_reassignment"] = (
+            child_allow_reassignment.text or ""
+        ).lower() == "true"
+    return out

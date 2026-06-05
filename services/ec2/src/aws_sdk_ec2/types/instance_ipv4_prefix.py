@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -10,3 +11,19 @@ if TYPE_CHECKING:
 class InstanceIpv4Prefix(TypedDict):
     ipv4_prefix: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>One or more IPv4 prefixes assigned to the network interface.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InstanceIpv4Prefix, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "ipv4_prefix" in value:
+        pairs.append((f"{prefix}.Ipv4Prefix", str(value["ipv4_prefix"])))
+
+
+def deserialize_ec2_query(el: Element) -> InstanceIpv4Prefix:
+    out: InstanceIpv4Prefix = {}  # type: ignore[typeddict-item]
+    child_ipv4_prefix = el.find("Ipv4Prefix")
+    if child_ipv4_prefix is not None:
+        out["ipv4_prefix"] = str(child_ipv4_prefix.text or "")
+    return out

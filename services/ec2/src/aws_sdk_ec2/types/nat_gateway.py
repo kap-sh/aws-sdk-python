@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.auto_provision_zones_state
@@ -66,3 +67,196 @@ class NatGateway(TypedDict):
     """<p>The proxy appliances attached to the NAT Gateway for filtering and inspecting traffic to prevent data exfiltration.</p>"""
     route_table_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>For regional NAT gateways only, this is the ID of the NAT gateway.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: NatGateway, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "create_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["create_time"], pairs, f"{prefix}.CreateTime"
+        )
+    if "delete_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["delete_time"], pairs, f"{prefix}.DeleteTime"
+        )
+    if "failure_code" in value:
+        pairs.append((f"{prefix}.FailureCode", str(value["failure_code"])))
+    if "failure_message" in value:
+        pairs.append((f"{prefix}.FailureMessage", str(value["failure_message"])))
+    if "nat_gateway_addresses" in value:
+        import aws_sdk_ec2.types.nat_gateway_address_list
+
+        aws_sdk_ec2.types.nat_gateway_address_list.serialize_ec2_query(
+            value["nat_gateway_addresses"], pairs, f"{prefix}.NatGatewayAddressSet"
+        )
+    if "nat_gateway_id" in value:
+        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+    if "provisioned_bandwidth" in value:
+        import aws_sdk_ec2.types.provisioned_bandwidth
+
+        aws_sdk_ec2.types.provisioned_bandwidth.serialize_ec2_query(
+            value["provisioned_bandwidth"], pairs, f"{prefix}.ProvisionedBandwidth"
+        )
+    if "state" in value:
+        import aws_sdk_ec2.types.nat_gateway_state
+
+        aws_sdk_ec2.types.nat_gateway_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "connectivity_type" in value:
+        import aws_sdk_ec2.types.connectivity_type
+
+        aws_sdk_ec2.types.connectivity_type.serialize_ec2_query(
+            value["connectivity_type"], pairs, f"{prefix}.ConnectivityType"
+        )
+    if "availability_mode" in value:
+        import aws_sdk_ec2.types.availability_mode
+
+        aws_sdk_ec2.types.availability_mode.serialize_ec2_query(
+            value["availability_mode"], pairs, f"{prefix}.AvailabilityMode"
+        )
+    if "auto_scaling_ips" in value:
+        import aws_sdk_ec2.types.auto_scaling_ips_state
+
+        aws_sdk_ec2.types.auto_scaling_ips_state.serialize_ec2_query(
+            value["auto_scaling_ips"], pairs, f"{prefix}.AutoScalingIps"
+        )
+    if "auto_provision_zones" in value:
+        import aws_sdk_ec2.types.auto_provision_zones_state
+
+        aws_sdk_ec2.types.auto_provision_zones_state.serialize_ec2_query(
+            value["auto_provision_zones"], pairs, f"{prefix}.AutoProvisionZones"
+        )
+    if "attached_appliances" in value:
+        import aws_sdk_ec2.types.nat_gateway_attached_appliance_list
+
+        aws_sdk_ec2.types.nat_gateway_attached_appliance_list.serialize_ec2_query(
+            value["attached_appliances"], pairs, f"{prefix}.AttachedApplianceSet"
+        )
+    if "route_table_id" in value:
+        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+
+
+def deserialize_ec2_query(el: Element) -> NatGateway:
+    out: NatGateway = {}  # type: ignore[typeddict-item]
+    child_create_time = el.find("CreateTime")
+    if child_create_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["create_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_create_time
+        )
+    child_delete_time = el.find("DeleteTime")
+    if child_delete_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["delete_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_delete_time
+        )
+    child_failure_code = el.find("FailureCode")
+    if child_failure_code is not None:
+        out["failure_code"] = str(child_failure_code.text or "")
+    child_failure_message = el.find("FailureMessage")
+    if child_failure_message is not None:
+        out["failure_message"] = str(child_failure_message.text or "")
+    if el.find("NatGatewayAddressSet") is not None:
+        import aws_sdk_ec2.types.nat_gateway_address_list
+
+        out["nat_gateway_addresses"] = (
+            aws_sdk_ec2.types.nat_gateway_address_list.deserialize_ec2_query(
+                el, "NatGatewayAddressSet"
+            )
+        )
+    child_nat_gateway_id = el.find("NatGatewayId")
+    if child_nat_gateway_id is not None:
+        out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
+    child_provisioned_bandwidth = el.find("ProvisionedBandwidth")
+    if child_provisioned_bandwidth is not None:
+        import aws_sdk_ec2.types.provisioned_bandwidth
+
+        out["provisioned_bandwidth"] = (
+            aws_sdk_ec2.types.provisioned_bandwidth.deserialize_ec2_query(
+                child_provisioned_bandwidth
+            )
+        )
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.nat_gateway_state
+
+        out["state"] = aws_sdk_ec2.types.nat_gateway_state.deserialize_ec2_query(
+            child_state
+        )
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_connectivity_type = el.find("ConnectivityType")
+    if child_connectivity_type is not None:
+        import aws_sdk_ec2.types.connectivity_type
+
+        out["connectivity_type"] = (
+            aws_sdk_ec2.types.connectivity_type.deserialize_ec2_query(
+                child_connectivity_type
+            )
+        )
+    child_availability_mode = el.find("AvailabilityMode")
+    if child_availability_mode is not None:
+        import aws_sdk_ec2.types.availability_mode
+
+        out["availability_mode"] = (
+            aws_sdk_ec2.types.availability_mode.deserialize_ec2_query(
+                child_availability_mode
+            )
+        )
+    child_auto_scaling_ips = el.find("AutoScalingIps")
+    if child_auto_scaling_ips is not None:
+        import aws_sdk_ec2.types.auto_scaling_ips_state
+
+        out["auto_scaling_ips"] = (
+            aws_sdk_ec2.types.auto_scaling_ips_state.deserialize_ec2_query(
+                child_auto_scaling_ips
+            )
+        )
+    child_auto_provision_zones = el.find("AutoProvisionZones")
+    if child_auto_provision_zones is not None:
+        import aws_sdk_ec2.types.auto_provision_zones_state
+
+        out["auto_provision_zones"] = (
+            aws_sdk_ec2.types.auto_provision_zones_state.deserialize_ec2_query(
+                child_auto_provision_zones
+            )
+        )
+    if el.find("AttachedApplianceSet") is not None:
+        import aws_sdk_ec2.types.nat_gateway_attached_appliance_list
+
+        out["attached_appliances"] = (
+            aws_sdk_ec2.types.nat_gateway_attached_appliance_list.deserialize_ec2_query(
+                el, "AttachedApplianceSet"
+            )
+        )
+    child_route_table_id = el.find("RouteTableId")
+    if child_route_table_id is not None:
+        out["route_table_id"] = str(child_route_table_id.text or "")
+    return out

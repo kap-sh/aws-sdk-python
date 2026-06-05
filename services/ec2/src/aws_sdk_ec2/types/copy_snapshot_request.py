@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -43,3 +44,99 @@ class CopySnapshotRequest(TypedDict):
     """<p>The Local Zone, for example, <code>cn-north-1-pkx-1a</code> to which to copy the snapshot.</p> <note> <p>Only supported when copying a snapshot to a Local Zone.</p> </note>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CopySnapshotRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "destination_outpost_arn" in value:
+        pairs.append(
+            (f"{prefix}.DestinationOutpostArn", str(value["destination_outpost_arn"]))
+        )
+    if "destination_region" in value:
+        pairs.append((f"{prefix}.DestinationRegion", str(value["destination_region"])))
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "presigned_url" in value:
+        pairs.append((f"{prefix}.PresignedUrl", str(value["presigned_url"])))
+    if "source_region" in value:
+        pairs.append((f"{prefix}.SourceRegion", str(value["source_region"])))
+    if "source_snapshot_id" in value:
+        pairs.append((f"{prefix}.SourceSnapshotId", str(value["source_snapshot_id"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "completion_duration_minutes" in value:
+        pairs.append(
+            (
+                f"{prefix}.CompletionDurationMinutes",
+                str(value["completion_duration_minutes"]),
+            )
+        )
+    if "destination_availability_zone" in value:
+        pairs.append(
+            (
+                f"{prefix}.DestinationAvailabilityZone",
+                str(value["destination_availability_zone"]),
+            )
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> CopySnapshotRequest:
+    out: CopySnapshotRequest = {}  # type: ignore[typeddict-item]
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_destination_outpost_arn = el.find("DestinationOutpostArn")
+    if child_destination_outpost_arn is not None:
+        out["destination_outpost_arn"] = str(child_destination_outpost_arn.text or "")
+    child_destination_region = el.find("DestinationRegion")
+    if child_destination_region is not None:
+        out["destination_region"] = str(child_destination_region.text or "")
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_presigned_url = el.find("PresignedUrl")
+    if child_presigned_url is not None:
+        out["presigned_url"] = str(child_presigned_url.text or "")
+    child_source_region = el.find("SourceRegion")
+    if child_source_region is not None:
+        out["source_region"] = str(child_source_region.text or "")
+    child_source_snapshot_id = el.find("SourceSnapshotId")
+    if child_source_snapshot_id is not None:
+        out["source_snapshot_id"] = str(child_source_snapshot_id.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_completion_duration_minutes = el.find("CompletionDurationMinutes")
+    if child_completion_duration_minutes is not None:
+        out["completion_duration_minutes"] = int(
+            child_completion_duration_minutes.text or ""
+        )
+    child_destination_availability_zone = el.find("DestinationAvailabilityZone")
+    if child_destination_availability_zone is not None:
+        out["destination_availability_zone"] = str(
+            child_destination_availability_zone.text or ""
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

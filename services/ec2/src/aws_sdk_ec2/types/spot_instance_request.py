@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.date_time
@@ -67,3 +68,236 @@ class SpotInstanceRequest(TypedDict):
         "aws_sdk_ec2.types.instance_interruption_behavior.InstanceInterruptionBehavior"
     ]
     """<p>The behavior when a Spot Instance is interrupted.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: SpotInstanceRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "actual_block_hourly_price" in value:
+        pairs.append(
+            (
+                f"{prefix}.ActualBlockHourlyPrice",
+                str(value["actual_block_hourly_price"]),
+            )
+        )
+    if "availability_zone_group" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneGroup", str(value["availability_zone_group"]))
+        )
+    if "block_duration_minutes" in value:
+        pairs.append(
+            (f"{prefix}.BlockDurationMinutes", str(value["block_duration_minutes"]))
+        )
+    if "create_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["create_time"], pairs, f"{prefix}.CreateTime"
+        )
+    if "fault" in value:
+        import aws_sdk_ec2.types.spot_instance_state_fault
+
+        aws_sdk_ec2.types.spot_instance_state_fault.serialize_ec2_query(
+            value["fault"], pairs, f"{prefix}.Fault"
+        )
+    if "instance_id" in value:
+        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+    if "launch_group" in value:
+        pairs.append((f"{prefix}.LaunchGroup", str(value["launch_group"])))
+    if "launch_specification" in value:
+        import aws_sdk_ec2.types.launch_specification
+
+        aws_sdk_ec2.types.launch_specification.serialize_ec2_query(
+            value["launch_specification"], pairs, f"{prefix}.LaunchSpecification"
+        )
+    if "launched_availability_zone" in value:
+        pairs.append(
+            (
+                f"{prefix}.LaunchedAvailabilityZone",
+                str(value["launched_availability_zone"]),
+            )
+        )
+    if "launched_availability_zone_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.LaunchedAvailabilityZoneId",
+                str(value["launched_availability_zone_id"]),
+            )
+        )
+    if "product_description" in value:
+        import aws_sdk_ec2.types.ri_product_description
+
+        aws_sdk_ec2.types.ri_product_description.serialize_ec2_query(
+            value["product_description"], pairs, f"{prefix}.ProductDescription"
+        )
+    if "spot_instance_request_id" in value:
+        pairs.append(
+            (f"{prefix}.SpotInstanceRequestId", str(value["spot_instance_request_id"]))
+        )
+    if "spot_price" in value:
+        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+    if "state" in value:
+        import aws_sdk_ec2.types.spot_instance_state
+
+        aws_sdk_ec2.types.spot_instance_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "status" in value:
+        import aws_sdk_ec2.types.spot_instance_status
+
+        aws_sdk_ec2.types.spot_instance_status.serialize_ec2_query(
+            value["status"], pairs, f"{prefix}.Status"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "type" in value:
+        import aws_sdk_ec2.types.spot_instance_type
+
+        aws_sdk_ec2.types.spot_instance_type.serialize_ec2_query(
+            value["type"], pairs, f"{prefix}.Type"
+        )
+    if "valid_from" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+        )
+    if "valid_until" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+        )
+    if "instance_interruption_behavior" in value:
+        import aws_sdk_ec2.types.instance_interruption_behavior
+
+        aws_sdk_ec2.types.instance_interruption_behavior.serialize_ec2_query(
+            value["instance_interruption_behavior"],
+            pairs,
+            f"{prefix}.InstanceInterruptionBehavior",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> SpotInstanceRequest:
+    out: SpotInstanceRequest = {}  # type: ignore[typeddict-item]
+    child_actual_block_hourly_price = el.find("ActualBlockHourlyPrice")
+    if child_actual_block_hourly_price is not None:
+        out["actual_block_hourly_price"] = str(
+            child_actual_block_hourly_price.text or ""
+        )
+    child_availability_zone_group = el.find("AvailabilityZoneGroup")
+    if child_availability_zone_group is not None:
+        out["availability_zone_group"] = str(child_availability_zone_group.text or "")
+    child_block_duration_minutes = el.find("BlockDurationMinutes")
+    if child_block_duration_minutes is not None:
+        out["block_duration_minutes"] = int(child_block_duration_minutes.text or "")
+    child_create_time = el.find("CreateTime")
+    if child_create_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["create_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_create_time
+        )
+    child_fault = el.find("Fault")
+    if child_fault is not None:
+        import aws_sdk_ec2.types.spot_instance_state_fault
+
+        out["fault"] = (
+            aws_sdk_ec2.types.spot_instance_state_fault.deserialize_ec2_query(
+                child_fault
+            )
+        )
+    child_instance_id = el.find("InstanceId")
+    if child_instance_id is not None:
+        out["instance_id"] = str(child_instance_id.text or "")
+    child_launch_group = el.find("LaunchGroup")
+    if child_launch_group is not None:
+        out["launch_group"] = str(child_launch_group.text or "")
+    child_launch_specification = el.find("LaunchSpecification")
+    if child_launch_specification is not None:
+        import aws_sdk_ec2.types.launch_specification
+
+        out["launch_specification"] = (
+            aws_sdk_ec2.types.launch_specification.deserialize_ec2_query(
+                child_launch_specification
+            )
+        )
+    child_launched_availability_zone = el.find("LaunchedAvailabilityZone")
+    if child_launched_availability_zone is not None:
+        out["launched_availability_zone"] = str(
+            child_launched_availability_zone.text or ""
+        )
+    child_launched_availability_zone_id = el.find("LaunchedAvailabilityZoneId")
+    if child_launched_availability_zone_id is not None:
+        out["launched_availability_zone_id"] = str(
+            child_launched_availability_zone_id.text or ""
+        )
+    child_product_description = el.find("ProductDescription")
+    if child_product_description is not None:
+        import aws_sdk_ec2.types.ri_product_description
+
+        out["product_description"] = (
+            aws_sdk_ec2.types.ri_product_description.deserialize_ec2_query(
+                child_product_description
+            )
+        )
+    child_spot_instance_request_id = el.find("SpotInstanceRequestId")
+    if child_spot_instance_request_id is not None:
+        out["spot_instance_request_id"] = str(child_spot_instance_request_id.text or "")
+    child_spot_price = el.find("SpotPrice")
+    if child_spot_price is not None:
+        out["spot_price"] = str(child_spot_price.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.spot_instance_state
+
+        out["state"] = aws_sdk_ec2.types.spot_instance_state.deserialize_ec2_query(
+            child_state
+        )
+    child_status = el.find("Status")
+    if child_status is not None:
+        import aws_sdk_ec2.types.spot_instance_status
+
+        out["status"] = aws_sdk_ec2.types.spot_instance_status.deserialize_ec2_query(
+            child_status
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_type = el.find("Type")
+    if child_type is not None:
+        import aws_sdk_ec2.types.spot_instance_type
+
+        out["type"] = aws_sdk_ec2.types.spot_instance_type.deserialize_ec2_query(
+            child_type
+        )
+    child_valid_from = el.find("ValidFrom")
+    if child_valid_from is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_from"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_from
+        )
+    child_valid_until = el.find("ValidUntil")
+    if child_valid_until is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_until"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_until
+        )
+    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    if child_instance_interruption_behavior is not None:
+        import aws_sdk_ec2.types.instance_interruption_behavior
+
+        out["instance_interruption_behavior"] = (
+            aws_sdk_ec2.types.instance_interruption_behavior.deserialize_ec2_query(
+                child_instance_interruption_behavior
+            )
+        )
+    return out

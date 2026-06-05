@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -10,3 +11,19 @@ if TYPE_CHECKING:
 class TargetGroup(TypedDict):
     arn: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the target group.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TargetGroup, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "arn" in value:
+        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+
+
+def deserialize_ec2_query(el: Element) -> TargetGroup:
+    out: TargetGroup = {}  # type: ignore[typeddict-item]
+    child_arn = el.find("Arn")
+    if child_arn is not None:
+        out["arn"] = str(child_arn.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -25,3 +26,74 @@ class ModifyInstanceConnectEndpointRequest(TypedDict):
     """<p>Changes the security groups for the EC2 Instance Connect Endpoint. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>"""
     preserve_client_ip: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the client IP address is preserved as the source when you connect to a resource. The following are the possible values.</p> <ul> <li> <p> <code>true</code> - Use the IP address of the client. Your instance must have an IPv4 address.</p> </li> <li> <p> <code>false</code> - Use the IP address of the network interface.</p> </li> </ul>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyInstanceConnectEndpointRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "instance_connect_endpoint_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.InstanceConnectEndpointId",
+                str(value["instance_connect_endpoint_id"]),
+            )
+        )
+    if "ip_address_type" in value:
+        import aws_sdk_ec2.types.ip_address_type
+
+        aws_sdk_ec2.types.ip_address_type.serialize_ec2_query(
+            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+        )
+    if "security_group_ids" in value:
+        import aws_sdk_ec2.types.security_group_id_string_list_request
+
+        aws_sdk_ec2.types.security_group_id_string_list_request.serialize_ec2_query(
+            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+        )
+    if "preserve_client_ip" in value:
+        pairs.append(
+            (
+                f"{prefix}.PreserveClientIp",
+                "true" if value["preserve_client_ip"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyInstanceConnectEndpointRequest:
+    out: ModifyInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_instance_connect_endpoint_id = el.find("InstanceConnectEndpointId")
+    if child_instance_connect_endpoint_id is not None:
+        out["instance_connect_endpoint_id"] = str(
+            child_instance_connect_endpoint_id.text or ""
+        )
+    child_ip_address_type = el.find("IpAddressType")
+    if child_ip_address_type is not None:
+        import aws_sdk_ec2.types.ip_address_type
+
+        out["ip_address_type"] = (
+            aws_sdk_ec2.types.ip_address_type.deserialize_ec2_query(
+                child_ip_address_type
+            )
+        )
+    if el.find("SecurityGroupIds") is not None:
+        import aws_sdk_ec2.types.security_group_id_string_list_request
+
+        out["security_group_ids"] = (
+            aws_sdk_ec2.types.security_group_id_string_list_request.deserialize_ec2_query(
+                el, "SecurityGroupIds"
+            )
+        )
+    child_preserve_client_ip = el.find("PreserveClientIp")
+    if child_preserve_client_ip is not None:
+        out["preserve_client_ip"] = (
+            child_preserve_client_ip.text or ""
+        ).lower() == "true"
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -22,3 +23,38 @@ class CreateDefaultSubnetRequest(TypedDict):
         "aws_sdk_ec2.types.availability_zone_id.AvailabilityZoneId"
     ]
     """<p>The ID of the Availability Zone.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified, but not both.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateDefaultSubnetRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipv6_native" in value:
+        pairs.append(
+            (f"{prefix}.Ipv6Native", "true" if value["ipv6_native"] else "false")
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateDefaultSubnetRequest:
+    out: CreateDefaultSubnetRequest = {}  # type: ignore[typeddict-item]
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipv6_native = el.find("Ipv6Native")
+    if child_ipv6_native is not None:
+        out["ipv6_native"] = (child_ipv6_native.text or "").lower() == "true"
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    return out

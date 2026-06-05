@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -22,3 +23,41 @@ class ProvisionPublicIpv4PoolCidrRequest(TypedDict):
     """<p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool. The least specific netmask length you can define is 24.</p>"""
     network_border_group: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail\">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ProvisionPublicIpv4PoolCidrRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_pool_id" in value:
+        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+    if "pool_id" in value:
+        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+    if "netmask_length" in value:
+        pairs.append((f"{prefix}.NetmaskLength", str(value["netmask_length"])))
+    if "network_border_group" in value:
+        pairs.append(
+            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ProvisionPublicIpv4PoolCidrRequest:
+    out: ProvisionPublicIpv4PoolCidrRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_pool_id = el.find("IpamPoolId")
+    if child_ipam_pool_id is not None:
+        out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
+    child_pool_id = el.find("PoolId")
+    if child_pool_id is not None:
+        out["pool_id"] = str(child_pool_id.text or "")
+    child_netmask_length = el.find("NetmaskLength")
+    if child_netmask_length is not None:
+        out["netmask_length"] = int(child_netmask_length.text or "")
+    child_network_border_group = el.find("NetworkBorderGroup")
+    if child_network_border_group is not None:
+        out["network_border_group"] = str(child_network_border_group.text or "")
+    return out

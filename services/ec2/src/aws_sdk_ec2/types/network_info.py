@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.bandwidth_weighting_type_list
@@ -94,3 +95,242 @@ class NetworkInfo(TypedDict):
         "aws_sdk_ec2.types.ipv4_addresses_per_secondary_interface.Ipv4AddressesPerSecondaryInterface"
     ]
     """<p>The maximum number of IPv4 addresses per secondary interface.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: NetworkInfo, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "network_performance" in value:
+        pairs.append(
+            (f"{prefix}.NetworkPerformance", str(value["network_performance"]))
+        )
+    if "maximum_network_interfaces" in value:
+        pairs.append(
+            (
+                f"{prefix}.MaximumNetworkInterfaces",
+                str(value["maximum_network_interfaces"]),
+            )
+        )
+    if "maximum_network_cards" in value:
+        pairs.append(
+            (f"{prefix}.MaximumNetworkCards", str(value["maximum_network_cards"]))
+        )
+    if "default_network_card_index" in value:
+        pairs.append(
+            (
+                f"{prefix}.DefaultNetworkCardIndex",
+                str(value["default_network_card_index"]),
+            )
+        )
+    if "network_cards" in value:
+        import aws_sdk_ec2.types.network_card_info_list
+
+        aws_sdk_ec2.types.network_card_info_list.serialize_ec2_query(
+            value["network_cards"], pairs, f"{prefix}.NetworkCards"
+        )
+    if "ipv4_addresses_per_interface" in value:
+        pairs.append(
+            (
+                f"{prefix}.Ipv4AddressesPerInterface",
+                str(value["ipv4_addresses_per_interface"]),
+            )
+        )
+    if "ipv6_addresses_per_interface" in value:
+        pairs.append(
+            (
+                f"{prefix}.Ipv6AddressesPerInterface",
+                str(value["ipv6_addresses_per_interface"]),
+            )
+        )
+    if "ipv6_supported" in value:
+        pairs.append(
+            (f"{prefix}.Ipv6Supported", "true" if value["ipv6_supported"] else "false")
+        )
+    if "ena_support" in value:
+        import aws_sdk_ec2.types.ena_support
+
+        aws_sdk_ec2.types.ena_support.serialize_ec2_query(
+            value["ena_support"], pairs, f"{prefix}.EnaSupport"
+        )
+    if "efa_supported" in value:
+        pairs.append(
+            (f"{prefix}.EfaSupported", "true" if value["efa_supported"] else "false")
+        )
+    if "efa_info" in value:
+        import aws_sdk_ec2.types.efa_info
+
+        aws_sdk_ec2.types.efa_info.serialize_ec2_query(
+            value["efa_info"], pairs, f"{prefix}.EfaInfo"
+        )
+    if "encryption_in_transit_supported" in value:
+        pairs.append(
+            (
+                f"{prefix}.EncryptionInTransitSupported",
+                "true" if value["encryption_in_transit_supported"] else "false",
+            )
+        )
+    if "ena_srd_supported" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnaSrdSupported",
+                "true" if value["ena_srd_supported"] else "false",
+            )
+        )
+    if "bandwidth_weightings" in value:
+        import aws_sdk_ec2.types.bandwidth_weighting_type_list
+
+        aws_sdk_ec2.types.bandwidth_weighting_type_list.serialize_ec2_query(
+            value["bandwidth_weightings"], pairs, f"{prefix}.BandwidthWeightings"
+        )
+    if "flexible_ena_queues_support" in value:
+        import aws_sdk_ec2.types.flexible_ena_queues_support
+
+        aws_sdk_ec2.types.flexible_ena_queues_support.serialize_ec2_query(
+            value["flexible_ena_queues_support"],
+            pairs,
+            f"{prefix}.FlexibleEnaQueuesSupport",
+        )
+    if "connection_tracking_configuration" in value:
+        import aws_sdk_ec2.types.default_connection_tracking_configuration
+
+        aws_sdk_ec2.types.default_connection_tracking_configuration.serialize_ec2_query(
+            value["connection_tracking_configuration"],
+            pairs,
+            f"{prefix}.ConnectionTrackingConfiguration",
+        )
+    if "secondary_network_supported" in value:
+        pairs.append(
+            (
+                f"{prefix}.SecondaryNetworkSupported",
+                "true" if value["secondary_network_supported"] else "false",
+            )
+        )
+    if "maximum_secondary_network_interfaces" in value:
+        pairs.append(
+            (
+                f"{prefix}.MaximumSecondaryNetworkInterfaces",
+                str(value["maximum_secondary_network_interfaces"]),
+            )
+        )
+    if "ipv4_addresses_per_secondary_interface" in value:
+        pairs.append(
+            (
+                f"{prefix}.Ipv4AddressesPerSecondaryInterface",
+                str(value["ipv4_addresses_per_secondary_interface"]),
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> NetworkInfo:
+    out: NetworkInfo = {}  # type: ignore[typeddict-item]
+    child_network_performance = el.find("NetworkPerformance")
+    if child_network_performance is not None:
+        out["network_performance"] = str(child_network_performance.text or "")
+    child_maximum_network_interfaces = el.find("MaximumNetworkInterfaces")
+    if child_maximum_network_interfaces is not None:
+        out["maximum_network_interfaces"] = int(
+            child_maximum_network_interfaces.text or ""
+        )
+    child_maximum_network_cards = el.find("MaximumNetworkCards")
+    if child_maximum_network_cards is not None:
+        out["maximum_network_cards"] = int(child_maximum_network_cards.text or "")
+    child_default_network_card_index = el.find("DefaultNetworkCardIndex")
+    if child_default_network_card_index is not None:
+        out["default_network_card_index"] = int(
+            child_default_network_card_index.text or ""
+        )
+    if el.find("NetworkCards") is not None:
+        import aws_sdk_ec2.types.network_card_info_list
+
+        out["network_cards"] = (
+            aws_sdk_ec2.types.network_card_info_list.deserialize_ec2_query(
+                el, "NetworkCards"
+            )
+        )
+    child_ipv4_addresses_per_interface = el.find("Ipv4AddressesPerInterface")
+    if child_ipv4_addresses_per_interface is not None:
+        out["ipv4_addresses_per_interface"] = int(
+            child_ipv4_addresses_per_interface.text or ""
+        )
+    child_ipv6_addresses_per_interface = el.find("Ipv6AddressesPerInterface")
+    if child_ipv6_addresses_per_interface is not None:
+        out["ipv6_addresses_per_interface"] = int(
+            child_ipv6_addresses_per_interface.text or ""
+        )
+    child_ipv6_supported = el.find("Ipv6Supported")
+    if child_ipv6_supported is not None:
+        out["ipv6_supported"] = (child_ipv6_supported.text or "").lower() == "true"
+    child_ena_support = el.find("EnaSupport")
+    if child_ena_support is not None:
+        import aws_sdk_ec2.types.ena_support
+
+        out["ena_support"] = aws_sdk_ec2.types.ena_support.deserialize_ec2_query(
+            child_ena_support
+        )
+    child_efa_supported = el.find("EfaSupported")
+    if child_efa_supported is not None:
+        out["efa_supported"] = (child_efa_supported.text or "").lower() == "true"
+    child_efa_info = el.find("EfaInfo")
+    if child_efa_info is not None:
+        import aws_sdk_ec2.types.efa_info
+
+        out["efa_info"] = aws_sdk_ec2.types.efa_info.deserialize_ec2_query(
+            child_efa_info
+        )
+    child_encryption_in_transit_supported = el.find("EncryptionInTransitSupported")
+    if child_encryption_in_transit_supported is not None:
+        out["encryption_in_transit_supported"] = (
+            child_encryption_in_transit_supported.text or ""
+        ).lower() == "true"
+    child_ena_srd_supported = el.find("EnaSrdSupported")
+    if child_ena_srd_supported is not None:
+        out["ena_srd_supported"] = (
+            child_ena_srd_supported.text or ""
+        ).lower() == "true"
+    if el.find("BandwidthWeightings") is not None:
+        import aws_sdk_ec2.types.bandwidth_weighting_type_list
+
+        out["bandwidth_weightings"] = (
+            aws_sdk_ec2.types.bandwidth_weighting_type_list.deserialize_ec2_query(
+                el, "BandwidthWeightings"
+            )
+        )
+    child_flexible_ena_queues_support = el.find("FlexibleEnaQueuesSupport")
+    if child_flexible_ena_queues_support is not None:
+        import aws_sdk_ec2.types.flexible_ena_queues_support
+
+        out["flexible_ena_queues_support"] = (
+            aws_sdk_ec2.types.flexible_ena_queues_support.deserialize_ec2_query(
+                child_flexible_ena_queues_support
+            )
+        )
+    child_connection_tracking_configuration = el.find("ConnectionTrackingConfiguration")
+    if child_connection_tracking_configuration is not None:
+        import aws_sdk_ec2.types.default_connection_tracking_configuration
+
+        out["connection_tracking_configuration"] = (
+            aws_sdk_ec2.types.default_connection_tracking_configuration.deserialize_ec2_query(
+                child_connection_tracking_configuration
+            )
+        )
+    child_secondary_network_supported = el.find("SecondaryNetworkSupported")
+    if child_secondary_network_supported is not None:
+        out["secondary_network_supported"] = (
+            child_secondary_network_supported.text or ""
+        ).lower() == "true"
+    child_maximum_secondary_network_interfaces = el.find(
+        "MaximumSecondaryNetworkInterfaces"
+    )
+    if child_maximum_secondary_network_interfaces is not None:
+        out["maximum_secondary_network_interfaces"] = int(
+            child_maximum_secondary_network_interfaces.text or ""
+        )
+    child_ipv4_addresses_per_secondary_interface = el.find(
+        "Ipv4AddressesPerSecondaryInterface"
+    )
+    if child_ipv4_addresses_per_secondary_interface is not None:
+        out["ipv4_addresses_per_secondary_interface"] = int(
+            child_ipv4_addresses_per_secondary_interface.text or ""
+        )
+    return out

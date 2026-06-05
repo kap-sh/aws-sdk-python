@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.describe_mac_hosts_request_max_results
@@ -21,3 +22,48 @@ class DescribeMacHostsRequest(TypedDict):
     """<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token to use to retrieve the next page of results.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeMacHostsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "host_ids" in value:
+        import aws_sdk_ec2.types.request_host_id_list
+
+        aws_sdk_ec2.types.request_host_id_list.serialize_ec2_query(
+            value["host_ids"], pairs, f"{prefix}.HostIds"
+        )
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeMacHostsRequest:
+    out: DescribeMacHostsRequest = {}  # type: ignore[typeddict-item]
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    if el.find("HostIds") is not None:
+        import aws_sdk_ec2.types.request_host_id_list
+
+        out["host_ids"] = aws_sdk_ec2.types.request_host_id_list.deserialize_ec2_query(
+            el, "HostIds"
+        )
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

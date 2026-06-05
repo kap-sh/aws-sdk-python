@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -23,3 +24,58 @@ class ModifyRouteServerRequest(TypedDict):
     """<p>Specifies whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyRouteServerRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "route_server_id" in value:
+        pairs.append((f"{prefix}.RouteServerId", str(value["route_server_id"])))
+    if "persist_routes" in value:
+        import aws_sdk_ec2.types.route_server_persist_routes_action
+
+        aws_sdk_ec2.types.route_server_persist_routes_action.serialize_ec2_query(
+            value["persist_routes"], pairs, f"{prefix}.PersistRoutes"
+        )
+    if "persist_routes_duration" in value:
+        pairs.append(
+            (f"{prefix}.PersistRoutesDuration", str(value["persist_routes_duration"]))
+        )
+    if "sns_notifications_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.SnsNotificationsEnabled",
+                "true" if value["sns_notifications_enabled"] else "false",
+            )
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> ModifyRouteServerRequest:
+    out: ModifyRouteServerRequest = {}  # type: ignore[typeddict-item]
+    child_route_server_id = el.find("RouteServerId")
+    if child_route_server_id is not None:
+        out["route_server_id"] = str(child_route_server_id.text or "")
+    child_persist_routes = el.find("PersistRoutes")
+    if child_persist_routes is not None:
+        import aws_sdk_ec2.types.route_server_persist_routes_action
+
+        out["persist_routes"] = (
+            aws_sdk_ec2.types.route_server_persist_routes_action.deserialize_ec2_query(
+                child_persist_routes
+            )
+        )
+    child_persist_routes_duration = el.find("PersistRoutesDuration")
+    if child_persist_routes_duration is not None:
+        out["persist_routes_duration"] = int(child_persist_routes_duration.text or "")
+    child_sns_notifications_enabled = el.find("SnsNotificationsEnabled")
+    if child_sns_notifications_enabled is not None:
+        out["sns_notifications_enabled"] = (
+            child_sns_notifications_enabled.text or ""
+        ).lower() == "true"
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

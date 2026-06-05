@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -10,3 +11,19 @@ if TYPE_CHECKING:
 class Phase1IntegrityAlgorithmsListValue(TypedDict):
     value: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The value for the integrity algorithm.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: Phase1IntegrityAlgorithmsListValue, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "value" in value:
+        pairs.append((f"{prefix}.Value", str(value["value"])))
+
+
+def deserialize_ec2_query(el: Element) -> Phase1IntegrityAlgorithmsListValue:
+    out: Phase1IntegrityAlgorithmsListValue = {}  # type: ignore[typeddict-item]
+    child_value = el.find("Value")
+    if child_value is not None:
+        out["value"] = str(child_value.text or "")
+    return out

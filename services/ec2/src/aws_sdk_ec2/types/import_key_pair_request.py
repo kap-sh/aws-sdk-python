@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.blob
@@ -21,3 +22,51 @@ class ImportKeyPairRequest(TypedDict):
     """<p>A unique name for the key pair.</p>"""
     public_key_material: NotRequired["aws_sdk_ec2.types.blob.Blob"]
     """<p>The public key.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ImportKeyPairRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "key_name" in value:
+        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+    if "public_key_material" in value:
+        import aws_sdk_ec2.types.blob
+
+        aws_sdk_ec2.types.blob.serialize_ec2_query(
+            value["public_key_material"], pairs, f"{prefix}.PublicKeyMaterial"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ImportKeyPairRequest:
+    out: ImportKeyPairRequest = {}  # type: ignore[typeddict-item]
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_key_name = el.find("KeyName")
+    if child_key_name is not None:
+        out["key_name"] = str(child_key_name.text or "")
+    child_public_key_material = el.find("PublicKeyMaterial")
+    if child_public_key_material is not None:
+        import aws_sdk_ec2.types.blob
+
+        out["public_key_material"] = aws_sdk_ec2.types.blob.deserialize_ec2_query(
+            child_public_key_material
+        )
+    return out

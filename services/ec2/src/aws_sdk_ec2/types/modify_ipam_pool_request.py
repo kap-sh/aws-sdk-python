@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -44,3 +45,118 @@ class ModifyIpamPoolRequest(TypedDict):
         "aws_sdk_ec2.types.request_ipam_resource_tag_list.RequestIpamResourceTagList"
     ]
     """<p>Remove tag allocation rules from a pool.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyIpamPoolRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_pool_id" in value:
+        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "auto_import" in value:
+        pairs.append(
+            (f"{prefix}.AutoImport", "true" if value["auto_import"] else "false")
+        )
+    if "allocation_min_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllocationMinNetmaskLength",
+                str(value["allocation_min_netmask_length"]),
+            )
+        )
+    if "allocation_max_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllocationMaxNetmaskLength",
+                str(value["allocation_max_netmask_length"]),
+            )
+        )
+    if "allocation_default_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllocationDefaultNetmaskLength",
+                str(value["allocation_default_netmask_length"]),
+            )
+        )
+    if "clear_allocation_default_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.ClearAllocationDefaultNetmaskLength",
+                "true" if value["clear_allocation_default_netmask_length"] else "false",
+            )
+        )
+    if "add_allocation_resource_tags" in value:
+        import aws_sdk_ec2.types.request_ipam_resource_tag_list
+
+        aws_sdk_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
+            value["add_allocation_resource_tags"],
+            pairs,
+            f"{prefix}.AddAllocationResourceTags",
+        )
+    if "remove_allocation_resource_tags" in value:
+        import aws_sdk_ec2.types.request_ipam_resource_tag_list
+
+        aws_sdk_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
+            value["remove_allocation_resource_tags"],
+            pairs,
+            f"{prefix}.RemoveAllocationResourceTags",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyIpamPoolRequest:
+    out: ModifyIpamPoolRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_pool_id = el.find("IpamPoolId")
+    if child_ipam_pool_id is not None:
+        out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_auto_import = el.find("AutoImport")
+    if child_auto_import is not None:
+        out["auto_import"] = (child_auto_import.text or "").lower() == "true"
+    child_allocation_min_netmask_length = el.find("AllocationMinNetmaskLength")
+    if child_allocation_min_netmask_length is not None:
+        out["allocation_min_netmask_length"] = int(
+            child_allocation_min_netmask_length.text or ""
+        )
+    child_allocation_max_netmask_length = el.find("AllocationMaxNetmaskLength")
+    if child_allocation_max_netmask_length is not None:
+        out["allocation_max_netmask_length"] = int(
+            child_allocation_max_netmask_length.text or ""
+        )
+    child_allocation_default_netmask_length = el.find("AllocationDefaultNetmaskLength")
+    if child_allocation_default_netmask_length is not None:
+        out["allocation_default_netmask_length"] = int(
+            child_allocation_default_netmask_length.text or ""
+        )
+    child_clear_allocation_default_netmask_length = el.find(
+        "ClearAllocationDefaultNetmaskLength"
+    )
+    if child_clear_allocation_default_netmask_length is not None:
+        out["clear_allocation_default_netmask_length"] = (
+            child_clear_allocation_default_netmask_length.text or ""
+        ).lower() == "true"
+    if el.find("AddAllocationResourceTags") is not None:
+        import aws_sdk_ec2.types.request_ipam_resource_tag_list
+
+        out["add_allocation_resource_tags"] = (
+            aws_sdk_ec2.types.request_ipam_resource_tag_list.deserialize_ec2_query(
+                el, "AddAllocationResourceTags"
+            )
+        )
+    if el.find("RemoveAllocationResourceTags") is not None:
+        import aws_sdk_ec2.types.request_ipam_resource_tag_list
+
+        out["remove_allocation_resource_tags"] = (
+            aws_sdk_ec2.types.request_ipam_resource_tag_list.deserialize_ec2_query(
+                el, "RemoveAllocationResourceTags"
+            )
+        )
+    return out

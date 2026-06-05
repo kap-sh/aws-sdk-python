@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -31,3 +32,77 @@ class CreateRouteServerRequest(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>The tags to apply to the route server during creation.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateRouteServerRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "amazon_side_asn" in value:
+        pairs.append((f"{prefix}.AmazonSideAsn", str(value["amazon_side_asn"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "persist_routes" in value:
+        import aws_sdk_ec2.types.route_server_persist_routes_action
+
+        aws_sdk_ec2.types.route_server_persist_routes_action.serialize_ec2_query(
+            value["persist_routes"], pairs, f"{prefix}.PersistRoutes"
+        )
+    if "persist_routes_duration" in value:
+        pairs.append(
+            (f"{prefix}.PersistRoutesDuration", str(value["persist_routes_duration"]))
+        )
+    if "sns_notifications_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.SnsNotificationsEnabled",
+                "true" if value["sns_notifications_enabled"] else "false",
+            )
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateRouteServerRequest:
+    out: CreateRouteServerRequest = {}  # type: ignore[typeddict-item]
+    child_amazon_side_asn = el.find("AmazonSideAsn")
+    if child_amazon_side_asn is not None:
+        out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_persist_routes = el.find("PersistRoutes")
+    if child_persist_routes is not None:
+        import aws_sdk_ec2.types.route_server_persist_routes_action
+
+        out["persist_routes"] = (
+            aws_sdk_ec2.types.route_server_persist_routes_action.deserialize_ec2_query(
+                child_persist_routes
+            )
+        )
+    child_persist_routes_duration = el.find("PersistRoutesDuration")
+    if child_persist_routes_duration is not None:
+        out["persist_routes_duration"] = int(child_persist_routes_duration.text or "")
+    child_sns_notifications_enabled = el.find("SnsNotificationsEnabled")
+    if child_sns_notifications_enabled is not None:
+        out["sns_notifications_enabled"] = (
+            child_sns_notifications_enabled.text or ""
+        ).lower() == "true"
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

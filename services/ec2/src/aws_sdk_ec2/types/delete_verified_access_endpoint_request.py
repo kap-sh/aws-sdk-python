@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -18,3 +19,38 @@ class DeleteVerifiedAccessEndpointRequest(TypedDict):
     """<p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DeleteVerifiedAccessEndpointRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "verified_access_endpoint_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.VerifiedAccessEndpointId",
+                str(value["verified_access_endpoint_id"]),
+            )
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> DeleteVerifiedAccessEndpointRequest:
+    out: DeleteVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
+    child_verified_access_endpoint_id = el.find("VerifiedAccessEndpointId")
+    if child_verified_access_endpoint_id is not None:
+        out["verified_access_endpoint_id"] = str(
+            child_verified_access_endpoint_id.text or ""
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

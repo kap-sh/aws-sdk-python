@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -15,3 +16,36 @@ class PrefixList(TypedDict):
     """<p>The ID of the prefix.</p>"""
     prefix_list_name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The name of the prefix.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: PrefixList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "cidrs" in value:
+        import aws_sdk_ec2.types.value_string_list
+
+        aws_sdk_ec2.types.value_string_list.serialize_ec2_query(
+            value["cidrs"], pairs, f"{prefix}.CidrSet"
+        )
+    if "prefix_list_id" in value:
+        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+    if "prefix_list_name" in value:
+        pairs.append((f"{prefix}.PrefixListName", str(value["prefix_list_name"])))
+
+
+def deserialize_ec2_query(el: Element) -> PrefixList:
+    out: PrefixList = {}  # type: ignore[typeddict-item]
+    if el.find("CidrSet") is not None:
+        import aws_sdk_ec2.types.value_string_list
+
+        out["cidrs"] = aws_sdk_ec2.types.value_string_list.deserialize_ec2_query(
+            el, "CidrSet"
+        )
+    child_prefix_list_id = el.find("PrefixListId")
+    if child_prefix_list_id is not None:
+        out["prefix_list_id"] = str(child_prefix_list_id.text or "")
+    child_prefix_list_name = el.find("PrefixListName")
+    if child_prefix_list_name is not None:
+        out["prefix_list_name"] = str(child_prefix_list_name.text or "")
+    return out

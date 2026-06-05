@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.filter_list
@@ -18,3 +19,47 @@ class DescribeReservedInstancesListingsRequest(TypedDict):
     """<p>One or more Reserved Instance listing IDs.</p>"""
     filters: NotRequired["aws_sdk_ec2.types.filter_list.FilterList"]
     """<p>One or more filters.</p> <ul> <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> <li> <p> <code>status-message</code> - The reason for the status.</p> </li> </ul>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeReservedInstancesListingsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "reserved_instances_id" in value:
+        pairs.append(
+            (f"{prefix}.ReservedInstancesId", str(value["reserved_instances_id"]))
+        )
+    if "reserved_instances_listing_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.ReservedInstancesListingId",
+                str(value["reserved_instances_listing_id"]),
+            )
+        )
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesListingsRequest:
+    out: DescribeReservedInstancesListingsRequest = {}  # type: ignore[typeddict-item]
+    child_reserved_instances_id = el.find("ReservedInstancesId")
+    if child_reserved_instances_id is not None:
+        out["reserved_instances_id"] = str(child_reserved_instances_id.text or "")
+    child_reserved_instances_listing_id = el.find("ReservedInstancesListingId")
+    if child_reserved_instances_listing_id is not None:
+        out["reserved_instances_listing_id"] = str(
+            child_reserved_instances_listing_id.text or ""
+        )
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    return out

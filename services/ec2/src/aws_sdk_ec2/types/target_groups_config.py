@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.target_groups
@@ -10,3 +11,26 @@ if TYPE_CHECKING:
 class TargetGroupsConfig(TypedDict):
     target_groups: NotRequired["aws_sdk_ec2.types.target_groups.TargetGroups"]
     """<p>One or more target groups.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TargetGroupsConfig, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "target_groups" in value:
+        import aws_sdk_ec2.types.target_groups
+
+        aws_sdk_ec2.types.target_groups.serialize_ec2_query(
+            value["target_groups"], pairs, f"{prefix}.TargetGroups"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> TargetGroupsConfig:
+    out: TargetGroupsConfig = {}  # type: ignore[typeddict-item]
+    if el.find("TargetGroups") is not None:
+        import aws_sdk_ec2.types.target_groups
+
+        out["target_groups"] = aws_sdk_ec2.types.target_groups.deserialize_ec2_query(
+            el, "TargetGroups"
+        )
+    return out

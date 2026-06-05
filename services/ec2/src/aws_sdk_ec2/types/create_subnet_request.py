@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -41,3 +42,92 @@ class CreateSubnetRequest(TypedDict):
     """<p>An IPv6 netmask length for the subnet.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateSubnetRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "cidr_block" in value:
+        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+    if "ipv6_cidr_block" in value:
+        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+    if "outpost_arn" in value:
+        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "ipv6_native" in value:
+        pairs.append(
+            (f"{prefix}.Ipv6Native", "true" if value["ipv6_native"] else "false")
+        )
+    if "ipv4_ipam_pool_id" in value:
+        pairs.append((f"{prefix}.Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
+    if "ipv4_netmask_length" in value:
+        pairs.append((f"{prefix}.Ipv4NetmaskLength", str(value["ipv4_netmask_length"])))
+    if "ipv6_ipam_pool_id" in value:
+        pairs.append((f"{prefix}.Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
+    if "ipv6_netmask_length" in value:
+        pairs.append((f"{prefix}.Ipv6NetmaskLength", str(value["ipv6_netmask_length"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> CreateSubnetRequest:
+    out: CreateSubnetRequest = {}  # type: ignore[typeddict-item]
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_cidr_block = el.find("CidrBlock")
+    if child_cidr_block is not None:
+        out["cidr_block"] = str(child_cidr_block.text or "")
+    child_ipv6_cidr_block = el.find("Ipv6CidrBlock")
+    if child_ipv6_cidr_block is not None:
+        out["ipv6_cidr_block"] = str(child_ipv6_cidr_block.text or "")
+    child_outpost_arn = el.find("OutpostArn")
+    if child_outpost_arn is not None:
+        out["outpost_arn"] = str(child_outpost_arn.text or "")
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    child_ipv6_native = el.find("Ipv6Native")
+    if child_ipv6_native is not None:
+        out["ipv6_native"] = (child_ipv6_native.text or "").lower() == "true"
+    child_ipv4_ipam_pool_id = el.find("Ipv4IpamPoolId")
+    if child_ipv4_ipam_pool_id is not None:
+        out["ipv4_ipam_pool_id"] = str(child_ipv4_ipam_pool_id.text or "")
+    child_ipv4_netmask_length = el.find("Ipv4NetmaskLength")
+    if child_ipv4_netmask_length is not None:
+        out["ipv4_netmask_length"] = int(child_ipv4_netmask_length.text or "")
+    child_ipv6_ipam_pool_id = el.find("Ipv6IpamPoolId")
+    if child_ipv6_ipam_pool_id is not None:
+        out["ipv6_ipam_pool_id"] = str(child_ipv6_ipam_pool_id.text or "")
+    child_ipv6_netmask_length = el.find("Ipv6NetmaskLength")
+    if child_ipv6_netmask_length is not None:
+        out["ipv6_netmask_length"] = int(child_ipv6_netmask_length.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

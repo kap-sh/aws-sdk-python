@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.propagating_vgw_list
@@ -30,3 +31,79 @@ class RouteTable(TypedDict):
     """<p>The ID of the VPC.</p>"""
     owner_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Amazon Web Services account that owns the route table.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: RouteTable, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "associations" in value:
+        import aws_sdk_ec2.types.route_table_association_list
+
+        aws_sdk_ec2.types.route_table_association_list.serialize_ec2_query(
+            value["associations"], pairs, f"{prefix}.AssociationSet"
+        )
+    if "propagating_vgws" in value:
+        import aws_sdk_ec2.types.propagating_vgw_list
+
+        aws_sdk_ec2.types.propagating_vgw_list.serialize_ec2_query(
+            value["propagating_vgws"], pairs, f"{prefix}.PropagatingVgwSet"
+        )
+    if "route_table_id" in value:
+        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+    if "routes" in value:
+        import aws_sdk_ec2.types.route_list
+
+        aws_sdk_ec2.types.route_list.serialize_ec2_query(
+            value["routes"], pairs, f"{prefix}.RouteSet"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+
+
+def deserialize_ec2_query(el: Element) -> RouteTable:
+    out: RouteTable = {}  # type: ignore[typeddict-item]
+    if el.find("AssociationSet") is not None:
+        import aws_sdk_ec2.types.route_table_association_list
+
+        out["associations"] = (
+            aws_sdk_ec2.types.route_table_association_list.deserialize_ec2_query(
+                el, "AssociationSet"
+            )
+        )
+    if el.find("PropagatingVgwSet") is not None:
+        import aws_sdk_ec2.types.propagating_vgw_list
+
+        out["propagating_vgws"] = (
+            aws_sdk_ec2.types.propagating_vgw_list.deserialize_ec2_query(
+                el, "PropagatingVgwSet"
+            )
+        )
+    child_route_table_id = el.find("RouteTableId")
+    if child_route_table_id is not None:
+        out["route_table_id"] = str(child_route_table_id.text or "")
+    if el.find("RouteSet") is not None:
+        import aws_sdk_ec2.types.route_list
+
+        out["routes"] = aws_sdk_ec2.types.route_list.deserialize_ec2_query(
+            el, "RouteSet"
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    return out

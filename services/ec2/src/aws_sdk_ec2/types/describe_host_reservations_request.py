@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.filter_list
@@ -21,3 +22,50 @@ class DescribeHostReservationsRequest(TypedDict):
     """<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token to use to retrieve the next page of results.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeHostReservationsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "filter" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filter"], pairs, f"{prefix}.Filter"
+        )
+    if "host_reservation_id_set" in value:
+        import aws_sdk_ec2.types.host_reservation_id_set
+
+        aws_sdk_ec2.types.host_reservation_id_set.serialize_ec2_query(
+            value["host_reservation_id_set"], pairs, f"{prefix}.HostReservationIdSet"
+        )
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeHostReservationsRequest:
+    out: DescribeHostReservationsRequest = {}  # type: ignore[typeddict-item]
+    if el.find("Filter") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filter"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filter"
+        )
+    if el.find("HostReservationIdSet") is not None:
+        import aws_sdk_ec2.types.host_reservation_id_set
+
+        out["host_reservation_id_set"] = (
+            aws_sdk_ec2.types.host_reservation_id_set.deserialize_ec2_query(
+                el, "HostReservationIdSet"
+            )
+        )
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

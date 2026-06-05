@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -41,3 +42,106 @@ class GetSpotPlacementScoresRequest(TypedDict):
     """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: GetSpotPlacementScoresRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_types" in value:
+        import aws_sdk_ec2.types.instance_types
+
+        aws_sdk_ec2.types.instance_types.serialize_ec2_query(
+            value["instance_types"], pairs, f"{prefix}.InstanceTypes"
+        )
+    if "target_capacity" in value:
+        pairs.append((f"{prefix}.TargetCapacity", str(value["target_capacity"])))
+    if "target_capacity_unit_type" in value:
+        import aws_sdk_ec2.types.target_capacity_unit_type
+
+        aws_sdk_ec2.types.target_capacity_unit_type.serialize_ec2_query(
+            value["target_capacity_unit_type"],
+            pairs,
+            f"{prefix}.TargetCapacityUnitType",
+        )
+    if "single_availability_zone" in value:
+        pairs.append(
+            (
+                f"{prefix}.SingleAvailabilityZone",
+                "true" if value["single_availability_zone"] else "false",
+            )
+        )
+    if "region_names" in value:
+        import aws_sdk_ec2.types.region_names
+
+        aws_sdk_ec2.types.region_names.serialize_ec2_query(
+            value["region_names"], pairs, f"{prefix}.RegionNames"
+        )
+    if "instance_requirements_with_metadata" in value:
+        import aws_sdk_ec2.types.instance_requirements_with_metadata_request
+
+        aws_sdk_ec2.types.instance_requirements_with_metadata_request.serialize_ec2_query(
+            value["instance_requirements_with_metadata"],
+            pairs,
+            f"{prefix}.InstanceRequirementsWithMetadata",
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
+    out: GetSpotPlacementScoresRequest = {}  # type: ignore[typeddict-item]
+    if el.find("InstanceTypes") is not None:
+        import aws_sdk_ec2.types.instance_types
+
+        out["instance_types"] = aws_sdk_ec2.types.instance_types.deserialize_ec2_query(
+            el, "InstanceTypes"
+        )
+    child_target_capacity = el.find("TargetCapacity")
+    if child_target_capacity is not None:
+        out["target_capacity"] = int(child_target_capacity.text or "")
+    child_target_capacity_unit_type = el.find("TargetCapacityUnitType")
+    if child_target_capacity_unit_type is not None:
+        import aws_sdk_ec2.types.target_capacity_unit_type
+
+        out["target_capacity_unit_type"] = (
+            aws_sdk_ec2.types.target_capacity_unit_type.deserialize_ec2_query(
+                child_target_capacity_unit_type
+            )
+        )
+    child_single_availability_zone = el.find("SingleAvailabilityZone")
+    if child_single_availability_zone is not None:
+        out["single_availability_zone"] = (
+            child_single_availability_zone.text or ""
+        ).lower() == "true"
+    if el.find("RegionNames") is not None:
+        import aws_sdk_ec2.types.region_names
+
+        out["region_names"] = aws_sdk_ec2.types.region_names.deserialize_ec2_query(
+            el, "RegionNames"
+        )
+    child_instance_requirements_with_metadata = el.find(
+        "InstanceRequirementsWithMetadata"
+    )
+    if child_instance_requirements_with_metadata is not None:
+        import aws_sdk_ec2.types.instance_requirements_with_metadata_request
+
+        out["instance_requirements_with_metadata"] = (
+            aws_sdk_ec2.types.instance_requirements_with_metadata_request.deserialize_ec2_query(
+                child_instance_requirements_with_metadata
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

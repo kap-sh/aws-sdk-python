@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -40,3 +41,98 @@ class AllocateIpamPoolCidrRequest(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> <p>If you specify tags, the request is authorized against the allocation resource in addition to the pool resource.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: AllocateIpamPoolCidrRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_pool_id" in value:
+        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+    if "cidr" in value:
+        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+    if "netmask_length" in value:
+        pairs.append((f"{prefix}.NetmaskLength", str(value["netmask_length"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "preview_next_cidr" in value:
+        pairs.append(
+            (
+                f"{prefix}.PreviewNextCidr",
+                "true" if value["preview_next_cidr"] else "false",
+            )
+        )
+    if "allowed_cidrs" in value:
+        import aws_sdk_ec2.types.ipam_pool_allocation_allowed_cidrs
+
+        aws_sdk_ec2.types.ipam_pool_allocation_allowed_cidrs.serialize_ec2_query(
+            value["allowed_cidrs"], pairs, f"{prefix}.AllowedCidrs"
+        )
+    if "disallowed_cidrs" in value:
+        import aws_sdk_ec2.types.ipam_pool_allocation_disallowed_cidrs
+
+        aws_sdk_ec2.types.ipam_pool_allocation_disallowed_cidrs.serialize_ec2_query(
+            value["disallowed_cidrs"], pairs, f"{prefix}.DisallowedCidrs"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> AllocateIpamPoolCidrRequest:
+    out: AllocateIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_pool_id = el.find("IpamPoolId")
+    if child_ipam_pool_id is not None:
+        out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
+    child_cidr = el.find("Cidr")
+    if child_cidr is not None:
+        out["cidr"] = str(child_cidr.text or "")
+    child_netmask_length = el.find("NetmaskLength")
+    if child_netmask_length is not None:
+        out["netmask_length"] = int(child_netmask_length.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_preview_next_cidr = el.find("PreviewNextCidr")
+    if child_preview_next_cidr is not None:
+        out["preview_next_cidr"] = (
+            child_preview_next_cidr.text or ""
+        ).lower() == "true"
+    if el.find("AllowedCidrs") is not None:
+        import aws_sdk_ec2.types.ipam_pool_allocation_allowed_cidrs
+
+        out["allowed_cidrs"] = (
+            aws_sdk_ec2.types.ipam_pool_allocation_allowed_cidrs.deserialize_ec2_query(
+                el, "AllowedCidrs"
+            )
+        )
+    if el.find("DisallowedCidrs") is not None:
+        import aws_sdk_ec2.types.ipam_pool_allocation_disallowed_cidrs
+
+        out["disallowed_cidrs"] = (
+            aws_sdk_ec2.types.ipam_pool_allocation_disallowed_cidrs.deserialize_ec2_query(
+                el, "DisallowedCidrs"
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

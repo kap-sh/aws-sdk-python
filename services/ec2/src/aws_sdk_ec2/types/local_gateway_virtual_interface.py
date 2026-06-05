@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
@@ -51,3 +52,126 @@ class LocalGatewayVirtualInterface(TypedDict):
         "aws_sdk_ec2.types.local_gateway_virtual_interface_configuration_state.LocalGatewayVirtualInterfaceConfigurationState"
     ]
     """<p>The current state of the local gateway virtual interface.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: LocalGatewayVirtualInterface, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "local_gateway_virtual_interface_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.LocalGatewayVirtualInterfaceId",
+                str(value["local_gateway_virtual_interface_id"]),
+            )
+        )
+    if "local_gateway_id" in value:
+        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+    if "local_gateway_virtual_interface_group_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.LocalGatewayVirtualInterfaceGroupId",
+                str(value["local_gateway_virtual_interface_group_id"]),
+            )
+        )
+    if "local_gateway_virtual_interface_arn" in value:
+        pairs.append(
+            (
+                f"{prefix}.LocalGatewayVirtualInterfaceArn",
+                str(value["local_gateway_virtual_interface_arn"]),
+            )
+        )
+    if "outpost_lag_id" in value:
+        pairs.append((f"{prefix}.OutpostLagId", str(value["outpost_lag_id"])))
+    if "vlan" in value:
+        pairs.append((f"{prefix}.Vlan", str(value["vlan"])))
+    if "local_address" in value:
+        pairs.append((f"{prefix}.LocalAddress", str(value["local_address"])))
+    if "peer_address" in value:
+        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+    if "local_bgp_asn" in value:
+        pairs.append((f"{prefix}.LocalBgpAsn", str(value["local_bgp_asn"])))
+    if "peer_bgp_asn" in value:
+        pairs.append((f"{prefix}.PeerBgpAsn", str(value["peer_bgp_asn"])))
+    if "peer_bgp_asn_extended" in value:
+        pairs.append(
+            (f"{prefix}.PeerBgpAsnExtended", str(value["peer_bgp_asn_extended"]))
+        )
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "configuration_state" in value:
+        import aws_sdk_ec2.types.local_gateway_virtual_interface_configuration_state
+
+        aws_sdk_ec2.types.local_gateway_virtual_interface_configuration_state.serialize_ec2_query(
+            value["configuration_state"], pairs, f"{prefix}.ConfigurationState"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> LocalGatewayVirtualInterface:
+    out: LocalGatewayVirtualInterface = {}  # type: ignore[typeddict-item]
+    child_local_gateway_virtual_interface_id = el.find("LocalGatewayVirtualInterfaceId")
+    if child_local_gateway_virtual_interface_id is not None:
+        out["local_gateway_virtual_interface_id"] = str(
+            child_local_gateway_virtual_interface_id.text or ""
+        )
+    child_local_gateway_id = el.find("LocalGatewayId")
+    if child_local_gateway_id is not None:
+        out["local_gateway_id"] = str(child_local_gateway_id.text or "")
+    child_local_gateway_virtual_interface_group_id = el.find(
+        "LocalGatewayVirtualInterfaceGroupId"
+    )
+    if child_local_gateway_virtual_interface_group_id is not None:
+        out["local_gateway_virtual_interface_group_id"] = str(
+            child_local_gateway_virtual_interface_group_id.text or ""
+        )
+    child_local_gateway_virtual_interface_arn = el.find(
+        "LocalGatewayVirtualInterfaceArn"
+    )
+    if child_local_gateway_virtual_interface_arn is not None:
+        out["local_gateway_virtual_interface_arn"] = str(
+            child_local_gateway_virtual_interface_arn.text or ""
+        )
+    child_outpost_lag_id = el.find("OutpostLagId")
+    if child_outpost_lag_id is not None:
+        out["outpost_lag_id"] = str(child_outpost_lag_id.text or "")
+    child_vlan = el.find("Vlan")
+    if child_vlan is not None:
+        out["vlan"] = int(child_vlan.text or "")
+    child_local_address = el.find("LocalAddress")
+    if child_local_address is not None:
+        out["local_address"] = str(child_local_address.text or "")
+    child_peer_address = el.find("PeerAddress")
+    if child_peer_address is not None:
+        out["peer_address"] = str(child_peer_address.text or "")
+    child_local_bgp_asn = el.find("LocalBgpAsn")
+    if child_local_bgp_asn is not None:
+        out["local_bgp_asn"] = int(child_local_bgp_asn.text or "")
+    child_peer_bgp_asn = el.find("PeerBgpAsn")
+    if child_peer_bgp_asn is not None:
+        out["peer_bgp_asn"] = int(child_peer_bgp_asn.text or "")
+    child_peer_bgp_asn_extended = el.find("PeerBgpAsnExtended")
+    if child_peer_bgp_asn_extended is not None:
+        out["peer_bgp_asn_extended"] = int(child_peer_bgp_asn_extended.text or "")
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_configuration_state = el.find("ConfigurationState")
+    if child_configuration_state is not None:
+        import aws_sdk_ec2.types.local_gateway_virtual_interface_configuration_state
+
+        out["configuration_state"] = (
+            aws_sdk_ec2.types.local_gateway_virtual_interface_configuration_state.deserialize_ec2_query(
+                child_configuration_state
+            )
+        )
+    return out

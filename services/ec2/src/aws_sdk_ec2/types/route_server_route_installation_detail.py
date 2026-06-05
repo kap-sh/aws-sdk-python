@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.route_server_route_installation_status
@@ -18,3 +19,48 @@ class RouteServerRouteInstallationDetail(TypedDict):
     """<p>The current installation status of the route in the route table.</p>"""
     route_installation_status_reason: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The reason for the current installation status of the route.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: RouteServerRouteInstallationDetail, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "route_table_id" in value:
+        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+    if "route_installation_status" in value:
+        import aws_sdk_ec2.types.route_server_route_installation_status
+
+        aws_sdk_ec2.types.route_server_route_installation_status.serialize_ec2_query(
+            value["route_installation_status"],
+            pairs,
+            f"{prefix}.RouteInstallationStatus",
+        )
+    if "route_installation_status_reason" in value:
+        pairs.append(
+            (
+                f"{prefix}.RouteInstallationStatusReason",
+                str(value["route_installation_status_reason"]),
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> RouteServerRouteInstallationDetail:
+    out: RouteServerRouteInstallationDetail = {}  # type: ignore[typeddict-item]
+    child_route_table_id = el.find("RouteTableId")
+    if child_route_table_id is not None:
+        out["route_table_id"] = str(child_route_table_id.text or "")
+    child_route_installation_status = el.find("RouteInstallationStatus")
+    if child_route_installation_status is not None:
+        import aws_sdk_ec2.types.route_server_route_installation_status
+
+        out["route_installation_status"] = (
+            aws_sdk_ec2.types.route_server_route_installation_status.deserialize_ec2_query(
+                child_route_installation_status
+            )
+        )
+    child_route_installation_status_reason = el.find("RouteInstallationStatusReason")
+    if child_route_installation_status_reason is not None:
+        out["route_installation_status_reason"] = str(
+            child_route_installation_status_reason.text or ""
+        )
+    return out

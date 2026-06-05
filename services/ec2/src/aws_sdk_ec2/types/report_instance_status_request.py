@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -31,3 +32,89 @@ class ReportInstanceStatusRequest(TypedDict):
         "aws_sdk_ec2.types.report_instance_status_request_description.ReportInstanceStatusRequestDescription"
     ]
     """<p>Descriptive text about the health state of your instance.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ReportInstanceStatusRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "instances" in value:
+        import aws_sdk_ec2.types.instance_id_string_list
+
+        aws_sdk_ec2.types.instance_id_string_list.serialize_ec2_query(
+            value["instances"], pairs, f"{prefix}.InstanceId"
+        )
+    if "status" in value:
+        import aws_sdk_ec2.types.report_status_type
+
+        aws_sdk_ec2.types.report_status_type.serialize_ec2_query(
+            value["status"], pairs, f"{prefix}.Status"
+        )
+    if "start_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["start_time"], pairs, f"{prefix}.StartTime"
+        )
+    if "end_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["end_time"], pairs, f"{prefix}.EndTime"
+        )
+    if "reason_codes" in value:
+        import aws_sdk_ec2.types.reason_codes_list
+
+        aws_sdk_ec2.types.reason_codes_list.serialize_ec2_query(
+            value["reason_codes"], pairs, f"{prefix}.ReasonCode"
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+
+
+def deserialize_ec2_query(el: Element) -> ReportInstanceStatusRequest:
+    out: ReportInstanceStatusRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("InstanceId") is not None:
+        import aws_sdk_ec2.types.instance_id_string_list
+
+        out["instances"] = (
+            aws_sdk_ec2.types.instance_id_string_list.deserialize_ec2_query(
+                el, "InstanceId"
+            )
+        )
+    child_status = el.find("Status")
+    if child_status is not None:
+        import aws_sdk_ec2.types.report_status_type
+
+        out["status"] = aws_sdk_ec2.types.report_status_type.deserialize_ec2_query(
+            child_status
+        )
+    child_start_time = el.find("StartTime")
+    if child_start_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["start_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_start_time
+        )
+    child_end_time = el.find("EndTime")
+    if child_end_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["end_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_end_time
+        )
+    if el.find("ReasonCode") is not None:
+        import aws_sdk_ec2.types.reason_codes_list
+
+        out["reason_codes"] = aws_sdk_ec2.types.reason_codes_list.deserialize_ec2_query(
+            el, "ReasonCode"
+        )
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    return out

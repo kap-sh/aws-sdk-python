@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -26,3 +27,50 @@ class DescribeClientVpnAuthorizationRulesRequest(TypedDict):
         "aws_sdk_ec2.types.describe_client_vpn_authorization_rules_max_results.DescribeClientVpnAuthorizationRulesMaxResults"
     ]
     """<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeClientVpnAuthorizationRulesRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "client_vpn_endpoint_id" in value:
+        pairs.append(
+            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeClientVpnAuthorizationRulesRequest:
+    out: DescribeClientVpnAuthorizationRulesRequest = {}  # type: ignore[typeddict-item]
+    child_client_vpn_endpoint_id = el.find("ClientVpnEndpointId")
+    if child_client_vpn_endpoint_id is not None:
+        out["client_vpn_endpoint_id"] = str(child_client_vpn_endpoint_id.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    return out

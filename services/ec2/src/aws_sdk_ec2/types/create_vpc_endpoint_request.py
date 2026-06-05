@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -72,3 +73,188 @@ class CreateVpcEndpointRequest(TypedDict):
     """<p>The Amazon Resource Name (ARN) of a resource configuration that will be associated with the VPC endpoint of type resource.</p>"""
     service_region: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Region where the service is hosted. The default is the current Region.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateVpcEndpointRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "vpc_endpoint_type" in value:
+        import aws_sdk_ec2.types.vpc_endpoint_type
+
+        aws_sdk_ec2.types.vpc_endpoint_type.serialize_ec2_query(
+            value["vpc_endpoint_type"], pairs, f"{prefix}.VpcEndpointType"
+        )
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "service_name" in value:
+        pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+    if "policy_document" in value:
+        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+    if "route_table_ids" in value:
+        import aws_sdk_ec2.types.vpc_endpoint_route_table_id_list
+
+        aws_sdk_ec2.types.vpc_endpoint_route_table_id_list.serialize_ec2_query(
+            value["route_table_ids"], pairs, f"{prefix}.RouteTableIds"
+        )
+    if "subnet_ids" in value:
+        import aws_sdk_ec2.types.vpc_endpoint_subnet_id_list
+
+        aws_sdk_ec2.types.vpc_endpoint_subnet_id_list.serialize_ec2_query(
+            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+        )
+    if "security_group_ids" in value:
+        import aws_sdk_ec2.types.vpc_endpoint_security_group_id_list
+
+        aws_sdk_ec2.types.vpc_endpoint_security_group_id_list.serialize_ec2_query(
+            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+        )
+    if "ip_address_type" in value:
+        import aws_sdk_ec2.types.ip_address_type
+
+        aws_sdk_ec2.types.ip_address_type.serialize_ec2_query(
+            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+        )
+    if "dns_options" in value:
+        import aws_sdk_ec2.types.dns_options_specification
+
+        aws_sdk_ec2.types.dns_options_specification.serialize_ec2_query(
+            value["dns_options"], pairs, f"{prefix}.DnsOptions"
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "private_dns_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.PrivateDnsEnabled",
+                "true" if value["private_dns_enabled"] else "false",
+            )
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "subnet_configurations" in value:
+        import aws_sdk_ec2.types.subnet_configurations_list
+
+        aws_sdk_ec2.types.subnet_configurations_list.serialize_ec2_query(
+            value["subnet_configurations"], pairs, f"{prefix}.SubnetConfigurations"
+        )
+    if "service_network_arn" in value:
+        pairs.append((f"{prefix}.ServiceNetworkArn", str(value["service_network_arn"])))
+    if "resource_configuration_arn" in value:
+        pairs.append(
+            (
+                f"{prefix}.ResourceConfigurationArn",
+                str(value["resource_configuration_arn"]),
+            )
+        )
+    if "service_region" in value:
+        pairs.append((f"{prefix}.ServiceRegion", str(value["service_region"])))
+
+
+def deserialize_ec2_query(el: Element) -> CreateVpcEndpointRequest:
+    out: CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_vpc_endpoint_type = el.find("VpcEndpointType")
+    if child_vpc_endpoint_type is not None:
+        import aws_sdk_ec2.types.vpc_endpoint_type
+
+        out["vpc_endpoint_type"] = (
+            aws_sdk_ec2.types.vpc_endpoint_type.deserialize_ec2_query(
+                child_vpc_endpoint_type
+            )
+        )
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    child_service_name = el.find("ServiceName")
+    if child_service_name is not None:
+        out["service_name"] = str(child_service_name.text or "")
+    child_policy_document = el.find("PolicyDocument")
+    if child_policy_document is not None:
+        out["policy_document"] = str(child_policy_document.text or "")
+    if el.find("RouteTableIds") is not None:
+        import aws_sdk_ec2.types.vpc_endpoint_route_table_id_list
+
+        out["route_table_ids"] = (
+            aws_sdk_ec2.types.vpc_endpoint_route_table_id_list.deserialize_ec2_query(
+                el, "RouteTableIds"
+            )
+        )
+    if el.find("SubnetIds") is not None:
+        import aws_sdk_ec2.types.vpc_endpoint_subnet_id_list
+
+        out["subnet_ids"] = (
+            aws_sdk_ec2.types.vpc_endpoint_subnet_id_list.deserialize_ec2_query(
+                el, "SubnetIds"
+            )
+        )
+    if el.find("SecurityGroupIds") is not None:
+        import aws_sdk_ec2.types.vpc_endpoint_security_group_id_list
+
+        out["security_group_ids"] = (
+            aws_sdk_ec2.types.vpc_endpoint_security_group_id_list.deserialize_ec2_query(
+                el, "SecurityGroupIds"
+            )
+        )
+    child_ip_address_type = el.find("IpAddressType")
+    if child_ip_address_type is not None:
+        import aws_sdk_ec2.types.ip_address_type
+
+        out["ip_address_type"] = (
+            aws_sdk_ec2.types.ip_address_type.deserialize_ec2_query(
+                child_ip_address_type
+            )
+        )
+    child_dns_options = el.find("DnsOptions")
+    if child_dns_options is not None:
+        import aws_sdk_ec2.types.dns_options_specification
+
+        out["dns_options"] = (
+            aws_sdk_ec2.types.dns_options_specification.deserialize_ec2_query(
+                child_dns_options
+            )
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_private_dns_enabled = el.find("PrivateDnsEnabled")
+    if child_private_dns_enabled is not None:
+        out["private_dns_enabled"] = (
+            child_private_dns_enabled.text or ""
+        ).lower() == "true"
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    if el.find("SubnetConfigurations") is not None:
+        import aws_sdk_ec2.types.subnet_configurations_list
+
+        out["subnet_configurations"] = (
+            aws_sdk_ec2.types.subnet_configurations_list.deserialize_ec2_query(
+                el, "SubnetConfigurations"
+            )
+        )
+    child_service_network_arn = el.find("ServiceNetworkArn")
+    if child_service_network_arn is not None:
+        out["service_network_arn"] = str(child_service_network_arn.text or "")
+    child_resource_configuration_arn = el.find("ResourceConfigurationArn")
+    if child_resource_configuration_arn is not None:
+        out["resource_configuration_arn"] = str(
+            child_resource_configuration_arn.text or ""
+        )
+    child_service_region = el.find("ServiceRegion")
+    if child_service_region is not None:
+        out["service_region"] = str(child_service_region.text or "")
+    return out

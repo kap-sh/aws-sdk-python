@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.declarative_policies_report_list
@@ -15,3 +16,35 @@ class DescribeDeclarativePoliciesReportsResult(TypedDict):
         "aws_sdk_ec2.types.declarative_policies_report_list.DeclarativePoliciesReportList"
     ]
     """<p>The report metadata.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeDeclarativePoliciesReportsResult,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "reports" in value:
+        import aws_sdk_ec2.types.declarative_policies_report_list
+
+        aws_sdk_ec2.types.declarative_policies_report_list.serialize_ec2_query(
+            value["reports"], pairs, f"{prefix}.ReportSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeDeclarativePoliciesReportsResult:
+    out: DescribeDeclarativePoliciesReportsResult = {}  # type: ignore[typeddict-item]
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    if el.find("ReportSet") is not None:
+        import aws_sdk_ec2.types.declarative_policies_report_list
+
+        out["reports"] = (
+            aws_sdk_ec2.types.declarative_policies_report_list.deserialize_ec2_query(
+                el, "ReportSet"
+            )
+        )
+    return out

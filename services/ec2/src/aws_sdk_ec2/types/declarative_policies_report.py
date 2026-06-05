@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.millisecond_date_time
@@ -29,3 +30,85 @@ class DeclarativePoliciesReport(TypedDict):
     """<p>The current status of the report.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]
     """<p>Any tags assigned to the report.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DeclarativePoliciesReport, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "report_id" in value:
+        pairs.append((f"{prefix}.ReportId", str(value["report_id"])))
+    if "s3_bucket" in value:
+        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+    if "s3_prefix" in value:
+        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+    if "target_id" in value:
+        pairs.append((f"{prefix}.TargetId", str(value["target_id"])))
+    if "start_time" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["start_time"], pairs, f"{prefix}.StartTime"
+        )
+    if "end_time" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["end_time"], pairs, f"{prefix}.EndTime"
+        )
+    if "status" in value:
+        import aws_sdk_ec2.types.report_state
+
+        aws_sdk_ec2.types.report_state.serialize_ec2_query(
+            value["status"], pairs, f"{prefix}.Status"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DeclarativePoliciesReport:
+    out: DeclarativePoliciesReport = {}  # type: ignore[typeddict-item]
+    child_report_id = el.find("ReportId")
+    if child_report_id is not None:
+        out["report_id"] = str(child_report_id.text or "")
+    child_s3_bucket = el.find("S3Bucket")
+    if child_s3_bucket is not None:
+        out["s3_bucket"] = str(child_s3_bucket.text or "")
+    child_s3_prefix = el.find("S3Prefix")
+    if child_s3_prefix is not None:
+        out["s3_prefix"] = str(child_s3_prefix.text or "")
+    child_target_id = el.find("TargetId")
+    if child_target_id is not None:
+        out["target_id"] = str(child_target_id.text or "")
+    child_start_time = el.find("StartTime")
+    if child_start_time is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["start_time"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_start_time
+            )
+        )
+    child_end_time = el.find("EndTime")
+    if child_end_time is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["end_time"] = aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+            child_end_time
+        )
+    child_status = el.find("Status")
+    if child_status is not None:
+        import aws_sdk_ec2.types.report_state
+
+        out["status"] = aws_sdk_ec2.types.report_state.deserialize_ec2_query(
+            child_status
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    return out

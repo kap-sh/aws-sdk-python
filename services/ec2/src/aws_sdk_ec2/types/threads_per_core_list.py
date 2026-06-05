@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ThreadsPerCoreList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.threads_per_core
@@ -8,3 +9,18 @@ if TYPE_CHECKING:
 ThreadsPerCoreList: TypeAlias = list[
     "aws_sdk_ec2.types.threads_per_core.ThreadsPerCore"
 ]
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ThreadsPerCoreList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        pairs.append((f"{prefix}.{n}", str(item)))
+
+
+def deserialize_ec2_query(parent: Element, tag: str) -> ThreadsPerCoreList:
+    out: ThreadsPerCoreList = []
+    for child in parent.findall(tag):
+        out.append(int(child.text or ""))
+    return out

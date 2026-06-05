@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -35,3 +36,62 @@ class CreateSecondarySubnetRequest(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>The tags to assign to the secondary subnet.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateSecondarySubnetRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipv4_cidr_block" in value:
+        pairs.append((f"{prefix}.Ipv4CidrBlock", str(value["ipv4_cidr_block"])))
+    if "secondary_network_id" in value:
+        pairs.append(
+            (f"{prefix}.SecondaryNetworkId", str(value["secondary_network_id"]))
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateSecondarySubnetRequest:
+    out: CreateSecondarySubnetRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipv4_cidr_block = el.find("Ipv4CidrBlock")
+    if child_ipv4_cidr_block is not None:
+        out["ipv4_cidr_block"] = str(child_ipv4_cidr_block.text or "")
+    child_secondary_network_id = el.find("SecondaryNetworkId")
+    if child_secondary_network_id is not None:
+        out["secondary_network_id"] = str(child_secondary_network_id.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

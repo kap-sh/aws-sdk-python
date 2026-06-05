@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -13,3 +14,24 @@ class DeleteNatGatewayRequest(TypedDict):
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
     nat_gateway_id: NotRequired["aws_sdk_ec2.types.nat_gateway_id.NatGatewayId"]
     """<p>The ID of the NAT gateway.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DeleteNatGatewayRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "nat_gateway_id" in value:
+        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+
+
+def deserialize_ec2_query(el: Element) -> DeleteNatGatewayRequest:
+    out: DeleteNatGatewayRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_nat_gateway_id = el.find("NatGatewayId")
+    if child_nat_gateway_id is not None:
+        out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
+    return out

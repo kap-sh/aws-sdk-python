@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -54,3 +55,156 @@ class CreateFlowLogsRequest(TypedDict):
         "aws_sdk_ec2.types.destination_options_request.DestinationOptionsRequest"
     ]
     """<p>The destination options.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateFlowLogsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "deliver_logs_permission_arn" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeliverLogsPermissionArn",
+                str(value["deliver_logs_permission_arn"]),
+            )
+        )
+    if "deliver_cross_account_role" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeliverCrossAccountRole",
+                str(value["deliver_cross_account_role"]),
+            )
+        )
+    if "log_group_name" in value:
+        pairs.append((f"{prefix}.LogGroupName", str(value["log_group_name"])))
+    if "resource_ids" in value:
+        import aws_sdk_ec2.types.flow_log_resource_ids
+
+        aws_sdk_ec2.types.flow_log_resource_ids.serialize_ec2_query(
+            value["resource_ids"], pairs, f"{prefix}.ResourceIds"
+        )
+    if "resource_type" in value:
+        import aws_sdk_ec2.types.flow_logs_resource_type
+
+        aws_sdk_ec2.types.flow_logs_resource_type.serialize_ec2_query(
+            value["resource_type"], pairs, f"{prefix}.ResourceType"
+        )
+    if "traffic_type" in value:
+        import aws_sdk_ec2.types.traffic_type
+
+        aws_sdk_ec2.types.traffic_type.serialize_ec2_query(
+            value["traffic_type"], pairs, f"{prefix}.TrafficType"
+        )
+    if "log_destination_type" in value:
+        import aws_sdk_ec2.types.log_destination_type
+
+        aws_sdk_ec2.types.log_destination_type.serialize_ec2_query(
+            value["log_destination_type"], pairs, f"{prefix}.LogDestinationType"
+        )
+    if "log_destination" in value:
+        pairs.append((f"{prefix}.LogDestination", str(value["log_destination"])))
+    if "log_format" in value:
+        pairs.append((f"{prefix}.LogFormat", str(value["log_format"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "max_aggregation_interval" in value:
+        pairs.append(
+            (f"{prefix}.MaxAggregationInterval", str(value["max_aggregation_interval"]))
+        )
+    if "destination_options" in value:
+        import aws_sdk_ec2.types.destination_options_request
+
+        aws_sdk_ec2.types.destination_options_request.serialize_ec2_query(
+            value["destination_options"], pairs, f"{prefix}.DestinationOptions"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateFlowLogsRequest:
+    out: CreateFlowLogsRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_deliver_logs_permission_arn = el.find("DeliverLogsPermissionArn")
+    if child_deliver_logs_permission_arn is not None:
+        out["deliver_logs_permission_arn"] = str(
+            child_deliver_logs_permission_arn.text or ""
+        )
+    child_deliver_cross_account_role = el.find("DeliverCrossAccountRole")
+    if child_deliver_cross_account_role is not None:
+        out["deliver_cross_account_role"] = str(
+            child_deliver_cross_account_role.text or ""
+        )
+    child_log_group_name = el.find("LogGroupName")
+    if child_log_group_name is not None:
+        out["log_group_name"] = str(child_log_group_name.text or "")
+    if el.find("ResourceIds") is not None:
+        import aws_sdk_ec2.types.flow_log_resource_ids
+
+        out["resource_ids"] = (
+            aws_sdk_ec2.types.flow_log_resource_ids.deserialize_ec2_query(
+                el, "ResourceIds"
+            )
+        )
+    child_resource_type = el.find("ResourceType")
+    if child_resource_type is not None:
+        import aws_sdk_ec2.types.flow_logs_resource_type
+
+        out["resource_type"] = (
+            aws_sdk_ec2.types.flow_logs_resource_type.deserialize_ec2_query(
+                child_resource_type
+            )
+        )
+    child_traffic_type = el.find("TrafficType")
+    if child_traffic_type is not None:
+        import aws_sdk_ec2.types.traffic_type
+
+        out["traffic_type"] = aws_sdk_ec2.types.traffic_type.deserialize_ec2_query(
+            child_traffic_type
+        )
+    child_log_destination_type = el.find("LogDestinationType")
+    if child_log_destination_type is not None:
+        import aws_sdk_ec2.types.log_destination_type
+
+        out["log_destination_type"] = (
+            aws_sdk_ec2.types.log_destination_type.deserialize_ec2_query(
+                child_log_destination_type
+            )
+        )
+    child_log_destination = el.find("LogDestination")
+    if child_log_destination is not None:
+        out["log_destination"] = str(child_log_destination.text or "")
+    child_log_format = el.find("LogFormat")
+    if child_log_format is not None:
+        out["log_format"] = str(child_log_format.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_max_aggregation_interval = el.find("MaxAggregationInterval")
+    if child_max_aggregation_interval is not None:
+        out["max_aggregation_interval"] = int(child_max_aggregation_interval.text or "")
+    child_destination_options = el.find("DestinationOptions")
+    if child_destination_options is not None:
+        import aws_sdk_ec2.types.destination_options_request
+
+        out["destination_options"] = (
+            aws_sdk_ec2.types.destination_options_request.deserialize_ec2_query(
+                child_destination_options
+            )
+        )
+    return out

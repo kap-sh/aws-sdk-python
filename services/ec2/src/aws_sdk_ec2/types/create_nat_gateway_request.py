@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.allocation_id
@@ -57,3 +58,146 @@ class CreateNatGatewayRequest(TypedDict):
         "aws_sdk_ec2.types.private_ip_address_count.PrivateIpAddressCount"
     ]
     """<p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateNatGatewayRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "availability_mode" in value:
+        import aws_sdk_ec2.types.availability_mode
+
+        aws_sdk_ec2.types.availability_mode.serialize_ec2_query(
+            value["availability_mode"], pairs, f"{prefix}.AvailabilityMode"
+        )
+    if "allocation_id" in value:
+        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "availability_zone_addresses" in value:
+        import aws_sdk_ec2.types.availability_zone_addresses
+
+        aws_sdk_ec2.types.availability_zone_addresses.serialize_ec2_query(
+            value["availability_zone_addresses"],
+            pairs,
+            f"{prefix}.AvailabilityZoneAddresses",
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "connectivity_type" in value:
+        import aws_sdk_ec2.types.connectivity_type
+
+        aws_sdk_ec2.types.connectivity_type.serialize_ec2_query(
+            value["connectivity_type"], pairs, f"{prefix}.ConnectivityType"
+        )
+    if "private_ip_address" in value:
+        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+    if "secondary_allocation_ids" in value:
+        import aws_sdk_ec2.types.allocation_id_list
+
+        aws_sdk_ec2.types.allocation_id_list.serialize_ec2_query(
+            value["secondary_allocation_ids"], pairs, f"{prefix}.SecondaryAllocationIds"
+        )
+    if "secondary_private_ip_addresses" in value:
+        import aws_sdk_ec2.types.ip_list
+
+        aws_sdk_ec2.types.ip_list.serialize_ec2_query(
+            value["secondary_private_ip_addresses"],
+            pairs,
+            f"{prefix}.SecondaryPrivateIpAddresses",
+        )
+    if "secondary_private_ip_address_count" in value:
+        pairs.append(
+            (
+                f"{prefix}.SecondaryPrivateIpAddressCount",
+                str(value["secondary_private_ip_address_count"]),
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateNatGatewayRequest:
+    out: CreateNatGatewayRequest = {}  # type: ignore[typeddict-item]
+    child_availability_mode = el.find("AvailabilityMode")
+    if child_availability_mode is not None:
+        import aws_sdk_ec2.types.availability_mode
+
+        out["availability_mode"] = (
+            aws_sdk_ec2.types.availability_mode.deserialize_ec2_query(
+                child_availability_mode
+            )
+        )
+    child_allocation_id = el.find("AllocationId")
+    if child_allocation_id is not None:
+        out["allocation_id"] = str(child_allocation_id.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    if el.find("AvailabilityZoneAddresses") is not None:
+        import aws_sdk_ec2.types.availability_zone_addresses
+
+        out["availability_zone_addresses"] = (
+            aws_sdk_ec2.types.availability_zone_addresses.deserialize_ec2_query(
+                el, "AvailabilityZoneAddresses"
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_connectivity_type = el.find("ConnectivityType")
+    if child_connectivity_type is not None:
+        import aws_sdk_ec2.types.connectivity_type
+
+        out["connectivity_type"] = (
+            aws_sdk_ec2.types.connectivity_type.deserialize_ec2_query(
+                child_connectivity_type
+            )
+        )
+    child_private_ip_address = el.find("PrivateIpAddress")
+    if child_private_ip_address is not None:
+        out["private_ip_address"] = str(child_private_ip_address.text or "")
+    if el.find("SecondaryAllocationIds") is not None:
+        import aws_sdk_ec2.types.allocation_id_list
+
+        out["secondary_allocation_ids"] = (
+            aws_sdk_ec2.types.allocation_id_list.deserialize_ec2_query(
+                el, "SecondaryAllocationIds"
+            )
+        )
+    if el.find("SecondaryPrivateIpAddresses") is not None:
+        import aws_sdk_ec2.types.ip_list
+
+        out["secondary_private_ip_addresses"] = (
+            aws_sdk_ec2.types.ip_list.deserialize_ec2_query(
+                el, "SecondaryPrivateIpAddresses"
+            )
+        )
+    child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")
+    if child_secondary_private_ip_address_count is not None:
+        out["secondary_private_ip_address_count"] = int(
+            child_secondary_private_ip_address_count.text or ""
+        )
+    return out

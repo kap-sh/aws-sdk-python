@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -18,3 +19,39 @@ class ModifyAvailabilityZoneGroupRequest(TypedDict):
     """<p>Indicates whether to opt in to the zone group. The only valid value is <code>opted-in</code>. You must contact Amazon Web Services Support to opt out of a Local Zone or Wavelength Zone group.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyAvailabilityZoneGroupRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "group_name" in value:
+        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+    if "opt_in_status" in value:
+        import aws_sdk_ec2.types.modify_availability_zone_opt_in_status
+
+        aws_sdk_ec2.types.modify_availability_zone_opt_in_status.serialize_ec2_query(
+            value["opt_in_status"], pairs, f"{prefix}.OptInStatus"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> ModifyAvailabilityZoneGroupRequest:
+    out: ModifyAvailabilityZoneGroupRequest = {}  # type: ignore[typeddict-item]
+    child_group_name = el.find("GroupName")
+    if child_group_name is not None:
+        out["group_name"] = str(child_group_name.text or "")
+    child_opt_in_status = el.find("OptInStatus")
+    if child_opt_in_status is not None:
+        import aws_sdk_ec2.types.modify_availability_zone_opt_in_status
+
+        out["opt_in_status"] = (
+            aws_sdk_ec2.types.modify_availability_zone_opt_in_status.deserialize_ec2_query(
+                child_opt_in_status
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

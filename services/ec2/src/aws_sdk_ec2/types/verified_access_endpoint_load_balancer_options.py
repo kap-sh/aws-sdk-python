@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -30,3 +31,69 @@ class VerifiedAccessEndpointLoadBalancerOptions(TypedDict):
         "aws_sdk_ec2.types.verified_access_endpoint_port_range_list.VerifiedAccessEndpointPortRangeList"
     ]
     """<p>The port ranges.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: VerifiedAccessEndpointLoadBalancerOptions,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "protocol" in value:
+        import aws_sdk_ec2.types.verified_access_endpoint_protocol
+
+        aws_sdk_ec2.types.verified_access_endpoint_protocol.serialize_ec2_query(
+            value["protocol"], pairs, f"{prefix}.Protocol"
+        )
+    if "port" in value:
+        pairs.append((f"{prefix}.Port", str(value["port"])))
+    if "load_balancer_arn" in value:
+        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+    if "subnet_ids" in value:
+        import aws_sdk_ec2.types.verified_access_endpoint_subnet_id_list
+
+        aws_sdk_ec2.types.verified_access_endpoint_subnet_id_list.serialize_ec2_query(
+            value["subnet_ids"], pairs, f"{prefix}.SubnetIdSet"
+        )
+    if "port_ranges" in value:
+        import aws_sdk_ec2.types.verified_access_endpoint_port_range_list
+
+        aws_sdk_ec2.types.verified_access_endpoint_port_range_list.serialize_ec2_query(
+            value["port_ranges"], pairs, f"{prefix}.PortRangeSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointLoadBalancerOptions:
+    out: VerifiedAccessEndpointLoadBalancerOptions = {}  # type: ignore[typeddict-item]
+    child_protocol = el.find("Protocol")
+    if child_protocol is not None:
+        import aws_sdk_ec2.types.verified_access_endpoint_protocol
+
+        out["protocol"] = (
+            aws_sdk_ec2.types.verified_access_endpoint_protocol.deserialize_ec2_query(
+                child_protocol
+            )
+        )
+    child_port = el.find("Port")
+    if child_port is not None:
+        out["port"] = int(child_port.text or "")
+    child_load_balancer_arn = el.find("LoadBalancerArn")
+    if child_load_balancer_arn is not None:
+        out["load_balancer_arn"] = str(child_load_balancer_arn.text or "")
+    if el.find("SubnetIdSet") is not None:
+        import aws_sdk_ec2.types.verified_access_endpoint_subnet_id_list
+
+        out["subnet_ids"] = (
+            aws_sdk_ec2.types.verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
+                el, "SubnetIdSet"
+            )
+        )
+    if el.find("PortRangeSet") is not None:
+        import aws_sdk_ec2.types.verified_access_endpoint_port_range_list
+
+        out["port_ranges"] = (
+            aws_sdk_ec2.types.verified_access_endpoint_port_range_list.deserialize_ec2_query(
+                el, "PortRangeSet"
+            )
+        )
+    return out

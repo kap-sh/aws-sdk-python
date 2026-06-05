@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -25,3 +26,64 @@ class ModifyVolumeRequest(TypedDict):
     """<p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes. The maximum value is 2,000.</p> <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>. Otherwise, the default value is 125.</p> <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>"""
     multi_attach_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href=\"https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html\"> Nitro-based instances</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html\"> Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyVolumeRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "volume_id" in value:
+        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+    if "size" in value:
+        pairs.append((f"{prefix}.Size", str(value["size"])))
+    if "volume_type" in value:
+        import aws_sdk_ec2.types.volume_type
+
+        aws_sdk_ec2.types.volume_type.serialize_ec2_query(
+            value["volume_type"], pairs, f"{prefix}.VolumeType"
+        )
+    if "iops" in value:
+        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+    if "throughput" in value:
+        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+    if "multi_attach_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.MultiAttachEnabled",
+                "true" if value["multi_attach_enabled"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyVolumeRequest:
+    out: ModifyVolumeRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_volume_id = el.find("VolumeId")
+    if child_volume_id is not None:
+        out["volume_id"] = str(child_volume_id.text or "")
+    child_size = el.find("Size")
+    if child_size is not None:
+        out["size"] = int(child_size.text or "")
+    child_volume_type = el.find("VolumeType")
+    if child_volume_type is not None:
+        import aws_sdk_ec2.types.volume_type
+
+        out["volume_type"] = aws_sdk_ec2.types.volume_type.deserialize_ec2_query(
+            child_volume_type
+        )
+    child_iops = el.find("Iops")
+    if child_iops is not None:
+        out["iops"] = int(child_iops.text or "")
+    child_throughput = el.find("Throughput")
+    if child_throughput is not None:
+        out["throughput"] = int(child_throughput.text or "")
+    child_multi_attach_enabled = el.find("MultiAttachEnabled")
+    if child_multi_attach_enabled is not None:
+        out["multi_attach_enabled"] = (
+            child_multi_attach_enabled.text or ""
+        ).lower() == "true"
+    return out

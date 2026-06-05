@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.route_server
@@ -10,3 +11,27 @@ if TYPE_CHECKING:
 class ModifyRouteServerResult(TypedDict):
     route_server: NotRequired["aws_sdk_ec2.types.route_server.RouteServer"]
     """<p>Information about the modified route server.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyRouteServerResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "route_server" in value:
+        import aws_sdk_ec2.types.route_server
+
+        aws_sdk_ec2.types.route_server.serialize_ec2_query(
+            value["route_server"], pairs, f"{prefix}.RouteServer"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyRouteServerResult:
+    out: ModifyRouteServerResult = {}  # type: ignore[typeddict-item]
+    child_route_server = el.find("RouteServer")
+    if child_route_server is not None:
+        import aws_sdk_ec2.types.route_server
+
+        out["route_server"] = aws_sdk_ec2.types.route_server.deserialize_ec2_query(
+            child_route_server
+        )
+    return out

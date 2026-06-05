@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -18,3 +19,31 @@ class ModifyIpamPoolAllocationRequest(TypedDict):
     """<p>The ID of the IPAM pool allocation you want to modify.</p>"""
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The new description for the IPAM pool allocation. If you submit a <code>null</code> value, the description is removed from the allocation.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyIpamPoolAllocationRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_pool_allocation_id" in value:
+        pairs.append(
+            (f"{prefix}.IpamPoolAllocationId", str(value["ipam_pool_allocation_id"]))
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+
+
+def deserialize_ec2_query(el: Element) -> ModifyIpamPoolAllocationRequest:
+    out: ModifyIpamPoolAllocationRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_pool_allocation_id = el.find("IpamPoolAllocationId")
+    if child_ipam_pool_allocation_id is not None:
+        out["ipam_pool_allocation_id"] = str(child_ipam_pool_allocation_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    return out

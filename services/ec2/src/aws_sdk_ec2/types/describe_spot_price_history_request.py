@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -39,3 +40,107 @@ class DescribeSpotPriceHistoryRequest(TypedDict):
     """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeSpotPriceHistoryRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "start_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["start_time"], pairs, f"{prefix}.StartTime"
+        )
+    if "end_time" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["end_time"], pairs, f"{prefix}.EndTime"
+        )
+    if "instance_types" in value:
+        import aws_sdk_ec2.types.instance_type_list
+
+        aws_sdk_ec2.types.instance_type_list.serialize_ec2_query(
+            value["instance_types"], pairs, f"{prefix}.InstanceTypes"
+        )
+    if "product_descriptions" in value:
+        import aws_sdk_ec2.types.product_description_list
+
+        aws_sdk_ec2.types.product_description_list.serialize_ec2_query(
+            value["product_descriptions"], pairs, f"{prefix}.ProductDescriptions"
+        )
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeSpotPriceHistoryRequest:
+    out: DescribeSpotPriceHistoryRequest = {}  # type: ignore[typeddict-item]
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_start_time = el.find("StartTime")
+    if child_start_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["start_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_start_time
+        )
+    child_end_time = el.find("EndTime")
+    if child_end_time is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["end_time"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_end_time
+        )
+    if el.find("InstanceTypes") is not None:
+        import aws_sdk_ec2.types.instance_type_list
+
+        out["instance_types"] = (
+            aws_sdk_ec2.types.instance_type_list.deserialize_ec2_query(
+                el, "InstanceTypes"
+            )
+        )
+    if el.find("ProductDescriptions") is not None:
+        import aws_sdk_ec2.types.product_description_list
+
+        out["product_descriptions"] = (
+            aws_sdk_ec2.types.product_description_list.deserialize_ec2_query(
+                el, "ProductDescriptions"
+            )
+        )
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

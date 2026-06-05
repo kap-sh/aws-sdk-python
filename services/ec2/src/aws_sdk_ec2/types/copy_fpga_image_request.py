@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -21,3 +22,46 @@ class CopyFpgaImageRequest(TypedDict):
     """<p>The Region that contains the source AFI.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CopyFpgaImageRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "source_fpga_image_id" in value:
+        pairs.append(
+            (f"{prefix}.SourceFpgaImageId", str(value["source_fpga_image_id"]))
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "source_region" in value:
+        pairs.append((f"{prefix}.SourceRegion", str(value["source_region"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> CopyFpgaImageRequest:
+    out: CopyFpgaImageRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_source_fpga_image_id = el.find("SourceFpgaImageId")
+    if child_source_fpga_image_id is not None:
+        out["source_fpga_image_id"] = str(child_source_fpga_image_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_source_region = el.find("SourceRegion")
+    if child_source_region is not None:
+        out["source_region"] = str(child_source_region.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -20,3 +21,49 @@ class GetReservedInstancesExchangeQuoteRequest(TypedDict):
         "aws_sdk_ec2.types.target_configuration_request_set.TargetConfigurationRequestSet"
     ]
     """<p>The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: GetReservedInstancesExchangeQuoteRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "reserved_instance_ids" in value:
+        import aws_sdk_ec2.types.reserved_instance_id_set
+
+        aws_sdk_ec2.types.reserved_instance_id_set.serialize_ec2_query(
+            value["reserved_instance_ids"], pairs, f"{prefix}.ReservedInstanceIds"
+        )
+    if "target_configurations" in value:
+        import aws_sdk_ec2.types.target_configuration_request_set
+
+        aws_sdk_ec2.types.target_configuration_request_set.serialize_ec2_query(
+            value["target_configurations"], pairs, f"{prefix}.TargetConfigurations"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteRequest:
+    out: GetReservedInstancesExchangeQuoteRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("ReservedInstanceIds") is not None:
+        import aws_sdk_ec2.types.reserved_instance_id_set
+
+        out["reserved_instance_ids"] = (
+            aws_sdk_ec2.types.reserved_instance_id_set.deserialize_ec2_query(
+                el, "ReservedInstanceIds"
+            )
+        )
+    if el.find("TargetConfigurations") is not None:
+        import aws_sdk_ec2.types.target_configuration_request_set
+
+        out["target_configurations"] = (
+            aws_sdk_ec2.types.target_configuration_request_set.deserialize_ec2_query(
+                el, "TargetConfigurations"
+            )
+        )
+    return out

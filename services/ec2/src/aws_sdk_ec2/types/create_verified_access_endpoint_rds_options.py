@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.create_verified_access_endpoint_subnet_id_list
@@ -38,3 +39,70 @@ class CreateVerifiedAccessEndpointRdsOptions(TypedDict):
         "aws_sdk_ec2.types.create_verified_access_endpoint_subnet_id_list.CreateVerifiedAccessEndpointSubnetIdList"
     ]
     """<p>The IDs of the subnets. You can specify only one subnet per Availability Zone.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateVerifiedAccessEndpointRdsOptions,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "protocol" in value:
+        import aws_sdk_ec2.types.verified_access_endpoint_protocol
+
+        aws_sdk_ec2.types.verified_access_endpoint_protocol.serialize_ec2_query(
+            value["protocol"], pairs, f"{prefix}.Protocol"
+        )
+    if "port" in value:
+        pairs.append((f"{prefix}.Port", str(value["port"])))
+    if "rds_db_instance_arn" in value:
+        pairs.append((f"{prefix}.RdsDbInstanceArn", str(value["rds_db_instance_arn"])))
+    if "rds_db_cluster_arn" in value:
+        pairs.append((f"{prefix}.RdsDbClusterArn", str(value["rds_db_cluster_arn"])))
+    if "rds_db_proxy_arn" in value:
+        pairs.append((f"{prefix}.RdsDbProxyArn", str(value["rds_db_proxy_arn"])))
+    if "rds_endpoint" in value:
+        pairs.append((f"{prefix}.RdsEndpoint", str(value["rds_endpoint"])))
+    if "subnet_ids" in value:
+        import aws_sdk_ec2.types.create_verified_access_endpoint_subnet_id_list
+
+        aws_sdk_ec2.types.create_verified_access_endpoint_subnet_id_list.serialize_ec2_query(
+            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointRdsOptions:
+    out: CreateVerifiedAccessEndpointRdsOptions = {}  # type: ignore[typeddict-item]
+    child_protocol = el.find("Protocol")
+    if child_protocol is not None:
+        import aws_sdk_ec2.types.verified_access_endpoint_protocol
+
+        out["protocol"] = (
+            aws_sdk_ec2.types.verified_access_endpoint_protocol.deserialize_ec2_query(
+                child_protocol
+            )
+        )
+    child_port = el.find("Port")
+    if child_port is not None:
+        out["port"] = int(child_port.text or "")
+    child_rds_db_instance_arn = el.find("RdsDbInstanceArn")
+    if child_rds_db_instance_arn is not None:
+        out["rds_db_instance_arn"] = str(child_rds_db_instance_arn.text or "")
+    child_rds_db_cluster_arn = el.find("RdsDbClusterArn")
+    if child_rds_db_cluster_arn is not None:
+        out["rds_db_cluster_arn"] = str(child_rds_db_cluster_arn.text or "")
+    child_rds_db_proxy_arn = el.find("RdsDbProxyArn")
+    if child_rds_db_proxy_arn is not None:
+        out["rds_db_proxy_arn"] = str(child_rds_db_proxy_arn.text or "")
+    child_rds_endpoint = el.find("RdsEndpoint")
+    if child_rds_endpoint is not None:
+        out["rds_endpoint"] = str(child_rds_endpoint.text or "")
+    if el.find("SubnetIds") is not None:
+        import aws_sdk_ec2.types.create_verified_access_endpoint_subnet_id_list
+
+        out["subnet_ids"] = (
+            aws_sdk_ec2.types.create_verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
+                el, "SubnetIds"
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
@@ -27,3 +28,70 @@ class InterruptibleCapacityAllocation(TypedDict):
         "aws_sdk_ec2.types.interruption_type.InterruptionType"
     ]
     """<p> The type of interruption policy applied to the interruptible reservation. </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InterruptibleCapacityAllocation, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_count" in value:
+        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+    if "target_instance_count" in value:
+        pairs.append(
+            (f"{prefix}.TargetInstanceCount", str(value["target_instance_count"]))
+        )
+    if "status" in value:
+        import aws_sdk_ec2.types.interruptible_capacity_reservation_allocation_status
+
+        aws_sdk_ec2.types.interruptible_capacity_reservation_allocation_status.serialize_ec2_query(
+            value["status"], pairs, f"{prefix}.Status"
+        )
+    if "interruptible_capacity_reservation_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.InterruptibleCapacityReservationId",
+                str(value["interruptible_capacity_reservation_id"]),
+            )
+        )
+    if "interruption_type" in value:
+        import aws_sdk_ec2.types.interruption_type
+
+        aws_sdk_ec2.types.interruption_type.serialize_ec2_query(
+            value["interruption_type"], pairs, f"{prefix}.InterruptionType"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> InterruptibleCapacityAllocation:
+    out: InterruptibleCapacityAllocation = {}  # type: ignore[typeddict-item]
+    child_instance_count = el.find("InstanceCount")
+    if child_instance_count is not None:
+        out["instance_count"] = int(child_instance_count.text or "")
+    child_target_instance_count = el.find("TargetInstanceCount")
+    if child_target_instance_count is not None:
+        out["target_instance_count"] = int(child_target_instance_count.text or "")
+    child_status = el.find("Status")
+    if child_status is not None:
+        import aws_sdk_ec2.types.interruptible_capacity_reservation_allocation_status
+
+        out["status"] = (
+            aws_sdk_ec2.types.interruptible_capacity_reservation_allocation_status.deserialize_ec2_query(
+                child_status
+            )
+        )
+    child_interruptible_capacity_reservation_id = el.find(
+        "InterruptibleCapacityReservationId"
+    )
+    if child_interruptible_capacity_reservation_id is not None:
+        out["interruptible_capacity_reservation_id"] = str(
+            child_interruptible_capacity_reservation_id.text or ""
+        )
+    child_interruption_type = el.find("InterruptionType")
+    if child_interruption_type is not None:
+        import aws_sdk_ec2.types.interruption_type
+
+        out["interruption_type"] = (
+            aws_sdk_ec2.types.interruption_type.deserialize_ec2_query(
+                child_interruption_type
+            )
+        )
+    return out

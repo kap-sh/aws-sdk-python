@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
@@ -30,3 +31,64 @@ class TrunkInterfaceAssociation(TypedDict):
     """<p>The application key when you use the GRE protocol.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]
     """<p>The tags for the trunk interface association.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TrunkInterfaceAssociation, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "association_id" in value:
+        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+    if "branch_interface_id" in value:
+        pairs.append((f"{prefix}.BranchInterfaceId", str(value["branch_interface_id"])))
+    if "trunk_interface_id" in value:
+        pairs.append((f"{prefix}.TrunkInterfaceId", str(value["trunk_interface_id"])))
+    if "interface_protocol" in value:
+        import aws_sdk_ec2.types.interface_protocol_type
+
+        aws_sdk_ec2.types.interface_protocol_type.serialize_ec2_query(
+            value["interface_protocol"], pairs, f"{prefix}.InterfaceProtocol"
+        )
+    if "vlan_id" in value:
+        pairs.append((f"{prefix}.VlanId", str(value["vlan_id"])))
+    if "gre_key" in value:
+        pairs.append((f"{prefix}.GreKey", str(value["gre_key"])))
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> TrunkInterfaceAssociation:
+    out: TrunkInterfaceAssociation = {}  # type: ignore[typeddict-item]
+    child_association_id = el.find("AssociationId")
+    if child_association_id is not None:
+        out["association_id"] = str(child_association_id.text or "")
+    child_branch_interface_id = el.find("BranchInterfaceId")
+    if child_branch_interface_id is not None:
+        out["branch_interface_id"] = str(child_branch_interface_id.text or "")
+    child_trunk_interface_id = el.find("TrunkInterfaceId")
+    if child_trunk_interface_id is not None:
+        out["trunk_interface_id"] = str(child_trunk_interface_id.text or "")
+    child_interface_protocol = el.find("InterfaceProtocol")
+    if child_interface_protocol is not None:
+        import aws_sdk_ec2.types.interface_protocol_type
+
+        out["interface_protocol"] = (
+            aws_sdk_ec2.types.interface_protocol_type.deserialize_ec2_query(
+                child_interface_protocol
+            )
+        )
+    child_vlan_id = el.find("VlanId")
+    if child_vlan_id is not None:
+        out["vlan_id"] = int(child_vlan_id.text or "")
+    child_gre_key = el.find("GreKey")
+    if child_gre_key is not None:
+        out["gre_key"] = int(child_gre_key.text or "")
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    return out

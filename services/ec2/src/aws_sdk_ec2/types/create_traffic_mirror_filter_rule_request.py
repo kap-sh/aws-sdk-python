@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -53,3 +54,134 @@ class CreateTrafficMirrorFilterRuleRequest(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>Traffic Mirroring tags specifications.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateTrafficMirrorFilterRuleRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "traffic_mirror_filter_id" in value:
+        pairs.append(
+            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+        )
+    if "traffic_direction" in value:
+        import aws_sdk_ec2.types.traffic_direction
+
+        aws_sdk_ec2.types.traffic_direction.serialize_ec2_query(
+            value["traffic_direction"], pairs, f"{prefix}.TrafficDirection"
+        )
+    if "rule_number" in value:
+        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+    if "rule_action" in value:
+        import aws_sdk_ec2.types.traffic_mirror_rule_action
+
+        aws_sdk_ec2.types.traffic_mirror_rule_action.serialize_ec2_query(
+            value["rule_action"], pairs, f"{prefix}.RuleAction"
+        )
+    if "destination_port_range" in value:
+        import aws_sdk_ec2.types.traffic_mirror_port_range_request
+
+        aws_sdk_ec2.types.traffic_mirror_port_range_request.serialize_ec2_query(
+            value["destination_port_range"], pairs, f"{prefix}.DestinationPortRange"
+        )
+    if "source_port_range" in value:
+        import aws_sdk_ec2.types.traffic_mirror_port_range_request
+
+        aws_sdk_ec2.types.traffic_mirror_port_range_request.serialize_ec2_query(
+            value["source_port_range"], pairs, f"{prefix}.SourcePortRange"
+        )
+    if "protocol" in value:
+        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+    if "destination_cidr_block" in value:
+        pairs.append(
+            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+        )
+    if "source_cidr_block" in value:
+        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateTrafficMirrorFilterRuleRequest:
+    out: CreateTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
+    child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
+    if child_traffic_mirror_filter_id is not None:
+        out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
+    child_traffic_direction = el.find("TrafficDirection")
+    if child_traffic_direction is not None:
+        import aws_sdk_ec2.types.traffic_direction
+
+        out["traffic_direction"] = (
+            aws_sdk_ec2.types.traffic_direction.deserialize_ec2_query(
+                child_traffic_direction
+            )
+        )
+    child_rule_number = el.find("RuleNumber")
+    if child_rule_number is not None:
+        out["rule_number"] = int(child_rule_number.text or "")
+    child_rule_action = el.find("RuleAction")
+    if child_rule_action is not None:
+        import aws_sdk_ec2.types.traffic_mirror_rule_action
+
+        out["rule_action"] = (
+            aws_sdk_ec2.types.traffic_mirror_rule_action.deserialize_ec2_query(
+                child_rule_action
+            )
+        )
+    child_destination_port_range = el.find("DestinationPortRange")
+    if child_destination_port_range is not None:
+        import aws_sdk_ec2.types.traffic_mirror_port_range_request
+
+        out["destination_port_range"] = (
+            aws_sdk_ec2.types.traffic_mirror_port_range_request.deserialize_ec2_query(
+                child_destination_port_range
+            )
+        )
+    child_source_port_range = el.find("SourcePortRange")
+    if child_source_port_range is not None:
+        import aws_sdk_ec2.types.traffic_mirror_port_range_request
+
+        out["source_port_range"] = (
+            aws_sdk_ec2.types.traffic_mirror_port_range_request.deserialize_ec2_query(
+                child_source_port_range
+            )
+        )
+    child_protocol = el.find("Protocol")
+    if child_protocol is not None:
+        out["protocol"] = int(child_protocol.text or "")
+    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    if child_destination_cidr_block is not None:
+        out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
+    child_source_cidr_block = el.find("SourceCidrBlock")
+    if child_source_cidr_block is not None:
+        out["source_cidr_block"] = str(child_source_cidr_block.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

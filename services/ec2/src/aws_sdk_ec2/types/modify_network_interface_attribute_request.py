@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.attribute_boolean_value
@@ -50,3 +51,155 @@ class ModifyNetworkInterfaceAttributeRequest(TypedDict):
         "aws_sdk_ec2.types.network_interface_attachment_changes.NetworkInterfaceAttachmentChanges"
     ]
     """<p>Information about the interface attachment. If modifying the <code>delete on termination</code> attribute, you must specify the ID of the interface attachment.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyNetworkInterfaceAttributeRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "ena_srd_specification" in value:
+        import aws_sdk_ec2.types.ena_srd_specification
+
+        aws_sdk_ec2.types.ena_srd_specification.serialize_ec2_query(
+            value["ena_srd_specification"], pairs, f"{prefix}.EnaSrdSpecification"
+        )
+    if "enable_primary_ipv6" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnablePrimaryIpv6",
+                "true" if value["enable_primary_ipv6"] else "false",
+            )
+        )
+    if "connection_tracking_specification" in value:
+        import aws_sdk_ec2.types.connection_tracking_specification_request
+
+        aws_sdk_ec2.types.connection_tracking_specification_request.serialize_ec2_query(
+            value["connection_tracking_specification"],
+            pairs,
+            f"{prefix}.ConnectionTrackingSpecification",
+        )
+    if "associate_public_ip_address" in value:
+        pairs.append(
+            (
+                f"{prefix}.AssociatePublicIpAddress",
+                "true" if value["associate_public_ip_address"] else "false",
+            )
+        )
+    if "associated_subnet_ids" in value:
+        import aws_sdk_ec2.types.subnet_id_list
+
+        aws_sdk_ec2.types.subnet_id_list.serialize_ec2_query(
+            value["associated_subnet_ids"], pairs, f"{prefix}.AssociatedSubnetIds"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "network_interface_id" in value:
+        pairs.append(
+            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+        )
+    if "description" in value:
+        import aws_sdk_ec2.types.attribute_value
+
+        aws_sdk_ec2.types.attribute_value.serialize_ec2_query(
+            value["description"], pairs, f"{prefix}.Description"
+        )
+    if "source_dest_check" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["source_dest_check"], pairs, f"{prefix}.SourceDestCheck"
+        )
+    if "groups" in value:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        aws_sdk_ec2.types.security_group_id_string_list.serialize_ec2_query(
+            value["groups"], pairs, f"{prefix}.Groups"
+        )
+    if "attachment" in value:
+        import aws_sdk_ec2.types.network_interface_attachment_changes
+
+        aws_sdk_ec2.types.network_interface_attachment_changes.serialize_ec2_query(
+            value["attachment"], pairs, f"{prefix}.Attachment"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyNetworkInterfaceAttributeRequest:
+    out: ModifyNetworkInterfaceAttributeRequest = {}  # type: ignore[typeddict-item]
+    child_ena_srd_specification = el.find("EnaSrdSpecification")
+    if child_ena_srd_specification is not None:
+        import aws_sdk_ec2.types.ena_srd_specification
+
+        out["ena_srd_specification"] = (
+            aws_sdk_ec2.types.ena_srd_specification.deserialize_ec2_query(
+                child_ena_srd_specification
+            )
+        )
+    child_enable_primary_ipv6 = el.find("EnablePrimaryIpv6")
+    if child_enable_primary_ipv6 is not None:
+        out["enable_primary_ipv6"] = (
+            child_enable_primary_ipv6.text or ""
+        ).lower() == "true"
+    child_connection_tracking_specification = el.find("ConnectionTrackingSpecification")
+    if child_connection_tracking_specification is not None:
+        import aws_sdk_ec2.types.connection_tracking_specification_request
+
+        out["connection_tracking_specification"] = (
+            aws_sdk_ec2.types.connection_tracking_specification_request.deserialize_ec2_query(
+                child_connection_tracking_specification
+            )
+        )
+    child_associate_public_ip_address = el.find("AssociatePublicIpAddress")
+    if child_associate_public_ip_address is not None:
+        out["associate_public_ip_address"] = (
+            child_associate_public_ip_address.text or ""
+        ).lower() == "true"
+    if el.find("AssociatedSubnetIds") is not None:
+        import aws_sdk_ec2.types.subnet_id_list
+
+        out["associated_subnet_ids"] = (
+            aws_sdk_ec2.types.subnet_id_list.deserialize_ec2_query(
+                el, "AssociatedSubnetIds"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_network_interface_id = el.find("NetworkInterfaceId")
+    if child_network_interface_id is not None:
+        out["network_interface_id"] = str(child_network_interface_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        import aws_sdk_ec2.types.attribute_value
+
+        out["description"] = aws_sdk_ec2.types.attribute_value.deserialize_ec2_query(
+            child_description
+        )
+    child_source_dest_check = el.find("SourceDestCheck")
+    if child_source_dest_check is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["source_dest_check"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_source_dest_check
+            )
+        )
+    if el.find("Groups") is not None:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        out["groups"] = (
+            aws_sdk_ec2.types.security_group_id_string_list.deserialize_ec2_query(
+                el, "Groups"
+            )
+        )
+    child_attachment = el.find("Attachment")
+    if child_attachment is not None:
+        import aws_sdk_ec2.types.network_interface_attachment_changes
+
+        out["attachment"] = (
+            aws_sdk_ec2.types.network_interface_attachment_changes.deserialize_ec2_query(
+                child_attachment
+            )
+        )
+    return out

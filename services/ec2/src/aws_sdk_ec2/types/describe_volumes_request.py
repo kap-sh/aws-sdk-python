@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -26,3 +27,67 @@ class DescribeVolumesRequest(TypedDict):
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
     max_results: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeVolumesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "volume_ids" in value:
+        import aws_sdk_ec2.types.volume_id_string_list
+
+        aws_sdk_ec2.types.volume_id_string_list.serialize_ec2_query(
+            value["volume_ids"], pairs, f"{prefix}.VolumeIds"
+        )
+    if "include_managed_resources" in value:
+        pairs.append(
+            (
+                f"{prefix}.IncludeManagedResources",
+                "true" if value["include_managed_resources"] else "false",
+            )
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeVolumesRequest:
+    out: DescribeVolumesRequest = {}  # type: ignore[typeddict-item]
+    if el.find("VolumeIds") is not None:
+        import aws_sdk_ec2.types.volume_id_string_list
+
+        out["volume_ids"] = (
+            aws_sdk_ec2.types.volume_id_string_list.deserialize_ec2_query(
+                el, "VolumeIds"
+            )
+        )
+    child_include_managed_resources = el.find("IncludeManagedResources")
+    if child_include_managed_resources is not None:
+        out["include_managed_resources"] = (
+            child_include_managed_resources.text or ""
+        ).lower() == "true"
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    return out

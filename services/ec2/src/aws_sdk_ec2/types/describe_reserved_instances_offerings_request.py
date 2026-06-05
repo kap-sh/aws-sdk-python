@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -61,3 +62,169 @@ class DescribeReservedInstancesOfferingsRequest(TypedDict):
     """<p>The token to retrieve the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p> <p>Default: 100</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeReservedInstancesOfferingsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "include_marketplace" in value:
+        pairs.append(
+            (
+                f"{prefix}.IncludeMarketplace",
+                "true" if value["include_marketplace"] else "false",
+            )
+        )
+    if "instance_type" in value:
+        import aws_sdk_ec2.types.instance_type
+
+        aws_sdk_ec2.types.instance_type.serialize_ec2_query(
+            value["instance_type"], pairs, f"{prefix}.InstanceType"
+        )
+    if "max_duration" in value:
+        pairs.append((f"{prefix}.MaxDuration", str(value["max_duration"])))
+    if "max_instance_count" in value:
+        pairs.append((f"{prefix}.MaxInstanceCount", str(value["max_instance_count"])))
+    if "min_duration" in value:
+        pairs.append((f"{prefix}.MinDuration", str(value["min_duration"])))
+    if "offering_class" in value:
+        import aws_sdk_ec2.types.offering_class_type
+
+        aws_sdk_ec2.types.offering_class_type.serialize_ec2_query(
+            value["offering_class"], pairs, f"{prefix}.OfferingClass"
+        )
+    if "product_description" in value:
+        import aws_sdk_ec2.types.ri_product_description
+
+        aws_sdk_ec2.types.ri_product_description.serialize_ec2_query(
+            value["product_description"], pairs, f"{prefix}.ProductDescription"
+        )
+    if "reserved_instances_offering_ids" in value:
+        import aws_sdk_ec2.types.reserved_instances_offering_id_string_list
+
+        aws_sdk_ec2.types.reserved_instances_offering_id_string_list.serialize_ec2_query(
+            value["reserved_instances_offering_ids"],
+            pairs,
+            f"{prefix}.ReservedInstancesOfferingIds",
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "instance_tenancy" in value:
+        import aws_sdk_ec2.types.tenancy
+
+        aws_sdk_ec2.types.tenancy.serialize_ec2_query(
+            value["instance_tenancy"], pairs, f"{prefix}.InstanceTenancy"
+        )
+    if "offering_type" in value:
+        import aws_sdk_ec2.types.offering_type_values
+
+        aws_sdk_ec2.types.offering_type_values.serialize_ec2_query(
+            value["offering_type"], pairs, f"{prefix}.OfferingType"
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesOfferingsRequest:
+    out: DescribeReservedInstancesOfferingsRequest = {}  # type: ignore[typeddict-item]
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_include_marketplace = el.find("IncludeMarketplace")
+    if child_include_marketplace is not None:
+        out["include_marketplace"] = (
+            child_include_marketplace.text or ""
+        ).lower() == "true"
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        import aws_sdk_ec2.types.instance_type
+
+        out["instance_type"] = aws_sdk_ec2.types.instance_type.deserialize_ec2_query(
+            child_instance_type
+        )
+    child_max_duration = el.find("MaxDuration")
+    if child_max_duration is not None:
+        out["max_duration"] = int(child_max_duration.text or "")
+    child_max_instance_count = el.find("MaxInstanceCount")
+    if child_max_instance_count is not None:
+        out["max_instance_count"] = int(child_max_instance_count.text or "")
+    child_min_duration = el.find("MinDuration")
+    if child_min_duration is not None:
+        out["min_duration"] = int(child_min_duration.text or "")
+    child_offering_class = el.find("OfferingClass")
+    if child_offering_class is not None:
+        import aws_sdk_ec2.types.offering_class_type
+
+        out["offering_class"] = (
+            aws_sdk_ec2.types.offering_class_type.deserialize_ec2_query(
+                child_offering_class
+            )
+        )
+    child_product_description = el.find("ProductDescription")
+    if child_product_description is not None:
+        import aws_sdk_ec2.types.ri_product_description
+
+        out["product_description"] = (
+            aws_sdk_ec2.types.ri_product_description.deserialize_ec2_query(
+                child_product_description
+            )
+        )
+    if el.find("ReservedInstancesOfferingIds") is not None:
+        import aws_sdk_ec2.types.reserved_instances_offering_id_string_list
+
+        out["reserved_instances_offering_ids"] = (
+            aws_sdk_ec2.types.reserved_instances_offering_id_string_list.deserialize_ec2_query(
+                el, "ReservedInstancesOfferingIds"
+            )
+        )
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_instance_tenancy = el.find("InstanceTenancy")
+    if child_instance_tenancy is not None:
+        import aws_sdk_ec2.types.tenancy
+
+        out["instance_tenancy"] = aws_sdk_ec2.types.tenancy.deserialize_ec2_query(
+            child_instance_tenancy
+        )
+    child_offering_type = el.find("OfferingType")
+    if child_offering_type is not None:
+        import aws_sdk_ec2.types.offering_type_values
+
+        out["offering_type"] = (
+            aws_sdk_ec2.types.offering_type_values.deserialize_ec2_query(
+                child_offering_type
+            )
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    return out

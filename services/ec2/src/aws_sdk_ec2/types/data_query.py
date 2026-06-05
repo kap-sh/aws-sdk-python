@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.metric_type
@@ -23,3 +24,68 @@ class DataQuery(TypedDict):
     """<p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code> and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>"""
     period: NotRequired["aws_sdk_ec2.types.period_type.PeriodType"]
     """<p>The aggregation period used for the data query.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DataQuery, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "id" in value:
+        pairs.append((f"{prefix}.Id", str(value["id"])))
+    if "source" in value:
+        pairs.append((f"{prefix}.Source", str(value["source"])))
+    if "destination" in value:
+        pairs.append((f"{prefix}.Destination", str(value["destination"])))
+    if "metric" in value:
+        import aws_sdk_ec2.types.metric_type
+
+        aws_sdk_ec2.types.metric_type.serialize_ec2_query(
+            value["metric"], pairs, f"{prefix}.Metric"
+        )
+    if "statistic" in value:
+        import aws_sdk_ec2.types.statistic_type
+
+        aws_sdk_ec2.types.statistic_type.serialize_ec2_query(
+            value["statistic"], pairs, f"{prefix}.Statistic"
+        )
+    if "period" in value:
+        import aws_sdk_ec2.types.period_type
+
+        aws_sdk_ec2.types.period_type.serialize_ec2_query(
+            value["period"], pairs, f"{prefix}.Period"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DataQuery:
+    out: DataQuery = {}  # type: ignore[typeddict-item]
+    child_id = el.find("Id")
+    if child_id is not None:
+        out["id"] = str(child_id.text or "")
+    child_source = el.find("Source")
+    if child_source is not None:
+        out["source"] = str(child_source.text or "")
+    child_destination = el.find("Destination")
+    if child_destination is not None:
+        out["destination"] = str(child_destination.text or "")
+    child_metric = el.find("Metric")
+    if child_metric is not None:
+        import aws_sdk_ec2.types.metric_type
+
+        out["metric"] = aws_sdk_ec2.types.metric_type.deserialize_ec2_query(
+            child_metric
+        )
+    child_statistic = el.find("Statistic")
+    if child_statistic is not None:
+        import aws_sdk_ec2.types.statistic_type
+
+        out["statistic"] = aws_sdk_ec2.types.statistic_type.deserialize_ec2_query(
+            child_statistic
+        )
+    child_period = el.find("Period")
+    if child_period is not None:
+        import aws_sdk_ec2.types.period_type
+
+        out["period"] = aws_sdk_ec2.types.period_type.deserialize_ec2_query(
+            child_period
+        )
+    return out

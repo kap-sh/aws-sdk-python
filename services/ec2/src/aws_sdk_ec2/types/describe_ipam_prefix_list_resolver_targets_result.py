@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.ipam_prefix_list_resolver_target_set
@@ -15,3 +16,37 @@ class DescribeIpamPrefixListResolverTargetsResult(TypedDict):
         "aws_sdk_ec2.types.ipam_prefix_list_resolver_target_set.IpamPrefixListResolverTargetSet"
     ]
     """<p>Information about the IPAM prefix list resolver Targets.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeIpamPrefixListResolverTargetsResult,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "ipam_prefix_list_resolver_targets" in value:
+        import aws_sdk_ec2.types.ipam_prefix_list_resolver_target_set
+
+        aws_sdk_ec2.types.ipam_prefix_list_resolver_target_set.serialize_ec2_query(
+            value["ipam_prefix_list_resolver_targets"],
+            pairs,
+            f"{prefix}.IpamPrefixListResolverTargetSet",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeIpamPrefixListResolverTargetsResult:
+    out: DescribeIpamPrefixListResolverTargetsResult = {}  # type: ignore[typeddict-item]
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    if el.find("IpamPrefixListResolverTargetSet") is not None:
+        import aws_sdk_ec2.types.ipam_prefix_list_resolver_target_set
+
+        out["ipam_prefix_list_resolver_targets"] = (
+            aws_sdk_ec2.types.ipam_prefix_list_resolver_target_set.deserialize_ec2_query(
+                el, "IpamPrefixListResolverTargetSet"
+            )
+        )
+    return out

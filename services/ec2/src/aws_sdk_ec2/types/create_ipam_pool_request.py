@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.address_family
@@ -68,3 +69,185 @@ class CreateIpamPoolRequest(TypedDict):
         "aws_sdk_ec2.types.ipam_pool_source_resource_request.IpamPoolSourceResourceRequest"
     ]
     """<p>The resource used to provision CIDRs to a resource planning pool.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateIpamPoolRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_scope_id" in value:
+        pairs.append((f"{prefix}.IpamScopeId", str(value["ipam_scope_id"])))
+    if "locale" in value:
+        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+    if "source_ipam_pool_id" in value:
+        pairs.append((f"{prefix}.SourceIpamPoolId", str(value["source_ipam_pool_id"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "address_family" in value:
+        import aws_sdk_ec2.types.address_family
+
+        aws_sdk_ec2.types.address_family.serialize_ec2_query(
+            value["address_family"], pairs, f"{prefix}.AddressFamily"
+        )
+    if "auto_import" in value:
+        pairs.append(
+            (f"{prefix}.AutoImport", "true" if value["auto_import"] else "false")
+        )
+    if "publicly_advertisable" in value:
+        pairs.append(
+            (
+                f"{prefix}.PubliclyAdvertisable",
+                "true" if value["publicly_advertisable"] else "false",
+            )
+        )
+    if "allocation_min_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllocationMinNetmaskLength",
+                str(value["allocation_min_netmask_length"]),
+            )
+        )
+    if "allocation_max_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllocationMaxNetmaskLength",
+                str(value["allocation_max_netmask_length"]),
+            )
+        )
+    if "allocation_default_netmask_length" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllocationDefaultNetmaskLength",
+                str(value["allocation_default_netmask_length"]),
+            )
+        )
+    if "allocation_resource_tags" in value:
+        import aws_sdk_ec2.types.request_ipam_resource_tag_list
+
+        aws_sdk_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
+            value["allocation_resource_tags"], pairs, f"{prefix}.AllocationResourceTags"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "aws_service" in value:
+        import aws_sdk_ec2.types.ipam_pool_aws_service
+
+        aws_sdk_ec2.types.ipam_pool_aws_service.serialize_ec2_query(
+            value["aws_service"], pairs, f"{prefix}.AwsService"
+        )
+    if "public_ip_source" in value:
+        import aws_sdk_ec2.types.ipam_pool_public_ip_source
+
+        aws_sdk_ec2.types.ipam_pool_public_ip_source.serialize_ec2_query(
+            value["public_ip_source"], pairs, f"{prefix}.PublicIpSource"
+        )
+    if "source_resource" in value:
+        import aws_sdk_ec2.types.ipam_pool_source_resource_request
+
+        aws_sdk_ec2.types.ipam_pool_source_resource_request.serialize_ec2_query(
+            value["source_resource"], pairs, f"{prefix}.SourceResource"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateIpamPoolRequest:
+    out: CreateIpamPoolRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_scope_id = el.find("IpamScopeId")
+    if child_ipam_scope_id is not None:
+        out["ipam_scope_id"] = str(child_ipam_scope_id.text or "")
+    child_locale = el.find("Locale")
+    if child_locale is not None:
+        out["locale"] = str(child_locale.text or "")
+    child_source_ipam_pool_id = el.find("SourceIpamPoolId")
+    if child_source_ipam_pool_id is not None:
+        out["source_ipam_pool_id"] = str(child_source_ipam_pool_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_address_family = el.find("AddressFamily")
+    if child_address_family is not None:
+        import aws_sdk_ec2.types.address_family
+
+        out["address_family"] = aws_sdk_ec2.types.address_family.deserialize_ec2_query(
+            child_address_family
+        )
+    child_auto_import = el.find("AutoImport")
+    if child_auto_import is not None:
+        out["auto_import"] = (child_auto_import.text or "").lower() == "true"
+    child_publicly_advertisable = el.find("PubliclyAdvertisable")
+    if child_publicly_advertisable is not None:
+        out["publicly_advertisable"] = (
+            child_publicly_advertisable.text or ""
+        ).lower() == "true"
+    child_allocation_min_netmask_length = el.find("AllocationMinNetmaskLength")
+    if child_allocation_min_netmask_length is not None:
+        out["allocation_min_netmask_length"] = int(
+            child_allocation_min_netmask_length.text or ""
+        )
+    child_allocation_max_netmask_length = el.find("AllocationMaxNetmaskLength")
+    if child_allocation_max_netmask_length is not None:
+        out["allocation_max_netmask_length"] = int(
+            child_allocation_max_netmask_length.text or ""
+        )
+    child_allocation_default_netmask_length = el.find("AllocationDefaultNetmaskLength")
+    if child_allocation_default_netmask_length is not None:
+        out["allocation_default_netmask_length"] = int(
+            child_allocation_default_netmask_length.text or ""
+        )
+    if el.find("AllocationResourceTags") is not None:
+        import aws_sdk_ec2.types.request_ipam_resource_tag_list
+
+        out["allocation_resource_tags"] = (
+            aws_sdk_ec2.types.request_ipam_resource_tag_list.deserialize_ec2_query(
+                el, "AllocationResourceTags"
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_aws_service = el.find("AwsService")
+    if child_aws_service is not None:
+        import aws_sdk_ec2.types.ipam_pool_aws_service
+
+        out["aws_service"] = (
+            aws_sdk_ec2.types.ipam_pool_aws_service.deserialize_ec2_query(
+                child_aws_service
+            )
+        )
+    child_public_ip_source = el.find("PublicIpSource")
+    if child_public_ip_source is not None:
+        import aws_sdk_ec2.types.ipam_pool_public_ip_source
+
+        out["public_ip_source"] = (
+            aws_sdk_ec2.types.ipam_pool_public_ip_source.deserialize_ec2_query(
+                child_public_ip_source
+            )
+        )
+    child_source_resource = el.find("SourceResource")
+    if child_source_resource is not None:
+        import aws_sdk_ec2.types.ipam_pool_source_resource_request
+
+        out["source_resource"] = (
+            aws_sdk_ec2.types.ipam_pool_source_resource_request.deserialize_ec2_query(
+                child_source_resource
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.architecture_values
@@ -69,3 +70,171 @@ class RegisterImageRequest(TypedDict):
     """<p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p> <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p> <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>"""
     ena_support: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p> <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: RegisterImageRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "image_location" in value:
+        pairs.append((f"{prefix}.ImageLocation", str(value["image_location"])))
+    if "billing_products" in value:
+        import aws_sdk_ec2.types.billing_product_list
+
+        aws_sdk_ec2.types.billing_product_list.serialize_ec2_query(
+            value["billing_products"], pairs, f"{prefix}.BillingProducts"
+        )
+    if "boot_mode" in value:
+        import aws_sdk_ec2.types.boot_mode_values
+
+        aws_sdk_ec2.types.boot_mode_values.serialize_ec2_query(
+            value["boot_mode"], pairs, f"{prefix}.BootMode"
+        )
+    if "tpm_support" in value:
+        import aws_sdk_ec2.types.tpm_support_values
+
+        aws_sdk_ec2.types.tpm_support_values.serialize_ec2_query(
+            value["tpm_support"], pairs, f"{prefix}.TpmSupport"
+        )
+    if "uefi_data" in value:
+        pairs.append((f"{prefix}.UefiData", str(value["uefi_data"])))
+    if "imds_support" in value:
+        import aws_sdk_ec2.types.imds_support_values
+
+        aws_sdk_ec2.types.imds_support_values.serialize_ec2_query(
+            value["imds_support"], pairs, f"{prefix}.ImdsSupport"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "architecture" in value:
+        import aws_sdk_ec2.types.architecture_values
+
+        aws_sdk_ec2.types.architecture_values.serialize_ec2_query(
+            value["architecture"], pairs, f"{prefix}.Architecture"
+        )
+    if "kernel_id" in value:
+        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+    if "ramdisk_id" in value:
+        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+    if "root_device_name" in value:
+        pairs.append((f"{prefix}.RootDeviceName", str(value["root_device_name"])))
+    if "block_device_mappings" in value:
+        import aws_sdk_ec2.types.block_device_mapping_request_list
+
+        aws_sdk_ec2.types.block_device_mapping_request_list.serialize_ec2_query(
+            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappings"
+        )
+    if "virtualization_type" in value:
+        pairs.append(
+            (f"{prefix}.VirtualizationType", str(value["virtualization_type"]))
+        )
+    if "sriov_net_support" in value:
+        pairs.append((f"{prefix}.SriovNetSupport", str(value["sriov_net_support"])))
+    if "ena_support" in value:
+        pairs.append(
+            (f"{prefix}.EnaSupport", "true" if value["ena_support"] else "false")
+        )
+
+
+def deserialize_ec2_query(el: Element) -> RegisterImageRequest:
+    out: RegisterImageRequest = {}  # type: ignore[typeddict-item]
+    child_image_location = el.find("ImageLocation")
+    if child_image_location is not None:
+        out["image_location"] = str(child_image_location.text or "")
+    if el.find("BillingProducts") is not None:
+        import aws_sdk_ec2.types.billing_product_list
+
+        out["billing_products"] = (
+            aws_sdk_ec2.types.billing_product_list.deserialize_ec2_query(
+                el, "BillingProducts"
+            )
+        )
+    child_boot_mode = el.find("BootMode")
+    if child_boot_mode is not None:
+        import aws_sdk_ec2.types.boot_mode_values
+
+        out["boot_mode"] = aws_sdk_ec2.types.boot_mode_values.deserialize_ec2_query(
+            child_boot_mode
+        )
+    child_tpm_support = el.find("TpmSupport")
+    if child_tpm_support is not None:
+        import aws_sdk_ec2.types.tpm_support_values
+
+        out["tpm_support"] = aws_sdk_ec2.types.tpm_support_values.deserialize_ec2_query(
+            child_tpm_support
+        )
+    child_uefi_data = el.find("UefiData")
+    if child_uefi_data is not None:
+        out["uefi_data"] = str(child_uefi_data.text or "")
+    child_imds_support = el.find("ImdsSupport")
+    if child_imds_support is not None:
+        import aws_sdk_ec2.types.imds_support_values
+
+        out["imds_support"] = (
+            aws_sdk_ec2.types.imds_support_values.deserialize_ec2_query(
+                child_imds_support
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_architecture = el.find("Architecture")
+    if child_architecture is not None:
+        import aws_sdk_ec2.types.architecture_values
+
+        out["architecture"] = (
+            aws_sdk_ec2.types.architecture_values.deserialize_ec2_query(
+                child_architecture
+            )
+        )
+    child_kernel_id = el.find("KernelId")
+    if child_kernel_id is not None:
+        out["kernel_id"] = str(child_kernel_id.text or "")
+    child_ramdisk_id = el.find("RamdiskId")
+    if child_ramdisk_id is not None:
+        out["ramdisk_id"] = str(child_ramdisk_id.text or "")
+    child_root_device_name = el.find("RootDeviceName")
+    if child_root_device_name is not None:
+        out["root_device_name"] = str(child_root_device_name.text or "")
+    if el.find("BlockDeviceMappings") is not None:
+        import aws_sdk_ec2.types.block_device_mapping_request_list
+
+        out["block_device_mappings"] = (
+            aws_sdk_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
+                el, "BlockDeviceMappings"
+            )
+        )
+    child_virtualization_type = el.find("VirtualizationType")
+    if child_virtualization_type is not None:
+        out["virtualization_type"] = str(child_virtualization_type.text or "")
+    child_sriov_net_support = el.find("SriovNetSupport")
+    if child_sriov_net_support is not None:
+        out["sriov_net_support"] = str(child_sriov_net_support.text or "")
+    child_ena_support = el.find("EnaSupport")
+    if child_ena_support is not None:
+        out["ena_support"] = (child_ena_support.text or "").lower() == "true"
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.block_device_mapping_request_list
@@ -38,3 +39,82 @@ class CreateImageRequest(TypedDict):
         "aws_sdk_ec2.types.block_device_mapping_request_list.BlockDeviceMappingRequestList"
     ]
     """<p>The block device mappings.</p> <p>When using the CreateImage action:</p> <ul> <li> <p>You can't change the volume size using the VolumeSize parameter. If you want a different volume size, you must first change the volume size of the source instance.</p> </li> <li> <p>You can't modify the encryption status of existing volumes or snapshots. To create an AMI with volumes or snapshots that have a different encryption status (for example, where the source volume and snapshots are unencrypted, and you want to create an AMI with encrypted volumes or snapshots), copy the image instead.</p> </li> <li> <p>The only option that can be changed for existing mappings or snapshots is <code>DeleteOnTermination</code>.</p> </li> </ul>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateImageRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "snapshot_location" in value:
+        import aws_sdk_ec2.types.snapshot_location_enum
+
+        aws_sdk_ec2.types.snapshot_location_enum.serialize_ec2_query(
+            value["snapshot_location"], pairs, f"{prefix}.SnapshotLocation"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "instance_id" in value:
+        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "no_reboot" in value:
+        pairs.append((f"{prefix}.NoReboot", "true" if value["no_reboot"] else "false"))
+    if "block_device_mappings" in value:
+        import aws_sdk_ec2.types.block_device_mapping_request_list
+
+        aws_sdk_ec2.types.block_device_mapping_request_list.serialize_ec2_query(
+            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMapping"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateImageRequest:
+    out: CreateImageRequest = {}  # type: ignore[typeddict-item]
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_snapshot_location = el.find("SnapshotLocation")
+    if child_snapshot_location is not None:
+        import aws_sdk_ec2.types.snapshot_location_enum
+
+        out["snapshot_location"] = (
+            aws_sdk_ec2.types.snapshot_location_enum.deserialize_ec2_query(
+                child_snapshot_location
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_instance_id = el.find("InstanceId")
+    if child_instance_id is not None:
+        out["instance_id"] = str(child_instance_id.text or "")
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_no_reboot = el.find("NoReboot")
+    if child_no_reboot is not None:
+        out["no_reboot"] = (child_no_reboot.text or "").lower() == "true"
+    if el.find("BlockDeviceMapping") is not None:
+        import aws_sdk_ec2.types.block_device_mapping_request_list
+
+        out["block_device_mappings"] = (
+            aws_sdk_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
+                el, "BlockDeviceMapping"
+            )
+        )
+    return out

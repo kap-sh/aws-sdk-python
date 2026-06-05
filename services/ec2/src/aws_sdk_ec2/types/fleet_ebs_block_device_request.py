@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -28,3 +29,69 @@ class FleetEbsBlockDeviceRequest(TypedDict):
     """<p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.</p> <p>The following are the supported sizes for each volume type:</p> <ul> <li> <p> <code>gp2</code>: 1 - 16,384 GiB</p> </li> <li> <p> <code>gp3</code>: 1 - 65,536 GiB</p> </li> <li> <p> <code>io1</code>: 4 - 16,384 GiB</p> </li> <li> <p> <code>io2</code>: 4 - 65,536 GiB</p> </li> <li> <p> <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p> </li> <li> <p> <code>standard</code>: 1 - 1024 GiB</p> </li> </ul>"""
     volume_type: NotRequired["aws_sdk_ec2.types.volume_type.VolumeType"]
     """<p>The volume type. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html\">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: FleetEbsBlockDeviceRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "delete_on_termination" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeleteOnTermination",
+                "true" if value["delete_on_termination"] else "false",
+            )
+        )
+    if "iops" in value:
+        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+    if "throughput" in value:
+        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "snapshot_id" in value:
+        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+    if "volume_size" in value:
+        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+    if "volume_type" in value:
+        import aws_sdk_ec2.types.volume_type
+
+        aws_sdk_ec2.types.volume_type.serialize_ec2_query(
+            value["volume_type"], pairs, f"{prefix}.VolumeType"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> FleetEbsBlockDeviceRequest:
+    out: FleetEbsBlockDeviceRequest = {}  # type: ignore[typeddict-item]
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_delete_on_termination = el.find("DeleteOnTermination")
+    if child_delete_on_termination is not None:
+        out["delete_on_termination"] = (
+            child_delete_on_termination.text or ""
+        ).lower() == "true"
+    child_iops = el.find("Iops")
+    if child_iops is not None:
+        out["iops"] = int(child_iops.text or "")
+    child_throughput = el.find("Throughput")
+    if child_throughput is not None:
+        out["throughput"] = int(child_throughput.text or "")
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_snapshot_id = el.find("SnapshotId")
+    if child_snapshot_id is not None:
+        out["snapshot_id"] = str(child_snapshot_id.text or "")
+    child_volume_size = el.find("VolumeSize")
+    if child_volume_size is not None:
+        out["volume_size"] = int(child_volume_size.text or "")
+    child_volume_type = el.find("VolumeType")
+    if child_volume_type is not None:
+        import aws_sdk_ec2.types.volume_type
+
+        out["volume_type"] = aws_sdk_ec2.types.volume_type.deserialize_ec2_query(
+            child_volume_type
+        )
+    return out

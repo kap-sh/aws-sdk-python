@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.availability_zone_id
@@ -46,3 +47,106 @@ class FleetLaunchTemplateOverrides(TypedDict):
         "aws_sdk_ec2.types.availability_zone_id.AvailabilityZoneId"
     ]
     """<p>The ID of the Availability Zone in which to launch the instances. For example, <code>use2-az1</code>.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: FleetLaunchTemplateOverrides, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_type" in value:
+        import aws_sdk_ec2.types.instance_type
+
+        aws_sdk_ec2.types.instance_type.serialize_ec2_query(
+            value["instance_type"], pairs, f"{prefix}.InstanceType"
+        )
+    if "max_price" in value:
+        pairs.append((f"{prefix}.MaxPrice", str(value["max_price"])))
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "weighted_capacity" in value:
+        pairs.append((f"{prefix}.WeightedCapacity", str(value["weighted_capacity"])))
+    if "priority" in value:
+        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+    if "placement" in value:
+        import aws_sdk_ec2.types.placement_response
+
+        aws_sdk_ec2.types.placement_response.serialize_ec2_query(
+            value["placement"], pairs, f"{prefix}.Placement"
+        )
+    if "instance_requirements" in value:
+        import aws_sdk_ec2.types.instance_requirements
+
+        aws_sdk_ec2.types.instance_requirements.serialize_ec2_query(
+            value["instance_requirements"], pairs, f"{prefix}.InstanceRequirements"
+        )
+    if "image_id" in value:
+        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+    if "block_device_mappings" in value:
+        import aws_sdk_ec2.types.block_device_mapping_response_list
+
+        aws_sdk_ec2.types.block_device_mapping_response_list.serialize_ec2_query(
+            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappingSet"
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+
+
+def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverrides:
+    out: FleetLaunchTemplateOverrides = {}  # type: ignore[typeddict-item]
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        import aws_sdk_ec2.types.instance_type
+
+        out["instance_type"] = aws_sdk_ec2.types.instance_type.deserialize_ec2_query(
+            child_instance_type
+        )
+    child_max_price = el.find("MaxPrice")
+    if child_max_price is not None:
+        out["max_price"] = str(child_max_price.text or "")
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_weighted_capacity = el.find("WeightedCapacity")
+    if child_weighted_capacity is not None:
+        out["weighted_capacity"] = float(child_weighted_capacity.text or "")
+    child_priority = el.find("Priority")
+    if child_priority is not None:
+        out["priority"] = float(child_priority.text or "")
+    child_placement = el.find("Placement")
+    if child_placement is not None:
+        import aws_sdk_ec2.types.placement_response
+
+        out["placement"] = aws_sdk_ec2.types.placement_response.deserialize_ec2_query(
+            child_placement
+        )
+    child_instance_requirements = el.find("InstanceRequirements")
+    if child_instance_requirements is not None:
+        import aws_sdk_ec2.types.instance_requirements
+
+        out["instance_requirements"] = (
+            aws_sdk_ec2.types.instance_requirements.deserialize_ec2_query(
+                child_instance_requirements
+            )
+        )
+    child_image_id = el.find("ImageId")
+    if child_image_id is not None:
+        out["image_id"] = str(child_image_id.text or "")
+    if el.find("BlockDeviceMappingSet") is not None:
+        import aws_sdk_ec2.types.block_device_mapping_response_list
+
+        out["block_device_mappings"] = (
+            aws_sdk_ec2.types.block_device_mapping_response_list.deserialize_ec2_query(
+                el, "BlockDeviceMappingSet"
+            )
+        )
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    return out

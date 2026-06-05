@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_connect_peer
@@ -12,3 +13,33 @@ class CreateTransitGatewayConnectPeerResult(TypedDict):
         "aws_sdk_ec2.types.transit_gateway_connect_peer.TransitGatewayConnectPeer"
     ]
     """<p>Information about the Connect peer.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateTransitGatewayConnectPeerResult,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "transit_gateway_connect_peer" in value:
+        import aws_sdk_ec2.types.transit_gateway_connect_peer
+
+        aws_sdk_ec2.types.transit_gateway_connect_peer.serialize_ec2_query(
+            value["transit_gateway_connect_peer"],
+            pairs,
+            f"{prefix}.TransitGatewayConnectPeer",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateTransitGatewayConnectPeerResult:
+    out: CreateTransitGatewayConnectPeerResult = {}  # type: ignore[typeddict-item]
+    child_transit_gateway_connect_peer = el.find("TransitGatewayConnectPeer")
+    if child_transit_gateway_connect_peer is not None:
+        import aws_sdk_ec2.types.transit_gateway_connect_peer
+
+        out["transit_gateway_connect_peer"] = (
+            aws_sdk_ec2.types.transit_gateway_connect_peer.deserialize_ec2_query(
+                child_transit_gateway_connect_peer
+            )
+        )
+    return out

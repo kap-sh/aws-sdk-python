@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -94,3 +95,272 @@ class CreateClientVpnEndpointRequest(TypedDict):
         "aws_sdk_ec2.types.transit_gateway_configuration_input_structure.TransitGatewayConfigurationInputStructure"
     ]
     """<p>The Transit Gateway configuration for the Client VPN endpoint. Use this parameter to associate the endpoint with a Transit Gateway instead of a VPC. You cannot specify both <code>TransitGatewayConfiguration</code> and <code>VpcId</code>/<code>SecurityGroupIds</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateClientVpnEndpointRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_cidr_block" in value:
+        pairs.append((f"{prefix}.ClientCidrBlock", str(value["client_cidr_block"])))
+    if "server_certificate_arn" in value:
+        pairs.append(
+            (f"{prefix}.ServerCertificateArn", str(value["server_certificate_arn"]))
+        )
+    if "authentication_options" in value:
+        import aws_sdk_ec2.types.client_vpn_authentication_request_list
+
+        aws_sdk_ec2.types.client_vpn_authentication_request_list.serialize_ec2_query(
+            value["authentication_options"], pairs, f"{prefix}.AuthenticationOptions"
+        )
+    if "connection_log_options" in value:
+        import aws_sdk_ec2.types.connection_log_options
+
+        aws_sdk_ec2.types.connection_log_options.serialize_ec2_query(
+            value["connection_log_options"], pairs, f"{prefix}.ConnectionLogOptions"
+        )
+    if "dns_servers" in value:
+        import aws_sdk_ec2.types.value_string_list
+
+        aws_sdk_ec2.types.value_string_list.serialize_ec2_query(
+            value["dns_servers"], pairs, f"{prefix}.DnsServers"
+        )
+    if "transport_protocol" in value:
+        import aws_sdk_ec2.types.transport_protocol
+
+        aws_sdk_ec2.types.transport_protocol.serialize_ec2_query(
+            value["transport_protocol"], pairs, f"{prefix}.TransportProtocol"
+        )
+    if "vpn_port" in value:
+        pairs.append((f"{prefix}.VpnPort", str(value["vpn_port"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "split_tunnel" in value:
+        pairs.append(
+            (f"{prefix}.SplitTunnel", "true" if value["split_tunnel"] else "false")
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "security_group_ids" in value:
+        import aws_sdk_ec2.types.client_vpn_security_group_id_set
+
+        aws_sdk_ec2.types.client_vpn_security_group_id_set.serialize_ec2_query(
+            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+        )
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "self_service_portal" in value:
+        import aws_sdk_ec2.types.self_service_portal
+
+        aws_sdk_ec2.types.self_service_portal.serialize_ec2_query(
+            value["self_service_portal"], pairs, f"{prefix}.SelfServicePortal"
+        )
+    if "client_connect_options" in value:
+        import aws_sdk_ec2.types.client_connect_options
+
+        aws_sdk_ec2.types.client_connect_options.serialize_ec2_query(
+            value["client_connect_options"], pairs, f"{prefix}.ClientConnectOptions"
+        )
+    if "session_timeout_hours" in value:
+        pairs.append(
+            (f"{prefix}.SessionTimeoutHours", str(value["session_timeout_hours"]))
+        )
+    if "client_login_banner_options" in value:
+        import aws_sdk_ec2.types.client_login_banner_options
+
+        aws_sdk_ec2.types.client_login_banner_options.serialize_ec2_query(
+            value["client_login_banner_options"],
+            pairs,
+            f"{prefix}.ClientLoginBannerOptions",
+        )
+    if "client_route_enforcement_options" in value:
+        import aws_sdk_ec2.types.client_route_enforcement_options
+
+        aws_sdk_ec2.types.client_route_enforcement_options.serialize_ec2_query(
+            value["client_route_enforcement_options"],
+            pairs,
+            f"{prefix}.ClientRouteEnforcementOptions",
+        )
+    if "disconnect_on_session_timeout" in value:
+        pairs.append(
+            (
+                f"{prefix}.DisconnectOnSessionTimeout",
+                "true" if value["disconnect_on_session_timeout"] else "false",
+            )
+        )
+    if "endpoint_ip_address_type" in value:
+        import aws_sdk_ec2.types.endpoint_ip_address_type
+
+        aws_sdk_ec2.types.endpoint_ip_address_type.serialize_ec2_query(
+            value["endpoint_ip_address_type"], pairs, f"{prefix}.EndpointIpAddressType"
+        )
+    if "traffic_ip_address_type" in value:
+        import aws_sdk_ec2.types.traffic_ip_address_type
+
+        aws_sdk_ec2.types.traffic_ip_address_type.serialize_ec2_query(
+            value["traffic_ip_address_type"], pairs, f"{prefix}.TrafficIpAddressType"
+        )
+    if "transit_gateway_configuration" in value:
+        import aws_sdk_ec2.types.transit_gateway_configuration_input_structure
+
+        aws_sdk_ec2.types.transit_gateway_configuration_input_structure.serialize_ec2_query(
+            value["transit_gateway_configuration"],
+            pairs,
+            f"{prefix}.TransitGatewayConfiguration",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateClientVpnEndpointRequest:
+    out: CreateClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
+    child_client_cidr_block = el.find("ClientCidrBlock")
+    if child_client_cidr_block is not None:
+        out["client_cidr_block"] = str(child_client_cidr_block.text or "")
+    child_server_certificate_arn = el.find("ServerCertificateArn")
+    if child_server_certificate_arn is not None:
+        out["server_certificate_arn"] = str(child_server_certificate_arn.text or "")
+    if el.find("AuthenticationOptions") is not None:
+        import aws_sdk_ec2.types.client_vpn_authentication_request_list
+
+        out["authentication_options"] = (
+            aws_sdk_ec2.types.client_vpn_authentication_request_list.deserialize_ec2_query(
+                el, "AuthenticationOptions"
+            )
+        )
+    child_connection_log_options = el.find("ConnectionLogOptions")
+    if child_connection_log_options is not None:
+        import aws_sdk_ec2.types.connection_log_options
+
+        out["connection_log_options"] = (
+            aws_sdk_ec2.types.connection_log_options.deserialize_ec2_query(
+                child_connection_log_options
+            )
+        )
+    if el.find("DnsServers") is not None:
+        import aws_sdk_ec2.types.value_string_list
+
+        out["dns_servers"] = aws_sdk_ec2.types.value_string_list.deserialize_ec2_query(
+            el, "DnsServers"
+        )
+    child_transport_protocol = el.find("TransportProtocol")
+    if child_transport_protocol is not None:
+        import aws_sdk_ec2.types.transport_protocol
+
+        out["transport_protocol"] = (
+            aws_sdk_ec2.types.transport_protocol.deserialize_ec2_query(
+                child_transport_protocol
+            )
+        )
+    child_vpn_port = el.find("VpnPort")
+    if child_vpn_port is not None:
+        out["vpn_port"] = int(child_vpn_port.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_split_tunnel = el.find("SplitTunnel")
+    if child_split_tunnel is not None:
+        out["split_tunnel"] = (child_split_tunnel.text or "").lower() == "true"
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    if el.find("SecurityGroupIds") is not None:
+        import aws_sdk_ec2.types.client_vpn_security_group_id_set
+
+        out["security_group_ids"] = (
+            aws_sdk_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
+                el, "SecurityGroupIds"
+            )
+        )
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    child_self_service_portal = el.find("SelfServicePortal")
+    if child_self_service_portal is not None:
+        import aws_sdk_ec2.types.self_service_portal
+
+        out["self_service_portal"] = (
+            aws_sdk_ec2.types.self_service_portal.deserialize_ec2_query(
+                child_self_service_portal
+            )
+        )
+    child_client_connect_options = el.find("ClientConnectOptions")
+    if child_client_connect_options is not None:
+        import aws_sdk_ec2.types.client_connect_options
+
+        out["client_connect_options"] = (
+            aws_sdk_ec2.types.client_connect_options.deserialize_ec2_query(
+                child_client_connect_options
+            )
+        )
+    child_session_timeout_hours = el.find("SessionTimeoutHours")
+    if child_session_timeout_hours is not None:
+        out["session_timeout_hours"] = int(child_session_timeout_hours.text or "")
+    child_client_login_banner_options = el.find("ClientLoginBannerOptions")
+    if child_client_login_banner_options is not None:
+        import aws_sdk_ec2.types.client_login_banner_options
+
+        out["client_login_banner_options"] = (
+            aws_sdk_ec2.types.client_login_banner_options.deserialize_ec2_query(
+                child_client_login_banner_options
+            )
+        )
+    child_client_route_enforcement_options = el.find("ClientRouteEnforcementOptions")
+    if child_client_route_enforcement_options is not None:
+        import aws_sdk_ec2.types.client_route_enforcement_options
+
+        out["client_route_enforcement_options"] = (
+            aws_sdk_ec2.types.client_route_enforcement_options.deserialize_ec2_query(
+                child_client_route_enforcement_options
+            )
+        )
+    child_disconnect_on_session_timeout = el.find("DisconnectOnSessionTimeout")
+    if child_disconnect_on_session_timeout is not None:
+        out["disconnect_on_session_timeout"] = (
+            child_disconnect_on_session_timeout.text or ""
+        ).lower() == "true"
+    child_endpoint_ip_address_type = el.find("EndpointIpAddressType")
+    if child_endpoint_ip_address_type is not None:
+        import aws_sdk_ec2.types.endpoint_ip_address_type
+
+        out["endpoint_ip_address_type"] = (
+            aws_sdk_ec2.types.endpoint_ip_address_type.deserialize_ec2_query(
+                child_endpoint_ip_address_type
+            )
+        )
+    child_traffic_ip_address_type = el.find("TrafficIpAddressType")
+    if child_traffic_ip_address_type is not None:
+        import aws_sdk_ec2.types.traffic_ip_address_type
+
+        out["traffic_ip_address_type"] = (
+            aws_sdk_ec2.types.traffic_ip_address_type.deserialize_ec2_query(
+                child_traffic_ip_address_type
+            )
+        )
+    child_transit_gateway_configuration = el.find("TransitGatewayConfiguration")
+    if child_transit_gateway_configuration is not None:
+        import aws_sdk_ec2.types.transit_gateway_configuration_input_structure
+
+        out["transit_gateway_configuration"] = (
+            aws_sdk_ec2.types.transit_gateway_configuration_input_structure.deserialize_ec2_query(
+                child_transit_gateway_configuration
+            )
+        )
+    return out

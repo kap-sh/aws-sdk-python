@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -15,3 +16,37 @@ class DescribeTransitGatewayConnectsResult(TypedDict):
     """<p>Information about the Connect attachments.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeTransitGatewayConnectsResult,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "transit_gateway_connects" in value:
+        import aws_sdk_ec2.types.transit_gateway_connect_list
+
+        aws_sdk_ec2.types.transit_gateway_connect_list.serialize_ec2_query(
+            value["transit_gateway_connects"],
+            pairs,
+            f"{prefix}.TransitGatewayConnectSet",
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeTransitGatewayConnectsResult:
+    out: DescribeTransitGatewayConnectsResult = {}  # type: ignore[typeddict-item]
+    if el.find("TransitGatewayConnectSet") is not None:
+        import aws_sdk_ec2.types.transit_gateway_connect_list
+
+        out["transit_gateway_connects"] = (
+            aws_sdk_ec2.types.transit_gateway_connect_list.deserialize_ec2_query(
+                el, "TransitGatewayConnectSet"
+            )
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -21,3 +22,36 @@ class ReleaseIpamPoolAllocationRequest(TypedDict):
         "aws_sdk_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId"
     ]
     """<p>The ID of the allocation.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ReleaseIpamPoolAllocationRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_pool_id" in value:
+        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+    if "cidr" in value:
+        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+    if "ipam_pool_allocation_id" in value:
+        pairs.append(
+            (f"{prefix}.IpamPoolAllocationId", str(value["ipam_pool_allocation_id"]))
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ReleaseIpamPoolAllocationRequest:
+    out: ReleaseIpamPoolAllocationRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_pool_id = el.find("IpamPoolId")
+    if child_ipam_pool_id is not None:
+        out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
+    child_cidr = el.find("Cidr")
+    if child_cidr is not None:
+        out["cidr"] = str(child_cidr.text or "")
+    child_ipam_pool_allocation_id = el.find("IpamPoolAllocationId")
+    if child_ipam_pool_allocation_id is not None:
+        out["ipam_pool_allocation_id"] = str(child_ipam_pool_allocation_id.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -36,3 +37,99 @@ class DescribeScheduledInstanceAvailabilityRequest(TypedDict):
         "aws_sdk_ec2.types.scheduled_instance_recurrence_request.ScheduledInstanceRecurrenceRequest"
     ]
     """<p>The schedule recurrence.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeScheduledInstanceAvailabilityRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "first_slot_start_time_range" in value:
+        import aws_sdk_ec2.types.slot_date_time_range_request
+
+        aws_sdk_ec2.types.slot_date_time_range_request.serialize_ec2_query(
+            value["first_slot_start_time_range"],
+            pairs,
+            f"{prefix}.FirstSlotStartTimeRange",
+        )
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "max_slot_duration_in_hours" in value:
+        pairs.append(
+            (
+                f"{prefix}.MaxSlotDurationInHours",
+                str(value["max_slot_duration_in_hours"]),
+            )
+        )
+    if "min_slot_duration_in_hours" in value:
+        pairs.append(
+            (
+                f"{prefix}.MinSlotDurationInHours",
+                str(value["min_slot_duration_in_hours"]),
+            )
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "recurrence" in value:
+        import aws_sdk_ec2.types.scheduled_instance_recurrence_request
+
+        aws_sdk_ec2.types.scheduled_instance_recurrence_request.serialize_ec2_query(
+            value["recurrence"], pairs, f"{prefix}.Recurrence"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeScheduledInstanceAvailabilityRequest:
+    out: DescribeScheduledInstanceAvailabilityRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_first_slot_start_time_range = el.find("FirstSlotStartTimeRange")
+    if child_first_slot_start_time_range is not None:
+        import aws_sdk_ec2.types.slot_date_time_range_request
+
+        out["first_slot_start_time_range"] = (
+            aws_sdk_ec2.types.slot_date_time_range_request.deserialize_ec2_query(
+                child_first_slot_start_time_range
+            )
+        )
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_max_slot_duration_in_hours = el.find("MaxSlotDurationInHours")
+    if child_max_slot_duration_in_hours is not None:
+        out["max_slot_duration_in_hours"] = int(
+            child_max_slot_duration_in_hours.text or ""
+        )
+    child_min_slot_duration_in_hours = el.find("MinSlotDurationInHours")
+    if child_min_slot_duration_in_hours is not None:
+        out["min_slot_duration_in_hours"] = int(
+            child_min_slot_duration_in_hours.text or ""
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_recurrence = el.find("Recurrence")
+    if child_recurrence is not None:
+        import aws_sdk_ec2.types.scheduled_instance_recurrence_request
+
+        out["recurrence"] = (
+            aws_sdk_ec2.types.scheduled_instance_recurrence_request.deserialize_ec2_query(
+                child_recurrence
+            )
+        )
+    return out

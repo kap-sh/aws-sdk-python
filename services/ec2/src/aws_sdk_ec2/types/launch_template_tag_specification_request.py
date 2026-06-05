@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.resource_type
@@ -13,3 +14,39 @@ class LaunchTemplateTagSpecificationRequest(TypedDict):
     """<p>The type of resource to tag.</p> <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>network-interface</code> | <code>spot-instances-request</code>. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.</p> <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]
     """<p>The tags to apply to the resource.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: LaunchTemplateTagSpecificationRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "resource_type" in value:
+        import aws_sdk_ec2.types.resource_type
+
+        aws_sdk_ec2.types.resource_type.serialize_ec2_query(
+            value["resource_type"], pairs, f"{prefix}.ResourceType"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.Tags"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> LaunchTemplateTagSpecificationRequest:
+    out: LaunchTemplateTagSpecificationRequest = {}  # type: ignore[typeddict-item]
+    child_resource_type = el.find("ResourceType")
+    if child_resource_type is not None:
+        import aws_sdk_ec2.types.resource_type
+
+        out["resource_type"] = aws_sdk_ec2.types.resource_type.deserialize_ec2_query(
+            child_resource_type
+        )
+    if el.find("Tags") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "Tags")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -28,3 +29,75 @@ class DescribeReservedInstancesRequest(TypedDict):
         "aws_sdk_ec2.types.offering_type_values.OfferingTypeValues"
     ]
     """<p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the <code>Medium Utilization</code> Reserved Instance offering type.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeReservedInstancesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "offering_class" in value:
+        import aws_sdk_ec2.types.offering_class_type
+
+        aws_sdk_ec2.types.offering_class_type.serialize_ec2_query(
+            value["offering_class"], pairs, f"{prefix}.OfferingClass"
+        )
+    if "reserved_instances_ids" in value:
+        import aws_sdk_ec2.types.reserved_instances_id_string_list
+
+        aws_sdk_ec2.types.reserved_instances_id_string_list.serialize_ec2_query(
+            value["reserved_instances_ids"], pairs, f"{prefix}.ReservedInstancesIds"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "offering_type" in value:
+        import aws_sdk_ec2.types.offering_type_values
+
+        aws_sdk_ec2.types.offering_type_values.serialize_ec2_query(
+            value["offering_type"], pairs, f"{prefix}.OfferingType"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesRequest:
+    out: DescribeReservedInstancesRequest = {}  # type: ignore[typeddict-item]
+    child_offering_class = el.find("OfferingClass")
+    if child_offering_class is not None:
+        import aws_sdk_ec2.types.offering_class_type
+
+        out["offering_class"] = (
+            aws_sdk_ec2.types.offering_class_type.deserialize_ec2_query(
+                child_offering_class
+            )
+        )
+    if el.find("ReservedInstancesIds") is not None:
+        import aws_sdk_ec2.types.reserved_instances_id_string_list
+
+        out["reserved_instances_ids"] = (
+            aws_sdk_ec2.types.reserved_instances_id_string_list.deserialize_ec2_query(
+                el, "ReservedInstancesIds"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_offering_type = el.find("OfferingType")
+    if child_offering_type is not None:
+        import aws_sdk_ec2.types.offering_type_values
+
+        out["offering_type"] = (
+            aws_sdk_ec2.types.offering_type_values.deserialize_ec2_query(
+                child_offering_type
+            )
+        )
+    return out

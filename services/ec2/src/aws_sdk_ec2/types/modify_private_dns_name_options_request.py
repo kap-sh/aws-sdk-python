@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -24,3 +25,67 @@ class ModifyPrivateDnsNameOptionsRequest(TypedDict):
         "aws_sdk_ec2.types.boolean.Boolean"
     ]
     """<p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyPrivateDnsNameOptionsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "instance_id" in value:
+        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+    if "private_dns_hostname_type" in value:
+        import aws_sdk_ec2.types.hostname_type
+
+        aws_sdk_ec2.types.hostname_type.serialize_ec2_query(
+            value["private_dns_hostname_type"],
+            pairs,
+            f"{prefix}.PrivateDnsHostnameType",
+        )
+    if "enable_resource_name_dns_a_record" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnableResourceNameDnsARecord",
+                "true" if value["enable_resource_name_dns_a_record"] else "false",
+            )
+        )
+    if "enable_resource_name_dns_aaaa_record" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnableResourceNameDnsAAAARecord",
+                "true" if value["enable_resource_name_dns_aaaa_record"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyPrivateDnsNameOptionsRequest:
+    out: ModifyPrivateDnsNameOptionsRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_instance_id = el.find("InstanceId")
+    if child_instance_id is not None:
+        out["instance_id"] = str(child_instance_id.text or "")
+    child_private_dns_hostname_type = el.find("PrivateDnsHostnameType")
+    if child_private_dns_hostname_type is not None:
+        import aws_sdk_ec2.types.hostname_type
+
+        out["private_dns_hostname_type"] = (
+            aws_sdk_ec2.types.hostname_type.deserialize_ec2_query(
+                child_private_dns_hostname_type
+            )
+        )
+    child_enable_resource_name_dns_a_record = el.find("EnableResourceNameDnsARecord")
+    if child_enable_resource_name_dns_a_record is not None:
+        out["enable_resource_name_dns_a_record"] = (
+            child_enable_resource_name_dns_a_record.text or ""
+        ).lower() == "true"
+    child_enable_resource_name_dns_aaaa_record = el.find(
+        "EnableResourceNameDnsAAAARecord"
+    )
+    if child_enable_resource_name_dns_aaaa_record is not None:
+        out["enable_resource_name_dns_aaaa_record"] = (
+            child_enable_resource_name_dns_aaaa_record.text or ""
+        ).lower() == "true"
+    return out

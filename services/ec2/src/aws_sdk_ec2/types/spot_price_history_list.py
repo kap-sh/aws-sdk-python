@@ -1,8 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SpotPriceHistoryList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.spot_price
 
 SpotPriceHistoryList: TypeAlias = list["aws_sdk_ec2.types.spot_price.SpotPrice"]
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: SpotPriceHistoryList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        import aws_sdk_ec2.types.spot_price
+
+        aws_sdk_ec2.types.spot_price.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
+
+
+def deserialize_ec2_query(parent: Element, tag: str) -> SpotPriceHistoryList:
+    import aws_sdk_ec2.types.spot_price
+
+    out: SpotPriceHistoryList = []
+    for child in parent.findall(tag):
+        out.append(aws_sdk_ec2.types.spot_price.deserialize_ec2_query(child))
+    return out

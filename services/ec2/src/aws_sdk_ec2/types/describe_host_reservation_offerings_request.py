@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.describe_host_reservations_max_results
@@ -26,3 +27,53 @@ class DescribeHostReservationOfferingsRequest(TypedDict):
     """<p>The token to use to retrieve the next page of results.</p>"""
     offering_id: NotRequired["aws_sdk_ec2.types.offering_id.OfferingId"]
     """<p>The ID of the reservation offering.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeHostReservationOfferingsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "filter" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filter"], pairs, f"{prefix}.Filter"
+        )
+    if "max_duration" in value:
+        pairs.append((f"{prefix}.MaxDuration", str(value["max_duration"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "min_duration" in value:
+        pairs.append((f"{prefix}.MinDuration", str(value["min_duration"])))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "offering_id" in value:
+        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeHostReservationOfferingsRequest:
+    out: DescribeHostReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
+    if el.find("Filter") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filter"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filter"
+        )
+    child_max_duration = el.find("MaxDuration")
+    if child_max_duration is not None:
+        out["max_duration"] = int(child_max_duration.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_min_duration = el.find("MinDuration")
+    if child_min_duration is not None:
+        out["min_duration"] = int(child_min_duration.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_offering_id = el.find("OfferingId")
+    if child_offering_id is not None:
+        out["offering_id"] = str(child_offering_id.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -35,3 +36,93 @@ class ModifyInstanceMetadataDefaultsRequest(TypedDict):
         "aws_sdk_ec2.types.default_http_tokens_enforced_state.DefaultHttpTokensEnforcedState"
     ]
     """<p>Specifies whether to enforce the requirement of IMDSv2 on an instance at the time of launch. When enforcement is enabled, the instance can't launch unless IMDSv2 (<code>HttpTokens</code>) is set to <code>required</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#enforce-imdsv2-at-the-account-level\">Enforce IMDSv2 at the account level</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyInstanceMetadataDefaultsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "http_tokens" in value:
+        import aws_sdk_ec2.types.metadata_default_http_tokens_state
+
+        aws_sdk_ec2.types.metadata_default_http_tokens_state.serialize_ec2_query(
+            value["http_tokens"], pairs, f"{prefix}.HttpTokens"
+        )
+    if "http_put_response_hop_limit" in value:
+        pairs.append(
+            (
+                f"{prefix}.HttpPutResponseHopLimit",
+                str(value["http_put_response_hop_limit"]),
+            )
+        )
+    if "http_endpoint" in value:
+        import aws_sdk_ec2.types.default_instance_metadata_endpoint_state
+
+        aws_sdk_ec2.types.default_instance_metadata_endpoint_state.serialize_ec2_query(
+            value["http_endpoint"], pairs, f"{prefix}.HttpEndpoint"
+        )
+    if "instance_metadata_tags" in value:
+        import aws_sdk_ec2.types.default_instance_metadata_tags_state
+
+        aws_sdk_ec2.types.default_instance_metadata_tags_state.serialize_ec2_query(
+            value["instance_metadata_tags"], pairs, f"{prefix}.InstanceMetadataTags"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "http_tokens_enforced" in value:
+        import aws_sdk_ec2.types.default_http_tokens_enforced_state
+
+        aws_sdk_ec2.types.default_http_tokens_enforced_state.serialize_ec2_query(
+            value["http_tokens_enforced"], pairs, f"{prefix}.HttpTokensEnforced"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyInstanceMetadataDefaultsRequest:
+    out: ModifyInstanceMetadataDefaultsRequest = {}  # type: ignore[typeddict-item]
+    child_http_tokens = el.find("HttpTokens")
+    if child_http_tokens is not None:
+        import aws_sdk_ec2.types.metadata_default_http_tokens_state
+
+        out["http_tokens"] = (
+            aws_sdk_ec2.types.metadata_default_http_tokens_state.deserialize_ec2_query(
+                child_http_tokens
+            )
+        )
+    child_http_put_response_hop_limit = el.find("HttpPutResponseHopLimit")
+    if child_http_put_response_hop_limit is not None:
+        out["http_put_response_hop_limit"] = int(
+            child_http_put_response_hop_limit.text or ""
+        )
+    child_http_endpoint = el.find("HttpEndpoint")
+    if child_http_endpoint is not None:
+        import aws_sdk_ec2.types.default_instance_metadata_endpoint_state
+
+        out["http_endpoint"] = (
+            aws_sdk_ec2.types.default_instance_metadata_endpoint_state.deserialize_ec2_query(
+                child_http_endpoint
+            )
+        )
+    child_instance_metadata_tags = el.find("InstanceMetadataTags")
+    if child_instance_metadata_tags is not None:
+        import aws_sdk_ec2.types.default_instance_metadata_tags_state
+
+        out["instance_metadata_tags"] = (
+            aws_sdk_ec2.types.default_instance_metadata_tags_state.deserialize_ec2_query(
+                child_instance_metadata_tags
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_http_tokens_enforced = el.find("HttpTokensEnforced")
+    if child_http_tokens_enforced is not None:
+        import aws_sdk_ec2.types.default_http_tokens_enforced_state
+
+        out["http_tokens_enforced"] = (
+            aws_sdk_ec2.types.default_http_tokens_enforced_state.deserialize_ec2_query(
+                child_http_tokens_enforced
+            )
+        )
+    return out

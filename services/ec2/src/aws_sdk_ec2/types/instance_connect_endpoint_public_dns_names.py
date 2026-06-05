@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_connect_endpoint_dns_names
@@ -16,3 +17,46 @@ class InstanceConnectEndpointPublicDnsNames(TypedDict):
         "aws_sdk_ec2.types.instance_connect_endpoint_dns_names.InstanceConnectEndpointDnsNames"
     ]
     """<p>The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InstanceConnectEndpointPublicDnsNames,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "ipv4" in value:
+        import aws_sdk_ec2.types.instance_connect_endpoint_dns_names
+
+        aws_sdk_ec2.types.instance_connect_endpoint_dns_names.serialize_ec2_query(
+            value["ipv4"], pairs, f"{prefix}.Ipv4"
+        )
+    if "dualstack" in value:
+        import aws_sdk_ec2.types.instance_connect_endpoint_dns_names
+
+        aws_sdk_ec2.types.instance_connect_endpoint_dns_names.serialize_ec2_query(
+            value["dualstack"], pairs, f"{prefix}.Dualstack"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> InstanceConnectEndpointPublicDnsNames:
+    out: InstanceConnectEndpointPublicDnsNames = {}  # type: ignore[typeddict-item]
+    child_ipv4 = el.find("Ipv4")
+    if child_ipv4 is not None:
+        import aws_sdk_ec2.types.instance_connect_endpoint_dns_names
+
+        out["ipv4"] = (
+            aws_sdk_ec2.types.instance_connect_endpoint_dns_names.deserialize_ec2_query(
+                child_ipv4
+            )
+        )
+    child_dualstack = el.find("Dualstack")
+    if child_dualstack is not None:
+        import aws_sdk_ec2.types.instance_connect_endpoint_dns_names
+
+        out["dualstack"] = (
+            aws_sdk_ec2.types.instance_connect_endpoint_dns_names.deserialize_ec2_query(
+                child_dualstack
+            )
+        )
+    return out

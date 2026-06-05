@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -16,3 +17,41 @@ class DeleteTagsRequest(TypedDict):
     """<p>The IDs of the resources, separated by spaces.</p> <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]
     """<p>The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.</p> <p>If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code> prefix).</p> <p>Constraints: Up to 1000 tags.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DeleteTagsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "resources" in value:
+        import aws_sdk_ec2.types.resource_id_list
+
+        aws_sdk_ec2.types.resource_id_list.serialize_ec2_query(
+            value["resources"], pairs, f"{prefix}.ResourceId"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.Tag"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DeleteTagsRequest:
+    out: DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("ResourceId") is not None:
+        import aws_sdk_ec2.types.resource_id_list
+
+        out["resources"] = aws_sdk_ec2.types.resource_id_list.deserialize_ec2_query(
+            el, "ResourceId"
+        )
+    if el.find("Tag") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "Tag")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -33,3 +34,73 @@ class ReservationFleetInstanceSpecification(TypedDict):
         "aws_sdk_ec2.types.integer_with_constraints.IntegerWithConstraints"
     ]
     """<p>The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority\">Instance type priority</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ReservationFleetInstanceSpecification,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "instance_type" in value:
+        import aws_sdk_ec2.types.instance_type
+
+        aws_sdk_ec2.types.instance_type.serialize_ec2_query(
+            value["instance_type"], pairs, f"{prefix}.InstanceType"
+        )
+    if "instance_platform" in value:
+        import aws_sdk_ec2.types.capacity_reservation_instance_platform
+
+        aws_sdk_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
+            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+        )
+    if "weight" in value:
+        pairs.append((f"{prefix}.Weight", str(value["weight"])))
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "ebs_optimized" in value:
+        pairs.append(
+            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+        )
+    if "priority" in value:
+        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+
+
+def deserialize_ec2_query(el: Element) -> ReservationFleetInstanceSpecification:
+    out: ReservationFleetInstanceSpecification = {}  # type: ignore[typeddict-item]
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        import aws_sdk_ec2.types.instance_type
+
+        out["instance_type"] = aws_sdk_ec2.types.instance_type.deserialize_ec2_query(
+            child_instance_type
+        )
+    child_instance_platform = el.find("InstancePlatform")
+    if child_instance_platform is not None:
+        import aws_sdk_ec2.types.capacity_reservation_instance_platform
+
+        out["instance_platform"] = (
+            aws_sdk_ec2.types.capacity_reservation_instance_platform.deserialize_ec2_query(
+                child_instance_platform
+            )
+        )
+    child_weight = el.find("Weight")
+    if child_weight is not None:
+        out["weight"] = float(child_weight.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_ebs_optimized = el.find("EbsOptimized")
+    if child_ebs_optimized is not None:
+        out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
+    child_priority = el.find("Priority")
+    if child_priority is not None:
+        out["priority"] = int(child_priority.text or "")
+    return out

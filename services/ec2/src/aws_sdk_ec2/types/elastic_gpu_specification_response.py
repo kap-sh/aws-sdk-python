@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -10,3 +11,19 @@ if TYPE_CHECKING:
 class ElasticGpuSpecificationResponse(TypedDict):
     type: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Deprecated.</p> <note> <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p> </note>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ElasticGpuSpecificationResponse, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "type" in value:
+        pairs.append((f"{prefix}.Type", str(value["type"])))
+
+
+def deserialize_ec2_query(el: Element) -> ElasticGpuSpecificationResponse:
+    out: ElasticGpuSpecificationResponse = {}  # type: ignore[typeddict-item]
+    child_type = el.find("Type")
+    if child_type is not None:
+        out["type"] = str(child_type.text or "")
+    return out

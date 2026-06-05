@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.network_insights_access_scope_analysis_id
@@ -25,3 +26,59 @@ class AccessScopeAnalysisFinding(TypedDict):
         "aws_sdk_ec2.types.path_component_list.PathComponentList"
     ]
     """<p>The finding components.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: AccessScopeAnalysisFinding, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "network_insights_access_scope_analysis_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.NetworkInsightsAccessScopeAnalysisId",
+                str(value["network_insights_access_scope_analysis_id"]),
+            )
+        )
+    if "network_insights_access_scope_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.NetworkInsightsAccessScopeId",
+                str(value["network_insights_access_scope_id"]),
+            )
+        )
+    if "finding_id" in value:
+        pairs.append((f"{prefix}.FindingId", str(value["finding_id"])))
+    if "finding_components" in value:
+        import aws_sdk_ec2.types.path_component_list
+
+        aws_sdk_ec2.types.path_component_list.serialize_ec2_query(
+            value["finding_components"], pairs, f"{prefix}.FindingComponentSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> AccessScopeAnalysisFinding:
+    out: AccessScopeAnalysisFinding = {}  # type: ignore[typeddict-item]
+    child_network_insights_access_scope_analysis_id = el.find(
+        "NetworkInsightsAccessScopeAnalysisId"
+    )
+    if child_network_insights_access_scope_analysis_id is not None:
+        out["network_insights_access_scope_analysis_id"] = str(
+            child_network_insights_access_scope_analysis_id.text or ""
+        )
+    child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
+    if child_network_insights_access_scope_id is not None:
+        out["network_insights_access_scope_id"] = str(
+            child_network_insights_access_scope_id.text or ""
+        )
+    child_finding_id = el.find("FindingId")
+    if child_finding_id is not None:
+        out["finding_id"] = str(child_finding_id.text or "")
+    if el.find("FindingComponentSet") is not None:
+        import aws_sdk_ec2.types.path_component_list
+
+        out["finding_components"] = (
+            aws_sdk_ec2.types.path_component_list.deserialize_ec2_query(
+                el, "FindingComponentSet"
+            )
+        )
+    return out

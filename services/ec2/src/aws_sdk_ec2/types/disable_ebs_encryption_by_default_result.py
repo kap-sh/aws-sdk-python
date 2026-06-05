@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -10,3 +11,28 @@ if TYPE_CHECKING:
 class DisableEbsEncryptionByDefaultResult(TypedDict):
     ebs_encryption_by_default: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>The updated status of encryption by default.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DisableEbsEncryptionByDefaultResult,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "ebs_encryption_by_default" in value:
+        pairs.append(
+            (
+                f"{prefix}.EbsEncryptionByDefault",
+                "true" if value["ebs_encryption_by_default"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DisableEbsEncryptionByDefaultResult:
+    out: DisableEbsEncryptionByDefaultResult = {}  # type: ignore[typeddict-item]
+    child_ebs_encryption_by_default = el.find("EbsEncryptionByDefault")
+    if child_ebs_encryption_by_default is not None:
+        out["ebs_encryption_by_default"] = (
+            child_ebs_encryption_by_default.text or ""
+        ).lower() == "true"
+    return out

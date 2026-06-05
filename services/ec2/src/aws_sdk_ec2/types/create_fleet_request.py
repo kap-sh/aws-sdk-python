@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -64,3 +65,203 @@ class CreateFleetRequest(TypedDict):
     """<p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tag your resources</a>.</p> <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code> to tag the fleet or <code>instance</code> to tag the instances at launch.</p> <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of <code>instance</code>. To tag instances at launch, specify the tags in a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch template</a>.</p>"""
     context: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Reserved.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateFleetRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "spot_options" in value:
+        import aws_sdk_ec2.types.spot_options_request
+
+        aws_sdk_ec2.types.spot_options_request.serialize_ec2_query(
+            value["spot_options"], pairs, f"{prefix}.SpotOptions"
+        )
+    if "on_demand_options" in value:
+        import aws_sdk_ec2.types.on_demand_options_request
+
+        aws_sdk_ec2.types.on_demand_options_request.serialize_ec2_query(
+            value["on_demand_options"], pairs, f"{prefix}.OnDemandOptions"
+        )
+    if "reserved_capacity_options" in value:
+        import aws_sdk_ec2.types.reserved_capacity_options_request
+
+        aws_sdk_ec2.types.reserved_capacity_options_request.serialize_ec2_query(
+            value["reserved_capacity_options"],
+            pairs,
+            f"{prefix}.ReservedCapacityOptions",
+        )
+    if "excess_capacity_termination_policy" in value:
+        import aws_sdk_ec2.types.fleet_excess_capacity_termination_policy
+
+        aws_sdk_ec2.types.fleet_excess_capacity_termination_policy.serialize_ec2_query(
+            value["excess_capacity_termination_policy"],
+            pairs,
+            f"{prefix}.ExcessCapacityTerminationPolicy",
+        )
+    if "launch_template_configs" in value:
+        import aws_sdk_ec2.types.fleet_launch_template_config_list_request
+
+        aws_sdk_ec2.types.fleet_launch_template_config_list_request.serialize_ec2_query(
+            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+        )
+    if "target_capacity_specification" in value:
+        import aws_sdk_ec2.types.target_capacity_specification_request
+
+        aws_sdk_ec2.types.target_capacity_specification_request.serialize_ec2_query(
+            value["target_capacity_specification"],
+            pairs,
+            f"{prefix}.TargetCapacitySpecification",
+        )
+    if "terminate_instances_with_expiration" in value:
+        pairs.append(
+            (
+                f"{prefix}.TerminateInstancesWithExpiration",
+                "true" if value["terminate_instances_with_expiration"] else "false",
+            )
+        )
+    if "type" in value:
+        import aws_sdk_ec2.types.fleet_type
+
+        aws_sdk_ec2.types.fleet_type.serialize_ec2_query(
+            value["type"], pairs, f"{prefix}.Type"
+        )
+    if "valid_from" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+        )
+    if "valid_until" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+        )
+    if "replace_unhealthy_instances" in value:
+        pairs.append(
+            (
+                f"{prefix}.ReplaceUnhealthyInstances",
+                "true" if value["replace_unhealthy_instances"] else "false",
+            )
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "context" in value:
+        pairs.append((f"{prefix}.Context", str(value["context"])))
+
+
+def deserialize_ec2_query(el: Element) -> CreateFleetRequest:
+    out: CreateFleetRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_spot_options = el.find("SpotOptions")
+    if child_spot_options is not None:
+        import aws_sdk_ec2.types.spot_options_request
+
+        out["spot_options"] = (
+            aws_sdk_ec2.types.spot_options_request.deserialize_ec2_query(
+                child_spot_options
+            )
+        )
+    child_on_demand_options = el.find("OnDemandOptions")
+    if child_on_demand_options is not None:
+        import aws_sdk_ec2.types.on_demand_options_request
+
+        out["on_demand_options"] = (
+            aws_sdk_ec2.types.on_demand_options_request.deserialize_ec2_query(
+                child_on_demand_options
+            )
+        )
+    child_reserved_capacity_options = el.find("ReservedCapacityOptions")
+    if child_reserved_capacity_options is not None:
+        import aws_sdk_ec2.types.reserved_capacity_options_request
+
+        out["reserved_capacity_options"] = (
+            aws_sdk_ec2.types.reserved_capacity_options_request.deserialize_ec2_query(
+                child_reserved_capacity_options
+            )
+        )
+    child_excess_capacity_termination_policy = el.find(
+        "ExcessCapacityTerminationPolicy"
+    )
+    if child_excess_capacity_termination_policy is not None:
+        import aws_sdk_ec2.types.fleet_excess_capacity_termination_policy
+
+        out["excess_capacity_termination_policy"] = (
+            aws_sdk_ec2.types.fleet_excess_capacity_termination_policy.deserialize_ec2_query(
+                child_excess_capacity_termination_policy
+            )
+        )
+    if el.find("LaunchTemplateConfigs") is not None:
+        import aws_sdk_ec2.types.fleet_launch_template_config_list_request
+
+        out["launch_template_configs"] = (
+            aws_sdk_ec2.types.fleet_launch_template_config_list_request.deserialize_ec2_query(
+                el, "LaunchTemplateConfigs"
+            )
+        )
+    child_target_capacity_specification = el.find("TargetCapacitySpecification")
+    if child_target_capacity_specification is not None:
+        import aws_sdk_ec2.types.target_capacity_specification_request
+
+        out["target_capacity_specification"] = (
+            aws_sdk_ec2.types.target_capacity_specification_request.deserialize_ec2_query(
+                child_target_capacity_specification
+            )
+        )
+    child_terminate_instances_with_expiration = el.find(
+        "TerminateInstancesWithExpiration"
+    )
+    if child_terminate_instances_with_expiration is not None:
+        out["terminate_instances_with_expiration"] = (
+            child_terminate_instances_with_expiration.text or ""
+        ).lower() == "true"
+    child_type = el.find("Type")
+    if child_type is not None:
+        import aws_sdk_ec2.types.fleet_type
+
+        out["type"] = aws_sdk_ec2.types.fleet_type.deserialize_ec2_query(child_type)
+    child_valid_from = el.find("ValidFrom")
+    if child_valid_from is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_from"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_from
+        )
+    child_valid_until = el.find("ValidUntil")
+    if child_valid_until is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_until"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_until
+        )
+    child_replace_unhealthy_instances = el.find("ReplaceUnhealthyInstances")
+    if child_replace_unhealthy_instances is not None:
+        out["replace_unhealthy_instances"] = (
+            child_replace_unhealthy_instances.text or ""
+        ).lower() == "true"
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_context = el.find("Context")
+    if child_context is not None:
+        out["context"] = str(child_context.text or "")
+    return out

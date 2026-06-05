@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.resource_type
@@ -17,3 +18,42 @@ class TagDescription(TypedDict):
     """<p>The resource type.</p>"""
     value: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The tag value.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TagDescription, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "key" in value:
+        pairs.append((f"{prefix}.Key", str(value["key"])))
+    if "resource_id" in value:
+        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+    if "resource_type" in value:
+        import aws_sdk_ec2.types.resource_type
+
+        aws_sdk_ec2.types.resource_type.serialize_ec2_query(
+            value["resource_type"], pairs, f"{prefix}.ResourceType"
+        )
+    if "value" in value:
+        pairs.append((f"{prefix}.Value", str(value["value"])))
+
+
+def deserialize_ec2_query(el: Element) -> TagDescription:
+    out: TagDescription = {}  # type: ignore[typeddict-item]
+    child_key = el.find("Key")
+    if child_key is not None:
+        out["key"] = str(child_key.text or "")
+    child_resource_id = el.find("ResourceId")
+    if child_resource_id is not None:
+        out["resource_id"] = str(child_resource_id.text or "")
+    child_resource_type = el.find("ResourceType")
+    if child_resource_type is not None:
+        import aws_sdk_ec2.types.resource_type
+
+        out["resource_type"] = aws_sdk_ec2.types.resource_type.deserialize_ec2_query(
+            child_resource_type
+        )
+    child_value = el.find("Value")
+    if child_value is not None:
+        out["value"] = str(child_value.text or "")
+    return out

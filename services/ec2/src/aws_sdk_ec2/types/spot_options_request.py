@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -35,3 +36,107 @@ class SpotOptionsRequest(TypedDict):
     """<p>The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.</p> <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type <code>instant</code>.</p> <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> | <code>SingleInstanceType</code> </p>"""
     max_total_price: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p> </important> <note> <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for <code>MaxTotalPrice</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits\">Surplus credits can incur charges</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: SpotOptionsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "allocation_strategy" in value:
+        import aws_sdk_ec2.types.spot_allocation_strategy
+
+        aws_sdk_ec2.types.spot_allocation_strategy.serialize_ec2_query(
+            value["allocation_strategy"], pairs, f"{prefix}.AllocationStrategy"
+        )
+    if "maintenance_strategies" in value:
+        import aws_sdk_ec2.types.fleet_spot_maintenance_strategies_request
+
+        aws_sdk_ec2.types.fleet_spot_maintenance_strategies_request.serialize_ec2_query(
+            value["maintenance_strategies"], pairs, f"{prefix}.MaintenanceStrategies"
+        )
+    if "instance_interruption_behavior" in value:
+        import aws_sdk_ec2.types.spot_instance_interruption_behavior
+
+        aws_sdk_ec2.types.spot_instance_interruption_behavior.serialize_ec2_query(
+            value["instance_interruption_behavior"],
+            pairs,
+            f"{prefix}.InstanceInterruptionBehavior",
+        )
+    if "instance_pools_to_use_count" in value:
+        pairs.append(
+            (
+                f"{prefix}.InstancePoolsToUseCount",
+                str(value["instance_pools_to_use_count"]),
+            )
+        )
+    if "single_instance_type" in value:
+        pairs.append(
+            (
+                f"{prefix}.SingleInstanceType",
+                "true" if value["single_instance_type"] else "false",
+            )
+        )
+    if "single_availability_zone" in value:
+        pairs.append(
+            (
+                f"{prefix}.SingleAvailabilityZone",
+                "true" if value["single_availability_zone"] else "false",
+            )
+        )
+    if "min_target_capacity" in value:
+        pairs.append((f"{prefix}.MinTargetCapacity", str(value["min_target_capacity"])))
+    if "max_total_price" in value:
+        pairs.append((f"{prefix}.MaxTotalPrice", str(value["max_total_price"])))
+
+
+def deserialize_ec2_query(el: Element) -> SpotOptionsRequest:
+    out: SpotOptionsRequest = {}  # type: ignore[typeddict-item]
+    child_allocation_strategy = el.find("AllocationStrategy")
+    if child_allocation_strategy is not None:
+        import aws_sdk_ec2.types.spot_allocation_strategy
+
+        out["allocation_strategy"] = (
+            aws_sdk_ec2.types.spot_allocation_strategy.deserialize_ec2_query(
+                child_allocation_strategy
+            )
+        )
+    child_maintenance_strategies = el.find("MaintenanceStrategies")
+    if child_maintenance_strategies is not None:
+        import aws_sdk_ec2.types.fleet_spot_maintenance_strategies_request
+
+        out["maintenance_strategies"] = (
+            aws_sdk_ec2.types.fleet_spot_maintenance_strategies_request.deserialize_ec2_query(
+                child_maintenance_strategies
+            )
+        )
+    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    if child_instance_interruption_behavior is not None:
+        import aws_sdk_ec2.types.spot_instance_interruption_behavior
+
+        out["instance_interruption_behavior"] = (
+            aws_sdk_ec2.types.spot_instance_interruption_behavior.deserialize_ec2_query(
+                child_instance_interruption_behavior
+            )
+        )
+    child_instance_pools_to_use_count = el.find("InstancePoolsToUseCount")
+    if child_instance_pools_to_use_count is not None:
+        out["instance_pools_to_use_count"] = int(
+            child_instance_pools_to_use_count.text or ""
+        )
+    child_single_instance_type = el.find("SingleInstanceType")
+    if child_single_instance_type is not None:
+        out["single_instance_type"] = (
+            child_single_instance_type.text or ""
+        ).lower() == "true"
+    child_single_availability_zone = el.find("SingleAvailabilityZone")
+    if child_single_availability_zone is not None:
+        out["single_availability_zone"] = (
+            child_single_availability_zone.text or ""
+        ).lower() == "true"
+    child_min_target_capacity = el.find("MinTargetCapacity")
+    if child_min_target_capacity is not None:
+        out["min_target_capacity"] = int(child_min_target_capacity.text or "")
+    child_max_total_price = el.find("MaxTotalPrice")
+    if child_max_total_price is not None:
+        out["max_total_price"] = str(child_max_total_price.text or "")
+    return out

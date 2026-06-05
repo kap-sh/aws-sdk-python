@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.cool_off_period_response_hours
@@ -42,3 +43,109 @@ class LockedSnapshotsInfo(TypedDict):
         "aws_sdk_ec2.types.millisecond_date_time.MillisecondDateTime"
     ]
     """<p>The date and time at which the lock will expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: LockedSnapshotsInfo, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+    if "snapshot_id" in value:
+        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+    if "lock_state" in value:
+        import aws_sdk_ec2.types.lock_state
+
+        aws_sdk_ec2.types.lock_state.serialize_ec2_query(
+            value["lock_state"], pairs, f"{prefix}.LockState"
+        )
+    if "lock_duration" in value:
+        pairs.append((f"{prefix}.LockDuration", str(value["lock_duration"])))
+    if "cool_off_period" in value:
+        pairs.append((f"{prefix}.CoolOffPeriod", str(value["cool_off_period"])))
+    if "cool_off_period_expires_on" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["cool_off_period_expires_on"],
+            pairs,
+            f"{prefix}.CoolOffPeriodExpiresOn",
+        )
+    if "lock_created_on" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["lock_created_on"], pairs, f"{prefix}.LockCreatedOn"
+        )
+    if "lock_duration_start_time" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["lock_duration_start_time"], pairs, f"{prefix}.LockDurationStartTime"
+        )
+    if "lock_expires_on" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["lock_expires_on"], pairs, f"{prefix}.LockExpiresOn"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> LockedSnapshotsInfo:
+    out: LockedSnapshotsInfo = {}  # type: ignore[typeddict-item]
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    child_snapshot_id = el.find("SnapshotId")
+    if child_snapshot_id is not None:
+        out["snapshot_id"] = str(child_snapshot_id.text or "")
+    child_lock_state = el.find("LockState")
+    if child_lock_state is not None:
+        import aws_sdk_ec2.types.lock_state
+
+        out["lock_state"] = aws_sdk_ec2.types.lock_state.deserialize_ec2_query(
+            child_lock_state
+        )
+    child_lock_duration = el.find("LockDuration")
+    if child_lock_duration is not None:
+        out["lock_duration"] = int(child_lock_duration.text or "")
+    child_cool_off_period = el.find("CoolOffPeriod")
+    if child_cool_off_period is not None:
+        out["cool_off_period"] = int(child_cool_off_period.text or "")
+    child_cool_off_period_expires_on = el.find("CoolOffPeriodExpiresOn")
+    if child_cool_off_period_expires_on is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["cool_off_period_expires_on"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_cool_off_period_expires_on
+            )
+        )
+    child_lock_created_on = el.find("LockCreatedOn")
+    if child_lock_created_on is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["lock_created_on"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_lock_created_on
+            )
+        )
+    child_lock_duration_start_time = el.find("LockDurationStartTime")
+    if child_lock_duration_start_time is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["lock_duration_start_time"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_lock_duration_start_time
+            )
+        )
+    child_lock_expires_on = el.find("LockExpiresOn")
+    if child_lock_expires_on is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["lock_expires_on"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_lock_expires_on
+            )
+        )
+    return out

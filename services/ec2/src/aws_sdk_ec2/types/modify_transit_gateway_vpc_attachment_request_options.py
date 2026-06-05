@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.appliance_mode_support_value
@@ -23,3 +24,80 @@ class ModifyTransitGatewayVpcAttachmentRequestOptions(TypedDict):
         "aws_sdk_ec2.types.appliance_mode_support_value.ApplianceModeSupportValue"
     ]
     """<p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyTransitGatewayVpcAttachmentRequestOptions,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dns_support" in value:
+        import aws_sdk_ec2.types.dns_support_value
+
+        aws_sdk_ec2.types.dns_support_value.serialize_ec2_query(
+            value["dns_support"], pairs, f"{prefix}.DnsSupport"
+        )
+    if "security_group_referencing_support" in value:
+        import aws_sdk_ec2.types.security_group_referencing_support_value
+
+        aws_sdk_ec2.types.security_group_referencing_support_value.serialize_ec2_query(
+            value["security_group_referencing_support"],
+            pairs,
+            f"{prefix}.SecurityGroupReferencingSupport",
+        )
+    if "ipv6_support" in value:
+        import aws_sdk_ec2.types.ipv6_support_value
+
+        aws_sdk_ec2.types.ipv6_support_value.serialize_ec2_query(
+            value["ipv6_support"], pairs, f"{prefix}.Ipv6Support"
+        )
+    if "appliance_mode_support" in value:
+        import aws_sdk_ec2.types.appliance_mode_support_value
+
+        aws_sdk_ec2.types.appliance_mode_support_value.serialize_ec2_query(
+            value["appliance_mode_support"], pairs, f"{prefix}.ApplianceModeSupport"
+        )
+
+
+def deserialize_ec2_query(
+    el: Element,
+) -> ModifyTransitGatewayVpcAttachmentRequestOptions:
+    out: ModifyTransitGatewayVpcAttachmentRequestOptions = {}  # type: ignore[typeddict-item]
+    child_dns_support = el.find("DnsSupport")
+    if child_dns_support is not None:
+        import aws_sdk_ec2.types.dns_support_value
+
+        out["dns_support"] = aws_sdk_ec2.types.dns_support_value.deserialize_ec2_query(
+            child_dns_support
+        )
+    child_security_group_referencing_support = el.find(
+        "SecurityGroupReferencingSupport"
+    )
+    if child_security_group_referencing_support is not None:
+        import aws_sdk_ec2.types.security_group_referencing_support_value
+
+        out["security_group_referencing_support"] = (
+            aws_sdk_ec2.types.security_group_referencing_support_value.deserialize_ec2_query(
+                child_security_group_referencing_support
+            )
+        )
+    child_ipv6_support = el.find("Ipv6Support")
+    if child_ipv6_support is not None:
+        import aws_sdk_ec2.types.ipv6_support_value
+
+        out["ipv6_support"] = (
+            aws_sdk_ec2.types.ipv6_support_value.deserialize_ec2_query(
+                child_ipv6_support
+            )
+        )
+    child_appliance_mode_support = el.find("ApplianceModeSupport")
+    if child_appliance_mode_support is not None:
+        import aws_sdk_ec2.types.appliance_mode_support_value
+
+        out["appliance_mode_support"] = (
+            aws_sdk_ec2.types.appliance_mode_support_value.deserialize_ec2_query(
+                child_appliance_mode_support
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.capacity_reservation_group_set
@@ -15,3 +16,37 @@ class GetGroupsForCapacityReservationResult(TypedDict):
         "aws_sdk_ec2.types.capacity_reservation_group_set.CapacityReservationGroupSet"
     ]
     """<p>Information about the resource groups to which the Capacity Reservation has been added.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: GetGroupsForCapacityReservationResult,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "capacity_reservation_groups" in value:
+        import aws_sdk_ec2.types.capacity_reservation_group_set
+
+        aws_sdk_ec2.types.capacity_reservation_group_set.serialize_ec2_query(
+            value["capacity_reservation_groups"],
+            pairs,
+            f"{prefix}.CapacityReservationGroupSet",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> GetGroupsForCapacityReservationResult:
+    out: GetGroupsForCapacityReservationResult = {}  # type: ignore[typeddict-item]
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    if el.find("CapacityReservationGroupSet") is not None:
+        import aws_sdk_ec2.types.capacity_reservation_group_set
+
+        out["capacity_reservation_groups"] = (
+            aws_sdk_ec2.types.capacity_reservation_group_set.deserialize_ec2_query(
+                el, "CapacityReservationGroupSet"
+            )
+        )
+    return out

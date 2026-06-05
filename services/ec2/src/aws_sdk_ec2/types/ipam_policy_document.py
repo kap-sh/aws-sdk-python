@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.ipam_policy_allocation_rule_list
@@ -23,3 +24,53 @@ class IpamPolicyDocument(TypedDict):
         "aws_sdk_ec2.types.ipam_policy_allocation_rule_list.IpamPolicyAllocationRuleList"
     ]
     """<p>The allocation rules in the IPAM policy document.</p> <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: IpamPolicyDocument, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "ipam_policy_id" in value:
+        pairs.append((f"{prefix}.IpamPolicyId", str(value["ipam_policy_id"])))
+    if "locale" in value:
+        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+    if "resource_type" in value:
+        import aws_sdk_ec2.types.ipam_policy_resource_type
+
+        aws_sdk_ec2.types.ipam_policy_resource_type.serialize_ec2_query(
+            value["resource_type"], pairs, f"{prefix}.ResourceType"
+        )
+    if "allocation_rules" in value:
+        import aws_sdk_ec2.types.ipam_policy_allocation_rule_list
+
+        aws_sdk_ec2.types.ipam_policy_allocation_rule_list.serialize_ec2_query(
+            value["allocation_rules"], pairs, f"{prefix}.AllocationRuleSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> IpamPolicyDocument:
+    out: IpamPolicyDocument = {}  # type: ignore[typeddict-item]
+    child_ipam_policy_id = el.find("IpamPolicyId")
+    if child_ipam_policy_id is not None:
+        out["ipam_policy_id"] = str(child_ipam_policy_id.text or "")
+    child_locale = el.find("Locale")
+    if child_locale is not None:
+        out["locale"] = str(child_locale.text or "")
+    child_resource_type = el.find("ResourceType")
+    if child_resource_type is not None:
+        import aws_sdk_ec2.types.ipam_policy_resource_type
+
+        out["resource_type"] = (
+            aws_sdk_ec2.types.ipam_policy_resource_type.deserialize_ec2_query(
+                child_resource_type
+            )
+        )
+    if el.find("AllocationRuleSet") is not None:
+        import aws_sdk_ec2.types.ipam_policy_allocation_rule_list
+
+        out["allocation_rules"] = (
+            aws_sdk_ec2.types.ipam_policy_allocation_rule_list.deserialize_ec2_query(
+                el, "AllocationRuleSet"
+            )
+        )
+    return out

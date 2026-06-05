@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -43,3 +44,80 @@ class CreateVpnConnectionRequest(TypedDict):
         "aws_sdk_ec2.types.vpn_connection_options_specification.VpnConnectionOptionsSpecification"
     ]
     """<p>The options for the VPN connection.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateVpnConnectionRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "customer_gateway_id" in value:
+        pairs.append((f"{prefix}.CustomerGatewayId", str(value["customer_gateway_id"])))
+    if "type" in value:
+        pairs.append((f"{prefix}.Type", str(value["type"])))
+    if "vpn_gateway_id" in value:
+        pairs.append((f"{prefix}.VpnGatewayId", str(value["vpn_gateway_id"])))
+    if "transit_gateway_id" in value:
+        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+    if "vpn_concentrator_id" in value:
+        pairs.append((f"{prefix}.VpnConcentratorId", str(value["vpn_concentrator_id"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "pre_shared_key_storage" in value:
+        pairs.append(
+            (f"{prefix}.PreSharedKeyStorage", str(value["pre_shared_key_storage"]))
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "options" in value:
+        import aws_sdk_ec2.types.vpn_connection_options_specification
+
+        aws_sdk_ec2.types.vpn_connection_options_specification.serialize_ec2_query(
+            value["options"], pairs, f"{prefix}.Options"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateVpnConnectionRequest:
+    out: CreateVpnConnectionRequest = {}  # type: ignore[typeddict-item]
+    child_customer_gateway_id = el.find("CustomerGatewayId")
+    if child_customer_gateway_id is not None:
+        out["customer_gateway_id"] = str(child_customer_gateway_id.text or "")
+    child_type = el.find("Type")
+    if child_type is not None:
+        out["type"] = str(child_type.text or "")
+    child_vpn_gateway_id = el.find("VpnGatewayId")
+    if child_vpn_gateway_id is not None:
+        out["vpn_gateway_id"] = str(child_vpn_gateway_id.text or "")
+    child_transit_gateway_id = el.find("TransitGatewayId")
+    if child_transit_gateway_id is not None:
+        out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
+    child_vpn_concentrator_id = el.find("VpnConcentratorId")
+    if child_vpn_concentrator_id is not None:
+        out["vpn_concentrator_id"] = str(child_vpn_concentrator_id.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_pre_shared_key_storage = el.find("PreSharedKeyStorage")
+    if child_pre_shared_key_storage is not None:
+        out["pre_shared_key_storage"] = str(child_pre_shared_key_storage.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_options = el.find("Options")
+    if child_options is not None:
+        import aws_sdk_ec2.types.vpn_connection_options_specification
+
+        out["options"] = (
+            aws_sdk_ec2.types.vpn_connection_options_specification.deserialize_ec2_query(
+                child_options
+            )
+        )
+    return out

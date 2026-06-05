@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.image_usage_resource_type_name
@@ -17,3 +18,33 @@ class ImageUsageResourceType(TypedDict):
         "aws_sdk_ec2.types.image_usage_resource_type_option_list.ImageUsageResourceTypeOptionList"
     ]
     """<p>The options that affect the scope of the report. Valid only when <code>ResourceType</code> is <code>ec2:LaunchTemplate</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ImageUsageResourceType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "resource_type" in value:
+        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+    if "resource_type_options" in value:
+        import aws_sdk_ec2.types.image_usage_resource_type_option_list
+
+        aws_sdk_ec2.types.image_usage_resource_type_option_list.serialize_ec2_query(
+            value["resource_type_options"], pairs, f"{prefix}.ResourceTypeOptionSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ImageUsageResourceType:
+    out: ImageUsageResourceType = {}  # type: ignore[typeddict-item]
+    child_resource_type = el.find("ResourceType")
+    if child_resource_type is not None:
+        out["resource_type"] = str(child_resource_type.text or "")
+    if el.find("ResourceTypeOptionSet") is not None:
+        import aws_sdk_ec2.types.image_usage_resource_type_option_list
+
+        out["resource_type_options"] = (
+            aws_sdk_ec2.types.image_usage_resource_type_option_list.deserialize_ec2_query(
+                el, "ResourceTypeOptionSet"
+            )
+        )
+    return out

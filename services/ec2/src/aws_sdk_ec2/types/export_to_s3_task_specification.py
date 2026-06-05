@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.container_format
@@ -20,3 +21,54 @@ class ExportToS3TaskSpecification(TypedDict):
     """<p>The Amazon S3 bucket for the destination image. The destination bucket must exist and have an access control list (ACL) attached that specifies the Region-specific canonical account ID for the <code>Grantee</code>. For more information about the ACL to your S3 bucket, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html#vmexport-prerequisites\">Prerequisites</a> in the VM Import/Export User Guide.</p>"""
     s3_prefix: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ExportToS3TaskSpecification, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "disk_image_format" in value:
+        import aws_sdk_ec2.types.disk_image_format
+
+        aws_sdk_ec2.types.disk_image_format.serialize_ec2_query(
+            value["disk_image_format"], pairs, f"{prefix}.DiskImageFormat"
+        )
+    if "container_format" in value:
+        import aws_sdk_ec2.types.container_format
+
+        aws_sdk_ec2.types.container_format.serialize_ec2_query(
+            value["container_format"], pairs, f"{prefix}.ContainerFormat"
+        )
+    if "s3_bucket" in value:
+        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+    if "s3_prefix" in value:
+        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+
+
+def deserialize_ec2_query(el: Element) -> ExportToS3TaskSpecification:
+    out: ExportToS3TaskSpecification = {}  # type: ignore[typeddict-item]
+    child_disk_image_format = el.find("DiskImageFormat")
+    if child_disk_image_format is not None:
+        import aws_sdk_ec2.types.disk_image_format
+
+        out["disk_image_format"] = (
+            aws_sdk_ec2.types.disk_image_format.deserialize_ec2_query(
+                child_disk_image_format
+            )
+        )
+    child_container_format = el.find("ContainerFormat")
+    if child_container_format is not None:
+        import aws_sdk_ec2.types.container_format
+
+        out["container_format"] = (
+            aws_sdk_ec2.types.container_format.deserialize_ec2_query(
+                child_container_format
+            )
+        )
+    child_s3_bucket = el.find("S3Bucket")
+    if child_s3_bucket is not None:
+        out["s3_bucket"] = str(child_s3_bucket.text or "")
+    child_s3_prefix = el.find("S3Prefix")
+    if child_s3_prefix is not None:
+        out["s3_prefix"] = str(child_s3_prefix.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.default_target_capacity_type
@@ -24,3 +25,74 @@ class TargetCapacitySpecificationRequest(TypedDict):
         "aws_sdk_ec2.types.target_capacity_unit_type.TargetCapacityUnitType"
     ]
     """<p>The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.</p> <p>Default: <code>units</code> (the number of instances)</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TargetCapacitySpecificationRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "total_target_capacity" in value:
+        pairs.append(
+            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+        )
+    if "on_demand_target_capacity" in value:
+        pairs.append(
+            (
+                f"{prefix}.OnDemandTargetCapacity",
+                str(value["on_demand_target_capacity"]),
+            )
+        )
+    if "spot_target_capacity" in value:
+        pairs.append(
+            (f"{prefix}.SpotTargetCapacity", str(value["spot_target_capacity"]))
+        )
+    if "default_target_capacity_type" in value:
+        import aws_sdk_ec2.types.default_target_capacity_type
+
+        aws_sdk_ec2.types.default_target_capacity_type.serialize_ec2_query(
+            value["default_target_capacity_type"],
+            pairs,
+            f"{prefix}.DefaultTargetCapacityType",
+        )
+    if "target_capacity_unit_type" in value:
+        import aws_sdk_ec2.types.target_capacity_unit_type
+
+        aws_sdk_ec2.types.target_capacity_unit_type.serialize_ec2_query(
+            value["target_capacity_unit_type"],
+            pairs,
+            f"{prefix}.TargetCapacityUnitType",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> TargetCapacitySpecificationRequest:
+    out: TargetCapacitySpecificationRequest = {}  # type: ignore[typeddict-item]
+    child_total_target_capacity = el.find("TotalTargetCapacity")
+    if child_total_target_capacity is not None:
+        out["total_target_capacity"] = int(child_total_target_capacity.text or "")
+    child_on_demand_target_capacity = el.find("OnDemandTargetCapacity")
+    if child_on_demand_target_capacity is not None:
+        out["on_demand_target_capacity"] = int(
+            child_on_demand_target_capacity.text or ""
+        )
+    child_spot_target_capacity = el.find("SpotTargetCapacity")
+    if child_spot_target_capacity is not None:
+        out["spot_target_capacity"] = int(child_spot_target_capacity.text or "")
+    child_default_target_capacity_type = el.find("DefaultTargetCapacityType")
+    if child_default_target_capacity_type is not None:
+        import aws_sdk_ec2.types.default_target_capacity_type
+
+        out["default_target_capacity_type"] = (
+            aws_sdk_ec2.types.default_target_capacity_type.deserialize_ec2_query(
+                child_default_target_capacity_type
+            )
+        )
+    child_target_capacity_unit_type = el.find("TargetCapacityUnitType")
+    if child_target_capacity_unit_type is not None:
+        import aws_sdk_ec2.types.target_capacity_unit_type
+
+        out["target_capacity_unit_type"] = (
+            aws_sdk_ec2.types.target_capacity_unit_type.deserialize_ec2_query(
+                child_target_capacity_unit_type
+            )
+        )
+    return out

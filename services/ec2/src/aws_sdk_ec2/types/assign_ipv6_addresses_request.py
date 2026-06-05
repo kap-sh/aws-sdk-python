@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
@@ -23,3 +24,57 @@ class AssignIpv6AddressesRequest(TypedDict):
     """<p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>"""
     ipv6_address_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of additional IPv6 addresses to assign to the network interface. The specified number of IPv6 addresses are assigned in addition to the existing IPv6 addresses that are already assigned to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: AssignIpv6AddressesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "ipv6_prefix_count" in value:
+        pairs.append((f"{prefix}.Ipv6PrefixCount", str(value["ipv6_prefix_count"])))
+    if "ipv6_prefixes" in value:
+        import aws_sdk_ec2.types.ip_prefix_list
+
+        aws_sdk_ec2.types.ip_prefix_list.serialize_ec2_query(
+            value["ipv6_prefixes"], pairs, f"{prefix}.Ipv6Prefixes"
+        )
+    if "network_interface_id" in value:
+        pairs.append(
+            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+        )
+    if "ipv6_addresses" in value:
+        import aws_sdk_ec2.types.ipv6_address_list
+
+        aws_sdk_ec2.types.ipv6_address_list.serialize_ec2_query(
+            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6Addresses"
+        )
+    if "ipv6_address_count" in value:
+        pairs.append((f"{prefix}.Ipv6AddressCount", str(value["ipv6_address_count"])))
+
+
+def deserialize_ec2_query(el: Element) -> AssignIpv6AddressesRequest:
+    out: AssignIpv6AddressesRequest = {}  # type: ignore[typeddict-item]
+    child_ipv6_prefix_count = el.find("Ipv6PrefixCount")
+    if child_ipv6_prefix_count is not None:
+        out["ipv6_prefix_count"] = int(child_ipv6_prefix_count.text or "")
+    if el.find("Ipv6Prefixes") is not None:
+        import aws_sdk_ec2.types.ip_prefix_list
+
+        out["ipv6_prefixes"] = aws_sdk_ec2.types.ip_prefix_list.deserialize_ec2_query(
+            el, "Ipv6Prefixes"
+        )
+    child_network_interface_id = el.find("NetworkInterfaceId")
+    if child_network_interface_id is not None:
+        out["network_interface_id"] = str(child_network_interface_id.text or "")
+    if el.find("Ipv6Addresses") is not None:
+        import aws_sdk_ec2.types.ipv6_address_list
+
+        out["ipv6_addresses"] = (
+            aws_sdk_ec2.types.ipv6_address_list.deserialize_ec2_query(
+                el, "Ipv6Addresses"
+            )
+        )
+    child_ipv6_address_count = el.find("Ipv6AddressCount")
+    if child_ipv6_address_count is not None:
+        out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
+    return out

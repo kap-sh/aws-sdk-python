@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.placement_group
@@ -10,3 +11,29 @@ if TYPE_CHECKING:
 class CreatePlacementGroupResult(TypedDict):
     placement_group: NotRequired["aws_sdk_ec2.types.placement_group.PlacementGroup"]
     """<p>Information about the placement group.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreatePlacementGroupResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "placement_group" in value:
+        import aws_sdk_ec2.types.placement_group
+
+        aws_sdk_ec2.types.placement_group.serialize_ec2_query(
+            value["placement_group"], pairs, f"{prefix}.PlacementGroup"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreatePlacementGroupResult:
+    out: CreatePlacementGroupResult = {}  # type: ignore[typeddict-item]
+    child_placement_group = el.find("PlacementGroup")
+    if child_placement_group is not None:
+        import aws_sdk_ec2.types.placement_group
+
+        out["placement_group"] = (
+            aws_sdk_ec2.types.placement_group.deserialize_ec2_query(
+                child_placement_group
+            )
+        )
+    return out

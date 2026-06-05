@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -34,3 +35,88 @@ class CreateNetworkAclEntryRequest(TypedDict):
     """<p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>"""
     port_range: NotRequired["aws_sdk_ec2.types.port_range.PortRange"]
     """<p>TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateNetworkAclEntryRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "network_acl_id" in value:
+        pairs.append((f"{prefix}.NetworkAclId", str(value["network_acl_id"])))
+    if "rule_number" in value:
+        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+    if "protocol" in value:
+        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+    if "rule_action" in value:
+        import aws_sdk_ec2.types.rule_action
+
+        aws_sdk_ec2.types.rule_action.serialize_ec2_query(
+            value["rule_action"], pairs, f"{prefix}.RuleAction"
+        )
+    if "egress" in value:
+        pairs.append((f"{prefix}.Egress", "true" if value["egress"] else "false"))
+    if "cidr_block" in value:
+        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+    if "ipv6_cidr_block" in value:
+        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+    if "icmp_type_code" in value:
+        import aws_sdk_ec2.types.icmp_type_code
+
+        aws_sdk_ec2.types.icmp_type_code.serialize_ec2_query(
+            value["icmp_type_code"], pairs, f"{prefix}.IcmpTypeCode"
+        )
+    if "port_range" in value:
+        import aws_sdk_ec2.types.port_range
+
+        aws_sdk_ec2.types.port_range.serialize_ec2_query(
+            value["port_range"], pairs, f"{prefix}.PortRange"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateNetworkAclEntryRequest:
+    out: CreateNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_network_acl_id = el.find("NetworkAclId")
+    if child_network_acl_id is not None:
+        out["network_acl_id"] = str(child_network_acl_id.text or "")
+    child_rule_number = el.find("RuleNumber")
+    if child_rule_number is not None:
+        out["rule_number"] = int(child_rule_number.text or "")
+    child_protocol = el.find("Protocol")
+    if child_protocol is not None:
+        out["protocol"] = str(child_protocol.text or "")
+    child_rule_action = el.find("RuleAction")
+    if child_rule_action is not None:
+        import aws_sdk_ec2.types.rule_action
+
+        out["rule_action"] = aws_sdk_ec2.types.rule_action.deserialize_ec2_query(
+            child_rule_action
+        )
+    child_egress = el.find("Egress")
+    if child_egress is not None:
+        out["egress"] = (child_egress.text or "").lower() == "true"
+    child_cidr_block = el.find("CidrBlock")
+    if child_cidr_block is not None:
+        out["cidr_block"] = str(child_cidr_block.text or "")
+    child_ipv6_cidr_block = el.find("Ipv6CidrBlock")
+    if child_ipv6_cidr_block is not None:
+        out["ipv6_cidr_block"] = str(child_ipv6_cidr_block.text or "")
+    child_icmp_type_code = el.find("IcmpTypeCode")
+    if child_icmp_type_code is not None:
+        import aws_sdk_ec2.types.icmp_type_code
+
+        out["icmp_type_code"] = aws_sdk_ec2.types.icmp_type_code.deserialize_ec2_query(
+            child_icmp_type_code
+        )
+    child_port_range = el.find("PortRange")
+    if child_port_range is not None:
+        import aws_sdk_ec2.types.port_range
+
+        out["port_range"] = aws_sdk_ec2.types.port_range.deserialize_ec2_query(
+            child_port_range
+        )
+    return out

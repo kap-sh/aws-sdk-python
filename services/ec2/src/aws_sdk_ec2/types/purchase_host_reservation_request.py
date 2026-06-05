@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.currency_code_values
@@ -28,3 +29,70 @@ class PurchaseHostReservationRequest(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>The tags to apply to the Dedicated Host Reservation during purchase.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: PurchaseHostReservationRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "currency_code" in value:
+        import aws_sdk_ec2.types.currency_code_values
+
+        aws_sdk_ec2.types.currency_code_values.serialize_ec2_query(
+            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+        )
+    if "host_id_set" in value:
+        import aws_sdk_ec2.types.request_host_id_set
+
+        aws_sdk_ec2.types.request_host_id_set.serialize_ec2_query(
+            value["host_id_set"], pairs, f"{prefix}.HostIdSet"
+        )
+    if "limit_price" in value:
+        pairs.append((f"{prefix}.LimitPrice", str(value["limit_price"])))
+    if "offering_id" in value:
+        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> PurchaseHostReservationRequest:
+    out: PurchaseHostReservationRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_currency_code = el.find("CurrencyCode")
+    if child_currency_code is not None:
+        import aws_sdk_ec2.types.currency_code_values
+
+        out["currency_code"] = (
+            aws_sdk_ec2.types.currency_code_values.deserialize_ec2_query(
+                child_currency_code
+            )
+        )
+    if el.find("HostIdSet") is not None:
+        import aws_sdk_ec2.types.request_host_id_set
+
+        out["host_id_set"] = (
+            aws_sdk_ec2.types.request_host_id_set.deserialize_ec2_query(el, "HostIdSet")
+        )
+    child_limit_price = el.find("LimitPrice")
+    if child_limit_price is not None:
+        out["limit_price"] = str(child_limit_price.text or "")
+    child_offering_id = el.find("OfferingId")
+    if child_offering_id is not None:
+        out["offering_id"] = str(child_offering_id.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

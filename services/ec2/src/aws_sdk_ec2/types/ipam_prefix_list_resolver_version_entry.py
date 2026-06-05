@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
@@ -10,3 +11,19 @@ if TYPE_CHECKING:
 class IpamPrefixListResolverVersionEntry(TypedDict):
     cidr: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The CIDR block that was selected and synchronized in this resolver version.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: IpamPrefixListResolverVersionEntry, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "cidr" in value:
+        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+
+
+def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverVersionEntry:
+    out: IpamPrefixListResolverVersionEntry = {}  # type: ignore[typeddict-item]
+    child_cidr = el.find("Cidr")
+    if child_cidr is not None:
+        out["cidr"] = str(child_cidr.text or "")
+    return out

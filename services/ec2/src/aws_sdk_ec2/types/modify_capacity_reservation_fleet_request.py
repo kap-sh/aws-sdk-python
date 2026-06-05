@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -23,3 +24,60 @@ class ModifyCapacityReservationFleetRequest(TypedDict):
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
     remove_end_date: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you remove the end date, the Capacity Reservation Fleet does not expire and it remains active until you explicitly cancel it using the <b>CancelCapacityReservationFleet</b> action.</p> <p>You can't specify <b>RemoveEndDate</b> and <b> EndDate</b> in the same request.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyCapacityReservationFleetRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "capacity_reservation_fleet_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.CapacityReservationFleetId",
+                str(value["capacity_reservation_fleet_id"]),
+            )
+        )
+    if "total_target_capacity" in value:
+        pairs.append(
+            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+        )
+    if "end_date" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["end_date"], pairs, f"{prefix}.EndDate"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "remove_end_date" in value:
+        pairs.append(
+            (f"{prefix}.RemoveEndDate", "true" if value["remove_end_date"] else "false")
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyCapacityReservationFleetRequest:
+    out: ModifyCapacityReservationFleetRequest = {}  # type: ignore[typeddict-item]
+    child_capacity_reservation_fleet_id = el.find("CapacityReservationFleetId")
+    if child_capacity_reservation_fleet_id is not None:
+        out["capacity_reservation_fleet_id"] = str(
+            child_capacity_reservation_fleet_id.text or ""
+        )
+    child_total_target_capacity = el.find("TotalTargetCapacity")
+    if child_total_target_capacity is not None:
+        out["total_target_capacity"] = int(child_total_target_capacity.text or "")
+    child_end_date = el.find("EndDate")
+    if child_end_date is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["end_date"] = aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+            child_end_date
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_remove_end_date = el.find("RemoveEndDate")
+    if child_remove_end_date is not None:
+        out["remove_end_date"] = (child_remove_end_date.text or "").lower() == "true"
+    return out

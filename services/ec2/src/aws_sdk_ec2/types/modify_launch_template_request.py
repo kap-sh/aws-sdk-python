@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -25,3 +26,41 @@ class ModifyLaunchTemplateRequest(TypedDict):
     """<p>The name of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>"""
     default_version: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The version number of the launch template to set as the default version.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyLaunchTemplateRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "launch_template_id" in value:
+        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+    if "launch_template_name" in value:
+        pairs.append(
+            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+        )
+    if "default_version" in value:
+        pairs.append((f"{prefix}.DefaultVersion", str(value["default_version"])))
+
+
+def deserialize_ec2_query(el: Element) -> ModifyLaunchTemplateRequest:
+    out: ModifyLaunchTemplateRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_launch_template_id = el.find("LaunchTemplateId")
+    if child_launch_template_id is not None:
+        out["launch_template_id"] = str(child_launch_template_id.text or "")
+    child_launch_template_name = el.find("LaunchTemplateName")
+    if child_launch_template_name is not None:
+        out["launch_template_name"] = str(child_launch_template_name.text or "")
+    child_default_version = el.find("DefaultVersion")
+    if child_default_version is not None:
+        out["default_version"] = str(child_default_version.text or "")
+    return out

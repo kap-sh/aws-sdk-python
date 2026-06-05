@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -53,3 +54,176 @@ class ModifyVpcEncryptionControlRequest(TypedDict):
         "aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
     ]
     """<p>Specifies whether to exclude Elastic File System traffic from encryption enforcement.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyVpcEncryptionControlRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "vpc_encryption_control_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.VpcEncryptionControlId",
+                str(value["vpc_encryption_control_id"]),
+            )
+        )
+    if "mode" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_mode
+
+        aws_sdk_ec2.types.vpc_encryption_control_mode.serialize_ec2_query(
+            value["mode"], pairs, f"{prefix}.Mode"
+        )
+    if "internet_gateway_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["internet_gateway_exclusion"],
+            pairs,
+            f"{prefix}.InternetGatewayExclusion",
+        )
+    if "egress_only_internet_gateway_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["egress_only_internet_gateway_exclusion"],
+            pairs,
+            f"{prefix}.EgressOnlyInternetGatewayExclusion",
+        )
+    if "nat_gateway_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["nat_gateway_exclusion"], pairs, f"{prefix}.NatGatewayExclusion"
+        )
+    if "virtual_private_gateway_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["virtual_private_gateway_exclusion"],
+            pairs,
+            f"{prefix}.VirtualPrivateGatewayExclusion",
+        )
+    if "vpc_peering_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["vpc_peering_exclusion"], pairs, f"{prefix}.VpcPeeringExclusion"
+        )
+    if "lambda_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["lambda_exclusion"], pairs, f"{prefix}.LambdaExclusion"
+        )
+    if "vpc_lattice_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["vpc_lattice_exclusion"], pairs, f"{prefix}.VpcLatticeExclusion"
+        )
+    if "elastic_file_system_exclusion" in value:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.serialize_ec2_query(
+            value["elastic_file_system_exclusion"],
+            pairs,
+            f"{prefix}.ElasticFileSystemExclusion",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyVpcEncryptionControlRequest:
+    out: ModifyVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_vpc_encryption_control_id = el.find("VpcEncryptionControlId")
+    if child_vpc_encryption_control_id is not None:
+        out["vpc_encryption_control_id"] = str(
+            child_vpc_encryption_control_id.text or ""
+        )
+    child_mode = el.find("Mode")
+    if child_mode is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_mode
+
+        out["mode"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_mode.deserialize_ec2_query(
+                child_mode
+            )
+        )
+    child_internet_gateway_exclusion = el.find("InternetGatewayExclusion")
+    if child_internet_gateway_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["internet_gateway_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_internet_gateway_exclusion
+            )
+        )
+    child_egress_only_internet_gateway_exclusion = el.find(
+        "EgressOnlyInternetGatewayExclusion"
+    )
+    if child_egress_only_internet_gateway_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["egress_only_internet_gateway_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_egress_only_internet_gateway_exclusion
+            )
+        )
+    child_nat_gateway_exclusion = el.find("NatGatewayExclusion")
+    if child_nat_gateway_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["nat_gateway_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_nat_gateway_exclusion
+            )
+        )
+    child_virtual_private_gateway_exclusion = el.find("VirtualPrivateGatewayExclusion")
+    if child_virtual_private_gateway_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["virtual_private_gateway_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_virtual_private_gateway_exclusion
+            )
+        )
+    child_vpc_peering_exclusion = el.find("VpcPeeringExclusion")
+    if child_vpc_peering_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["vpc_peering_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_vpc_peering_exclusion
+            )
+        )
+    child_lambda_exclusion = el.find("LambdaExclusion")
+    if child_lambda_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["lambda_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_lambda_exclusion
+            )
+        )
+    child_vpc_lattice_exclusion = el.find("VpcLatticeExclusion")
+    if child_vpc_lattice_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["vpc_lattice_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_vpc_lattice_exclusion
+            )
+        )
+    child_elastic_file_system_exclusion = el.find("ElasticFileSystemExclusion")
+    if child_elastic_file_system_exclusion is not None:
+        import aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input
+
+        out["elastic_file_system_exclusion"] = (
+            aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.deserialize_ec2_query(
+                child_elastic_file_system_exclusion
+            )
+        )
+    return out

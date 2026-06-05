@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.image_list
@@ -13,3 +14,31 @@ class DescribeImagesResult(TypedDict):
     """<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>"""
     images: NotRequired["aws_sdk_ec2.types.image_list.ImageList"]
     """<p>Information about the images.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeImagesResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "images" in value:
+        import aws_sdk_ec2.types.image_list
+
+        aws_sdk_ec2.types.image_list.serialize_ec2_query(
+            value["images"], pairs, f"{prefix}.ImagesSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeImagesResult:
+    out: DescribeImagesResult = {}  # type: ignore[typeddict-item]
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    if el.find("ImagesSet") is not None:
+        import aws_sdk_ec2.types.image_list
+
+        out["images"] = aws_sdk_ec2.types.image_list.deserialize_ec2_query(
+            el, "ImagesSet"
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -24,3 +25,64 @@ class CreateKeyPairRequest(TypedDict):
     """<p>The format of the key pair.</p> <p>Default: <code>pem</code> </p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateKeyPairRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "key_name" in value:
+        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+    if "key_type" in value:
+        import aws_sdk_ec2.types.key_type
+
+        aws_sdk_ec2.types.key_type.serialize_ec2_query(
+            value["key_type"], pairs, f"{prefix}.KeyType"
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "key_format" in value:
+        import aws_sdk_ec2.types.key_format
+
+        aws_sdk_ec2.types.key_format.serialize_ec2_query(
+            value["key_format"], pairs, f"{prefix}.KeyFormat"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> CreateKeyPairRequest:
+    out: CreateKeyPairRequest = {}  # type: ignore[typeddict-item]
+    child_key_name = el.find("KeyName")
+    if child_key_name is not None:
+        out["key_name"] = str(child_key_name.text or "")
+    child_key_type = el.find("KeyType")
+    if child_key_type is not None:
+        import aws_sdk_ec2.types.key_type
+
+        out["key_type"] = aws_sdk_ec2.types.key_type.deserialize_ec2_query(
+            child_key_type
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_key_format = el.find("KeyFormat")
+    if child_key_format is not None:
+        import aws_sdk_ec2.types.key_format
+
+        out["key_format"] = aws_sdk_ec2.types.key_format.deserialize_ec2_query(
+            child_key_format
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

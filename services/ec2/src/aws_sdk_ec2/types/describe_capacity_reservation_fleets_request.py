@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -26,3 +27,59 @@ class DescribeCapacityReservationFleetsRequest(TypedDict):
     """<p>One or more filters.</p> <ul> <li> <p> <code>state</code> - The state of the Fleet (<code>submitted</code> | <code>modifying</code> | <code>active</code> | <code>partially_fulfilled</code> | <code>expiring</code> | <code>expired</code> | <code>cancelling</code> | <code>cancelled</code> | <code>failed</code>).</p> </li> <li> <p> <code>instance-match-criteria</code> - The instance matching criteria for the Fleet. Only <code>open</code> is supported.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of the Fleet (<code>default</code> | <code>dedicated</code>).</p> </li> <li> <p> <code>allocation-strategy</code> - The allocation strategy used by the Fleet. Only <code>prioritized</code> is supported.</p> </li> </ul>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeCapacityReservationFleetsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "capacity_reservation_fleet_ids" in value:
+        import aws_sdk_ec2.types.capacity_reservation_fleet_id_set
+
+        aws_sdk_ec2.types.capacity_reservation_fleet_id_set.serialize_ec2_query(
+            value["capacity_reservation_fleet_ids"],
+            pairs,
+            f"{prefix}.CapacityReservationFleetIds",
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeCapacityReservationFleetsRequest:
+    out: DescribeCapacityReservationFleetsRequest = {}  # type: ignore[typeddict-item]
+    if el.find("CapacityReservationFleetIds") is not None:
+        import aws_sdk_ec2.types.capacity_reservation_fleet_id_set
+
+        out["capacity_reservation_fleet_ids"] = (
+            aws_sdk_ec2.types.capacity_reservation_fleet_id_set.deserialize_ec2_query(
+                el, "CapacityReservationFleetIds"
+            )
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

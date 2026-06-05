@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -37,3 +38,70 @@ class CreateLaunchTemplateVersionRequest(TypedDict):
     """<p>The information for the launch template.</p>"""
     resolve_alias: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id\">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>false</code> </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateLaunchTemplateVersionRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "launch_template_id" in value:
+        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+    if "launch_template_name" in value:
+        pairs.append(
+            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+        )
+    if "source_version" in value:
+        pairs.append((f"{prefix}.SourceVersion", str(value["source_version"])))
+    if "version_description" in value:
+        pairs.append(
+            (f"{prefix}.VersionDescription", str(value["version_description"]))
+        )
+    if "launch_template_data" in value:
+        import aws_sdk_ec2.types.request_launch_template_data
+
+        aws_sdk_ec2.types.request_launch_template_data.serialize_ec2_query(
+            value["launch_template_data"], pairs, f"{prefix}.LaunchTemplateData"
+        )
+    if "resolve_alias" in value:
+        pairs.append(
+            (f"{prefix}.ResolveAlias", "true" if value["resolve_alias"] else "false")
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateLaunchTemplateVersionRequest:
+    out: CreateLaunchTemplateVersionRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_launch_template_id = el.find("LaunchTemplateId")
+    if child_launch_template_id is not None:
+        out["launch_template_id"] = str(child_launch_template_id.text or "")
+    child_launch_template_name = el.find("LaunchTemplateName")
+    if child_launch_template_name is not None:
+        out["launch_template_name"] = str(child_launch_template_name.text or "")
+    child_source_version = el.find("SourceVersion")
+    if child_source_version is not None:
+        out["source_version"] = str(child_source_version.text or "")
+    child_version_description = el.find("VersionDescription")
+    if child_version_description is not None:
+        out["version_description"] = str(child_version_description.text or "")
+    child_launch_template_data = el.find("LaunchTemplateData")
+    if child_launch_template_data is not None:
+        import aws_sdk_ec2.types.request_launch_template_data
+
+        out["launch_template_data"] = (
+            aws_sdk_ec2.types.request_launch_template_data.deserialize_ec2_query(
+                child_launch_template_data
+            )
+        )
+    child_resolve_alias = el.find("ResolveAlias")
+    if child_resolve_alias is not None:
+        out["resolve_alias"] = (child_resolve_alias.text or "").lower() == "true"
+    return out

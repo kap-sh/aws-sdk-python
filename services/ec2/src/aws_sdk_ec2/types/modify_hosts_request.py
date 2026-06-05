@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.auto_placement
@@ -24,3 +25,77 @@ class ModifyHostsRequest(TypedDict):
     """<p>The IDs of the Dedicated Hosts to modify.</p>"""
     auto_placement: NotRequired["aws_sdk_ec2.types.auto_placement.AutoPlacement"]
     """<p>Specify whether to enable or disable auto-placement.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyHostsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "host_recovery" in value:
+        import aws_sdk_ec2.types.host_recovery
+
+        aws_sdk_ec2.types.host_recovery.serialize_ec2_query(
+            value["host_recovery"], pairs, f"{prefix}.HostRecovery"
+        )
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "instance_family" in value:
+        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+    if "host_maintenance" in value:
+        import aws_sdk_ec2.types.host_maintenance
+
+        aws_sdk_ec2.types.host_maintenance.serialize_ec2_query(
+            value["host_maintenance"], pairs, f"{prefix}.HostMaintenance"
+        )
+    if "host_ids" in value:
+        import aws_sdk_ec2.types.request_host_id_list
+
+        aws_sdk_ec2.types.request_host_id_list.serialize_ec2_query(
+            value["host_ids"], pairs, f"{prefix}.HostId"
+        )
+    if "auto_placement" in value:
+        import aws_sdk_ec2.types.auto_placement
+
+        aws_sdk_ec2.types.auto_placement.serialize_ec2_query(
+            value["auto_placement"], pairs, f"{prefix}.AutoPlacement"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyHostsRequest:
+    out: ModifyHostsRequest = {}  # type: ignore[typeddict-item]
+    child_host_recovery = el.find("HostRecovery")
+    if child_host_recovery is not None:
+        import aws_sdk_ec2.types.host_recovery
+
+        out["host_recovery"] = aws_sdk_ec2.types.host_recovery.deserialize_ec2_query(
+            child_host_recovery
+        )
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_instance_family = el.find("InstanceFamily")
+    if child_instance_family is not None:
+        out["instance_family"] = str(child_instance_family.text or "")
+    child_host_maintenance = el.find("HostMaintenance")
+    if child_host_maintenance is not None:
+        import aws_sdk_ec2.types.host_maintenance
+
+        out["host_maintenance"] = (
+            aws_sdk_ec2.types.host_maintenance.deserialize_ec2_query(
+                child_host_maintenance
+            )
+        )
+    if el.find("HostId") is not None:
+        import aws_sdk_ec2.types.request_host_id_list
+
+        out["host_ids"] = aws_sdk_ec2.types.request_host_id_list.deserialize_ec2_query(
+            el, "HostId"
+        )
+    child_auto_placement = el.find("AutoPlacement")
+    if child_auto_placement is not None:
+        import aws_sdk_ec2.types.auto_placement
+
+        out["auto_placement"] = aws_sdk_ec2.types.auto_placement.deserialize_ec2_query(
+            child_auto_placement
+        )
+    return out

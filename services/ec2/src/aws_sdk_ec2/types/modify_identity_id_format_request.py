@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -15,3 +16,31 @@ class ModifyIdentityIdFormatRequest(TypedDict):
     """<p>Indicates whether the resource should use longer IDs (17-character IDs)</p>"""
     principal_arn: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of the account.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyIdentityIdFormatRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "resource" in value:
+        pairs.append((f"{prefix}.Resource", str(value["resource"])))
+    if "use_long_ids" in value:
+        pairs.append(
+            (f"{prefix}.UseLongIds", "true" if value["use_long_ids"] else "false")
+        )
+    if "principal_arn" in value:
+        pairs.append((f"{prefix}.PrincipalArn", str(value["principal_arn"])))
+
+
+def deserialize_ec2_query(el: Element) -> ModifyIdentityIdFormatRequest:
+    out: ModifyIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
+    child_resource = el.find("Resource")
+    if child_resource is not None:
+        out["resource"] = str(child_resource.text or "")
+    child_use_long_ids = el.find("UseLongIds")
+    if child_use_long_ids is not None:
+        out["use_long_ids"] = (child_use_long_ids.text or "").lower() == "true"
+    child_principal_arn = el.find("PrincipalArn")
+    if child_principal_arn is not None:
+        out["principal_arn"] = str(child_principal_arn.text or "")
+    return out

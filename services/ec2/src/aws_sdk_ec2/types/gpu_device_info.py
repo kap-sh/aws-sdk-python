@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.gpu_device_count
@@ -36,3 +37,66 @@ class GpuDeviceInfo(TypedDict):
         "aws_sdk_ec2.types.gpu_device_memory_info.GpuDeviceMemoryInfo"
     ]
     """<p>Describes the memory available to the GPU accelerator.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: GpuDeviceInfo, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "manufacturer" in value:
+        pairs.append((f"{prefix}.Manufacturer", str(value["manufacturer"])))
+    if "count" in value:
+        pairs.append((f"{prefix}.Count", str(value["count"])))
+    if "logical_gpu_count" in value:
+        pairs.append((f"{prefix}.LogicalGpuCount", str(value["logical_gpu_count"])))
+    if "gpu_partition_size" in value:
+        pairs.append((f"{prefix}.GpuPartitionSize", str(value["gpu_partition_size"])))
+    if "workloads" in value:
+        import aws_sdk_ec2.types.workloads_list
+
+        aws_sdk_ec2.types.workloads_list.serialize_ec2_query(
+            value["workloads"], pairs, f"{prefix}.WorkloadSet"
+        )
+    if "memory_info" in value:
+        import aws_sdk_ec2.types.gpu_device_memory_info
+
+        aws_sdk_ec2.types.gpu_device_memory_info.serialize_ec2_query(
+            value["memory_info"], pairs, f"{prefix}.MemoryInfo"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> GpuDeviceInfo:
+    out: GpuDeviceInfo = {}  # type: ignore[typeddict-item]
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_manufacturer = el.find("Manufacturer")
+    if child_manufacturer is not None:
+        out["manufacturer"] = str(child_manufacturer.text or "")
+    child_count = el.find("Count")
+    if child_count is not None:
+        out["count"] = int(child_count.text or "")
+    child_logical_gpu_count = el.find("LogicalGpuCount")
+    if child_logical_gpu_count is not None:
+        out["logical_gpu_count"] = int(child_logical_gpu_count.text or "")
+    child_gpu_partition_size = el.find("GpuPartitionSize")
+    if child_gpu_partition_size is not None:
+        out["gpu_partition_size"] = float(child_gpu_partition_size.text or "")
+    if el.find("WorkloadSet") is not None:
+        import aws_sdk_ec2.types.workloads_list
+
+        out["workloads"] = aws_sdk_ec2.types.workloads_list.deserialize_ec2_query(
+            el, "WorkloadSet"
+        )
+    child_memory_info = el.find("MemoryInfo")
+    if child_memory_info is not None:
+        import aws_sdk_ec2.types.gpu_device_memory_info
+
+        out["memory_info"] = (
+            aws_sdk_ec2.types.gpu_device_memory_info.deserialize_ec2_query(
+                child_memory_info
+            )
+        )
+    return out

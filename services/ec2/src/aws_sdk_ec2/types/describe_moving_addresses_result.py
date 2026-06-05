@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.moving_address_status_set
@@ -15,3 +16,33 @@ class DescribeMovingAddressesResult(TypedDict):
     """<p>The status for each Elastic IP address.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeMovingAddressesResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "moving_address_statuses" in value:
+        import aws_sdk_ec2.types.moving_address_status_set
+
+        aws_sdk_ec2.types.moving_address_status_set.serialize_ec2_query(
+            value["moving_address_statuses"], pairs, f"{prefix}.MovingAddressStatusSet"
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeMovingAddressesResult:
+    out: DescribeMovingAddressesResult = {}  # type: ignore[typeddict-item]
+    if el.find("MovingAddressStatusSet") is not None:
+        import aws_sdk_ec2.types.moving_address_status_set
+
+        out["moving_address_statuses"] = (
+            aws_sdk_ec2.types.moving_address_status_set.deserialize_ec2_query(
+                el, "MovingAddressStatusSet"
+            )
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

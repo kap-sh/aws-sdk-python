@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -23,3 +24,52 @@ class ModifyIpamPrefixListResolverRequest(TypedDict):
         "aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set.IpamPrefixListResolverRuleRequestSet"
     ]
     """<p>The updated CIDR selection rules for the resolver. These rules replace the existing rules entirely.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyIpamPrefixListResolverRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "ipam_prefix_list_resolver_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.IpamPrefixListResolverId",
+                str(value["ipam_prefix_list_resolver_id"]),
+            )
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "rules" in value:
+        import aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set
+
+        aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set.serialize_ec2_query(
+            value["rules"], pairs, f"{prefix}.Rules"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyIpamPrefixListResolverRequest:
+    out: ModifyIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_ipam_prefix_list_resolver_id = el.find("IpamPrefixListResolverId")
+    if child_ipam_prefix_list_resolver_id is not None:
+        out["ipam_prefix_list_resolver_id"] = str(
+            child_ipam_prefix_list_resolver_id.text or ""
+        )
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    if el.find("Rules") is not None:
+        import aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set
+
+        out["rules"] = (
+            aws_sdk_ec2.types.ipam_prefix_list_resolver_rule_request_set.deserialize_ec2_query(
+                el, "Rules"
+            )
+        )
+    return out

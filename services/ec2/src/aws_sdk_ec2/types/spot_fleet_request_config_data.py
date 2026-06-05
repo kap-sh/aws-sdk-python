@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.allocation_strategy
@@ -97,3 +98,318 @@ class SpotFleetRequestConfigData(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the <code> <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\">SpotFleetTagSpecification</a> </code> (valid only if you use <code>LaunchSpecifications</code>). For information about tagging after launch, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tag your resources</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: SpotFleetRequestConfigData, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "allocation_strategy" in value:
+        import aws_sdk_ec2.types.allocation_strategy
+
+        aws_sdk_ec2.types.allocation_strategy.serialize_ec2_query(
+            value["allocation_strategy"], pairs, f"{prefix}.AllocationStrategy"
+        )
+    if "on_demand_allocation_strategy" in value:
+        import aws_sdk_ec2.types.on_demand_allocation_strategy
+
+        aws_sdk_ec2.types.on_demand_allocation_strategy.serialize_ec2_query(
+            value["on_demand_allocation_strategy"],
+            pairs,
+            f"{prefix}.OnDemandAllocationStrategy",
+        )
+    if "spot_maintenance_strategies" in value:
+        import aws_sdk_ec2.types.spot_maintenance_strategies
+
+        aws_sdk_ec2.types.spot_maintenance_strategies.serialize_ec2_query(
+            value["spot_maintenance_strategies"],
+            pairs,
+            f"{prefix}.SpotMaintenanceStrategies",
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "excess_capacity_termination_policy" in value:
+        import aws_sdk_ec2.types.excess_capacity_termination_policy
+
+        aws_sdk_ec2.types.excess_capacity_termination_policy.serialize_ec2_query(
+            value["excess_capacity_termination_policy"],
+            pairs,
+            f"{prefix}.ExcessCapacityTerminationPolicy",
+        )
+    if "fulfilled_capacity" in value:
+        pairs.append((f"{prefix}.FulfilledCapacity", str(value["fulfilled_capacity"])))
+    if "on_demand_fulfilled_capacity" in value:
+        pairs.append(
+            (
+                f"{prefix}.OnDemandFulfilledCapacity",
+                str(value["on_demand_fulfilled_capacity"]),
+            )
+        )
+    if "iam_fleet_role" in value:
+        pairs.append((f"{prefix}.IamFleetRole", str(value["iam_fleet_role"])))
+    if "launch_specifications" in value:
+        import aws_sdk_ec2.types.launch_specs_list
+
+        aws_sdk_ec2.types.launch_specs_list.serialize_ec2_query(
+            value["launch_specifications"], pairs, f"{prefix}.LaunchSpecifications"
+        )
+    if "launch_template_configs" in value:
+        import aws_sdk_ec2.types.launch_template_config_list
+
+        aws_sdk_ec2.types.launch_template_config_list.serialize_ec2_query(
+            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+        )
+    if "spot_price" in value:
+        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+    if "target_capacity" in value:
+        pairs.append((f"{prefix}.TargetCapacity", str(value["target_capacity"])))
+    if "on_demand_target_capacity" in value:
+        pairs.append(
+            (
+                f"{prefix}.OnDemandTargetCapacity",
+                str(value["on_demand_target_capacity"]),
+            )
+        )
+    if "on_demand_max_total_price" in value:
+        pairs.append(
+            (f"{prefix}.OnDemandMaxTotalPrice", str(value["on_demand_max_total_price"]))
+        )
+    if "spot_max_total_price" in value:
+        pairs.append(
+            (f"{prefix}.SpotMaxTotalPrice", str(value["spot_max_total_price"]))
+        )
+    if "terminate_instances_with_expiration" in value:
+        pairs.append(
+            (
+                f"{prefix}.TerminateInstancesWithExpiration",
+                "true" if value["terminate_instances_with_expiration"] else "false",
+            )
+        )
+    if "type" in value:
+        import aws_sdk_ec2.types.fleet_type
+
+        aws_sdk_ec2.types.fleet_type.serialize_ec2_query(
+            value["type"], pairs, f"{prefix}.Type"
+        )
+    if "valid_from" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+        )
+    if "valid_until" in value:
+        import aws_sdk_ec2.types.date_time
+
+        aws_sdk_ec2.types.date_time.serialize_ec2_query(
+            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+        )
+    if "replace_unhealthy_instances" in value:
+        pairs.append(
+            (
+                f"{prefix}.ReplaceUnhealthyInstances",
+                "true" if value["replace_unhealthy_instances"] else "false",
+            )
+        )
+    if "instance_interruption_behavior" in value:
+        import aws_sdk_ec2.types.instance_interruption_behavior
+
+        aws_sdk_ec2.types.instance_interruption_behavior.serialize_ec2_query(
+            value["instance_interruption_behavior"],
+            pairs,
+            f"{prefix}.InstanceInterruptionBehavior",
+        )
+    if "load_balancers_config" in value:
+        import aws_sdk_ec2.types.load_balancers_config
+
+        aws_sdk_ec2.types.load_balancers_config.serialize_ec2_query(
+            value["load_balancers_config"], pairs, f"{prefix}.LoadBalancersConfig"
+        )
+    if "instance_pools_to_use_count" in value:
+        pairs.append(
+            (
+                f"{prefix}.InstancePoolsToUseCount",
+                str(value["instance_pools_to_use_count"]),
+            )
+        )
+    if "context" in value:
+        pairs.append((f"{prefix}.Context", str(value["context"])))
+    if "target_capacity_unit_type" in value:
+        import aws_sdk_ec2.types.target_capacity_unit_type
+
+        aws_sdk_ec2.types.target_capacity_unit_type.serialize_ec2_query(
+            value["target_capacity_unit_type"],
+            pairs,
+            f"{prefix}.TargetCapacityUnitType",
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
+    out: SpotFleetRequestConfigData = {}  # type: ignore[typeddict-item]
+    child_allocation_strategy = el.find("AllocationStrategy")
+    if child_allocation_strategy is not None:
+        import aws_sdk_ec2.types.allocation_strategy
+
+        out["allocation_strategy"] = (
+            aws_sdk_ec2.types.allocation_strategy.deserialize_ec2_query(
+                child_allocation_strategy
+            )
+        )
+    child_on_demand_allocation_strategy = el.find("OnDemandAllocationStrategy")
+    if child_on_demand_allocation_strategy is not None:
+        import aws_sdk_ec2.types.on_demand_allocation_strategy
+
+        out["on_demand_allocation_strategy"] = (
+            aws_sdk_ec2.types.on_demand_allocation_strategy.deserialize_ec2_query(
+                child_on_demand_allocation_strategy
+            )
+        )
+    child_spot_maintenance_strategies = el.find("SpotMaintenanceStrategies")
+    if child_spot_maintenance_strategies is not None:
+        import aws_sdk_ec2.types.spot_maintenance_strategies
+
+        out["spot_maintenance_strategies"] = (
+            aws_sdk_ec2.types.spot_maintenance_strategies.deserialize_ec2_query(
+                child_spot_maintenance_strategies
+            )
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_excess_capacity_termination_policy = el.find(
+        "ExcessCapacityTerminationPolicy"
+    )
+    if child_excess_capacity_termination_policy is not None:
+        import aws_sdk_ec2.types.excess_capacity_termination_policy
+
+        out["excess_capacity_termination_policy"] = (
+            aws_sdk_ec2.types.excess_capacity_termination_policy.deserialize_ec2_query(
+                child_excess_capacity_termination_policy
+            )
+        )
+    child_fulfilled_capacity = el.find("FulfilledCapacity")
+    if child_fulfilled_capacity is not None:
+        out["fulfilled_capacity"] = float(child_fulfilled_capacity.text or "")
+    child_on_demand_fulfilled_capacity = el.find("OnDemandFulfilledCapacity")
+    if child_on_demand_fulfilled_capacity is not None:
+        out["on_demand_fulfilled_capacity"] = float(
+            child_on_demand_fulfilled_capacity.text or ""
+        )
+    child_iam_fleet_role = el.find("IamFleetRole")
+    if child_iam_fleet_role is not None:
+        out["iam_fleet_role"] = str(child_iam_fleet_role.text or "")
+    if el.find("LaunchSpecifications") is not None:
+        import aws_sdk_ec2.types.launch_specs_list
+
+        out["launch_specifications"] = (
+            aws_sdk_ec2.types.launch_specs_list.deserialize_ec2_query(
+                el, "LaunchSpecifications"
+            )
+        )
+    if el.find("LaunchTemplateConfigs") is not None:
+        import aws_sdk_ec2.types.launch_template_config_list
+
+        out["launch_template_configs"] = (
+            aws_sdk_ec2.types.launch_template_config_list.deserialize_ec2_query(
+                el, "LaunchTemplateConfigs"
+            )
+        )
+    child_spot_price = el.find("SpotPrice")
+    if child_spot_price is not None:
+        out["spot_price"] = str(child_spot_price.text or "")
+    child_target_capacity = el.find("TargetCapacity")
+    if child_target_capacity is not None:
+        out["target_capacity"] = int(child_target_capacity.text or "")
+    child_on_demand_target_capacity = el.find("OnDemandTargetCapacity")
+    if child_on_demand_target_capacity is not None:
+        out["on_demand_target_capacity"] = int(
+            child_on_demand_target_capacity.text or ""
+        )
+    child_on_demand_max_total_price = el.find("OnDemandMaxTotalPrice")
+    if child_on_demand_max_total_price is not None:
+        out["on_demand_max_total_price"] = str(
+            child_on_demand_max_total_price.text or ""
+        )
+    child_spot_max_total_price = el.find("SpotMaxTotalPrice")
+    if child_spot_max_total_price is not None:
+        out["spot_max_total_price"] = str(child_spot_max_total_price.text or "")
+    child_terminate_instances_with_expiration = el.find(
+        "TerminateInstancesWithExpiration"
+    )
+    if child_terminate_instances_with_expiration is not None:
+        out["terminate_instances_with_expiration"] = (
+            child_terminate_instances_with_expiration.text or ""
+        ).lower() == "true"
+    child_type = el.find("Type")
+    if child_type is not None:
+        import aws_sdk_ec2.types.fleet_type
+
+        out["type"] = aws_sdk_ec2.types.fleet_type.deserialize_ec2_query(child_type)
+    child_valid_from = el.find("ValidFrom")
+    if child_valid_from is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_from"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_from
+        )
+    child_valid_until = el.find("ValidUntil")
+    if child_valid_until is not None:
+        import aws_sdk_ec2.types.date_time
+
+        out["valid_until"] = aws_sdk_ec2.types.date_time.deserialize_ec2_query(
+            child_valid_until
+        )
+    child_replace_unhealthy_instances = el.find("ReplaceUnhealthyInstances")
+    if child_replace_unhealthy_instances is not None:
+        out["replace_unhealthy_instances"] = (
+            child_replace_unhealthy_instances.text or ""
+        ).lower() == "true"
+    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    if child_instance_interruption_behavior is not None:
+        import aws_sdk_ec2.types.instance_interruption_behavior
+
+        out["instance_interruption_behavior"] = (
+            aws_sdk_ec2.types.instance_interruption_behavior.deserialize_ec2_query(
+                child_instance_interruption_behavior
+            )
+        )
+    child_load_balancers_config = el.find("LoadBalancersConfig")
+    if child_load_balancers_config is not None:
+        import aws_sdk_ec2.types.load_balancers_config
+
+        out["load_balancers_config"] = (
+            aws_sdk_ec2.types.load_balancers_config.deserialize_ec2_query(
+                child_load_balancers_config
+            )
+        )
+    child_instance_pools_to_use_count = el.find("InstancePoolsToUseCount")
+    if child_instance_pools_to_use_count is not None:
+        out["instance_pools_to_use_count"] = int(
+            child_instance_pools_to_use_count.text or ""
+        )
+    child_context = el.find("Context")
+    if child_context is not None:
+        out["context"] = str(child_context.text or "")
+    child_target_capacity_unit_type = el.find("TargetCapacityUnitType")
+    if child_target_capacity_unit_type is not None:
+        import aws_sdk_ec2.types.target_capacity_unit_type
+
+        out["target_capacity_unit_type"] = (
+            aws_sdk_ec2.types.target_capacity_unit_type.deserialize_ec2_query(
+                child_target_capacity_unit_type
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

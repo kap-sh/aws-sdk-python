@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -35,3 +36,86 @@ class ImportSnapshotRequest(TypedDict):
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>The tags to apply to the import snapshot task during creation.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ImportSnapshotRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_data" in value:
+        import aws_sdk_ec2.types.client_data
+
+        aws_sdk_ec2.types.client_data.serialize_ec2_query(
+            value["client_data"], pairs, f"{prefix}.ClientData"
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "disk_container" in value:
+        import aws_sdk_ec2.types.snapshot_disk_container
+
+        aws_sdk_ec2.types.snapshot_disk_container.serialize_ec2_query(
+            value["disk_container"], pairs, f"{prefix}.DiskContainer"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "role_name" in value:
+        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ImportSnapshotRequest:
+    out: ImportSnapshotRequest = {}  # type: ignore[typeddict-item]
+    child_client_data = el.find("ClientData")
+    if child_client_data is not None:
+        import aws_sdk_ec2.types.client_data
+
+        out["client_data"] = aws_sdk_ec2.types.client_data.deserialize_ec2_query(
+            child_client_data
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_disk_container = el.find("DiskContainer")
+    if child_disk_container is not None:
+        import aws_sdk_ec2.types.snapshot_disk_container
+
+        out["disk_container"] = (
+            aws_sdk_ec2.types.snapshot_disk_container.deserialize_ec2_query(
+                child_disk_container
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_role_name = el.find("RoleName")
+    if child_role_name is not None:
+        out["role_name"] = str(child_role_name.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    return out

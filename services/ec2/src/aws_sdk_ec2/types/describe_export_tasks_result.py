@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.export_task_list
@@ -10,3 +11,26 @@ if TYPE_CHECKING:
 class DescribeExportTasksResult(TypedDict):
     export_tasks: NotRequired["aws_sdk_ec2.types.export_task_list.ExportTaskList"]
     """<p>Information about the export tasks.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeExportTasksResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "export_tasks" in value:
+        import aws_sdk_ec2.types.export_task_list
+
+        aws_sdk_ec2.types.export_task_list.serialize_ec2_query(
+            value["export_tasks"], pairs, f"{prefix}.ExportTaskSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeExportTasksResult:
+    out: DescribeExportTasksResult = {}  # type: ignore[typeddict-item]
+    if el.find("ExportTaskSet") is not None:
+        import aws_sdk_ec2.types.export_task_list
+
+        out["export_tasks"] = aws_sdk_ec2.types.export_task_list.deserialize_ec2_query(
+            el, "ExportTaskSet"
+        )
+    return out

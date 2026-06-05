@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_list
@@ -10,3 +11,26 @@ if TYPE_CHECKING:
 class CopyVolumesResult(TypedDict):
     volumes: NotRequired["aws_sdk_ec2.types.volume_list.VolumeList"]
     """<p>Information about the volume copy.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CopyVolumesResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "volumes" in value:
+        import aws_sdk_ec2.types.volume_list
+
+        aws_sdk_ec2.types.volume_list.serialize_ec2_query(
+            value["volumes"], pairs, f"{prefix}.VolumeSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CopyVolumesResult:
+    out: CopyVolumesResult = {}  # type: ignore[typeddict-item]
+    if el.find("VolumeSet") is not None:
+        import aws_sdk_ec2.types.volume_list
+
+        out["volumes"] = aws_sdk_ec2.types.volume_list.deserialize_ec2_query(
+            el, "VolumeSet"
+        )
+    return out

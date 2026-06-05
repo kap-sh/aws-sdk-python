@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.internet_gateway_exclusion_mode
@@ -44,3 +45,116 @@ class VpcBlockPublicAccessExclusion(TypedDict):
     """<p>When the exclusion was deleted.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]
     """<p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: VpcBlockPublicAccessExclusion, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "exclusion_id" in value:
+        pairs.append((f"{prefix}.ExclusionId", str(value["exclusion_id"])))
+    if "internet_gateway_exclusion_mode" in value:
+        import aws_sdk_ec2.types.internet_gateway_exclusion_mode
+
+        aws_sdk_ec2.types.internet_gateway_exclusion_mode.serialize_ec2_query(
+            value["internet_gateway_exclusion_mode"],
+            pairs,
+            f"{prefix}.InternetGatewayExclusionMode",
+        )
+    if "resource_arn" in value:
+        pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+    if "state" in value:
+        import aws_sdk_ec2.types.vpc_block_public_access_exclusion_state
+
+        aws_sdk_ec2.types.vpc_block_public_access_exclusion_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "reason" in value:
+        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+    if "creation_timestamp" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["creation_timestamp"], pairs, f"{prefix}.CreationTimestamp"
+        )
+    if "last_update_timestamp" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["last_update_timestamp"], pairs, f"{prefix}.LastUpdateTimestamp"
+        )
+    if "deletion_timestamp" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["deletion_timestamp"], pairs, f"{prefix}.DeletionTimestamp"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
+    out: VpcBlockPublicAccessExclusion = {}  # type: ignore[typeddict-item]
+    child_exclusion_id = el.find("ExclusionId")
+    if child_exclusion_id is not None:
+        out["exclusion_id"] = str(child_exclusion_id.text or "")
+    child_internet_gateway_exclusion_mode = el.find("InternetGatewayExclusionMode")
+    if child_internet_gateway_exclusion_mode is not None:
+        import aws_sdk_ec2.types.internet_gateway_exclusion_mode
+
+        out["internet_gateway_exclusion_mode"] = (
+            aws_sdk_ec2.types.internet_gateway_exclusion_mode.deserialize_ec2_query(
+                child_internet_gateway_exclusion_mode
+            )
+        )
+    child_resource_arn = el.find("ResourceArn")
+    if child_resource_arn is not None:
+        out["resource_arn"] = str(child_resource_arn.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.vpc_block_public_access_exclusion_state
+
+        out["state"] = (
+            aws_sdk_ec2.types.vpc_block_public_access_exclusion_state.deserialize_ec2_query(
+                child_state
+            )
+        )
+    child_reason = el.find("Reason")
+    if child_reason is not None:
+        out["reason"] = str(child_reason.text or "")
+    child_creation_timestamp = el.find("CreationTimestamp")
+    if child_creation_timestamp is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["creation_timestamp"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_creation_timestamp
+            )
+        )
+    child_last_update_timestamp = el.find("LastUpdateTimestamp")
+    if child_last_update_timestamp is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["last_update_timestamp"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_last_update_timestamp
+            )
+        )
+    child_deletion_timestamp = el.find("DeletionTimestamp")
+    if child_deletion_timestamp is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["deletion_timestamp"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_deletion_timestamp
+            )
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    return out

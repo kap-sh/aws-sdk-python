@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -43,3 +44,105 @@ class ManagedPrefixList(TypedDict):
         "aws_sdk_ec2.types.boolean.Boolean"
     ]
     """<p>Indicates whether synchronization with an IPAM prefix list resolver is enabled for this managed prefix list. When enabled, the prefix list CIDRs are automatically updated based on the resolver's CIDR selection rules.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ManagedPrefixList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "prefix_list_id" in value:
+        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+    if "address_family" in value:
+        pairs.append((f"{prefix}.AddressFamily", str(value["address_family"])))
+    if "state" in value:
+        import aws_sdk_ec2.types.prefix_list_state
+
+        aws_sdk_ec2.types.prefix_list_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "state_message" in value:
+        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+    if "prefix_list_arn" in value:
+        pairs.append((f"{prefix}.PrefixListArn", str(value["prefix_list_arn"])))
+    if "prefix_list_name" in value:
+        pairs.append((f"{prefix}.PrefixListName", str(value["prefix_list_name"])))
+    if "max_entries" in value:
+        pairs.append((f"{prefix}.MaxEntries", str(value["max_entries"])))
+    if "version" in value:
+        pairs.append((f"{prefix}.Version", str(value["version"])))
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+    if "ipam_prefix_list_resolver_target_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.IpamPrefixListResolverTargetId",
+                str(value["ipam_prefix_list_resolver_target_id"]),
+            )
+        )
+    if "ipam_prefix_list_resolver_sync_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.IpamPrefixListResolverSyncEnabled",
+                "true" if value["ipam_prefix_list_resolver_sync_enabled"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ManagedPrefixList:
+    out: ManagedPrefixList = {}  # type: ignore[typeddict-item]
+    child_prefix_list_id = el.find("PrefixListId")
+    if child_prefix_list_id is not None:
+        out["prefix_list_id"] = str(child_prefix_list_id.text or "")
+    child_address_family = el.find("AddressFamily")
+    if child_address_family is not None:
+        out["address_family"] = str(child_address_family.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.prefix_list_state
+
+        out["state"] = aws_sdk_ec2.types.prefix_list_state.deserialize_ec2_query(
+            child_state
+        )
+    child_state_message = el.find("StateMessage")
+    if child_state_message is not None:
+        out["state_message"] = str(child_state_message.text or "")
+    child_prefix_list_arn = el.find("PrefixListArn")
+    if child_prefix_list_arn is not None:
+        out["prefix_list_arn"] = str(child_prefix_list_arn.text or "")
+    child_prefix_list_name = el.find("PrefixListName")
+    if child_prefix_list_name is not None:
+        out["prefix_list_name"] = str(child_prefix_list_name.text or "")
+    child_max_entries = el.find("MaxEntries")
+    if child_max_entries is not None:
+        out["max_entries"] = int(child_max_entries.text or "")
+    child_version = el.find("Version")
+    if child_version is not None:
+        out["version"] = int(child_version.text or "")
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    child_ipam_prefix_list_resolver_target_id = el.find(
+        "IpamPrefixListResolverTargetId"
+    )
+    if child_ipam_prefix_list_resolver_target_id is not None:
+        out["ipam_prefix_list_resolver_target_id"] = str(
+            child_ipam_prefix_list_resolver_target_id.text or ""
+        )
+    child_ipam_prefix_list_resolver_sync_enabled = el.find(
+        "IpamPrefixListResolverSyncEnabled"
+    )
+    if child_ipam_prefix_list_resolver_sync_enabled is not None:
+        out["ipam_prefix_list_resolver_sync_enabled"] = (
+            child_ipam_prefix_list_resolver_sync_enabled.text or ""
+        ).lower() == "true"
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -28,3 +29,54 @@ class DescribeCapacityBlockExtensionOfferingsRequest(TypedDict):
         "aws_sdk_ec2.types.describe_capacity_block_extension_offerings_max_results.DescribeCapacityBlockExtensionOfferingsMaxResults"
     ]
     """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeCapacityBlockExtensionOfferingsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "capacity_block_extension_duration_hours" in value:
+        pairs.append(
+            (
+                f"{prefix}.CapacityBlockExtensionDurationHours",
+                str(value["capacity_block_extension_duration_hours"]),
+            )
+        )
+    if "capacity_reservation_id" in value:
+        pairs.append(
+            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+
+
+def deserialize_ec2_query(
+    el: Element,
+) -> DescribeCapacityBlockExtensionOfferingsRequest:
+    out: DescribeCapacityBlockExtensionOfferingsRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_capacity_block_extension_duration_hours = el.find(
+        "CapacityBlockExtensionDurationHours"
+    )
+    if child_capacity_block_extension_duration_hours is not None:
+        out["capacity_block_extension_duration_hours"] = int(
+            child_capacity_block_extension_duration_hours.text or ""
+        )
+    child_capacity_reservation_id = el.find("CapacityReservationId")
+    if child_capacity_reservation_id is not None:
+        out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    return out

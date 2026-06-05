@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SpotFleetRequestConfigSet``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.spot_fleet_request_config
@@ -8,3 +9,26 @@ if TYPE_CHECKING:
 SpotFleetRequestConfigSet: TypeAlias = list[
     "aws_sdk_ec2.types.spot_fleet_request_config.SpotFleetRequestConfig"
 ]
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: SpotFleetRequestConfigSet, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        import aws_sdk_ec2.types.spot_fleet_request_config
+
+        aws_sdk_ec2.types.spot_fleet_request_config.serialize_ec2_query(
+            item, pairs, f"{prefix}.{n}"
+        )
+
+
+def deserialize_ec2_query(parent: Element, tag: str) -> SpotFleetRequestConfigSet:
+    import aws_sdk_ec2.types.spot_fleet_request_config
+
+    out: SpotFleetRequestConfigSet = []
+    for child in parent.findall(tag):
+        out.append(
+            aws_sdk_ec2.types.spot_fleet_request_config.deserialize_ec2_query(child)
+        )
+    return out

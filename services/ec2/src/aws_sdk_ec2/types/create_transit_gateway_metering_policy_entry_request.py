@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -52,3 +53,150 @@ class CreateTransitGatewayMeteringPolicyEntryRequest(TypedDict):
     """<p>The Amazon Web Services account ID to which the metered traffic should be attributed.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateTransitGatewayMeteringPolicyEntryRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "transit_gateway_metering_policy_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.TransitGatewayMeteringPolicyId",
+                str(value["transit_gateway_metering_policy_id"]),
+            )
+        )
+    if "policy_rule_number" in value:
+        pairs.append((f"{prefix}.PolicyRuleNumber", str(value["policy_rule_number"])))
+    if "source_transit_gateway_attachment_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.SourceTransitGatewayAttachmentId",
+                str(value["source_transit_gateway_attachment_id"]),
+            )
+        )
+    if "source_transit_gateway_attachment_type" in value:
+        import aws_sdk_ec2.types.transit_gateway_attachment_resource_type
+
+        aws_sdk_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
+            value["source_transit_gateway_attachment_type"],
+            pairs,
+            f"{prefix}.SourceTransitGatewayAttachmentType",
+        )
+    if "source_cidr_block" in value:
+        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+    if "source_port_range" in value:
+        pairs.append((f"{prefix}.SourcePortRange", str(value["source_port_range"])))
+    if "destination_transit_gateway_attachment_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.DestinationTransitGatewayAttachmentId",
+                str(value["destination_transit_gateway_attachment_id"]),
+            )
+        )
+    if "destination_transit_gateway_attachment_type" in value:
+        import aws_sdk_ec2.types.transit_gateway_attachment_resource_type
+
+        aws_sdk_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
+            value["destination_transit_gateway_attachment_type"],
+            pairs,
+            f"{prefix}.DestinationTransitGatewayAttachmentType",
+        )
+    if "destination_cidr_block" in value:
+        pairs.append(
+            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+        )
+    if "destination_port_range" in value:
+        pairs.append(
+            (f"{prefix}.DestinationPortRange", str(value["destination_port_range"]))
+        )
+    if "protocol" in value:
+        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+    if "metered_account" in value:
+        import aws_sdk_ec2.types.transit_gateway_metering_payer_type
+
+        aws_sdk_ec2.types.transit_gateway_metering_payer_type.serialize_ec2_query(
+            value["metered_account"], pairs, f"{prefix}.MeteredAccount"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(
+    el: Element,
+) -> CreateTransitGatewayMeteringPolicyEntryRequest:
+    out: CreateTransitGatewayMeteringPolicyEntryRequest = {}  # type: ignore[typeddict-item]
+    child_transit_gateway_metering_policy_id = el.find("TransitGatewayMeteringPolicyId")
+    if child_transit_gateway_metering_policy_id is not None:
+        out["transit_gateway_metering_policy_id"] = str(
+            child_transit_gateway_metering_policy_id.text or ""
+        )
+    child_policy_rule_number = el.find("PolicyRuleNumber")
+    if child_policy_rule_number is not None:
+        out["policy_rule_number"] = int(child_policy_rule_number.text or "")
+    child_source_transit_gateway_attachment_id = el.find(
+        "SourceTransitGatewayAttachmentId"
+    )
+    if child_source_transit_gateway_attachment_id is not None:
+        out["source_transit_gateway_attachment_id"] = str(
+            child_source_transit_gateway_attachment_id.text or ""
+        )
+    child_source_transit_gateway_attachment_type = el.find(
+        "SourceTransitGatewayAttachmentType"
+    )
+    if child_source_transit_gateway_attachment_type is not None:
+        import aws_sdk_ec2.types.transit_gateway_attachment_resource_type
+
+        out["source_transit_gateway_attachment_type"] = (
+            aws_sdk_ec2.types.transit_gateway_attachment_resource_type.deserialize_ec2_query(
+                child_source_transit_gateway_attachment_type
+            )
+        )
+    child_source_cidr_block = el.find("SourceCidrBlock")
+    if child_source_cidr_block is not None:
+        out["source_cidr_block"] = str(child_source_cidr_block.text or "")
+    child_source_port_range = el.find("SourcePortRange")
+    if child_source_port_range is not None:
+        out["source_port_range"] = str(child_source_port_range.text or "")
+    child_destination_transit_gateway_attachment_id = el.find(
+        "DestinationTransitGatewayAttachmentId"
+    )
+    if child_destination_transit_gateway_attachment_id is not None:
+        out["destination_transit_gateway_attachment_id"] = str(
+            child_destination_transit_gateway_attachment_id.text or ""
+        )
+    child_destination_transit_gateway_attachment_type = el.find(
+        "DestinationTransitGatewayAttachmentType"
+    )
+    if child_destination_transit_gateway_attachment_type is not None:
+        import aws_sdk_ec2.types.transit_gateway_attachment_resource_type
+
+        out["destination_transit_gateway_attachment_type"] = (
+            aws_sdk_ec2.types.transit_gateway_attachment_resource_type.deserialize_ec2_query(
+                child_destination_transit_gateway_attachment_type
+            )
+        )
+    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    if child_destination_cidr_block is not None:
+        out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
+    child_destination_port_range = el.find("DestinationPortRange")
+    if child_destination_port_range is not None:
+        out["destination_port_range"] = str(child_destination_port_range.text or "")
+    child_protocol = el.find("Protocol")
+    if child_protocol is not None:
+        out["protocol"] = str(child_protocol.text or "")
+    child_metered_account = el.find("MeteredAccount")
+    if child_metered_account is not None:
+        import aws_sdk_ec2.types.transit_gateway_metering_payer_type
+
+        out["metered_account"] = (
+            aws_sdk_ec2.types.transit_gateway_metering_payer_type.deserialize_ec2_query(
+                child_metered_account
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

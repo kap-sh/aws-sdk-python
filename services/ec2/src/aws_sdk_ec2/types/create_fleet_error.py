@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_lifecycle
@@ -20,3 +21,54 @@ class CreateFleetError(TypedDict):
     """<p>The error code that indicates why the instance could not be launched. For more information about error codes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\">Error codes</a>.</p>"""
     error_message: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The error message that describes why the instance could not be launched. For more information about error messages, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\">Error codes</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateFleetError, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "launch_template_and_overrides" in value:
+        import aws_sdk_ec2.types.launch_template_and_overrides_response
+
+        aws_sdk_ec2.types.launch_template_and_overrides_response.serialize_ec2_query(
+            value["launch_template_and_overrides"],
+            pairs,
+            f"{prefix}.LaunchTemplateAndOverrides",
+        )
+    if "lifecycle" in value:
+        import aws_sdk_ec2.types.instance_lifecycle
+
+        aws_sdk_ec2.types.instance_lifecycle.serialize_ec2_query(
+            value["lifecycle"], pairs, f"{prefix}.Lifecycle"
+        )
+    if "error_code" in value:
+        pairs.append((f"{prefix}.ErrorCode", str(value["error_code"])))
+    if "error_message" in value:
+        pairs.append((f"{prefix}.ErrorMessage", str(value["error_message"])))
+
+
+def deserialize_ec2_query(el: Element) -> CreateFleetError:
+    out: CreateFleetError = {}  # type: ignore[typeddict-item]
+    child_launch_template_and_overrides = el.find("LaunchTemplateAndOverrides")
+    if child_launch_template_and_overrides is not None:
+        import aws_sdk_ec2.types.launch_template_and_overrides_response
+
+        out["launch_template_and_overrides"] = (
+            aws_sdk_ec2.types.launch_template_and_overrides_response.deserialize_ec2_query(
+                child_launch_template_and_overrides
+            )
+        )
+    child_lifecycle = el.find("Lifecycle")
+    if child_lifecycle is not None:
+        import aws_sdk_ec2.types.instance_lifecycle
+
+        out["lifecycle"] = aws_sdk_ec2.types.instance_lifecycle.deserialize_ec2_query(
+            child_lifecycle
+        )
+    child_error_code = el.find("ErrorCode")
+    if child_error_code is not None:
+        out["error_code"] = str(child_error_code.text or "")
+    child_error_message = el.find("ErrorMessage")
+    if child_error_message is not None:
+        out["error_message"] = str(child_error_message.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.accelerator_count_request
@@ -124,3 +125,391 @@ class InstanceRequirementsRequest(TypedDict):
     """<p>The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection\">Performance protection</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     require_encryption_in_transit: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit\">Encryption in transit</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>false</code> </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InstanceRequirementsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "v_cpu_count" in value:
+        import aws_sdk_ec2.types.v_cpu_count_range_request
+
+        aws_sdk_ec2.types.v_cpu_count_range_request.serialize_ec2_query(
+            value["v_cpu_count"], pairs, f"{prefix}.VCpuCount"
+        )
+    if "memory_mi_b" in value:
+        import aws_sdk_ec2.types.memory_mi_b_request
+
+        aws_sdk_ec2.types.memory_mi_b_request.serialize_ec2_query(
+            value["memory_mi_b"], pairs, f"{prefix}.MemoryMiB"
+        )
+    if "cpu_manufacturers" in value:
+        import aws_sdk_ec2.types.cpu_manufacturer_set
+
+        aws_sdk_ec2.types.cpu_manufacturer_set.serialize_ec2_query(
+            value["cpu_manufacturers"], pairs, f"{prefix}.CpuManufacturers"
+        )
+    if "memory_gi_b_per_v_cpu" in value:
+        import aws_sdk_ec2.types.memory_gi_b_per_v_cpu_request
+
+        aws_sdk_ec2.types.memory_gi_b_per_v_cpu_request.serialize_ec2_query(
+            value["memory_gi_b_per_v_cpu"], pairs, f"{prefix}.MemoryGiBPerVCpu"
+        )
+    if "excluded_instance_types" in value:
+        import aws_sdk_ec2.types.excluded_instance_type_set
+
+        aws_sdk_ec2.types.excluded_instance_type_set.serialize_ec2_query(
+            value["excluded_instance_types"], pairs, f"{prefix}.ExcludedInstanceTypes"
+        )
+    if "instance_generations" in value:
+        import aws_sdk_ec2.types.instance_generation_set
+
+        aws_sdk_ec2.types.instance_generation_set.serialize_ec2_query(
+            value["instance_generations"], pairs, f"{prefix}.InstanceGenerations"
+        )
+    if "spot_max_price_percentage_over_lowest_price" in value:
+        pairs.append(
+            (
+                f"{prefix}.SpotMaxPricePercentageOverLowestPrice",
+                str(value["spot_max_price_percentage_over_lowest_price"]),
+            )
+        )
+    if "on_demand_max_price_percentage_over_lowest_price" in value:
+        pairs.append(
+            (
+                f"{prefix}.OnDemandMaxPricePercentageOverLowestPrice",
+                str(value["on_demand_max_price_percentage_over_lowest_price"]),
+            )
+        )
+    if "bare_metal" in value:
+        import aws_sdk_ec2.types.bare_metal
+
+        aws_sdk_ec2.types.bare_metal.serialize_ec2_query(
+            value["bare_metal"], pairs, f"{prefix}.BareMetal"
+        )
+    if "burstable_performance" in value:
+        import aws_sdk_ec2.types.burstable_performance
+
+        aws_sdk_ec2.types.burstable_performance.serialize_ec2_query(
+            value["burstable_performance"], pairs, f"{prefix}.BurstablePerformance"
+        )
+    if "require_hibernate_support" in value:
+        pairs.append(
+            (
+                f"{prefix}.RequireHibernateSupport",
+                "true" if value["require_hibernate_support"] else "false",
+            )
+        )
+    if "network_interface_count" in value:
+        import aws_sdk_ec2.types.network_interface_count_request
+
+        aws_sdk_ec2.types.network_interface_count_request.serialize_ec2_query(
+            value["network_interface_count"], pairs, f"{prefix}.NetworkInterfaceCount"
+        )
+    if "local_storage" in value:
+        import aws_sdk_ec2.types.local_storage
+
+        aws_sdk_ec2.types.local_storage.serialize_ec2_query(
+            value["local_storage"], pairs, f"{prefix}.LocalStorage"
+        )
+    if "local_storage_types" in value:
+        import aws_sdk_ec2.types.local_storage_type_set
+
+        aws_sdk_ec2.types.local_storage_type_set.serialize_ec2_query(
+            value["local_storage_types"], pairs, f"{prefix}.LocalStorageTypes"
+        )
+    if "total_local_storage_gb" in value:
+        import aws_sdk_ec2.types.total_local_storage_gb_request
+
+        aws_sdk_ec2.types.total_local_storage_gb_request.serialize_ec2_query(
+            value["total_local_storage_gb"], pairs, f"{prefix}.TotalLocalStorageGB"
+        )
+    if "baseline_ebs_bandwidth_mbps" in value:
+        import aws_sdk_ec2.types.baseline_ebs_bandwidth_mbps_request
+
+        aws_sdk_ec2.types.baseline_ebs_bandwidth_mbps_request.serialize_ec2_query(
+            value["baseline_ebs_bandwidth_mbps"],
+            pairs,
+            f"{prefix}.BaselineEbsBandwidthMbps",
+        )
+    if "accelerator_types" in value:
+        import aws_sdk_ec2.types.accelerator_type_set
+
+        aws_sdk_ec2.types.accelerator_type_set.serialize_ec2_query(
+            value["accelerator_types"], pairs, f"{prefix}.AcceleratorTypes"
+        )
+    if "accelerator_count" in value:
+        import aws_sdk_ec2.types.accelerator_count_request
+
+        aws_sdk_ec2.types.accelerator_count_request.serialize_ec2_query(
+            value["accelerator_count"], pairs, f"{prefix}.AcceleratorCount"
+        )
+    if "accelerator_manufacturers" in value:
+        import aws_sdk_ec2.types.accelerator_manufacturer_set
+
+        aws_sdk_ec2.types.accelerator_manufacturer_set.serialize_ec2_query(
+            value["accelerator_manufacturers"],
+            pairs,
+            f"{prefix}.AcceleratorManufacturers",
+        )
+    if "accelerator_names" in value:
+        import aws_sdk_ec2.types.accelerator_name_set
+
+        aws_sdk_ec2.types.accelerator_name_set.serialize_ec2_query(
+            value["accelerator_names"], pairs, f"{prefix}.AcceleratorNames"
+        )
+    if "accelerator_total_memory_mi_b" in value:
+        import aws_sdk_ec2.types.accelerator_total_memory_mi_b_request
+
+        aws_sdk_ec2.types.accelerator_total_memory_mi_b_request.serialize_ec2_query(
+            value["accelerator_total_memory_mi_b"],
+            pairs,
+            f"{prefix}.AcceleratorTotalMemoryMiB",
+        )
+    if "network_bandwidth_gbps" in value:
+        import aws_sdk_ec2.types.network_bandwidth_gbps_request
+
+        aws_sdk_ec2.types.network_bandwidth_gbps_request.serialize_ec2_query(
+            value["network_bandwidth_gbps"], pairs, f"{prefix}.NetworkBandwidthGbps"
+        )
+    if "allowed_instance_types" in value:
+        import aws_sdk_ec2.types.allowed_instance_type_set
+
+        aws_sdk_ec2.types.allowed_instance_type_set.serialize_ec2_query(
+            value["allowed_instance_types"], pairs, f"{prefix}.AllowedInstanceTypes"
+        )
+    if "max_spot_price_as_percentage_of_optimal_on_demand_price" in value:
+        pairs.append(
+            (
+                f"{prefix}.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice",
+                str(value["max_spot_price_as_percentage_of_optimal_on_demand_price"]),
+            )
+        )
+    if "baseline_performance_factors" in value:
+        import aws_sdk_ec2.types.baseline_performance_factors_request
+
+        aws_sdk_ec2.types.baseline_performance_factors_request.serialize_ec2_query(
+            value["baseline_performance_factors"],
+            pairs,
+            f"{prefix}.BaselinePerformanceFactors",
+        )
+    if "require_encryption_in_transit" in value:
+        pairs.append(
+            (
+                f"{prefix}.RequireEncryptionInTransit",
+                "true" if value["require_encryption_in_transit"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
+    out: InstanceRequirementsRequest = {}  # type: ignore[typeddict-item]
+    child_v_cpu_count = el.find("VCpuCount")
+    if child_v_cpu_count is not None:
+        import aws_sdk_ec2.types.v_cpu_count_range_request
+
+        out["v_cpu_count"] = (
+            aws_sdk_ec2.types.v_cpu_count_range_request.deserialize_ec2_query(
+                child_v_cpu_count
+            )
+        )
+    child_memory_mi_b = el.find("MemoryMiB")
+    if child_memory_mi_b is not None:
+        import aws_sdk_ec2.types.memory_mi_b_request
+
+        out["memory_mi_b"] = (
+            aws_sdk_ec2.types.memory_mi_b_request.deserialize_ec2_query(
+                child_memory_mi_b
+            )
+        )
+    if el.find("CpuManufacturers") is not None:
+        import aws_sdk_ec2.types.cpu_manufacturer_set
+
+        out["cpu_manufacturers"] = (
+            aws_sdk_ec2.types.cpu_manufacturer_set.deserialize_ec2_query(
+                el, "CpuManufacturers"
+            )
+        )
+    child_memory_gi_b_per_v_cpu = el.find("MemoryGiBPerVCpu")
+    if child_memory_gi_b_per_v_cpu is not None:
+        import aws_sdk_ec2.types.memory_gi_b_per_v_cpu_request
+
+        out["memory_gi_b_per_v_cpu"] = (
+            aws_sdk_ec2.types.memory_gi_b_per_v_cpu_request.deserialize_ec2_query(
+                child_memory_gi_b_per_v_cpu
+            )
+        )
+    if el.find("ExcludedInstanceTypes") is not None:
+        import aws_sdk_ec2.types.excluded_instance_type_set
+
+        out["excluded_instance_types"] = (
+            aws_sdk_ec2.types.excluded_instance_type_set.deserialize_ec2_query(
+                el, "ExcludedInstanceTypes"
+            )
+        )
+    if el.find("InstanceGenerations") is not None:
+        import aws_sdk_ec2.types.instance_generation_set
+
+        out["instance_generations"] = (
+            aws_sdk_ec2.types.instance_generation_set.deserialize_ec2_query(
+                el, "InstanceGenerations"
+            )
+        )
+    child_spot_max_price_percentage_over_lowest_price = el.find(
+        "SpotMaxPricePercentageOverLowestPrice"
+    )
+    if child_spot_max_price_percentage_over_lowest_price is not None:
+        out["spot_max_price_percentage_over_lowest_price"] = int(
+            child_spot_max_price_percentage_over_lowest_price.text or ""
+        )
+    child_on_demand_max_price_percentage_over_lowest_price = el.find(
+        "OnDemandMaxPricePercentageOverLowestPrice"
+    )
+    if child_on_demand_max_price_percentage_over_lowest_price is not None:
+        out["on_demand_max_price_percentage_over_lowest_price"] = int(
+            child_on_demand_max_price_percentage_over_lowest_price.text or ""
+        )
+    child_bare_metal = el.find("BareMetal")
+    if child_bare_metal is not None:
+        import aws_sdk_ec2.types.bare_metal
+
+        out["bare_metal"] = aws_sdk_ec2.types.bare_metal.deserialize_ec2_query(
+            child_bare_metal
+        )
+    child_burstable_performance = el.find("BurstablePerformance")
+    if child_burstable_performance is not None:
+        import aws_sdk_ec2.types.burstable_performance
+
+        out["burstable_performance"] = (
+            aws_sdk_ec2.types.burstable_performance.deserialize_ec2_query(
+                child_burstable_performance
+            )
+        )
+    child_require_hibernate_support = el.find("RequireHibernateSupport")
+    if child_require_hibernate_support is not None:
+        out["require_hibernate_support"] = (
+            child_require_hibernate_support.text or ""
+        ).lower() == "true"
+    child_network_interface_count = el.find("NetworkInterfaceCount")
+    if child_network_interface_count is not None:
+        import aws_sdk_ec2.types.network_interface_count_request
+
+        out["network_interface_count"] = (
+            aws_sdk_ec2.types.network_interface_count_request.deserialize_ec2_query(
+                child_network_interface_count
+            )
+        )
+    child_local_storage = el.find("LocalStorage")
+    if child_local_storage is not None:
+        import aws_sdk_ec2.types.local_storage
+
+        out["local_storage"] = aws_sdk_ec2.types.local_storage.deserialize_ec2_query(
+            child_local_storage
+        )
+    if el.find("LocalStorageTypes") is not None:
+        import aws_sdk_ec2.types.local_storage_type_set
+
+        out["local_storage_types"] = (
+            aws_sdk_ec2.types.local_storage_type_set.deserialize_ec2_query(
+                el, "LocalStorageTypes"
+            )
+        )
+    child_total_local_storage_gb = el.find("TotalLocalStorageGB")
+    if child_total_local_storage_gb is not None:
+        import aws_sdk_ec2.types.total_local_storage_gb_request
+
+        out["total_local_storage_gb"] = (
+            aws_sdk_ec2.types.total_local_storage_gb_request.deserialize_ec2_query(
+                child_total_local_storage_gb
+            )
+        )
+    child_baseline_ebs_bandwidth_mbps = el.find("BaselineEbsBandwidthMbps")
+    if child_baseline_ebs_bandwidth_mbps is not None:
+        import aws_sdk_ec2.types.baseline_ebs_bandwidth_mbps_request
+
+        out["baseline_ebs_bandwidth_mbps"] = (
+            aws_sdk_ec2.types.baseline_ebs_bandwidth_mbps_request.deserialize_ec2_query(
+                child_baseline_ebs_bandwidth_mbps
+            )
+        )
+    if el.find("AcceleratorTypes") is not None:
+        import aws_sdk_ec2.types.accelerator_type_set
+
+        out["accelerator_types"] = (
+            aws_sdk_ec2.types.accelerator_type_set.deserialize_ec2_query(
+                el, "AcceleratorTypes"
+            )
+        )
+    child_accelerator_count = el.find("AcceleratorCount")
+    if child_accelerator_count is not None:
+        import aws_sdk_ec2.types.accelerator_count_request
+
+        out["accelerator_count"] = (
+            aws_sdk_ec2.types.accelerator_count_request.deserialize_ec2_query(
+                child_accelerator_count
+            )
+        )
+    if el.find("AcceleratorManufacturers") is not None:
+        import aws_sdk_ec2.types.accelerator_manufacturer_set
+
+        out["accelerator_manufacturers"] = (
+            aws_sdk_ec2.types.accelerator_manufacturer_set.deserialize_ec2_query(
+                el, "AcceleratorManufacturers"
+            )
+        )
+    if el.find("AcceleratorNames") is not None:
+        import aws_sdk_ec2.types.accelerator_name_set
+
+        out["accelerator_names"] = (
+            aws_sdk_ec2.types.accelerator_name_set.deserialize_ec2_query(
+                el, "AcceleratorNames"
+            )
+        )
+    child_accelerator_total_memory_mi_b = el.find("AcceleratorTotalMemoryMiB")
+    if child_accelerator_total_memory_mi_b is not None:
+        import aws_sdk_ec2.types.accelerator_total_memory_mi_b_request
+
+        out["accelerator_total_memory_mi_b"] = (
+            aws_sdk_ec2.types.accelerator_total_memory_mi_b_request.deserialize_ec2_query(
+                child_accelerator_total_memory_mi_b
+            )
+        )
+    child_network_bandwidth_gbps = el.find("NetworkBandwidthGbps")
+    if child_network_bandwidth_gbps is not None:
+        import aws_sdk_ec2.types.network_bandwidth_gbps_request
+
+        out["network_bandwidth_gbps"] = (
+            aws_sdk_ec2.types.network_bandwidth_gbps_request.deserialize_ec2_query(
+                child_network_bandwidth_gbps
+            )
+        )
+    if el.find("AllowedInstanceTypes") is not None:
+        import aws_sdk_ec2.types.allowed_instance_type_set
+
+        out["allowed_instance_types"] = (
+            aws_sdk_ec2.types.allowed_instance_type_set.deserialize_ec2_query(
+                el, "AllowedInstanceTypes"
+            )
+        )
+    child_max_spot_price_as_percentage_of_optimal_on_demand_price = el.find(
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+    )
+    if child_max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+        out["max_spot_price_as_percentage_of_optimal_on_demand_price"] = int(
+            child_max_spot_price_as_percentage_of_optimal_on_demand_price.text or ""
+        )
+    child_baseline_performance_factors = el.find("BaselinePerformanceFactors")
+    if child_baseline_performance_factors is not None:
+        import aws_sdk_ec2.types.baseline_performance_factors_request
+
+        out["baseline_performance_factors"] = (
+            aws_sdk_ec2.types.baseline_performance_factors_request.deserialize_ec2_query(
+                child_baseline_performance_factors
+            )
+        )
+    child_require_encryption_in_transit = el.find("RequireEncryptionInTransit")
+    if child_require_encryption_in_transit is not None:
+        out["require_encryption_in_transit"] = (
+            child_require_encryption_in_transit.text or ""
+        ).lower() == "true"
+    return out

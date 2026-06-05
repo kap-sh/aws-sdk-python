@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
@@ -31,3 +32,81 @@ class IpPermission(TypedDict):
         "aws_sdk_ec2.types.prefix_list_id_list.PrefixListIdList"
     ]
     """<p>The prefix list IDs.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: IpPermission, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "ip_protocol" in value:
+        pairs.append((f"{prefix}.IpProtocol", str(value["ip_protocol"])))
+    if "from_port" in value:
+        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+    if "to_port" in value:
+        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+    if "user_id_group_pairs" in value:
+        import aws_sdk_ec2.types.user_id_group_pair_list
+
+        aws_sdk_ec2.types.user_id_group_pair_list.serialize_ec2_query(
+            value["user_id_group_pairs"], pairs, f"{prefix}.Groups"
+        )
+    if "ip_ranges" in value:
+        import aws_sdk_ec2.types.ip_range_list
+
+        aws_sdk_ec2.types.ip_range_list.serialize_ec2_query(
+            value["ip_ranges"], pairs, f"{prefix}.IpRanges"
+        )
+    if "ipv6_ranges" in value:
+        import aws_sdk_ec2.types.ipv6_range_list
+
+        aws_sdk_ec2.types.ipv6_range_list.serialize_ec2_query(
+            value["ipv6_ranges"], pairs, f"{prefix}.Ipv6Ranges"
+        )
+    if "prefix_list_ids" in value:
+        import aws_sdk_ec2.types.prefix_list_id_list
+
+        aws_sdk_ec2.types.prefix_list_id_list.serialize_ec2_query(
+            value["prefix_list_ids"], pairs, f"{prefix}.PrefixListIds"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> IpPermission:
+    out: IpPermission = {}  # type: ignore[typeddict-item]
+    child_ip_protocol = el.find("IpProtocol")
+    if child_ip_protocol is not None:
+        out["ip_protocol"] = str(child_ip_protocol.text or "")
+    child_from_port = el.find("FromPort")
+    if child_from_port is not None:
+        out["from_port"] = int(child_from_port.text or "")
+    child_to_port = el.find("ToPort")
+    if child_to_port is not None:
+        out["to_port"] = int(child_to_port.text or "")
+    if el.find("Groups") is not None:
+        import aws_sdk_ec2.types.user_id_group_pair_list
+
+        out["user_id_group_pairs"] = (
+            aws_sdk_ec2.types.user_id_group_pair_list.deserialize_ec2_query(
+                el, "Groups"
+            )
+        )
+    if el.find("IpRanges") is not None:
+        import aws_sdk_ec2.types.ip_range_list
+
+        out["ip_ranges"] = aws_sdk_ec2.types.ip_range_list.deserialize_ec2_query(
+            el, "IpRanges"
+        )
+    if el.find("Ipv6Ranges") is not None:
+        import aws_sdk_ec2.types.ipv6_range_list
+
+        out["ipv6_ranges"] = aws_sdk_ec2.types.ipv6_range_list.deserialize_ec2_query(
+            el, "Ipv6Ranges"
+        )
+    if el.find("PrefixListIds") is not None:
+        import aws_sdk_ec2.types.prefix_list_id_list
+
+        out["prefix_list_ids"] = (
+            aws_sdk_ec2.types.prefix_list_id_list.deserialize_ec2_query(
+                el, "PrefixListIds"
+            )
+        )
+    return out

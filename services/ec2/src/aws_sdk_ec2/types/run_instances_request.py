@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.block_device_mapping_request_list
@@ -179,3 +180,523 @@ class RunInstancesRequest(TypedDict):
     """<p>The name or Amazon Resource Name (ARN) of an IAM instance profile.</p>"""
     ebs_optimized: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p> <p>Default: <code>false</code> </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: RunInstancesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "block_device_mappings" in value:
+        import aws_sdk_ec2.types.block_device_mapping_request_list
+
+        aws_sdk_ec2.types.block_device_mapping_request_list.serialize_ec2_query(
+            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappings"
+        )
+    if "image_id" in value:
+        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+    if "instance_type" in value:
+        import aws_sdk_ec2.types.instance_type
+
+        aws_sdk_ec2.types.instance_type.serialize_ec2_query(
+            value["instance_type"], pairs, f"{prefix}.InstanceType"
+        )
+    if "ipv6_address_count" in value:
+        pairs.append((f"{prefix}.Ipv6AddressCount", str(value["ipv6_address_count"])))
+    if "ipv6_addresses" in value:
+        import aws_sdk_ec2.types.instance_ipv6_address_list
+
+        aws_sdk_ec2.types.instance_ipv6_address_list.serialize_ec2_query(
+            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6Addresses"
+        )
+    if "kernel_id" in value:
+        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+    if "key_name" in value:
+        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+    if "max_count" in value:
+        pairs.append((f"{prefix}.MaxCount", str(value["max_count"])))
+    if "min_count" in value:
+        pairs.append((f"{prefix}.MinCount", str(value["min_count"])))
+    if "monitoring" in value:
+        import aws_sdk_ec2.types.run_instances_monitoring_enabled
+
+        aws_sdk_ec2.types.run_instances_monitoring_enabled.serialize_ec2_query(
+            value["monitoring"], pairs, f"{prefix}.Monitoring"
+        )
+    if "placement" in value:
+        import aws_sdk_ec2.types.placement
+
+        aws_sdk_ec2.types.placement.serialize_ec2_query(
+            value["placement"], pairs, f"{prefix}.Placement"
+        )
+    if "ramdisk_id" in value:
+        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+    if "security_group_ids" in value:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        aws_sdk_ec2.types.security_group_id_string_list.serialize_ec2_query(
+            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+        )
+    if "security_groups" in value:
+        import aws_sdk_ec2.types.security_group_string_list
+
+        aws_sdk_ec2.types.security_group_string_list.serialize_ec2_query(
+            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+        )
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "user_data" in value:
+        pairs.append((f"{prefix}.UserData", str(value["user_data"])))
+    if "elastic_gpu_specification" in value:
+        import aws_sdk_ec2.types.elastic_gpu_specifications
+
+        aws_sdk_ec2.types.elastic_gpu_specifications.serialize_ec2_query(
+            value["elastic_gpu_specification"],
+            pairs,
+            f"{prefix}.ElasticGpuSpecification",
+        )
+    if "elastic_inference_accelerators" in value:
+        import aws_sdk_ec2.types.elastic_inference_accelerators
+
+        aws_sdk_ec2.types.elastic_inference_accelerators.serialize_ec2_query(
+            value["elastic_inference_accelerators"],
+            pairs,
+            f"{prefix}.ElasticInferenceAccelerators",
+        )
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "launch_template" in value:
+        import aws_sdk_ec2.types.launch_template_specification
+
+        aws_sdk_ec2.types.launch_template_specification.serialize_ec2_query(
+            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+        )
+    if "instance_market_options" in value:
+        import aws_sdk_ec2.types.instance_market_options_request
+
+        aws_sdk_ec2.types.instance_market_options_request.serialize_ec2_query(
+            value["instance_market_options"], pairs, f"{prefix}.InstanceMarketOptions"
+        )
+    if "credit_specification" in value:
+        import aws_sdk_ec2.types.credit_specification_request
+
+        aws_sdk_ec2.types.credit_specification_request.serialize_ec2_query(
+            value["credit_specification"], pairs, f"{prefix}.CreditSpecification"
+        )
+    if "cpu_options" in value:
+        import aws_sdk_ec2.types.cpu_options_request
+
+        aws_sdk_ec2.types.cpu_options_request.serialize_ec2_query(
+            value["cpu_options"], pairs, f"{prefix}.CpuOptions"
+        )
+    if "capacity_reservation_specification" in value:
+        import aws_sdk_ec2.types.capacity_reservation_specification
+
+        aws_sdk_ec2.types.capacity_reservation_specification.serialize_ec2_query(
+            value["capacity_reservation_specification"],
+            pairs,
+            f"{prefix}.CapacityReservationSpecification",
+        )
+    if "hibernation_options" in value:
+        import aws_sdk_ec2.types.hibernation_options_request
+
+        aws_sdk_ec2.types.hibernation_options_request.serialize_ec2_query(
+            value["hibernation_options"], pairs, f"{prefix}.HibernationOptions"
+        )
+    if "license_specifications" in value:
+        import aws_sdk_ec2.types.license_specification_list_request
+
+        aws_sdk_ec2.types.license_specification_list_request.serialize_ec2_query(
+            value["license_specifications"], pairs, f"{prefix}.LicenseSpecifications"
+        )
+    if "metadata_options" in value:
+        import aws_sdk_ec2.types.instance_metadata_options_request
+
+        aws_sdk_ec2.types.instance_metadata_options_request.serialize_ec2_query(
+            value["metadata_options"], pairs, f"{prefix}.MetadataOptions"
+        )
+    if "enclave_options" in value:
+        import aws_sdk_ec2.types.enclave_options_request
+
+        aws_sdk_ec2.types.enclave_options_request.serialize_ec2_query(
+            value["enclave_options"], pairs, f"{prefix}.EnclaveOptions"
+        )
+    if "private_dns_name_options" in value:
+        import aws_sdk_ec2.types.private_dns_name_options_request
+
+        aws_sdk_ec2.types.private_dns_name_options_request.serialize_ec2_query(
+            value["private_dns_name_options"], pairs, f"{prefix}.PrivateDnsNameOptions"
+        )
+    if "maintenance_options" in value:
+        import aws_sdk_ec2.types.instance_maintenance_options_request
+
+        aws_sdk_ec2.types.instance_maintenance_options_request.serialize_ec2_query(
+            value["maintenance_options"], pairs, f"{prefix}.MaintenanceOptions"
+        )
+    if "disable_api_stop" in value:
+        pairs.append(
+            (
+                f"{prefix}.DisableApiStop",
+                "true" if value["disable_api_stop"] else "false",
+            )
+        )
+    if "enable_primary_ipv6" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnablePrimaryIpv6",
+                "true" if value["enable_primary_ipv6"] else "false",
+            )
+        )
+    if "network_performance_options" in value:
+        import aws_sdk_ec2.types.instance_network_performance_options_request
+
+        aws_sdk_ec2.types.instance_network_performance_options_request.serialize_ec2_query(
+            value["network_performance_options"],
+            pairs,
+            f"{prefix}.NetworkPerformanceOptions",
+        )
+    if "operator" in value:
+        import aws_sdk_ec2.types.operator_request
+
+        aws_sdk_ec2.types.operator_request.serialize_ec2_query(
+            value["operator"], pairs, f"{prefix}.Operator"
+        )
+    if "secondary_interfaces" in value:
+        import aws_sdk_ec2.types.instance_secondary_interface_specification_list_request
+
+        aws_sdk_ec2.types.instance_secondary_interface_specification_list_request.serialize_ec2_query(
+            value["secondary_interfaces"], pairs, f"{prefix}.SecondaryInterfaces"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "disable_api_termination" in value:
+        pairs.append(
+            (
+                f"{prefix}.DisableApiTermination",
+                "true" if value["disable_api_termination"] else "false",
+            )
+        )
+    if "instance_initiated_shutdown_behavior" in value:
+        import aws_sdk_ec2.types.shutdown_behavior
+
+        aws_sdk_ec2.types.shutdown_behavior.serialize_ec2_query(
+            value["instance_initiated_shutdown_behavior"],
+            pairs,
+            f"{prefix}.InstanceInitiatedShutdownBehavior",
+        )
+    if "private_ip_address" in value:
+        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "additional_info" in value:
+        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+    if "network_interfaces" in value:
+        import aws_sdk_ec2.types.instance_network_interface_specification_list
+
+        aws_sdk_ec2.types.instance_network_interface_specification_list.serialize_ec2_query(
+            value["network_interfaces"], pairs, f"{prefix}.NetworkInterface"
+        )
+    if "iam_instance_profile" in value:
+        import aws_sdk_ec2.types.iam_instance_profile_specification
+
+        aws_sdk_ec2.types.iam_instance_profile_specification.serialize_ec2_query(
+            value["iam_instance_profile"], pairs, f"{prefix}.IamInstanceProfile"
+        )
+    if "ebs_optimized" in value:
+        pairs.append(
+            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+        )
+
+
+def deserialize_ec2_query(el: Element) -> RunInstancesRequest:
+    out: RunInstancesRequest = {}  # type: ignore[typeddict-item]
+    if el.find("BlockDeviceMappings") is not None:
+        import aws_sdk_ec2.types.block_device_mapping_request_list
+
+        out["block_device_mappings"] = (
+            aws_sdk_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
+                el, "BlockDeviceMappings"
+            )
+        )
+    child_image_id = el.find("ImageId")
+    if child_image_id is not None:
+        out["image_id"] = str(child_image_id.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        import aws_sdk_ec2.types.instance_type
+
+        out["instance_type"] = aws_sdk_ec2.types.instance_type.deserialize_ec2_query(
+            child_instance_type
+        )
+    child_ipv6_address_count = el.find("Ipv6AddressCount")
+    if child_ipv6_address_count is not None:
+        out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
+    if el.find("Ipv6Addresses") is not None:
+        import aws_sdk_ec2.types.instance_ipv6_address_list
+
+        out["ipv6_addresses"] = (
+            aws_sdk_ec2.types.instance_ipv6_address_list.deserialize_ec2_query(
+                el, "Ipv6Addresses"
+            )
+        )
+    child_kernel_id = el.find("KernelId")
+    if child_kernel_id is not None:
+        out["kernel_id"] = str(child_kernel_id.text or "")
+    child_key_name = el.find("KeyName")
+    if child_key_name is not None:
+        out["key_name"] = str(child_key_name.text or "")
+    child_max_count = el.find("MaxCount")
+    if child_max_count is not None:
+        out["max_count"] = int(child_max_count.text or "")
+    child_min_count = el.find("MinCount")
+    if child_min_count is not None:
+        out["min_count"] = int(child_min_count.text or "")
+    child_monitoring = el.find("Monitoring")
+    if child_monitoring is not None:
+        import aws_sdk_ec2.types.run_instances_monitoring_enabled
+
+        out["monitoring"] = (
+            aws_sdk_ec2.types.run_instances_monitoring_enabled.deserialize_ec2_query(
+                child_monitoring
+            )
+        )
+    child_placement = el.find("Placement")
+    if child_placement is not None:
+        import aws_sdk_ec2.types.placement
+
+        out["placement"] = aws_sdk_ec2.types.placement.deserialize_ec2_query(
+            child_placement
+        )
+    child_ramdisk_id = el.find("RamdiskId")
+    if child_ramdisk_id is not None:
+        out["ramdisk_id"] = str(child_ramdisk_id.text or "")
+    if el.find("SecurityGroupIds") is not None:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        out["security_group_ids"] = (
+            aws_sdk_ec2.types.security_group_id_string_list.deserialize_ec2_query(
+                el, "SecurityGroupIds"
+            )
+        )
+    if el.find("SecurityGroups") is not None:
+        import aws_sdk_ec2.types.security_group_string_list
+
+        out["security_groups"] = (
+            aws_sdk_ec2.types.security_group_string_list.deserialize_ec2_query(
+                el, "SecurityGroups"
+            )
+        )
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_user_data = el.find("UserData")
+    if child_user_data is not None:
+        out["user_data"] = str(child_user_data.text or "")
+    if el.find("ElasticGpuSpecification") is not None:
+        import aws_sdk_ec2.types.elastic_gpu_specifications
+
+        out["elastic_gpu_specification"] = (
+            aws_sdk_ec2.types.elastic_gpu_specifications.deserialize_ec2_query(
+                el, "ElasticGpuSpecification"
+            )
+        )
+    if el.find("ElasticInferenceAccelerators") is not None:
+        import aws_sdk_ec2.types.elastic_inference_accelerators
+
+        out["elastic_inference_accelerators"] = (
+            aws_sdk_ec2.types.elastic_inference_accelerators.deserialize_ec2_query(
+                el, "ElasticInferenceAccelerators"
+            )
+        )
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_launch_template = el.find("LaunchTemplate")
+    if child_launch_template is not None:
+        import aws_sdk_ec2.types.launch_template_specification
+
+        out["launch_template"] = (
+            aws_sdk_ec2.types.launch_template_specification.deserialize_ec2_query(
+                child_launch_template
+            )
+        )
+    child_instance_market_options = el.find("InstanceMarketOptions")
+    if child_instance_market_options is not None:
+        import aws_sdk_ec2.types.instance_market_options_request
+
+        out["instance_market_options"] = (
+            aws_sdk_ec2.types.instance_market_options_request.deserialize_ec2_query(
+                child_instance_market_options
+            )
+        )
+    child_credit_specification = el.find("CreditSpecification")
+    if child_credit_specification is not None:
+        import aws_sdk_ec2.types.credit_specification_request
+
+        out["credit_specification"] = (
+            aws_sdk_ec2.types.credit_specification_request.deserialize_ec2_query(
+                child_credit_specification
+            )
+        )
+    child_cpu_options = el.find("CpuOptions")
+    if child_cpu_options is not None:
+        import aws_sdk_ec2.types.cpu_options_request
+
+        out["cpu_options"] = (
+            aws_sdk_ec2.types.cpu_options_request.deserialize_ec2_query(
+                child_cpu_options
+            )
+        )
+    child_capacity_reservation_specification = el.find(
+        "CapacityReservationSpecification"
+    )
+    if child_capacity_reservation_specification is not None:
+        import aws_sdk_ec2.types.capacity_reservation_specification
+
+        out["capacity_reservation_specification"] = (
+            aws_sdk_ec2.types.capacity_reservation_specification.deserialize_ec2_query(
+                child_capacity_reservation_specification
+            )
+        )
+    child_hibernation_options = el.find("HibernationOptions")
+    if child_hibernation_options is not None:
+        import aws_sdk_ec2.types.hibernation_options_request
+
+        out["hibernation_options"] = (
+            aws_sdk_ec2.types.hibernation_options_request.deserialize_ec2_query(
+                child_hibernation_options
+            )
+        )
+    if el.find("LicenseSpecifications") is not None:
+        import aws_sdk_ec2.types.license_specification_list_request
+
+        out["license_specifications"] = (
+            aws_sdk_ec2.types.license_specification_list_request.deserialize_ec2_query(
+                el, "LicenseSpecifications"
+            )
+        )
+    child_metadata_options = el.find("MetadataOptions")
+    if child_metadata_options is not None:
+        import aws_sdk_ec2.types.instance_metadata_options_request
+
+        out["metadata_options"] = (
+            aws_sdk_ec2.types.instance_metadata_options_request.deserialize_ec2_query(
+                child_metadata_options
+            )
+        )
+    child_enclave_options = el.find("EnclaveOptions")
+    if child_enclave_options is not None:
+        import aws_sdk_ec2.types.enclave_options_request
+
+        out["enclave_options"] = (
+            aws_sdk_ec2.types.enclave_options_request.deserialize_ec2_query(
+                child_enclave_options
+            )
+        )
+    child_private_dns_name_options = el.find("PrivateDnsNameOptions")
+    if child_private_dns_name_options is not None:
+        import aws_sdk_ec2.types.private_dns_name_options_request
+
+        out["private_dns_name_options"] = (
+            aws_sdk_ec2.types.private_dns_name_options_request.deserialize_ec2_query(
+                child_private_dns_name_options
+            )
+        )
+    child_maintenance_options = el.find("MaintenanceOptions")
+    if child_maintenance_options is not None:
+        import aws_sdk_ec2.types.instance_maintenance_options_request
+
+        out["maintenance_options"] = (
+            aws_sdk_ec2.types.instance_maintenance_options_request.deserialize_ec2_query(
+                child_maintenance_options
+            )
+        )
+    child_disable_api_stop = el.find("DisableApiStop")
+    if child_disable_api_stop is not None:
+        out["disable_api_stop"] = (child_disable_api_stop.text or "").lower() == "true"
+    child_enable_primary_ipv6 = el.find("EnablePrimaryIpv6")
+    if child_enable_primary_ipv6 is not None:
+        out["enable_primary_ipv6"] = (
+            child_enable_primary_ipv6.text or ""
+        ).lower() == "true"
+    child_network_performance_options = el.find("NetworkPerformanceOptions")
+    if child_network_performance_options is not None:
+        import aws_sdk_ec2.types.instance_network_performance_options_request
+
+        out["network_performance_options"] = (
+            aws_sdk_ec2.types.instance_network_performance_options_request.deserialize_ec2_query(
+                child_network_performance_options
+            )
+        )
+    child_operator = el.find("Operator")
+    if child_operator is not None:
+        import aws_sdk_ec2.types.operator_request
+
+        out["operator"] = aws_sdk_ec2.types.operator_request.deserialize_ec2_query(
+            child_operator
+        )
+    if el.find("SecondaryInterfaces") is not None:
+        import aws_sdk_ec2.types.instance_secondary_interface_specification_list_request
+
+        out["secondary_interfaces"] = (
+            aws_sdk_ec2.types.instance_secondary_interface_specification_list_request.deserialize_ec2_query(
+                el, "SecondaryInterfaces"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_disable_api_termination = el.find("DisableApiTermination")
+    if child_disable_api_termination is not None:
+        out["disable_api_termination"] = (
+            child_disable_api_termination.text or ""
+        ).lower() == "true"
+    child_instance_initiated_shutdown_behavior = el.find(
+        "InstanceInitiatedShutdownBehavior"
+    )
+    if child_instance_initiated_shutdown_behavior is not None:
+        import aws_sdk_ec2.types.shutdown_behavior
+
+        out["instance_initiated_shutdown_behavior"] = (
+            aws_sdk_ec2.types.shutdown_behavior.deserialize_ec2_query(
+                child_instance_initiated_shutdown_behavior
+            )
+        )
+    child_private_ip_address = el.find("PrivateIpAddress")
+    if child_private_ip_address is not None:
+        out["private_ip_address"] = str(child_private_ip_address.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_additional_info = el.find("AdditionalInfo")
+    if child_additional_info is not None:
+        out["additional_info"] = str(child_additional_info.text or "")
+    if el.find("NetworkInterface") is not None:
+        import aws_sdk_ec2.types.instance_network_interface_specification_list
+
+        out["network_interfaces"] = (
+            aws_sdk_ec2.types.instance_network_interface_specification_list.deserialize_ec2_query(
+                el, "NetworkInterface"
+            )
+        )
+    child_iam_instance_profile = el.find("IamInstanceProfile")
+    if child_iam_instance_profile is not None:
+        import aws_sdk_ec2.types.iam_instance_profile_specification
+
+        out["iam_instance_profile"] = (
+            aws_sdk_ec2.types.iam_instance_profile_specification.deserialize_ec2_query(
+                child_iam_instance_profile
+            )
+        )
+    child_ebs_optimized = el.find("EbsOptimized")
+    if child_ebs_optimized is not None:
+        out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
+    return out

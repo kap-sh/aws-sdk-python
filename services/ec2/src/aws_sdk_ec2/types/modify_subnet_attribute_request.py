@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.attribute_boolean_value
@@ -50,3 +51,176 @@ class ModifySubnetAttributeRequest(TypedDict):
         "aws_sdk_ec2.types.attribute_boolean_value.AttributeBooleanValue"
     ]
     """<p> Specify <code>true</code> to indicate that local network interfaces at the current position should be disabled. </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifySubnetAttributeRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "assign_ipv6_address_on_creation" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["assign_ipv6_address_on_creation"],
+            pairs,
+            f"{prefix}.AssignIpv6AddressOnCreation",
+        )
+    if "map_public_ip_on_launch" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["map_public_ip_on_launch"], pairs, f"{prefix}.MapPublicIpOnLaunch"
+        )
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "map_customer_owned_ip_on_launch" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["map_customer_owned_ip_on_launch"],
+            pairs,
+            f"{prefix}.MapCustomerOwnedIpOnLaunch",
+        )
+    if "customer_owned_ipv4_pool" in value:
+        pairs.append(
+            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+        )
+    if "enable_dns64" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["enable_dns64"], pairs, f"{prefix}.EnableDns64"
+        )
+    if "private_dns_hostname_type_on_launch" in value:
+        import aws_sdk_ec2.types.hostname_type
+
+        aws_sdk_ec2.types.hostname_type.serialize_ec2_query(
+            value["private_dns_hostname_type_on_launch"],
+            pairs,
+            f"{prefix}.PrivateDnsHostnameTypeOnLaunch",
+        )
+    if "enable_resource_name_dns_a_record_on_launch" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["enable_resource_name_dns_a_record_on_launch"],
+            pairs,
+            f"{prefix}.EnableResourceNameDnsARecordOnLaunch",
+        )
+    if "enable_resource_name_dns_aaaa_record_on_launch" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["enable_resource_name_dns_aaaa_record_on_launch"],
+            pairs,
+            f"{prefix}.EnableResourceNameDnsAAAARecordOnLaunch",
+        )
+    if "enable_lni_at_device_index" in value:
+        pairs.append(
+            (
+                f"{prefix}.EnableLniAtDeviceIndex",
+                str(value["enable_lni_at_device_index"]),
+            )
+        )
+    if "disable_lni_at_device_index" in value:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        aws_sdk_ec2.types.attribute_boolean_value.serialize_ec2_query(
+            value["disable_lni_at_device_index"],
+            pairs,
+            f"{prefix}.DisableLniAtDeviceIndex",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifySubnetAttributeRequest:
+    out: ModifySubnetAttributeRequest = {}  # type: ignore[typeddict-item]
+    child_assign_ipv6_address_on_creation = el.find("AssignIpv6AddressOnCreation")
+    if child_assign_ipv6_address_on_creation is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["assign_ipv6_address_on_creation"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_assign_ipv6_address_on_creation
+            )
+        )
+    child_map_public_ip_on_launch = el.find("MapPublicIpOnLaunch")
+    if child_map_public_ip_on_launch is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["map_public_ip_on_launch"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_map_public_ip_on_launch
+            )
+        )
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_map_customer_owned_ip_on_launch = el.find("MapCustomerOwnedIpOnLaunch")
+    if child_map_customer_owned_ip_on_launch is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["map_customer_owned_ip_on_launch"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_map_customer_owned_ip_on_launch
+            )
+        )
+    child_customer_owned_ipv4_pool = el.find("CustomerOwnedIpv4Pool")
+    if child_customer_owned_ipv4_pool is not None:
+        out["customer_owned_ipv4_pool"] = str(child_customer_owned_ipv4_pool.text or "")
+    child_enable_dns64 = el.find("EnableDns64")
+    if child_enable_dns64 is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["enable_dns64"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_enable_dns64
+            )
+        )
+    child_private_dns_hostname_type_on_launch = el.find(
+        "PrivateDnsHostnameTypeOnLaunch"
+    )
+    if child_private_dns_hostname_type_on_launch is not None:
+        import aws_sdk_ec2.types.hostname_type
+
+        out["private_dns_hostname_type_on_launch"] = (
+            aws_sdk_ec2.types.hostname_type.deserialize_ec2_query(
+                child_private_dns_hostname_type_on_launch
+            )
+        )
+    child_enable_resource_name_dns_a_record_on_launch = el.find(
+        "EnableResourceNameDnsARecordOnLaunch"
+    )
+    if child_enable_resource_name_dns_a_record_on_launch is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["enable_resource_name_dns_a_record_on_launch"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_enable_resource_name_dns_a_record_on_launch
+            )
+        )
+    child_enable_resource_name_dns_aaaa_record_on_launch = el.find(
+        "EnableResourceNameDnsAAAARecordOnLaunch"
+    )
+    if child_enable_resource_name_dns_aaaa_record_on_launch is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["enable_resource_name_dns_aaaa_record_on_launch"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_enable_resource_name_dns_aaaa_record_on_launch
+            )
+        )
+    child_enable_lni_at_device_index = el.find("EnableLniAtDeviceIndex")
+    if child_enable_lni_at_device_index is not None:
+        out["enable_lni_at_device_index"] = int(
+            child_enable_lni_at_device_index.text or ""
+        )
+    child_disable_lni_at_device_index = el.find("DisableLniAtDeviceIndex")
+    if child_disable_lni_at_device_index is not None:
+        import aws_sdk_ec2.types.attribute_boolean_value
+
+        out["disable_lni_at_device_index"] = (
+            aws_sdk_ec2.types.attribute_boolean_value.deserialize_ec2_query(
+                child_disable_lni_at_device_index
+            )
+        )
+    return out

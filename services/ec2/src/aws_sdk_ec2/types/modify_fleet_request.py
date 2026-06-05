@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -31,3 +32,79 @@ class ModifyFleetRequest(TypedDict):
     """<p>The size of the EC2 Fleet.</p>"""
     context: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Reserved.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyFleetRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "excess_capacity_termination_policy" in value:
+        import aws_sdk_ec2.types.fleet_excess_capacity_termination_policy
+
+        aws_sdk_ec2.types.fleet_excess_capacity_termination_policy.serialize_ec2_query(
+            value["excess_capacity_termination_policy"],
+            pairs,
+            f"{prefix}.ExcessCapacityTerminationPolicy",
+        )
+    if "launch_template_configs" in value:
+        import aws_sdk_ec2.types.fleet_launch_template_config_list_request
+
+        aws_sdk_ec2.types.fleet_launch_template_config_list_request.serialize_ec2_query(
+            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+        )
+    if "fleet_id" in value:
+        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+    if "target_capacity_specification" in value:
+        import aws_sdk_ec2.types.target_capacity_specification_request
+
+        aws_sdk_ec2.types.target_capacity_specification_request.serialize_ec2_query(
+            value["target_capacity_specification"],
+            pairs,
+            f"{prefix}.TargetCapacitySpecification",
+        )
+    if "context" in value:
+        pairs.append((f"{prefix}.Context", str(value["context"])))
+
+
+def deserialize_ec2_query(el: Element) -> ModifyFleetRequest:
+    out: ModifyFleetRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_excess_capacity_termination_policy = el.find(
+        "ExcessCapacityTerminationPolicy"
+    )
+    if child_excess_capacity_termination_policy is not None:
+        import aws_sdk_ec2.types.fleet_excess_capacity_termination_policy
+
+        out["excess_capacity_termination_policy"] = (
+            aws_sdk_ec2.types.fleet_excess_capacity_termination_policy.deserialize_ec2_query(
+                child_excess_capacity_termination_policy
+            )
+        )
+    if el.find("LaunchTemplateConfigs") is not None:
+        import aws_sdk_ec2.types.fleet_launch_template_config_list_request
+
+        out["launch_template_configs"] = (
+            aws_sdk_ec2.types.fleet_launch_template_config_list_request.deserialize_ec2_query(
+                el, "LaunchTemplateConfigs"
+            )
+        )
+    child_fleet_id = el.find("FleetId")
+    if child_fleet_id is not None:
+        out["fleet_id"] = str(child_fleet_id.text or "")
+    child_target_capacity_specification = el.find("TargetCapacitySpecification")
+    if child_target_capacity_specification is not None:
+        import aws_sdk_ec2.types.target_capacity_specification_request
+
+        out["target_capacity_specification"] = (
+            aws_sdk_ec2.types.target_capacity_specification_request.deserialize_ec2_query(
+                child_target_capacity_specification
+            )
+        )
+    child_context = el.find("Context")
+    if child_context is not None:
+        out["context"] = str(child_context.text or "")
+    return out

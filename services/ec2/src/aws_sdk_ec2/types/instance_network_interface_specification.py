@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -76,3 +77,226 @@ class InstanceNetworkInterfaceSpecification(TypedDict):
     """<p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts\">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     ena_queue_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of ENA queues to be created with the instance.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InstanceNetworkInterfaceSpecification,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "associate_public_ip_address" in value:
+        pairs.append(
+            (
+                f"{prefix}.AssociatePublicIpAddress",
+                "true" if value["associate_public_ip_address"] else "false",
+            )
+        )
+    if "delete_on_termination" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeleteOnTermination",
+                "true" if value["delete_on_termination"] else "false",
+            )
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "device_index" in value:
+        pairs.append((f"{prefix}.DeviceIndex", str(value["device_index"])))
+    if "groups" in value:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        aws_sdk_ec2.types.security_group_id_string_list.serialize_ec2_query(
+            value["groups"], pairs, f"{prefix}.Groups"
+        )
+    if "ipv6_address_count" in value:
+        pairs.append((f"{prefix}.Ipv6AddressCount", str(value["ipv6_address_count"])))
+    if "ipv6_addresses" in value:
+        import aws_sdk_ec2.types.instance_ipv6_address_list
+
+        aws_sdk_ec2.types.instance_ipv6_address_list.serialize_ec2_query(
+            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6Addresses"
+        )
+    if "network_interface_id" in value:
+        pairs.append(
+            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+        )
+    if "private_ip_address" in value:
+        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+    if "private_ip_addresses" in value:
+        import aws_sdk_ec2.types.private_ip_address_specification_list
+
+        aws_sdk_ec2.types.private_ip_address_specification_list.serialize_ec2_query(
+            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddresses"
+        )
+    if "secondary_private_ip_address_count" in value:
+        pairs.append(
+            (
+                f"{prefix}.SecondaryPrivateIpAddressCount",
+                str(value["secondary_private_ip_address_count"]),
+            )
+        )
+    if "subnet_id" in value:
+        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+    if "associate_carrier_ip_address" in value:
+        pairs.append(
+            (
+                f"{prefix}.AssociateCarrierIpAddress",
+                "true" if value["associate_carrier_ip_address"] else "false",
+            )
+        )
+    if "interface_type" in value:
+        pairs.append((f"{prefix}.InterfaceType", str(value["interface_type"])))
+    if "network_card_index" in value:
+        pairs.append((f"{prefix}.NetworkCardIndex", str(value["network_card_index"])))
+    if "ipv4_prefixes" in value:
+        import aws_sdk_ec2.types.ipv4_prefix_list
+
+        aws_sdk_ec2.types.ipv4_prefix_list.serialize_ec2_query(
+            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4Prefixes"
+        )
+    if "ipv4_prefix_count" in value:
+        pairs.append((f"{prefix}.Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
+    if "ipv6_prefixes" in value:
+        import aws_sdk_ec2.types.ipv6_prefix_list
+
+        aws_sdk_ec2.types.ipv6_prefix_list.serialize_ec2_query(
+            value["ipv6_prefixes"], pairs, f"{prefix}.Ipv6Prefixes"
+        )
+    if "ipv6_prefix_count" in value:
+        pairs.append((f"{prefix}.Ipv6PrefixCount", str(value["ipv6_prefix_count"])))
+    if "primary_ipv6" in value:
+        pairs.append(
+            (f"{prefix}.PrimaryIpv6", "true" if value["primary_ipv6"] else "false")
+        )
+    if "ena_srd_specification" in value:
+        import aws_sdk_ec2.types.ena_srd_specification_request
+
+        aws_sdk_ec2.types.ena_srd_specification_request.serialize_ec2_query(
+            value["ena_srd_specification"], pairs, f"{prefix}.EnaSrdSpecification"
+        )
+    if "connection_tracking_specification" in value:
+        import aws_sdk_ec2.types.connection_tracking_specification_request
+
+        aws_sdk_ec2.types.connection_tracking_specification_request.serialize_ec2_query(
+            value["connection_tracking_specification"],
+            pairs,
+            f"{prefix}.ConnectionTrackingSpecification",
+        )
+    if "ena_queue_count" in value:
+        pairs.append((f"{prefix}.EnaQueueCount", str(value["ena_queue_count"])))
+
+
+def deserialize_ec2_query(el: Element) -> InstanceNetworkInterfaceSpecification:
+    out: InstanceNetworkInterfaceSpecification = {}  # type: ignore[typeddict-item]
+    child_associate_public_ip_address = el.find("AssociatePublicIpAddress")
+    if child_associate_public_ip_address is not None:
+        out["associate_public_ip_address"] = (
+            child_associate_public_ip_address.text or ""
+        ).lower() == "true"
+    child_delete_on_termination = el.find("DeleteOnTermination")
+    if child_delete_on_termination is not None:
+        out["delete_on_termination"] = (
+            child_delete_on_termination.text or ""
+        ).lower() == "true"
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_device_index = el.find("DeviceIndex")
+    if child_device_index is not None:
+        out["device_index"] = int(child_device_index.text or "")
+    if el.find("Groups") is not None:
+        import aws_sdk_ec2.types.security_group_id_string_list
+
+        out["groups"] = (
+            aws_sdk_ec2.types.security_group_id_string_list.deserialize_ec2_query(
+                el, "Groups"
+            )
+        )
+    child_ipv6_address_count = el.find("Ipv6AddressCount")
+    if child_ipv6_address_count is not None:
+        out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
+    if el.find("Ipv6Addresses") is not None:
+        import aws_sdk_ec2.types.instance_ipv6_address_list
+
+        out["ipv6_addresses"] = (
+            aws_sdk_ec2.types.instance_ipv6_address_list.deserialize_ec2_query(
+                el, "Ipv6Addresses"
+            )
+        )
+    child_network_interface_id = el.find("NetworkInterfaceId")
+    if child_network_interface_id is not None:
+        out["network_interface_id"] = str(child_network_interface_id.text or "")
+    child_private_ip_address = el.find("PrivateIpAddress")
+    if child_private_ip_address is not None:
+        out["private_ip_address"] = str(child_private_ip_address.text or "")
+    if el.find("PrivateIpAddresses") is not None:
+        import aws_sdk_ec2.types.private_ip_address_specification_list
+
+        out["private_ip_addresses"] = (
+            aws_sdk_ec2.types.private_ip_address_specification_list.deserialize_ec2_query(
+                el, "PrivateIpAddresses"
+            )
+        )
+    child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")
+    if child_secondary_private_ip_address_count is not None:
+        out["secondary_private_ip_address_count"] = int(
+            child_secondary_private_ip_address_count.text or ""
+        )
+    child_subnet_id = el.find("SubnetId")
+    if child_subnet_id is not None:
+        out["subnet_id"] = str(child_subnet_id.text or "")
+    child_associate_carrier_ip_address = el.find("AssociateCarrierIpAddress")
+    if child_associate_carrier_ip_address is not None:
+        out["associate_carrier_ip_address"] = (
+            child_associate_carrier_ip_address.text or ""
+        ).lower() == "true"
+    child_interface_type = el.find("InterfaceType")
+    if child_interface_type is not None:
+        out["interface_type"] = str(child_interface_type.text or "")
+    child_network_card_index = el.find("NetworkCardIndex")
+    if child_network_card_index is not None:
+        out["network_card_index"] = int(child_network_card_index.text or "")
+    if el.find("Ipv4Prefixes") is not None:
+        import aws_sdk_ec2.types.ipv4_prefix_list
+
+        out["ipv4_prefixes"] = aws_sdk_ec2.types.ipv4_prefix_list.deserialize_ec2_query(
+            el, "Ipv4Prefixes"
+        )
+    child_ipv4_prefix_count = el.find("Ipv4PrefixCount")
+    if child_ipv4_prefix_count is not None:
+        out["ipv4_prefix_count"] = int(child_ipv4_prefix_count.text or "")
+    if el.find("Ipv6Prefixes") is not None:
+        import aws_sdk_ec2.types.ipv6_prefix_list
+
+        out["ipv6_prefixes"] = aws_sdk_ec2.types.ipv6_prefix_list.deserialize_ec2_query(
+            el, "Ipv6Prefixes"
+        )
+    child_ipv6_prefix_count = el.find("Ipv6PrefixCount")
+    if child_ipv6_prefix_count is not None:
+        out["ipv6_prefix_count"] = int(child_ipv6_prefix_count.text or "")
+    child_primary_ipv6 = el.find("PrimaryIpv6")
+    if child_primary_ipv6 is not None:
+        out["primary_ipv6"] = (child_primary_ipv6.text or "").lower() == "true"
+    child_ena_srd_specification = el.find("EnaSrdSpecification")
+    if child_ena_srd_specification is not None:
+        import aws_sdk_ec2.types.ena_srd_specification_request
+
+        out["ena_srd_specification"] = (
+            aws_sdk_ec2.types.ena_srd_specification_request.deserialize_ec2_query(
+                child_ena_srd_specification
+            )
+        )
+    child_connection_tracking_specification = el.find("ConnectionTrackingSpecification")
+    if child_connection_tracking_specification is not None:
+        import aws_sdk_ec2.types.connection_tracking_specification_request
+
+        out["connection_tracking_specification"] = (
+            aws_sdk_ec2.types.connection_tracking_specification_request.deserialize_ec2_query(
+                child_connection_tracking_specification
+            )
+        )
+    child_ena_queue_count = el.find("EnaQueueCount")
+    if child_ena_queue_count is not None:
+        out["ena_queue_count"] = int(child_ena_queue_count.text or "")
+    return out

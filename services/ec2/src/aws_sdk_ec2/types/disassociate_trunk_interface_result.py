@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -14,3 +15,24 @@ DisassociateTrunkInterfaceResult = TypedDict(
         "client_token": NotRequired["aws_sdk_ec2.types.string.String"],
     },
 )
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DisassociateTrunkInterfaceResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "return" in value:
+        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> DisassociateTrunkInterfaceResult:
+    out: DisassociateTrunkInterfaceResult = {}  # type: ignore[typeddict-item]
+    child_return = el.find("Return")
+    if child_return is not None:
+        out["return"] = (child_return.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    return out

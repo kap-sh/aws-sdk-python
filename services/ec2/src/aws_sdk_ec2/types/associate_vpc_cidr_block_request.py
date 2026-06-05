@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -33,3 +34,80 @@ class AssociateVpcCidrBlockRequest(TypedDict):
     """<p>The ID of the VPC.</p>"""
     amazon_provided_ipv6_cidr_block: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: AssociateVpcCidrBlockRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "cidr_block" in value:
+        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+    if "ipv6_cidr_block_network_border_group" in value:
+        pairs.append(
+            (
+                f"{prefix}.Ipv6CidrBlockNetworkBorderGroup",
+                str(value["ipv6_cidr_block_network_border_group"]),
+            )
+        )
+    if "ipv6_pool" in value:
+        pairs.append((f"{prefix}.Ipv6Pool", str(value["ipv6_pool"])))
+    if "ipv6_cidr_block" in value:
+        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+    if "ipv4_ipam_pool_id" in value:
+        pairs.append((f"{prefix}.Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
+    if "ipv4_netmask_length" in value:
+        pairs.append((f"{prefix}.Ipv4NetmaskLength", str(value["ipv4_netmask_length"])))
+    if "ipv6_ipam_pool_id" in value:
+        pairs.append((f"{prefix}.Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
+    if "ipv6_netmask_length" in value:
+        pairs.append((f"{prefix}.Ipv6NetmaskLength", str(value["ipv6_netmask_length"])))
+    if "vpc_id" in value:
+        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+    if "amazon_provided_ipv6_cidr_block" in value:
+        pairs.append(
+            (
+                f"{prefix}.AmazonProvidedIpv6CidrBlock",
+                "true" if value["amazon_provided_ipv6_cidr_block"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> AssociateVpcCidrBlockRequest:
+    out: AssociateVpcCidrBlockRequest = {}  # type: ignore[typeddict-item]
+    child_cidr_block = el.find("CidrBlock")
+    if child_cidr_block is not None:
+        out["cidr_block"] = str(child_cidr_block.text or "")
+    child_ipv6_cidr_block_network_border_group = el.find(
+        "Ipv6CidrBlockNetworkBorderGroup"
+    )
+    if child_ipv6_cidr_block_network_border_group is not None:
+        out["ipv6_cidr_block_network_border_group"] = str(
+            child_ipv6_cidr_block_network_border_group.text or ""
+        )
+    child_ipv6_pool = el.find("Ipv6Pool")
+    if child_ipv6_pool is not None:
+        out["ipv6_pool"] = str(child_ipv6_pool.text or "")
+    child_ipv6_cidr_block = el.find("Ipv6CidrBlock")
+    if child_ipv6_cidr_block is not None:
+        out["ipv6_cidr_block"] = str(child_ipv6_cidr_block.text or "")
+    child_ipv4_ipam_pool_id = el.find("Ipv4IpamPoolId")
+    if child_ipv4_ipam_pool_id is not None:
+        out["ipv4_ipam_pool_id"] = str(child_ipv4_ipam_pool_id.text or "")
+    child_ipv4_netmask_length = el.find("Ipv4NetmaskLength")
+    if child_ipv4_netmask_length is not None:
+        out["ipv4_netmask_length"] = int(child_ipv4_netmask_length.text or "")
+    child_ipv6_ipam_pool_id = el.find("Ipv6IpamPoolId")
+    if child_ipv6_ipam_pool_id is not None:
+        out["ipv6_ipam_pool_id"] = str(child_ipv6_ipam_pool_id.text or "")
+    child_ipv6_netmask_length = el.find("Ipv6NetmaskLength")
+    if child_ipv6_netmask_length is not None:
+        out["ipv6_netmask_length"] = int(child_ipv6_netmask_length.text or "")
+    child_vpc_id = el.find("VpcId")
+    if child_vpc_id is not None:
+        out["vpc_id"] = str(child_vpc_id.text or "")
+    child_amazon_provided_ipv6_cidr_block = el.find("AmazonProvidedIpv6CidrBlock")
+    if child_amazon_provided_ipv6_cidr_block is not None:
+        out["amazon_provided_ipv6_cidr_block"] = (
+            child_amazon_provided_ipv6_cidr_block.text or ""
+        ).lower() == "true"
+    return out

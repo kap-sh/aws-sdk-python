@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -26,3 +27,51 @@ class RunScheduledInstancesRequest(TypedDict):
         "aws_sdk_ec2.types.scheduled_instance_id.ScheduledInstanceId"
     ]
     """<p>The Scheduled Instance ID.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: RunScheduledInstancesRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "instance_count" in value:
+        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+    if "launch_specification" in value:
+        import aws_sdk_ec2.types.scheduled_instances_launch_specification
+
+        aws_sdk_ec2.types.scheduled_instances_launch_specification.serialize_ec2_query(
+            value["launch_specification"], pairs, f"{prefix}.LaunchSpecification"
+        )
+    if "scheduled_instance_id" in value:
+        pairs.append(
+            (f"{prefix}.ScheduledInstanceId", str(value["scheduled_instance_id"]))
+        )
+
+
+def deserialize_ec2_query(el: Element) -> RunScheduledInstancesRequest:
+    out: RunScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_instance_count = el.find("InstanceCount")
+    if child_instance_count is not None:
+        out["instance_count"] = int(child_instance_count.text or "")
+    child_launch_specification = el.find("LaunchSpecification")
+    if child_launch_specification is not None:
+        import aws_sdk_ec2.types.scheduled_instances_launch_specification
+
+        out["launch_specification"] = (
+            aws_sdk_ec2.types.scheduled_instances_launch_specification.deserialize_ec2_query(
+                child_launch_specification
+            )
+        )
+    child_scheduled_instance_id = el.find("ScheduledInstanceId")
+    if child_scheduled_instance_id is not None:
+        out["scheduled_instance_id"] = str(child_scheduled_instance_id.text or "")
+    return out

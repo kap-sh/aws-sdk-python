@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -40,3 +41,105 @@ class ModifyVerifiedAccessTrustProviderRequest(TypedDict):
         "aws_sdk_ec2.types.modify_verified_access_native_application_oidc_options.ModifyVerifiedAccessNativeApplicationOidcOptions"
     ]
     """<p>The OpenID Connect (OIDC) options.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyVerifiedAccessTrustProviderRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "verified_access_trust_provider_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.VerifiedAccessTrustProviderId",
+                str(value["verified_access_trust_provider_id"]),
+            )
+        )
+    if "oidc_options" in value:
+        import aws_sdk_ec2.types.modify_verified_access_trust_provider_oidc_options
+
+        aws_sdk_ec2.types.modify_verified_access_trust_provider_oidc_options.serialize_ec2_query(
+            value["oidc_options"], pairs, f"{prefix}.OidcOptions"
+        )
+    if "device_options" in value:
+        import aws_sdk_ec2.types.modify_verified_access_trust_provider_device_options
+
+        aws_sdk_ec2.types.modify_verified_access_trust_provider_device_options.serialize_ec2_query(
+            value["device_options"], pairs, f"{prefix}.DeviceOptions"
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "sse_specification" in value:
+        import aws_sdk_ec2.types.verified_access_sse_specification_request
+
+        aws_sdk_ec2.types.verified_access_sse_specification_request.serialize_ec2_query(
+            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+        )
+    if "native_application_oidc_options" in value:
+        import aws_sdk_ec2.types.modify_verified_access_native_application_oidc_options
+
+        aws_sdk_ec2.types.modify_verified_access_native_application_oidc_options.serialize_ec2_query(
+            value["native_application_oidc_options"],
+            pairs,
+            f"{prefix}.NativeApplicationOidcOptions",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessTrustProviderRequest:
+    out: ModifyVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
+    child_verified_access_trust_provider_id = el.find("VerifiedAccessTrustProviderId")
+    if child_verified_access_trust_provider_id is not None:
+        out["verified_access_trust_provider_id"] = str(
+            child_verified_access_trust_provider_id.text or ""
+        )
+    child_oidc_options = el.find("OidcOptions")
+    if child_oidc_options is not None:
+        import aws_sdk_ec2.types.modify_verified_access_trust_provider_oidc_options
+
+        out["oidc_options"] = (
+            aws_sdk_ec2.types.modify_verified_access_trust_provider_oidc_options.deserialize_ec2_query(
+                child_oidc_options
+            )
+        )
+    child_device_options = el.find("DeviceOptions")
+    if child_device_options is not None:
+        import aws_sdk_ec2.types.modify_verified_access_trust_provider_device_options
+
+        out["device_options"] = (
+            aws_sdk_ec2.types.modify_verified_access_trust_provider_device_options.deserialize_ec2_query(
+                child_device_options
+            )
+        )
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_sse_specification = el.find("SseSpecification")
+    if child_sse_specification is not None:
+        import aws_sdk_ec2.types.verified_access_sse_specification_request
+
+        out["sse_specification"] = (
+            aws_sdk_ec2.types.verified_access_sse_specification_request.deserialize_ec2_query(
+                child_sse_specification
+            )
+        )
+    child_native_application_oidc_options = el.find("NativeApplicationOidcOptions")
+    if child_native_application_oidc_options is not None:
+        import aws_sdk_ec2.types.modify_verified_access_native_application_oidc_options
+
+        out["native_application_oidc_options"] = (
+            aws_sdk_ec2.types.modify_verified_access_native_application_oidc_options.deserialize_ec2_query(
+                child_native_application_oidc_options
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -33,3 +34,86 @@ class RouteServer(TypedDict):
     """<p>Indicates whether SNS notifications are enabled for the route server. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>"""
     sns_topic_arn: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ARN of the SNS topic where notifications are published.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: RouteServer, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "route_server_id" in value:
+        pairs.append((f"{prefix}.RouteServerId", str(value["route_server_id"])))
+    if "amazon_side_asn" in value:
+        pairs.append((f"{prefix}.AmazonSideAsn", str(value["amazon_side_asn"])))
+    if "state" in value:
+        import aws_sdk_ec2.types.route_server_state
+
+        aws_sdk_ec2.types.route_server_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+    if "persist_routes_state" in value:
+        import aws_sdk_ec2.types.route_server_persist_routes_state
+
+        aws_sdk_ec2.types.route_server_persist_routes_state.serialize_ec2_query(
+            value["persist_routes_state"], pairs, f"{prefix}.PersistRoutesState"
+        )
+    if "persist_routes_duration" in value:
+        pairs.append(
+            (f"{prefix}.PersistRoutesDuration", str(value["persist_routes_duration"]))
+        )
+    if "sns_notifications_enabled" in value:
+        pairs.append(
+            (
+                f"{prefix}.SnsNotificationsEnabled",
+                "true" if value["sns_notifications_enabled"] else "false",
+            )
+        )
+    if "sns_topic_arn" in value:
+        pairs.append((f"{prefix}.SnsTopicArn", str(value["sns_topic_arn"])))
+
+
+def deserialize_ec2_query(el: Element) -> RouteServer:
+    out: RouteServer = {}  # type: ignore[typeddict-item]
+    child_route_server_id = el.find("RouteServerId")
+    if child_route_server_id is not None:
+        out["route_server_id"] = str(child_route_server_id.text or "")
+    child_amazon_side_asn = el.find("AmazonSideAsn")
+    if child_amazon_side_asn is not None:
+        out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.route_server_state
+
+        out["state"] = aws_sdk_ec2.types.route_server_state.deserialize_ec2_query(
+            child_state
+        )
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    child_persist_routes_state = el.find("PersistRoutesState")
+    if child_persist_routes_state is not None:
+        import aws_sdk_ec2.types.route_server_persist_routes_state
+
+        out["persist_routes_state"] = (
+            aws_sdk_ec2.types.route_server_persist_routes_state.deserialize_ec2_query(
+                child_persist_routes_state
+            )
+        )
+    child_persist_routes_duration = el.find("PersistRoutesDuration")
+    if child_persist_routes_duration is not None:
+        out["persist_routes_duration"] = int(child_persist_routes_duration.text or "")
+    child_sns_notifications_enabled = el.find("SnsNotificationsEnabled")
+    if child_sns_notifications_enabled is not None:
+        out["sns_notifications_enabled"] = (
+            child_sns_notifications_enabled.text or ""
+        ).lower() == "true"
+    child_sns_topic_arn = el.find("SnsTopicArn")
+    if child_sns_topic_arn is not None:
+        out["sns_topic_arn"] = str(child_sns_topic_arn.text or "")
+    return out

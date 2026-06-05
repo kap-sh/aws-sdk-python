@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.asset_id_list
@@ -46,3 +47,118 @@ class AllocateHostsRequest(TypedDict):
         "aws_sdk_ec2.types.availability_zone_name.AvailabilityZoneName"
     ]
     """<p>The Availability Zone in which to allocate the Dedicated Host.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: AllocateHostsRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_family" in value:
+        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "host_recovery" in value:
+        import aws_sdk_ec2.types.host_recovery
+
+        aws_sdk_ec2.types.host_recovery.serialize_ec2_query(
+            value["host_recovery"], pairs, f"{prefix}.HostRecovery"
+        )
+    if "outpost_arn" in value:
+        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+    if "host_maintenance" in value:
+        import aws_sdk_ec2.types.host_maintenance
+
+        aws_sdk_ec2.types.host_maintenance.serialize_ec2_query(
+            value["host_maintenance"], pairs, f"{prefix}.HostMaintenance"
+        )
+    if "asset_ids" in value:
+        import aws_sdk_ec2.types.asset_id_list
+
+        aws_sdk_ec2.types.asset_id_list.serialize_ec2_query(
+            value["asset_ids"], pairs, f"{prefix}.AssetIds"
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "auto_placement" in value:
+        import aws_sdk_ec2.types.auto_placement
+
+        aws_sdk_ec2.types.auto_placement.serialize_ec2_query(
+            value["auto_placement"], pairs, f"{prefix}.AutoPlacement"
+        )
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "quantity" in value:
+        pairs.append((f"{prefix}.Quantity", str(value["quantity"])))
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+
+
+def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:
+    out: AllocateHostsRequest = {}  # type: ignore[typeddict-item]
+    child_instance_family = el.find("InstanceFamily")
+    if child_instance_family is not None:
+        out["instance_family"] = str(child_instance_family.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_host_recovery = el.find("HostRecovery")
+    if child_host_recovery is not None:
+        import aws_sdk_ec2.types.host_recovery
+
+        out["host_recovery"] = aws_sdk_ec2.types.host_recovery.deserialize_ec2_query(
+            child_host_recovery
+        )
+    child_outpost_arn = el.find("OutpostArn")
+    if child_outpost_arn is not None:
+        out["outpost_arn"] = str(child_outpost_arn.text or "")
+    child_host_maintenance = el.find("HostMaintenance")
+    if child_host_maintenance is not None:
+        import aws_sdk_ec2.types.host_maintenance
+
+        out["host_maintenance"] = (
+            aws_sdk_ec2.types.host_maintenance.deserialize_ec2_query(
+                child_host_maintenance
+            )
+        )
+    if el.find("AssetIds") is not None:
+        import aws_sdk_ec2.types.asset_id_list
+
+        out["asset_ids"] = aws_sdk_ec2.types.asset_id_list.deserialize_ec2_query(
+            el, "AssetIds"
+        )
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_auto_placement = el.find("AutoPlacement")
+    if child_auto_placement is not None:
+        import aws_sdk_ec2.types.auto_placement
+
+        out["auto_placement"] = aws_sdk_ec2.types.auto_placement.deserialize_ec2_query(
+            child_auto_placement
+        )
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_quantity = el.find("Quantity")
+    if child_quantity is not None:
+        out["quantity"] = int(child_quantity.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    return out

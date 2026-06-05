@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.ebs_instance_block_device_specification
@@ -19,3 +20,46 @@ class InstanceBlockDeviceMappingSpecification(TypedDict):
     """<p>The virtual device name.</p>"""
     no_device: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Suppresses the specified device included in the block device mapping.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: InstanceBlockDeviceMappingSpecification,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "device_name" in value:
+        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+    if "ebs" in value:
+        import aws_sdk_ec2.types.ebs_instance_block_device_specification
+
+        aws_sdk_ec2.types.ebs_instance_block_device_specification.serialize_ec2_query(
+            value["ebs"], pairs, f"{prefix}.Ebs"
+        )
+    if "virtual_name" in value:
+        pairs.append((f"{prefix}.VirtualName", str(value["virtual_name"])))
+    if "no_device" in value:
+        pairs.append((f"{prefix}.NoDevice", str(value["no_device"])))
+
+
+def deserialize_ec2_query(el: Element) -> InstanceBlockDeviceMappingSpecification:
+    out: InstanceBlockDeviceMappingSpecification = {}  # type: ignore[typeddict-item]
+    child_device_name = el.find("DeviceName")
+    if child_device_name is not None:
+        out["device_name"] = str(child_device_name.text or "")
+    child_ebs = el.find("Ebs")
+    if child_ebs is not None:
+        import aws_sdk_ec2.types.ebs_instance_block_device_specification
+
+        out["ebs"] = (
+            aws_sdk_ec2.types.ebs_instance_block_device_specification.deserialize_ec2_query(
+                child_ebs
+            )
+        )
+    child_virtual_name = el.find("VirtualName")
+    if child_virtual_name is not None:
+        out["virtual_name"] = str(child_virtual_name.text or "")
+    child_no_device = el.find("NoDevice")
+    if child_no_device is not None:
+        out["no_device"] = str(child_no_device.text or "")
+    return out

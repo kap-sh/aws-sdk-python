@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
@@ -30,3 +31,82 @@ class TrafficMirrorSession(TypedDict):
     """<p>The description of the Traffic Mirror session.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]
     """<p>The tags assigned to the Traffic Mirror session.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TrafficMirrorSession, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "traffic_mirror_session_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.TrafficMirrorSessionId",
+                str(value["traffic_mirror_session_id"]),
+            )
+        )
+    if "traffic_mirror_target_id" in value:
+        pairs.append(
+            (f"{prefix}.TrafficMirrorTargetId", str(value["traffic_mirror_target_id"]))
+        )
+    if "traffic_mirror_filter_id" in value:
+        pairs.append(
+            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+        )
+    if "network_interface_id" in value:
+        pairs.append(
+            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+        )
+    if "owner_id" in value:
+        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+    if "packet_length" in value:
+        pairs.append((f"{prefix}.PacketLength", str(value["packet_length"])))
+    if "session_number" in value:
+        pairs.append((f"{prefix}.SessionNumber", str(value["session_number"])))
+    if "virtual_network_id" in value:
+        pairs.append((f"{prefix}.VirtualNetworkId", str(value["virtual_network_id"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "tags" in value:
+        import aws_sdk_ec2.types.tag_list
+
+        aws_sdk_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> TrafficMirrorSession:
+    out: TrafficMirrorSession = {}  # type: ignore[typeddict-item]
+    child_traffic_mirror_session_id = el.find("TrafficMirrorSessionId")
+    if child_traffic_mirror_session_id is not None:
+        out["traffic_mirror_session_id"] = str(
+            child_traffic_mirror_session_id.text or ""
+        )
+    child_traffic_mirror_target_id = el.find("TrafficMirrorTargetId")
+    if child_traffic_mirror_target_id is not None:
+        out["traffic_mirror_target_id"] = str(child_traffic_mirror_target_id.text or "")
+    child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
+    if child_traffic_mirror_filter_id is not None:
+        out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
+    child_network_interface_id = el.find("NetworkInterfaceId")
+    if child_network_interface_id is not None:
+        out["network_interface_id"] = str(child_network_interface_id.text or "")
+    child_owner_id = el.find("OwnerId")
+    if child_owner_id is not None:
+        out["owner_id"] = str(child_owner_id.text or "")
+    child_packet_length = el.find("PacketLength")
+    if child_packet_length is not None:
+        out["packet_length"] = int(child_packet_length.text or "")
+    child_session_number = el.find("SessionNumber")
+    if child_session_number is not None:
+        out["session_number"] = int(child_session_number.text or "")
+    child_virtual_network_id = el.find("VirtualNetworkId")
+    if child_virtual_network_id is not None:
+        out["virtual_network_id"] = int(child_virtual_network_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    if el.find("TagSet") is not None:
+        import aws_sdk_ec2.types.tag_list
+
+        out["tags"] = aws_sdk_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    return out

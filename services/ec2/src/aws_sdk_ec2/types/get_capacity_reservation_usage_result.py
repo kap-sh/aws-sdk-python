@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boxed_boolean
@@ -42,3 +43,113 @@ class GetCapacityReservationUsageResult(TypedDict):
         "aws_sdk_ec2.types.interruption_info.InterruptionInfo"
     ]
     """<p> Details about the interruption configuration and source reservation for interruptible Capacity Reservations. </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: GetCapacityReservationUsageResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "capacity_reservation_id" in value:
+        pairs.append(
+            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+        )
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "total_instance_count" in value:
+        pairs.append(
+            (f"{prefix}.TotalInstanceCount", str(value["total_instance_count"]))
+        )
+    if "available_instance_count" in value:
+        pairs.append(
+            (f"{prefix}.AvailableInstanceCount", str(value["available_instance_count"]))
+        )
+    if "state" in value:
+        import aws_sdk_ec2.types.capacity_reservation_state
+
+        aws_sdk_ec2.types.capacity_reservation_state.serialize_ec2_query(
+            value["state"], pairs, f"{prefix}.State"
+        )
+    if "instance_usages" in value:
+        import aws_sdk_ec2.types.instance_usage_set
+
+        aws_sdk_ec2.types.instance_usage_set.serialize_ec2_query(
+            value["instance_usages"], pairs, f"{prefix}.InstanceUsageSet"
+        )
+    if "interruptible" in value:
+        pairs.append(
+            (f"{prefix}.Interruptible", "true" if value["interruptible"] else "false")
+        )
+    if "interruptible_capacity_allocation" in value:
+        import aws_sdk_ec2.types.interruptible_capacity_allocation
+
+        aws_sdk_ec2.types.interruptible_capacity_allocation.serialize_ec2_query(
+            value["interruptible_capacity_allocation"],
+            pairs,
+            f"{prefix}.InterruptibleCapacityAllocation",
+        )
+    if "interruption_info" in value:
+        import aws_sdk_ec2.types.interruption_info
+
+        aws_sdk_ec2.types.interruption_info.serialize_ec2_query(
+            value["interruption_info"], pairs, f"{prefix}.InterruptionInfo"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> GetCapacityReservationUsageResult:
+    out: GetCapacityReservationUsageResult = {}  # type: ignore[typeddict-item]
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_capacity_reservation_id = el.find("CapacityReservationId")
+    if child_capacity_reservation_id is not None:
+        out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_total_instance_count = el.find("TotalInstanceCount")
+    if child_total_instance_count is not None:
+        out["total_instance_count"] = int(child_total_instance_count.text or "")
+    child_available_instance_count = el.find("AvailableInstanceCount")
+    if child_available_instance_count is not None:
+        out["available_instance_count"] = int(child_available_instance_count.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        import aws_sdk_ec2.types.capacity_reservation_state
+
+        out["state"] = (
+            aws_sdk_ec2.types.capacity_reservation_state.deserialize_ec2_query(
+                child_state
+            )
+        )
+    if el.find("InstanceUsageSet") is not None:
+        import aws_sdk_ec2.types.instance_usage_set
+
+        out["instance_usages"] = (
+            aws_sdk_ec2.types.instance_usage_set.deserialize_ec2_query(
+                el, "InstanceUsageSet"
+            )
+        )
+    child_interruptible = el.find("Interruptible")
+    if child_interruptible is not None:
+        out["interruptible"] = (child_interruptible.text or "").lower() == "true"
+    child_interruptible_capacity_allocation = el.find("InterruptibleCapacityAllocation")
+    if child_interruptible_capacity_allocation is not None:
+        import aws_sdk_ec2.types.interruptible_capacity_allocation
+
+        out["interruptible_capacity_allocation"] = (
+            aws_sdk_ec2.types.interruptible_capacity_allocation.deserialize_ec2_query(
+                child_interruptible_capacity_allocation
+            )
+        )
+    child_interruption_info = el.find("InterruptionInfo")
+    if child_interruption_info is not None:
+        import aws_sdk_ec2.types.interruption_info
+
+        out["interruption_info"] = (
+            aws_sdk_ec2.types.interruption_info.deserialize_ec2_query(
+                child_interruption_info
+            )
+        )
+    return out

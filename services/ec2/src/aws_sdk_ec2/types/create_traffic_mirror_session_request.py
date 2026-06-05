@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -42,3 +43,79 @@ class CreateTrafficMirrorSessionRequest(TypedDict):
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateTrafficMirrorSessionRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "network_interface_id" in value:
+        pairs.append(
+            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+        )
+    if "traffic_mirror_target_id" in value:
+        pairs.append(
+            (f"{prefix}.TrafficMirrorTargetId", str(value["traffic_mirror_target_id"]))
+        )
+    if "traffic_mirror_filter_id" in value:
+        pairs.append(
+            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+        )
+    if "packet_length" in value:
+        pairs.append((f"{prefix}.PacketLength", str(value["packet_length"])))
+    if "session_number" in value:
+        pairs.append((f"{prefix}.SessionNumber", str(value["session_number"])))
+    if "virtual_network_id" in value:
+        pairs.append((f"{prefix}.VirtualNetworkId", str(value["virtual_network_id"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "tag_specifications" in value:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        aws_sdk_ec2.types.tag_specification_list.serialize_ec2_query(
+            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+
+
+def deserialize_ec2_query(el: Element) -> CreateTrafficMirrorSessionRequest:
+    out: CreateTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
+    child_network_interface_id = el.find("NetworkInterfaceId")
+    if child_network_interface_id is not None:
+        out["network_interface_id"] = str(child_network_interface_id.text or "")
+    child_traffic_mirror_target_id = el.find("TrafficMirrorTargetId")
+    if child_traffic_mirror_target_id is not None:
+        out["traffic_mirror_target_id"] = str(child_traffic_mirror_target_id.text or "")
+    child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
+    if child_traffic_mirror_filter_id is not None:
+        out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
+    child_packet_length = el.find("PacketLength")
+    if child_packet_length is not None:
+        out["packet_length"] = int(child_packet_length.text or "")
+    child_session_number = el.find("SessionNumber")
+    if child_session_number is not None:
+        out["session_number"] = int(child_session_number.text or "")
+    child_virtual_network_id = el.find("VirtualNetworkId")
+    if child_virtual_network_id is not None:
+        out["virtual_network_id"] = int(child_virtual_network_id.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    if el.find("TagSpecifications") is not None:
+        import aws_sdk_ec2.types.tag_specification_list
+
+        out["tag_specifications"] = (
+            aws_sdk_ec2.types.tag_specification_list.deserialize_ec2_query(
+                el, "TagSpecifications"
+            )
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -27,3 +28,60 @@ class ModifyVerifiedAccessGroupPolicyRequest(TypedDict):
         "aws_sdk_ec2.types.verified_access_sse_specification_request.VerifiedAccessSseSpecificationRequest"
     ]
     """<p>The options for server side encryption.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ModifyVerifiedAccessGroupPolicyRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "verified_access_group_id" in value:
+        pairs.append(
+            (f"{prefix}.VerifiedAccessGroupId", str(value["verified_access_group_id"]))
+        )
+    if "policy_enabled" in value:
+        pairs.append(
+            (f"{prefix}.PolicyEnabled", "true" if value["policy_enabled"] else "false")
+        )
+    if "policy_document" in value:
+        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+    if "client_token" in value:
+        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "sse_specification" in value:
+        import aws_sdk_ec2.types.verified_access_sse_specification_request
+
+        aws_sdk_ec2.types.verified_access_sse_specification_request.serialize_ec2_query(
+            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessGroupPolicyRequest:
+    out: ModifyVerifiedAccessGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+    child_verified_access_group_id = el.find("VerifiedAccessGroupId")
+    if child_verified_access_group_id is not None:
+        out["verified_access_group_id"] = str(child_verified_access_group_id.text or "")
+    child_policy_enabled = el.find("PolicyEnabled")
+    if child_policy_enabled is not None:
+        out["policy_enabled"] = (child_policy_enabled.text or "").lower() == "true"
+    child_policy_document = el.find("PolicyDocument")
+    if child_policy_document is not None:
+        out["policy_document"] = str(child_policy_document.text or "")
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_sse_specification = el.find("SseSpecification")
+    if child_sse_specification is not None:
+        import aws_sdk_ec2.types.verified_access_sse_specification_request
+
+        out["sse_specification"] = (
+            aws_sdk_ec2.types.verified_access_sse_specification_request.deserialize_ec2_query(
+                child_sse_specification
+            )
+        )
+    return out

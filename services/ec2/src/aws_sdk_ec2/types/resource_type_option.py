@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.image_reference_option_name
@@ -17,3 +18,43 @@ class ResourceTypeOption(TypedDict):
         "aws_sdk_ec2.types.resource_type_option_values_list.ResourceTypeOptionValuesList"
     ]
     """<p>A value for the specified option.</p> <ul> <li> <p>For <code>state-name</code>:</p> <ul> <li> <p>Valid values: <code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code> </p> </li> <li> <p>Default: All states</p> </li> </ul> </li> <li> <p>For <code>version-depth</code>:</p> <ul> <li> <p>Valid values: Integers between <code>1</code> and <code>10000</code> </p> </li> <li> <p>Default: <code>10</code> </p> </li> </ul> </li> </ul>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ResourceTypeOption, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "option_name" in value:
+        import aws_sdk_ec2.types.image_reference_option_name
+
+        aws_sdk_ec2.types.image_reference_option_name.serialize_ec2_query(
+            value["option_name"], pairs, f"{prefix}.OptionName"
+        )
+    if "option_values" in value:
+        import aws_sdk_ec2.types.resource_type_option_values_list
+
+        aws_sdk_ec2.types.resource_type_option_values_list.serialize_ec2_query(
+            value["option_values"], pairs, f"{prefix}.OptionValues"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ResourceTypeOption:
+    out: ResourceTypeOption = {}  # type: ignore[typeddict-item]
+    child_option_name = el.find("OptionName")
+    if child_option_name is not None:
+        import aws_sdk_ec2.types.image_reference_option_name
+
+        out["option_name"] = (
+            aws_sdk_ec2.types.image_reference_option_name.deserialize_ec2_query(
+                child_option_name
+            )
+        )
+    if el.find("OptionValues") is not None:
+        import aws_sdk_ec2.types.resource_type_option_values_list
+
+        out["option_values"] = (
+            aws_sdk_ec2.types.resource_type_option_values_list.deserialize_ec2_query(
+                el, "OptionValues"
+            )
+        )
+    return out

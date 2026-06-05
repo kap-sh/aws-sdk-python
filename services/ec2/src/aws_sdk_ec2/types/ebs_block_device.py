@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -38,3 +39,103 @@ class EbsBlockDevice(TypedDict):
     """<p>The ID of the Availability Zone where the EBS volume will be created (for example, <code>use1-az1</code>).</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within the Region.</p> <p>This parameter is not supported when using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html\">CreateFleet</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html\">DescribeImages</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html\">RequestSpotFleet</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html\">RequestSpotInstances</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\">RunInstances</a>.</p>"""
     ebs_card_index: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: EbsBlockDevice, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "delete_on_termination" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeleteOnTermination",
+                "true" if value["delete_on_termination"] else "false",
+            )
+        )
+    if "iops" in value:
+        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+    if "snapshot_id" in value:
+        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+    if "volume_size" in value:
+        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+    if "volume_type" in value:
+        import aws_sdk_ec2.types.volume_type
+
+        aws_sdk_ec2.types.volume_type.serialize_ec2_query(
+            value["volume_type"], pairs, f"{prefix}.VolumeType"
+        )
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "throughput" in value:
+        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+    if "outpost_arn" in value:
+        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "volume_initialization_rate" in value:
+        pairs.append(
+            (
+                f"{prefix}.VolumeInitializationRate",
+                str(value["volume_initialization_rate"]),
+            )
+        )
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "ebs_card_index" in value:
+        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+
+
+def deserialize_ec2_query(el: Element) -> EbsBlockDevice:
+    out: EbsBlockDevice = {}  # type: ignore[typeddict-item]
+    child_delete_on_termination = el.find("DeleteOnTermination")
+    if child_delete_on_termination is not None:
+        out["delete_on_termination"] = (
+            child_delete_on_termination.text or ""
+        ).lower() == "true"
+    child_iops = el.find("Iops")
+    if child_iops is not None:
+        out["iops"] = int(child_iops.text or "")
+    child_snapshot_id = el.find("SnapshotId")
+    if child_snapshot_id is not None:
+        out["snapshot_id"] = str(child_snapshot_id.text or "")
+    child_volume_size = el.find("VolumeSize")
+    if child_volume_size is not None:
+        out["volume_size"] = int(child_volume_size.text or "")
+    child_volume_type = el.find("VolumeType")
+    if child_volume_type is not None:
+        import aws_sdk_ec2.types.volume_type
+
+        out["volume_type"] = aws_sdk_ec2.types.volume_type.deserialize_ec2_query(
+            child_volume_type
+        )
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_throughput = el.find("Throughput")
+    if child_throughput is not None:
+        out["throughput"] = int(child_throughput.text or "")
+    child_outpost_arn = el.find("OutpostArn")
+    if child_outpost_arn is not None:
+        out["outpost_arn"] = str(child_outpost_arn.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_volume_initialization_rate = el.find("VolumeInitializationRate")
+    if child_volume_initialization_rate is not None:
+        out["volume_initialization_rate"] = int(
+            child_volume_initialization_rate.text or ""
+        )
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_ebs_card_index = el.find("EbsCardIndex")
+    if child_ebs_card_index is not None:
+        out["ebs_card_index"] = int(child_ebs_card_index.text or "")
+    return out

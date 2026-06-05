@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -32,3 +33,88 @@ class LaunchTemplateEbsBlockDeviceRequest(TypedDict):
     """<p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as <i>volume initialization</i>. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.</p> <p>This parameter is supported only for volumes created from snapshots. Omit this parameter if:</p> <ul> <li> <p>You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.</p> <note> <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.</p> </note> </li> <li> <p>You want to create a volume that is initialized at the default rate.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html\"> Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid range: 100 - 300 MiB/s</p>"""
     ebs_card_index: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: LaunchTemplateEbsBlockDeviceRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "encrypted" in value:
+        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+    if "delete_on_termination" in value:
+        pairs.append(
+            (
+                f"{prefix}.DeleteOnTermination",
+                "true" if value["delete_on_termination"] else "false",
+            )
+        )
+    if "iops" in value:
+        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+    if "kms_key_id" in value:
+        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+    if "snapshot_id" in value:
+        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+    if "volume_size" in value:
+        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+    if "volume_type" in value:
+        import aws_sdk_ec2.types.volume_type
+
+        aws_sdk_ec2.types.volume_type.serialize_ec2_query(
+            value["volume_type"], pairs, f"{prefix}.VolumeType"
+        )
+    if "throughput" in value:
+        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+    if "volume_initialization_rate" in value:
+        pairs.append(
+            (
+                f"{prefix}.VolumeInitializationRate",
+                str(value["volume_initialization_rate"]),
+            )
+        )
+    if "ebs_card_index" in value:
+        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+
+
+def deserialize_ec2_query(el: Element) -> LaunchTemplateEbsBlockDeviceRequest:
+    out: LaunchTemplateEbsBlockDeviceRequest = {}  # type: ignore[typeddict-item]
+    child_encrypted = el.find("Encrypted")
+    if child_encrypted is not None:
+        out["encrypted"] = (child_encrypted.text or "").lower() == "true"
+    child_delete_on_termination = el.find("DeleteOnTermination")
+    if child_delete_on_termination is not None:
+        out["delete_on_termination"] = (
+            child_delete_on_termination.text or ""
+        ).lower() == "true"
+    child_iops = el.find("Iops")
+    if child_iops is not None:
+        out["iops"] = int(child_iops.text or "")
+    child_kms_key_id = el.find("KmsKeyId")
+    if child_kms_key_id is not None:
+        out["kms_key_id"] = str(child_kms_key_id.text or "")
+    child_snapshot_id = el.find("SnapshotId")
+    if child_snapshot_id is not None:
+        out["snapshot_id"] = str(child_snapshot_id.text or "")
+    child_volume_size = el.find("VolumeSize")
+    if child_volume_size is not None:
+        out["volume_size"] = int(child_volume_size.text or "")
+    child_volume_type = el.find("VolumeType")
+    if child_volume_type is not None:
+        import aws_sdk_ec2.types.volume_type
+
+        out["volume_type"] = aws_sdk_ec2.types.volume_type.deserialize_ec2_query(
+            child_volume_type
+        )
+    child_throughput = el.find("Throughput")
+    if child_throughput is not None:
+        out["throughput"] = int(child_throughput.text or "")
+    child_volume_initialization_rate = el.find("VolumeInitializationRate")
+    if child_volume_initialization_rate is not None:
+        out["volume_initialization_rate"] = int(
+            child_volume_initialization_rate.text or ""
+        )
+    child_ebs_card_index = el.find("EbsCardIndex")
+    if child_ebs_card_index is not None:
+        out["ebs_card_index"] = int(child_ebs_card_index.text or "")
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -40,3 +41,100 @@ class DescribeCapacityBlockOfferingsRequest(TypedDict):
     """<p>The number of EC2 UltraServers in the offerings.</p>"""
     all_availability_zones: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p> Include all Availability Zones and Local Zones, regardless of your opt-in status. If you do not use this parameter, the results include available offerings from all Availability Zones in the Amazon Web Services Region and Local Zones you are opted into. </p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeCapacityBlockOfferingsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "instance_count" in value:
+        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+    if "start_date_range" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["start_date_range"], pairs, f"{prefix}.StartDateRange"
+        )
+    if "end_date_range" in value:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        aws_sdk_ec2.types.millisecond_date_time.serialize_ec2_query(
+            value["end_date_range"], pairs, f"{prefix}.EndDateRange"
+        )
+    if "capacity_duration_hours" in value:
+        pairs.append(
+            (f"{prefix}.CapacityDurationHours", str(value["capacity_duration_hours"]))
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "ultraserver_type" in value:
+        pairs.append((f"{prefix}.UltraserverType", str(value["ultraserver_type"])))
+    if "ultraserver_count" in value:
+        pairs.append((f"{prefix}.UltraserverCount", str(value["ultraserver_count"])))
+    if "all_availability_zones" in value:
+        pairs.append(
+            (
+                f"{prefix}.AllAvailabilityZones",
+                "true" if value["all_availability_zones"] else "false",
+            )
+        )
+
+
+def deserialize_ec2_query(el: Element) -> DescribeCapacityBlockOfferingsRequest:
+    out: DescribeCapacityBlockOfferingsRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_instance_count = el.find("InstanceCount")
+    if child_instance_count is not None:
+        out["instance_count"] = int(child_instance_count.text or "")
+    child_start_date_range = el.find("StartDateRange")
+    if child_start_date_range is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["start_date_range"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_start_date_range
+            )
+        )
+    child_end_date_range = el.find("EndDateRange")
+    if child_end_date_range is not None:
+        import aws_sdk_ec2.types.millisecond_date_time
+
+        out["end_date_range"] = (
+            aws_sdk_ec2.types.millisecond_date_time.deserialize_ec2_query(
+                child_end_date_range
+            )
+        )
+    child_capacity_duration_hours = el.find("CapacityDurationHours")
+    if child_capacity_duration_hours is not None:
+        out["capacity_duration_hours"] = int(child_capacity_duration_hours.text or "")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    child_ultraserver_type = el.find("UltraserverType")
+    if child_ultraserver_type is not None:
+        out["ultraserver_type"] = str(child_ultraserver_type.text or "")
+    child_ultraserver_count = el.find("UltraserverCount")
+    if child_ultraserver_count is not None:
+        out["ultraserver_count"] = int(child_ultraserver_count.text or "")
+    child_all_availability_zones = el.find("AllAvailabilityZones")
+    if child_all_availability_zones is not None:
+        out["all_availability_zones"] = (
+            child_all_availability_zones.text or ""
+        ).lower() == "true"
+    return out

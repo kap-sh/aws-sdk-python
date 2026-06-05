@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -15,3 +16,37 @@ class CancelCapacityReservationFleetsRequest(TypedDict):
         "aws_sdk_ec2.types.capacity_reservation_fleet_id_set.CapacityReservationFleetIdSet"
     ]
     """<p>The IDs of the Capacity Reservation Fleets to cancel.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CancelCapacityReservationFleetsRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+    if "capacity_reservation_fleet_ids" in value:
+        import aws_sdk_ec2.types.capacity_reservation_fleet_id_set
+
+        aws_sdk_ec2.types.capacity_reservation_fleet_id_set.serialize_ec2_query(
+            value["capacity_reservation_fleet_ids"],
+            pairs,
+            f"{prefix}.CapacityReservationFleetIds",
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CancelCapacityReservationFleetsRequest:
+    out: CancelCapacityReservationFleetsRequest = {}  # type: ignore[typeddict-item]
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    if el.find("CapacityReservationFleetIds") is not None:
+        import aws_sdk_ec2.types.capacity_reservation_fleet_id_set
+
+        out["capacity_reservation_fleet_ids"] = (
+            aws_sdk_ec2.types.capacity_reservation_fleet_id_set.deserialize_ec2_query(
+                el, "CapacityReservationFleetIds"
+            )
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
@@ -26,3 +27,55 @@ class DescribeCapacityBlocksRequest(TypedDict):
     """<p> One or more filters. </p> <ul> <li> <p> <code>capacity-block-id</code> - The ID of the Capacity Block.</p> </li> <li> <p> <code>ultraserver-type</code> - The Capacity Block type. The type can be <code>instances</code> or <code>ultraservers</code>.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the Capacity Block.</p> </li> <li> <p> <code>start-date</code> - The date and time at which the Capacity Block was started.</p> </li> <li> <p> <code>end-date</code> - The date and time at which the Capacity Block expires. When a Capacity Block expires, all instances in the Capacity Block are terminated.</p> </li> <li> <p> <code>create-date</code> - The date and time at which the Capacity Block was created.</p> </li> <li> <p> <code>state</code> - The state of the Capacity Block (<code>active</code> | <code>expired</code> | <code>unavailable</code> | <code>cancelled</code> | <code>failed</code> | <code>scheduled</code> | <code>payment-pending</code> | <code>payment-failed</code>).</p> </li> <li> <p> <code>tags</code> - The tags assigned to the Capacity Block.</p> </li> </ul>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: DescribeCapacityBlocksRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "capacity_block_ids" in value:
+        import aws_sdk_ec2.types.capacity_block_ids
+
+        aws_sdk_ec2.types.capacity_block_ids.serialize_ec2_query(
+            value["capacity_block_ids"], pairs, f"{prefix}.CapacityBlockIds"
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_results" in value:
+        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+    if "filters" in value:
+        import aws_sdk_ec2.types.filter_list
+
+        aws_sdk_ec2.types.filter_list.serialize_ec2_query(
+            value["filters"], pairs, f"{prefix}.Filters"
+        )
+    if "dry_run" in value:
+        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+
+
+def deserialize_ec2_query(el: Element) -> DescribeCapacityBlocksRequest:
+    out: DescribeCapacityBlocksRequest = {}  # type: ignore[typeddict-item]
+    if el.find("CapacityBlockIds") is not None:
+        import aws_sdk_ec2.types.capacity_block_ids
+
+        out["capacity_block_ids"] = (
+            aws_sdk_ec2.types.capacity_block_ids.deserialize_ec2_query(
+                el, "CapacityBlockIds"
+            )
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_results = el.find("MaxResults")
+    if child_max_results is not None:
+        out["max_results"] = int(child_max_results.text or "")
+    if el.find("Filters") is not None:
+        import aws_sdk_ec2.types.filter_list
+
+        out["filters"] = aws_sdk_ec2.types.filter_list.deserialize_ec2_query(
+            el, "Filters"
+        )
+    child_dry_run = el.find("DryRun")
+    if child_dry_run is not None:
+        out["dry_run"] = (child_dry_run.text or "").lower() == "true"
+    return out

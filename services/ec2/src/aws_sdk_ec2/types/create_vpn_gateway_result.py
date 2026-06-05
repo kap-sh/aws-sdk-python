@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_gateway
@@ -10,3 +11,27 @@ if TYPE_CHECKING:
 class CreateVpnGatewayResult(TypedDict):
     vpn_gateway: NotRequired["aws_sdk_ec2.types.vpn_gateway.VpnGateway"]
     """<p>Information about the virtual private gateway.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: CreateVpnGatewayResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "vpn_gateway" in value:
+        import aws_sdk_ec2.types.vpn_gateway
+
+        aws_sdk_ec2.types.vpn_gateway.serialize_ec2_query(
+            value["vpn_gateway"], pairs, f"{prefix}.VpnGateway"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> CreateVpnGatewayResult:
+    out: CreateVpnGatewayResult = {}  # type: ignore[typeddict-item]
+    child_vpn_gateway = el.find("VpnGateway")
+    if child_vpn_gateway is not None:
+        import aws_sdk_ec2.types.vpn_gateway
+
+        out["vpn_gateway"] = aws_sdk_ec2.types.vpn_gateway.deserialize_ec2_query(
+            child_vpn_gateway
+        )
+    return out
