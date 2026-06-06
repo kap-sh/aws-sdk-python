@@ -42,3 +42,7 @@ class InvalidInputException(ServiceError):
             code="InvalidInputException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidInputException":
+        return cls(deserialize_query(el))

@@ -44,3 +44,7 @@ class ServiceNotSupportedException(ServiceError):
             code="ServiceNotSupportedException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "ServiceNotSupportedException":
+        return cls(deserialize_query(el))

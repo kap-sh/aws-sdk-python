@@ -44,3 +44,7 @@ class MalformedCertificateException(ServiceError):
             code="MalformedCertificateException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "MalformedCertificateException":
+        return cls(deserialize_query(el))

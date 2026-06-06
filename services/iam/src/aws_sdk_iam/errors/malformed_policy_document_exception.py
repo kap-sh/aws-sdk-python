@@ -44,3 +44,7 @@ class MalformedPolicyDocumentException(ServiceError):
             code="MalformedPolicyDocumentException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "MalformedPolicyDocumentException":
+        return cls(deserialize_query(el))

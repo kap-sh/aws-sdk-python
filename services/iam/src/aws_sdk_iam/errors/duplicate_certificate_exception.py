@@ -44,3 +44,7 @@ class DuplicateCertificateException(ServiceError):
             code="DuplicateCertificateException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "DuplicateCertificateException":
+        return cls(deserialize_query(el))

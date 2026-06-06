@@ -44,3 +44,7 @@ class CredentialReportExpiredException(ServiceError):
             code="CredentialReportExpiredException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "CredentialReportExpiredException":
+        return cls(deserialize_query(el))

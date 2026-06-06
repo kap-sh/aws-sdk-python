@@ -46,3 +46,7 @@ class ReportGenerationLimitExceededException(ServiceError):
             code="ReportGenerationLimitExceededException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "ReportGenerationLimitExceededException":
+        return cls(deserialize_query(el))

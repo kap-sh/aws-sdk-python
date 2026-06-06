@@ -44,3 +44,7 @@ class InvalidCertificateException(ServiceError):
             code="InvalidCertificateException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidCertificateException":
+        return cls(deserialize_query(el))

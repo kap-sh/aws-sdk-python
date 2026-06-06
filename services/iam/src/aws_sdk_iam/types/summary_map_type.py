@@ -17,9 +17,9 @@ summaryMapType: TypeAlias = dict[
 def serialize_query(
     input_to_serialize: summaryMapType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    for n, (key, value) in enumerate(input_to_serialize.items(), 1):
-        import aws_sdk_iam.types.summary_key_type
+    import aws_sdk_iam.types.summary_key_type
 
+    for n, (key, value) in enumerate(input_to_serialize.items(), 1):
         pairs.append(
             (
                 f"{prefix}.entry.{n}.key",
@@ -47,9 +47,9 @@ def deserialize_query(el: Element) -> summaryMapType:
 def serialize_query_flat(
     input_to_serialize: summaryMapType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    for n, (key, value) in enumerate(input_to_serialize.items(), 1):
-        import aws_sdk_iam.types.summary_key_type
+    import aws_sdk_iam.types.summary_key_type
 
+    for n, (key, value) in enumerate(input_to_serialize.items(), 1):
         pairs.append(
             (f"{prefix}.{n}.key", aws_sdk_iam.types.summary_key_type.to_query_text(key))
         )

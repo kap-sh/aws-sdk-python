@@ -44,3 +44,7 @@ class UnmodifiableEntityException(ServiceError):
             code="UnmodifiableEntityException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "UnmodifiableEntityException":
+        return cls(deserialize_query(el))

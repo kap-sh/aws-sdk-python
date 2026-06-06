@@ -44,3 +44,7 @@ class PasswordPolicyViolationException(ServiceError):
             code="PasswordPolicyViolationException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "PasswordPolicyViolationException":
+        return cls(deserialize_query(el))

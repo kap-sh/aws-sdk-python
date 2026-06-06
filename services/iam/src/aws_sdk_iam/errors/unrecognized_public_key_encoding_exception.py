@@ -46,3 +46,7 @@ class UnrecognizedPublicKeyEncodingException(ServiceError):
             code="UnrecognizedPublicKeyEncodingException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "UnrecognizedPublicKeyEncodingException":
+        return cls(deserialize_query(el))

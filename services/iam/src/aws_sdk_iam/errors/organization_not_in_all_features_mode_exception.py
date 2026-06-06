@@ -44,3 +44,7 @@ class OrganizationNotInAllFeaturesModeException(ServiceError):
             code="OrganizationNotInAllFeaturesModeException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "OrganizationNotInAllFeaturesModeException":
+        return cls(deserialize_query(el))

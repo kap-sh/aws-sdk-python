@@ -44,3 +44,7 @@ class DuplicateSSHPublicKeyException(ServiceError):
             code="DuplicateSSHPublicKeyException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "DuplicateSSHPublicKeyException":
+        return cls(deserialize_query(el))

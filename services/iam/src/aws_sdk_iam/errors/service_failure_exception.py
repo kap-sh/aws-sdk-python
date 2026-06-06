@@ -44,3 +44,7 @@ class ServiceFailureException(ServiceError):
             code="ServiceFailureException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "ServiceFailureException":
+        return cls(deserialize_query(el))

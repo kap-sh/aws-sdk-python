@@ -44,3 +44,7 @@ class InvalidUserTypeException(ServiceError):
             code="InvalidUserTypeException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidUserTypeException":
+        return cls(deserialize_query(el))

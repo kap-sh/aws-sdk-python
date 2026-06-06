@@ -42,3 +42,7 @@ class NoSuchEntityException(ServiceError):
             code="NoSuchEntityException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "NoSuchEntityException":
+        return cls(deserialize_query(el))

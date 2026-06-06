@@ -46,3 +46,7 @@ class InvalidAuthenticationCodeException(ServiceError):
             code="InvalidAuthenticationCodeException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidAuthenticationCodeException":
+        return cls(deserialize_query(el))

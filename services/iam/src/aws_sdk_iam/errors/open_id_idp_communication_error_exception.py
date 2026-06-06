@@ -46,3 +46,7 @@ class OpenIdIdpCommunicationErrorException(ServiceError):
             code="OpenIdIdpCommunicationErrorException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "OpenIdIdpCommunicationErrorException":
+        return cls(deserialize_query(el))

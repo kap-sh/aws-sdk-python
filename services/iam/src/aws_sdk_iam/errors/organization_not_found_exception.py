@@ -42,3 +42,7 @@ class OrganizationNotFoundException(ServiceError):
             code="OrganizationNotFoundException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "OrganizationNotFoundException":
+        return cls(deserialize_query(el))

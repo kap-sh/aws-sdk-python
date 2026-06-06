@@ -19,10 +19,10 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    import aws_sdk_iam.types.policy_evaluation_decision_type
+
     for n, (key, value) in enumerate(input_to_serialize.items(), 1):
         pairs.append((f"{prefix}.entry.{n}.key", str(key)))
-        import aws_sdk_iam.types.policy_evaluation_decision_type
-
         aws_sdk_iam.types.policy_evaluation_decision_type.serialize_query(
             value, pairs, f"{prefix}.entry.{n}.value"
         )
@@ -50,10 +50,10 @@ def serialize_query_flat(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    import aws_sdk_iam.types.policy_evaluation_decision_type
+
     for n, (key, value) in enumerate(input_to_serialize.items(), 1):
         pairs.append((f"{prefix}.{n}.key", str(key)))
-        import aws_sdk_iam.types.policy_evaluation_decision_type
-
         aws_sdk_iam.types.policy_evaluation_decision_type.serialize_query(
             value, pairs, f"{prefix}.{n}.value"
         )

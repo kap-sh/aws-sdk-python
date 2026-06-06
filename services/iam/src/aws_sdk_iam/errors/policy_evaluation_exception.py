@@ -44,3 +44,7 @@ class PolicyEvaluationException(ServiceError):
             code="PolicyEvaluationException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "PolicyEvaluationException":
+        return cls(deserialize_query(el))

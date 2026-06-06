@@ -46,3 +46,7 @@ class CredentialReportNotPresentException(ServiceError):
             code="CredentialReportNotPresentException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "CredentialReportNotPresentException":
+        return cls(deserialize_query(el))

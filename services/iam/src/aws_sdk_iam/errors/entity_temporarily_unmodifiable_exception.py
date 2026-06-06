@@ -46,3 +46,7 @@ class EntityTemporarilyUnmodifiableException(ServiceError):
             code="EntityTemporarilyUnmodifiableException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "EntityTemporarilyUnmodifiableException":
+        return cls(deserialize_query(el))

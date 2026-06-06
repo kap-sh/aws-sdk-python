@@ -46,3 +46,9 @@ class AccountNotManagementOrDelegatedAdministratorException(ServiceError):
             code="AccountNotManagementOrDelegatedAdministratorException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(
+        cls, el: Element
+    ) -> "AccountNotManagementOrDelegatedAdministratorException":
+        return cls(deserialize_query(el))

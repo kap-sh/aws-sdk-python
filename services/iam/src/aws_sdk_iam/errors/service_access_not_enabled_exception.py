@@ -42,3 +42,7 @@ class ServiceAccessNotEnabledException(ServiceError):
             code="ServiceAccessNotEnabledException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "ServiceAccessNotEnabledException":
+        return cls(deserialize_query(el))

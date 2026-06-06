@@ -44,3 +44,7 @@ class DeleteConflictException(ServiceError):
             code="DeleteConflictException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "DeleteConflictException":
+        return cls(deserialize_query(el))

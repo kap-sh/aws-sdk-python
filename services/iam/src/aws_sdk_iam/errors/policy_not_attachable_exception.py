@@ -44,3 +44,7 @@ class PolicyNotAttachableException(ServiceError):
             code="PolicyNotAttachableException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "PolicyNotAttachableException":
+        return cls(deserialize_query(el))

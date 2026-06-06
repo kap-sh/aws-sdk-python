@@ -44,3 +44,7 @@ class ConcurrentModificationException(ServiceError):
             code="ConcurrentModificationException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "ConcurrentModificationException":
+        return cls(deserialize_query(el))

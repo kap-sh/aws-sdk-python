@@ -44,3 +44,7 @@ class InvalidPublicKeyException(ServiceError):
             code="InvalidPublicKeyException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidPublicKeyException":
+        return cls(deserialize_query(el))

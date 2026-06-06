@@ -44,3 +44,7 @@ class EntityAlreadyExistsException(ServiceError):
             code="EntityAlreadyExistsException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "EntityAlreadyExistsException":
+        return cls(deserialize_query(el))

@@ -44,3 +44,7 @@ class LimitExceededException(ServiceError):
             code="LimitExceededException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "LimitExceededException":
+        return cls(deserialize_query(el))

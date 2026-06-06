@@ -44,3 +44,7 @@ class FeatureDisabledException(ServiceError):
             code="FeatureDisabledException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "FeatureDisabledException":
+        return cls(deserialize_query(el))

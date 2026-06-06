@@ -44,3 +44,7 @@ class CallerIsNotManagementAccountException(ServiceError):
             code="CallerIsNotManagementAccountException",
         )
         self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "CallerIsNotManagementAccountException":
+        return cls(deserialize_query(el))
