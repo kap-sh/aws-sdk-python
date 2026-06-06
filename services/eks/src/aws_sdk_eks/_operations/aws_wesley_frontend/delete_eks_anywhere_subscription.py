@@ -114,8 +114,8 @@ def build_request(
         normalized_url,
         "DELETE",
         headers=headers,
-        body=body,  # type: ignore
-        context={"signer": signer},  # type: ignore
+        body=body,
+        context={"signer": signer},
     )
 
 

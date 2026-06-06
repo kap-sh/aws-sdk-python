@@ -131,8 +131,8 @@ def build_request(
         normalized_url,
         "PUT",
         headers=headers,
-        body=body,  # type: ignore
-        context={"signer": signer},  # type: ignore
+        body=body,
+        context={"signer": signer},
     )
 
 

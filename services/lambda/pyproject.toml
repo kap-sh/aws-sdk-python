@@ -19,7 +19,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "zapros>=0.12.0",
+    "zapros>=0.13.0",
 ]
 
 [tool.pytest.ini_options]
