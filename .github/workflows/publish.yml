@@ -12,6 +12,7 @@ on:
           - ec2
           - ecs
           - eks
+          - iam
           - kms
           - lambda
           - s3
