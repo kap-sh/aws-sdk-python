@@ -41,9 +41,9 @@ class SecretListEntry(TypedDict):
         "aws_sdk_secrets_manager.types.kms_key_id_type.KmsKeyIdType"
     ]
     """<p>The ARN of the KMS key that Secrets Manager uses to encrypt the secret value. If the secret is encrypted with the Amazon Web Services managed key <code>aws/secretsmanager</code>, this field is omitted.</p>"""
-    rotation_enabled: (
+    rotation_enabled: NotRequired[
         "aws_sdk_secrets_manager.types.rotation_enabled_type.RotationEnabledType"
-    )
+    ]
     """<p>Indicates whether automatic, scheduled rotation is enabled for this secret.</p>"""
     rotation_lambda_arn: NotRequired[
         "aws_sdk_secrets_manager.types.rotation_lambda_arn_type.RotationLambdaARNType"
@@ -97,3 +97,216 @@ class SecretListEntry(TypedDict):
     """<p>The date and time when a secret was created.</p>"""
     primary_region: NotRequired["aws_sdk_secrets_manager.types.region_type.RegionType"]
     """<p>The Region where Secrets Manager originated the secret.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SecretListEntry) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["ARN"] = value["arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "type" in value:
+        out["Type"] = value["type"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    if "rotation_enabled" in value:
+        out["RotationEnabled"] = value["rotation_enabled"]
+    if "rotation_lambda_arn" in value:
+        out["RotationLambdaARN"] = value["rotation_lambda_arn"]
+    if "rotation_rules" in value:
+        import aws_sdk_secrets_manager.types.rotation_rules_type
+
+        out["RotationRules"] = (
+            aws_sdk_secrets_manager.types.rotation_rules_type.serialize_aws_json_1_1(
+                value["rotation_rules"]
+            )
+        )
+    if "external_secret_rotation_metadata" in value:
+        import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type
+
+        out["ExternalSecretRotationMetadata"] = (
+            aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type.serialize_aws_json_1_1(
+                value["external_secret_rotation_metadata"]
+            )
+        )
+    if "external_secret_rotation_role_arn" in value:
+        out["ExternalSecretRotationRoleArn"] = value[
+            "external_secret_rotation_role_arn"
+        ]
+    if "last_rotated_date" in value:
+        import aws_sdk_secrets_manager.types.last_rotated_date_type
+
+        out["LastRotatedDate"] = (
+            aws_sdk_secrets_manager.types.last_rotated_date_type.serialize_aws_json_1_1(
+                value["last_rotated_date"]
+            )
+        )
+    if "last_changed_date" in value:
+        import aws_sdk_secrets_manager.types.last_changed_date_type
+
+        out["LastChangedDate"] = (
+            aws_sdk_secrets_manager.types.last_changed_date_type.serialize_aws_json_1_1(
+                value["last_changed_date"]
+            )
+        )
+    if "last_accessed_date" in value:
+        import aws_sdk_secrets_manager.types.last_accessed_date_type
+
+        out["LastAccessedDate"] = (
+            aws_sdk_secrets_manager.types.last_accessed_date_type.serialize_aws_json_1_1(
+                value["last_accessed_date"]
+            )
+        )
+    if "deleted_date" in value:
+        import aws_sdk_secrets_manager.types.deleted_date_type
+
+        out["DeletedDate"] = (
+            aws_sdk_secrets_manager.types.deleted_date_type.serialize_aws_json_1_1(
+                value["deleted_date"]
+            )
+        )
+    if "next_rotation_date" in value:
+        import aws_sdk_secrets_manager.types.next_rotation_date_type
+
+        out["NextRotationDate"] = (
+            aws_sdk_secrets_manager.types.next_rotation_date_type.serialize_aws_json_1_1(
+                value["next_rotation_date"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_secrets_manager.types.tag_list_type
+
+        out["Tags"] = (
+            aws_sdk_secrets_manager.types.tag_list_type.serialize_aws_json_1_1(
+                value["tags"]
+            )
+        )
+    if "secret_versions_to_stages" in value:
+        import aws_sdk_secrets_manager.types.secret_versions_to_stages_map_type
+
+        out["SecretVersionsToStages"] = (
+            aws_sdk_secrets_manager.types.secret_versions_to_stages_map_type.serialize_aws_json_1_1(
+                value["secret_versions_to_stages"]
+            )
+        )
+    if "owning_service" in value:
+        out["OwningService"] = value["owning_service"]
+    if "created_date" in value:
+        import aws_sdk_secrets_manager.types.timestamp_type
+
+        out["CreatedDate"] = (
+            aws_sdk_secrets_manager.types.timestamp_type.serialize_aws_json_1_1(
+                value["created_date"]
+            )
+        )
+    if "primary_region" in value:
+        out["PrimaryRegion"] = value["primary_region"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SecretListEntry:
+    out: SecretListEntry = {}  # type: ignore[typeddict-item]
+    if "ARN" in data:
+        out["arn"] = data["ARN"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Type" in data:
+        out["type"] = data["Type"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    if "RotationEnabled" in data:
+        out["rotation_enabled"] = data["RotationEnabled"]
+    if "RotationLambdaARN" in data:
+        out["rotation_lambda_arn"] = data["RotationLambdaARN"]
+    if "RotationRules" in data:
+        import aws_sdk_secrets_manager.types.rotation_rules_type
+
+        out["rotation_rules"] = (
+            aws_sdk_secrets_manager.types.rotation_rules_type.deserialize_aws_json_1_1(
+                data["RotationRules"]
+            )
+        )
+    if "ExternalSecretRotationMetadata" in data:
+        import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type
+
+        out["external_secret_rotation_metadata"] = (
+            aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type.deserialize_aws_json_1_1(
+                data["ExternalSecretRotationMetadata"]
+            )
+        )
+    if "ExternalSecretRotationRoleArn" in data:
+        out["external_secret_rotation_role_arn"] = data["ExternalSecretRotationRoleArn"]
+    if "LastRotatedDate" in data:
+        import aws_sdk_secrets_manager.types.last_rotated_date_type
+
+        out["last_rotated_date"] = (
+            aws_sdk_secrets_manager.types.last_rotated_date_type.deserialize_aws_json_1_1(
+                data["LastRotatedDate"]
+            )
+        )
+    if "LastChangedDate" in data:
+        import aws_sdk_secrets_manager.types.last_changed_date_type
+
+        out["last_changed_date"] = (
+            aws_sdk_secrets_manager.types.last_changed_date_type.deserialize_aws_json_1_1(
+                data["LastChangedDate"]
+            )
+        )
+    if "LastAccessedDate" in data:
+        import aws_sdk_secrets_manager.types.last_accessed_date_type
+
+        out["last_accessed_date"] = (
+            aws_sdk_secrets_manager.types.last_accessed_date_type.deserialize_aws_json_1_1(
+                data["LastAccessedDate"]
+            )
+        )
+    if "DeletedDate" in data:
+        import aws_sdk_secrets_manager.types.deleted_date_type
+
+        out["deleted_date"] = (
+            aws_sdk_secrets_manager.types.deleted_date_type.deserialize_aws_json_1_1(
+                data["DeletedDate"]
+            )
+        )
+    if "NextRotationDate" in data:
+        import aws_sdk_secrets_manager.types.next_rotation_date_type
+
+        out["next_rotation_date"] = (
+            aws_sdk_secrets_manager.types.next_rotation_date_type.deserialize_aws_json_1_1(
+                data["NextRotationDate"]
+            )
+        )
+    if "Tags" in data:
+        import aws_sdk_secrets_manager.types.tag_list_type
+
+        out["tags"] = (
+            aws_sdk_secrets_manager.types.tag_list_type.deserialize_aws_json_1_1(
+                data["Tags"]
+            )
+        )
+    if "SecretVersionsToStages" in data:
+        import aws_sdk_secrets_manager.types.secret_versions_to_stages_map_type
+
+        out["secret_versions_to_stages"] = (
+            aws_sdk_secrets_manager.types.secret_versions_to_stages_map_type.deserialize_aws_json_1_1(
+                data["SecretVersionsToStages"]
+            )
+        )
+    if "OwningService" in data:
+        out["owning_service"] = data["OwningService"]
+    if "CreatedDate" in data:
+        import aws_sdk_secrets_manager.types.timestamp_type
+
+        out["created_date"] = (
+            aws_sdk_secrets_manager.types.timestamp_type.deserialize_aws_json_1_1(
+                data["CreatedDate"]
+            )
+        )
+    if "PrimaryRegion" in data:
+        out["primary_region"] = data["PrimaryRegion"]
+    return out

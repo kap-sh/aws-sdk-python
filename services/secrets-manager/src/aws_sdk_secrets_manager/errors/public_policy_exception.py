@@ -12,6 +12,21 @@ class PublicPolicyException_(TypedDict):
     message: NotRequired["aws_sdk_secrets_manager.types.error_message.ErrorMessage"]
 
 
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PublicPolicyException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PublicPolicyException_:
+    out: PublicPolicyException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
 class PublicPolicyException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.secretsmanager#PublicPolicyException``."""
 
@@ -25,3 +40,7 @@ class PublicPolicyException(ServiceError):
             code="PublicPolicyException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "PublicPolicyException":
+        return cls(deserialize_aws_json_1_1(data))

@@ -37,3 +37,112 @@ class DecryptRequest(TypedDict):
         "aws_sdk_kms.types.dry_run_modifier_list.DryRunModifierList"
     ]
     """<p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p> <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DecryptRequest) -> dict:
+    out: dict = {}
+    if "ciphertext_blob" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["CiphertextBlob"] = (
+            aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+                value["ciphertext_blob"]
+            )
+        )
+    if "encryption_context" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["EncryptionContext"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["encryption_context"]
+            )
+        )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "encryption_algorithm" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["EncryptionAlgorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.serialize_aws_json_1_1(
+                value["encryption_algorithm"]
+            )
+        )
+    if "recipient" in value:
+        import aws_sdk_kms.types.recipient_info
+
+        out["Recipient"] = aws_sdk_kms.types.recipient_info.serialize_aws_json_1_1(
+            value["recipient"]
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    if "dry_run_modifiers" in value:
+        import aws_sdk_kms.types.dry_run_modifier_list
+
+        out["DryRunModifiers"] = (
+            aws_sdk_kms.types.dry_run_modifier_list.serialize_aws_json_1_1(
+                value["dry_run_modifiers"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DecryptRequest:
+    out: DecryptRequest = {}  # type: ignore[typeddict-item]
+    if "CiphertextBlob" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["ciphertext_blob"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["CiphertextBlob"]
+            )
+        )
+    if "EncryptionContext" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["encryption_context"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["EncryptionContext"]
+            )
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "EncryptionAlgorithm" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["encryption_algorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(
+                data["EncryptionAlgorithm"]
+            )
+        )
+    if "Recipient" in data:
+        import aws_sdk_kms.types.recipient_info
+
+        out["recipient"] = aws_sdk_kms.types.recipient_info.deserialize_aws_json_1_1(
+            data["Recipient"]
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    if "DryRunModifiers" in data:
+        import aws_sdk_kms.types.dry_run_modifier_list
+
+        out["dry_run_modifiers"] = (
+            aws_sdk_kms.types.dry_run_modifier_list.deserialize_aws_json_1_1(
+                data["DryRunModifiers"]
+            )
+        )
+    return out

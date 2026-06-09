@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.backing_key_id_type
@@ -36,3 +37,101 @@ class ImportKeyMaterialRequest(TypedDict):
         "aws_sdk_kms.types.backing_key_id_type.BackingKeyIdType"
     ]
     """<p>Identifies the key material being imported. This parameter is optional and only usable with symmetric encryption keys. You cannot specify a key material ID with <code>ImportType</code> set to <code>NEW_KEY_MATERIAL</code>. Whenever you import key material into a symmetric encryption key, KMS assigns a unique identifier to the key material based on the KMS key ID and the imported key material. When you re-import key material with a specified key material ID, KMS:</p> <ul> <li> <p>Computes the identifier for the key material</p> </li> <li> <p>Matches the computed identifier against the specified key material ID</p> </li> <li> <p>Verifies that the key material ID is already associated with the KMS key</p> </li> </ul> <p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ImportKeyMaterialRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.ciphertext_type
+
+    out["ImportToken"] = aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+        value["import_token"]
+    )
+    import aws_sdk_kms.types.ciphertext_type
+
+    out["EncryptedKeyMaterial"] = (
+        aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+            value["encrypted_key_material"]
+        )
+    )
+    if "valid_to" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["ValidTo"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["valid_to"]
+        )
+    if "expiration_model" in value:
+        import aws_sdk_kms.types.expiration_model_type
+
+        out["ExpirationModel"] = (
+            aws_sdk_kms.types.expiration_model_type.serialize_aws_json_1_1(
+                value["expiration_model"]
+            )
+        )
+    if "import_type" in value:
+        import aws_sdk_kms.types.import_type
+
+        out["ImportType"] = aws_sdk_kms.types.import_type.serialize_aws_json_1_1(
+            value["import_type"]
+        )
+    if "key_material_description" in value:
+        out["KeyMaterialDescription"] = value["key_material_description"]
+    if "key_material_id" in value:
+        out["KeyMaterialId"] = value["key_material_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialRequest:
+    out: ImportKeyMaterialRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("ImportKeyMaterialRequest.key_id required")
+    if "ImportToken" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["import_token"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["ImportToken"]
+            )
+        )
+    else:
+        raise DeserializationError("ImportKeyMaterialRequest.import_token required")
+    if "EncryptedKeyMaterial" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["encrypted_key_material"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["EncryptedKeyMaterial"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ImportKeyMaterialRequest.encrypted_key_material required"
+        )
+    if "ValidTo" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["valid_to"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["ValidTo"]
+        )
+    if "ExpirationModel" in data:
+        import aws_sdk_kms.types.expiration_model_type
+
+        out["expiration_model"] = (
+            aws_sdk_kms.types.expiration_model_type.deserialize_aws_json_1_1(
+                data["ExpirationModel"]
+            )
+        )
+    if "ImportType" in data:
+        import aws_sdk_kms.types.import_type
+
+        out["import_type"] = aws_sdk_kms.types.import_type.deserialize_aws_json_1_1(
+            data["ImportType"]
+        )
+    if "KeyMaterialDescription" in data:
+        out["key_material_description"] = data["KeyMaterialDescription"]
+    if "KeyMaterialId" in data:
+        out["key_material_id"] = data["KeyMaterialId"]
+    return out

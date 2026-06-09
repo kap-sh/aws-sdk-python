@@ -8,3 +8,12 @@ if TYPE_CHECKING:
 SecretIdListType: TypeAlias = list[
     "aws_sdk_secrets_manager.types.secret_id_type.SecretIdType"
 ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SecretIdListType) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> SecretIdListType:
+    return list(data)

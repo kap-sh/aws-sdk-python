@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.key_id_type
@@ -15,3 +16,23 @@ class EnableKeyRotationRequest(TypedDict):
         "aws_sdk_kms.types.rotation_period_in_days_type.RotationPeriodInDaysType"
     ]
     """<p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p> <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p> <p>You can use the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days\"> <code>kms:RotationPeriodInDays</code> </a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p> <p> </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EnableKeyRotationRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    if "rotation_period_in_days" in value:
+        out["RotationPeriodInDays"] = value["rotation_period_in_days"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EnableKeyRotationRequest:
+    out: EnableKeyRotationRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("EnableKeyRotationRequest.key_id required")
+    if "RotationPeriodInDays" in data:
+        out["rotation_period_in_days"] = data["RotationPeriodInDays"]
+    return out

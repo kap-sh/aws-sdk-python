@@ -19,3 +19,58 @@ class GetParametersForImportResponse(TypedDict):
     """<p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>"""
     parameters_valid_to: NotRequired["aws_sdk_kms.types.date_type.DateType"]
     """<p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetParametersForImportResponse) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "import_token" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["ImportToken"] = aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+            value["import_token"]
+        )
+    if "public_key" in value:
+        import aws_sdk_kms.types.plaintext_type
+
+        out["PublicKey"] = aws_sdk_kms.types.plaintext_type.serialize_aws_json_1_1(
+            value["public_key"]
+        )
+    if "parameters_valid_to" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["ParametersValidTo"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["parameters_valid_to"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetParametersForImportResponse:
+    out: GetParametersForImportResponse = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "ImportToken" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["import_token"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["ImportToken"]
+            )
+        )
+    if "PublicKey" in data:
+        import aws_sdk_kms.types.plaintext_type
+
+        out["public_key"] = aws_sdk_kms.types.plaintext_type.deserialize_aws_json_1_1(
+            data["PublicKey"]
+        )
+    if "ParametersValidTo" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["parameters_valid_to"] = (
+            aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+                data["ParametersValidTo"]
+            )
+        )
+    return out

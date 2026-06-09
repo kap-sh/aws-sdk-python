@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_token_list
@@ -22,3 +23,65 @@ class GenerateMacRequest(TypedDict):
     """<p>A list of grant tokens.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token\">Grant token</a> and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html\">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GenerateMacRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_kms.types.plaintext_type
+
+    out["Message"] = aws_sdk_kms.types.plaintext_type.serialize_aws_json_1_1(
+        value["message"]
+    )
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.mac_algorithm_spec
+
+    out["MacAlgorithm"] = aws_sdk_kms.types.mac_algorithm_spec.serialize_aws_json_1_1(
+        value["mac_algorithm"]
+    )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GenerateMacRequest:
+    out: GenerateMacRequest = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        import aws_sdk_kms.types.plaintext_type
+
+        out["message"] = aws_sdk_kms.types.plaintext_type.deserialize_aws_json_1_1(
+            data["Message"]
+        )
+    else:
+        raise DeserializationError("GenerateMacRequest.message required")
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("GenerateMacRequest.key_id required")
+    if "MacAlgorithm" in data:
+        import aws_sdk_kms.types.mac_algorithm_spec
+
+        out["mac_algorithm"] = (
+            aws_sdk_kms.types.mac_algorithm_spec.deserialize_aws_json_1_1(
+                data["MacAlgorithm"]
+            )
+        )
+    else:
+        raise DeserializationError("GenerateMacRequest.mac_algorithm required")
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

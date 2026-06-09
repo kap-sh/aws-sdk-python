@@ -19,3 +19,30 @@ class RetireGrantRequest(TypedDict):
     """<p>Identifies the grant to retire. To get the grant ID, use <a>CreateGrant</a>, <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p> <ul> <li> <p>Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123</p> </li> </ul>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RetireGrantRequest) -> dict:
+    out: dict = {}
+    if "grant_token" in value:
+        out["GrantToken"] = value["grant_token"]
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "grant_id" in value:
+        out["GrantId"] = value["grant_id"]
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RetireGrantRequest:
+    out: RetireGrantRequest = {}  # type: ignore[typeddict-item]
+    if "GrantToken" in data:
+        out["grant_token"] = data["GrantToken"]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "GrantId" in data:
+        out["grant_id"] = data["GrantId"]
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

@@ -12,6 +12,21 @@ class PreconditionNotMetException_(TypedDict):
     message: NotRequired["aws_sdk_secrets_manager.types.error_message.ErrorMessage"]
 
 
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PreconditionNotMetException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PreconditionNotMetException_:
+    out: PreconditionNotMetException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
 class PreconditionNotMetException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.secretsmanager#PreconditionNotMetException``."""
 
@@ -25,3 +40,7 @@ class PreconditionNotMetException(ServiceError):
             code="PreconditionNotMetException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "PreconditionNotMetException":
+        return cls(deserialize_aws_json_1_1(data))

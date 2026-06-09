@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.client_request_token_type
@@ -35,3 +36,63 @@ class PutSecretValueRequest(TypedDict):
         "aws_sdk_secrets_manager.types.rotation_token_type.RotationTokenType"
     ]
     """<p>A unique identifier that indicates the source of the request. Required for secret rotations using an IAM assumed role or cross-account rotation, in which you rotate a secret in one account by using a Lambda rotation function in another account. In both cases, the rotation function assumes an IAM role to call Secrets Manager, and then Secrets Manager validates the identity using the token. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html\">How rotation works</a> and <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_lambda\">Rotation by Lambda functions</a>.</p> <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutSecretValueRequest) -> dict:
+    out: dict = {}
+    out["SecretId"] = value["secret_id"]
+    if "client_request_token" in value:
+        out["ClientRequestToken"] = value["client_request_token"]
+    if "secret_binary" in value:
+        import aws_sdk_secrets_manager.types.secret_binary_type
+
+        out["SecretBinary"] = (
+            aws_sdk_secrets_manager.types.secret_binary_type.serialize_aws_json_1_1(
+                value["secret_binary"]
+            )
+        )
+    if "secret_string" in value:
+        out["SecretString"] = value["secret_string"]
+    if "version_stages" in value:
+        import aws_sdk_secrets_manager.types.secret_version_stages_type
+
+        out["VersionStages"] = (
+            aws_sdk_secrets_manager.types.secret_version_stages_type.serialize_aws_json_1_1(
+                value["version_stages"]
+            )
+        )
+    if "rotation_token" in value:
+        out["RotationToken"] = value["rotation_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutSecretValueRequest:
+    out: PutSecretValueRequest = {}  # type: ignore[typeddict-item]
+    if "SecretId" in data:
+        out["secret_id"] = data["SecretId"]
+    else:
+        raise DeserializationError("PutSecretValueRequest.secret_id required")
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    if "SecretBinary" in data:
+        import aws_sdk_secrets_manager.types.secret_binary_type
+
+        out["secret_binary"] = (
+            aws_sdk_secrets_manager.types.secret_binary_type.deserialize_aws_json_1_1(
+                data["SecretBinary"]
+            )
+        )
+    if "SecretString" in data:
+        out["secret_string"] = data["SecretString"]
+    if "VersionStages" in data:
+        import aws_sdk_secrets_manager.types.secret_version_stages_type
+
+        out["version_stages"] = (
+            aws_sdk_secrets_manager.types.secret_version_stages_type.deserialize_aws_json_1_1(
+                data["VersionStages"]
+            )
+        )
+    if "RotationToken" in data:
+        out["rotation_token"] = data["RotationToken"]
+    return out

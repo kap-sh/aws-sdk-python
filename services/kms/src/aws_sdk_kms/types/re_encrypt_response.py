@@ -33,3 +33,78 @@ class ReEncryptResponse(TypedDict):
         "aws_sdk_kms.types.backing_key_id_type.BackingKeyIdType"
     ]
     """<p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ReEncryptResponse) -> dict:
+    out: dict = {}
+    if "ciphertext_blob" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["CiphertextBlob"] = (
+            aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+                value["ciphertext_blob"]
+            )
+        )
+    if "source_key_id" in value:
+        out["SourceKeyId"] = value["source_key_id"]
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "source_encryption_algorithm" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["SourceEncryptionAlgorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.serialize_aws_json_1_1(
+                value["source_encryption_algorithm"]
+            )
+        )
+    if "destination_encryption_algorithm" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["DestinationEncryptionAlgorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.serialize_aws_json_1_1(
+                value["destination_encryption_algorithm"]
+            )
+        )
+    if "source_key_material_id" in value:
+        out["SourceKeyMaterialId"] = value["source_key_material_id"]
+    if "destination_key_material_id" in value:
+        out["DestinationKeyMaterialId"] = value["destination_key_material_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ReEncryptResponse:
+    out: ReEncryptResponse = {}  # type: ignore[typeddict-item]
+    if "CiphertextBlob" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["ciphertext_blob"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["CiphertextBlob"]
+            )
+        )
+    if "SourceKeyId" in data:
+        out["source_key_id"] = data["SourceKeyId"]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "SourceEncryptionAlgorithm" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["source_encryption_algorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(
+                data["SourceEncryptionAlgorithm"]
+            )
+        )
+    if "DestinationEncryptionAlgorithm" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["destination_encryption_algorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(
+                data["DestinationEncryptionAlgorithm"]
+            )
+        )
+    if "SourceKeyMaterialId" in data:
+        out["source_key_material_id"] = data["SourceKeyMaterialId"]
+    if "DestinationKeyMaterialId" in data:
+        out["destination_key_material_id"] = data["DestinationKeyMaterialId"]
+    return out

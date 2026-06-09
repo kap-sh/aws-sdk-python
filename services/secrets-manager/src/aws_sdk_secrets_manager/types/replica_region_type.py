@@ -15,3 +15,22 @@ class ReplicaRegionType(TypedDict):
         "aws_sdk_secrets_manager.types.kms_key_id_type.KmsKeyIdType"
     ]
     """<p>The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses <code>aws/secretsmanager</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ReplicaRegionType) -> dict:
+    out: dict = {}
+    if "region" in value:
+        out["Region"] = value["region"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ReplicaRegionType:
+    out: ReplicaRegionType = {}  # type: ignore[typeddict-item]
+    if "Region" in data:
+        out["region"] = data["Region"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    return out

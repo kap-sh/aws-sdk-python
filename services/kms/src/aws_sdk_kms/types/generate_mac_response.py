@@ -16,3 +16,46 @@ class GenerateMacResponse(TypedDict):
     """<p>The MAC algorithm that was used to generate the HMAC.</p>"""
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>The HMAC KMS key used in the operation.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GenerateMacResponse) -> dict:
+    out: dict = {}
+    if "mac" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["Mac"] = aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+            value["mac"]
+        )
+    if "mac_algorithm" in value:
+        import aws_sdk_kms.types.mac_algorithm_spec
+
+        out["MacAlgorithm"] = (
+            aws_sdk_kms.types.mac_algorithm_spec.serialize_aws_json_1_1(
+                value["mac_algorithm"]
+            )
+        )
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GenerateMacResponse:
+    out: GenerateMacResponse = {}  # type: ignore[typeddict-item]
+    if "Mac" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["mac"] = aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+            data["Mac"]
+        )
+    if "MacAlgorithm" in data:
+        import aws_sdk_kms.types.mac_algorithm_spec
+
+        out["mac_algorithm"] = (
+            aws_sdk_kms.types.mac_algorithm_spec.deserialize_aws_json_1_1(
+                data["MacAlgorithm"]
+            )
+        )
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    return out

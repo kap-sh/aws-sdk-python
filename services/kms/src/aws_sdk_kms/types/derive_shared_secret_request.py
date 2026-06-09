@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_token_list
@@ -27,3 +28,81 @@ class DeriveSharedSecretRequest(TypedDict):
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     recipient: NotRequired["aws_sdk_kms.types.recipient_info.RecipientInfo"]
     """<p>A signed <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc\">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p> <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk\">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html\">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p> <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p> <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html\">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeriveSharedSecretRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.key_agreement_algorithm_spec
+
+    out["KeyAgreementAlgorithm"] = (
+        aws_sdk_kms.types.key_agreement_algorithm_spec.serialize_aws_json_1_1(
+            value["key_agreement_algorithm"]
+        )
+    )
+    import aws_sdk_kms.types.public_key_type
+
+    out["PublicKey"] = aws_sdk_kms.types.public_key_type.serialize_aws_json_1_1(
+        value["public_key"]
+    )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    if "recipient" in value:
+        import aws_sdk_kms.types.recipient_info
+
+        out["Recipient"] = aws_sdk_kms.types.recipient_info.serialize_aws_json_1_1(
+            value["recipient"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretRequest:
+    out: DeriveSharedSecretRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("DeriveSharedSecretRequest.key_id required")
+    if "KeyAgreementAlgorithm" in data:
+        import aws_sdk_kms.types.key_agreement_algorithm_spec
+
+        out["key_agreement_algorithm"] = (
+            aws_sdk_kms.types.key_agreement_algorithm_spec.deserialize_aws_json_1_1(
+                data["KeyAgreementAlgorithm"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DeriveSharedSecretRequest.key_agreement_algorithm required"
+        )
+    if "PublicKey" in data:
+        import aws_sdk_kms.types.public_key_type
+
+        out["public_key"] = aws_sdk_kms.types.public_key_type.deserialize_aws_json_1_1(
+            data["PublicKey"]
+        )
+    else:
+        raise DeserializationError("DeriveSharedSecretRequest.public_key required")
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    if "Recipient" in data:
+        import aws_sdk_kms.types.recipient_info
+
+        out["recipient"] = aws_sdk_kms.types.recipient_info.deserialize_aws_json_1_1(
+            data["Recipient"]
+        )
+    return out

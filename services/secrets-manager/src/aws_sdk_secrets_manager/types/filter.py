@@ -17,3 +17,46 @@ class Filter(TypedDict):
         "aws_sdk_secrets_manager.types.filter_values_string_list.FilterValuesStringList"
     ]
     """<p>The keyword to filter for.</p> <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Filter) -> dict:
+    out: dict = {}
+    if "key" in value:
+        import aws_sdk_secrets_manager.types.filter_name_string_type
+
+        out["Key"] = (
+            aws_sdk_secrets_manager.types.filter_name_string_type.serialize_aws_json_1_1(
+                value["key"]
+            )
+        )
+    if "values" in value:
+        import aws_sdk_secrets_manager.types.filter_values_string_list
+
+        out["Values"] = (
+            aws_sdk_secrets_manager.types.filter_values_string_list.serialize_aws_json_1_1(
+                value["values"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Filter:
+    out: Filter = {}  # type: ignore[typeddict-item]
+    if "Key" in data:
+        import aws_sdk_secrets_manager.types.filter_name_string_type
+
+        out["key"] = (
+            aws_sdk_secrets_manager.types.filter_name_string_type.deserialize_aws_json_1_1(
+                data["Key"]
+            )
+        )
+    if "Values" in data:
+        import aws_sdk_secrets_manager.types.filter_values_string_list
+
+        out["values"] = (
+            aws_sdk_secrets_manager.types.filter_values_string_list.deserialize_aws_json_1_1(
+                data["Values"]
+            )
+        )
+    return out

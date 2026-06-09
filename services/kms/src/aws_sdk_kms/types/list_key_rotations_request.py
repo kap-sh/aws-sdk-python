@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.include_key_material
@@ -21,3 +22,43 @@ class ListKeyRotationsRequest(TypedDict):
     """<p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>"""
     marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]
     """<p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListKeyRotationsRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    if "include_key_material" in value:
+        import aws_sdk_kms.types.include_key_material
+
+        out["IncludeKeyMaterial"] = (
+            aws_sdk_kms.types.include_key_material.serialize_aws_json_1_1(
+                value["include_key_material"]
+            )
+        )
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    if "marker" in value:
+        out["Marker"] = value["marker"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListKeyRotationsRequest:
+    out: ListKeyRotationsRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("ListKeyRotationsRequest.key_id required")
+    if "IncludeKeyMaterial" in data:
+        import aws_sdk_kms.types.include_key_material
+
+        out["include_key_material"] = (
+            aws_sdk_kms.types.include_key_material.deserialize_aws_json_1_1(
+                data["IncludeKeyMaterial"]
+            )
+        )
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    if "Marker" in data:
+        out["marker"] = data["Marker"]
+    return out

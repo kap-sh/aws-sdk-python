@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.client_request_token_type
@@ -38,3 +39,55 @@ class UpdateSecretRequest(TypedDict):
     """<p>The text data to encrypt and store in the new version of the secret. We recommend you use a JSON structure of key/value pairs for your secret value. </p> <p>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but not both. </p> <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>"""
     type: NotRequired["aws_sdk_secrets_manager.types.medea_type_type.MedeaTypeType"]
     """<p>The exact string that identifies the third-party partner that holds the external secret. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secret partners</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateSecretRequest) -> dict:
+    out: dict = {}
+    out["SecretId"] = value["secret_id"]
+    if "client_request_token" in value:
+        out["ClientRequestToken"] = value["client_request_token"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    if "secret_binary" in value:
+        import aws_sdk_secrets_manager.types.secret_binary_type
+
+        out["SecretBinary"] = (
+            aws_sdk_secrets_manager.types.secret_binary_type.serialize_aws_json_1_1(
+                value["secret_binary"]
+            )
+        )
+    if "secret_string" in value:
+        out["SecretString"] = value["secret_string"]
+    if "type" in value:
+        out["Type"] = value["type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateSecretRequest:
+    out: UpdateSecretRequest = {}  # type: ignore[typeddict-item]
+    if "SecretId" in data:
+        out["secret_id"] = data["SecretId"]
+    else:
+        raise DeserializationError("UpdateSecretRequest.secret_id required")
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    if "SecretBinary" in data:
+        import aws_sdk_secrets_manager.types.secret_binary_type
+
+        out["secret_binary"] = (
+            aws_sdk_secrets_manager.types.secret_binary_type.deserialize_aws_json_1_1(
+                data["SecretBinary"]
+            )
+        )
+    if "SecretString" in data:
+        out["secret_string"] = data["SecretString"]
+    if "Type" in data:
+        out["type"] = data["Type"]
+    return out

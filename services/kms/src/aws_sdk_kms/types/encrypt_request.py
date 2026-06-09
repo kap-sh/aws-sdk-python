@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.encryption_algorithm_spec
@@ -29,3 +30,82 @@ class EncryptRequest(TypedDict):
     """<p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p> <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p> <p>The SM2PKE algorithm is only available in China Regions.</p>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EncryptRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.plaintext_type
+
+    out["Plaintext"] = aws_sdk_kms.types.plaintext_type.serialize_aws_json_1_1(
+        value["plaintext"]
+    )
+    if "encryption_context" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["EncryptionContext"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["encryption_context"]
+            )
+        )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "encryption_algorithm" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["EncryptionAlgorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.serialize_aws_json_1_1(
+                value["encryption_algorithm"]
+            )
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EncryptRequest:
+    out: EncryptRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("EncryptRequest.key_id required")
+    if "Plaintext" in data:
+        import aws_sdk_kms.types.plaintext_type
+
+        out["plaintext"] = aws_sdk_kms.types.plaintext_type.deserialize_aws_json_1_1(
+            data["Plaintext"]
+        )
+    else:
+        raise DeserializationError("EncryptRequest.plaintext required")
+    if "EncryptionContext" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["encryption_context"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["EncryptionContext"]
+            )
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "EncryptionAlgorithm" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["encryption_algorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(
+                data["EncryptionAlgorithm"]
+            )
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

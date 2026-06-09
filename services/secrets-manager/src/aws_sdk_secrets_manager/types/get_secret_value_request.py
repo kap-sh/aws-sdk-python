@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_id_type
@@ -20,3 +21,27 @@ class GetSecretValueRequest(TypedDict):
         "aws_sdk_secrets_manager.types.secret_version_stage_type.SecretVersionStageType"
     ]
     """<p>The staging label of the version of the secret to retrieve. </p> <p>Secrets Manager uses staging labels to keep track of different versions during the rotation process. If you include both this parameter and <code>VersionId</code>, the two parameters must refer to the same secret version. If you don't specify either a <code>VersionStage</code> or <code>VersionId</code>, Secrets Manager returns the <code>AWSCURRENT</code> version.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetSecretValueRequest) -> dict:
+    out: dict = {}
+    out["SecretId"] = value["secret_id"]
+    if "version_id" in value:
+        out["VersionId"] = value["version_id"]
+    if "version_stage" in value:
+        out["VersionStage"] = value["version_stage"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetSecretValueRequest:
+    out: GetSecretValueRequest = {}  # type: ignore[typeddict-item]
+    if "SecretId" in data:
+        out["secret_id"] = data["SecretId"]
+    else:
+        raise DeserializationError("GetSecretValueRequest.secret_id required")
+    if "VersionId" in data:
+        out["version_id"] = data["VersionId"]
+    if "VersionStage" in data:
+        out["version_stage"] = data["VersionStage"]
+    return out

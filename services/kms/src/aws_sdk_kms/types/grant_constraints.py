@@ -21,3 +21,50 @@ class GrantConstraints(TypedDict):
         "aws_sdk_kms.types.grant_constraint_source_arn_type.GrantConstraintSourceArnType"
     ]
     """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Name (ARN)</a> of an Amazon Web Services resource on behalf of which the request is made. This is effectively the same as having the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn\">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint ensures that the principal can use the KMS key only when the request is made on behalf of the specified resource.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GrantConstraints) -> dict:
+    out: dict = {}
+    if "encryption_context_subset" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["EncryptionContextSubset"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["encryption_context_subset"]
+            )
+        )
+    if "encryption_context_equals" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["EncryptionContextEquals"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["encryption_context_equals"]
+            )
+        )
+    if "source_arn" in value:
+        out["SourceArn"] = value["source_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GrantConstraints:
+    out: GrantConstraints = {}  # type: ignore[typeddict-item]
+    if "EncryptionContextSubset" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["encryption_context_subset"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["EncryptionContextSubset"]
+            )
+        )
+    if "EncryptionContextEquals" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["encryption_context_equals"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["EncryptionContextEquals"]
+            )
+        )
+    if "SourceArn" in data:
+        out["source_arn"] = data["SourceArn"]
+    return out

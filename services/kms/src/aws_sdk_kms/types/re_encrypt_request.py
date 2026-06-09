@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.ciphertext_type
@@ -44,3 +45,137 @@ class ReEncryptRequest(TypedDict):
         "aws_sdk_kms.types.dry_run_modifier_list.DryRunModifierList"
     ]
     """<p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p> <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ReEncryptRequest) -> dict:
+    out: dict = {}
+    if "ciphertext_blob" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["CiphertextBlob"] = (
+            aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+                value["ciphertext_blob"]
+            )
+        )
+    if "source_encryption_context" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["SourceEncryptionContext"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["source_encryption_context"]
+            )
+        )
+    if "source_key_id" in value:
+        out["SourceKeyId"] = value["source_key_id"]
+    out["DestinationKeyId"] = value["destination_key_id"]
+    if "destination_encryption_context" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["DestinationEncryptionContext"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["destination_encryption_context"]
+            )
+        )
+    if "source_encryption_algorithm" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["SourceEncryptionAlgorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.serialize_aws_json_1_1(
+                value["source_encryption_algorithm"]
+            )
+        )
+    if "destination_encryption_algorithm" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["DestinationEncryptionAlgorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.serialize_aws_json_1_1(
+                value["destination_encryption_algorithm"]
+            )
+        )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    if "dry_run_modifiers" in value:
+        import aws_sdk_kms.types.dry_run_modifier_list
+
+        out["DryRunModifiers"] = (
+            aws_sdk_kms.types.dry_run_modifier_list.serialize_aws_json_1_1(
+                value["dry_run_modifiers"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
+    out: ReEncryptRequest = {}  # type: ignore[typeddict-item]
+    if "CiphertextBlob" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["ciphertext_blob"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["CiphertextBlob"]
+            )
+        )
+    if "SourceEncryptionContext" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["source_encryption_context"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["SourceEncryptionContext"]
+            )
+        )
+    if "SourceKeyId" in data:
+        out["source_key_id"] = data["SourceKeyId"]
+    if "DestinationKeyId" in data:
+        out["destination_key_id"] = data["DestinationKeyId"]
+    else:
+        raise DeserializationError("ReEncryptRequest.destination_key_id required")
+    if "DestinationEncryptionContext" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["destination_encryption_context"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["DestinationEncryptionContext"]
+            )
+        )
+    if "SourceEncryptionAlgorithm" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["source_encryption_algorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(
+                data["SourceEncryptionAlgorithm"]
+            )
+        )
+    if "DestinationEncryptionAlgorithm" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec
+
+        out["destination_encryption_algorithm"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(
+                data["DestinationEncryptionAlgorithm"]
+            )
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    if "DryRunModifiers" in data:
+        import aws_sdk_kms.types.dry_run_modifier_list
+
+        out["dry_run_modifiers"] = (
+            aws_sdk_kms.types.dry_run_modifier_list.deserialize_aws_json_1_1(
+                data["DryRunModifiers"]
+            )
+        )
+    return out

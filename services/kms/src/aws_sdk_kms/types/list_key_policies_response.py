@@ -16,3 +16,37 @@ class ListKeyPoliciesResponse(TypedDict):
     """<p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>"""
     truncated: "aws_sdk_kms.types.boolean_type.BooleanType"
     """<p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListKeyPoliciesResponse) -> dict:
+    out: dict = {}
+    if "policy_names" in value:
+        import aws_sdk_kms.types.policy_name_list
+
+        out["PolicyNames"] = aws_sdk_kms.types.policy_name_list.serialize_aws_json_1_1(
+            value["policy_names"]
+        )
+    if "next_marker" in value:
+        out["NextMarker"] = value["next_marker"]
+    out["Truncated"] = value.get("truncated", False)
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListKeyPoliciesResponse:
+    out: ListKeyPoliciesResponse = {}  # type: ignore[typeddict-item]
+    if "PolicyNames" in data:
+        import aws_sdk_kms.types.policy_name_list
+
+        out["policy_names"] = (
+            aws_sdk_kms.types.policy_name_list.deserialize_aws_json_1_1(
+                data["PolicyNames"]
+            )
+        )
+    if "NextMarker" in data:
+        out["next_marker"] = data["NextMarker"]
+    if "Truncated" in data:
+        out["truncated"] = data["Truncated"]
+    else:
+        out["truncated"] = False
+    return out

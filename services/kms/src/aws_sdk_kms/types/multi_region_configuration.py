@@ -20,3 +20,60 @@ class MultiRegionConfiguration(TypedDict):
         "aws_sdk_kms.types.multi_region_key_list.MultiRegionKeyList"
     ]
     """<p>displays the key ARNs and Regions of all replica keys. This field includes the current KMS key if it is a replica key.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: MultiRegionConfiguration) -> dict:
+    out: dict = {}
+    if "multi_region_key_type" in value:
+        import aws_sdk_kms.types.multi_region_key_type
+
+        out["MultiRegionKeyType"] = (
+            aws_sdk_kms.types.multi_region_key_type.serialize_aws_json_1_1(
+                value["multi_region_key_type"]
+            )
+        )
+    if "primary_key" in value:
+        import aws_sdk_kms.types.multi_region_key
+
+        out["PrimaryKey"] = aws_sdk_kms.types.multi_region_key.serialize_aws_json_1_1(
+            value["primary_key"]
+        )
+    if "replica_keys" in value:
+        import aws_sdk_kms.types.multi_region_key_list
+
+        out["ReplicaKeys"] = (
+            aws_sdk_kms.types.multi_region_key_list.serialize_aws_json_1_1(
+                value["replica_keys"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> MultiRegionConfiguration:
+    out: MultiRegionConfiguration = {}  # type: ignore[typeddict-item]
+    if "MultiRegionKeyType" in data:
+        import aws_sdk_kms.types.multi_region_key_type
+
+        out["multi_region_key_type"] = (
+            aws_sdk_kms.types.multi_region_key_type.deserialize_aws_json_1_1(
+                data["MultiRegionKeyType"]
+            )
+        )
+    if "PrimaryKey" in data:
+        import aws_sdk_kms.types.multi_region_key
+
+        out["primary_key"] = (
+            aws_sdk_kms.types.multi_region_key.deserialize_aws_json_1_1(
+                data["PrimaryKey"]
+            )
+        )
+    if "ReplicaKeys" in data:
+        import aws_sdk_kms.types.multi_region_key_list
+
+        out["replica_keys"] = (
+            aws_sdk_kms.types.multi_region_key_list.deserialize_aws_json_1_1(
+                data["ReplicaKeys"]
+            )
+        )
+    return out

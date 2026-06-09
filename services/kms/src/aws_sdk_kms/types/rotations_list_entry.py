@@ -41,3 +41,106 @@ class RotationsListEntry(TypedDict):
     """<p>Date and time that the key material rotation completed. Formatted as Unix time. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>"""
     rotation_type: NotRequired["aws_sdk_kms.types.rotation_type.RotationType"]
     """<p>Identifies whether the key material rotation was a scheduled <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html\">automatic rotation</a> or an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html\">on-demand rotation</a>. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RotationsListEntry) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "key_material_id" in value:
+        out["KeyMaterialId"] = value["key_material_id"]
+    if "key_material_description" in value:
+        out["KeyMaterialDescription"] = value["key_material_description"]
+    if "import_state" in value:
+        import aws_sdk_kms.types.import_state
+
+        out["ImportState"] = aws_sdk_kms.types.import_state.serialize_aws_json_1_1(
+            value["import_state"]
+        )
+    if "key_material_state" in value:
+        import aws_sdk_kms.types.key_material_state
+
+        out["KeyMaterialState"] = (
+            aws_sdk_kms.types.key_material_state.serialize_aws_json_1_1(
+                value["key_material_state"]
+            )
+        )
+    if "expiration_model" in value:
+        import aws_sdk_kms.types.expiration_model_type
+
+        out["ExpirationModel"] = (
+            aws_sdk_kms.types.expiration_model_type.serialize_aws_json_1_1(
+                value["expiration_model"]
+            )
+        )
+    if "valid_to" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["ValidTo"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["valid_to"]
+        )
+    if "rotation_date" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["RotationDate"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["rotation_date"]
+        )
+    if "rotation_type" in value:
+        import aws_sdk_kms.types.rotation_type
+
+        out["RotationType"] = aws_sdk_kms.types.rotation_type.serialize_aws_json_1_1(
+            value["rotation_type"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RotationsListEntry:
+    out: RotationsListEntry = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "KeyMaterialId" in data:
+        out["key_material_id"] = data["KeyMaterialId"]
+    if "KeyMaterialDescription" in data:
+        out["key_material_description"] = data["KeyMaterialDescription"]
+    if "ImportState" in data:
+        import aws_sdk_kms.types.import_state
+
+        out["import_state"] = aws_sdk_kms.types.import_state.deserialize_aws_json_1_1(
+            data["ImportState"]
+        )
+    if "KeyMaterialState" in data:
+        import aws_sdk_kms.types.key_material_state
+
+        out["key_material_state"] = (
+            aws_sdk_kms.types.key_material_state.deserialize_aws_json_1_1(
+                data["KeyMaterialState"]
+            )
+        )
+    if "ExpirationModel" in data:
+        import aws_sdk_kms.types.expiration_model_type
+
+        out["expiration_model"] = (
+            aws_sdk_kms.types.expiration_model_type.deserialize_aws_json_1_1(
+                data["ExpirationModel"]
+            )
+        )
+    if "ValidTo" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["valid_to"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["ValidTo"]
+        )
+    if "RotationDate" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["rotation_date"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["RotationDate"]
+        )
+    if "RotationType" in data:
+        import aws_sdk_kms.types.rotation_type
+
+        out["rotation_type"] = aws_sdk_kms.types.rotation_type.deserialize_aws_json_1_1(
+            data["RotationType"]
+        )
+    return out

@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.boolean_type
@@ -36,5 +37,73 @@ class RotateSecretRequest(TypedDict):
         "aws_sdk_secrets_manager.types.role_arn_type.RoleARNType"
     ]
     """<p>The Amazon Resource Name (ARN) of the role that allows Secrets Manager to rotate a secret held by a third-party partner. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-security.html\">Security and permissions</a>.</p>"""
-    rotate_immediately: "aws_sdk_secrets_manager.types.boolean_type.BooleanType"
+    rotate_immediately: NotRequired[
+        "aws_sdk_secrets_manager.types.boolean_type.BooleanType"
+    ]
     """<p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p> <p>The default for <code>RotateImmediately</code> is <code>true</code>. If you don't specify this value, Secrets Manager rotates the secret immediately.</p> <p>If you set <code>RotateImmediately</code> to <code>false</code>, Secrets Manager tests the rotation configuration by running the <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html\"> <code>testSecret</code> step</a> of the Lambda rotation function. This test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p> <p>When changing an existing rotation schedule and setting <code>RotateImmediately</code> to <code>false</code>:</p> <ul> <li> <p>If using <code>AutomaticallyAfterDays</code> or a <code>ScheduleExpression</code> with <code>rate()</code>, the previously scheduled rotation might still occur.</p> </li> <li> <p>To prevent unintended rotations, use a <code>ScheduleExpression</code> with <code>cron()</code> for granular control over rotation windows.</p> </li> </ul> <p>Rotation is an asynchronous process. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html\">How rotation works</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RotateSecretRequest) -> dict:
+    out: dict = {}
+    out["SecretId"] = value["secret_id"]
+    if "client_request_token" in value:
+        out["ClientRequestToken"] = value["client_request_token"]
+    if "rotation_lambda_arn" in value:
+        out["RotationLambdaARN"] = value["rotation_lambda_arn"]
+    if "rotation_rules" in value:
+        import aws_sdk_secrets_manager.types.rotation_rules_type
+
+        out["RotationRules"] = (
+            aws_sdk_secrets_manager.types.rotation_rules_type.serialize_aws_json_1_1(
+                value["rotation_rules"]
+            )
+        )
+    if "external_secret_rotation_metadata" in value:
+        import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type
+
+        out["ExternalSecretRotationMetadata"] = (
+            aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type.serialize_aws_json_1_1(
+                value["external_secret_rotation_metadata"]
+            )
+        )
+    if "external_secret_rotation_role_arn" in value:
+        out["ExternalSecretRotationRoleArn"] = value[
+            "external_secret_rotation_role_arn"
+        ]
+    if "rotate_immediately" in value:
+        out["RotateImmediately"] = value["rotate_immediately"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RotateSecretRequest:
+    out: RotateSecretRequest = {}  # type: ignore[typeddict-item]
+    if "SecretId" in data:
+        out["secret_id"] = data["SecretId"]
+    else:
+        raise DeserializationError("RotateSecretRequest.secret_id required")
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    if "RotationLambdaARN" in data:
+        out["rotation_lambda_arn"] = data["RotationLambdaARN"]
+    if "RotationRules" in data:
+        import aws_sdk_secrets_manager.types.rotation_rules_type
+
+        out["rotation_rules"] = (
+            aws_sdk_secrets_manager.types.rotation_rules_type.deserialize_aws_json_1_1(
+                data["RotationRules"]
+            )
+        )
+    if "ExternalSecretRotationMetadata" in data:
+        import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type
+
+        out["external_secret_rotation_metadata"] = (
+            aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type.deserialize_aws_json_1_1(
+                data["ExternalSecretRotationMetadata"]
+            )
+        )
+    if "ExternalSecretRotationRoleArn" in data:
+        out["external_secret_rotation_role_arn"] = data["ExternalSecretRotationRoleArn"]
+    if "RotateImmediately" in data:
+        out["rotate_immediately"] = data["RotateImmediately"]
+    return out

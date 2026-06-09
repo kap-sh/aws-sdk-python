@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.account_id_type
@@ -57,3 +58,89 @@ class UpdateCustomKeyStoreRequest(TypedDict):
         "aws_sdk_kms.types.xks_proxy_connectivity_type.XksProxyConnectivityType"
     ]
     """<p>Changes the connectivity setting for the external key store. To indicate that the external key store proxy uses a Amazon VPC endpoint service to communicate with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. Otherwise, specify <code>PUBLIC_ENDPOINT</code>.</p> <p>If you change the <code>XksProxyConnectivity</code> to <code>VPC_ENDPOINT_SERVICE</code>, you must also change the <code>XksProxyUriEndpoint</code> and add an <code>XksProxyVpcEndpointServiceName</code> value. </p> <p>If you change the <code>XksProxyConnectivity</code> to <code>PUBLIC_ENDPOINT</code>, you must also change the <code>XksProxyUriEndpoint</code> and specify a null or empty string for the <code>XksProxyVpcEndpointServiceName</code> value.</p> <p>To change this value, the external key store must be disconnected.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateCustomKeyStoreRequest) -> dict:
+    out: dict = {}
+    out["CustomKeyStoreId"] = value["custom_key_store_id"]
+    if "new_custom_key_store_name" in value:
+        out["NewCustomKeyStoreName"] = value["new_custom_key_store_name"]
+    if "key_store_password" in value:
+        out["KeyStorePassword"] = value["key_store_password"]
+    if "cloud_hsm_cluster_id" in value:
+        out["CloudHsmClusterId"] = value["cloud_hsm_cluster_id"]
+    if "xks_proxy_uri_endpoint" in value:
+        out["XksProxyUriEndpoint"] = value["xks_proxy_uri_endpoint"]
+    if "xks_proxy_uri_path" in value:
+        out["XksProxyUriPath"] = value["xks_proxy_uri_path"]
+    if "xks_proxy_vpc_endpoint_service_name" in value:
+        out["XksProxyVpcEndpointServiceName"] = value[
+            "xks_proxy_vpc_endpoint_service_name"
+        ]
+    if "xks_proxy_vpc_endpoint_service_owner" in value:
+        out["XksProxyVpcEndpointServiceOwner"] = value[
+            "xks_proxy_vpc_endpoint_service_owner"
+        ]
+    if "xks_proxy_authentication_credential" in value:
+        import aws_sdk_kms.types.xks_proxy_authentication_credential_type
+
+        out["XksProxyAuthenticationCredential"] = (
+            aws_sdk_kms.types.xks_proxy_authentication_credential_type.serialize_aws_json_1_1(
+                value["xks_proxy_authentication_credential"]
+            )
+        )
+    if "xks_proxy_connectivity" in value:
+        import aws_sdk_kms.types.xks_proxy_connectivity_type
+
+        out["XksProxyConnectivity"] = (
+            aws_sdk_kms.types.xks_proxy_connectivity_type.serialize_aws_json_1_1(
+                value["xks_proxy_connectivity"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateCustomKeyStoreRequest:
+    out: UpdateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
+    if "CustomKeyStoreId" in data:
+        out["custom_key_store_id"] = data["CustomKeyStoreId"]
+    else:
+        raise DeserializationError(
+            "UpdateCustomKeyStoreRequest.custom_key_store_id required"
+        )
+    if "NewCustomKeyStoreName" in data:
+        out["new_custom_key_store_name"] = data["NewCustomKeyStoreName"]
+    if "KeyStorePassword" in data:
+        out["key_store_password"] = data["KeyStorePassword"]
+    if "CloudHsmClusterId" in data:
+        out["cloud_hsm_cluster_id"] = data["CloudHsmClusterId"]
+    if "XksProxyUriEndpoint" in data:
+        out["xks_proxy_uri_endpoint"] = data["XksProxyUriEndpoint"]
+    if "XksProxyUriPath" in data:
+        out["xks_proxy_uri_path"] = data["XksProxyUriPath"]
+    if "XksProxyVpcEndpointServiceName" in data:
+        out["xks_proxy_vpc_endpoint_service_name"] = data[
+            "XksProxyVpcEndpointServiceName"
+        ]
+    if "XksProxyVpcEndpointServiceOwner" in data:
+        out["xks_proxy_vpc_endpoint_service_owner"] = data[
+            "XksProxyVpcEndpointServiceOwner"
+        ]
+    if "XksProxyAuthenticationCredential" in data:
+        import aws_sdk_kms.types.xks_proxy_authentication_credential_type
+
+        out["xks_proxy_authentication_credential"] = (
+            aws_sdk_kms.types.xks_proxy_authentication_credential_type.deserialize_aws_json_1_1(
+                data["XksProxyAuthenticationCredential"]
+            )
+        )
+    if "XksProxyConnectivity" in data:
+        import aws_sdk_kms.types.xks_proxy_connectivity_type
+
+        out["xks_proxy_connectivity"] = (
+            aws_sdk_kms.types.xks_proxy_connectivity_type.deserialize_aws_json_1_1(
+                data["XksProxyConnectivity"]
+            )
+        )
+    return out

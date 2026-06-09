@@ -18,3 +18,46 @@ class SignResponse(TypedDict):
         "aws_sdk_kms.types.signing_algorithm_spec.SigningAlgorithmSpec"
     ]
     """<p>The signing algorithm that was used to sign the message.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SignResponse) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "signature" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["Signature"] = aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+            value["signature"]
+        )
+    if "signing_algorithm" in value:
+        import aws_sdk_kms.types.signing_algorithm_spec
+
+        out["SigningAlgorithm"] = (
+            aws_sdk_kms.types.signing_algorithm_spec.serialize_aws_json_1_1(
+                value["signing_algorithm"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SignResponse:
+    out: SignResponse = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "Signature" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["signature"] = aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+            data["Signature"]
+        )
+    if "SigningAlgorithm" in data:
+        import aws_sdk_kms.types.signing_algorithm_spec
+
+        out["signing_algorithm"] = (
+            aws_sdk_kms.types.signing_algorithm_spec.deserialize_aws_json_1_1(
+                data["SigningAlgorithm"]
+            )
+        )
+    return out

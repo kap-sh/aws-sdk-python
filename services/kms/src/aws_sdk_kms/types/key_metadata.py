@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.arn_type
@@ -111,3 +112,282 @@ class KeyMetadata(TypedDict):
         "aws_sdk_kms.types.backing_key_id_type.BackingKeyIdType"
     ]
     """<p>Identifies the current key material. This value is present for symmetric encryption keys with <code>AWS_KMS</code> or <code>EXTERNAL</code> origin. These KMS keys support automatic or on-demand key rotation and can have multiple key materials associated with them. KMS uses the current key material for both encryption and decryption, and the non-current key material for decryption operations only.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: KeyMetadata) -> dict:
+    out: dict = {}
+    if "aws_account_id" in value:
+        out["AWSAccountId"] = value["aws_account_id"]
+    out["KeyId"] = value["key_id"]
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "creation_date" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["CreationDate"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["creation_date"]
+        )
+    out["Enabled"] = value.get("enabled", False)
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "key_usage" in value:
+        import aws_sdk_kms.types.key_usage_type
+
+        out["KeyUsage"] = aws_sdk_kms.types.key_usage_type.serialize_aws_json_1_1(
+            value["key_usage"]
+        )
+    if "key_state" in value:
+        import aws_sdk_kms.types.key_state
+
+        out["KeyState"] = aws_sdk_kms.types.key_state.serialize_aws_json_1_1(
+            value["key_state"]
+        )
+    if "deletion_date" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["DeletionDate"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["deletion_date"]
+        )
+    if "valid_to" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["ValidTo"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["valid_to"]
+        )
+    if "origin" in value:
+        import aws_sdk_kms.types.origin_type
+
+        out["Origin"] = aws_sdk_kms.types.origin_type.serialize_aws_json_1_1(
+            value["origin"]
+        )
+    if "custom_key_store_id" in value:
+        out["CustomKeyStoreId"] = value["custom_key_store_id"]
+    if "cloud_hsm_cluster_id" in value:
+        out["CloudHsmClusterId"] = value["cloud_hsm_cluster_id"]
+    if "expiration_model" in value:
+        import aws_sdk_kms.types.expiration_model_type
+
+        out["ExpirationModel"] = (
+            aws_sdk_kms.types.expiration_model_type.serialize_aws_json_1_1(
+                value["expiration_model"]
+            )
+        )
+    if "key_manager" in value:
+        import aws_sdk_kms.types.key_manager_type
+
+        out["KeyManager"] = aws_sdk_kms.types.key_manager_type.serialize_aws_json_1_1(
+            value["key_manager"]
+        )
+    if "customer_master_key_spec" in value:
+        import aws_sdk_kms.types.customer_master_key_spec
+
+        out["CustomerMasterKeySpec"] = (
+            aws_sdk_kms.types.customer_master_key_spec.serialize_aws_json_1_1(
+                value["customer_master_key_spec"]
+            )
+        )
+    if "key_spec" in value:
+        import aws_sdk_kms.types.key_spec
+
+        out["KeySpec"] = aws_sdk_kms.types.key_spec.serialize_aws_json_1_1(
+            value["key_spec"]
+        )
+    if "encryption_algorithms" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec_list
+
+        out["EncryptionAlgorithms"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec_list.serialize_aws_json_1_1(
+                value["encryption_algorithms"]
+            )
+        )
+    if "signing_algorithms" in value:
+        import aws_sdk_kms.types.signing_algorithm_spec_list
+
+        out["SigningAlgorithms"] = (
+            aws_sdk_kms.types.signing_algorithm_spec_list.serialize_aws_json_1_1(
+                value["signing_algorithms"]
+            )
+        )
+    if "key_agreement_algorithms" in value:
+        import aws_sdk_kms.types.key_agreement_algorithm_spec_list
+
+        out["KeyAgreementAlgorithms"] = (
+            aws_sdk_kms.types.key_agreement_algorithm_spec_list.serialize_aws_json_1_1(
+                value["key_agreement_algorithms"]
+            )
+        )
+    if "multi_region" in value:
+        out["MultiRegion"] = value["multi_region"]
+    if "multi_region_configuration" in value:
+        import aws_sdk_kms.types.multi_region_configuration
+
+        out["MultiRegionConfiguration"] = (
+            aws_sdk_kms.types.multi_region_configuration.serialize_aws_json_1_1(
+                value["multi_region_configuration"]
+            )
+        )
+    if "pending_deletion_window_in_days" in value:
+        out["PendingDeletionWindowInDays"] = value["pending_deletion_window_in_days"]
+    if "mac_algorithms" in value:
+        import aws_sdk_kms.types.mac_algorithm_spec_list
+
+        out["MacAlgorithms"] = (
+            aws_sdk_kms.types.mac_algorithm_spec_list.serialize_aws_json_1_1(
+                value["mac_algorithms"]
+            )
+        )
+    if "xks_key_configuration" in value:
+        import aws_sdk_kms.types.xks_key_configuration_type
+
+        out["XksKeyConfiguration"] = (
+            aws_sdk_kms.types.xks_key_configuration_type.serialize_aws_json_1_1(
+                value["xks_key_configuration"]
+            )
+        )
+    if "current_key_material_id" in value:
+        out["CurrentKeyMaterialId"] = value["current_key_material_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
+    out: KeyMetadata = {}  # type: ignore[typeddict-item]
+    if "AWSAccountId" in data:
+        out["aws_account_id"] = data["AWSAccountId"]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("KeyMetadata.key_id required")
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "CreationDate" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["creation_date"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["CreationDate"]
+        )
+    if "Enabled" in data:
+        out["enabled"] = data["Enabled"]
+    else:
+        out["enabled"] = False
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "KeyUsage" in data:
+        import aws_sdk_kms.types.key_usage_type
+
+        out["key_usage"] = aws_sdk_kms.types.key_usage_type.deserialize_aws_json_1_1(
+            data["KeyUsage"]
+        )
+    if "KeyState" in data:
+        import aws_sdk_kms.types.key_state
+
+        out["key_state"] = aws_sdk_kms.types.key_state.deserialize_aws_json_1_1(
+            data["KeyState"]
+        )
+    if "DeletionDate" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["deletion_date"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["DeletionDate"]
+        )
+    if "ValidTo" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["valid_to"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["ValidTo"]
+        )
+    if "Origin" in data:
+        import aws_sdk_kms.types.origin_type
+
+        out["origin"] = aws_sdk_kms.types.origin_type.deserialize_aws_json_1_1(
+            data["Origin"]
+        )
+    if "CustomKeyStoreId" in data:
+        out["custom_key_store_id"] = data["CustomKeyStoreId"]
+    if "CloudHsmClusterId" in data:
+        out["cloud_hsm_cluster_id"] = data["CloudHsmClusterId"]
+    if "ExpirationModel" in data:
+        import aws_sdk_kms.types.expiration_model_type
+
+        out["expiration_model"] = (
+            aws_sdk_kms.types.expiration_model_type.deserialize_aws_json_1_1(
+                data["ExpirationModel"]
+            )
+        )
+    if "KeyManager" in data:
+        import aws_sdk_kms.types.key_manager_type
+
+        out["key_manager"] = (
+            aws_sdk_kms.types.key_manager_type.deserialize_aws_json_1_1(
+                data["KeyManager"]
+            )
+        )
+    if "CustomerMasterKeySpec" in data:
+        import aws_sdk_kms.types.customer_master_key_spec
+
+        out["customer_master_key_spec"] = (
+            aws_sdk_kms.types.customer_master_key_spec.deserialize_aws_json_1_1(
+                data["CustomerMasterKeySpec"]
+            )
+        )
+    if "KeySpec" in data:
+        import aws_sdk_kms.types.key_spec
+
+        out["key_spec"] = aws_sdk_kms.types.key_spec.deserialize_aws_json_1_1(
+            data["KeySpec"]
+        )
+    if "EncryptionAlgorithms" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec_list
+
+        out["encryption_algorithms"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["EncryptionAlgorithms"]
+            )
+        )
+    if "SigningAlgorithms" in data:
+        import aws_sdk_kms.types.signing_algorithm_spec_list
+
+        out["signing_algorithms"] = (
+            aws_sdk_kms.types.signing_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["SigningAlgorithms"]
+            )
+        )
+    if "KeyAgreementAlgorithms" in data:
+        import aws_sdk_kms.types.key_agreement_algorithm_spec_list
+
+        out["key_agreement_algorithms"] = (
+            aws_sdk_kms.types.key_agreement_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["KeyAgreementAlgorithms"]
+            )
+        )
+    if "MultiRegion" in data:
+        out["multi_region"] = data["MultiRegion"]
+    if "MultiRegionConfiguration" in data:
+        import aws_sdk_kms.types.multi_region_configuration
+
+        out["multi_region_configuration"] = (
+            aws_sdk_kms.types.multi_region_configuration.deserialize_aws_json_1_1(
+                data["MultiRegionConfiguration"]
+            )
+        )
+    if "PendingDeletionWindowInDays" in data:
+        out["pending_deletion_window_in_days"] = data["PendingDeletionWindowInDays"]
+    if "MacAlgorithms" in data:
+        import aws_sdk_kms.types.mac_algorithm_spec_list
+
+        out["mac_algorithms"] = (
+            aws_sdk_kms.types.mac_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["MacAlgorithms"]
+            )
+        )
+    if "XksKeyConfiguration" in data:
+        import aws_sdk_kms.types.xks_key_configuration_type
+
+        out["xks_key_configuration"] = (
+            aws_sdk_kms.types.xks_key_configuration_type.deserialize_aws_json_1_1(
+                data["XksKeyConfiguration"]
+            )
+        )
+    if "CurrentKeyMaterialId" in data:
+        out["current_key_material_id"] = data["CurrentKeyMaterialId"]
+    return out

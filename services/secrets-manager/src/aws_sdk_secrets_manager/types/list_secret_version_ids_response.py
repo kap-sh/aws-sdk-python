@@ -23,3 +23,42 @@ class ListSecretVersionIdsResponse(TypedDict):
     """<p>The ARN of the secret.</p>"""
     name: NotRequired["aws_sdk_secrets_manager.types.secret_name_type.SecretNameType"]
     """<p>The name of the secret.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListSecretVersionIdsResponse) -> dict:
+    out: dict = {}
+    if "versions" in value:
+        import aws_sdk_secrets_manager.types.secret_versions_list_type
+
+        out["Versions"] = (
+            aws_sdk_secrets_manager.types.secret_versions_list_type.serialize_aws_json_1_1(
+                value["versions"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "arn" in value:
+        out["ARN"] = value["arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListSecretVersionIdsResponse:
+    out: ListSecretVersionIdsResponse = {}  # type: ignore[typeddict-item]
+    if "Versions" in data:
+        import aws_sdk_secrets_manager.types.secret_versions_list_type
+
+        out["versions"] = (
+            aws_sdk_secrets_manager.types.secret_versions_list_type.deserialize_aws_json_1_1(
+                data["Versions"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "ARN" in data:
+        out["arn"] = data["ARN"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    return out

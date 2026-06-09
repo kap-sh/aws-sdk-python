@@ -37,3 +37,50 @@ class XksProxyConfigurationType(TypedDict):
         "aws_sdk_kms.types.account_id_type.AccountIdType"
     ]
     """<p>The Amazon Web Services account ID that owns the Amazon VPC endpoint service used to communicate with the external key store proxy (XKS). This field appears only when the XKS uses an VPC endpoint service to communicate with KMS.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: XksProxyConfigurationType) -> dict:
+    out: dict = {}
+    if "connectivity" in value:
+        import aws_sdk_kms.types.xks_proxy_connectivity_type
+
+        out["Connectivity"] = (
+            aws_sdk_kms.types.xks_proxy_connectivity_type.serialize_aws_json_1_1(
+                value["connectivity"]
+            )
+        )
+    if "access_key_id" in value:
+        out["AccessKeyId"] = value["access_key_id"]
+    if "uri_endpoint" in value:
+        out["UriEndpoint"] = value["uri_endpoint"]
+    if "uri_path" in value:
+        out["UriPath"] = value["uri_path"]
+    if "vpc_endpoint_service_name" in value:
+        out["VpcEndpointServiceName"] = value["vpc_endpoint_service_name"]
+    if "vpc_endpoint_service_owner" in value:
+        out["VpcEndpointServiceOwner"] = value["vpc_endpoint_service_owner"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> XksProxyConfigurationType:
+    out: XksProxyConfigurationType = {}  # type: ignore[typeddict-item]
+    if "Connectivity" in data:
+        import aws_sdk_kms.types.xks_proxy_connectivity_type
+
+        out["connectivity"] = (
+            aws_sdk_kms.types.xks_proxy_connectivity_type.deserialize_aws_json_1_1(
+                data["Connectivity"]
+            )
+        )
+    if "AccessKeyId" in data:
+        out["access_key_id"] = data["AccessKeyId"]
+    if "UriEndpoint" in data:
+        out["uri_endpoint"] = data["UriEndpoint"]
+    if "UriPath" in data:
+        out["uri_path"] = data["UriPath"]
+    if "VpcEndpointServiceName" in data:
+        out["vpc_endpoint_service_name"] = data["VpcEndpointServiceName"]
+    if "VpcEndpointServiceOwner" in data:
+        out["vpc_endpoint_service_owner"] = data["VpcEndpointServiceOwner"]
+    return out

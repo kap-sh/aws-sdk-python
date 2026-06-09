@@ -23,3 +23,42 @@ class CreateSecretResponse(TypedDict):
         "aws_sdk_secrets_manager.types.replication_status_list_type.ReplicationStatusListType"
     ]
     """<p>A list of the replicas of this secret and their status:</p> <ul> <li> <p> <code>Failed</code>, which indicates that the replica was not created.</p> </li> <li> <p> <code>InProgress</code>, which indicates that Secrets Manager is in the process of creating the replica.</p> </li> <li> <p> <code>InSync</code>, which indicates that the replica was created.</p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateSecretResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["ARN"] = value["arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "version_id" in value:
+        out["VersionId"] = value["version_id"]
+    if "replication_status" in value:
+        import aws_sdk_secrets_manager.types.replication_status_list_type
+
+        out["ReplicationStatus"] = (
+            aws_sdk_secrets_manager.types.replication_status_list_type.serialize_aws_json_1_1(
+                value["replication_status"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateSecretResponse:
+    out: CreateSecretResponse = {}  # type: ignore[typeddict-item]
+    if "ARN" in data:
+        out["arn"] = data["ARN"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "VersionId" in data:
+        out["version_id"] = data["VersionId"]
+    if "ReplicationStatus" in data:
+        import aws_sdk_secrets_manager.types.replication_status_list_type
+
+        out["replication_status"] = (
+            aws_sdk_secrets_manager.types.replication_status_list_type.deserialize_aws_json_1_1(
+                data["ReplicationStatus"]
+            )
+        )
+    return out

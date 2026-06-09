@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_token_list
@@ -25,3 +26,79 @@ class SignRequest(TypedDict):
     """<p>Specifies the signing algorithm to use when signing the message. </p> <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SignRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.plaintext_type
+
+    out["Message"] = aws_sdk_kms.types.plaintext_type.serialize_aws_json_1_1(
+        value["message"]
+    )
+    if "message_type" in value:
+        import aws_sdk_kms.types.message_type
+
+        out["MessageType"] = aws_sdk_kms.types.message_type.serialize_aws_json_1_1(
+            value["message_type"]
+        )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    import aws_sdk_kms.types.signing_algorithm_spec
+
+    out["SigningAlgorithm"] = (
+        aws_sdk_kms.types.signing_algorithm_spec.serialize_aws_json_1_1(
+            value["signing_algorithm"]
+        )
+    )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SignRequest:
+    out: SignRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("SignRequest.key_id required")
+    if "Message" in data:
+        import aws_sdk_kms.types.plaintext_type
+
+        out["message"] = aws_sdk_kms.types.plaintext_type.deserialize_aws_json_1_1(
+            data["Message"]
+        )
+    else:
+        raise DeserializationError("SignRequest.message required")
+    if "MessageType" in data:
+        import aws_sdk_kms.types.message_type
+
+        out["message_type"] = aws_sdk_kms.types.message_type.deserialize_aws_json_1_1(
+            data["MessageType"]
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "SigningAlgorithm" in data:
+        import aws_sdk_kms.types.signing_algorithm_spec
+
+        out["signing_algorithm"] = (
+            aws_sdk_kms.types.signing_algorithm_spec.deserialize_aws_json_1_1(
+                data["SigningAlgorithm"]
+            )
+        )
+    else:
+        raise DeserializationError("SignRequest.signing_algorithm required")
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

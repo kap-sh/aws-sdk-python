@@ -12,6 +12,21 @@ class XksProxyInvalidConfigurationException_(TypedDict):
     message: NotRequired["aws_sdk_kms.types.error_message_type.ErrorMessageType"]
 
 
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: XksProxyInvalidConfigurationException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> XksProxyInvalidConfigurationException_:
+    out: XksProxyInvalidConfigurationException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
 class XksProxyInvalidConfigurationException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.kms#XksProxyInvalidConfigurationException``."""
 
@@ -25,3 +40,7 @@ class XksProxyInvalidConfigurationException(ServiceError):
             code="XksProxyInvalidConfigurationException",
         )
         self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "XksProxyInvalidConfigurationException":
+        return cls(deserialize_aws_json_1_1(data))

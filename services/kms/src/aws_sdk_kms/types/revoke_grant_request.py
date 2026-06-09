@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_id_type
@@ -16,3 +17,28 @@ class RevokeGrantRequest(TypedDict):
     """<p>Identifies the grant to revoke. To get the grant ID, use <a>CreateGrant</a>, <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RevokeGrantRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    out["GrantId"] = value["grant_id"]
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RevokeGrantRequest:
+    out: RevokeGrantRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("RevokeGrantRequest.key_id required")
+    if "GrantId" in data:
+        out["grant_id"] = data["GrantId"]
+    else:
+        raise DeserializationError("RevokeGrantRequest.grant_id required")
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

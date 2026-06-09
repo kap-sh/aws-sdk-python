@@ -4,3 +4,12 @@ import datetime
 from typing import TypeAlias
 
 CreatedDateType: TypeAlias = datetime.datetime
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreatedDateType) -> float:
+    return value.timestamp()
+
+
+def deserialize_aws_json_1_1(data: float) -> CreatedDateType:
+    return datetime.datetime.fromtimestamp(float(data), tz=datetime.timezone.utc)

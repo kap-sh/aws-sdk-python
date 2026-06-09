@@ -18,3 +18,38 @@ class GenerateDataKeyWithoutPlaintextResponse(TypedDict):
         "aws_sdk_kms.types.backing_key_id_type.BackingKeyIdType"
     ]
     """<p>The identifier of the key material used to encrypt the data key.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GenerateDataKeyWithoutPlaintextResponse) -> dict:
+    out: dict = {}
+    if "ciphertext_blob" in value:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["CiphertextBlob"] = (
+            aws_sdk_kms.types.ciphertext_type.serialize_aws_json_1_1(
+                value["ciphertext_blob"]
+            )
+        )
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "key_material_id" in value:
+        out["KeyMaterialId"] = value["key_material_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyWithoutPlaintextResponse:
+    out: GenerateDataKeyWithoutPlaintextResponse = {}  # type: ignore[typeddict-item]
+    if "CiphertextBlob" in data:
+        import aws_sdk_kms.types.ciphertext_type
+
+        out["ciphertext_blob"] = (
+            aws_sdk_kms.types.ciphertext_type.deserialize_aws_json_1_1(
+                data["CiphertextBlob"]
+            )
+        )
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "KeyMaterialId" in data:
+        out["key_material_id"] = data["KeyMaterialId"]
+    return out

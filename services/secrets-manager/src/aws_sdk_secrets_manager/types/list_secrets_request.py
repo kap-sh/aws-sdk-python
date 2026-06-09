@@ -13,7 +13,9 @@ if TYPE_CHECKING:
 
 
 class ListSecretsRequest(TypedDict):
-    include_planned_deletion: "aws_sdk_secrets_manager.types.boolean_type.BooleanType"
+    include_planned_deletion: NotRequired[
+        "aws_sdk_secrets_manager.types.boolean_type.BooleanType"
+    ]
     """<p>Specifies whether to include secrets scheduled for deletion. By default, secrets scheduled for deletion aren't included.</p>"""
     max_results: NotRequired[
         "aws_sdk_secrets_manager.types.max_results_type.MaxResultsType"
@@ -33,3 +35,74 @@ class ListSecretsRequest(TypedDict):
     """<p>Secrets are listed by <code>CreatedDate</code>. </p>"""
     sort_by: NotRequired["aws_sdk_secrets_manager.types.sort_by_type.SortByType"]
     """<p>If not specified, secrets are listed by <code>CreatedDate</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListSecretsRequest) -> dict:
+    out: dict = {}
+    if "include_planned_deletion" in value:
+        out["IncludePlannedDeletion"] = value["include_planned_deletion"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "filters" in value:
+        import aws_sdk_secrets_manager.types.filters_list_type
+
+        out["Filters"] = (
+            aws_sdk_secrets_manager.types.filters_list_type.serialize_aws_json_1_1(
+                value["filters"]
+            )
+        )
+    if "sort_order" in value:
+        import aws_sdk_secrets_manager.types.sort_order_type
+
+        out["SortOrder"] = (
+            aws_sdk_secrets_manager.types.sort_order_type.serialize_aws_json_1_1(
+                value["sort_order"]
+            )
+        )
+    if "sort_by" in value:
+        import aws_sdk_secrets_manager.types.sort_by_type
+
+        out["SortBy"] = (
+            aws_sdk_secrets_manager.types.sort_by_type.serialize_aws_json_1_1(
+                value["sort_by"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListSecretsRequest:
+    out: ListSecretsRequest = {}  # type: ignore[typeddict-item]
+    if "IncludePlannedDeletion" in data:
+        out["include_planned_deletion"] = data["IncludePlannedDeletion"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Filters" in data:
+        import aws_sdk_secrets_manager.types.filters_list_type
+
+        out["filters"] = (
+            aws_sdk_secrets_manager.types.filters_list_type.deserialize_aws_json_1_1(
+                data["Filters"]
+            )
+        )
+    if "SortOrder" in data:
+        import aws_sdk_secrets_manager.types.sort_order_type
+
+        out["sort_order"] = (
+            aws_sdk_secrets_manager.types.sort_order_type.deserialize_aws_json_1_1(
+                data["SortOrder"]
+            )
+        )
+    if "SortBy" in data:
+        import aws_sdk_secrets_manager.types.sort_by_type
+
+        out["sort_by"] = (
+            aws_sdk_secrets_manager.types.sort_by_type.deserialize_aws_json_1_1(
+                data["SortBy"]
+            )
+        )
+    return out

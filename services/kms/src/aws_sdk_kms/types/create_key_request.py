@@ -46,3 +46,103 @@ class CreateKeyRequest(TypedDict):
     """<p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You cannot change this value after you create the KMS key. </p> <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS key, omit this parameter or set it to <code>False</code>. The default value is <code>False</code>.</p> <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html\">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>This value creates a <i>primary key</i>, not a replica. To create a <i>replica key</i>, use the <a>ReplicateKey</a> operation. </p> <p>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>"""
     xks_key_id: NotRequired["aws_sdk_kms.types.xks_key_id_type.XksKeyIdType"]
     """<p>Identifies the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key\">external key</a> that serves as key material for the KMS key in an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html\">external key store</a>. Specify the ID that the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-xks-proxy\">external key store proxy</a> uses to refer to the external key. For help, see the documentation for your external key store proxy.</p> <p>This parameter is required for a KMS key with an <code>Origin</code> value of <code>EXTERNAL_KEY_STORE</code>. It is not valid for KMS keys with any other <code>Origin</code> value.</p> <p>The external key must be an existing 256-bit AES symmetric encryption key hosted outside of Amazon Web Services in an external key manager associated with the external key store specified by the <code>CustomKeyStoreId</code> parameter. This key must be enabled and configured to perform encryption and decryption. Each KMS key in an external key store must use a different external key. For details, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html#xks-key-requirements\">Requirements for a KMS key in an external key store</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>Each KMS key in an external key store is associated two backing keys. One is key material that KMS generates. The other is the external key specified by this parameter. When you use the KMS key in an external key store to encrypt data, the encryption operation is performed first by KMS using the KMS key material, and then by the external key manager using the specified external key, a process known as <i>double encryption</i>. For details, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-double-encryption\">Double encryption</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateKeyRequest) -> dict:
+    out: dict = {}
+    if "policy" in value:
+        out["Policy"] = value["policy"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "key_usage" in value:
+        import aws_sdk_kms.types.key_usage_type
+
+        out["KeyUsage"] = aws_sdk_kms.types.key_usage_type.serialize_aws_json_1_1(
+            value["key_usage"]
+        )
+    if "customer_master_key_spec" in value:
+        import aws_sdk_kms.types.customer_master_key_spec
+
+        out["CustomerMasterKeySpec"] = (
+            aws_sdk_kms.types.customer_master_key_spec.serialize_aws_json_1_1(
+                value["customer_master_key_spec"]
+            )
+        )
+    if "key_spec" in value:
+        import aws_sdk_kms.types.key_spec
+
+        out["KeySpec"] = aws_sdk_kms.types.key_spec.serialize_aws_json_1_1(
+            value["key_spec"]
+        )
+    if "origin" in value:
+        import aws_sdk_kms.types.origin_type
+
+        out["Origin"] = aws_sdk_kms.types.origin_type.serialize_aws_json_1_1(
+            value["origin"]
+        )
+    if "custom_key_store_id" in value:
+        out["CustomKeyStoreId"] = value["custom_key_store_id"]
+    out["BypassPolicyLockoutSafetyCheck"] = value.get(
+        "bypass_policy_lockout_safety_check", False
+    )
+    if "tags" in value:
+        import aws_sdk_kms.types.tag_list
+
+        out["Tags"] = aws_sdk_kms.types.tag_list.serialize_aws_json_1_1(value["tags"])
+    if "multi_region" in value:
+        out["MultiRegion"] = value["multi_region"]
+    if "xks_key_id" in value:
+        out["XksKeyId"] = value["xks_key_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateKeyRequest:
+    out: CreateKeyRequest = {}  # type: ignore[typeddict-item]
+    if "Policy" in data:
+        out["policy"] = data["Policy"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "KeyUsage" in data:
+        import aws_sdk_kms.types.key_usage_type
+
+        out["key_usage"] = aws_sdk_kms.types.key_usage_type.deserialize_aws_json_1_1(
+            data["KeyUsage"]
+        )
+    if "CustomerMasterKeySpec" in data:
+        import aws_sdk_kms.types.customer_master_key_spec
+
+        out["customer_master_key_spec"] = (
+            aws_sdk_kms.types.customer_master_key_spec.deserialize_aws_json_1_1(
+                data["CustomerMasterKeySpec"]
+            )
+        )
+    if "KeySpec" in data:
+        import aws_sdk_kms.types.key_spec
+
+        out["key_spec"] = aws_sdk_kms.types.key_spec.deserialize_aws_json_1_1(
+            data["KeySpec"]
+        )
+    if "Origin" in data:
+        import aws_sdk_kms.types.origin_type
+
+        out["origin"] = aws_sdk_kms.types.origin_type.deserialize_aws_json_1_1(
+            data["Origin"]
+        )
+    if "CustomKeyStoreId" in data:
+        out["custom_key_store_id"] = data["CustomKeyStoreId"]
+    if "BypassPolicyLockoutSafetyCheck" in data:
+        out["bypass_policy_lockout_safety_check"] = data[
+            "BypassPolicyLockoutSafetyCheck"
+        ]
+    else:
+        out["bypass_policy_lockout_safety_check"] = False
+    if "Tags" in data:
+        import aws_sdk_kms.types.tag_list
+
+        out["tags"] = aws_sdk_kms.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
+    if "MultiRegion" in data:
+        out["multi_region"] = data["MultiRegion"]
+    if "XksKeyId" in data:
+        out["xks_key_id"] = data["XksKeyId"]
+    return out

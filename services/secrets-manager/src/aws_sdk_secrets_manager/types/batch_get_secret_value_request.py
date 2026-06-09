@@ -27,3 +27,54 @@ class BatchGetSecretValueRequest(TypedDict):
         "aws_sdk_secrets_manager.types.next_token_type.NextTokenType"
     ]
     """<p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>BatchGetSecretValue</code> again with this value.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BatchGetSecretValueRequest) -> dict:
+    out: dict = {}
+    if "secret_id_list" in value:
+        import aws_sdk_secrets_manager.types.secret_id_list_type
+
+        out["SecretIdList"] = (
+            aws_sdk_secrets_manager.types.secret_id_list_type.serialize_aws_json_1_1(
+                value["secret_id_list"]
+            )
+        )
+    if "filters" in value:
+        import aws_sdk_secrets_manager.types.filters_list_type
+
+        out["Filters"] = (
+            aws_sdk_secrets_manager.types.filters_list_type.serialize_aws_json_1_1(
+                value["filters"]
+            )
+        )
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BatchGetSecretValueRequest:
+    out: BatchGetSecretValueRequest = {}  # type: ignore[typeddict-item]
+    if "SecretIdList" in data:
+        import aws_sdk_secrets_manager.types.secret_id_list_type
+
+        out["secret_id_list"] = (
+            aws_sdk_secrets_manager.types.secret_id_list_type.deserialize_aws_json_1_1(
+                data["SecretIdList"]
+            )
+        )
+    if "Filters" in data:
+        import aws_sdk_secrets_manager.types.filters_list_type
+
+        out["filters"] = (
+            aws_sdk_secrets_manager.types.filters_list_type.deserialize_aws_json_1_1(
+                data["Filters"]
+            )
+        )
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

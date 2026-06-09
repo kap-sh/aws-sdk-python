@@ -15,3 +15,22 @@ class ImportKeyMaterialResponse(TypedDict):
         "aws_sdk_kms.types.backing_key_id_type.BackingKeyIdType"
     ]
     """<p>Identifies the imported key material.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ImportKeyMaterialResponse) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "key_material_id" in value:
+        out["KeyMaterialId"] = value["key_material_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialResponse:
+    out: ImportKeyMaterialResponse = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "KeyMaterialId" in data:
+        out["key_material_id"] = data["KeyMaterialId"]
+    return out

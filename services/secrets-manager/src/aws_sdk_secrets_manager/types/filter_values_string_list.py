@@ -8,3 +8,12 @@ if TYPE_CHECKING:
 FilterValuesStringList: TypeAlias = list[
     "aws_sdk_secrets_manager.types.filter_value_string_type.FilterValueStringType"
 ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: FilterValuesStringList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> FilterValuesStringList:
+    return list(data)

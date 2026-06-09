@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_constraints
@@ -43,3 +44,86 @@ class CreateGrantRequest(TypedDict):
         "aws_sdk_kms.types.service_principal_type.ServicePrincipalType"
     ]
     """<p>The Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a> that has permission to use the <a>RetireGrant</a> operation to retire the grant.</p> <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateGrantRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    if "grantee_principal" in value:
+        out["GranteePrincipal"] = value["grantee_principal"]
+    if "retiring_principal" in value:
+        out["RetiringPrincipal"] = value["retiring_principal"]
+    import aws_sdk_kms.types.grant_operation_list
+
+    out["Operations"] = aws_sdk_kms.types.grant_operation_list.serialize_aws_json_1_1(
+        value["operations"]
+    )
+    if "constraints" in value:
+        import aws_sdk_kms.types.grant_constraints
+
+        out["Constraints"] = aws_sdk_kms.types.grant_constraints.serialize_aws_json_1_1(
+            value["constraints"]
+        )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    if "grantee_service_principal" in value:
+        out["GranteeServicePrincipal"] = value["grantee_service_principal"]
+    if "retiring_service_principal" in value:
+        out["RetiringServicePrincipal"] = value["retiring_service_principal"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateGrantRequest:
+    out: CreateGrantRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("CreateGrantRequest.key_id required")
+    if "GranteePrincipal" in data:
+        out["grantee_principal"] = data["GranteePrincipal"]
+    if "RetiringPrincipal" in data:
+        out["retiring_principal"] = data["RetiringPrincipal"]
+    if "Operations" in data:
+        import aws_sdk_kms.types.grant_operation_list
+
+        out["operations"] = (
+            aws_sdk_kms.types.grant_operation_list.deserialize_aws_json_1_1(
+                data["Operations"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateGrantRequest.operations required")
+    if "Constraints" in data:
+        import aws_sdk_kms.types.grant_constraints
+
+        out["constraints"] = (
+            aws_sdk_kms.types.grant_constraints.deserialize_aws_json_1_1(
+                data["Constraints"]
+            )
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    if "GranteeServicePrincipal" in data:
+        out["grantee_service_principal"] = data["GranteeServicePrincipal"]
+    if "RetiringServicePrincipal" in data:
+        out["retiring_service_principal"] = data["RetiringServicePrincipal"]
+    return out

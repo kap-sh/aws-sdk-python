@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.data_key_pair_spec
@@ -24,3 +25,72 @@ class GenerateDataKeyPairWithoutPlaintextRequest(TypedDict):
     """<p>A list of grant tokens.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token\">Grant token</a> and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html\">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GenerateDataKeyPairWithoutPlaintextRequest) -> dict:
+    out: dict = {}
+    if "encryption_context" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["EncryptionContext"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["encryption_context"]
+            )
+        )
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.data_key_pair_spec
+
+    out["KeyPairSpec"] = aws_sdk_kms.types.data_key_pair_spec.serialize_aws_json_1_1(
+        value["key_pair_spec"]
+    )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyPairWithoutPlaintextRequest:
+    out: GenerateDataKeyPairWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
+    if "EncryptionContext" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["encryption_context"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["EncryptionContext"]
+            )
+        )
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError(
+            "GenerateDataKeyPairWithoutPlaintextRequest.key_id required"
+        )
+    if "KeyPairSpec" in data:
+        import aws_sdk_kms.types.data_key_pair_spec
+
+        out["key_pair_spec"] = (
+            aws_sdk_kms.types.data_key_pair_spec.deserialize_aws_json_1_1(
+                data["KeyPairSpec"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GenerateDataKeyPairWithoutPlaintextRequest.key_pair_spec required"
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

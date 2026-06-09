@@ -45,3 +45,88 @@ class GrantListEntry(TypedDict):
         "aws_sdk_kms.types.service_principal_type.ServicePrincipalType"
     ]
     """<p>The Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a> that can retire the grant.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GrantListEntry) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "grant_id" in value:
+        out["GrantId"] = value["grant_id"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "creation_date" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["CreationDate"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["creation_date"]
+        )
+    if "grantee_principal" in value:
+        out["GranteePrincipal"] = value["grantee_principal"]
+    if "retiring_principal" in value:
+        out["RetiringPrincipal"] = value["retiring_principal"]
+    if "issuing_account" in value:
+        out["IssuingAccount"] = value["issuing_account"]
+    if "operations" in value:
+        import aws_sdk_kms.types.grant_operation_list
+
+        out["Operations"] = (
+            aws_sdk_kms.types.grant_operation_list.serialize_aws_json_1_1(
+                value["operations"]
+            )
+        )
+    if "constraints" in value:
+        import aws_sdk_kms.types.grant_constraints
+
+        out["Constraints"] = aws_sdk_kms.types.grant_constraints.serialize_aws_json_1_1(
+            value["constraints"]
+        )
+    if "grantee_service_principal" in value:
+        out["GranteeServicePrincipal"] = value["grantee_service_principal"]
+    if "retiring_service_principal" in value:
+        out["RetiringServicePrincipal"] = value["retiring_service_principal"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GrantListEntry:
+    out: GrantListEntry = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "GrantId" in data:
+        out["grant_id"] = data["GrantId"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "CreationDate" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["creation_date"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["CreationDate"]
+        )
+    if "GranteePrincipal" in data:
+        out["grantee_principal"] = data["GranteePrincipal"]
+    if "RetiringPrincipal" in data:
+        out["retiring_principal"] = data["RetiringPrincipal"]
+    if "IssuingAccount" in data:
+        out["issuing_account"] = data["IssuingAccount"]
+    if "Operations" in data:
+        import aws_sdk_kms.types.grant_operation_list
+
+        out["operations"] = (
+            aws_sdk_kms.types.grant_operation_list.deserialize_aws_json_1_1(
+                data["Operations"]
+            )
+        )
+    if "Constraints" in data:
+        import aws_sdk_kms.types.grant_constraints
+
+        out["constraints"] = (
+            aws_sdk_kms.types.grant_constraints.deserialize_aws_json_1_1(
+                data["Constraints"]
+            )
+        )
+    if "GranteeServicePrincipal" in data:
+        out["grantee_service_principal"] = data["GranteeServicePrincipal"]
+    if "RetiringServicePrincipal" in data:
+        out["retiring_service_principal"] = data["RetiringServicePrincipal"]
+    return out

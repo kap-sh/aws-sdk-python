@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.data_key_spec
@@ -32,3 +33,81 @@ class GenerateDataKeyRequest(TypedDict):
     """<p>A signed <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc\">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p> <p>This parameter supports the <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk\">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM. </p> <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p> <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html\">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     dry_run: NotRequired["aws_sdk_kms.types.nullable_boolean_type.NullableBooleanType"]
     """<p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p> <p>To learn more about how to use this parameter, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html\">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GenerateDataKeyRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    if "encryption_context" in value:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["EncryptionContext"] = (
+            aws_sdk_kms.types.encryption_context_type.serialize_aws_json_1_1(
+                value["encryption_context"]
+            )
+        )
+    if "number_of_bytes" in value:
+        out["NumberOfBytes"] = value["number_of_bytes"]
+    if "key_spec" in value:
+        import aws_sdk_kms.types.data_key_spec
+
+        out["KeySpec"] = aws_sdk_kms.types.data_key_spec.serialize_aws_json_1_1(
+            value["key_spec"]
+        )
+    if "grant_tokens" in value:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["GrantTokens"] = aws_sdk_kms.types.grant_token_list.serialize_aws_json_1_1(
+            value["grant_tokens"]
+        )
+    if "recipient" in value:
+        import aws_sdk_kms.types.recipient_info
+
+        out["Recipient"] = aws_sdk_kms.types.recipient_info.serialize_aws_json_1_1(
+            value["recipient"]
+        )
+    if "dry_run" in value:
+        out["DryRun"] = value["dry_run"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyRequest:
+    out: GenerateDataKeyRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("GenerateDataKeyRequest.key_id required")
+    if "EncryptionContext" in data:
+        import aws_sdk_kms.types.encryption_context_type
+
+        out["encryption_context"] = (
+            aws_sdk_kms.types.encryption_context_type.deserialize_aws_json_1_1(
+                data["EncryptionContext"]
+            )
+        )
+    if "NumberOfBytes" in data:
+        out["number_of_bytes"] = data["NumberOfBytes"]
+    if "KeySpec" in data:
+        import aws_sdk_kms.types.data_key_spec
+
+        out["key_spec"] = aws_sdk_kms.types.data_key_spec.deserialize_aws_json_1_1(
+            data["KeySpec"]
+        )
+    if "GrantTokens" in data:
+        import aws_sdk_kms.types.grant_token_list
+
+        out["grant_tokens"] = (
+            aws_sdk_kms.types.grant_token_list.deserialize_aws_json_1_1(
+                data["GrantTokens"]
+            )
+        )
+    if "Recipient" in data:
+        import aws_sdk_kms.types.recipient_info
+
+        out["recipient"] = aws_sdk_kms.types.recipient_info.deserialize_aws_json_1_1(
+            data["Recipient"]
+        )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    return out

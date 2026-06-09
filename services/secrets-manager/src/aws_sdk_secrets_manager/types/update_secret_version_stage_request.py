@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_id_type
@@ -24,3 +25,34 @@ class UpdateSecretVersionStageRequest(TypedDict):
         "aws_sdk_secrets_manager.types.secret_version_id_type.SecretVersionIdType"
     ]
     """<p>The ID of the version to add the staging label to. To remove a label from a version, then do not specify this parameter.</p> <p>If the staging label is already attached to a different version of the secret, then you must also specify the <code>RemoveFromVersionId</code> parameter. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateSecretVersionStageRequest) -> dict:
+    out: dict = {}
+    out["SecretId"] = value["secret_id"]
+    out["VersionStage"] = value["version_stage"]
+    if "remove_from_version_id" in value:
+        out["RemoveFromVersionId"] = value["remove_from_version_id"]
+    if "move_to_version_id" in value:
+        out["MoveToVersionId"] = value["move_to_version_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateSecretVersionStageRequest:
+    out: UpdateSecretVersionStageRequest = {}  # type: ignore[typeddict-item]
+    if "SecretId" in data:
+        out["secret_id"] = data["SecretId"]
+    else:
+        raise DeserializationError("UpdateSecretVersionStageRequest.secret_id required")
+    if "VersionStage" in data:
+        out["version_stage"] = data["VersionStage"]
+    else:
+        raise DeserializationError(
+            "UpdateSecretVersionStageRequest.version_stage required"
+        )
+    if "RemoveFromVersionId" in data:
+        out["remove_from_version_id"] = data["RemoveFromVersionId"]
+    if "MoveToVersionId" in data:
+        out["move_to_version_id"] = data["MoveToVersionId"]
+    return out

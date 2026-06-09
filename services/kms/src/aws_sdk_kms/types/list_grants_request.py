@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_id_type
@@ -29,3 +30,39 @@ class ListGrantsRequest(TypedDict):
         "aws_sdk_kms.types.service_principal_type.ServicePrincipalType"
     ]
     """<p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p> <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListGrantsRequest) -> dict:
+    out: dict = {}
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    if "marker" in value:
+        out["Marker"] = value["marker"]
+    out["KeyId"] = value["key_id"]
+    if "grant_id" in value:
+        out["GrantId"] = value["grant_id"]
+    if "grantee_principal" in value:
+        out["GranteePrincipal"] = value["grantee_principal"]
+    if "grantee_service_principal" in value:
+        out["GranteeServicePrincipal"] = value["grantee_service_principal"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListGrantsRequest:
+    out: ListGrantsRequest = {}  # type: ignore[typeddict-item]
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    if "Marker" in data:
+        out["marker"] = data["Marker"]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("ListGrantsRequest.key_id required")
+    if "GrantId" in data:
+        out["grant_id"] = data["GrantId"]
+    if "GranteePrincipal" in data:
+        out["grantee_principal"] = data["GranteePrincipal"]
+    if "GranteeServicePrincipal" in data:
+        out["grantee_service_principal"] = data["GranteeServicePrincipal"]
+    return out

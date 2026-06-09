@@ -28,3 +28,58 @@ class ReplicationStatusType(TypedDict):
         "aws_sdk_secrets_manager.types.last_accessed_date_type.LastAccessedDateType"
     ]
     """<p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ReplicationStatusType) -> dict:
+    out: dict = {}
+    if "region" in value:
+        out["Region"] = value["region"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    if "status" in value:
+        import aws_sdk_secrets_manager.types.status_type
+
+        out["Status"] = (
+            aws_sdk_secrets_manager.types.status_type.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "status_message" in value:
+        out["StatusMessage"] = value["status_message"]
+    if "last_accessed_date" in value:
+        import aws_sdk_secrets_manager.types.last_accessed_date_type
+
+        out["LastAccessedDate"] = (
+            aws_sdk_secrets_manager.types.last_accessed_date_type.serialize_aws_json_1_1(
+                value["last_accessed_date"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ReplicationStatusType:
+    out: ReplicationStatusType = {}  # type: ignore[typeddict-item]
+    if "Region" in data:
+        out["region"] = data["Region"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    if "Status" in data:
+        import aws_sdk_secrets_manager.types.status_type
+
+        out["status"] = (
+            aws_sdk_secrets_manager.types.status_type.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    if "StatusMessage" in data:
+        out["status_message"] = data["StatusMessage"]
+    if "LastAccessedDate" in data:
+        import aws_sdk_secrets_manager.types.last_accessed_date_type
+
+        out["last_accessed_date"] = (
+            aws_sdk_secrets_manager.types.last_accessed_date_type.deserialize_aws_json_1_1(
+                data["LastAccessedDate"]
+            )
+        )
+    return out

@@ -39,3 +39,118 @@ class GetPublicKeyResponse(TypedDict):
         "aws_sdk_kms.types.key_agreement_algorithm_spec_list.KeyAgreementAlgorithmSpecList"
     ]
     """<p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetPublicKeyResponse) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "public_key" in value:
+        import aws_sdk_kms.types.public_key_type
+
+        out["PublicKey"] = aws_sdk_kms.types.public_key_type.serialize_aws_json_1_1(
+            value["public_key"]
+        )
+    if "customer_master_key_spec" in value:
+        import aws_sdk_kms.types.customer_master_key_spec
+
+        out["CustomerMasterKeySpec"] = (
+            aws_sdk_kms.types.customer_master_key_spec.serialize_aws_json_1_1(
+                value["customer_master_key_spec"]
+            )
+        )
+    if "key_spec" in value:
+        import aws_sdk_kms.types.key_spec
+
+        out["KeySpec"] = aws_sdk_kms.types.key_spec.serialize_aws_json_1_1(
+            value["key_spec"]
+        )
+    if "key_usage" in value:
+        import aws_sdk_kms.types.key_usage_type
+
+        out["KeyUsage"] = aws_sdk_kms.types.key_usage_type.serialize_aws_json_1_1(
+            value["key_usage"]
+        )
+    if "encryption_algorithms" in value:
+        import aws_sdk_kms.types.encryption_algorithm_spec_list
+
+        out["EncryptionAlgorithms"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec_list.serialize_aws_json_1_1(
+                value["encryption_algorithms"]
+            )
+        )
+    if "signing_algorithms" in value:
+        import aws_sdk_kms.types.signing_algorithm_spec_list
+
+        out["SigningAlgorithms"] = (
+            aws_sdk_kms.types.signing_algorithm_spec_list.serialize_aws_json_1_1(
+                value["signing_algorithms"]
+            )
+        )
+    if "key_agreement_algorithms" in value:
+        import aws_sdk_kms.types.key_agreement_algorithm_spec_list
+
+        out["KeyAgreementAlgorithms"] = (
+            aws_sdk_kms.types.key_agreement_algorithm_spec_list.serialize_aws_json_1_1(
+                value["key_agreement_algorithms"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetPublicKeyResponse:
+    out: GetPublicKeyResponse = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "PublicKey" in data:
+        import aws_sdk_kms.types.public_key_type
+
+        out["public_key"] = aws_sdk_kms.types.public_key_type.deserialize_aws_json_1_1(
+            data["PublicKey"]
+        )
+    if "CustomerMasterKeySpec" in data:
+        import aws_sdk_kms.types.customer_master_key_spec
+
+        out["customer_master_key_spec"] = (
+            aws_sdk_kms.types.customer_master_key_spec.deserialize_aws_json_1_1(
+                data["CustomerMasterKeySpec"]
+            )
+        )
+    if "KeySpec" in data:
+        import aws_sdk_kms.types.key_spec
+
+        out["key_spec"] = aws_sdk_kms.types.key_spec.deserialize_aws_json_1_1(
+            data["KeySpec"]
+        )
+    if "KeyUsage" in data:
+        import aws_sdk_kms.types.key_usage_type
+
+        out["key_usage"] = aws_sdk_kms.types.key_usage_type.deserialize_aws_json_1_1(
+            data["KeyUsage"]
+        )
+    if "EncryptionAlgorithms" in data:
+        import aws_sdk_kms.types.encryption_algorithm_spec_list
+
+        out["encryption_algorithms"] = (
+            aws_sdk_kms.types.encryption_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["EncryptionAlgorithms"]
+            )
+        )
+    if "SigningAlgorithms" in data:
+        import aws_sdk_kms.types.signing_algorithm_spec_list
+
+        out["signing_algorithms"] = (
+            aws_sdk_kms.types.signing_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["SigningAlgorithms"]
+            )
+        )
+    if "KeyAgreementAlgorithms" in data:
+        import aws_sdk_kms.types.key_agreement_algorithm_spec_list
+
+        out["key_agreement_algorithms"] = (
+            aws_sdk_kms.types.key_agreement_algorithm_spec_list.deserialize_aws_json_1_1(
+                data["KeyAgreementAlgorithms"]
+            )
+        )
+    return out

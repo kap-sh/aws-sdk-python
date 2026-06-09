@@ -50,3 +50,106 @@ class CustomKeyStoresListEntry(TypedDict):
         "aws_sdk_kms.types.xks_proxy_configuration_type.XksProxyConfigurationType"
     ]
     """<p>Configuration settings for the external key store proxy (XKS proxy). The external key store proxy translates KMS requests into a format that your external key manager can understand. The proxy configuration includes connection information that KMS requires.</p> <p>This field appears only when the <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CustomKeyStoresListEntry) -> dict:
+    out: dict = {}
+    if "custom_key_store_id" in value:
+        out["CustomKeyStoreId"] = value["custom_key_store_id"]
+    if "custom_key_store_name" in value:
+        out["CustomKeyStoreName"] = value["custom_key_store_name"]
+    if "cloud_hsm_cluster_id" in value:
+        out["CloudHsmClusterId"] = value["cloud_hsm_cluster_id"]
+    if "trust_anchor_certificate" in value:
+        out["TrustAnchorCertificate"] = value["trust_anchor_certificate"]
+    if "connection_state" in value:
+        import aws_sdk_kms.types.connection_state_type
+
+        out["ConnectionState"] = (
+            aws_sdk_kms.types.connection_state_type.serialize_aws_json_1_1(
+                value["connection_state"]
+            )
+        )
+    if "connection_error_code" in value:
+        import aws_sdk_kms.types.connection_error_code_type
+
+        out["ConnectionErrorCode"] = (
+            aws_sdk_kms.types.connection_error_code_type.serialize_aws_json_1_1(
+                value["connection_error_code"]
+            )
+        )
+    if "creation_date" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["CreationDate"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["creation_date"]
+        )
+    if "custom_key_store_type" in value:
+        import aws_sdk_kms.types.custom_key_store_type
+
+        out["CustomKeyStoreType"] = (
+            aws_sdk_kms.types.custom_key_store_type.serialize_aws_json_1_1(
+                value["custom_key_store_type"]
+            )
+        )
+    if "xks_proxy_configuration" in value:
+        import aws_sdk_kms.types.xks_proxy_configuration_type
+
+        out["XksProxyConfiguration"] = (
+            aws_sdk_kms.types.xks_proxy_configuration_type.serialize_aws_json_1_1(
+                value["xks_proxy_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CustomKeyStoresListEntry:
+    out: CustomKeyStoresListEntry = {}  # type: ignore[typeddict-item]
+    if "CustomKeyStoreId" in data:
+        out["custom_key_store_id"] = data["CustomKeyStoreId"]
+    if "CustomKeyStoreName" in data:
+        out["custom_key_store_name"] = data["CustomKeyStoreName"]
+    if "CloudHsmClusterId" in data:
+        out["cloud_hsm_cluster_id"] = data["CloudHsmClusterId"]
+    if "TrustAnchorCertificate" in data:
+        out["trust_anchor_certificate"] = data["TrustAnchorCertificate"]
+    if "ConnectionState" in data:
+        import aws_sdk_kms.types.connection_state_type
+
+        out["connection_state"] = (
+            aws_sdk_kms.types.connection_state_type.deserialize_aws_json_1_1(
+                data["ConnectionState"]
+            )
+        )
+    if "ConnectionErrorCode" in data:
+        import aws_sdk_kms.types.connection_error_code_type
+
+        out["connection_error_code"] = (
+            aws_sdk_kms.types.connection_error_code_type.deserialize_aws_json_1_1(
+                data["ConnectionErrorCode"]
+            )
+        )
+    if "CreationDate" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["creation_date"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["CreationDate"]
+        )
+    if "CustomKeyStoreType" in data:
+        import aws_sdk_kms.types.custom_key_store_type
+
+        out["custom_key_store_type"] = (
+            aws_sdk_kms.types.custom_key_store_type.deserialize_aws_json_1_1(
+                data["CustomKeyStoreType"]
+            )
+        )
+    if "XksProxyConfiguration" in data:
+        import aws_sdk_kms.types.xks_proxy_configuration_type
+
+        out["xks_proxy_configuration"] = (
+            aws_sdk_kms.types.xks_proxy_configuration_type.deserialize_aws_json_1_1(
+                data["XksProxyConfiguration"]
+            )
+        )
+    return out

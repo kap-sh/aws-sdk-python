@@ -18,3 +18,39 @@ class VerifyResponse(TypedDict):
         "aws_sdk_kms.types.signing_algorithm_spec.SigningAlgorithmSpec"
     ]
     """<p>The signing algorithm that was used to verify the signature.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: VerifyResponse) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    out["SignatureValid"] = value.get("signature_valid", False)
+    if "signing_algorithm" in value:
+        import aws_sdk_kms.types.signing_algorithm_spec
+
+        out["SigningAlgorithm"] = (
+            aws_sdk_kms.types.signing_algorithm_spec.serialize_aws_json_1_1(
+                value["signing_algorithm"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> VerifyResponse:
+    out: VerifyResponse = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "SignatureValid" in data:
+        out["signature_valid"] = data["SignatureValid"]
+    else:
+        out["signature_valid"] = False
+    if "SigningAlgorithm" in data:
+        import aws_sdk_kms.types.signing_algorithm_spec
+
+        out["signing_algorithm"] = (
+            aws_sdk_kms.types.signing_algorithm_spec.deserialize_aws_json_1_1(
+                data["SigningAlgorithm"]
+            )
+        )
+    return out

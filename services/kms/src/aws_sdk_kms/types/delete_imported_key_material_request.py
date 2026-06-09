@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.backing_key_id_type
@@ -15,3 +16,23 @@ class DeleteImportedKeyMaterialRequest(TypedDict):
         "aws_sdk_kms.types.backing_key_id_type.BackingKeyIdType"
     ]
     """<p>Identifies the imported key material you are deleting. </p> <important> <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p> </important> <p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteImportedKeyMaterialRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    if "key_material_id" in value:
+        out["KeyMaterialId"] = value["key_material_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteImportedKeyMaterialRequest:
+    out: DeleteImportedKeyMaterialRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("DeleteImportedKeyMaterialRequest.key_id required")
+    if "KeyMaterialId" in data:
+        out["key_material_id"] = data["KeyMaterialId"]
+    return out

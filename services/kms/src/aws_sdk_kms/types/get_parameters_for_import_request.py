@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GetParametersForImportRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.algorithm_spec
@@ -15,3 +16,53 @@ class GetParametersForImportRequest(TypedDict):
     """<p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm\">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS.</p> <p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p> <ul> <li> <p> <b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key material.</p> </li> <li> <p> <b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p> </li> <li> <p> <b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p> <p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p> </li> <li> <p> <b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private key).</p> <p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p> </li> <li> <p> <b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p> </li> </ul>"""
     wrapping_key_spec: "aws_sdk_kms.types.wrapping_key_spec.WrappingKeySpec"
     """<p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import. </p> <p>Use the longest RSA wrapping key that is practical. </p> <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetParametersForImportRequest) -> dict:
+    out: dict = {}
+    out["KeyId"] = value["key_id"]
+    import aws_sdk_kms.types.algorithm_spec
+
+    out["WrappingAlgorithm"] = aws_sdk_kms.types.algorithm_spec.serialize_aws_json_1_1(
+        value["wrapping_algorithm"]
+    )
+    import aws_sdk_kms.types.wrapping_key_spec
+
+    out["WrappingKeySpec"] = aws_sdk_kms.types.wrapping_key_spec.serialize_aws_json_1_1(
+        value["wrapping_key_spec"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetParametersForImportRequest:
+    out: GetParametersForImportRequest = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    else:
+        raise DeserializationError("GetParametersForImportRequest.key_id required")
+    if "WrappingAlgorithm" in data:
+        import aws_sdk_kms.types.algorithm_spec
+
+        out["wrapping_algorithm"] = (
+            aws_sdk_kms.types.algorithm_spec.deserialize_aws_json_1_1(
+                data["WrappingAlgorithm"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetParametersForImportRequest.wrapping_algorithm required"
+        )
+    if "WrappingKeySpec" in data:
+        import aws_sdk_kms.types.wrapping_key_spec
+
+        out["wrapping_key_spec"] = (
+            aws_sdk_kms.types.wrapping_key_spec.deserialize_aws_json_1_1(
+                data["WrappingKeySpec"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetParametersForImportRequest.wrapping_key_spec required"
+        )
+    return out

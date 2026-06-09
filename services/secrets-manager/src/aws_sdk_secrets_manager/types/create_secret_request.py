@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+from aws_sdk_secrets_manager.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.add_replica_region_list_type
@@ -51,3 +52,94 @@ class CreateSecretRequest(TypedDict):
     """<p>Specifies whether to overwrite a secret with the same name in the destination Region. By default, secrets aren't overwritten.</p>"""
     type: NotRequired["aws_sdk_secrets_manager.types.medea_type_type.MedeaTypeType"]
     """<p>The exact string that identifies the partner that holds the external secret. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html\">Using Secrets Manager managed external secrets</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateSecretRequest) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    if "client_request_token" in value:
+        out["ClientRequestToken"] = value["client_request_token"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    if "secret_binary" in value:
+        import aws_sdk_secrets_manager.types.secret_binary_type
+
+        out["SecretBinary"] = (
+            aws_sdk_secrets_manager.types.secret_binary_type.serialize_aws_json_1_1(
+                value["secret_binary"]
+            )
+        )
+    if "secret_string" in value:
+        out["SecretString"] = value["secret_string"]
+    if "tags" in value:
+        import aws_sdk_secrets_manager.types.tag_list_type
+
+        out["Tags"] = (
+            aws_sdk_secrets_manager.types.tag_list_type.serialize_aws_json_1_1(
+                value["tags"]
+            )
+        )
+    if "add_replica_regions" in value:
+        import aws_sdk_secrets_manager.types.add_replica_region_list_type
+
+        out["AddReplicaRegions"] = (
+            aws_sdk_secrets_manager.types.add_replica_region_list_type.serialize_aws_json_1_1(
+                value["add_replica_regions"]
+            )
+        )
+    out["ForceOverwriteReplicaSecret"] = value.get(
+        "force_overwrite_replica_secret", False
+    )
+    if "type" in value:
+        out["Type"] = value["type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateSecretRequest:
+    out: CreateSecretRequest = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("CreateSecretRequest.name required")
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    if "SecretBinary" in data:
+        import aws_sdk_secrets_manager.types.secret_binary_type
+
+        out["secret_binary"] = (
+            aws_sdk_secrets_manager.types.secret_binary_type.deserialize_aws_json_1_1(
+                data["SecretBinary"]
+            )
+        )
+    if "SecretString" in data:
+        out["secret_string"] = data["SecretString"]
+    if "Tags" in data:
+        import aws_sdk_secrets_manager.types.tag_list_type
+
+        out["tags"] = (
+            aws_sdk_secrets_manager.types.tag_list_type.deserialize_aws_json_1_1(
+                data["Tags"]
+            )
+        )
+    if "AddReplicaRegions" in data:
+        import aws_sdk_secrets_manager.types.add_replica_region_list_type
+
+        out["add_replica_regions"] = (
+            aws_sdk_secrets_manager.types.add_replica_region_list_type.deserialize_aws_json_1_1(
+                data["AddReplicaRegions"]
+            )
+        )
+    if "ForceOverwriteReplicaSecret" in data:
+        out["force_overwrite_replica_secret"] = data["ForceOverwriteReplicaSecret"]
+    else:
+        out["force_overwrite_replica_secret"] = False
+    if "Type" in data:
+        out["type"] = data["Type"]
+    return out

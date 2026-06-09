@@ -23,3 +23,30 @@ class ListRetirableGrantsRequest(TypedDict):
         "aws_sdk_kms.types.service_principal_type.ServicePrincipalType"
     ]
     """<p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p> <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListRetirableGrantsRequest) -> dict:
+    out: dict = {}
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    if "marker" in value:
+        out["Marker"] = value["marker"]
+    if "retiring_principal" in value:
+        out["RetiringPrincipal"] = value["retiring_principal"]
+    if "retiring_service_principal" in value:
+        out["RetiringServicePrincipal"] = value["retiring_service_principal"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListRetirableGrantsRequest:
+    out: ListRetirableGrantsRequest = {}  # type: ignore[typeddict-item]
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    if "Marker" in data:
+        out["marker"] = data["Marker"]
+    if "RetiringPrincipal" in data:
+        out["retiring_principal"] = data["RetiringPrincipal"]
+    if "RetiringServicePrincipal" in data:
+        out["retiring_service_principal"] = data["RetiringServicePrincipal"]
+    return out

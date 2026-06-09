@@ -20,3 +20,26 @@ class RotationRulesType(TypedDict):
         "aws_sdk_secrets_manager.types.schedule_expression_type.ScheduleExpressionType"
     ]
     """<p>A <code>cron()</code> or <code>rate()</code> expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone. Secrets Manager rotates your secret any time during a rotation window.</p> <p>Secrets Manager <code>rate()</code> expressions represent the interval in hours or days that you want to rotate your secret, for example <code>rate(12 hours)</code> or <code>rate(10 days)</code>. You can rotate a secret as often as every four hours. If you use a <code>rate()</code> expression, the rotation window starts at midnight. For a rate in hours, the default rotation window closes after one hour. For a rate in days, the default rotation window closes at the end of the day. You can set the <code>Duration</code> to change the rotation window. The rotation window must not extend into the next UTC day or into the next rotation window.</p> <p>You can use a <code>cron()</code> expression to create a rotation schedule that is more detailed than a rotation interval. For more information, including examples, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html\">Schedule expressions in Secrets Manager rotation</a> in the <i>Secrets Manager Users Guide</i>. For a cron expression that represents a schedule in hours, the default rotation window closes after one hour. For a cron expression that represents a schedule in days, the default rotation window closes at the end of the day. You can set the <code>Duration</code> to change the rotation window. The rotation window must not extend into the next UTC day or into the next rotation window.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RotationRulesType) -> dict:
+    out: dict = {}
+    if "automatically_after_days" in value:
+        out["AutomaticallyAfterDays"] = value["automatically_after_days"]
+    if "duration" in value:
+        out["Duration"] = value["duration"]
+    if "schedule_expression" in value:
+        out["ScheduleExpression"] = value["schedule_expression"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RotationRulesType:
+    out: RotationRulesType = {}  # type: ignore[typeddict-item]
+    if "AutomaticallyAfterDays" in data:
+        out["automatically_after_days"] = data["AutomaticallyAfterDays"]
+    if "Duration" in data:
+        out["duration"] = data["Duration"]
+    if "ScheduleExpression" in data:
+        out["schedule_expression"] = data["ScheduleExpression"]
+    return out

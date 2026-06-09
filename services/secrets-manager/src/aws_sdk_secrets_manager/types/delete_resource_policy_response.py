@@ -13,3 +13,22 @@ class DeleteResourcePolicyResponse(TypedDict):
     """<p>The ARN of the secret that the resource-based policy was deleted for.</p>"""
     name: NotRequired["aws_sdk_secrets_manager.types.name_type.NameType"]
     """<p>The name of the secret that the resource-based policy was deleted for.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteResourcePolicyResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["ARN"] = value["arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteResourcePolicyResponse:
+    out: DeleteResourcePolicyResponse = {}  # type: ignore[typeddict-item]
+    if "ARN" in data:
+        out["arn"] = data["ARN"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    return out

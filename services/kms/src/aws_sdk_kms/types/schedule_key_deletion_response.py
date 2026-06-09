@@ -21,3 +21,46 @@ class ScheduleKeyDeletionResponse(TypedDict):
         "aws_sdk_kms.types.pending_window_in_days_type.PendingWindowInDaysType"
     ]
     """<p>The waiting period before the KMS key is deleted. </p> <p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ScheduleKeyDeletionResponse) -> dict:
+    out: dict = {}
+    if "key_id" in value:
+        out["KeyId"] = value["key_id"]
+    if "deletion_date" in value:
+        import aws_sdk_kms.types.date_type
+
+        out["DeletionDate"] = aws_sdk_kms.types.date_type.serialize_aws_json_1_1(
+            value["deletion_date"]
+        )
+    if "key_state" in value:
+        import aws_sdk_kms.types.key_state
+
+        out["KeyState"] = aws_sdk_kms.types.key_state.serialize_aws_json_1_1(
+            value["key_state"]
+        )
+    if "pending_window_in_days" in value:
+        out["PendingWindowInDays"] = value["pending_window_in_days"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ScheduleKeyDeletionResponse:
+    out: ScheduleKeyDeletionResponse = {}  # type: ignore[typeddict-item]
+    if "KeyId" in data:
+        out["key_id"] = data["KeyId"]
+    if "DeletionDate" in data:
+        import aws_sdk_kms.types.date_type
+
+        out["deletion_date"] = aws_sdk_kms.types.date_type.deserialize_aws_json_1_1(
+            data["DeletionDate"]
+        )
+    if "KeyState" in data:
+        import aws_sdk_kms.types.key_state
+
+        out["key_state"] = aws_sdk_kms.types.key_state.deserialize_aws_json_1_1(
+            data["KeyState"]
+        )
+    if "PendingWindowInDays" in data:
+        out["pending_window_in_days"] = data["PendingWindowInDays"]
+    return out
