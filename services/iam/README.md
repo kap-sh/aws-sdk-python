@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_iam
+pip install aws-sdk-iam
 ```
 
 ## Usage

@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_dynamodb
+pip install aws-sdk-dynamodb
 ```
 
 ## Usage

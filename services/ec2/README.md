@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_ec2
+pip install aws-sdk-ec2
 ```
 
 ## Usage

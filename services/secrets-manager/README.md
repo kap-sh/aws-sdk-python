@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_secrets_manager
+pip install aws-sdk-secrets-manager
 ```
 
 ## Usage

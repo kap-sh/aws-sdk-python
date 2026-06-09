@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_s3
+pip install aws-sdk-s3
 ```
 
 ## Usage

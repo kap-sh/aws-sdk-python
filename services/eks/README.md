@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_eks
+pip install aws-sdk-eks
 ```
 
 ## Usage

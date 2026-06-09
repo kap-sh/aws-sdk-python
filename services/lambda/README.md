@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_lambda
+pip install aws-sdk-lambda
 ```
 
 ## Usage

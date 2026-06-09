@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-pip install aws_sdk_kms
+pip install aws-sdk-kms
 ```
 
 ## Usage
