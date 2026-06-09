@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CapacityProviderPredefinedMetricType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 CapacityProviderPredefinedMetricType: TypeAlias = Literal[

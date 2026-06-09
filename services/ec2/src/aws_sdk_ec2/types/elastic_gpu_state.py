@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ElasticGpuState``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_ec2.errors import DeserializationError
+
 from aws_sdk_ec2._protocol.xml import Element
+from aws_sdk_ec2.errors import DeserializationError
 
 ElasticGpuState: TypeAlias = Literal["ATTACHED",]
 

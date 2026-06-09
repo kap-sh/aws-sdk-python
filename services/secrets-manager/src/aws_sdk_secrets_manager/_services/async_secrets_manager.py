@@ -1,10 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#secretsmanager``."""
 
+import warnings
 from collections.abc import AsyncIterator
-from typing import Any, Iterable, TypedDict, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
 from typing_extensions import Self
-from typing import Optional
 from zapros import AsyncBaseHandler, AsyncClient
+
+from aws_sdk_secrets_manager._auth._identity import Credentials
+from aws_sdk_secrets_manager._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
 from aws_sdk_secrets_manager._auth._zapros_handler import AuthMiddleware
 from aws_sdk_secrets_manager._services._pipeline import (
     AsyncInterceptor,
@@ -13,12 +20,6 @@ from aws_sdk_secrets_manager._services._pipeline import (
     AsyncOperationResponse,
     aexecute_pipeline,
     aretry,
-)
-import warnings
-from aws_sdk_secrets_manager._auth._identity import Credentials
-from aws_sdk_secrets_manager._auth._providers import (
-    CredentialsProvider,
-    StaticAwsCredentialsProvider,
 )
 
 if TYPE_CHECKING:

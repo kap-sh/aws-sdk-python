@@ -1,21 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_lambda._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
-    from aws_sdk_lambda._services.async__lambda import (
-        AsyncLambdaClient,
-        AsyncLambdaClientConfig,
-    )
     import aws_sdk_lambda.types.alias
     import aws_sdk_lambda.types.alias_configuration
     import aws_sdk_lambda.types.alias_routing_configuration
@@ -30,6 +26,11 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
     import aws_sdk_lambda.types.update_alias_request
     import aws_sdk_lambda.types.version_with_latest_published
+    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
+    from aws_sdk_lambda._services.async__lambda import (
+        AsyncLambdaClient,
+        AsyncLambdaClientConfig,
+    )
 
 
 class FunctionAlias:

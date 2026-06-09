@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ChecksumMode``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_s3.errors import DeserializationError
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
+from aws_sdk_s3.errors import DeserializationError
 
 ChecksumMode: TypeAlias = Literal["ENABLED",]
 

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskDefinitionField``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 TaskDefinitionField: TypeAlias = Literal["TAGS",]

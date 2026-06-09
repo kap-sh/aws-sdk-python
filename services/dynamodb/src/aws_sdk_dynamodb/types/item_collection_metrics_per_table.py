@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_dynamodb.types.table_arn
     import aws_sdk_dynamodb.types.item_collection_metrics_multiple
+    import aws_sdk_dynamodb.types.table_arn
 
 ItemCollectionMetricsPerTable: TypeAlias = dict[
     "aws_sdk_dynamodb.types.table_arn.TableArn",

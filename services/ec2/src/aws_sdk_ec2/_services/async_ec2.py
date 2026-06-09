@@ -1,12 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AmazonEC2``."""
 
+import time
+import warnings
 from collections.abc import AsyncIterator
-from aws_sdk_ec2._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
 from typing_extensions import Self
-from typing import Optional
 from zapros import AsyncBaseHandler, AsyncClient
+
+from aws_sdk_ec2._async import anysleep
+from aws_sdk_ec2._auth._identity import Credentials
+from aws_sdk_ec2._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
 from aws_sdk_ec2._auth._zapros_handler import AuthMiddleware
+from aws_sdk_ec2._pagination import resolve_path as _resolve_path
 from aws_sdk_ec2._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -15,15 +24,7 @@ from aws_sdk_ec2._services._pipeline import (
     aexecute_pipeline,
     aretry,
 )
-from aws_sdk_ec2._async import anysleep
-import time
 from aws_sdk_ec2.errors import ServiceError, WaiterTimeoutError
-import warnings
-from aws_sdk_ec2._auth._identity import Credentials
-from aws_sdk_ec2._auth._providers import (
-    CredentialsProvider,
-    StaticAwsCredentialsProvider,
-)
 
 if TYPE_CHECKING:
     import aws_sdk_ec2.types.accept_address_transfer_request

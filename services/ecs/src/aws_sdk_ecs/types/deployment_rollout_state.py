@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeploymentRolloutState``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 DeploymentRolloutState: TypeAlias = Literal[

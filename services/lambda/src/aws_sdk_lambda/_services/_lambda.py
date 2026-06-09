@@ -1,12 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AWSGirApiService``."""
 
+import warnings
 from collections.abc import Iterator
-from aws_sdk_lambda._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
 from typing_extensions import Self
-from typing import Optional
 from zapros import BaseHandler, Client
+
+import aws_sdk_lambda._auth._signers
+import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._auth._identity import Credentials
+from aws_sdk_lambda._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
 from aws_sdk_lambda._auth._zapros_handler import AuthMiddleware
+from aws_sdk_lambda._pagination import resolve_path as _resolve_path
 from aws_sdk_lambda._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -14,14 +23,6 @@ from aws_sdk_lambda._services._pipeline import (
     OperationResponse,
     execute_pipeline,
     retry,
-)
-import warnings
-import aws_sdk_lambda._auth._signers
-import aws_sdk_lambda._auth._sigv4
-from aws_sdk_lambda._auth._identity import Credentials
-from aws_sdk_lambda._auth._providers import (
-    CredentialsProvider,
-    StaticAwsCredentialsProvider,
 )
 
 if TYPE_CHECKING:

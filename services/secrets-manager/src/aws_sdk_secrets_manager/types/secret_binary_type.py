@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#SecretBinaryType``."""
 
-from typing import TypeAlias
 import base64
+from typing import TypeAlias
 
 SecretBinaryType: TypeAlias = bytes
 

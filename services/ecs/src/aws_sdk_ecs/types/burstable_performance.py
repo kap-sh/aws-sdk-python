@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#BurstablePerformance``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 BurstablePerformance: TypeAlias = Literal[

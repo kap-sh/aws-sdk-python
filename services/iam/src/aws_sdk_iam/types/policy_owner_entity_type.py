@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#policyOwnerEntityType``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 policyOwnerEntityType: TypeAlias = Literal[
     "USER",

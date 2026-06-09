@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetObjectAttributesRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 if TYPE_CHECKING:

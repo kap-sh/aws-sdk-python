@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Body``."""
 
-from typing import TypeAlias
-from aws_sdk_s3._protocol.xml import Element, SubElement
 import base64
+from typing import TypeAlias
+
+from aws_sdk_s3._protocol.xml import Element, SubElement
 
 Body: TypeAlias = bytes
 

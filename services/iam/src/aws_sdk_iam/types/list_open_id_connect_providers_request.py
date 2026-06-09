@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListOpenIDConnectProvidersRequest``."""
 
 from typing import TypedDict
+
 from aws_sdk_iam._protocol.xml import Element
 
 

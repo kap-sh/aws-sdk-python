@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#SortOrderType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_secrets_manager.errors import DeserializationError
 
 SortOrderType: TypeAlias = Literal[

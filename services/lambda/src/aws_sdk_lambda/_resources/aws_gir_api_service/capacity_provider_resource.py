@@ -1,21 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_lambda._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
-    from aws_sdk_lambda._services.async__lambda import (
-        AsyncLambdaClient,
-        AsyncLambdaClientConfig,
-    )
     import aws_sdk_lambda.types.capacity_provider_name
     import aws_sdk_lambda.types.capacity_provider_permissions_config
     import aws_sdk_lambda.types.capacity_provider_scaling_config
@@ -38,6 +34,11 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tags
     import aws_sdk_lambda.types.update_capacity_provider_request
     import aws_sdk_lambda.types.update_capacity_provider_response
+    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
+    from aws_sdk_lambda._services.async__lambda import (
+        AsyncLambdaClient,
+        AsyncLambdaClientConfig,
+    )
 
 
 class CapacityProviderResource:

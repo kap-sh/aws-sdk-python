@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3#NotFound``."""
 
 from typing import TypedDict
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import ServiceError
 

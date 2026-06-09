@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_dynamodb.types.table_arn
     import aws_sdk_dynamodb.types.keys_and_attributes
+    import aws_sdk_dynamodb.types.table_arn
 
 BatchGetRequestMap: TypeAlias = dict[
     "aws_sdk_dynamodb.types.table_arn.TableArn",

@@ -1,16 +1,15 @@
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
+
 from aws_sdk_ecs._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
     AsyncOperationRequest,
     AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
     aexecute_pipeline,
+    execute_pipeline,
 )
 
 if TYPE_CHECKING:
-    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
-    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
     import aws_sdk_ecs.types.boxed_boolean
     import aws_sdk_ecs.types.boxed_integer
     import aws_sdk_ecs.types.compatibility_list
@@ -35,6 +34,8 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.task_definition_placement_constraints
     import aws_sdk_ecs.types.task_definition_status
     import aws_sdk_ecs.types.volume_list
+    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
+    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
 
 
 class TaskDefinitionResource:

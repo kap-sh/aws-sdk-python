@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvokeWithResponseStream``."""
 
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 import zapros
+
 from aws_sdk_lambda._services._pipeline import AsyncOperationOptions, OperationOptions
 
 if TYPE_CHECKING:

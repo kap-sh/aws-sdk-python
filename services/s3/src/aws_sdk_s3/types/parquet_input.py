@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ParquetInput``."""
 
 from typing import TypedDict
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 

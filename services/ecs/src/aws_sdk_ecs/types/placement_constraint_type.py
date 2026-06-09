@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#PlacementConstraintType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 PlacementConstraintType: TypeAlias = Literal[

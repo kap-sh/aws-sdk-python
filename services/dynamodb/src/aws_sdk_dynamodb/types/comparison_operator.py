@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ComparisonOperator``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_dynamodb.errors import DeserializationError
 
 ComparisonOperator: TypeAlias = Literal[

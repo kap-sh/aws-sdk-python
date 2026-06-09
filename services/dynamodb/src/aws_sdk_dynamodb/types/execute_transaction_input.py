@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ExecuteTransactionInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_dynamodb.errors import DeserializationError
 
 if TYPE_CHECKING:

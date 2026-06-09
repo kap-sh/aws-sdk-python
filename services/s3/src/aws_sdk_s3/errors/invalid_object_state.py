@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3#InvalidObjectState``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import ServiceError
 

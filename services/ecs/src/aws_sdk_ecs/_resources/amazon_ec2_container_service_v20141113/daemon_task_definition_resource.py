@@ -1,16 +1,15 @@
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
+
 from aws_sdk_ecs._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
     AsyncOperationRequest,
     AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
     aexecute_pipeline,
+    execute_pipeline,
 )
 
 if TYPE_CHECKING:
-    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
-    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
     import aws_sdk_ecs.types.boxed_integer
     import aws_sdk_ecs.types.daemon_container_definition_list
     import aws_sdk_ecs.types.daemon_task_definition_revision_filter
@@ -27,6 +26,8 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.sort_order
     import aws_sdk_ecs.types.string
     import aws_sdk_ecs.types.tags
+    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
+    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
 
 
 class DaemonTaskDefinitionResource:

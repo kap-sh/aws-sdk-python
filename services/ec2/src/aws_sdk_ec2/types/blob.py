@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Blob``."""
 
-from typing import TypeAlias
-from aws_sdk_ec2._protocol.xml import Element
 import base64
+from typing import TypeAlias
+
+from aws_sdk_ec2._protocol.xml import Element
 
 Blob: TypeAlias = bytes
 

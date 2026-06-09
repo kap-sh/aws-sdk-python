@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#SortOrder``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 SortOrder: TypeAlias = Literal[

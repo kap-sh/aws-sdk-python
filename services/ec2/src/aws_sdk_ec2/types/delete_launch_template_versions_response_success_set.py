@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteLaunchTemplateVersionsResponseSuccessSet``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.iam#TrackedActionsLastAccessed``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 from aws_sdk_iam._protocol.xml import Element
 
 if TYPE_CHECKING:

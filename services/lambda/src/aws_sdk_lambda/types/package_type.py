@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#PackageType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 PackageType: TypeAlias = Literal[

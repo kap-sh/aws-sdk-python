@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListResourceTagsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_kms.errors import DeserializationError
 
 if TYPE_CHECKING:

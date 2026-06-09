@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionVersionLatestPublished``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 FunctionVersionLatestPublished: TypeAlias = Literal["LATEST_PUBLISHED",]

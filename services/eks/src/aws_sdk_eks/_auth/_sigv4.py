@@ -17,9 +17,9 @@ import re
 from typing import Literal, TypedDict
 from urllib.parse import quote, unquote
 
+import zapros
 from pywhatwgurl import URLSearchParams
 from zapros import Headers, Request
-import zapros
 from zapros._utils import get_host_header_value
 
 

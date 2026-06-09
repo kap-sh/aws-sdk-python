@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonVolume``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

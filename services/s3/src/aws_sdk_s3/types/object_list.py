@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ObjectList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 if TYPE_CHECKING:

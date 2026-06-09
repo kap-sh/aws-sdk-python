@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#jobStatusType``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 jobStatusType: TypeAlias = Literal[
     "IN_PROGRESS",

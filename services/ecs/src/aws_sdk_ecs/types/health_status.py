@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#HealthStatus``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 HealthStatus: TypeAlias = Literal[

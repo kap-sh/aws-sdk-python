@@ -1,21 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_lambda._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
-    from aws_sdk_lambda._services.async__lambda import (
-        AsyncLambdaClient,
-        AsyncLambdaClientConfig,
-    )
     import aws_sdk_lambda.types.allowed_publishers
     import aws_sdk_lambda.types.code_signing_config_arn
     import aws_sdk_lambda.types.code_signing_policies
@@ -35,6 +31,11 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tags
     import aws_sdk_lambda.types.update_code_signing_config_request
     import aws_sdk_lambda.types.update_code_signing_config_response
+    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
+    from aws_sdk_lambda._services.async__lambda import (
+        AsyncLambdaClient,
+        AsyncLambdaClientConfig,
+    )
 
 
 class CodeSigningConfigResource:

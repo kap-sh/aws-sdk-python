@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutObjectRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -16,9 +17,9 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.checksum_sha1
     import aws_sdk_s3.types.checksum_sha256
     import aws_sdk_s3.types.checksum_sha512
-    import aws_sdk_s3.types.checksum_xxhash128
     import aws_sdk_s3.types.checksum_xxhash3
     import aws_sdk_s3.types.checksum_xxhash64
+    import aws_sdk_s3.types.checksum_xxhash128
     import aws_sdk_s3.types.content_disposition
     import aws_sdk_s3.types.content_encoding
     import aws_sdk_s3.types.content_language

@@ -2,6 +2,7 @@
 
 import datetime
 from typing import TypeAlias
+
 from aws_sdk_ec2._protocol.xml import Element
 
 MillisecondDateTime: TypeAlias = datetime.datetime

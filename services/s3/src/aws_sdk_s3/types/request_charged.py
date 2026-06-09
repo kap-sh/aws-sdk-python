@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RequestCharged``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_s3.errors import DeserializationError
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
+from aws_sdk_s3.errors import DeserializationError
 
 """<p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html\">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
 RequestCharged: TypeAlias = Literal["requester",]

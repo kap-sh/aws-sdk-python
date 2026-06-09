@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#SupportType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_eks.errors import DeserializationError
 
 SupportType: TypeAlias = Literal[

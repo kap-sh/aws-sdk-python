@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ReturnValuesOnConditionCheckFailure``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_dynamodb.errors import DeserializationError
 
 ReturnValuesOnConditionCheckFailure: TypeAlias = Literal[

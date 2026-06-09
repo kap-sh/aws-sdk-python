@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteLocalGatewayVirtualInterfaceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:

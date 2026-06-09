@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PermissionsBoundaryDecisionDetail``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_iam._protocol.xml import Element
 
 if TYPE_CHECKING:

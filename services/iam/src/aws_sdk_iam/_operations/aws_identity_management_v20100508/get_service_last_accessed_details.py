@@ -1,15 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetServiceLastAccessedDetails``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
+
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import urlencode
+
 import zapros
-from aws_sdk_iam.errors import UnknownServiceError
+
+import aws_sdk_iam._auth._signers
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
-from urllib.parse import urlencode
-import aws_sdk_iam._auth._signers
+from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_iam.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_iam.types.get_service_last_accessed_details_request

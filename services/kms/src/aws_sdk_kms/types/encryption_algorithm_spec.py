@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kms#EncryptionAlgorithmSpec``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_kms.errors import DeserializationError
 
 EncryptionAlgorithmSpec: TypeAlias = Literal[

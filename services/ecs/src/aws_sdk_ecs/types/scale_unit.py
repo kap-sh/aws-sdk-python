@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ScaleUnit``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 ScaleUnit: TypeAlias = Literal["PERCENT",]

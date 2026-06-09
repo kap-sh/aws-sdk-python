@@ -1,25 +1,20 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_lambda._services.async__lambda import ensure_async_iterator
-from aws_sdk_lambda._services._lambda import ensure_sync_iterator
-from aws_sdk_lambda._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
-from collections.abc import Iterator
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Iterator
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._services._lambda import ensure_sync_iterator
+from aws_sdk_lambda._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+from aws_sdk_lambda._services.async__lambda import ensure_async_iterator
 
 if TYPE_CHECKING:
-    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
-    from aws_sdk_lambda._services.async__lambda import (
-        AsyncLambdaClient,
-        AsyncLambdaClientConfig,
-    )
     import aws_sdk_lambda.types.architectures_list
     import aws_sdk_lambda.types.blob
     import aws_sdk_lambda.types.blob_stream
@@ -127,6 +122,11 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.update_function_url_config_response
     import aws_sdk_lambda.types.update_runtime_on
     import aws_sdk_lambda.types.vpc_config
+    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
+    from aws_sdk_lambda._services.async__lambda import (
+        AsyncLambdaClient,
+        AsyncLambdaClientConfig,
+    )
 
 
 class Function:

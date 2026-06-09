@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EventSourceMappingSystemLogLevel``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 EventSourceMappingSystemLogLevel: TypeAlias = Literal[

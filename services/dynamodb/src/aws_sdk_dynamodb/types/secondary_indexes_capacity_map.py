@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_dynamodb.types.index_name
     import aws_sdk_dynamodb.types.capacity
+    import aws_sdk_dynamodb.types.index_name
 
 SecondaryIndexesCapacityMap: TypeAlias = dict[
     "aws_sdk_dynamodb.types.index_name.IndexName",

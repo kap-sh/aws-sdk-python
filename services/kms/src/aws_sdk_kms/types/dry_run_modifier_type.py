@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kms#DryRunModifierType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_kms.errors import DeserializationError
 
 DryRunModifierType: TypeAlias = Literal["IGNORE_CIPHERTEXT",]

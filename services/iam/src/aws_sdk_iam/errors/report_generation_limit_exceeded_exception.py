@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ReportGenerationLimitExceededException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import ServiceError
 

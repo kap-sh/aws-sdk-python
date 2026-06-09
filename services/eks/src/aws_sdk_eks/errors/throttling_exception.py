@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ThrottlingException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_eks.errors import ServiceError
 
 if TYPE_CHECKING:

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Architecture``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 Architecture: TypeAlias = Literal[

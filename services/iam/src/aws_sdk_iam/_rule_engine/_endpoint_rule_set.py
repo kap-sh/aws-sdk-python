@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from ._aws_partition import aws_partition
 from ._endpoint_runtime import (
     Endpoint,
     EndpointError,
@@ -9,8 +10,6 @@ from ._endpoint_runtime import (
     interpolate,
     string_equals,
 )
-
-from ._aws_partition import aws_partition
 
 
 class EndpointParams:

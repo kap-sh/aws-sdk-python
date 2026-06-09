@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EkPubKeyType``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_ec2.errors import DeserializationError
+
 from aws_sdk_ec2._protocol.xml import Element
+from aws_sdk_ec2.errors import DeserializationError
 
 EkPubKeyType: TypeAlias = Literal[
     "rsa-2048",

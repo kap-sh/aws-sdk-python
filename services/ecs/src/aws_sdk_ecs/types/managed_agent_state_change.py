@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedAgentStateChange``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_ecs.errors import DeserializationError
 
 if TYPE_CHECKING:

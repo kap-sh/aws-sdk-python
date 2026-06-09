@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedAgentName``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 ManagedAgentName: TypeAlias = Literal["ExecuteCommandAgent",]

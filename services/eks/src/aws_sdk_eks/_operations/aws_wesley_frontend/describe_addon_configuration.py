@@ -1,14 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeAddonConfiguration``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from aws_sdk_eks._rule_engine._endpoint_rule_set import EndpointParams, resolve
-import zapros
-from aws_sdk_eks.errors import UnknownServiceError
-from aws_sdk_eks._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
 import aws_sdk_eks._auth._signers
+from aws_sdk_eks._protocol.errors import parse_error_metadata_json
+from aws_sdk_eks._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_eks._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_eks.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.describe_addon_configuration_request

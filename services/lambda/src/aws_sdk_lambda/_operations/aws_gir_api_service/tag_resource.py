@@ -1,15 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TagResource``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from aws_sdk_lambda._rule_engine._endpoint_rule_set import EndpointParams, resolve
-import zapros
-from urllib.parse import quote
-from aws_sdk_lambda.errors import UnknownServiceError
-from aws_sdk_lambda._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_lambda._auth._signers
+from aws_sdk_lambda._protocol.errors import parse_error_metadata_json
+from aws_sdk_lambda._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_lambda._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_lambda.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.tag_resource_request

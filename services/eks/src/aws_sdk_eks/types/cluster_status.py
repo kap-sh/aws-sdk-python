@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ClusterStatus``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_eks.errors import DeserializationError
 
 ClusterStatus: TypeAlias = Literal[

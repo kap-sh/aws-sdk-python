@@ -1,16 +1,15 @@
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
+
 from aws_sdk_ecs._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
     AsyncOperationRequest,
     AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
     aexecute_pipeline,
+    execute_pipeline,
 )
 
 if TYPE_CHECKING:
-    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
-    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
     import aws_sdk_ecs.types.boolean
     import aws_sdk_ecs.types.boxed_integer
     import aws_sdk_ecs.types.capacity_provider_strategy
@@ -37,6 +36,8 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.task_volume_configurations
     import aws_sdk_ecs.types.update_task_protection_request
     import aws_sdk_ecs.types.update_task_protection_response
+    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
+    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
 
 
 class TaskResource:

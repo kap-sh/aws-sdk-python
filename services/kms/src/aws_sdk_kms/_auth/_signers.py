@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import Generic, TypeVar
-from typing import Any
+from typing import Any, Generic, TypeVar
+
 from zapros import Request
-from aws_sdk_kms._auth._sigv4 import SigV4AuthContext, sign_sigv4
+
 from aws_sdk_kms._auth._identity import Credentials, Identity
 from aws_sdk_kms._auth._providers import IdentityProvider
+from aws_sdk_kms._auth._sigv4 import SigV4AuthContext, sign_sigv4
 
 IdentityT = TypeVar("IdentityT", bound="Identity")
 

@@ -31,6 +31,10 @@ include = ["src", "tests"]
 extraPaths = ["src"]
 pythonVersion = "3.14"
 
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
 [dependency-groups]
 dev = [
     "inline-snapshot>=0.33.0",

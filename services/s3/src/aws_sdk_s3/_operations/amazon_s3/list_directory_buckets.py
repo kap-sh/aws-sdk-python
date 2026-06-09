@@ -1,18 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListDirectoryBuckets``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
+
+from typing import TYPE_CHECKING, Any, Never
+
 import zapros
-from aws_sdk_s3.errors import UnknownServiceError
+
+import aws_sdk_s3._auth._signers
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
-import aws_sdk_s3._auth._signers
+from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_s3.errors import UnknownServiceError
 
 if TYPE_CHECKING:
-    import aws_sdk_s3.types.list_directory_buckets_request
     import aws_sdk_s3.types.list_directory_buckets_output
+    import aws_sdk_s3.types.list_directory_buckets_request
 
 
 def handle_error(response: zapros.Response) -> Never:

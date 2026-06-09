@@ -1,9 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ResourceSpecificResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_iam.types.context_key_names_result_list_type

@@ -1,21 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_lambda._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
-    from aws_sdk_lambda._services.async__lambda import (
-        AsyncLambdaClient,
-        AsyncLambdaClientConfig,
-    )
     import aws_sdk_lambda.types.amazon_managed_kafka_event_source_config
     import aws_sdk_lambda.types.arn
     import aws_sdk_lambda.types.batch_size
@@ -53,6 +49,11 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.topics
     import aws_sdk_lambda.types.tumbling_window_in_seconds
     import aws_sdk_lambda.types.update_event_source_mapping_request
+    from aws_sdk_lambda._services._lambda import LambdaClient, LambdaClientConfig
+    from aws_sdk_lambda._services.async__lambda import (
+        AsyncLambdaClient,
+        AsyncLambdaClientConfig,
+    )
 
 
 class EventSourceMapping:

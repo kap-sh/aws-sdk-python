@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_dynamodb.types.expression_attribute_name_variable
     import aws_sdk_dynamodb.types.attribute_name
+    import aws_sdk_dynamodb.types.expression_attribute_name_variable
 
 ExpressionAttributeNameMap: TypeAlias = dict[
     "aws_sdk_dynamodb.types.expression_attribute_name_variable.ExpressionAttributeNameVariable",

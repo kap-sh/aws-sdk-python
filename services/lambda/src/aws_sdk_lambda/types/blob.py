@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Blob``."""
 
-from typing import TypeAlias
 import base64
+from typing import TypeAlias
 
 Blob: TypeAlias = bytes
 

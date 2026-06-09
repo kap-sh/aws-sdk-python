@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeleteUserPolicyRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_iam.types.existing_user_name_type

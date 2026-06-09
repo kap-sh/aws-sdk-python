@@ -6,9 +6,6 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Awaitable, Callable, Generic, TypeVar
 
-from aws_sdk_ecs._async import anysleep
-from aws_sdk_ecs._auth._providers import CredentialsProvider
-from aws_sdk_ecs.errors import ServiceError
 from zapros import (
     AsyncClient,
     Client,
@@ -17,6 +14,10 @@ from zapros import (
     SSLError,
     TimeoutError,
 )
+
+from aws_sdk_ecs._async import anysleep
+from aws_sdk_ecs._auth._providers import CredentialsProvider
+from aws_sdk_ecs.errors import ServiceError
 
 TInput = TypeVar("TInput")
 TOutput = TypeVar("TOutput")

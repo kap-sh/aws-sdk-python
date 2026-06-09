@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#VersionStatus``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_eks.errors import DeserializationError
 
 VersionStatus: TypeAlias = Literal[

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#StatusType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_secrets_manager.errors import DeserializationError
 
 StatusType: TypeAlias = Literal[

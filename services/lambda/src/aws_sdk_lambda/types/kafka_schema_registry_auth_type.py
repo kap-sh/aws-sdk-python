@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#KafkaSchemaRegistryAuthType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 KafkaSchemaRegistryAuthType: TypeAlias = Literal[

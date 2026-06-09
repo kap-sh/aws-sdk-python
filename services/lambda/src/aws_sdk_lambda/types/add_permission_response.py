@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AddPermissionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

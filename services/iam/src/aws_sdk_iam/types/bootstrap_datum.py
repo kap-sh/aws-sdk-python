@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#BootstrapDatum``."""
 
-from typing import TypeAlias
-from aws_sdk_iam._protocol.xml import Element
 import base64
+from typing import TypeAlias
+
+from aws_sdk_iam._protocol.xml import Element
 
 BootstrapDatum: TypeAlias = bytes
 

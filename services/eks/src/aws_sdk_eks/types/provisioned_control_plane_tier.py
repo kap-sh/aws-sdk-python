@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ProvisionedControlPlaneTier``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_eks.errors import DeserializationError
 
 ProvisionedControlPlaneTier: TypeAlias = Literal[

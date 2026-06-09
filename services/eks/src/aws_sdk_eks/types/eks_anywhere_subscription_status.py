@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#EksAnywhereSubscriptionStatus``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_eks.errors import DeserializationError
 
 EksAnywhereSubscriptionStatus: TypeAlias = Literal[

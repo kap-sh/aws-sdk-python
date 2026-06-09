@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kms#PublicKeyType``."""
 
-from typing import TypeAlias
 import base64
+from typing import TypeAlias
 
 PublicKeyType: TypeAlias = bytes
 

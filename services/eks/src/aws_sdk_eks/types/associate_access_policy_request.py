@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AssociateAccessPolicyRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_eks.errors import DeserializationError
 
 if TYPE_CHECKING:

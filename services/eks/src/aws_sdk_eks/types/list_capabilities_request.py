@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListCapabilitiesRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

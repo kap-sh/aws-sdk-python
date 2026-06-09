@@ -1,16 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.s3#AmazonS3``."""
 
+import time
+import warnings
+from collections.abc import AsyncGenerator, AsyncIterator
+from contextlib import asynccontextmanager
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+import aws_sdk_s3._auth._signers
+import aws_sdk_s3._auth._sigv4
+from aws_sdk_s3._async import anysleep
+from aws_sdk_s3._auth._identity import Credentials
+from aws_sdk_s3._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
 from aws_sdk_s3._auth._signers import SigV4Signer
 from aws_sdk_s3._auth._sigv4 import presign_sigv4
-from collections.abc import AsyncIterator
-from collections.abc import AsyncGenerator
-from contextlib import asynccontextmanager
-from aws_sdk_s3._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import AsyncBaseHandler, AsyncClient
 from aws_sdk_s3._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3._pagination import resolve_path as _resolve_path
 from aws_sdk_s3._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -19,17 +29,7 @@ from aws_sdk_s3._services._pipeline import (
     aexecute_pipeline,
     aretry,
 )
-from aws_sdk_s3._async import anysleep
-import time
 from aws_sdk_s3.errors import ServiceError, WaiterTimeoutError
-import warnings
-import aws_sdk_s3._auth._signers
-import aws_sdk_s3._auth._sigv4
-from aws_sdk_s3._auth._identity import Credentials
-from aws_sdk_s3._auth._providers import (
-    CredentialsProvider,
-    StaticAwsCredentialsProvider,
-)
 
 if TYPE_CHECKING:
     import aws_sdk_s3.types.abac_status
@@ -61,9 +61,9 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.checksum_sha256
     import aws_sdk_s3.types.checksum_sha512
     import aws_sdk_s3.types.checksum_type
-    import aws_sdk_s3.types.checksum_xxhash128
     import aws_sdk_s3.types.checksum_xxhash3
     import aws_sdk_s3.types.checksum_xxhash64
+    import aws_sdk_s3.types.checksum_xxhash128
     import aws_sdk_s3.types.client_token
     import aws_sdk_s3.types.complete_multipart_upload_output
     import aws_sdk_s3.types.complete_multipart_upload_request

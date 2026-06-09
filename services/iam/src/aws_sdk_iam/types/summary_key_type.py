@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#summaryKeyType``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 summaryKeyType: TypeAlias = Literal[
     "Users",

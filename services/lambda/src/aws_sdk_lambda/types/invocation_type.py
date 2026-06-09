@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvocationType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 InvocationType: TypeAlias = Literal[

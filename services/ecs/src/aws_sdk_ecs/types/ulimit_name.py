@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#UlimitName``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_ecs.errors import DeserializationError
 
 UlimitName: TypeAlias = Literal[

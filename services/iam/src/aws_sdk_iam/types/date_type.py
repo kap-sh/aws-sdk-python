@@ -2,6 +2,7 @@
 
 import datetime
 from typing import TypeAlias
+
 from aws_sdk_iam._protocol.xml import Element
 
 dateType: TypeAlias = datetime.datetime

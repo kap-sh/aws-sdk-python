@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetAccountPasswordPolicyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 if TYPE_CHECKING:
     import aws_sdk_iam.types.password_policy

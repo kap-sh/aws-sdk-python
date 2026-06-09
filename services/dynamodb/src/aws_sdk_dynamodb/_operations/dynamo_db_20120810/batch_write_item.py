@@ -1,15 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchWriteItem``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from aws_sdk_dynamodb._rule_engine._endpoint_rule_set import EndpointParams, resolve
+
+import json
+from typing import TYPE_CHECKING, Any, Never
+
 import jmespath
 import zapros
-from aws_sdk_dynamodb.errors import UnknownServiceError
-from aws_sdk_dynamodb._protocol.errors import parse_error_metadata_json
-import json
+
 import aws_sdk_dynamodb._auth._signers
+from aws_sdk_dynamodb._protocol.errors import parse_error_metadata_json
+from aws_sdk_dynamodb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dynamodb._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_dynamodb.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.batch_write_item_input

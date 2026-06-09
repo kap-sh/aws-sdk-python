@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kms#MacAlgorithmSpec``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_kms.errors import DeserializationError
 
 MacAlgorithmSpec: TypeAlias = Literal[

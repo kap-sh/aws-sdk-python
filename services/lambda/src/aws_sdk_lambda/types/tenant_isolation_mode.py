@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TenantIsolationMode``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_lambda.errors import DeserializationError
 
 TenantIsolationMode: TypeAlias = Literal["PER_TENANT",]

@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.s3#SelectObjectContent``."""
 
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 import zapros
+
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 
 if TYPE_CHECKING:
-    import aws_sdk_s3.types.select_object_content_request
     import aws_sdk_s3.types.select_object_content_output
+    import aws_sdk_s3.types.select_object_content_request
 
 
 def build_request(

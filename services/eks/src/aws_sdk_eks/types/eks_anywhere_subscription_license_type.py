@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.eks#EksAnywhereSubscriptionLicenseType``."""
 
 from typing import Literal, TypeAlias, cast
+
 from aws_sdk_eks.errors import DeserializationError
 
 EksAnywhereSubscriptionLicenseType: TypeAlias = Literal["Cluster",]

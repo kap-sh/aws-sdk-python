@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kms#AttestationDocumentType``."""
 
-from typing import TypeAlias
 import base64
+from typing import TypeAlias
 
 AttestationDocumentType: TypeAlias = bytes
 

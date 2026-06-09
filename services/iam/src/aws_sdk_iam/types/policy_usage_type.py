@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PolicyUsageType``."""
 
 from typing import Literal, TypeAlias, cast
-from aws_sdk_iam.errors import DeserializationError
+
 from aws_sdk_iam._protocol.xml import Element
+from aws_sdk_iam.errors import DeserializationError
 
 """<p>The policy usage type that indicates whether the policy is used as a permissions policy or as the permissions boundary for an entity.</p> <p>For more information about permissions boundaries, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>"""
 PolicyUsageType: TypeAlias = Literal[

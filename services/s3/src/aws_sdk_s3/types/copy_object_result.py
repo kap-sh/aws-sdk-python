@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CopyObjectResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 if TYPE_CHECKING:
@@ -13,9 +15,9 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.checksum_sha256
     import aws_sdk_s3.types.checksum_sha512
     import aws_sdk_s3.types.checksum_type
-    import aws_sdk_s3.types.checksum_xxhash128
     import aws_sdk_s3.types.checksum_xxhash3
     import aws_sdk_s3.types.checksum_xxhash64
+    import aws_sdk_s3.types.checksum_xxhash128
     import aws_sdk_s3.types.e_tag
     import aws_sdk_s3.types.last_modified
 

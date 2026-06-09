@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#BinaryOperationPayload``."""
 
-from typing import TypeAlias
 import base64
+from typing import TypeAlias
 
 BinaryOperationPayload: TypeAlias = bytes
 

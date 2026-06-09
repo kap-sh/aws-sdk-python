@@ -1,16 +1,15 @@
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
+
 from aws_sdk_ecs._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
     AsyncOperationRequest,
     AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
     aexecute_pipeline,
+    execute_pipeline,
 )
 
 if TYPE_CHECKING:
-    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
-    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
     import aws_sdk_ecs.types.auto_scaling_group_provider
     import aws_sdk_ecs.types.auto_scaling_group_provider_update
     import aws_sdk_ecs.types.boxed_integer
@@ -28,6 +27,8 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.update_capacity_provider_request
     import aws_sdk_ecs.types.update_capacity_provider_response
     import aws_sdk_ecs.types.update_managed_instances_provider_configuration
+    from aws_sdk_ecs._services.async_ecs import AsyncECSClient, AsyncECSClientConfig
+    from aws_sdk_ecs._services.ecs import ECSClient, ECSClientConfig
 
 
 class CapacityProviderResource:
