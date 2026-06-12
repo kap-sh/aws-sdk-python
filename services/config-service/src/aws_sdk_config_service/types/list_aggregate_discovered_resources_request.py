@@ -1,0 +1,91 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#ListAggregateDiscoveredResourcesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_config_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_config_service.types.configuration_aggregator_name
+    import aws_sdk_config_service.types.limit
+    import aws_sdk_config_service.types.next_token
+    import aws_sdk_config_service.types.resource_filters
+    import aws_sdk_config_service.types.resource_type
+
+
+class ListAggregateDiscoveredResourcesRequest(TypedDict):
+    configuration_aggregator_name: "aws_sdk_config_service.types.configuration_aggregator_name.ConfigurationAggregatorName"
+    """<p>The name of the configuration aggregator. </p>"""
+    resource_type: "aws_sdk_config_service.types.resource_type.ResourceType"
+    """<p>The type of resources that you want Config to list in the response.</p>"""
+    filters: NotRequired[
+        "aws_sdk_config_service.types.resource_filters.ResourceFilters"
+    ]
+    """<p>Filters the results based on the <code>ResourceFilters</code> object.</p>"""
+    limit: "aws_sdk_config_service.types.limit.Limit"
+    """<p>The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>"""
+    next_token: NotRequired["aws_sdk_config_service.types.next_token.NextToken"]
+    """<p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListAggregateDiscoveredResourcesRequest) -> dict:
+    out: dict = {}
+    out["ConfigurationAggregatorName"] = value["configuration_aggregator_name"]
+    import aws_sdk_config_service.types.resource_type
+
+    out["ResourceType"] = (
+        aws_sdk_config_service.types.resource_type.serialize_aws_json_1_1(
+            value["resource_type"]
+        )
+    )
+    if "filters" in value:
+        import aws_sdk_config_service.types.resource_filters
+
+        out["Filters"] = (
+            aws_sdk_config_service.types.resource_filters.serialize_aws_json_1_1(
+                value["filters"]
+            )
+        )
+    out["Limit"] = value.get("limit", 0)
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListAggregateDiscoveredResourcesRequest:
+    out: ListAggregateDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
+    if "ConfigurationAggregatorName" in data:
+        out["configuration_aggregator_name"] = data["ConfigurationAggregatorName"]
+    else:
+        raise DeserializationError(
+            "ListAggregateDiscoveredResourcesRequest.configuration_aggregator_name required"
+        )
+    if "ResourceType" in data:
+        import aws_sdk_config_service.types.resource_type
+
+        out["resource_type"] = (
+            aws_sdk_config_service.types.resource_type.deserialize_aws_json_1_1(
+                data["ResourceType"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListAggregateDiscoveredResourcesRequest.resource_type required"
+        )
+    if "Filters" in data:
+        import aws_sdk_config_service.types.resource_filters
+
+        out["filters"] = (
+            aws_sdk_config_service.types.resource_filters.deserialize_aws_json_1_1(
+                data["Filters"]
+            )
+        )
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    else:
+        out["limit"] = 0
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

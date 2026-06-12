@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalytics#KinesisStreamsOutputDescription``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis_analytics.types.resource_arn
+    import aws_sdk_kinesis_analytics.types.role_arn
+
+
+class KinesisStreamsOutputDescription(TypedDict):
+    resource_arn: NotRequired[
+        "aws_sdk_kinesis_analytics.types.resource_arn.ResourceARN"
+    ]
+    """<p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>"""
+    role_arn: NotRequired["aws_sdk_kinesis_analytics.types.role_arn.RoleARN"]
+    """<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: KinesisStreamsOutputDescription) -> dict:
+    out: dict = {}
+    if "resource_arn" in value:
+        out["ResourceARN"] = value["resource_arn"]
+    if "role_arn" in value:
+        out["RoleARN"] = value["role_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> KinesisStreamsOutputDescription:
+    out: KinesisStreamsOutputDescription = {}  # type: ignore[typeddict-item]
+    if "ResourceARN" in data:
+        out["resource_arn"] = data["ResourceARN"]
+    if "RoleARN" in data:
+        out["role_arn"] = data["RoleARN"]
+    return out

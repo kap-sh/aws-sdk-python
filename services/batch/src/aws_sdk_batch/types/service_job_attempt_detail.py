@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#ServiceJobAttemptDetail``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_batch.types.long
+    import aws_sdk_batch.types.service_resource_id
+    import aws_sdk_batch.types.string
+
+
+class ServiceJobAttemptDetail(TypedDict):
+    service_resource_id: NotRequired[
+        "aws_sdk_batch.types.service_resource_id.ServiceResourceId"
+    ]
+    """<p>The service resource identifier associated with the service job attempt.</p>"""
+    started_at: NotRequired["aws_sdk_batch.types.long.Long"]
+    """<p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>"""
+    stopped_at: NotRequired["aws_sdk_batch.types.long.Long"]
+    """<p>The Unix timestamp (in milliseconds) for when the service job attempt stopped running.</p>"""
+    status_reason: NotRequired["aws_sdk_batch.types.string.String"]
+    """<p>A string that provides additional details for the current status of the service job attempt.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ServiceJobAttemptDetail) -> dict:
+    out: dict = {}
+    if "service_resource_id" in value:
+        import aws_sdk_batch.types.service_resource_id
+
+        out["serviceResourceId"] = (
+            aws_sdk_batch.types.service_resource_id.serialize_json(
+                value["service_resource_id"]
+            )
+        )
+    if "started_at" in value:
+        out["startedAt"] = value["started_at"]
+    if "stopped_at" in value:
+        out["stoppedAt"] = value["stopped_at"]
+    if "status_reason" in value:
+        out["statusReason"] = value["status_reason"]
+    return out
+
+
+def deserialize_json(data: dict) -> ServiceJobAttemptDetail:
+    out: ServiceJobAttemptDetail = {}  # type: ignore[typeddict-item]
+    if "serviceResourceId" in data:
+        import aws_sdk_batch.types.service_resource_id
+
+        out["service_resource_id"] = (
+            aws_sdk_batch.types.service_resource_id.deserialize_json(
+                data["serviceResourceId"]
+            )
+        )
+    if "startedAt" in data:
+        out["started_at"] = data["startedAt"]
+    if "stoppedAt" in data:
+        out["stopped_at"] = data["stoppedAt"]
+    if "statusReason" in data:
+        out["status_reason"] = data["statusReason"]
+    return out

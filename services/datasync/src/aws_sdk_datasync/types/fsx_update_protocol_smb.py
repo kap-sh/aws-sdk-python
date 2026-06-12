@@ -1,0 +1,104 @@
+"""Generated from Smithy shape ``com.amazonaws.datasync#FsxUpdateProtocolSmb``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_datasync.types.cmk_secret_config
+    import aws_sdk_datasync.types.custom_secret_config
+    import aws_sdk_datasync.types.smb_mount_options
+    import aws_sdk_datasync.types.smb_password
+    import aws_sdk_datasync.types.smb_user
+    import aws_sdk_datasync.types.update_smb_domain
+
+
+class FsxUpdateProtocolSmb(TypedDict):
+    domain: NotRequired["aws_sdk_datasync.types.update_smb_domain.UpdateSmbDomain"]
+    """<p>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.</p> <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.</p>"""
+    mount_options: NotRequired[
+        "aws_sdk_datasync.types.smb_mount_options.SmbMountOptions"
+    ]
+    password: NotRequired["aws_sdk_datasync.types.smb_password.SmbPassword"]
+    """<p>Specifies the password of a user who has permission to access your SVM.</p>"""
+    user: NotRequired["aws_sdk_datasync.types.smb_user.SmbUser"]
+    """<p>Specifies a user that can mount and access the files, folders, and metadata in your SVM.</p> <p>For information about choosing a user with the right level of access for your transfer, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-smb\">Using the SMB protocol</a>.</p>"""
+    cmk_secret_config: NotRequired[
+        "aws_sdk_datasync.types.cmk_secret_config.CmkSecretConfig"
+    ]
+    """<p>Specifies configuration information for a DataSync-managed secret, such as a <code>Password</code> or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed KMS key.</p>"""
+    custom_secret_config: NotRequired[
+        "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
+    ]
+    """<p>Specifies configuration information for a customer-managed secret, such as a <code>Password</code> or set of credentials that DataSync uses to access a specific transfer location. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: FsxUpdateProtocolSmb) -> dict:
+    out: dict = {}
+    if "domain" in value:
+        out["Domain"] = value["domain"]
+    if "mount_options" in value:
+        import aws_sdk_datasync.types.smb_mount_options
+
+        out["MountOptions"] = (
+            aws_sdk_datasync.types.smb_mount_options.serialize_aws_json_1_1(
+                value["mount_options"]
+            )
+        )
+    if "password" in value:
+        out["Password"] = value["password"]
+    if "user" in value:
+        out["User"] = value["user"]
+    if "cmk_secret_config" in value:
+        import aws_sdk_datasync.types.cmk_secret_config
+
+        out["CmkSecretConfig"] = (
+            aws_sdk_datasync.types.cmk_secret_config.serialize_aws_json_1_1(
+                value["cmk_secret_config"]
+            )
+        )
+    if "custom_secret_config" in value:
+        import aws_sdk_datasync.types.custom_secret_config
+
+        out["CustomSecretConfig"] = (
+            aws_sdk_datasync.types.custom_secret_config.serialize_aws_json_1_1(
+                value["custom_secret_config"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> FsxUpdateProtocolSmb:
+    out: FsxUpdateProtocolSmb = {}  # type: ignore[typeddict-item]
+    if "Domain" in data:
+        out["domain"] = data["Domain"]
+    if "MountOptions" in data:
+        import aws_sdk_datasync.types.smb_mount_options
+
+        out["mount_options"] = (
+            aws_sdk_datasync.types.smb_mount_options.deserialize_aws_json_1_1(
+                data["MountOptions"]
+            )
+        )
+    if "Password" in data:
+        out["password"] = data["Password"]
+    if "User" in data:
+        out["user"] = data["User"]
+    if "CmkSecretConfig" in data:
+        import aws_sdk_datasync.types.cmk_secret_config
+
+        out["cmk_secret_config"] = (
+            aws_sdk_datasync.types.cmk_secret_config.deserialize_aws_json_1_1(
+                data["CmkSecretConfig"]
+            )
+        )
+    if "CustomSecretConfig" in data:
+        import aws_sdk_datasync.types.custom_secret_config
+
+        out["custom_secret_config"] = (
+            aws_sdk_datasync.types.custom_secret_config.deserialize_aws_json_1_1(
+                data["CustomSecretConfig"]
+            )
+        )
+    return out

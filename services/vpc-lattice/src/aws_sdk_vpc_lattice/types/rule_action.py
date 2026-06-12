@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.vpclattice#RuleAction``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_vpc_lattice.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_vpc_lattice.types.fixed_response_action
+    import aws_sdk_vpc_lattice.types.forward_action
+
+
+class _RuleAction_forward(TypedDict):
+    forward: "aws_sdk_vpc_lattice.types.forward_action.ForwardAction"
+
+
+class _RuleAction_fixedResponse(TypedDict):
+    fixedResponse: "aws_sdk_vpc_lattice.types.fixed_response_action.FixedResponseAction"
+
+
+RuleAction: TypeAlias = _RuleAction_forward | _RuleAction_fixedResponse
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RuleAction) -> dict:
+    if "forward" in value:
+        import aws_sdk_vpc_lattice.types.forward_action
+
+        return {
+            "forward": aws_sdk_vpc_lattice.types.forward_action.serialize_json(
+                value["forward"]
+            )
+        }
+    elif "fixedResponse" in value:
+        import aws_sdk_vpc_lattice.types.fixed_response_action
+
+        return {
+            "fixedResponse": aws_sdk_vpc_lattice.types.fixed_response_action.serialize_json(
+                value["fixedResponse"]
+            )
+        }
+    else:
+        raise SerializationError("RuleAction: no variant present")
+
+
+def deserialize_json(data: dict) -> RuleAction:
+    if "forward" in data:
+        import aws_sdk_vpc_lattice.types.forward_action
+
+        return {
+            "forward": aws_sdk_vpc_lattice.types.forward_action.deserialize_json(
+                data["forward"]
+            )
+        }
+    elif "fixedResponse" in data:
+        import aws_sdk_vpc_lattice.types.fixed_response_action
+
+        return {
+            "fixedResponse": aws_sdk_vpc_lattice.types.fixed_response_action.deserialize_json(
+                data["fixedResponse"]
+            )
+        }
+    else:
+        raise DeserializationError("RuleAction: no recognized variant key")

@@ -1,0 +1,129 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointemail#GetConfigurationSetResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint_email.types.configuration_set_name
+    import aws_sdk_pinpoint_email.types.delivery_options
+    import aws_sdk_pinpoint_email.types.reputation_options
+    import aws_sdk_pinpoint_email.types.sending_options
+    import aws_sdk_pinpoint_email.types.tag_list
+    import aws_sdk_pinpoint_email.types.tracking_options
+
+
+class GetConfigurationSetResponse(TypedDict):
+    configuration_set_name: NotRequired[
+        "aws_sdk_pinpoint_email.types.configuration_set_name.ConfigurationSetName"
+    ]
+    """<p>The name of the configuration set.</p>"""
+    tracking_options: NotRequired[
+        "aws_sdk_pinpoint_email.types.tracking_options.TrackingOptions"
+    ]
+    """<p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>"""
+    delivery_options: NotRequired[
+        "aws_sdk_pinpoint_email.types.delivery_options.DeliveryOptions"
+    ]
+    """<p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>"""
+    reputation_options: NotRequired[
+        "aws_sdk_pinpoint_email.types.reputation_options.ReputationOptions"
+    ]
+    """<p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails that you send that use the configuration set.</p>"""
+    sending_options: NotRequired[
+        "aws_sdk_pinpoint_email.types.sending_options.SendingOptions"
+    ]
+    """<p>An object that defines whether or not Amazon Pinpoint can send email that you send using the configuration set.</p>"""
+    tags: NotRequired["aws_sdk_pinpoint_email.types.tag_list.TagList"]
+    """<p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetConfigurationSetResponse) -> dict:
+    out: dict = {}
+    if "configuration_set_name" in value:
+        out["ConfigurationSetName"] = value["configuration_set_name"]
+    if "tracking_options" in value:
+        import aws_sdk_pinpoint_email.types.tracking_options
+
+        out["TrackingOptions"] = (
+            aws_sdk_pinpoint_email.types.tracking_options.serialize_json(
+                value["tracking_options"]
+            )
+        )
+    if "delivery_options" in value:
+        import aws_sdk_pinpoint_email.types.delivery_options
+
+        out["DeliveryOptions"] = (
+            aws_sdk_pinpoint_email.types.delivery_options.serialize_json(
+                value["delivery_options"]
+            )
+        )
+    if "reputation_options" in value:
+        import aws_sdk_pinpoint_email.types.reputation_options
+
+        out["ReputationOptions"] = (
+            aws_sdk_pinpoint_email.types.reputation_options.serialize_json(
+                value["reputation_options"]
+            )
+        )
+    if "sending_options" in value:
+        import aws_sdk_pinpoint_email.types.sending_options
+
+        out["SendingOptions"] = (
+            aws_sdk_pinpoint_email.types.sending_options.serialize_json(
+                value["sending_options"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_pinpoint_email.types.tag_list
+
+        out["Tags"] = aws_sdk_pinpoint_email.types.tag_list.serialize_json(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetConfigurationSetResponse:
+    out: GetConfigurationSetResponse = {}  # type: ignore[typeddict-item]
+    if "ConfigurationSetName" in data:
+        out["configuration_set_name"] = data["ConfigurationSetName"]
+    if "TrackingOptions" in data:
+        import aws_sdk_pinpoint_email.types.tracking_options
+
+        out["tracking_options"] = (
+            aws_sdk_pinpoint_email.types.tracking_options.deserialize_json(
+                data["TrackingOptions"]
+            )
+        )
+    if "DeliveryOptions" in data:
+        import aws_sdk_pinpoint_email.types.delivery_options
+
+        out["delivery_options"] = (
+            aws_sdk_pinpoint_email.types.delivery_options.deserialize_json(
+                data["DeliveryOptions"]
+            )
+        )
+    if "ReputationOptions" in data:
+        import aws_sdk_pinpoint_email.types.reputation_options
+
+        out["reputation_options"] = (
+            aws_sdk_pinpoint_email.types.reputation_options.deserialize_json(
+                data["ReputationOptions"]
+            )
+        )
+    if "SendingOptions" in data:
+        import aws_sdk_pinpoint_email.types.sending_options
+
+        out["sending_options"] = (
+            aws_sdk_pinpoint_email.types.sending_options.deserialize_json(
+                data["SendingOptions"]
+            )
+        )
+    if "Tags" in data:
+        import aws_sdk_pinpoint_email.types.tag_list
+
+        out["tags"] = aws_sdk_pinpoint_email.types.tag_list.deserialize_json(
+            data["Tags"]
+        )
+    return out

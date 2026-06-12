@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#OrganizationConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.non_empty_string
+    import aws_sdk_securityhub.types.organization_configuration_configuration_type
+    import aws_sdk_securityhub.types.organization_configuration_status
+
+
+class OrganizationConfiguration(TypedDict):
+    configuration_type: NotRequired[
+        "aws_sdk_securityhub.types.organization_configuration_configuration_type.OrganizationConfigurationConfigurationType"
+    ]
+    """<p> Indicates whether the organization uses local or central configuration. </p> <p>If you use local configuration, the Security Hub CSPM delegated administrator can set <code>AutoEnable</code> to <code>true</code> and <code>AutoEnableStandards</code> to <code>DEFAULT</code>. This automatically enables Security Hub CSPM and default security standards in new organization accounts. These new account settings must be set separately in each Amazon Web Services Region, and settings may be different in each Region. </p> <p> If you use central configuration, the delegated administrator can create configuration policies. Configuration policies can be used to configure Security Hub CSPM, security standards, and security controls in multiple accounts and Regions. If you want new organization accounts to use a specific configuration, you can create a configuration policy and associate it with the root or specific organizational units (OUs). New accounts will inherit the policy from the root or their assigned OU. </p>"""
+    status: NotRequired[
+        "aws_sdk_securityhub.types.organization_configuration_status.OrganizationConfigurationStatus"
+    ]
+    """<p> Describes whether central configuration could be enabled as the <code>ConfigurationType</code> for the organization. If your <code>ConfigurationType</code> is local configuration, then the value of <code>Status</code> is always <code>ENABLED</code>. </p>"""
+    status_message: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p> Provides an explanation if the value of <code>Status</code> is equal to <code>FAILED</code> when <code>ConfigurationType</code> is equal to <code>CENTRAL</code>. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: OrganizationConfiguration) -> dict:
+    out: dict = {}
+    if "configuration_type" in value:
+        import aws_sdk_securityhub.types.organization_configuration_configuration_type
+
+        out["ConfigurationType"] = (
+            aws_sdk_securityhub.types.organization_configuration_configuration_type.serialize_json(
+                value["configuration_type"]
+            )
+        )
+    if "status" in value:
+        import aws_sdk_securityhub.types.organization_configuration_status
+
+        out["Status"] = (
+            aws_sdk_securityhub.types.organization_configuration_status.serialize_json(
+                value["status"]
+            )
+        )
+    if "status_message" in value:
+        out["StatusMessage"] = value["status_message"]
+    return out
+
+
+def deserialize_json(data: dict) -> OrganizationConfiguration:
+    out: OrganizationConfiguration = {}  # type: ignore[typeddict-item]
+    if "ConfigurationType" in data:
+        import aws_sdk_securityhub.types.organization_configuration_configuration_type
+
+        out["configuration_type"] = (
+            aws_sdk_securityhub.types.organization_configuration_configuration_type.deserialize_json(
+                data["ConfigurationType"]
+            )
+        )
+    if "Status" in data:
+        import aws_sdk_securityhub.types.organization_configuration_status
+
+        out["status"] = (
+            aws_sdk_securityhub.types.organization_configuration_status.deserialize_json(
+                data["Status"]
+            )
+        )
+    if "StatusMessage" in data:
+        out["status_message"] = data["StatusMessage"]
+    return out

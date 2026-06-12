@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcases#CustomFieldsFilter``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from aws_sdk_connectcases.errors import DeserializationError, SerializationError
+if TYPE_CHECKING:
+    import aws_sdk_connectcases.types.custom_fields_filter_list
+    import aws_sdk_connectcases.types.field_filter
+    import aws_sdk_connectcases.types.custom_fields_filter_list
+    import aws_sdk_connectcases.types.custom_fields_filter
+
+class _CustomFieldsFilter_field(TypedDict):
+    field: "aws_sdk_connectcases.types.field_filter.FieldFilter"
+
+
+class _CustomFieldsFilter_not(TypedDict):
+    not: "aws_sdk_connectcases.types.custom_fields_filter.CustomFieldsFilter"
+
+
+class _CustomFieldsFilter_andAll(TypedDict):
+    andAll: "aws_sdk_connectcases.types.custom_fields_filter_list.CustomFieldsFilterList"
+
+
+class _CustomFieldsFilter_orAll(TypedDict):
+    orAll: "aws_sdk_connectcases.types.custom_fields_filter_list.CustomFieldsFilterList"
+
+CustomFieldsFilter: TypeAlias = _CustomFieldsFilter_field | _CustomFieldsFilter_not | _CustomFieldsFilter_andAll | _CustomFieldsFilter_orAll
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CustomFieldsFilter) -> dict:
+    if "field" in value:
+        import aws_sdk_connectcases.types.field_filter
+        return {"field": aws_sdk_connectcases.types.field_filter.serialize_json(value["field"])}
+    elif "not" in value:
+        import aws_sdk_connectcases.types.custom_fields_filter
+        return {"not": aws_sdk_connectcases.types.custom_fields_filter.serialize_json(value["not"])}
+    elif "andAll" in value:
+        import aws_sdk_connectcases.types.custom_fields_filter_list
+        return {"andAll": aws_sdk_connectcases.types.custom_fields_filter_list.serialize_json(value["andAll"])}
+    elif "orAll" in value:
+        import aws_sdk_connectcases.types.custom_fields_filter_list
+        return {"orAll": aws_sdk_connectcases.types.custom_fields_filter_list.serialize_json(value["orAll"])}
+    else:
+        raise SerializationError("CustomFieldsFilter: no variant present")
+
+
+def deserialize_json(data: dict) -> CustomFieldsFilter:
+    if "field" in data:
+        import aws_sdk_connectcases.types.field_filter
+        return {"field": aws_sdk_connectcases.types.field_filter.deserialize_json(data["field"])}
+    elif "not" in data:
+        import aws_sdk_connectcases.types.custom_fields_filter
+        return {"not": aws_sdk_connectcases.types.custom_fields_filter.deserialize_json(data["not"])}
+    elif "andAll" in data:
+        import aws_sdk_connectcases.types.custom_fields_filter_list
+        return {"andAll": aws_sdk_connectcases.types.custom_fields_filter_list.deserialize_json(data["andAll"])}
+    elif "orAll" in data:
+        import aws_sdk_connectcases.types.custom_fields_filter_list
+        return {"orAll": aws_sdk_connectcases.types.custom_fields_filter_list.deserialize_json(data["orAll"])}
+    else:
+        raise DeserializationError("CustomFieldsFilter: no recognized variant key")

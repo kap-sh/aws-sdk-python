@@ -1,0 +1,1261 @@
+from typing import TYPE_CHECKING, Optional
+
+import aws_sdk_simspaceweaver._auth._signers
+import aws_sdk_simspaceweaver._auth._sigv4
+from aws_sdk_simspaceweaver._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_simspaceweaver.types.client_token
+    import aws_sdk_simspaceweaver.types.create_snapshot_input
+    import aws_sdk_simspaceweaver.types.create_snapshot_output
+    import aws_sdk_simspaceweaver.types.delete_app_input
+    import aws_sdk_simspaceweaver.types.delete_app_output
+    import aws_sdk_simspaceweaver.types.delete_simulation_input
+    import aws_sdk_simspaceweaver.types.delete_simulation_output
+    import aws_sdk_simspaceweaver.types.describe_app_input
+    import aws_sdk_simspaceweaver.types.describe_app_output
+    import aws_sdk_simspaceweaver.types.describe_simulation_input
+    import aws_sdk_simspaceweaver.types.describe_simulation_output
+    import aws_sdk_simspaceweaver.types.description
+    import aws_sdk_simspaceweaver.types.launch_overrides
+    import aws_sdk_simspaceweaver.types.list_apps_input
+    import aws_sdk_simspaceweaver.types.list_apps_output
+    import aws_sdk_simspaceweaver.types.list_simulations_input
+    import aws_sdk_simspaceweaver.types.list_simulations_output
+    import aws_sdk_simspaceweaver.types.optional_string
+    import aws_sdk_simspaceweaver.types.positive_integer
+    import aws_sdk_simspaceweaver.types.role_arn
+    import aws_sdk_simspaceweaver.types.s3_destination
+    import aws_sdk_simspaceweaver.types.s3_location
+    import aws_sdk_simspaceweaver.types.sim_space_weaver_long_resource_name
+    import aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name
+    import aws_sdk_simspaceweaver.types.start_app_input
+    import aws_sdk_simspaceweaver.types.start_app_output
+    import aws_sdk_simspaceweaver.types.start_clock_input
+    import aws_sdk_simspaceweaver.types.start_clock_output
+    import aws_sdk_simspaceweaver.types.start_simulation_input
+    import aws_sdk_simspaceweaver.types.start_simulation_output
+    import aws_sdk_simspaceweaver.types.stop_app_input
+    import aws_sdk_simspaceweaver.types.stop_app_output
+    import aws_sdk_simspaceweaver.types.stop_clock_input
+    import aws_sdk_simspaceweaver.types.stop_clock_output
+    import aws_sdk_simspaceweaver.types.stop_simulation_input
+    import aws_sdk_simspaceweaver.types.stop_simulation_output
+    import aws_sdk_simspaceweaver.types.tag_map
+    import aws_sdk_simspaceweaver.types.time_to_live_string
+    from aws_sdk_simspaceweaver._services.async_sim_space_weaver import (
+        AsyncSimSpaceWeaverClient,
+        AsyncSimSpaceWeaverClientConfig,
+    )
+    from aws_sdk_simspaceweaver._services.sim_space_weaver import (
+        SimSpaceWeaverClient,
+        SimSpaceWeaverClientConfig,
+    )
+
+
+class Simulation:
+    def __init__(self, service: SimSpaceWeaverClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        name: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        role_arn: "aws_sdk_simspaceweaver.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_simspaceweaver.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_simspaceweaver.types.description.Description"
+        ] = None,
+        schema_s3_location: Optional[
+            "aws_sdk_simspaceweaver.types.s3_location.S3Location"
+        ] = None,
+        maximum_duration: Optional[
+            "aws_sdk_simspaceweaver.types.time_to_live_string.TimeToLiveString"
+        ] = None,
+        tags: Optional["aws_sdk_simspaceweaver.types.tag_map.TagMap"] = None,
+        snapshot_s3_location: Optional[
+            "aws_sdk_simspaceweaver.types.s3_location.S3Location"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.start_simulation_output.StartSimulationOutput":
+        """<p>Starts a simulation with the given name. You must choose to start your simulation from a schema or from a snapshot. For more information about the schema, see the <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html\">schema reference</a> in the <i>SimSpace Weaver User Guide</i>. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html\">Snapshots</a> in the <i>SimSpace Weaver User Guide</i>.</p>
+
+        Args:
+            client_token: <p>A value that you provide to ensure that repeated calls to this API operation using the same parameters complete only once. A <code>ClientToken</code> is also known as an <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</p>
+            name: <p>The name of the simulation.</p>
+            description: <p>The description of the simulation.</p>
+            role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that the simulation assumes to perform actions. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. For more information about IAM roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the <i>Identity and Access Management User Guide</i>.</p>
+            schema_s3_location: <p>The location of the simulation schema in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p> <p>Provide a <code>SchemaS3Location</code> to start your simulation from a schema.</p> <p>If you provide a <code>SchemaS3Location</code> then you can't provide a <code>SnapshotS3Location</code>.</p>
+            maximum_duration: <p>The maximum running time of the simulation, specified as a number of minutes (m or M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit. The maximum value is <code>14D</code>, or its equivalent in the other units. The default value is <code>14D</code>. A value equivalent to <code>0</code> makes the simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
+            tags: <p>A list of tags for the simulation. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            snapshot_s3_location: <p>The location of the snapshot .zip file in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p> <p>Provide a <code>SnapshotS3Location</code> to start your simulation from a snapshot.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p> <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.start_simulation_output.StartSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.start_simulation
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.start_simulation.start_simulation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["role_arn"] = role_arn
+        if schema_s3_location is not None:
+            input["schema_s3_location"] = schema_s3_location
+        if maximum_duration is not None:
+            input["maximum_duration"] = maximum_duration
+        if tags is not None:
+            input["tags"] = tags
+        if snapshot_s3_location is not None:
+            input["snapshot_s3_location"] = snapshot_s3_location
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.describe_simulation_output.DescribeSimulationOutput":
+        """<p>Returns the current state of the given simulation.</p>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.describe_simulation_output.DescribeSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_simulation
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_simulation.describe_simulation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.stop_simulation_output.StopSimulationOutput":
+        """<p>Stops the given simulation.</p> <important> <p>You can't restart a simulation after you stop it. If you want to restart a simulation, then you must stop it, delete it, and start a new instance of it.</p> </important>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.stop_simulation_output.StopSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_simulation
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_simulation.stop_simulation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.delete_simulation_output.DeleteSimulationOutput":
+        """<p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p> <note> <p>Your simulation uses resources in other Amazon Web Services. This API operation doesn't delete resources in other Amazon Web Services.</p> </note>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.delete_simulation_output.DeleteSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_simulation
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_simulation.delete_simulation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_simspaceweaver.types.positive_integer.PositiveInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_simspaceweaver.types.optional_string.OptionalString"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.list_simulations_output.ListSimulationsOutput":
+        """<p>Lists the SimSpace Weaver simulations in the Amazon Web Services account used to make the API call.</p>
+
+        Args:
+            max_results: <p>The maximum number of simulations to list.</p>
+            next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.list_simulations_output.ListSimulationsOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.list_simulations
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.list_simulations.list_simulations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_snapshot(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        destination: "aws_sdk_simspaceweaver.types.s3_destination.S3Destination",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.create_snapshot_output.CreateSnapshotOutput":
+        """<p>Creates a snapshot of the specified simulation. A snapshot is a file that contains simulation state data at a specific time. The state data saved in a snapshot includes entity data from the State Fabric, the simulation configuration specified in the schema, and the clock tick number. You can use the snapshot to initialize a new simulation. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html\">Snapshots</a> in the <i>SimSpace Weaver User Guide</i>. </p> <p>You specify a <code>Destination</code> when you create a snapshot. The <code>Destination</code> is the name of an Amazon S3 bucket and an optional <code>ObjectKeyPrefix</code>. The <code>ObjectKeyPrefix</code> is usually the name of a folder in the bucket. SimSpace Weaver creates a <code>snapshot</code> folder inside the <code>Destination</code> and places the snapshot file there.</p> <p>The snapshot file is an Amazon S3 object. It has an object key with the form: <code> <i>object-key-prefix</i>/snapshot/<i>simulation-name</i>-<i>YYMMdd</i>-<i>HHmm</i>-<i>ss</i>.zip</code>, where: </p> <ul> <li> <p> <code> <i>YY</i> </code> is the 2-digit year</p> </li> <li> <p> <code> <i>MM</i> </code> is the 2-digit month</p> </li> <li> <p> <code> <i>dd</i> </code> is the 2-digit day of the month</p> </li> <li> <p> <code> <i>HH</i> </code> is the 2-digit hour (24-hour clock)</p> </li> <li> <p> <code> <i>mm</i> </code> is the 2-digit minutes</p> </li> <li> <p> <code> <i>ss</i> </code> is the 2-digit seconds</p> </li> </ul>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+            destination: <p>The Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates the snapshot file.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.create_snapshot_output.CreateSnapshotOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.create_snapshot
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.create_snapshot.create_snapshot(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["destination"] = destination
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        app: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.delete_app_output.DeleteAppOutput":
+        """<p>Deletes the instance of the given custom app.</p>
+
+        Args:
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            app: <p>The name of the app.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.delete_app_output.DeleteAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_app
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_app.delete_app(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["app"] = app
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        app: "aws_sdk_simspaceweaver.types.sim_space_weaver_long_resource_name.SimSpaceWeaverLongResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.describe_app_output.DescribeAppOutput":
+        """<p>Returns the state of the given custom app.</p>
+
+        Args:
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            app: <p>The name of the app.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.describe_app_output.DescribeAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_app
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_app.describe_app(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["app"] = app
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_apps(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+        domain: Optional[
+            "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_simspaceweaver.types.positive_integer.PositiveInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_simspaceweaver.types.optional_string.OptionalString"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.list_apps_output.ListAppsOutput":
+        """<p>Lists all custom apps or service apps for the given simulation and domain.</p>
+
+        Args:
+            simulation: <p>The name of the simulation that you want to list apps for.</p>
+            domain: <p>The name of the domain that you want to list apps for.</p>
+            max_results: <p>The maximum number of apps to list.</p>
+            next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.list_apps_output.ListAppsOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.list_apps
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.list_apps.list_apps(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        if domain is not None:
+            input["domain"] = domain
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        name: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_simspaceweaver.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_simspaceweaver.types.description.Description"
+        ] = None,
+        launch_overrides: Optional[
+            "aws_sdk_simspaceweaver.types.launch_overrides.LaunchOverrides"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.start_app_output.StartAppOutput":
+        """<p>Starts a custom app with the configuration specified in the simulation schema.</p>
+
+        Args:
+            client_token: <p>A value that you provide to ensure that repeated calls to this API operation using the same parameters complete only once. A <code>ClientToken</code> is also known as an <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</p>
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            name: <p>The name of the app.</p>
+            description: <p>The description of the app.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.start_app_input.StartAppInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.start_app_output.StartAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.start_app
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.start_app.start_app(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.start_app_input.StartAppInput = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if launch_overrides is not None:
+            input["launch_overrides"] = launch_overrides
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_clock(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.start_clock_output.StartClockOutput":
+        """<p>Starts the simulation clock.</p>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.start_clock_output.StartClockOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.start_clock
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.start_clock.start_clock(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def stop_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        app: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.stop_app_output.StopAppOutput":
+        """<p>Stops the given custom app and shuts down all of its allocated compute resources.</p>
+
+        Args:
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            app: <p>The name of the app.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.stop_app_output.StopAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_app
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_app.stop_app(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["app"] = app
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def stop_clock(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.stop_clock_output.StopClockOutput":
+        """<p>Stops the simulation clock.</p>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput]",
+        ) -> OperationResponse[
+            "aws_sdk_simspaceweaver.types.stop_clock_output.StopClockOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_clock
+
+            output, http_response = (
+                aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_clock.stop_clock(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncSimulation:
+    def __init__(self, service: AsyncSimSpaceWeaverClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        name: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        role_arn: "aws_sdk_simspaceweaver.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_simspaceweaver.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_simspaceweaver.types.description.Description"
+        ] = None,
+        schema_s3_location: Optional[
+            "aws_sdk_simspaceweaver.types.s3_location.S3Location"
+        ] = None,
+        maximum_duration: Optional[
+            "aws_sdk_simspaceweaver.types.time_to_live_string.TimeToLiveString"
+        ] = None,
+        tags: Optional["aws_sdk_simspaceweaver.types.tag_map.TagMap"] = None,
+        snapshot_s3_location: Optional[
+            "aws_sdk_simspaceweaver.types.s3_location.S3Location"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.start_simulation_output.StartSimulationOutput":
+        """<p>Starts a simulation with the given name. You must choose to start your simulation from a schema or from a snapshot. For more information about the schema, see the <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html\">schema reference</a> in the <i>SimSpace Weaver User Guide</i>. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html\">Snapshots</a> in the <i>SimSpace Weaver User Guide</i>.</p>
+
+        Args:
+            client_token: <p>A value that you provide to ensure that repeated calls to this API operation using the same parameters complete only once. A <code>ClientToken</code> is also known as an <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</p>
+            name: <p>The name of the simulation.</p>
+            description: <p>The description of the simulation.</p>
+            role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that the simulation assumes to perform actions. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. For more information about IAM roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the <i>Identity and Access Management User Guide</i>.</p>
+            schema_s3_location: <p>The location of the simulation schema in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p> <p>Provide a <code>SchemaS3Location</code> to start your simulation from a schema.</p> <p>If you provide a <code>SchemaS3Location</code> then you can't provide a <code>SnapshotS3Location</code>.</p>
+            maximum_duration: <p>The maximum running time of the simulation, specified as a number of minutes (m or M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit. The maximum value is <code>14D</code>, or its equivalent in the other units. The default value is <code>14D</code>. A value equivalent to <code>0</code> makes the simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
+            tags: <p>A list of tags for the simulation. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            snapshot_s3_location: <p>The location of the snapshot .zip file in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p> <p>Provide a <code>SnapshotS3Location</code> to start your simulation from a snapshot.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p> <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.start_simulation_output.StartSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.start_simulation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.start_simulation.async_start_simulation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["role_arn"] = role_arn
+        if schema_s3_location is not None:
+            input["schema_s3_location"] = schema_s3_location
+        if maximum_duration is not None:
+            input["maximum_duration"] = maximum_duration
+        if tags is not None:
+            input["tags"] = tags
+        if snapshot_s3_location is not None:
+            input["snapshot_s3_location"] = snapshot_s3_location
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.describe_simulation_output.DescribeSimulationOutput":
+        """<p>Returns the current state of the given simulation.</p>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.describe_simulation_output.DescribeSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_simulation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_simulation.async_describe_simulation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.stop_simulation_output.StopSimulationOutput":
+        """<p>Stops the given simulation.</p> <important> <p>You can't restart a simulation after you stop it. If you want to restart a simulation, then you must stop it, delete it, and start a new instance of it.</p> </important>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.stop_simulation_output.StopSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_simulation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_simulation.async_stop_simulation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.delete_simulation_output.DeleteSimulationOutput":
+        """<p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p> <note> <p>Your simulation uses resources in other Amazon Web Services. This API operation doesn't delete resources in other Amazon Web Services.</p> </note>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.delete_simulation_output.DeleteSimulationOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_simulation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_simulation.async_delete_simulation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_simspaceweaver.types.positive_integer.PositiveInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_simspaceweaver.types.optional_string.OptionalString"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.list_simulations_output.ListSimulationsOutput":
+        """<p>Lists the SimSpace Weaver simulations in the Amazon Web Services account used to make the API call.</p>
+
+        Args:
+            max_results: <p>The maximum number of simulations to list.</p>
+            next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.list_simulations_output.ListSimulationsOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.list_simulations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.list_simulations.async_list_simulations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_snapshot(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        destination: "aws_sdk_simspaceweaver.types.s3_destination.S3Destination",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.create_snapshot_output.CreateSnapshotOutput":
+        """<p>Creates a snapshot of the specified simulation. A snapshot is a file that contains simulation state data at a specific time. The state data saved in a snapshot includes entity data from the State Fabric, the simulation configuration specified in the schema, and the clock tick number. You can use the snapshot to initialize a new simulation. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html\">Snapshots</a> in the <i>SimSpace Weaver User Guide</i>. </p> <p>You specify a <code>Destination</code> when you create a snapshot. The <code>Destination</code> is the name of an Amazon S3 bucket and an optional <code>ObjectKeyPrefix</code>. The <code>ObjectKeyPrefix</code> is usually the name of a folder in the bucket. SimSpace Weaver creates a <code>snapshot</code> folder inside the <code>Destination</code> and places the snapshot file there.</p> <p>The snapshot file is an Amazon S3 object. It has an object key with the form: <code> <i>object-key-prefix</i>/snapshot/<i>simulation-name</i>-<i>YYMMdd</i>-<i>HHmm</i>-<i>ss</i>.zip</code>, where: </p> <ul> <li> <p> <code> <i>YY</i> </code> is the 2-digit year</p> </li> <li> <p> <code> <i>MM</i> </code> is the 2-digit month</p> </li> <li> <p> <code> <i>dd</i> </code> is the 2-digit day of the month</p> </li> <li> <p> <code> <i>HH</i> </code> is the 2-digit hour (24-hour clock)</p> </li> <li> <p> <code> <i>mm</i> </code> is the 2-digit minutes</p> </li> <li> <p> <code> <i>ss</i> </code> is the 2-digit seconds</p> </li> </ul>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+            destination: <p>The Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates the snapshot file.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.create_snapshot_output.CreateSnapshotOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.create_snapshot
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.create_snapshot.async_create_snapshot(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["destination"] = destination
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        app: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.delete_app_output.DeleteAppOutput":
+        """<p>Deletes the instance of the given custom app.</p>
+
+        Args:
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            app: <p>The name of the app.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.delete_app_output.DeleteAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_app
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.delete_app.async_delete_app(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["app"] = app
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        app: "aws_sdk_simspaceweaver.types.sim_space_weaver_long_resource_name.SimSpaceWeaverLongResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.describe_app_output.DescribeAppOutput":
+        """<p>Returns the state of the given custom app.</p>
+
+        Args:
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            app: <p>The name of the app.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.describe_app_output.DescribeAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_app
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.describe_app.async_describe_app(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["app"] = app
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_apps(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+        domain: Optional[
+            "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_simspaceweaver.types.positive_integer.PositiveInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_simspaceweaver.types.optional_string.OptionalString"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.list_apps_output.ListAppsOutput":
+        """<p>Lists all custom apps or service apps for the given simulation and domain.</p>
+
+        Args:
+            simulation: <p>The name of the simulation that you want to list apps for.</p>
+            domain: <p>The name of the domain that you want to list apps for.</p>
+            max_results: <p>The maximum number of apps to list.</p>
+            next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.list_apps_output.ListAppsOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.list_apps
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.list_apps.async_list_apps(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        if domain is not None:
+            input["domain"] = domain
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def start_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        name: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_simspaceweaver.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_simspaceweaver.types.description.Description"
+        ] = None,
+        launch_overrides: Optional[
+            "aws_sdk_simspaceweaver.types.launch_overrides.LaunchOverrides"
+        ] = None,
+    ) -> "aws_sdk_simspaceweaver.types.start_app_output.StartAppOutput":
+        """<p>Starts a custom app with the configuration specified in the simulation schema.</p>
+
+        Args:
+            client_token: <p>A value that you provide to ensure that repeated calls to this API operation using the same parameters complete only once. A <code>ClientToken</code> is also known as an <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</p>
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            name: <p>The name of the app.</p>
+            description: <p>The description of the app.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.start_app_input.StartAppInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.start_app_output.StartAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.start_app
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.start_app.async_start_app(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.start_app_input.StartAppInput = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if launch_overrides is not None:
+            input["launch_overrides"] = launch_overrides
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def start_clock(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.start_clock_output.StartClockOutput":
+        """<p>Starts the simulation clock.</p>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.start_clock_output.StartClockOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.start_clock
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.start_clock.async_start_clock(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def stop_app(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        domain: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        app: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.stop_app_output.StopAppOutput":
+        """<p>Stops the given custom app and shuts down all of its allocated compute resources.</p>
+
+        Args:
+            simulation: <p>The name of the simulation of the app.</p>
+            domain: <p>The name of the domain of the app.</p>
+            app: <p>The name of the app.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.stop_app_output.StopAppOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_app
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_app.async_stop_app(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+        input["domain"] = domain
+        input["app"] = app
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def stop_clock(
+        self,
+        simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName",
+        *,
+        config_overrides: Optional[AsyncSimSpaceWeaverClientConfig] = None,
+    ) -> "aws_sdk_simspaceweaver.types.stop_clock_output.StopClockOutput":
+        """<p>Stops the simulation clock.</p>
+
+        Args:
+            simulation: <p>The name of the simulation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simspaceweaver.types.stop_clock_output.StopClockOutput"
+        ]:
+            import aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_clock
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simspaceweaver._operations.sim_space_weaver.stop_clock.async_stop_clock(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput = {}  # type: ignore[typeddict-item]
+        input["simulation"] = simulation
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

@@ -1,0 +1,77 @@
+"""Generated from Smithy shape ``com.amazonaws.memorydb#ReservedNodesOffering``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_memorydb.types.double
+    import aws_sdk_memorydb.types.integer
+    import aws_sdk_memorydb.types.recurring_charge_list
+    import aws_sdk_memorydb.types.string
+
+
+class ReservedNodesOffering(TypedDict):
+    reserved_nodes_offering_id: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>The offering identifier.</p>"""
+    node_type: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>The node type for the reserved nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported\">Supported node types</a>.</p>"""
+    duration: "aws_sdk_memorydb.types.integer.Integer"
+    """<p>The duration of the reservation in seconds.</p>"""
+    fixed_price: "aws_sdk_memorydb.types.double.Double"
+    """<p>The fixed price charged for this reserved node.</p>"""
+    offering_type: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>The offering type of this reserved node.</p>"""
+    recurring_charges: NotRequired[
+        "aws_sdk_memorydb.types.recurring_charge_list.RecurringChargeList"
+    ]
+    """<p>The recurring price charged to run this reserved node.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ReservedNodesOffering) -> dict:
+    out: dict = {}
+    if "reserved_nodes_offering_id" in value:
+        out["ReservedNodesOfferingId"] = value["reserved_nodes_offering_id"]
+    if "node_type" in value:
+        out["NodeType"] = value["node_type"]
+    out["Duration"] = value.get("duration", 0)
+    out["FixedPrice"] = value.get("fixed_price", 0)
+    if "offering_type" in value:
+        out["OfferingType"] = value["offering_type"]
+    if "recurring_charges" in value:
+        import aws_sdk_memorydb.types.recurring_charge_list
+
+        out["RecurringCharges"] = (
+            aws_sdk_memorydb.types.recurring_charge_list.serialize_aws_json_1_1(
+                value["recurring_charges"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ReservedNodesOffering:
+    out: ReservedNodesOffering = {}  # type: ignore[typeddict-item]
+    if "ReservedNodesOfferingId" in data:
+        out["reserved_nodes_offering_id"] = data["ReservedNodesOfferingId"]
+    if "NodeType" in data:
+        out["node_type"] = data["NodeType"]
+    if "Duration" in data:
+        out["duration"] = data["Duration"]
+    else:
+        out["duration"] = 0
+    if "FixedPrice" in data:
+        out["fixed_price"] = data["FixedPrice"]
+    else:
+        out["fixed_price"] = 0
+    if "OfferingType" in data:
+        out["offering_type"] = data["OfferingType"]
+    if "RecurringCharges" in data:
+        import aws_sdk_memorydb.types.recurring_charge_list
+
+        out["recurring_charges"] = (
+            aws_sdk_memorydb.types.recurring_charge_list.deserialize_aws_json_1_1(
+                data["RecurringCharges"]
+            )
+        )
+    return out

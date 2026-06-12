@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.waf#GeoMatchSet``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_waf.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_waf.types.geo_match_constraints
+    import aws_sdk_waf.types.resource_id
+    import aws_sdk_waf.types.resource_name
+
+
+class GeoMatchSet(TypedDict):
+    geo_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
+    """<p>The <code>GeoMatchSetId</code> for an <code>GeoMatchSet</code>. You use <code>GeoMatchSetId</code> to get information about a <code>GeoMatchSet</code> (see <a>GeoMatchSet</a>), update a <code>GeoMatchSet</code> (see <a>UpdateGeoMatchSet</a>), insert a <code>GeoMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a <code>GeoMatchSet</code> from AWS WAF (see <a>DeleteGeoMatchSet</a>).</p> <p> <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>"""
+    name: NotRequired["aws_sdk_waf.types.resource_name.ResourceName"]
+    """<p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change the name of an <code>GeoMatchSet</code> after you create it.</p>"""
+    geo_match_constraints: "aws_sdk_waf.types.geo_match_constraints.GeoMatchConstraints"
+    """<p>An array of <a>GeoMatchConstraint</a> objects, which contain the country that you want AWS WAF to search for.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GeoMatchSet) -> dict:
+    out: dict = {}
+    out["GeoMatchSetId"] = value["geo_match_set_id"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    import aws_sdk_waf.types.geo_match_constraints
+
+    out["GeoMatchConstraints"] = (
+        aws_sdk_waf.types.geo_match_constraints.serialize_aws_json_1_1(
+            value["geo_match_constraints"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GeoMatchSet:
+    out: GeoMatchSet = {}  # type: ignore[typeddict-item]
+    if "GeoMatchSetId" in data:
+        out["geo_match_set_id"] = data["GeoMatchSetId"]
+    else:
+        raise DeserializationError("GeoMatchSet.geo_match_set_id required")
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "GeoMatchConstraints" in data:
+        import aws_sdk_waf.types.geo_match_constraints
+
+        out["geo_match_constraints"] = (
+            aws_sdk_waf.types.geo_match_constraints.deserialize_aws_json_1_1(
+                data["GeoMatchConstraints"]
+            )
+        )
+    else:
+        raise DeserializationError("GeoMatchSet.geo_match_constraints required")
+    return out

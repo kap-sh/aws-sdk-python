@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#NoSuchPublicAccessBlockConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_s3_control._protocol.xml import Element, SubElement
+from aws_sdk_s3_control.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_s3_control.types.no_such_public_access_block_configuration_message
+
+
+class NoSuchPublicAccessBlockConfiguration_(TypedDict):
+    message: NotRequired[
+        "aws_sdk_s3_control.types.no_such_public_access_block_configuration_message.NoSuchPublicAccessBlockConfigurationMessage"
+    ]
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: NoSuchPublicAccessBlockConfiguration_, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    if "message" in value:
+        SubElement(el, "Message").text = str(value["message"])
+
+
+def deserialize_xml(el: Element) -> NoSuchPublicAccessBlockConfiguration_:
+    out: NoSuchPublicAccessBlockConfiguration_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("Message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class NoSuchPublicAccessBlockConfiguration(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.s3control#NoSuchPublicAccessBlockConfiguration``."""
+
+    code: str | None = "NoSuchPublicAccessBlockConfiguration"
+
+    def __init__(self, data: NoSuchPublicAccessBlockConfiguration_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="NoSuchPublicAccessBlockConfiguration",
+        )
+        self.data = data
+
+    @classmethod
+    def from_xml(cls, el: Element) -> "NoSuchPublicAccessBlockConfiguration":
+        return cls(deserialize_xml(el))

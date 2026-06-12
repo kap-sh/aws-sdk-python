@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteInferenceExperimentResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.inference_experiment_arn
+
+
+class DeleteInferenceExperimentResponse(TypedDict):
+    inference_experiment_arn: NotRequired[
+        "aws_sdk_sagemaker.types.inference_experiment_arn.InferenceExperimentArn"
+    ]
+    """<p>The ARN of the deleted inference experiment.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteInferenceExperimentResponse) -> dict:
+    out: dict = {}
+    if "inference_experiment_arn" in value:
+        out["InferenceExperimentArn"] = value["inference_experiment_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteInferenceExperimentResponse:
+    out: DeleteInferenceExperimentResponse = {}  # type: ignore[typeddict-item]
+    if "InferenceExperimentArn" in data:
+        out["inference_experiment_arn"] = data["InferenceExperimentArn"]
+    return out

@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.guardduty#EbsSnapshotDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_guardduty.types.string
+
+
+class EbsSnapshotDetails(TypedDict):
+    snapshot_arn: NotRequired["aws_sdk_guardduty.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the EBS snapshot.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EbsSnapshotDetails) -> dict:
+    out: dict = {}
+    if "snapshot_arn" in value:
+        out["snapshotArn"] = value["snapshot_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> EbsSnapshotDetails:
+    out: EbsSnapshotDetails = {}  # type: ignore[typeddict-item]
+    if "snapshotArn" in data:
+        out["snapshot_arn"] = data["snapshotArn"]
+    return out

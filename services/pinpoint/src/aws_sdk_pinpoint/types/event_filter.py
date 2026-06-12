@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#EventFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.event_dimensions
+    import aws_sdk_pinpoint.types.filter_type
+
+
+class EventFilter(TypedDict):
+    dimensions: NotRequired["aws_sdk_pinpoint.types.event_dimensions.EventDimensions"]
+    """<p>The dimensions for the event filter to use for the campaign or the journey activity.</p>"""
+    filter_type: NotRequired["aws_sdk_pinpoint.types.filter_type.FilterType"]
+    """<p>The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link linkend=\"apps-application-id-events\">Events resource</link>) occurs.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EventFilter) -> dict:
+    out: dict = {}
+    if "dimensions" in value:
+        import aws_sdk_pinpoint.types.event_dimensions
+
+        out["Dimensions"] = aws_sdk_pinpoint.types.event_dimensions.serialize_json(
+            value["dimensions"]
+        )
+    if "filter_type" in value:
+        import aws_sdk_pinpoint.types.filter_type
+
+        out["FilterType"] = aws_sdk_pinpoint.types.filter_type.serialize_json(
+            value["filter_type"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EventFilter:
+    out: EventFilter = {}  # type: ignore[typeddict-item]
+    if "Dimensions" in data:
+        import aws_sdk_pinpoint.types.event_dimensions
+
+        out["dimensions"] = aws_sdk_pinpoint.types.event_dimensions.deserialize_json(
+            data["Dimensions"]
+        )
+    if "FilterType" in data:
+        import aws_sdk_pinpoint.types.filter_type
+
+        out["filter_type"] = aws_sdk_pinpoint.types.filter_type.deserialize_json(
+            data["FilterType"]
+        )
+    return out

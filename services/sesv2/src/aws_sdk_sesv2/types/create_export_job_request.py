@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#CreateExportJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sesv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sesv2.types.export_data_source
+    import aws_sdk_sesv2.types.export_destination
+
+
+class CreateExportJobRequest(TypedDict):
+    export_data_source: "aws_sdk_sesv2.types.export_data_source.ExportDataSource"
+    """<p>The data source for the export job.</p>"""
+    export_destination: "aws_sdk_sesv2.types.export_destination.ExportDestination"
+    """<p>The destination for the export job.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateExportJobRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_sesv2.types.export_data_source
+
+    out["ExportDataSource"] = aws_sdk_sesv2.types.export_data_source.serialize_json(
+        value["export_data_source"]
+    )
+    import aws_sdk_sesv2.types.export_destination
+
+    out["ExportDestination"] = aws_sdk_sesv2.types.export_destination.serialize_json(
+        value["export_destination"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateExportJobRequest:
+    out: CreateExportJobRequest = {}  # type: ignore[typeddict-item]
+    if "ExportDataSource" in data:
+        import aws_sdk_sesv2.types.export_data_source
+
+        out["export_data_source"] = (
+            aws_sdk_sesv2.types.export_data_source.deserialize_json(
+                data["ExportDataSource"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateExportJobRequest.export_data_source required")
+    if "ExportDestination" in data:
+        import aws_sdk_sesv2.types.export_destination
+
+        out["export_destination"] = (
+            aws_sdk_sesv2.types.export_destination.deserialize_json(
+                data["ExportDestination"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateExportJobRequest.export_destination required")
+    return out

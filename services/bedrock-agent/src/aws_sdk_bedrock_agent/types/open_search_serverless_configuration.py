@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#OpenSearchServerlessConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.open_search_serverless_collection_arn
+    import aws_sdk_bedrock_agent.types.open_search_serverless_field_mapping
+    import aws_sdk_bedrock_agent.types.open_search_serverless_index_name
+
+
+class OpenSearchServerlessConfiguration(TypedDict):
+    collection_arn: "aws_sdk_bedrock_agent.types.open_search_serverless_collection_arn.OpenSearchServerlessCollectionArn"
+    """<p>The Amazon Resource Name (ARN) of the OpenSearch Service vector store.</p>"""
+    vector_index_name: "aws_sdk_bedrock_agent.types.open_search_serverless_index_name.OpenSearchServerlessIndexName"
+    """<p>The name of the vector store.</p>"""
+    field_mapping: "aws_sdk_bedrock_agent.types.open_search_serverless_field_mapping.OpenSearchServerlessFieldMapping"
+    """<p>Contains the names of the fields to which to map information about the vector store.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: OpenSearchServerlessConfiguration) -> dict:
+    out: dict = {}
+    out["collectionArn"] = value["collection_arn"]
+    out["vectorIndexName"] = value["vector_index_name"]
+    import aws_sdk_bedrock_agent.types.open_search_serverless_field_mapping
+
+    out["fieldMapping"] = (
+        aws_sdk_bedrock_agent.types.open_search_serverless_field_mapping.serialize_json(
+            value["field_mapping"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> OpenSearchServerlessConfiguration:
+    out: OpenSearchServerlessConfiguration = {}  # type: ignore[typeddict-item]
+    if "collectionArn" in data:
+        out["collection_arn"] = data["collectionArn"]
+    else:
+        raise DeserializationError(
+            "OpenSearchServerlessConfiguration.collection_arn required"
+        )
+    if "vectorIndexName" in data:
+        out["vector_index_name"] = data["vectorIndexName"]
+    else:
+        raise DeserializationError(
+            "OpenSearchServerlessConfiguration.vector_index_name required"
+        )
+    if "fieldMapping" in data:
+        import aws_sdk_bedrock_agent.types.open_search_serverless_field_mapping
+
+        out["field_mapping"] = (
+            aws_sdk_bedrock_agent.types.open_search_serverless_field_mapping.deserialize_json(
+                data["fieldMapping"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "OpenSearchServerlessConfiguration.field_mapping required"
+        )
+    return out

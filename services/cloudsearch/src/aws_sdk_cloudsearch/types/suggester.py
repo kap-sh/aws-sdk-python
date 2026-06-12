@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudsearch#Suggester``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cloudsearch._protocol.xml import Element
+from aws_sdk_cloudsearch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudsearch.types.document_suggester_options
+    import aws_sdk_cloudsearch.types.standard_name
+
+
+class Suggester(TypedDict):
+    suggester_name: "aws_sdk_cloudsearch.types.standard_name.StandardName"
+    document_suggester_options: (
+        "aws_sdk_cloudsearch.types.document_suggester_options.DocumentSuggesterOptions"
+    )
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: Suggester, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.SuggesterName", str(value["suggester_name"])))
+    import aws_sdk_cloudsearch.types.document_suggester_options
+
+    aws_sdk_cloudsearch.types.document_suggester_options.serialize_query(
+        value["document_suggester_options"], pairs, f"{prefix}.DocumentSuggesterOptions"
+    )
+
+
+def deserialize_query(el: Element) -> Suggester:
+    out: Suggester = {}  # type: ignore[typeddict-item]
+    child_suggester_name = el.find("SuggesterName")
+    if child_suggester_name is not None:
+        out["suggester_name"] = str(child_suggester_name.text or "")
+    else:
+        raise DeserializationError("Suggester.suggester_name required")
+    child_document_suggester_options = el.find("DocumentSuggesterOptions")
+    if child_document_suggester_options is not None:
+        import aws_sdk_cloudsearch.types.document_suggester_options
+
+        out["document_suggester_options"] = (
+            aws_sdk_cloudsearch.types.document_suggester_options.deserialize_query(
+                child_document_suggester_options
+            )
+        )
+    else:
+        raise DeserializationError("Suggester.document_suggester_options required")
+    return out

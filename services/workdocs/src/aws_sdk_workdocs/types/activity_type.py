@@ -1,0 +1,91 @@
+"""Generated from Smithy shape ``com.amazonaws.workdocs#ActivityType``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_workdocs.errors import DeserializationError
+
+ActivityType: TypeAlias = Literal[
+    "DOCUMENT_CHECKED_IN",
+    "DOCUMENT_CHECKED_OUT",
+    "DOCUMENT_RENAMED",
+    "DOCUMENT_VERSION_UPLOADED",
+    "DOCUMENT_VERSION_DELETED",
+    "DOCUMENT_VERSION_VIEWED",
+    "DOCUMENT_VERSION_DOWNLOADED",
+    "DOCUMENT_RECYCLED",
+    "DOCUMENT_RESTORED",
+    "DOCUMENT_REVERTED",
+    "DOCUMENT_SHARED",
+    "DOCUMENT_UNSHARED",
+    "DOCUMENT_SHARE_PERMISSION_CHANGED",
+    "DOCUMENT_SHAREABLE_LINK_CREATED",
+    "DOCUMENT_SHAREABLE_LINK_REMOVED",
+    "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+    "DOCUMENT_MOVED",
+    "DOCUMENT_COMMENT_ADDED",
+    "DOCUMENT_COMMENT_DELETED",
+    "DOCUMENT_ANNOTATION_ADDED",
+    "DOCUMENT_ANNOTATION_DELETED",
+    "FOLDER_CREATED",
+    "FOLDER_DELETED",
+    "FOLDER_RENAMED",
+    "FOLDER_RECYCLED",
+    "FOLDER_RESTORED",
+    "FOLDER_SHARED",
+    "FOLDER_UNSHARED",
+    "FOLDER_SHARE_PERMISSION_CHANGED",
+    "FOLDER_SHAREABLE_LINK_CREATED",
+    "FOLDER_SHAREABLE_LINK_REMOVED",
+    "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+    "FOLDER_MOVED",
+]
+
+
+# --- restJson1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "DOCUMENT_CHECKED_IN",
+        "DOCUMENT_CHECKED_OUT",
+        "DOCUMENT_RENAMED",
+        "DOCUMENT_VERSION_UPLOADED",
+        "DOCUMENT_VERSION_DELETED",
+        "DOCUMENT_VERSION_VIEWED",
+        "DOCUMENT_VERSION_DOWNLOADED",
+        "DOCUMENT_RECYCLED",
+        "DOCUMENT_RESTORED",
+        "DOCUMENT_REVERTED",
+        "DOCUMENT_SHARED",
+        "DOCUMENT_UNSHARED",
+        "DOCUMENT_SHARE_PERMISSION_CHANGED",
+        "DOCUMENT_SHAREABLE_LINK_CREATED",
+        "DOCUMENT_SHAREABLE_LINK_REMOVED",
+        "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+        "DOCUMENT_MOVED",
+        "DOCUMENT_COMMENT_ADDED",
+        "DOCUMENT_COMMENT_DELETED",
+        "DOCUMENT_ANNOTATION_ADDED",
+        "DOCUMENT_ANNOTATION_DELETED",
+        "FOLDER_CREATED",
+        "FOLDER_DELETED",
+        "FOLDER_RENAMED",
+        "FOLDER_RECYCLED",
+        "FOLDER_RESTORED",
+        "FOLDER_SHARED",
+        "FOLDER_UNSHARED",
+        "FOLDER_SHARE_PERMISSION_CHANGED",
+        "FOLDER_SHAREABLE_LINK_CREATED",
+        "FOLDER_SHAREABLE_LINK_REMOVED",
+        "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+        "FOLDER_MOVED",
+    )
+)
+
+
+def serialize_json(value: ActivityType) -> str:
+    return value
+
+
+def deserialize_json(data: str) -> ActivityType:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown ActivityType value: {data!r}")
+    return cast(ActivityType, data)

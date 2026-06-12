@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildStepContext``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from aws_sdk_bedrock.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.automated_reasoning_policy_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_planning
+
+
+class _AutomatedReasoningPolicyBuildStepContext_planning(TypedDict):
+    planning: "aws_sdk_bedrock.types.automated_reasoning_policy_planning.AutomatedReasoningPolicyPlanning"
+
+
+class _AutomatedReasoningPolicyBuildStepContext_mutation(TypedDict):
+    mutation: "aws_sdk_bedrock.types.automated_reasoning_policy_mutation.AutomatedReasoningPolicyMutation"
+
+
+AutomatedReasoningPolicyBuildStepContext: TypeAlias = (
+    _AutomatedReasoningPolicyBuildStepContext_planning
+    | _AutomatedReasoningPolicyBuildStepContext_mutation
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AutomatedReasoningPolicyBuildStepContext) -> dict:
+    if "planning" in value:
+        import aws_sdk_bedrock.types.automated_reasoning_policy_planning
+
+        return {
+            "planning": aws_sdk_bedrock.types.automated_reasoning_policy_planning.serialize_json(
+                value["planning"]
+            )
+        }
+    elif "mutation" in value:
+        import aws_sdk_bedrock.types.automated_reasoning_policy_mutation
+
+        return {
+            "mutation": aws_sdk_bedrock.types.automated_reasoning_policy_mutation.serialize_json(
+                value["mutation"]
+            )
+        }
+    else:
+        raise SerializationError(
+            "AutomatedReasoningPolicyBuildStepContext: no variant present"
+        )
+
+
+def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStepContext:
+    if "planning" in data:
+        import aws_sdk_bedrock.types.automated_reasoning_policy_planning
+
+        return {
+            "planning": aws_sdk_bedrock.types.automated_reasoning_policy_planning.deserialize_json(
+                data["planning"]
+            )
+        }
+    elif "mutation" in data:
+        import aws_sdk_bedrock.types.automated_reasoning_policy_mutation
+
+        return {
+            "mutation": aws_sdk_bedrock.types.automated_reasoning_policy_mutation.deserialize_json(
+                data["mutation"]
+            )
+        }
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyBuildStepContext: no recognized variant key"
+        )

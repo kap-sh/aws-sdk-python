@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.route53resolver#BatchCreateFirewallRuleError``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_route53resolver.types.create_firewall_rule_entry
+    import aws_sdk_route53resolver.types.string
+
+
+class BatchCreateFirewallRuleError(TypedDict):
+    firewall_rule: NotRequired[
+        "aws_sdk_route53resolver.types.create_firewall_rule_entry.CreateFirewallRuleEntry"
+    ]
+    """<p>The firewall rule entry that caused the error.</p>"""
+    code: NotRequired["aws_sdk_route53resolver.types.string.String"]
+    """<p>The error code for the failure.</p>"""
+    message: NotRequired["aws_sdk_route53resolver.types.string.String"]
+    """<p>A message that provides details about the error.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BatchCreateFirewallRuleError) -> dict:
+    out: dict = {}
+    if "firewall_rule" in value:
+        import aws_sdk_route53resolver.types.create_firewall_rule_entry
+
+        out["FirewallRule"] = (
+            aws_sdk_route53resolver.types.create_firewall_rule_entry.serialize_aws_json_1_1(
+                value["firewall_rule"]
+            )
+        )
+    if "code" in value:
+        out["Code"] = value["code"]
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BatchCreateFirewallRuleError:
+    out: BatchCreateFirewallRuleError = {}  # type: ignore[typeddict-item]
+    if "FirewallRule" in data:
+        import aws_sdk_route53resolver.types.create_firewall_rule_entry
+
+        out["firewall_rule"] = (
+            aws_sdk_route53resolver.types.create_firewall_rule_entry.deserialize_aws_json_1_1(
+                data["FirewallRule"]
+            )
+        )
+    if "Code" in data:
+        out["code"] = data["Code"]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out

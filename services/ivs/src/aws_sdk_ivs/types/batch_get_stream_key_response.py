@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.ivs#BatchGetStreamKeyResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs.types.batch_errors
+    import aws_sdk_ivs.types.stream_keys
+    import aws_sdk_ivs.types.string
+
+
+class BatchGetStreamKeyResponse(TypedDict):
+    access_control_allow_origin: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin\">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>"""
+    access_control_expose_headers: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Expose-Headers\">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>"""
+    cache_control: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control\">Cache-Control</a> in the MDN Web Docs.</p>"""
+    content_security_policy: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy\">Content-Security-Policy</a> in the MDN Web Docs.</p>"""
+    strict_transport_security: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security\">Strict-Transport-Security</a> in the MDN Web Docs.</p>"""
+    x_content_type_options: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Content-Type-Options\">X-Content-Type-Options</a> in the MDN Web Docs.</p>"""
+    x_frame_options: NotRequired["aws_sdk_ivs.types.string.String"]
+    """<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options\">X-Frame-Options</a> in the MDN Web Docs.</p>"""
+    stream_keys: NotRequired["aws_sdk_ivs.types.stream_keys.StreamKeys"]
+    """<p/>"""
+    errors: NotRequired["aws_sdk_ivs.types.batch_errors.BatchErrors"]
+    """<p/>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchGetStreamKeyResponse) -> dict:
+    out: dict = {}
+    if "stream_keys" in value:
+        import aws_sdk_ivs.types.stream_keys
+
+        out["streamKeys"] = aws_sdk_ivs.types.stream_keys.serialize_json(
+            value["stream_keys"]
+        )
+    if "errors" in value:
+        import aws_sdk_ivs.types.batch_errors
+
+        out["errors"] = aws_sdk_ivs.types.batch_errors.serialize_json(value["errors"])
+    return out
+
+
+def deserialize_json(data: dict) -> BatchGetStreamKeyResponse:
+    out: BatchGetStreamKeyResponse = {}  # type: ignore[typeddict-item]
+    if "streamKeys" in data:
+        import aws_sdk_ivs.types.stream_keys
+
+        out["stream_keys"] = aws_sdk_ivs.types.stream_keys.deserialize_json(
+            data["streamKeys"]
+        )
+    if "errors" in data:
+        import aws_sdk_ivs.types.batch_errors
+
+        out["errors"] = aws_sdk_ivs.types.batch_errors.deserialize_json(data["errors"])
+    return out

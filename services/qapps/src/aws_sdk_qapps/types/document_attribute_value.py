@@ -1,0 +1,86 @@
+"""Generated from Smithy shape ``com.amazonaws.qapps#DocumentAttributeValue``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_qapps.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_qapps.types.document_attribute_string_list_value
+    import aws_sdk_qapps.types.document_attribute_string_value
+    import aws_sdk_qapps.types.long
+    import aws_sdk_qapps.types.timestamp
+
+
+class _DocumentAttributeValue_stringValue(TypedDict):
+    stringValue: "aws_sdk_qapps.types.document_attribute_string_value.DocumentAttributeStringValue"
+
+
+class _DocumentAttributeValue_stringListValue(TypedDict):
+    stringListValue: "aws_sdk_qapps.types.document_attribute_string_list_value.DocumentAttributeStringListValue"
+
+
+class _DocumentAttributeValue_longValue(TypedDict):
+    longValue: "aws_sdk_qapps.types.long.Long"
+
+
+class _DocumentAttributeValue_dateValue(TypedDict):
+    dateValue: "aws_sdk_qapps.types.timestamp.Timestamp"
+
+
+DocumentAttributeValue: TypeAlias = (
+    _DocumentAttributeValue_stringValue
+    | _DocumentAttributeValue_stringListValue
+    | _DocumentAttributeValue_longValue
+    | _DocumentAttributeValue_dateValue
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DocumentAttributeValue) -> dict:
+    if "stringValue" in value:
+        return {"stringValue": value["stringValue"]}
+    elif "stringListValue" in value:
+        import aws_sdk_qapps.types.document_attribute_string_list_value
+
+        return {
+            "stringListValue": aws_sdk_qapps.types.document_attribute_string_list_value.serialize_json(
+                value["stringListValue"]
+            )
+        }
+    elif "longValue" in value:
+        return {"longValue": value["longValue"]}
+    elif "dateValue" in value:
+        import aws_sdk_qapps.types.timestamp
+
+        return {
+            "dateValue": aws_sdk_qapps.types.timestamp.serialize_json(
+                value["dateValue"]
+            )
+        }
+    else:
+        raise SerializationError("DocumentAttributeValue: no variant present")
+
+
+def deserialize_json(data: dict) -> DocumentAttributeValue:
+    if "stringValue" in data:
+        return {"stringValue": data["stringValue"]}
+    elif "stringListValue" in data:
+        import aws_sdk_qapps.types.document_attribute_string_list_value
+
+        return {
+            "stringListValue": aws_sdk_qapps.types.document_attribute_string_list_value.deserialize_json(
+                data["stringListValue"]
+            )
+        }
+    elif "longValue" in data:
+        return {"longValue": data["longValue"]}
+    elif "dateValue" in data:
+        import aws_sdk_qapps.types.timestamp
+
+        return {
+            "dateValue": aws_sdk_qapps.types.timestamp.deserialize_json(
+                data["dateValue"]
+            )
+        }
+    else:
+        raise DeserializationError("DocumentAttributeValue: no recognized variant key")

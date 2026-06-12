@@ -1,0 +1,149 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#EksContainer``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_batch.types.eks_container_environment_variables
+    import aws_sdk_batch.types.eks_container_resource_requirements
+    import aws_sdk_batch.types.eks_container_security_context
+    import aws_sdk_batch.types.eks_container_volume_mounts
+    import aws_sdk_batch.types.string
+    import aws_sdk_batch.types.string_list
+
+
+class EksContainer(TypedDict):
+    name: NotRequired["aws_sdk_batch.types.string.String"]
+    """<p>The name of the container. If the name isn't specified, the default name \"<code>Default</code>\" is used. Each container in a pod must have a unique name.</p>"""
+    image: NotRequired["aws_sdk_batch.types.string.String"]
+    """<p>The Docker image used to start the container.</p>"""
+    image_pull_policy: NotRequired["aws_sdk_batch.types.string.String"]
+    """<p>The image pull policy for the container. Supported values are <code>Always</code>, <code>IfNotPresent</code>, and <code>Never</code>. This parameter defaults to <code>IfNotPresent</code>. However, if the <code>:latest</code> tag is specified, it defaults to <code>Always</code>. For more information, see <a href=\"https://kubernetes.io/docs/concepts/containers/images/#updating-images\">Updating images</a> in the <i>Kubernetes documentation</i>.</p>"""
+    command: NotRequired["aws_sdk_batch.types.string_list.StringList"]
+    """<p>The entrypoint for the container. This isn't run within a shell. If this isn't specified, the <code>ENTRYPOINT</code> of the container image is used. Environment variable references are expanded using the container's environment.</p> <p>If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to \"<code>$(NAME1)</code>\" and the <code>NAME1</code> environment variable doesn't exist, the command string will remain \"<code>$(NAME1)</code>.\" <code>$$</code> is replaced with <code>$</code> and the resulting string isn't expanded. For example, <code>$$(VAR_NAME)</code> will be passed as <code>$(VAR_NAME)</code> whether or not the <code>VAR_NAME</code> environment variable exists. The entrypoint can't be updated. For more information, see <a href=\"https://docs.docker.com/engine/reference/builder/#entrypoint\">ENTRYPOINT</a> in the <i>Dockerfile reference</i> and <a href=\"https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/\">Define a command and arguments for a container</a> and <a href=\"https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint\">Entrypoint</a> in the <i>Kubernetes documentation</i>.</p>"""
+    args: NotRequired["aws_sdk_batch.types.string_list.StringList"]
+    """<p>An array of arguments to the entrypoint. If this isn't specified, the <code>CMD</code> of the container image is used. This corresponds to the <code>args</code> member in the <a href=\"https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint\">Entrypoint</a> portion of the <a href=\"https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/\">Pod</a> in Kubernetes. Environment variable references are expanded using the container's environment.</p> <p>If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to \"<code>$(NAME1)</code>\" and the <code>NAME1</code> environment variable doesn't exist, the command string will remain \"<code>$(NAME1)</code>.\" <code>$$</code> is replaced with <code>$</code>, and the resulting string isn't expanded. For example, <code>$$(VAR_NAME)</code> is passed as <code>$(VAR_NAME)</code> whether or not the <code>VAR_NAME</code> environment variable exists. For more information, see <a href=\"https://docs.docker.com/engine/reference/builder/#cmd\">Dockerfile reference: CMD</a> and <a href=\"https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/\">Define a command and arguments for a pod</a> in the <i>Kubernetes documentation</i>.</p>"""
+    env: NotRequired[
+        "aws_sdk_batch.types.eks_container_environment_variables.EksContainerEnvironmentVariables"
+    ]
+    """<p>The environment variables to pass to a container.</p> <note> <p>Environment variables cannot start with \"<code>AWS_BATCH</code>\". This naming convention is reserved for variables that Batch sets.</p> </note>"""
+    resources: NotRequired[
+        "aws_sdk_batch.types.eks_container_resource_requirements.EksContainerResourceRequirements"
+    ]
+    """<p>The type and amount of resources to assign to a container. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href=\"https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/\">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>"""
+    volume_mounts: NotRequired[
+        "aws_sdk_batch.types.eks_container_volume_mounts.EksContainerVolumeMounts"
+    ]
+    """<p>The volume mounts for the container. Batch supports <code>emptyDir</code>, <code>hostPath</code>, and <code>secret</code> volume types. For more information about volumes and volume mounts in Kubernetes, see <a href=\"https://kubernetes.io/docs/concepts/storage/volumes/\">Volumes</a> in the <i>Kubernetes documentation</i>.</p>"""
+    security_context: NotRequired[
+        "aws_sdk_batch.types.eks_container_security_context.EksContainerSecurityContext"
+    ]
+    """<p>The security context for a job. For more information, see <a href=\"https://kubernetes.io/docs/tasks/configure-pod-container/security-context/\">Configure a security context for a pod or container</a> in the <i>Kubernetes documentation</i>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EksContainer) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "image" in value:
+        out["image"] = value["image"]
+    if "image_pull_policy" in value:
+        out["imagePullPolicy"] = value["image_pull_policy"]
+    if "command" in value:
+        import aws_sdk_batch.types.string_list
+
+        out["command"] = aws_sdk_batch.types.string_list.serialize_json(
+            value["command"]
+        )
+    if "args" in value:
+        import aws_sdk_batch.types.string_list
+
+        out["args"] = aws_sdk_batch.types.string_list.serialize_json(value["args"])
+    if "env" in value:
+        import aws_sdk_batch.types.eks_container_environment_variables
+
+        out["env"] = (
+            aws_sdk_batch.types.eks_container_environment_variables.serialize_json(
+                value["env"]
+            )
+        )
+    if "resources" in value:
+        import aws_sdk_batch.types.eks_container_resource_requirements
+
+        out["resources"] = (
+            aws_sdk_batch.types.eks_container_resource_requirements.serialize_json(
+                value["resources"]
+            )
+        )
+    if "volume_mounts" in value:
+        import aws_sdk_batch.types.eks_container_volume_mounts
+
+        out["volumeMounts"] = (
+            aws_sdk_batch.types.eks_container_volume_mounts.serialize_json(
+                value["volume_mounts"]
+            )
+        )
+    if "security_context" in value:
+        import aws_sdk_batch.types.eks_container_security_context
+
+        out["securityContext"] = (
+            aws_sdk_batch.types.eks_container_security_context.serialize_json(
+                value["security_context"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EksContainer:
+    out: EksContainer = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "image" in data:
+        out["image"] = data["image"]
+    if "imagePullPolicy" in data:
+        out["image_pull_policy"] = data["imagePullPolicy"]
+    if "command" in data:
+        import aws_sdk_batch.types.string_list
+
+        out["command"] = aws_sdk_batch.types.string_list.deserialize_json(
+            data["command"]
+        )
+    if "args" in data:
+        import aws_sdk_batch.types.string_list
+
+        out["args"] = aws_sdk_batch.types.string_list.deserialize_json(data["args"])
+    if "env" in data:
+        import aws_sdk_batch.types.eks_container_environment_variables
+
+        out["env"] = (
+            aws_sdk_batch.types.eks_container_environment_variables.deserialize_json(
+                data["env"]
+            )
+        )
+    if "resources" in data:
+        import aws_sdk_batch.types.eks_container_resource_requirements
+
+        out["resources"] = (
+            aws_sdk_batch.types.eks_container_resource_requirements.deserialize_json(
+                data["resources"]
+            )
+        )
+    if "volumeMounts" in data:
+        import aws_sdk_batch.types.eks_container_volume_mounts
+
+        out["volume_mounts"] = (
+            aws_sdk_batch.types.eks_container_volume_mounts.deserialize_json(
+                data["volumeMounts"]
+            )
+        )
+    if "securityContext" in data:
+        import aws_sdk_batch.types.eks_container_security_context
+
+        out["security_context"] = (
+            aws_sdk_batch.types.eks_container_security_context.deserialize_json(
+                data["securityContext"]
+            )
+        )
+    return out

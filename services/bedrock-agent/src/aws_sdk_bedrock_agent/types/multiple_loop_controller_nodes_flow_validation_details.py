@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#MultipleLoopControllerNodesFlowValidationDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.flow_node_name
+
+
+class MultipleLoopControllerNodesFlowValidationDetails(TypedDict):
+    loop_node: "aws_sdk_bedrock_agent.types.flow_node_name.FlowNodeName"
+    """<p>The DoWhile loop in a flow that contains multiple <code>LoopController</code> nodes.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MultipleLoopControllerNodesFlowValidationDetails) -> dict:
+    out: dict = {}
+    out["loopNode"] = value["loop_node"]
+    return out
+
+
+def deserialize_json(data: dict) -> MultipleLoopControllerNodesFlowValidationDetails:
+    out: MultipleLoopControllerNodesFlowValidationDetails = {}  # type: ignore[typeddict-item]
+    if "loopNode" in data:
+        out["loop_node"] = data["loopNode"]
+    else:
+        raise DeserializationError(
+            "MultipleLoopControllerNodesFlowValidationDetails.loop_node required"
+        )
+    return out

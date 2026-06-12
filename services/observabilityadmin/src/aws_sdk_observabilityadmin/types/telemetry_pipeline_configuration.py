@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.observabilityadmin#TelemetryPipelineConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_observabilityadmin.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_observabilityadmin.types.telemetry_pipeline_configuration_body
+
+
+class TelemetryPipelineConfiguration(TypedDict):
+    body: "aws_sdk_observabilityadmin.types.telemetry_pipeline_configuration_body.TelemetryPipelineConfigurationBody"
+    """<p>The pipeline configuration body that defines the data processing rules and transformations.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TelemetryPipelineConfiguration) -> dict:
+    out: dict = {}
+    out["Body"] = value["body"]
+    return out
+
+
+def deserialize_json(data: dict) -> TelemetryPipelineConfiguration:
+    out: TelemetryPipelineConfiguration = {}  # type: ignore[typeddict-item]
+    if "Body" in data:
+        out["body"] = data["Body"]
+    else:
+        raise DeserializationError("TelemetryPipelineConfiguration.body required")
+    return out

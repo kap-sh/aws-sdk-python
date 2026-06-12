@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#AnalysisReports``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_network_firewall.types.analysis_report
+
+AnalysisReports: TypeAlias = list[
+    "aws_sdk_network_firewall.types.analysis_report.AnalysisReport"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: AnalysisReports) -> list:
+    import aws_sdk_network_firewall.types.analysis_report
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_network_firewall.types.analysis_report.serialize_aws_json_1_0(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> AnalysisReports:
+    import aws_sdk_network_firewall.types.analysis_report
+
+    out: AnalysisReports = []
+    for item in data:
+        out.append(
+            aws_sdk_network_firewall.types.analysis_report.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

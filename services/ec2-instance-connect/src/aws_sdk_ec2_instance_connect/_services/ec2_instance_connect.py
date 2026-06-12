@@ -1,0 +1,241 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2instanceconnect#AWSEC2InstanceConnectService``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+from aws_sdk_ec2_instance_connect._auth._identity import Credentials
+from aws_sdk_ec2_instance_connect._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_ec2_instance_connect._auth._zapros_handler import AuthMiddleware
+from aws_sdk_ec2_instance_connect._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_ec2_instance_connect.types.availability_zone
+    import aws_sdk_ec2_instance_connect.types.instance_id
+    import aws_sdk_ec2_instance_connect.types.instance_os_user
+    import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request
+    import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response
+    import aws_sdk_ec2_instance_connect.types.send_ssh_public_key_request
+    import aws_sdk_ec2_instance_connect.types.send_ssh_public_key_response
+    import aws_sdk_ec2_instance_connect.types.serial_port
+    import aws_sdk_ec2_instance_connect.types.ssh_public_key
+
+
+class EC2InstanceConnectClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class EC2InstanceConnectClient:
+    """A client for the ``EC2InstanceConnect`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = EC2InstanceConnectClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[EC2InstanceConnectClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: EC2InstanceConnectClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def send_serial_console_ssh_public_key(
+        self,
+        instance_id: "aws_sdk_ec2_instance_connect.types.instance_id.InstanceId",
+        ssh_public_key: "aws_sdk_ec2_instance_connect.types.ssh_public_key.SSHPublicKey",
+        *,
+        config_overrides: Optional[EC2InstanceConnectClientConfig] = None,
+        serial_port: Optional[
+            "aws_sdk_ec2_instance_connect.types.serial_port.SerialPort"
+        ] = None,
+    ) -> "aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.SendSerialConsoleSSHPublicKeyResponse":
+        """<p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60 seconds, which gives you 60 seconds to establish a serial console connection to the instance using SSH. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html\">EC2 Serial Console</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Args:
+            instance_id: <p>The ID of the EC2 instance.</p>
+            serial_port: <p>The serial port of the EC2 instance. Currently only port 0 is supported.</p> <p>Default: 0</p>
+            ssh_public_key: <p>The public key material. To use the public key, you must have the matching private key. For information about the supported key formats and lengths, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws\">Requirements for key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request.SendSerialConsoleSSHPublicKeyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.SendSerialConsoleSSHPublicKeyResponse"
+        ]:
+            import aws_sdk_ec2_instance_connect._operations.awsec2_instance_connect_service.send_serial_console_ssh_public_key
+
+            output, http_response = (
+                aws_sdk_ec2_instance_connect._operations.awsec2_instance_connect_service.send_serial_console_ssh_public_key.send_serial_console_ssh_public_key(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request.SendSerialConsoleSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input["instance_id"] = instance_id
+        if serial_port is not None:
+            input["serial_port"] = serial_port
+        input["ssh_public_key"] = ssh_public_key
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def send_ssh_public_key(
+        self,
+        instance_id: "aws_sdk_ec2_instance_connect.types.instance_id.InstanceId",
+        instance_os_user: "aws_sdk_ec2_instance_connect.types.instance_os_user.InstanceOSUser",
+        ssh_public_key: "aws_sdk_ec2_instance_connect.types.ssh_public_key.SSHPublicKey",
+        *,
+        config_overrides: Optional[EC2InstanceConnectClientConfig] = None,
+        availability_zone: Optional[
+            "aws_sdk_ec2_instance_connect.types.availability_zone.AvailabilityZone"
+        ] = None,
+    ) -> "aws_sdk_ec2_instance_connect.types.send_ssh_public_key_response.SendSSHPublicKeyResponse":
+        """<p>Pushes an SSH public key to the specified EC2 instance for use by the specified user. The key remains for 60 seconds. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html\">Connect to your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Args:
+            instance_id: <p>The ID of the EC2 instance.</p>
+            instance_os_user: <p>The OS user on the EC2 instance for whom the key can be used to authenticate.</p>
+            ssh_public_key: <p>The public key material. To use the public key, you must have the matching private key.</p>
+            availability_zone: <p>The Availability Zone in which the EC2 instance was launched.</p>
+
+        Examples:
+            To push an SSH key to an EC2 instance
+            The following example pushes a sample SSH public key to the EC2 instance i-abcd1234 in AZ us-west-2b for use by the instance OS user ec2-user.
+
+            >>> client.send_ssh_public_key(instance_id='i-abcd1234', instance_os_user='ec2-user', ssh_public_key='ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3FlHqj2eqCdrGHuA6dRjfZXQ4HX5lXEIRHaNbxEwE5Te7xNF7StwhrDtiV7IdT5fDqbRyGw/szPj3xGkNTVoElCZ2dDFb2qYZ1WLIpZwj/UhO9l2mgfjR56UojjQut5Jvn2KZ1OcyrNO0J83kCaJCV7JoVbXY79FBMUccYNY45zmv9+1FMCfY6i2jdIhwR6+yLk8oubL8lIPyq7X+6b9S0yKCkB7Peml1DvghlybpAIUrC9vofHt6XP4V1i0bImw1IlljQS+DUmULRFSccATDscCX9ajnj7Crhm0HAZC0tBPXpFdHkPwL3yzYo546SCS9LKEwz62ymxxbL9k7h09t', availability_zone='us-west-2a')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ec2_instance_connect.types.send_ssh_public_key_request.SendSSHPublicKeyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ec2_instance_connect.types.send_ssh_public_key_response.SendSSHPublicKeyResponse"
+        ]:
+            import aws_sdk_ec2_instance_connect._operations.awsec2_instance_connect_service.send_ssh_public_key
+
+            output, http_response = (
+                aws_sdk_ec2_instance_connect._operations.awsec2_instance_connect_service.send_ssh_public_key.send_ssh_public_key(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ec2_instance_connect.types.send_ssh_public_key_request.SendSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input["instance_id"] = instance_id
+        input["instance_os_user"] = instance_os_user
+        input["ssh_public_key"] = ssh_public_key
+        if availability_zone is not None:
+            input["availability_zone"] = availability_zone
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

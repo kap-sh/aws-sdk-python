@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationautoscaling#ListTagsForResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_application_auto_scaling.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_application_auto_scaling.types.amazon_resource_name
+
+
+class ListTagsForResourceRequest(TypedDict):
+    resource_arn: (
+        "aws_sdk_application_auto_scaling.types.amazon_resource_name.AmazonResourceName"
+    )
+    """<p>Specify the ARN of the scalable target.</p> <p>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code> </p> <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListTagsForResourceRequest) -> dict:
+    out: dict = {}
+    out["ResourceARN"] = value["resource_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListTagsForResourceRequest:
+    out: ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceARN" in data:
+        out["resource_arn"] = data["ResourceARN"]
+    else:
+        raise DeserializationError("ListTagsForResourceRequest.resource_arn required")
+    return out

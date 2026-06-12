@@ -1,0 +1,144 @@
+"""Generated from Smithy shape ``com.amazonaws.transfer#UpdateConnectorRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_transfer.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_transfer.types.as2_connector_config
+    import aws_sdk_transfer.types.connector_id
+    import aws_sdk_transfer.types.connector_security_policy_name
+    import aws_sdk_transfer.types.connectors_ip_address_type
+    import aws_sdk_transfer.types.role
+    import aws_sdk_transfer.types.sftp_connector_config
+    import aws_sdk_transfer.types.update_connector_egress_config
+    import aws_sdk_transfer.types.url
+
+
+class UpdateConnectorRequest(TypedDict):
+    connector_id: "aws_sdk_transfer.types.connector_id.ConnectorId"
+    """<p>The unique identifier for the connector.</p>"""
+    url: NotRequired["aws_sdk_transfer.types.url.Url"]
+    """<p>The URL of the partner's AS2 or SFTP endpoint.</p> <p>When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.</p>"""
+    as2_config: NotRequired[
+        "aws_sdk_transfer.types.as2_connector_config.As2ConnectorConfig"
+    ]
+    """<p>A structure that contains the parameters for an AS2 connector object.</p>"""
+    access_role: NotRequired["aws_sdk_transfer.types.role.Role"]
+    """<p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p> <p> <b>For AS2 connectors</b> </p> <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read and write access to the parent directory of the file location used in the <code>StartFileTransfer</code> request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with <code>StartFileTransfer</code>.</p> <p>If you are using Basic authentication for your AS2 connector, the access role requires the <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the <code>kms:Decrypt</code> permission for that key.</p> <p> <b>For SFTP connectors</b> </p> <p>Make sure that the access role provides read and write access to the parent directory of the file location that's used in the <code>StartFileTransfer</code> request. Additionally, make sure that the role provides <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>"""
+    logging_role: NotRequired["aws_sdk_transfer.types.role.Role"]
+    """<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events. When set, you can view connector activity in your CloudWatch logs.</p>"""
+    sftp_config: NotRequired[
+        "aws_sdk_transfer.types.sftp_connector_config.SftpConnectorConfig"
+    ]
+    """<p>A structure that contains the parameters for an SFTP connector object.</p>"""
+    security_policy_name: NotRequired[
+        "aws_sdk_transfer.types.connector_security_policy_name.ConnectorSecurityPolicyName"
+    ]
+    """<p>Specifies the name of the security policy for the connector.</p>"""
+    egress_config: NotRequired[
+        "aws_sdk_transfer.types.update_connector_egress_config.UpdateConnectorEgressConfig"
+    ]
+    """<p>Updates the egress configuration for the connector, allowing you to modify how traffic is routed from the connector to the SFTP server. Changes to VPC configuration may require connector restart.</p>"""
+    ip_address_type: NotRequired[
+        "aws_sdk_transfer.types.connectors_ip_address_type.ConnectorsIpAddressType"
+    ]
+    """<p>Specifies the IP address type for the connector's network connections. When set to <code>IPV4</code>, the connector uses IPv4 addresses only. When set to <code>DUALSTACK</code>, the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateConnectorRequest) -> dict:
+    out: dict = {}
+    out["ConnectorId"] = value["connector_id"]
+    if "url" in value:
+        out["Url"] = value["url"]
+    if "as2_config" in value:
+        import aws_sdk_transfer.types.as2_connector_config
+
+        out["As2Config"] = (
+            aws_sdk_transfer.types.as2_connector_config.serialize_aws_json_1_1(
+                value["as2_config"]
+            )
+        )
+    if "access_role" in value:
+        out["AccessRole"] = value["access_role"]
+    if "logging_role" in value:
+        out["LoggingRole"] = value["logging_role"]
+    if "sftp_config" in value:
+        import aws_sdk_transfer.types.sftp_connector_config
+
+        out["SftpConfig"] = (
+            aws_sdk_transfer.types.sftp_connector_config.serialize_aws_json_1_1(
+                value["sftp_config"]
+            )
+        )
+    if "security_policy_name" in value:
+        out["SecurityPolicyName"] = value["security_policy_name"]
+    if "egress_config" in value:
+        import aws_sdk_transfer.types.update_connector_egress_config
+
+        out["EgressConfig"] = (
+            aws_sdk_transfer.types.update_connector_egress_config.serialize_aws_json_1_1(
+                value["egress_config"]
+            )
+        )
+    if "ip_address_type" in value:
+        import aws_sdk_transfer.types.connectors_ip_address_type
+
+        out["IpAddressType"] = (
+            aws_sdk_transfer.types.connectors_ip_address_type.serialize_aws_json_1_1(
+                value["ip_address_type"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateConnectorRequest:
+    out: UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
+    if "ConnectorId" in data:
+        out["connector_id"] = data["ConnectorId"]
+    else:
+        raise DeserializationError("UpdateConnectorRequest.connector_id required")
+    if "Url" in data:
+        out["url"] = data["Url"]
+    if "As2Config" in data:
+        import aws_sdk_transfer.types.as2_connector_config
+
+        out["as2_config"] = (
+            aws_sdk_transfer.types.as2_connector_config.deserialize_aws_json_1_1(
+                data["As2Config"]
+            )
+        )
+    if "AccessRole" in data:
+        out["access_role"] = data["AccessRole"]
+    if "LoggingRole" in data:
+        out["logging_role"] = data["LoggingRole"]
+    if "SftpConfig" in data:
+        import aws_sdk_transfer.types.sftp_connector_config
+
+        out["sftp_config"] = (
+            aws_sdk_transfer.types.sftp_connector_config.deserialize_aws_json_1_1(
+                data["SftpConfig"]
+            )
+        )
+    if "SecurityPolicyName" in data:
+        out["security_policy_name"] = data["SecurityPolicyName"]
+    if "EgressConfig" in data:
+        import aws_sdk_transfer.types.update_connector_egress_config
+
+        out["egress_config"] = (
+            aws_sdk_transfer.types.update_connector_egress_config.deserialize_aws_json_1_1(
+                data["EgressConfig"]
+            )
+        )
+    if "IpAddressType" in data:
+        import aws_sdk_transfer.types.connectors_ip_address_type
+
+        out["ip_address_type"] = (
+            aws_sdk_transfer.types.connectors_ip_address_type.deserialize_aws_json_1_1(
+                data["IpAddressType"]
+            )
+        )
+    return out

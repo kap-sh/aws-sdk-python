@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#ActionExecutionFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.latest_in_pipeline_execution_filter
+    import aws_sdk_codepipeline.types.pipeline_execution_id
+
+
+class ActionExecutionFilter(TypedDict):
+    pipeline_execution_id: NotRequired[
+        "aws_sdk_codepipeline.types.pipeline_execution_id.PipelineExecutionId"
+    ]
+    """<p>The pipeline execution ID used to filter action execution history.</p>"""
+    latest_in_pipeline_execution: NotRequired[
+        "aws_sdk_codepipeline.types.latest_in_pipeline_execution_filter.LatestInPipelineExecutionFilter"
+    ]
+    """<p>The latest execution in the pipeline.</p> <note> <p>Filtering on the latest execution is available for executions run on or after February 08, 2024.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ActionExecutionFilter) -> dict:
+    out: dict = {}
+    if "pipeline_execution_id" in value:
+        out["pipelineExecutionId"] = value["pipeline_execution_id"]
+    if "latest_in_pipeline_execution" in value:
+        import aws_sdk_codepipeline.types.latest_in_pipeline_execution_filter
+
+        out["latestInPipelineExecution"] = (
+            aws_sdk_codepipeline.types.latest_in_pipeline_execution_filter.serialize_aws_json_1_1(
+                value["latest_in_pipeline_execution"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ActionExecutionFilter:
+    out: ActionExecutionFilter = {}  # type: ignore[typeddict-item]
+    if "pipelineExecutionId" in data:
+        out["pipeline_execution_id"] = data["pipelineExecutionId"]
+    if "latestInPipelineExecution" in data:
+        import aws_sdk_codepipeline.types.latest_in_pipeline_execution_filter
+
+        out["latest_in_pipeline_execution"] = (
+            aws_sdk_codepipeline.types.latest_in_pipeline_execution_filter.deserialize_aws_json_1_1(
+                data["latestInPipelineExecution"]
+            )
+        )
+    return out

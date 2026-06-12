@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.redshift#DescribeEventCategoriesMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_redshift._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_redshift.types.string
+
+
+class DescribeEventCategoriesMessage(TypedDict):
+    source_type: NotRequired["aws_sdk_redshift.types.string.String"]
+    """<p>The source type, such as cluster or parameter group, to which the described event categories apply.</p> <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DescribeEventCategoriesMessage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "source_type" in value:
+        pairs.append((f"{prefix}.SourceType", str(value["source_type"])))
+
+
+def deserialize_query(el: Element) -> DescribeEventCategoriesMessage:
+    out: DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
+    child_source_type = el.find("SourceType")
+    if child_source_type is not None:
+        out["source_type"] = str(child_source_type.text or "")
+    return out

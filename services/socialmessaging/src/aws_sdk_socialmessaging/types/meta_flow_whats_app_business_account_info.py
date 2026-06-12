@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowWhatsAppBusinessAccountInfo``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_socialmessaging.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_socialmessaging.types.meta_flow_waba_currency
+    import aws_sdk_socialmessaging.types.meta_flow_waba_template_namespace
+    import aws_sdk_socialmessaging.types.meta_flow_waba_timezone_id
+    import aws_sdk_socialmessaging.types.whats_app_business_account_id
+    import aws_sdk_socialmessaging.types.whats_app_business_account_name
+
+
+class MetaFlowWhatsAppBusinessAccountInfo(TypedDict):
+    id: "aws_sdk_socialmessaging.types.whats_app_business_account_id.WhatsAppBusinessAccountId"
+    """<p>The WhatsApp Business Account ID from Meta.</p>"""
+    name: "aws_sdk_socialmessaging.types.whats_app_business_account_name.WhatsAppBusinessAccountName"
+    """<p>The name of the WhatsApp Business Account.</p>"""
+    currency: NotRequired[
+        "aws_sdk_socialmessaging.types.meta_flow_waba_currency.MetaFlowWabaCurrency"
+    ]
+    """<p>The currency code for the WhatsApp Business Account (for example, USD).</p>"""
+    timezone_id: NotRequired[
+        "aws_sdk_socialmessaging.types.meta_flow_waba_timezone_id.MetaFlowWabaTimezoneId"
+    ]
+    """<p>The timezone ID for the WhatsApp Business Account.</p>"""
+    message_template_namespace: NotRequired[
+        "aws_sdk_socialmessaging.types.meta_flow_waba_template_namespace.MetaFlowWabaTemplateNamespace"
+    ]
+    """<p>The message template namespace for the WhatsApp Business Account.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MetaFlowWhatsAppBusinessAccountInfo) -> dict:
+    out: dict = {}
+    out["id"] = value["id"]
+    out["name"] = value["name"]
+    if "currency" in value:
+        out["currency"] = value["currency"]
+    if "timezone_id" in value:
+        out["timezoneId"] = value["timezone_id"]
+    if "message_template_namespace" in value:
+        out["messageTemplateNamespace"] = value["message_template_namespace"]
+    return out
+
+
+def deserialize_json(data: dict) -> MetaFlowWhatsAppBusinessAccountInfo:
+    out: MetaFlowWhatsAppBusinessAccountInfo = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("MetaFlowWhatsAppBusinessAccountInfo.id required")
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("MetaFlowWhatsAppBusinessAccountInfo.name required")
+    if "currency" in data:
+        out["currency"] = data["currency"]
+    if "timezoneId" in data:
+        out["timezone_id"] = data["timezoneId"]
+    if "messageTemplateNamespace" in data:
+        out["message_template_namespace"] = data["messageTemplateNamespace"]
+    return out

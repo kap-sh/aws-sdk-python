@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#DeleteInsightResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.non_empty_string
+
+
+class DeleteInsightResponse(TypedDict):
+    insight_arn: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>The ARN of the insight that was deleted.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteInsightResponse) -> dict:
+    out: dict = {}
+    if "insight_arn" in value:
+        out["InsightArn"] = value["insight_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteInsightResponse:
+    out: DeleteInsightResponse = {}  # type: ignore[typeddict-item]
+    if "InsightArn" in data:
+        out["insight_arn"] = data["InsightArn"]
+    return out

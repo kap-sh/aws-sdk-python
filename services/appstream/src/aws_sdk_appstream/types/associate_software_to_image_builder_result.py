@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#AssociateSoftwareToImageBuilderResult``."""
+
+from typing import TypedDict
+
+
+class AssociateSoftwareToImageBuilderResult(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AssociateSoftwareToImageBuilderResult) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AssociateSoftwareToImageBuilderResult:
+    out: AssociateSoftwareToImageBuilderResult = {}  # type: ignore[typeddict-item]
+    return out

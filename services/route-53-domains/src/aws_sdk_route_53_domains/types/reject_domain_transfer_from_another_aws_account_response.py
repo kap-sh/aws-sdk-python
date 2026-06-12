@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.route53domains#RejectDomainTransferFromAnotherAwsAccountResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_route_53_domains.types.operation_id
+
+
+class RejectDomainTransferFromAnotherAwsAccountResponse(TypedDict):
+    operation_id: NotRequired["aws_sdk_route_53_domains.types.operation_id.OperationId"]
+    """<p>The identifier that <code>TransferDomainToAnotherAwsAccount</code> returned to track the progress of the request. Because the transfer request was rejected, the value is no longer valid, and you can't use <code>GetOperationDetail</code> to query the operation status.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: RejectDomainTransferFromAnotherAwsAccountResponse,
+) -> dict:
+    out: dict = {}
+    if "operation_id" in value:
+        out["OperationId"] = value["operation_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> RejectDomainTransferFromAnotherAwsAccountResponse:
+    out: RejectDomainTransferFromAnotherAwsAccountResponse = {}  # type: ignore[typeddict-item]
+    if "OperationId" in data:
+        out["operation_id"] = data["OperationId"]
+    return out

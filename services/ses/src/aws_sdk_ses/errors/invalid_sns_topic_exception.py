@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.ses#InvalidSnsTopicException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ses._protocol.xml import Element
+from aws_sdk_ses.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_ses.types.amazon_resource_name
+    import aws_sdk_ses.types.error_message
+
+
+class InvalidSnsTopicException_(TypedDict):
+    topic: NotRequired["aws_sdk_ses.types.amazon_resource_name.AmazonResourceName"]
+    """<p>Indicates that the topic does not exist.</p>"""
+    message: NotRequired["aws_sdk_ses.types.error_message.ErrorMessage"]
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: InvalidSnsTopicException_, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "topic" in value:
+        pairs.append((f"{prefix}.Topic", str(value["topic"])))
+    if "message" in value:
+        pairs.append((f"{prefix}.message", str(value["message"])))
+
+
+def deserialize_query(el: Element) -> InvalidSnsTopicException_:
+    out: InvalidSnsTopicException_ = {}  # type: ignore[typeddict-item]
+    child_topic = el.find("Topic")
+    if child_topic is not None:
+        out["topic"] = str(child_topic.text or "")
+    child_message = el.find("message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class InvalidSnsTopicException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.ses#InvalidSnsTopicException``."""
+
+    code: str | None = "InvalidSnsTopicException"
+
+    def __init__(self, data: InvalidSnsTopicException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidSnsTopicException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidSnsTopicException":
+        return cls(deserialize_query(el))

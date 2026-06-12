@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#GetOpsItemRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.ops_item_arn
+    import aws_sdk_ssm.types.ops_item_id
+
+
+class GetOpsItemRequest(TypedDict):
+    ops_item_id: "aws_sdk_ssm.types.ops_item_id.OpsItemId"
+    """<p>The ID of the OpsItem that you want to get.</p>"""
+    ops_item_arn: NotRequired["aws_sdk_ssm.types.ops_item_arn.OpsItemArn"]
+    """<p>The OpsItem Amazon Resource Name (ARN).</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetOpsItemRequest) -> dict:
+    out: dict = {}
+    out["OpsItemId"] = value["ops_item_id"]
+    if "ops_item_arn" in value:
+        out["OpsItemArn"] = value["ops_item_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetOpsItemRequest:
+    out: GetOpsItemRequest = {}  # type: ignore[typeddict-item]
+    if "OpsItemId" in data:
+        out["ops_item_id"] = data["OpsItemId"]
+    else:
+        raise DeserializationError("GetOpsItemRequest.ops_item_id required")
+    if "OpsItemArn" in data:
+        out["ops_item_arn"] = data["OpsItemArn"]
+    return out

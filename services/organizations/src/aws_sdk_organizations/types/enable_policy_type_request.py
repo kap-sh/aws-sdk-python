@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.organizations#EnablePolicyTypeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_organizations.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_organizations.types.policy_type
+    import aws_sdk_organizations.types.root_id
+
+
+class EnablePolicyTypeRequest(TypedDict):
+    root_id: "aws_sdk_organizations.types.root_id.RootId"
+    """<p>ID for the root in which you want to enable a policy type. You can get the ID from the <a>ListRoots</a> operation.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a root ID string requires \"r-\" followed by from 4 to 32 lowercase letters or digits.</p>"""
+    policy_type: "aws_sdk_organizations.types.policy_type.PolicyType"
+    """<p>The policy type that you want to enable. You can specify one of the following values:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html\">SERVICE_CONTROL_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html\">RESOURCE_CONTROL_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html\">DECLARATIVE_POLICY_EC2</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html\">BACKUP_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html\">TAG_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html\">CHATBOT_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html\">AISERVICES_OPT_OUT_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html\">SECURITYHUB_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html\">UPGRADE_ROLLOUT_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html\">INSPECTOR_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html\">BEDROCK_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_s3.html\">S3_POLICY</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html\">NETWORK_SECURITY_DIRECTOR_POLICY</a> </p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EnablePolicyTypeRequest) -> dict:
+    out: dict = {}
+    out["RootId"] = value["root_id"]
+    import aws_sdk_organizations.types.policy_type
+
+    out["PolicyType"] = aws_sdk_organizations.types.policy_type.serialize_aws_json_1_1(
+        value["policy_type"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EnablePolicyTypeRequest:
+    out: EnablePolicyTypeRequest = {}  # type: ignore[typeddict-item]
+    if "RootId" in data:
+        out["root_id"] = data["RootId"]
+    else:
+        raise DeserializationError("EnablePolicyTypeRequest.root_id required")
+    if "PolicyType" in data:
+        import aws_sdk_organizations.types.policy_type
+
+        out["policy_type"] = (
+            aws_sdk_organizations.types.policy_type.deserialize_aws_json_1_1(
+                data["PolicyType"]
+            )
+        )
+    else:
+        raise DeserializationError("EnablePolicyTypeRequest.policy_type required")
+    return out

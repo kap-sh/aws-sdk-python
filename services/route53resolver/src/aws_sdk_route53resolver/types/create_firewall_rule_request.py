@@ -1,0 +1,236 @@
+"""Generated from Smithy shape ``com.amazonaws.route53resolver#CreateFirewallRuleRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_route53resolver.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_route53resolver.types.action
+    import aws_sdk_route53resolver.types.block_override_dns_type
+    import aws_sdk_route53resolver.types.block_override_domain
+    import aws_sdk_route53resolver.types.block_override_ttl
+    import aws_sdk_route53resolver.types.block_response
+    import aws_sdk_route53resolver.types.confidence_threshold
+    import aws_sdk_route53resolver.types.creator_request_id
+    import aws_sdk_route53resolver.types.dns_threat_protection
+    import aws_sdk_route53resolver.types.firewall_domain_redirection_action
+    import aws_sdk_route53resolver.types.firewall_rule_type
+    import aws_sdk_route53resolver.types.name
+    import aws_sdk_route53resolver.types.priority
+    import aws_sdk_route53resolver.types.qtype
+    import aws_sdk_route53resolver.types.resource_id
+
+
+class CreateFirewallRuleRequest(TypedDict):
+    creator_request_id: (
+        "aws_sdk_route53resolver.types.creator_request_id.CreatorRequestId"
+    )
+    """<p>A unique string that identifies the request and that allows you to retry failed requests without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>"""
+    firewall_rule_group_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
+    """<p>The unique identifier of the firewall rule group where you want to create the rule. </p>"""
+    firewall_domain_list_id: NotRequired[
+        "aws_sdk_route53resolver.types.resource_id.ResourceId"
+    ]
+    """<p>The ID of the domain list that you want to use in the rule. Can't be used together with <code>DnsThreatProtecton</code>.</p>"""
+    priority: "aws_sdk_route53resolver.types.priority.Priority"
+    """<p>The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p> <p>You must specify a unique priority for each rule in a rule group. To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You can change the priority setting for the rules in a rule group at any time.</p>"""
+    action: "aws_sdk_route53resolver.types.action.Action"
+    """<p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p> <ul> <li> <p> <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p> </li> <li> <p> <code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</p> </li> <li> <p> <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>. </p> </li> </ul>"""
+    block_response: NotRequired[
+        "aws_sdk_route53resolver.types.block_response.BlockResponse"
+    ]
+    """<p>The way that you want DNS Firewall to block the request, used with the rule action setting <code>BLOCK</code>. </p> <ul> <li> <p> <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p> </li> <li> <p> <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p> </li> <li> <p> <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p> </li> </ul> <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>"""
+    block_override_domain: NotRequired[
+        "aws_sdk_route53resolver.types.block_override_domain.BlockOverrideDomain"
+    ]
+    """<p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p> <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>"""
+    block_override_dns_type: NotRequired[
+        "aws_sdk_route53resolver.types.block_override_dns_type.BlockOverrideDnsType"
+    ]
+    """<p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p> <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>"""
+    block_override_ttl: NotRequired[
+        "aws_sdk_route53resolver.types.block_override_ttl.BlockOverrideTtl"
+    ]
+    """<p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p> <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>"""
+    name: "aws_sdk_route53resolver.types.name.Name"
+    """<p>A name that lets you identify the rule in the rule group.</p>"""
+    firewall_domain_redirection_action: NotRequired[
+        "aws_sdk_route53resolver.types.firewall_domain_redirection_action.FirewallDomainRedirectionAction"
+    ]
+    """<p> How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME. </p> <p> <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be added to the domain list.</p> <p> <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to the domain list.</p>"""
+    qtype: NotRequired["aws_sdk_route53resolver.types.qtype.Qtype"]
+    """<p> The DNS query type you want the rule to evaluate. Allowed values are; </p> <ul> <li> <p> A: Returns an IPv4 address.</p> </li> <li> <p>AAAA: Returns an Ipv6 address.</p> </li> <li> <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p> </li> <li> <p>CNAME: Returns another domain name.</p> </li> <li> <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p> </li> <li> <p>MX: Specifies mail servers.</p> </li> <li> <p>NAPTR: Regular-expression-based rewriting of domain names.</p> </li> <li> <p>NS: Authoritative name servers.</p> </li> <li> <p>PTR: Maps an IP address to a domain name.</p> </li> <li> <p>SOA: Start of authority record for the zone.</p> </li> <li> <p>SPF: Lists the servers authorized to send emails from a domain.</p> </li> <li> <p>SRV: Application specific values that identify servers.</p> </li> <li> <p>TXT: Verifies email senders and application-specific values.</p> </li> <li> <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be defined as TYPENUMBER, where the NUMBER can be 1-65534, for example, TYPE28. For more information, see <a href=\"https://en.wikipedia.org/wiki/List_of_DNS_record_types\">List of DNS record types</a>.</p> </li> </ul>"""
+    dns_threat_protection: NotRequired[
+        "aws_sdk_route53resolver.types.dns_threat_protection.DnsThreatProtection"
+    ]
+    """<p> Use to create a DNS Firewall Advanced rule. </p>"""
+    confidence_threshold: NotRequired[
+        "aws_sdk_route53resolver.types.confidence_threshold.ConfidenceThreshold"
+    ]
+    """<p> The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence level values mean: </p> <ul> <li> <p> <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p> </li> <li> <p> <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p> </li> <li> <p> <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p> </li> </ul>"""
+    firewall_rule_type: NotRequired[
+        "aws_sdk_route53resolver.types.firewall_rule_type.FirewallRuleType"
+    ]
+    """<p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateFirewallRuleRequest) -> dict:
+    out: dict = {}
+    out["CreatorRequestId"] = value["creator_request_id"]
+    out["FirewallRuleGroupId"] = value["firewall_rule_group_id"]
+    if "firewall_domain_list_id" in value:
+        out["FirewallDomainListId"] = value["firewall_domain_list_id"]
+    out["Priority"] = value["priority"]
+    import aws_sdk_route53resolver.types.action
+
+    out["Action"] = aws_sdk_route53resolver.types.action.serialize_aws_json_1_1(
+        value["action"]
+    )
+    if "block_response" in value:
+        import aws_sdk_route53resolver.types.block_response
+
+        out["BlockResponse"] = (
+            aws_sdk_route53resolver.types.block_response.serialize_aws_json_1_1(
+                value["block_response"]
+            )
+        )
+    if "block_override_domain" in value:
+        out["BlockOverrideDomain"] = value["block_override_domain"]
+    if "block_override_dns_type" in value:
+        import aws_sdk_route53resolver.types.block_override_dns_type
+
+        out["BlockOverrideDnsType"] = (
+            aws_sdk_route53resolver.types.block_override_dns_type.serialize_aws_json_1_1(
+                value["block_override_dns_type"]
+            )
+        )
+    if "block_override_ttl" in value:
+        out["BlockOverrideTtl"] = value["block_override_ttl"]
+    out["Name"] = value["name"]
+    if "firewall_domain_redirection_action" in value:
+        import aws_sdk_route53resolver.types.firewall_domain_redirection_action
+
+        out["FirewallDomainRedirectionAction"] = (
+            aws_sdk_route53resolver.types.firewall_domain_redirection_action.serialize_aws_json_1_1(
+                value["firewall_domain_redirection_action"]
+            )
+        )
+    if "qtype" in value:
+        out["Qtype"] = value["qtype"]
+    if "dns_threat_protection" in value:
+        import aws_sdk_route53resolver.types.dns_threat_protection
+
+        out["DnsThreatProtection"] = (
+            aws_sdk_route53resolver.types.dns_threat_protection.serialize_aws_json_1_1(
+                value["dns_threat_protection"]
+            )
+        )
+    if "confidence_threshold" in value:
+        import aws_sdk_route53resolver.types.confidence_threshold
+
+        out["ConfidenceThreshold"] = (
+            aws_sdk_route53resolver.types.confidence_threshold.serialize_aws_json_1_1(
+                value["confidence_threshold"]
+            )
+        )
+    if "firewall_rule_type" in value:
+        import aws_sdk_route53resolver.types.firewall_rule_type
+
+        out["FirewallRuleType"] = (
+            aws_sdk_route53resolver.types.firewall_rule_type.serialize_aws_json_1_1(
+                value["firewall_rule_type"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateFirewallRuleRequest:
+    out: CreateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+    if "CreatorRequestId" in data:
+        out["creator_request_id"] = data["CreatorRequestId"]
+    else:
+        raise DeserializationError(
+            "CreateFirewallRuleRequest.creator_request_id required"
+        )
+    if "FirewallRuleGroupId" in data:
+        out["firewall_rule_group_id"] = data["FirewallRuleGroupId"]
+    else:
+        raise DeserializationError(
+            "CreateFirewallRuleRequest.firewall_rule_group_id required"
+        )
+    if "FirewallDomainListId" in data:
+        out["firewall_domain_list_id"] = data["FirewallDomainListId"]
+    if "Priority" in data:
+        out["priority"] = data["Priority"]
+    else:
+        raise DeserializationError("CreateFirewallRuleRequest.priority required")
+    if "Action" in data:
+        import aws_sdk_route53resolver.types.action
+
+        out["action"] = aws_sdk_route53resolver.types.action.deserialize_aws_json_1_1(
+            data["Action"]
+        )
+    else:
+        raise DeserializationError("CreateFirewallRuleRequest.action required")
+    if "BlockResponse" in data:
+        import aws_sdk_route53resolver.types.block_response
+
+        out["block_response"] = (
+            aws_sdk_route53resolver.types.block_response.deserialize_aws_json_1_1(
+                data["BlockResponse"]
+            )
+        )
+    if "BlockOverrideDomain" in data:
+        out["block_override_domain"] = data["BlockOverrideDomain"]
+    if "BlockOverrideDnsType" in data:
+        import aws_sdk_route53resolver.types.block_override_dns_type
+
+        out["block_override_dns_type"] = (
+            aws_sdk_route53resolver.types.block_override_dns_type.deserialize_aws_json_1_1(
+                data["BlockOverrideDnsType"]
+            )
+        )
+    if "BlockOverrideTtl" in data:
+        out["block_override_ttl"] = data["BlockOverrideTtl"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("CreateFirewallRuleRequest.name required")
+    if "FirewallDomainRedirectionAction" in data:
+        import aws_sdk_route53resolver.types.firewall_domain_redirection_action
+
+        out["firewall_domain_redirection_action"] = (
+            aws_sdk_route53resolver.types.firewall_domain_redirection_action.deserialize_aws_json_1_1(
+                data["FirewallDomainRedirectionAction"]
+            )
+        )
+    if "Qtype" in data:
+        out["qtype"] = data["Qtype"]
+    if "DnsThreatProtection" in data:
+        import aws_sdk_route53resolver.types.dns_threat_protection
+
+        out["dns_threat_protection"] = (
+            aws_sdk_route53resolver.types.dns_threat_protection.deserialize_aws_json_1_1(
+                data["DnsThreatProtection"]
+            )
+        )
+    if "ConfidenceThreshold" in data:
+        import aws_sdk_route53resolver.types.confidence_threshold
+
+        out["confidence_threshold"] = (
+            aws_sdk_route53resolver.types.confidence_threshold.deserialize_aws_json_1_1(
+                data["ConfidenceThreshold"]
+            )
+        )
+    if "FirewallRuleType" in data:
+        import aws_sdk_route53resolver.types.firewall_rule_type
+
+        out["firewall_rule_type"] = (
+            aws_sdk_route53resolver.types.firewall_rule_type.deserialize_aws_json_1_1(
+                data["FirewallRuleType"]
+            )
+        )
+    return out

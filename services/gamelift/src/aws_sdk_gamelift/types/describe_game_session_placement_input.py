@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#DescribeGameSessionPlacementInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.id_string_model
+
+
+class DescribeGameSessionPlacementInput(TypedDict):
+    placement_id: NotRequired["aws_sdk_gamelift.types.id_string_model.IdStringModel"]
+    """<p>A unique identifier for a game session placement to retrieve.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeGameSessionPlacementInput) -> dict:
+    out: dict = {}
+    if "placement_id" in value:
+        out["PlacementId"] = value["placement_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeGameSessionPlacementInput:
+    out: DescribeGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
+    if "PlacementId" in data:
+        out["placement_id"] = data["PlacementId"]
+    return out

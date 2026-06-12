@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.forecast#DatasetGroupSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_forecast.types.arn
+    import aws_sdk_forecast.types.name
+    import aws_sdk_forecast.types.timestamp
+
+
+class DatasetGroupSummary(TypedDict):
+    dataset_group_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
+    """<p>The Amazon Resource Name (ARN) of the dataset group.</p>"""
+    dataset_group_name: NotRequired["aws_sdk_forecast.types.name.Name"]
+    """<p>The name of the dataset group.</p>"""
+    creation_time: NotRequired["aws_sdk_forecast.types.timestamp.Timestamp"]
+    """<p>When the dataset group was created.</p>"""
+    last_modification_time: NotRequired["aws_sdk_forecast.types.timestamp.Timestamp"]
+    """<p>When the dataset group was created or last updated from a call to the <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html\">UpdateDatasetGroup</a> operation. While the dataset group is being updated, <code>LastModificationTime</code> is the current time of the <code>ListDatasetGroups</code> call.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DatasetGroupSummary) -> dict:
+    out: dict = {}
+    if "dataset_group_arn" in value:
+        out["DatasetGroupArn"] = value["dataset_group_arn"]
+    if "dataset_group_name" in value:
+        out["DatasetGroupName"] = value["dataset_group_name"]
+    if "creation_time" in value:
+        import aws_sdk_forecast.types.timestamp
+
+        out["CreationTime"] = aws_sdk_forecast.types.timestamp.serialize_aws_json_1_1(
+            value["creation_time"]
+        )
+    if "last_modification_time" in value:
+        import aws_sdk_forecast.types.timestamp
+
+        out["LastModificationTime"] = (
+            aws_sdk_forecast.types.timestamp.serialize_aws_json_1_1(
+                value["last_modification_time"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DatasetGroupSummary:
+    out: DatasetGroupSummary = {}  # type: ignore[typeddict-item]
+    if "DatasetGroupArn" in data:
+        out["dataset_group_arn"] = data["DatasetGroupArn"]
+    if "DatasetGroupName" in data:
+        out["dataset_group_name"] = data["DatasetGroupName"]
+    if "CreationTime" in data:
+        import aws_sdk_forecast.types.timestamp
+
+        out["creation_time"] = (
+            aws_sdk_forecast.types.timestamp.deserialize_aws_json_1_1(
+                data["CreationTime"]
+            )
+        )
+    if "LastModificationTime" in data:
+        import aws_sdk_forecast.types.timestamp
+
+        out["last_modification_time"] = (
+            aws_sdk_forecast.types.timestamp.deserialize_aws_json_1_1(
+                data["LastModificationTime"]
+            )
+        )
+    return out

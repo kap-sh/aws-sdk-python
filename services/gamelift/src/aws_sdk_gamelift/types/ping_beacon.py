@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#PingBeacon``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.udp_endpoint
+
+
+class PingBeacon(TypedDict):
+    udp_endpoint: NotRequired["aws_sdk_gamelift.types.udp_endpoint.UDPEndpoint"]
+    """<p>The domain name and port of the UDP ping beacon. Your game client can send UDP messages to this endpoint and receive responses to measure network latency.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PingBeacon) -> dict:
+    out: dict = {}
+    if "udp_endpoint" in value:
+        import aws_sdk_gamelift.types.udp_endpoint
+
+        out["UDPEndpoint"] = aws_sdk_gamelift.types.udp_endpoint.serialize_aws_json_1_1(
+            value["udp_endpoint"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PingBeacon:
+    out: PingBeacon = {}  # type: ignore[typeddict-item]
+    if "UDPEndpoint" in data:
+        import aws_sdk_gamelift.types.udp_endpoint
+
+        out["udp_endpoint"] = (
+            aws_sdk_gamelift.types.udp_endpoint.deserialize_aws_json_1_1(
+                data["UDPEndpoint"]
+            )
+        )
+    return out

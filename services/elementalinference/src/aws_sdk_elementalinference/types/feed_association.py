@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.elementalinference#FeedAssociation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_elementalinference.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_elementalinference.types.associated_resource_name
+
+
+class FeedAssociation(TypedDict):
+    associated_resource_name: "aws_sdk_elementalinference.types.associated_resource_name.AssociatedResourceName"
+    """<p>The name of the associated resource.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FeedAssociation) -> dict:
+    out: dict = {}
+    out["associatedResourceName"] = value["associated_resource_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> FeedAssociation:
+    out: FeedAssociation = {}  # type: ignore[typeddict-item]
+    if "associatedResourceName" in data:
+        out["associated_resource_name"] = data["associatedResourceName"]
+    else:
+        raise DeserializationError("FeedAssociation.associated_resource_name required")
+    return out

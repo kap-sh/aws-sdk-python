@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.lightsail#CreateGUISessionAccessDetailsResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lightsail.types.integer
+    import aws_sdk_lightsail.types.resource_name
+    import aws_sdk_lightsail.types.sessions
+    import aws_sdk_lightsail.types.status
+    import aws_sdk_lightsail.types.string
+
+
+class CreateGUISessionAccessDetailsResult(TypedDict):
+    resource_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
+    """<p>The resource name.</p>"""
+    status: NotRequired["aws_sdk_lightsail.types.status.Status"]
+    """<p>The status of the operation.</p>"""
+    percentage_complete: NotRequired["aws_sdk_lightsail.types.integer.integer"]
+    """<p>The percentage of completion for the operation.</p>"""
+    failure_reason: NotRequired["aws_sdk_lightsail.types.string.string"]
+    """<p>The reason the operation failed.</p>"""
+    sessions: NotRequired["aws_sdk_lightsail.types.sessions.Sessions"]
+    """<p>Returns information about the specified Amazon DCV GUI session.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateGUISessionAccessDetailsResult) -> dict:
+    out: dict = {}
+    if "resource_name" in value:
+        out["resourceName"] = value["resource_name"]
+    if "status" in value:
+        import aws_sdk_lightsail.types.status
+
+        out["status"] = aws_sdk_lightsail.types.status.serialize_aws_json_1_1(
+            value["status"]
+        )
+    if "percentage_complete" in value:
+        out["percentageComplete"] = value["percentage_complete"]
+    if "failure_reason" in value:
+        out["failureReason"] = value["failure_reason"]
+    if "sessions" in value:
+        import aws_sdk_lightsail.types.sessions
+
+        out["sessions"] = aws_sdk_lightsail.types.sessions.serialize_aws_json_1_1(
+            value["sessions"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateGUISessionAccessDetailsResult:
+    out: CreateGUISessionAccessDetailsResult = {}  # type: ignore[typeddict-item]
+    if "resourceName" in data:
+        out["resource_name"] = data["resourceName"]
+    if "status" in data:
+        import aws_sdk_lightsail.types.status
+
+        out["status"] = aws_sdk_lightsail.types.status.deserialize_aws_json_1_1(
+            data["status"]
+        )
+    if "percentageComplete" in data:
+        out["percentage_complete"] = data["percentageComplete"]
+    if "failureReason" in data:
+        out["failure_reason"] = data["failureReason"]
+    if "sessions" in data:
+        import aws_sdk_lightsail.types.sessions
+
+        out["sessions"] = aws_sdk_lightsail.types.sessions.deserialize_aws_json_1_1(
+            data["sessions"]
+        )
+    return out

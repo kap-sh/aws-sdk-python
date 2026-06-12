@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleIdList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_network_firewall.types.collection_member_string
+
+RuleIdList: TypeAlias = list[
+    "aws_sdk_network_firewall.types.collection_member_string.CollectionMember_String"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: RuleIdList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_0(data: list) -> RuleIdList:
+    return list(data)

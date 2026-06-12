@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.rolesanywhere#CreateTrustAnchorRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_rolesanywhere.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_rolesanywhere.types.notification_settings
+    import aws_sdk_rolesanywhere.types.resource_name
+    import aws_sdk_rolesanywhere.types.source
+    import aws_sdk_rolesanywhere.types.tag_list
+
+class CreateTrustAnchorRequest(TypedDict):
+    name: "aws_sdk_rolesanywhere.types.resource_name.ResourceName"
+    """<p>The name of the trust anchor.</p>"""
+    source: "aws_sdk_rolesanywhere.types.source.Source"
+    """<p>The trust anchor type and its related certificate data.</p>"""
+    enabled: NotRequired["bool"]
+    """<p>Specifies whether the trust anchor is enabled.</p>"""
+    tags: NotRequired["aws_sdk_rolesanywhere.types.tag_list.TagList"]
+    """<p>The tags to attach to the trust anchor.</p>"""
+    notification_settings: NotRequired["aws_sdk_rolesanywhere.types.notification_settings.NotificationSettings"]
+    """<p>A list of notification settings to be associated to the trust anchor.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateTrustAnchorRequest) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    import aws_sdk_rolesanywhere.types.source
+    out["source"] = aws_sdk_rolesanywhere.types.source.serialize_json(value["source"])
+    if "enabled" in value:
+        out["enabled"] = value["enabled"]
+    if "tags" in value:
+        import aws_sdk_rolesanywhere.types.tag_list
+        out["tags"] = aws_sdk_rolesanywhere.types.tag_list.serialize_json(value["tags"])
+    if "notification_settings" in value:
+        import aws_sdk_rolesanywhere.types.notification_settings
+        out["notificationSettings"] = aws_sdk_rolesanywhere.types.notification_settings.serialize_json(value["notification_settings"])
+    return out
+
+
+def deserialize_json(data: dict) -> CreateTrustAnchorRequest:
+    out: CreateTrustAnchorRequest = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("CreateTrustAnchorRequest.name required")
+    if "source" in data:
+        import aws_sdk_rolesanywhere.types.source
+        out["source"] = aws_sdk_rolesanywhere.types.source.deserialize_json(data["source"])
+    else:
+        raise DeserializationError("CreateTrustAnchorRequest.source required")
+    if "enabled" in data:
+        out["enabled"] = data["enabled"]
+    if "tags" in data:
+        import aws_sdk_rolesanywhere.types.tag_list
+        out["tags"] = aws_sdk_rolesanywhere.types.tag_list.deserialize_json(data["tags"])
+    if "notificationSettings" in data:
+        import aws_sdk_rolesanywhere.types.notification_settings
+        out["notification_settings"] = aws_sdk_rolesanywhere.types.notification_settings.deserialize_json(data["notificationSettings"])
+    return out

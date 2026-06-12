@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#BuildNotDeleted``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codebuild.types.non_empty_string
+    import aws_sdk_codebuild.types.string
+
+
+class BuildNotDeleted(TypedDict):
+    id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
+    """<p>The ID of the build that could not be successfully deleted.</p>"""
+    status_code: NotRequired["aws_sdk_codebuild.types.string.String"]
+    """<p>Additional information about the build that could not be successfully deleted.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BuildNotDeleted) -> dict:
+    out: dict = {}
+    if "id" in value:
+        out["id"] = value["id"]
+    if "status_code" in value:
+        out["statusCode"] = value["status_code"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BuildNotDeleted:
+    out: BuildNotDeleted = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "statusCode" in data:
+        out["status_code"] = data["statusCode"]
+    return out

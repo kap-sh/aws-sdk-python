@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#UpdateCustomMetricRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iot.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.custom_metric_display_name
+    import aws_sdk_iot.types.metric_name
+
+
+class UpdateCustomMetricRequest(TypedDict):
+    metric_name: "aws_sdk_iot.types.metric_name.MetricName"
+    """<p> The name of the custom metric. Cannot be updated. </p>"""
+    display_name: "aws_sdk_iot.types.custom_metric_display_name.CustomMetricDisplayName"
+    """<p> Field represents a friendly name in the console for the custom metric, it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateCustomMetricRequest) -> dict:
+    out: dict = {}
+    out["displayName"] = value["display_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateCustomMetricRequest:
+    out: UpdateCustomMetricRequest = {}  # type: ignore[typeddict-item]
+    if "displayName" in data:
+        out["display_name"] = data["displayName"]
+    else:
+        raise DeserializationError("UpdateCustomMetricRequest.display_name required")
+    return out

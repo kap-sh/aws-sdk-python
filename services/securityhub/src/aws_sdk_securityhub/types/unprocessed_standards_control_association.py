@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#UnprocessedStandardsControlAssociation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.non_empty_string
+    import aws_sdk_securityhub.types.standards_control_association_id
+    import aws_sdk_securityhub.types.unprocessed_error_code
+
+
+class UnprocessedStandardsControlAssociation(TypedDict):
+    standards_control_association_id: NotRequired[
+        "aws_sdk_securityhub.types.standards_control_association_id.StandardsControlAssociationId"
+    ]
+    """<p> An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the specific controls for which the enablement status couldn't be retrieved in specified standards when calling <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html\">BatchUpdateStandardsControlAssociations</a>. </p>"""
+    error_code: NotRequired[
+        "aws_sdk_securityhub.types.unprocessed_error_code.UnprocessedErrorCode"
+    ]
+    """<p>The error code for the unprocessed standard and control association. The <code>NOT_FOUND</code> value has been deprecated and replaced by the <code>RESOURCE_NOT_FOUND</code> value. </p>"""
+    error_reason: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>The reason why the standard and control association was unprocessed. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UnprocessedStandardsControlAssociation) -> dict:
+    out: dict = {}
+    if "standards_control_association_id" in value:
+        import aws_sdk_securityhub.types.standards_control_association_id
+
+        out["StandardsControlAssociationId"] = (
+            aws_sdk_securityhub.types.standards_control_association_id.serialize_json(
+                value["standards_control_association_id"]
+            )
+        )
+    if "error_code" in value:
+        import aws_sdk_securityhub.types.unprocessed_error_code
+
+        out["ErrorCode"] = (
+            aws_sdk_securityhub.types.unprocessed_error_code.serialize_json(
+                value["error_code"]
+            )
+        )
+    if "error_reason" in value:
+        out["ErrorReason"] = value["error_reason"]
+    return out
+
+
+def deserialize_json(data: dict) -> UnprocessedStandardsControlAssociation:
+    out: UnprocessedStandardsControlAssociation = {}  # type: ignore[typeddict-item]
+    if "StandardsControlAssociationId" in data:
+        import aws_sdk_securityhub.types.standards_control_association_id
+
+        out["standards_control_association_id"] = (
+            aws_sdk_securityhub.types.standards_control_association_id.deserialize_json(
+                data["StandardsControlAssociationId"]
+            )
+        )
+    if "ErrorCode" in data:
+        import aws_sdk_securityhub.types.unprocessed_error_code
+
+        out["error_code"] = (
+            aws_sdk_securityhub.types.unprocessed_error_code.deserialize_json(
+                data["ErrorCode"]
+            )
+        )
+    if "ErrorReason" in data:
+        out["error_reason"] = data["ErrorReason"]
+    return out

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.eventbridge#UpdateConnectionBasicAuthRequestParameters``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_eventbridge.types.auth_header_parameters
+    import aws_sdk_eventbridge.types.auth_header_parameters_sensitive
+
+
+class UpdateConnectionBasicAuthRequestParameters(TypedDict):
+    username: NotRequired[
+        "aws_sdk_eventbridge.types.auth_header_parameters.AuthHeaderParameters"
+    ]
+    """<p>The user name to use for Basic authorization.</p>"""
+    password: NotRequired[
+        "aws_sdk_eventbridge.types.auth_header_parameters_sensitive.AuthHeaderParametersSensitive"
+    ]
+    """<p>The password associated with the user name to use for Basic authorization.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateConnectionBasicAuthRequestParameters) -> dict:
+    out: dict = {}
+    if "username" in value:
+        out["Username"] = value["username"]
+    if "password" in value:
+        out["Password"] = value["password"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionBasicAuthRequestParameters:
+    out: UpdateConnectionBasicAuthRequestParameters = {}  # type: ignore[typeddict-item]
+    if "Username" in data:
+        out["username"] = data["Username"]
+    if "Password" in data:
+        out["password"] = data["Password"]
+    return out

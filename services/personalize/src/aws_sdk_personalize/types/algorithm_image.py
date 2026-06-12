@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.personalize#AlgorithmImage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_personalize.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_personalize.types.docker_uri
+    import aws_sdk_personalize.types.name
+
+
+class AlgorithmImage(TypedDict):
+    name: NotRequired["aws_sdk_personalize.types.name.Name"]
+    """<p>The name of the algorithm image.</p>"""
+    docker_uri: "aws_sdk_personalize.types.docker_uri.DockerURI"
+    """<p>The URI of the Docker container for the algorithm image.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AlgorithmImage) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    out["dockerURI"] = value["docker_uri"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AlgorithmImage:
+    out: AlgorithmImage = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "dockerURI" in data:
+        out["docker_uri"] = data["dockerURI"]
+    else:
+        raise DeserializationError("AlgorithmImage.docker_uri required")
+    return out

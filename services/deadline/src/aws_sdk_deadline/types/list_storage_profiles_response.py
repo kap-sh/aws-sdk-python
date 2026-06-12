@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#ListStorageProfilesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.next_token
+    import aws_sdk_deadline.types.storage_profile_summaries
+
+
+class ListStorageProfilesResponse(TypedDict):
+    storage_profiles: (
+        "aws_sdk_deadline.types.storage_profile_summaries.StorageProfileSummaries"
+    )
+    """<p>The storage profiles.</p>"""
+    next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]
+    """<p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListStorageProfilesResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_deadline.types.storage_profile_summaries
+
+    out["storageProfiles"] = (
+        aws_sdk_deadline.types.storage_profile_summaries.serialize_json(
+            value["storage_profiles"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListStorageProfilesResponse:
+    out: ListStorageProfilesResponse = {}  # type: ignore[typeddict-item]
+    if "storageProfiles" in data:
+        import aws_sdk_deadline.types.storage_profile_summaries
+
+        out["storage_profiles"] = (
+            aws_sdk_deadline.types.storage_profile_summaries.deserialize_json(
+                data["storageProfiles"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListStorageProfilesResponse.storage_profiles required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

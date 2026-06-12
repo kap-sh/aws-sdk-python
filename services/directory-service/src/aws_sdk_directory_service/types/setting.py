@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#Setting``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_directory_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.directory_configuration_setting_name
+    import aws_sdk_directory_service.types.directory_configuration_setting_value
+
+
+class Setting(TypedDict):
+    name: "aws_sdk_directory_service.types.directory_configuration_setting_name.DirectoryConfigurationSettingName"
+    """<p>The name of the directory setting. For example:</p> <p> <code>TLS_1_0</code> </p>"""
+    value: "aws_sdk_directory_service.types.directory_configuration_setting_value.DirectoryConfigurationSettingValue"
+    """<p>The value of the directory setting for which to retrieve information. For example, for <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and <code>Disable</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Setting) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    out["Value"] = value["value"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Setting:
+    out: Setting = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("Setting.name required")
+    if "Value" in data:
+        out["value"] = data["Value"]
+    else:
+        raise DeserializationError("Setting.value required")
+    return out

@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#IotTwinMakerDestinationConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iottwinmaker.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iottwinmaker.types.twin_maker_arn
+
+
+class IotTwinMakerDestinationConfiguration(TypedDict):
+    workspace: "aws_sdk_iottwinmaker.types.twin_maker_arn.TwinMakerArn"
+    """<p>The IoT TwinMaker workspace.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IotTwinMakerDestinationConfiguration) -> dict:
+    out: dict = {}
+    out["workspace"] = value["workspace"]
+    return out
+
+
+def deserialize_json(data: dict) -> IotTwinMakerDestinationConfiguration:
+    out: IotTwinMakerDestinationConfiguration = {}  # type: ignore[typeddict-item]
+    if "workspace" in data:
+        out["workspace"] = data["workspace"]
+    else:
+        raise DeserializationError(
+            "IotTwinMakerDestinationConfiguration.workspace required"
+        )
+    return out

@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.route53#Dimension``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_route_53._protocol.xml import Element, SubElement
+from aws_sdk_route_53.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_route_53.types.dimension_field
+
+
+class Dimension(TypedDict):
+    name: "aws_sdk_route_53.types.dimension_field.DimensionField"
+    """<p>For the metric that the CloudWatch alarm is associated with, the name of one dimension.</p>"""
+    value: "aws_sdk_route_53.types.dimension_field.DimensionField"
+    """<p>For the metric that the CloudWatch alarm is associated with, the value of one dimension.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: Dimension, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "Name").text = str(value["name"])
+    SubElement(el, "Value").text = str(value["value"])
+
+
+def deserialize_xml(el: Element) -> Dimension:
+    out: Dimension = {}  # type: ignore[typeddict-item]
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    else:
+        raise DeserializationError("Dimension.name required")
+    child_value = el.find("Value")
+    if child_value is not None:
+        out["value"] = str(child_value.text or "")
+    else:
+        raise DeserializationError("Dimension.value required")
+    return out

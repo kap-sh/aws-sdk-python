@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobVpcConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.recommendation_job_vpc_security_group_ids
+    import aws_sdk_sagemaker.types.recommendation_job_vpc_subnets
+
+
+class RecommendationJobVpcConfig(TypedDict):
+    security_group_ids: NotRequired[
+        "aws_sdk_sagemaker.types.recommendation_job_vpc_security_group_ids.RecommendationJobVpcSecurityGroupIds"
+    ]
+    """<p>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>. Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>"""
+    subnets: NotRequired[
+        "aws_sdk_sagemaker.types.recommendation_job_vpc_subnets.RecommendationJobVpcSubnets"
+    ]
+    """<p>The ID of the subnets in the VPC to which you want to connect your model.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RecommendationJobVpcConfig) -> dict:
+    out: dict = {}
+    if "security_group_ids" in value:
+        import aws_sdk_sagemaker.types.recommendation_job_vpc_security_group_ids
+
+        out["SecurityGroupIds"] = (
+            aws_sdk_sagemaker.types.recommendation_job_vpc_security_group_ids.serialize_aws_json_1_1(
+                value["security_group_ids"]
+            )
+        )
+    if "subnets" in value:
+        import aws_sdk_sagemaker.types.recommendation_job_vpc_subnets
+
+        out["Subnets"] = (
+            aws_sdk_sagemaker.types.recommendation_job_vpc_subnets.serialize_aws_json_1_1(
+                value["subnets"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RecommendationJobVpcConfig:
+    out: RecommendationJobVpcConfig = {}  # type: ignore[typeddict-item]
+    if "SecurityGroupIds" in data:
+        import aws_sdk_sagemaker.types.recommendation_job_vpc_security_group_ids
+
+        out["security_group_ids"] = (
+            aws_sdk_sagemaker.types.recommendation_job_vpc_security_group_ids.deserialize_aws_json_1_1(
+                data["SecurityGroupIds"]
+            )
+        )
+    if "Subnets" in data:
+        import aws_sdk_sagemaker.types.recommendation_job_vpc_subnets
+
+        out["subnets"] = (
+            aws_sdk_sagemaker.types.recommendation_job_vpc_subnets.deserialize_aws_json_1_1(
+                data["Subnets"]
+            )
+        )
+    return out

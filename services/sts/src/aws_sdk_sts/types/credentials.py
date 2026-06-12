@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.sts#Credentials``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sts._protocol.xml import Element
+from aws_sdk_sts.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sts.types.access_key_id_type
+    import aws_sdk_sts.types.access_key_secret_type
+    import aws_sdk_sts.types.date_type
+    import aws_sdk_sts.types.token_type
+
+
+class Credentials(TypedDict):
+    access_key_id: "aws_sdk_sts.types.access_key_id_type.accessKeyIdType"
+    """<p>The access key ID that identifies the temporary security credentials.</p>"""
+    secret_access_key: "aws_sdk_sts.types.access_key_secret_type.accessKeySecretType"
+    """<p>The secret access key that can be used to sign requests.</p>"""
+    session_token: "aws_sdk_sts.types.token_type.tokenType"
+    """<p>The token that users must pass to the service API to use the temporary credentials.</p>"""
+    expiration: "aws_sdk_sts.types.date_type.dateType"
+    """<p>The date on which the current credentials expire.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: Credentials, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.AccessKeyId", str(value["access_key_id"])))
+    pairs.append((f"{prefix}.SecretAccessKey", str(value["secret_access_key"])))
+    pairs.append((f"{prefix}.SessionToken", str(value["session_token"])))
+    import aws_sdk_sts.types.date_type
+
+    aws_sdk_sts.types.date_type.serialize_query(
+        value["expiration"], pairs, f"{prefix}.Expiration"
+    )
+
+
+def deserialize_query(el: Element) -> Credentials:
+    out: Credentials = {}  # type: ignore[typeddict-item]
+    child_access_key_id = el.find("AccessKeyId")
+    if child_access_key_id is not None:
+        out["access_key_id"] = str(child_access_key_id.text or "")
+    else:
+        raise DeserializationError("Credentials.access_key_id required")
+    child_secret_access_key = el.find("SecretAccessKey")
+    if child_secret_access_key is not None:
+        out["secret_access_key"] = str(child_secret_access_key.text or "")
+    else:
+        raise DeserializationError("Credentials.secret_access_key required")
+    child_session_token = el.find("SessionToken")
+    if child_session_token is not None:
+        out["session_token"] = str(child_session_token.text or "")
+    else:
+        raise DeserializationError("Credentials.session_token required")
+    child_expiration = el.find("Expiration")
+    if child_expiration is not None:
+        import aws_sdk_sts.types.date_type
+
+        out["expiration"] = aws_sdk_sts.types.date_type.deserialize_query(
+            child_expiration
+        )
+    else:
+        raise DeserializationError("Credentials.expiration required")
+    return out

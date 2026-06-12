@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#MergePullRequestByFastForwardInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codecommit.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.object_id
+    import aws_sdk_codecommit.types.pull_request_id
+    import aws_sdk_codecommit.types.repository_name
+
+
+class MergePullRequestByFastForwardInput(TypedDict):
+    pull_request_id: "aws_sdk_codecommit.types.pull_request_id.PullRequestId"
+    """<p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>"""
+    repository_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"
+    """<p>The name of the repository where the pull request was created.</p>"""
+    source_commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
+    """<p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: MergePullRequestByFastForwardInput) -> dict:
+    out: dict = {}
+    out["pullRequestId"] = value["pull_request_id"]
+    out["repositoryName"] = value["repository_name"]
+    if "source_commit_id" in value:
+        out["sourceCommitId"] = value["source_commit_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> MergePullRequestByFastForwardInput:
+    out: MergePullRequestByFastForwardInput = {}  # type: ignore[typeddict-item]
+    if "pullRequestId" in data:
+        out["pull_request_id"] = data["pullRequestId"]
+    else:
+        raise DeserializationError(
+            "MergePullRequestByFastForwardInput.pull_request_id required"
+        )
+    if "repositoryName" in data:
+        out["repository_name"] = data["repositoryName"]
+    else:
+        raise DeserializationError(
+            "MergePullRequestByFastForwardInput.repository_name required"
+        )
+    if "sourceCommitId" in data:
+        out["source_commit_id"] = data["sourceCommitId"]
+    return out

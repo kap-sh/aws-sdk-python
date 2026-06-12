@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#CreateSuiteDefinitionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iotdeviceadvisor.types.client_token
+    import aws_sdk_iotdeviceadvisor.types.suite_definition_configuration
+    import aws_sdk_iotdeviceadvisor.types.tag_map
+
+
+class CreateSuiteDefinitionRequest(TypedDict):
+    suite_definition_configuration: NotRequired[
+        "aws_sdk_iotdeviceadvisor.types.suite_definition_configuration.SuiteDefinitionConfiguration"
+    ]
+    """<p>Creates a Device Advisor test suite with suite definition configuration.</p>"""
+    tags: NotRequired["aws_sdk_iotdeviceadvisor.types.tag_map.TagMap"]
+    """<p>The tags to be attached to the suite definition.</p>"""
+    client_token: NotRequired["aws_sdk_iotdeviceadvisor.types.client_token.ClientToken"]
+    """<p>The client token for the test suite definition creation. This token is used for tracking test suite definition creation using retries and obtaining its status. This parameter is optional.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateSuiteDefinitionRequest) -> dict:
+    out: dict = {}
+    if "suite_definition_configuration" in value:
+        import aws_sdk_iotdeviceadvisor.types.suite_definition_configuration
+
+        out["suiteDefinitionConfiguration"] = (
+            aws_sdk_iotdeviceadvisor.types.suite_definition_configuration.serialize_json(
+                value["suite_definition_configuration"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_iotdeviceadvisor.types.tag_map
+
+        out["tags"] = aws_sdk_iotdeviceadvisor.types.tag_map.serialize_json(
+            value["tags"]
+        )
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateSuiteDefinitionRequest:
+    out: CreateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
+    if "suiteDefinitionConfiguration" in data:
+        import aws_sdk_iotdeviceadvisor.types.suite_definition_configuration
+
+        out["suite_definition_configuration"] = (
+            aws_sdk_iotdeviceadvisor.types.suite_definition_configuration.deserialize_json(
+                data["suiteDefinitionConfiguration"]
+            )
+        )
+    if "tags" in data:
+        import aws_sdk_iotdeviceadvisor.types.tag_map
+
+        out["tags"] = aws_sdk_iotdeviceadvisor.types.tag_map.deserialize_json(
+            data["tags"]
+        )
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

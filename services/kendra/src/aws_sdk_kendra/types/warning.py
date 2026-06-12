@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.kendra#Warning``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_kendra.types.warning_code
+    import aws_sdk_kendra.types.warning_message
+
+
+class Warning(TypedDict):
+    message: NotRequired["aws_sdk_kendra.types.warning_message.WarningMessage"]
+    """<p>The message that explains the problem with the query.</p>"""
+    code: NotRequired["aws_sdk_kendra.types.warning_code.WarningCode"]
+    """<p>The code used to show the type of warning for the query.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Warning) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    if "code" in value:
+        import aws_sdk_kendra.types.warning_code
+
+        out["Code"] = aws_sdk_kendra.types.warning_code.serialize_aws_json_1_1(
+            value["code"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Warning:
+    out: Warning = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    if "Code" in data:
+        import aws_sdk_kendra.types.warning_code
+
+        out["code"] = aws_sdk_kendra.types.warning_code.deserialize_aws_json_1_1(
+            data["Code"]
+        )
+    return out

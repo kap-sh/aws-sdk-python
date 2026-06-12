@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.codeconnections#RepositorySyncDefinition``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codeconnections.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codeconnections.types.branch_name
+    import aws_sdk_codeconnections.types.directory
+    import aws_sdk_codeconnections.types.parent
+    import aws_sdk_codeconnections.types.target
+
+
+class RepositorySyncDefinition(TypedDict):
+    branch: "aws_sdk_codeconnections.types.branch_name.BranchName"
+    """<p>The branch specified for a repository sync definition.</p>"""
+    directory: "aws_sdk_codeconnections.types.directory.Directory"
+    """<p>The configuration file for a repository sync definition. This value comes from creating or updating the <code>config-file</code> field of a <code>sync-configuration</code>.</p>"""
+    parent: "aws_sdk_codeconnections.types.parent.Parent"
+    """<p>The parent resource specified for a repository sync definition.</p>"""
+    target: "aws_sdk_codeconnections.types.target.Target"
+    """<p>The target resource specified for a repository sync definition. In some cases, such as CFN_STACK_SYNC, the parent and target resource are the same.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: RepositorySyncDefinition) -> dict:
+    out: dict = {}
+    out["Branch"] = value["branch"]
+    out["Directory"] = value["directory"]
+    out["Parent"] = value["parent"]
+    out["Target"] = value["target"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> RepositorySyncDefinition:
+    out: RepositorySyncDefinition = {}  # type: ignore[typeddict-item]
+    if "Branch" in data:
+        out["branch"] = data["Branch"]
+    else:
+        raise DeserializationError("RepositorySyncDefinition.branch required")
+    if "Directory" in data:
+        out["directory"] = data["Directory"]
+    else:
+        raise DeserializationError("RepositorySyncDefinition.directory required")
+    if "Parent" in data:
+        out["parent"] = data["Parent"]
+    else:
+        raise DeserializationError("RepositorySyncDefinition.parent required")
+    if "Target" in data:
+        out["target"] = data["Target"]
+    else:
+        raise DeserializationError("RepositorySyncDefinition.target required")
+    return out

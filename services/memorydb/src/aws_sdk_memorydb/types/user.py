@@ -1,0 +1,88 @@
+"""Generated from Smithy shape ``com.amazonaws.memorydb#User``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_memorydb.types.acl_name_list
+    import aws_sdk_memorydb.types.authentication
+    import aws_sdk_memorydb.types.string
+
+
+class User(TypedDict):
+    name: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>The name of the user</p>"""
+    status: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>Indicates the user status. Can be \"active\", \"modifying\" or \"deleting\".</p>"""
+    access_string: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>Access permissions string used for this user.</p>"""
+    acl_names: NotRequired["aws_sdk_memorydb.types.acl_name_list.ACLNameList"]
+    """<p>The names of the Access Control Lists to which the user belongs</p>"""
+    minimum_engine_version: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>The minimum engine version supported for the user</p>"""
+    authentication: NotRequired["aws_sdk_memorydb.types.authentication.Authentication"]
+    """<p>Denotes whether the user requires a password to authenticate.</p>"""
+    arn: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the user. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: User) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "status" in value:
+        out["Status"] = value["status"]
+    if "access_string" in value:
+        out["AccessString"] = value["access_string"]
+    if "acl_names" in value:
+        import aws_sdk_memorydb.types.acl_name_list
+
+        out["ACLNames"] = aws_sdk_memorydb.types.acl_name_list.serialize_aws_json_1_1(
+            value["acl_names"]
+        )
+    if "minimum_engine_version" in value:
+        out["MinimumEngineVersion"] = value["minimum_engine_version"]
+    if "authentication" in value:
+        import aws_sdk_memorydb.types.authentication
+
+        out["Authentication"] = (
+            aws_sdk_memorydb.types.authentication.serialize_aws_json_1_1(
+                value["authentication"]
+            )
+        )
+    if "arn" in value:
+        out["ARN"] = value["arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> User:
+    out: User = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Status" in data:
+        out["status"] = data["Status"]
+    if "AccessString" in data:
+        out["access_string"] = data["AccessString"]
+    if "ACLNames" in data:
+        import aws_sdk_memorydb.types.acl_name_list
+
+        out["acl_names"] = (
+            aws_sdk_memorydb.types.acl_name_list.deserialize_aws_json_1_1(
+                data["ACLNames"]
+            )
+        )
+    if "MinimumEngineVersion" in data:
+        out["minimum_engine_version"] = data["MinimumEngineVersion"]
+    if "Authentication" in data:
+        import aws_sdk_memorydb.types.authentication
+
+        out["authentication"] = (
+            aws_sdk_memorydb.types.authentication.deserialize_aws_json_1_1(
+                data["Authentication"]
+            )
+        )
+    if "ARN" in data:
+        out["arn"] = data["ARN"]
+    return out

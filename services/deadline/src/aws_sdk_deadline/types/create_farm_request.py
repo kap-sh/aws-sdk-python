@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#CreateFarmRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.client_token
+    import aws_sdk_deadline.types.cost_scale_factor
+    import aws_sdk_deadline.types.description
+    import aws_sdk_deadline.types.kms_key_arn
+    import aws_sdk_deadline.types.resource_name
+    import aws_sdk_deadline.types.tags
+
+
+class CreateFarmRequest(TypedDict):
+    client_token: NotRequired["aws_sdk_deadline.types.client_token.ClientToken"]
+    """<p>The unique token which the server uses to recognize retries of the same request.</p>"""
+    display_name: "aws_sdk_deadline.types.resource_name.ResourceName"
+    """<p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>"""
+    description: "aws_sdk_deadline.types.description.Description"
+    """<p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>"""
+    kms_key_arn: NotRequired["aws_sdk_deadline.types.kms_key_arn.KmsKeyArn"]
+    """<p>The ARN of the KMS key to use on the farm.</p>"""
+    cost_scale_factor: "aws_sdk_deadline.types.cost_scale_factor.CostScaleFactor"
+    """<p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1.</p>"""
+    tags: NotRequired["aws_sdk_deadline.types.tags.Tags"]
+    """<p>The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateFarmRequest) -> dict:
+    out: dict = {}
+    out["displayName"] = value["display_name"]
+    out["description"] = value.get("description", "")
+    if "kms_key_arn" in value:
+        out["kmsKeyArn"] = value["kms_key_arn"]
+    out["costScaleFactor"] = value.get("cost_scale_factor", 1)
+    if "tags" in value:
+        import aws_sdk_deadline.types.tags
+
+        out["tags"] = aws_sdk_deadline.types.tags.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> CreateFarmRequest:
+    out: CreateFarmRequest = {}  # type: ignore[typeddict-item]
+    if "displayName" in data:
+        out["display_name"] = data["displayName"]
+    else:
+        raise DeserializationError("CreateFarmRequest.display_name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    else:
+        out["description"] = ""
+    if "kmsKeyArn" in data:
+        out["kms_key_arn"] = data["kmsKeyArn"]
+    if "costScaleFactor" in data:
+        out["cost_scale_factor"] = data["costScaleFactor"]
+    else:
+        out["cost_scale_factor"] = 1
+    if "tags" in data:
+        import aws_sdk_deadline.types.tags
+
+        out["tags"] = aws_sdk_deadline.types.tags.deserialize_json(data["tags"])
+    return out

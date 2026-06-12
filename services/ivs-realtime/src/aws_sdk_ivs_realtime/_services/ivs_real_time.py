@@ -1,0 +1,2179 @@
+"""Generated from Smithy shape ``com.amazonaws.ivsrealtime#AmazonInteractiveVideoServiceRealTime``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+import aws_sdk_ivs_realtime._auth._signers
+import aws_sdk_ivs_realtime._auth._sigv4
+from aws_sdk_ivs_realtime._auth._identity import Credentials
+from aws_sdk_ivs_realtime._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_ivs_realtime._auth._zapros_handler import AuthMiddleware
+from aws_sdk_ivs_realtime._pagination import resolve_path as _resolve_path
+from aws_sdk_ivs_realtime._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs_realtime.types.auto_participant_recording_configuration
+    import aws_sdk_ivs_realtime.types.boolean
+    import aws_sdk_ivs_realtime.types.composition_arn
+    import aws_sdk_ivs_realtime.types.composition_client_token
+    import aws_sdk_ivs_realtime.types.create_encoder_configuration_request
+    import aws_sdk_ivs_realtime.types.create_encoder_configuration_response
+    import aws_sdk_ivs_realtime.types.create_ingest_configuration_request
+    import aws_sdk_ivs_realtime.types.create_ingest_configuration_response
+    import aws_sdk_ivs_realtime.types.create_participant_token_request
+    import aws_sdk_ivs_realtime.types.create_participant_token_response
+    import aws_sdk_ivs_realtime.types.create_stage_request
+    import aws_sdk_ivs_realtime.types.create_stage_response
+    import aws_sdk_ivs_realtime.types.create_storage_configuration_request
+    import aws_sdk_ivs_realtime.types.create_storage_configuration_response
+    import aws_sdk_ivs_realtime.types.delete_encoder_configuration_request
+    import aws_sdk_ivs_realtime.types.delete_encoder_configuration_response
+    import aws_sdk_ivs_realtime.types.delete_ingest_configuration_request
+    import aws_sdk_ivs_realtime.types.delete_ingest_configuration_response
+    import aws_sdk_ivs_realtime.types.delete_public_key_request
+    import aws_sdk_ivs_realtime.types.delete_public_key_response
+    import aws_sdk_ivs_realtime.types.delete_stage_request
+    import aws_sdk_ivs_realtime.types.delete_stage_response
+    import aws_sdk_ivs_realtime.types.delete_storage_configuration_request
+    import aws_sdk_ivs_realtime.types.delete_storage_configuration_response
+    import aws_sdk_ivs_realtime.types.destination_configuration_list
+    import aws_sdk_ivs_realtime.types.disconnect_participant_reason
+    import aws_sdk_ivs_realtime.types.disconnect_participant_request
+    import aws_sdk_ivs_realtime.types.disconnect_participant_response
+    import aws_sdk_ivs_realtime.types.encoder_configuration_arn
+    import aws_sdk_ivs_realtime.types.encoder_configuration_name
+    import aws_sdk_ivs_realtime.types.get_composition_request
+    import aws_sdk_ivs_realtime.types.get_composition_response
+    import aws_sdk_ivs_realtime.types.get_encoder_configuration_request
+    import aws_sdk_ivs_realtime.types.get_encoder_configuration_response
+    import aws_sdk_ivs_realtime.types.get_ingest_configuration_request
+    import aws_sdk_ivs_realtime.types.get_ingest_configuration_response
+    import aws_sdk_ivs_realtime.types.get_participant_request
+    import aws_sdk_ivs_realtime.types.get_participant_response
+    import aws_sdk_ivs_realtime.types.get_public_key_request
+    import aws_sdk_ivs_realtime.types.get_public_key_response
+    import aws_sdk_ivs_realtime.types.get_stage_request
+    import aws_sdk_ivs_realtime.types.get_stage_response
+    import aws_sdk_ivs_realtime.types.get_stage_session_request
+    import aws_sdk_ivs_realtime.types.get_stage_session_response
+    import aws_sdk_ivs_realtime.types.get_storage_configuration_request
+    import aws_sdk_ivs_realtime.types.get_storage_configuration_response
+    import aws_sdk_ivs_realtime.types.import_public_key_request
+    import aws_sdk_ivs_realtime.types.import_public_key_response
+    import aws_sdk_ivs_realtime.types.ingest_configuration_arn
+    import aws_sdk_ivs_realtime.types.ingest_configuration_name
+    import aws_sdk_ivs_realtime.types.ingest_configuration_stage_arn
+    import aws_sdk_ivs_realtime.types.ingest_configuration_state
+    import aws_sdk_ivs_realtime.types.ingest_configuration_summary
+    import aws_sdk_ivs_realtime.types.ingest_protocol
+    import aws_sdk_ivs_realtime.types.insecure_ingest
+    import aws_sdk_ivs_realtime.types.layout_configuration
+    import aws_sdk_ivs_realtime.types.list_compositions_request
+    import aws_sdk_ivs_realtime.types.list_compositions_response
+    import aws_sdk_ivs_realtime.types.list_encoder_configurations_request
+    import aws_sdk_ivs_realtime.types.list_encoder_configurations_response
+    import aws_sdk_ivs_realtime.types.list_ingest_configurations_request
+    import aws_sdk_ivs_realtime.types.list_ingest_configurations_response
+    import aws_sdk_ivs_realtime.types.list_participant_events_request
+    import aws_sdk_ivs_realtime.types.list_participant_events_response
+    import aws_sdk_ivs_realtime.types.list_participant_replicas_request
+    import aws_sdk_ivs_realtime.types.list_participant_replicas_response
+    import aws_sdk_ivs_realtime.types.list_participants_request
+    import aws_sdk_ivs_realtime.types.list_participants_response
+    import aws_sdk_ivs_realtime.types.list_public_keys_request
+    import aws_sdk_ivs_realtime.types.list_public_keys_response
+    import aws_sdk_ivs_realtime.types.list_stage_sessions_request
+    import aws_sdk_ivs_realtime.types.list_stage_sessions_response
+    import aws_sdk_ivs_realtime.types.list_stages_request
+    import aws_sdk_ivs_realtime.types.list_stages_response
+    import aws_sdk_ivs_realtime.types.list_storage_configurations_request
+    import aws_sdk_ivs_realtime.types.list_storage_configurations_response
+    import aws_sdk_ivs_realtime.types.list_tags_for_resource_request
+    import aws_sdk_ivs_realtime.types.list_tags_for_resource_response
+    import aws_sdk_ivs_realtime.types.max_composition_results
+    import aws_sdk_ivs_realtime.types.max_encoder_configuration_results
+    import aws_sdk_ivs_realtime.types.max_ingest_configuration_results
+    import aws_sdk_ivs_realtime.types.max_participant_event_results
+    import aws_sdk_ivs_realtime.types.max_participant_replica_results
+    import aws_sdk_ivs_realtime.types.max_participant_results
+    import aws_sdk_ivs_realtime.types.max_public_key_results
+    import aws_sdk_ivs_realtime.types.max_stage_results
+    import aws_sdk_ivs_realtime.types.max_stage_session_results
+    import aws_sdk_ivs_realtime.types.max_storage_configuration_results
+    import aws_sdk_ivs_realtime.types.pagination_token
+    import aws_sdk_ivs_realtime.types.participant_attributes
+    import aws_sdk_ivs_realtime.types.participant_id
+    import aws_sdk_ivs_realtime.types.participant_recording_filter_by_recording_state
+    import aws_sdk_ivs_realtime.types.participant_replica
+    import aws_sdk_ivs_realtime.types.participant_state
+    import aws_sdk_ivs_realtime.types.participant_token_attributes
+    import aws_sdk_ivs_realtime.types.participant_token_capabilities
+    import aws_sdk_ivs_realtime.types.participant_token_configurations
+    import aws_sdk_ivs_realtime.types.participant_token_duration_minutes
+    import aws_sdk_ivs_realtime.types.participant_token_id
+    import aws_sdk_ivs_realtime.types.participant_token_user_id
+    import aws_sdk_ivs_realtime.types.public_key_arn
+    import aws_sdk_ivs_realtime.types.public_key_material
+    import aws_sdk_ivs_realtime.types.public_key_name
+    import aws_sdk_ivs_realtime.types.public_key_summary
+    import aws_sdk_ivs_realtime.types.published
+    import aws_sdk_ivs_realtime.types.reconnect_window_seconds
+    import aws_sdk_ivs_realtime.types.redundant_ingest
+    import aws_sdk_ivs_realtime.types.resource_arn
+    import aws_sdk_ivs_realtime.types.s3_storage_configuration
+    import aws_sdk_ivs_realtime.types.stage_arn
+    import aws_sdk_ivs_realtime.types.stage_name
+    import aws_sdk_ivs_realtime.types.stage_session_id
+    import aws_sdk_ivs_realtime.types.start_composition_request
+    import aws_sdk_ivs_realtime.types.start_composition_response
+    import aws_sdk_ivs_realtime.types.start_participant_replication_request
+    import aws_sdk_ivs_realtime.types.start_participant_replication_response
+    import aws_sdk_ivs_realtime.types.stop_composition_request
+    import aws_sdk_ivs_realtime.types.stop_composition_response
+    import aws_sdk_ivs_realtime.types.stop_participant_replication_request
+    import aws_sdk_ivs_realtime.types.stop_participant_replication_response
+    import aws_sdk_ivs_realtime.types.storage_configuration_arn
+    import aws_sdk_ivs_realtime.types.storage_configuration_name
+    import aws_sdk_ivs_realtime.types.tag_key_list
+    import aws_sdk_ivs_realtime.types.tag_resource_request
+    import aws_sdk_ivs_realtime.types.tag_resource_response
+    import aws_sdk_ivs_realtime.types.tags
+    import aws_sdk_ivs_realtime.types.untag_resource_request
+    import aws_sdk_ivs_realtime.types.untag_resource_response
+    import aws_sdk_ivs_realtime.types.update_ingest_configuration_request
+    import aws_sdk_ivs_realtime.types.update_ingest_configuration_response
+    import aws_sdk_ivs_realtime.types.update_stage_request
+    import aws_sdk_ivs_realtime.types.update_stage_response
+    import aws_sdk_ivs_realtime.types.user_id
+    import aws_sdk_ivs_realtime.types.video
+
+
+class IVSRealTimeClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class IVSRealTimeClient:
+    """A client for the ``IVSRealTime`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = IVSRealTimeClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[IVSRealTimeClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: IVSRealTimeClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def create_encoder_configuration(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        name: Optional[
+            "aws_sdk_ivs_realtime.types.encoder_configuration_name.EncoderConfigurationName"
+        ] = None,
+        video: Optional["aws_sdk_ivs_realtime.types.video.Video"] = None,
+        tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
+    ) -> "aws_sdk_ivs_realtime.types.create_encoder_configuration_response.CreateEncoderConfigurationResponse":
+        """<p>Creates an EncoderConfiguration object.</p>
+
+        Args:
+            name: <p>Optional name to identify the resource.</p>
+            video: <p>Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps.</p>
+            tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.create_encoder_configuration_request.CreateEncoderConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.create_encoder_configuration_response.CreateEncoderConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_encoder_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_encoder_configuration.create_encoder_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.create_encoder_configuration_request.CreateEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        if name is not None:
+            input["name"] = name
+        if video is not None:
+            input["video"] = video
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_ingest_configuration(
+        self,
+        ingest_protocol: "aws_sdk_ivs_realtime.types.ingest_protocol.IngestProtocol",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        name: Optional[
+            "aws_sdk_ivs_realtime.types.ingest_configuration_name.IngestConfigurationName"
+        ] = None,
+        stage_arn: Optional[
+            "aws_sdk_ivs_realtime.types.ingest_configuration_stage_arn.IngestConfigurationStageArn"
+        ] = None,
+        user_id: Optional["aws_sdk_ivs_realtime.types.user_id.UserId"] = None,
+        attributes: Optional[
+            "aws_sdk_ivs_realtime.types.participant_attributes.ParticipantAttributes"
+        ] = None,
+        insecure_ingest: Optional[
+            "aws_sdk_ivs_realtime.types.insecure_ingest.InsecureIngest"
+        ] = None,
+        redundant_ingest: Optional[
+            "aws_sdk_ivs_realtime.types.redundant_ingest.RedundantIngest"
+        ] = None,
+        tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
+    ) -> "aws_sdk_ivs_realtime.types.create_ingest_configuration_response.CreateIngestConfigurationResponse":
+        """<p>Creates a new IngestConfiguration resource, used to specify the ingest protocol for a stage.</p>
+
+        Args:
+            name: <p>Optional name that can be specified for the IngestConfiguration being created.</p>
+            stage_arn: <p>ARN of the stage with which the IngestConfiguration is associated.</p>
+            user_id: <p>Customer-assigned name to help identify the participant using the IngestConfiguration; this can be used to link a participant to a user in the customer’s own systems. This can be any UTF-8 encoded text. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p>
+            attributes: <p>Application-provided attributes to store in the IngestConfiguration and attach to a stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p>
+            ingest_protocol: <p>Type of ingest protocol that the user employs to broadcast. If this is set to <code>RTMP</code>, <code>insecureIngest</code> must be set to <code>true</code>.</p>
+            insecure_ingest: <p>Whether the stage allows insecure RTMP ingest. This must be set to <code>true</code>, if <code>ingestProtocol</code> is set to <code>RTMP</code>. Default: <code>false</code>. </p>
+            redundant_ingest: <p>Indicates whether redundant ingest is enabled for the ingest configuration. Default: <code>false</code>.</p>
+            tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.create_ingest_configuration_request.CreateIngestConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.create_ingest_configuration_response.CreateIngestConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_ingest_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_ingest_configuration.create_ingest_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.create_ingest_configuration_request.CreateIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        if name is not None:
+            input["name"] = name
+        if stage_arn is not None:
+            input["stage_arn"] = stage_arn
+        if user_id is not None:
+            input["user_id"] = user_id
+        if attributes is not None:
+            input["attributes"] = attributes
+        input["ingest_protocol"] = ingest_protocol
+        if insecure_ingest is not None:
+            input["insecure_ingest"] = insecure_ingest
+        if redundant_ingest is not None:
+            input["redundant_ingest"] = redundant_ingest
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_participant_token(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        duration: Optional[
+            "aws_sdk_ivs_realtime.types.participant_token_duration_minutes.ParticipantTokenDurationMinutes"
+        ] = None,
+        user_id: Optional[
+            "aws_sdk_ivs_realtime.types.participant_token_user_id.ParticipantTokenUserId"
+        ] = None,
+        attributes: Optional[
+            "aws_sdk_ivs_realtime.types.participant_token_attributes.ParticipantTokenAttributes"
+        ] = None,
+        capabilities: Optional[
+            "aws_sdk_ivs_realtime.types.participant_token_capabilities.ParticipantTokenCapabilities"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.create_participant_token_response.CreateParticipantTokenResponse":
+        """<p>Creates an additional token for a specified stage. This can be done after stage creation or when tokens expire. Tokens always are scoped to the stage for which they are created.</p> <p>Encryption keys are owned by Amazon IVS and never used directly by your application.</p>
+
+        Args:
+            stage_arn: <p>ARN of the stage to which this token is scoped.</p>
+            duration: <p>Duration (in minutes), after which the token expires. Default: 720 (12 hours).</p>
+            user_id: <p>Name that can be specified to help identify the token. This can be any UTF-8 encoded text. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p>
+            attributes: <p>Application-provided attributes to encode into the token and attach to a stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p>
+            capabilities: <p>Set of capabilities that the user is allowed to perform in the stage. Default: <code>PUBLISH, SUBSCRIBE</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.create_participant_token_request.CreateParticipantTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.create_participant_token_response.CreateParticipantTokenResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_participant_token
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_participant_token.create_participant_token(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.create_participant_token_request.CreateParticipantTokenRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        if duration is not None:
+            input["duration"] = duration
+        if user_id is not None:
+            input["user_id"] = user_id
+        if attributes is not None:
+            input["attributes"] = attributes
+        if capabilities is not None:
+            input["capabilities"] = capabilities
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_stage(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        name: Optional["aws_sdk_ivs_realtime.types.stage_name.StageName"] = None,
+        participant_token_configurations: Optional[
+            "aws_sdk_ivs_realtime.types.participant_token_configurations.ParticipantTokenConfigurations"
+        ] = None,
+        tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
+        auto_participant_recording_configuration: Optional[
+            "aws_sdk_ivs_realtime.types.auto_participant_recording_configuration.AutoParticipantRecordingConfiguration"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.create_stage_response.CreateStageResponse":
+        """<p>Creates a new stage (and optionally participant tokens).</p>
+
+        Args:
+            name: <p>Optional name that can be specified for the stage being created.</p>
+            participant_token_configurations: <p>Array of participant token configuration objects to attach to the new stage.</p>
+            tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there. </p>
+            auto_participant_recording_configuration: <p>Configuration object for individual participant recording, to attach to the new stage.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.create_stage_request.CreateStageRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.create_stage_response.CreateStageResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_stage
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_stage.create_stage(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.create_stage_request.CreateStageRequest = {}  # type: ignore[typeddict-item]
+        if name is not None:
+            input["name"] = name
+        if participant_token_configurations is not None:
+            input["participant_token_configurations"] = participant_token_configurations
+        if tags is not None:
+            input["tags"] = tags
+        if auto_participant_recording_configuration is not None:
+            input["auto_participant_recording_configuration"] = (
+                auto_participant_recording_configuration
+            )
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_storage_configuration(
+        self,
+        s3: "aws_sdk_ivs_realtime.types.s3_storage_configuration.S3StorageConfiguration",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        name: Optional[
+            "aws_sdk_ivs_realtime.types.storage_configuration_name.StorageConfigurationName"
+        ] = None,
+        tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
+    ) -> "aws_sdk_ivs_realtime.types.create_storage_configuration_response.CreateStorageConfigurationResponse":
+        """<p>Creates a new storage configuration, used to enable recording to Amazon S3. When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of the provided bucket. This will ensure that IVS has sufficient permissions to write content to the provided bucket.</p>
+
+        Args:
+            name: <p>Storage configuration name. The value does not need to be unique.</p>
+            s3: <p>A complex type that contains a storage configuration for where recorded video will be stored.</p>
+            tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.create_storage_configuration_request.CreateStorageConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.create_storage_configuration_response.CreateStorageConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_storage_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.create_storage_configuration.create_storage_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.create_storage_configuration_request.CreateStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        if name is not None:
+            input["name"] = name
+        input["s3"] = s3
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_encoder_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.encoder_configuration_arn.EncoderConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.delete_encoder_configuration_response.DeleteEncoderConfigurationResponse":
+        """<p>Deletes an EncoderConfiguration resource. Ensures that no Compositions are using this template; otherwise, returns an error.</p>
+
+        Args:
+            arn: <p>ARN of the EncoderConfiguration.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.delete_encoder_configuration_request.DeleteEncoderConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.delete_encoder_configuration_response.DeleteEncoderConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_encoder_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_encoder_configuration.delete_encoder_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.delete_encoder_configuration_request.DeleteEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_ingest_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.ingest_configuration_arn.IngestConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        force: Optional["aws_sdk_ivs_realtime.types.boolean.Boolean"] = None,
+    ) -> "aws_sdk_ivs_realtime.types.delete_ingest_configuration_response.DeleteIngestConfigurationResponse":
+        """<p>Deletes a specified IngestConfiguration, so it can no longer be used to broadcast. An IngestConfiguration cannot be deleted if the publisher is actively streaming to a stage, unless <code>force</code> is set to <code>true</code>.</p>
+
+        Args:
+            arn: <p>ARN of the IngestConfiguration.</p>
+            force: <p>Optional field to force deletion of the IngestConfiguration. If this is set to <code>true</code> when a participant is actively publishing, the participant is disconnected from the stage, followed by deletion of the IngestConfiguration. Default: <code>false</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.delete_ingest_configuration_request.DeleteIngestConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.delete_ingest_configuration_response.DeleteIngestConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_ingest_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_ingest_configuration.delete_ingest_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.delete_ingest_configuration_request.DeleteIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+        if force is not None:
+            input["force"] = force
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_public_key(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.public_key_arn.PublicKeyArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> (
+        "aws_sdk_ivs_realtime.types.delete_public_key_response.DeletePublicKeyResponse"
+    ):
+        """<p>Deletes the specified public key used to sign stage participant tokens. This invalidates future participant tokens generated using the key pair’s private key. </p>
+
+        Args:
+            arn: <p>ARN of the public key to be deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.delete_public_key_request.DeletePublicKeyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.delete_public_key_response.DeletePublicKeyResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_public_key
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_public_key.delete_public_key(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.delete_public_key_request.DeletePublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_stage(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.delete_stage_response.DeleteStageResponse":
+        """<p>Shuts down and deletes the specified stage (disconnecting all participants). This operation also removes the <code>stageArn</code> from the associated <a>IngestConfiguration</a>, if there are participants using the IngestConfiguration to publish to the stage.</p>
+
+        Args:
+            arn: <p>ARN of the stage to be deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.delete_stage_request.DeleteStageRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.delete_stage_response.DeleteStageResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_stage
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_stage.delete_stage(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.delete_stage_request.DeleteStageRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_storage_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.storage_configuration_arn.StorageConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.delete_storage_configuration_response.DeleteStorageConfigurationResponse":
+        """<p>Deletes the storage configuration for the specified ARN.</p> <p>If you try to delete a storage configuration that is used by a Composition, you will get an error (409 ConflictException). To avoid this, for all Compositions that reference the storage configuration, first use <a>StopComposition</a> and wait for it to complete, then use DeleteStorageConfiguration.</p>
+
+        Args:
+            arn: <p>ARN of the storage configuration to be deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.delete_storage_configuration_request.DeleteStorageConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.delete_storage_configuration_response.DeleteStorageConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_storage_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.delete_storage_configuration.delete_storage_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.delete_storage_configuration_request.DeleteStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def disconnect_participant(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_token_id.ParticipantTokenId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        reason: Optional[
+            "aws_sdk_ivs_realtime.types.disconnect_participant_reason.DisconnectParticipantReason"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.disconnect_participant_response.DisconnectParticipantResponse":
+        """<p>Disconnects a specified participant from a specified stage. If the participant is publishing using an <a>IngestConfiguration</a>, DisconnectParticipant also updates the <code>stageArn</code> in the IngestConfiguration to be an empty string.</p>
+
+        Args:
+            stage_arn: <p>ARN of the stage to which the participant is attached.</p>
+            participant_id: <p>Identifier of the participant to be disconnected. IVS assigns this; it is returned by <a>CreateParticipantToken</a> (for streams using WebRTC ingest) or <a>CreateIngestConfiguration</a> (for streams using RTMP ingest).</p>
+            reason: <p>Description of why this participant is being disconnected.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.disconnect_participant_request.DisconnectParticipantRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.disconnect_participant_response.DisconnectParticipantResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.disconnect_participant
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.disconnect_participant.disconnect_participant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.disconnect_participant_request.DisconnectParticipantRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        input["participant_id"] = participant_id
+        if reason is not None:
+            input["reason"] = reason
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_composition(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.composition_arn.CompositionArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_composition_response.GetCompositionResponse":
+        """<p>Get information about the specified Composition resource.</p>
+
+        Args:
+            arn: <p>ARN of the Composition resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_composition_request.GetCompositionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_composition_response.GetCompositionResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_composition
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_composition.get_composition(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_composition_request.GetCompositionRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_encoder_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.encoder_configuration_arn.EncoderConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_encoder_configuration_response.GetEncoderConfigurationResponse":
+        """<p>Gets information about the specified EncoderConfiguration resource. </p>
+
+        Args:
+            arn: <p>ARN of the EncoderConfiguration resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_encoder_configuration_request.GetEncoderConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_encoder_configuration_response.GetEncoderConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_encoder_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_encoder_configuration.get_encoder_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_encoder_configuration_request.GetEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ingest_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.ingest_configuration_arn.IngestConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_ingest_configuration_response.GetIngestConfigurationResponse":
+        """<p>Gets information about the specified IngestConfiguration.</p>
+
+        Args:
+            arn: <p>ARN of the ingest for which the information is to be retrieved.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_ingest_configuration_request.GetIngestConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_ingest_configuration_response.GetIngestConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_ingest_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_ingest_configuration.get_ingest_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_ingest_configuration_request.GetIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_participant(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        session_id: "aws_sdk_ivs_realtime.types.stage_session_id.StageSessionId",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_participant_response.GetParticipantResponse":
+        """<p>Gets information about the specified participant token.</p>
+
+        Args:
+            stage_arn: <p>Stage ARN.</p>
+            session_id: <p>ID of a session within the stage.</p>
+            participant_id: <p>Unique identifier for the participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_participant_request.GetParticipantRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_participant_response.GetParticipantResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_participant
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_participant.get_participant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_participant_request.GetParticipantRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        input["session_id"] = session_id
+        input["participant_id"] = participant_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_public_key(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.public_key_arn.PublicKeyArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_public_key_response.GetPublicKeyResponse":
+        """<p>Gets information for the specified public key.</p>
+
+        Args:
+            arn: <p>ARN of the public key for which the information is to be retrieved.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_public_key_request.GetPublicKeyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_public_key_response.GetPublicKeyResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_public_key
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_public_key.get_public_key(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_stage(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_stage_response.GetStageResponse":
+        """<p>Gets information for the specified stage.</p>
+
+        Args:
+            arn: <p>ARN of the stage for which the information is to be retrieved.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_stage_request.GetStageRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_stage_response.GetStageResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_stage
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_stage.get_stage(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_stage_request.GetStageRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_stage_session(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        session_id: "aws_sdk_ivs_realtime.types.stage_session_id.StageSessionId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> (
+        "aws_sdk_ivs_realtime.types.get_stage_session_response.GetStageSessionResponse"
+    ):
+        """<p>Gets information for the specified stage session.</p>
+
+        Args:
+            stage_arn: <p>ARN of the stage for which the information is to be retrieved.</p>
+            session_id: <p>ID of a session within the stage.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_stage_session_request.GetStageSessionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_stage_session_response.GetStageSessionResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_stage_session
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_stage_session.get_stage_session(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_stage_session_request.GetStageSessionRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        input["session_id"] = session_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_storage_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.storage_configuration_arn.StorageConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.get_storage_configuration_response.GetStorageConfigurationResponse":
+        """<p>Gets the storage configuration for the specified ARN.</p>
+
+        Args:
+            arn: <p>ARN of the storage configuration to be retrieved.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.get_storage_configuration_request.GetStorageConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.get_storage_configuration_response.GetStorageConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_storage_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.get_storage_configuration.get_storage_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.get_storage_configuration_request.GetStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def import_public_key(
+        self,
+        public_key_material: "aws_sdk_ivs_realtime.types.public_key_material.PublicKeyMaterial",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        name: Optional[
+            "aws_sdk_ivs_realtime.types.public_key_name.PublicKeyName"
+        ] = None,
+        tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
+    ) -> (
+        "aws_sdk_ivs_realtime.types.import_public_key_response.ImportPublicKeyResponse"
+    ):
+        """<p>Import a public key to be used for signing stage participant tokens.</p>
+
+        Args:
+            public_key_material: <p>The content of the public key to be imported.</p>
+            name: <p>Name of the public key to be imported.</p>
+            tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.import_public_key_request.ImportPublicKeyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.import_public_key_response.ImportPublicKeyResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.import_public_key
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.import_public_key.import_public_key(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.import_public_key_request.ImportPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input["public_key_material"] = public_key_material
+        if name is not None:
+            input["name"] = name
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_compositions(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        filter_by_stage_arn: Optional[
+            "aws_sdk_ivs_realtime.types.stage_arn.StageArn"
+        ] = None,
+        filter_by_encoder_configuration_arn: Optional[
+            "aws_sdk_ivs_realtime.types.encoder_configuration_arn.EncoderConfigurationArn"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_composition_results.MaxCompositionResults"
+        ] = None,
+    ) -> (
+        "aws_sdk_ivs_realtime.types.list_compositions_response.ListCompositionsResponse"
+    ):
+        """<p>Gets summary information about all Compositions in your account, in the AWS region where the API request is processed. </p>
+
+        Args:
+            filter_by_stage_arn: <p>Filters the Composition list to match the specified Stage ARN.</p>
+            filter_by_encoder_configuration_arn: <p>Filters the Composition list to match the specified EncoderConfiguration attached to at least one of its output.</p>
+            next_token: <p>The first Composition to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 100.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_compositions_request.ListCompositionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_compositions_response.ListCompositionsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_compositions
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_compositions.list_compositions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_compositions_request.ListCompositionsRequest = {}  # type: ignore[typeddict-item]
+        if filter_by_stage_arn is not None:
+            input["filter_by_stage_arn"] = filter_by_stage_arn
+        if filter_by_encoder_configuration_arn is not None:
+            input["filter_by_encoder_configuration_arn"] = (
+                filter_by_encoder_configuration_arn
+            )
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_encoder_configurations(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_encoder_configuration_results.MaxEncoderConfigurationResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_encoder_configurations_response.ListEncoderConfigurationsResponse":
+        """<p>Gets summary information about all EncoderConfigurations in your account, in the AWS region where the API request is processed.</p>
+
+        Args:
+            next_token: <p>The first encoder configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 100.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_encoder_configurations_request.ListEncoderConfigurationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_encoder_configurations_response.ListEncoderConfigurationsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_encoder_configurations
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_encoder_configurations.list_encoder_configurations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_encoder_configurations_request.ListEncoderConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_ingest_configurations(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        filter_by_stage_arn: Optional[
+            "aws_sdk_ivs_realtime.types.stage_arn.StageArn"
+        ] = None,
+        filter_by_state: Optional[
+            "aws_sdk_ivs_realtime.types.ingest_configuration_state.IngestConfigurationState"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_ingest_configuration_results.MaxIngestConfigurationResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_ingest_configurations_response.ListIngestConfigurationsResponse":
+        """<p>Lists all IngestConfigurations in your account, in the AWS region where the API request is processed.</p>
+
+        Args:
+            filter_by_stage_arn: <p>Filters the response list to match the specified stage ARN. Only one filter (by stage ARN or by state) can be used at a time.</p>
+            filter_by_state: <p>Filters the response list to match the specified state. Only one filter (by stage ARN or by state) can be used at a time.</p>
+            next_token: <p>The first IngestConfiguration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_ingest_configurations_request.ListIngestConfigurationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_ingest_configurations_response.ListIngestConfigurationsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_ingest_configurations
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_ingest_configurations.list_ingest_configurations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_ingest_configurations_request.ListIngestConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        if filter_by_stage_arn is not None:
+            input["filter_by_stage_arn"] = filter_by_stage_arn
+        if filter_by_state is not None:
+            input["filter_by_state"] = filter_by_state
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_ingest_configurations(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        filter_by_stage_arn: Optional[
+            "aws_sdk_ivs_realtime.types.stage_arn.StageArn"
+        ] = None,
+        filter_by_state: Optional[
+            "aws_sdk_ivs_realtime.types.ingest_configuration_state.IngestConfigurationState"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_ingest_configuration_results.MaxIngestConfigurationResults"
+        ] = None,
+    ) -> "Iterator[aws_sdk_ivs_realtime.types.ingest_configuration_summary.IngestConfigurationSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_ingest_configurations(
+                config_overrides=config_overrides,
+                filter_by_stage_arn=filter_by_stage_arn,
+                filter_by_state=filter_by_state,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("ingest_configurations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_participant_events(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        session_id: "aws_sdk_ivs_realtime.types.stage_session_id.StageSessionId",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_participant_event_results.MaxParticipantEventResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_participant_events_response.ListParticipantEventsResponse":
+        """<p>Lists events for a specified participant that occurred during a specified stage session.</p>
+
+        Args:
+            stage_arn: <p>Stage ARN.</p>
+            session_id: <p>ID of a session within the stage.</p>
+            participant_id: <p>Unique identifier for this participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</p>
+            next_token: <p>The first participant event to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_participant_events_request.ListParticipantEventsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_participant_events_response.ListParticipantEventsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_participant_events
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_participant_events.list_participant_events(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_participant_events_request.ListParticipantEventsRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        input["session_id"] = session_id
+        input["participant_id"] = participant_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_participant_replicas(
+        self,
+        source_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_participant_replica_results.MaxParticipantReplicaResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_participant_replicas_response.ListParticipantReplicasResponse":
+        """<p>Lists all the replicas for a participant from a source stage.</p>
+
+        Args:
+            source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
+            participant_id: <p>Participant ID of the publisher that has been replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\">create a self signed token</a>.</p>
+            next_token: <p>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_participant_replicas_request.ListParticipantReplicasRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_participant_replicas_response.ListParticipantReplicasResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_participant_replicas
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_participant_replicas.list_participant_replicas(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_participant_replicas_request.ListParticipantReplicasRequest = {}  # type: ignore[typeddict-item]
+        input["source_stage_arn"] = source_stage_arn
+        input["participant_id"] = participant_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_participant_replicas(
+        self,
+        source_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_participant_replica_results.MaxParticipantReplicaResults"
+        ] = None,
+    ) -> "Iterator[aws_sdk_ivs_realtime.types.participant_replica.ParticipantReplica]":
+        _token = next_token
+        while True:
+            _response = self.list_participant_replicas(
+                source_stage_arn,
+                participant_id,
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("replicas",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_participants(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        session_id: "aws_sdk_ivs_realtime.types.stage_session_id.StageSessionId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        filter_by_user_id: Optional["aws_sdk_ivs_realtime.types.user_id.UserId"] = None,
+        filter_by_published: Optional[
+            "aws_sdk_ivs_realtime.types.published.Published"
+        ] = None,
+        filter_by_state: Optional[
+            "aws_sdk_ivs_realtime.types.participant_state.ParticipantState"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_participant_results.MaxParticipantResults"
+        ] = None,
+        filter_by_recording_state: Optional[
+            "aws_sdk_ivs_realtime.types.participant_recording_filter_by_recording_state.ParticipantRecordingFilterByRecordingState"
+        ] = None,
+    ) -> (
+        "aws_sdk_ivs_realtime.types.list_participants_response.ListParticipantsResponse"
+    ):
+        """<p>Lists all participants in a specified stage session.</p>
+
+        Args:
+            stage_arn: <p>Stage ARN.</p>
+            session_id: <p>ID of the session within the stage.</p>
+            filter_by_user_id: <p>Filters the response list to match the specified user ID. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request. A <code>userId</code> is a customer-assigned name to help identify the token; this can be used to link a participant to a user in the customer’s own systems.</p>
+            filter_by_published: <p>Filters the response list to only show participants who published during the stage session. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
+            filter_by_state: <p>Filters the response list to only show participants in the specified state. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
+            next_token: <p>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+            filter_by_recording_state: <p>Filters the response list to only show participants with the specified recording state. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_participants_request.ListParticipantsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_participants_response.ListParticipantsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_participants
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_participants.list_participants(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_participants_request.ListParticipantsRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        input["session_id"] = session_id
+        if filter_by_user_id is not None:
+            input["filter_by_user_id"] = filter_by_user_id
+        if filter_by_published is not None:
+            input["filter_by_published"] = filter_by_published
+        if filter_by_state is not None:
+            input["filter_by_state"] = filter_by_state
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if filter_by_recording_state is not None:
+            input["filter_by_recording_state"] = filter_by_recording_state
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_public_keys(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_public_key_results.MaxPublicKeyResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_public_keys_response.ListPublicKeysResponse":
+        """<p>Gets summary information about all public keys in your account, in the AWS region where the API request is processed.</p>
+
+        Args:
+            next_token: <p>The first public key to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_public_keys_request.ListPublicKeysRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_public_keys_response.ListPublicKeysResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_public_keys
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_public_keys.list_public_keys(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_public_keys(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_public_key_results.MaxPublicKeyResults"
+        ] = None,
+    ) -> "Iterator[aws_sdk_ivs_realtime.types.public_key_summary.PublicKeySummary]":
+        _token = next_token
+        while True:
+            _response = self.list_public_keys(
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("public_keys",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_stages(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_stage_results.MaxStageResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_stages_response.ListStagesResponse":
+        """<p>Gets summary information about all stages in your account, in the AWS region where the API request is processed.</p>
+
+        Args:
+            next_token: <p>The first stage to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_stages_request.ListStagesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_stages_response.ListStagesResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_stages
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_stages.list_stages(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_stages_request.ListStagesRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_stage_sessions(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_stage_session_results.MaxStageSessionResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_stage_sessions_response.ListStageSessionsResponse":
+        """<p>Gets all sessions for a specified stage.</p>
+
+        Args:
+            stage_arn: <p>Stage ARN.</p>
+            next_token: <p>The first stage session to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of results to return. Default: 50.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_stage_sessions_request.ListStageSessionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_stage_sessions_response.ListStageSessionsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_stage_sessions
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_stage_sessions.list_stage_sessions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_stage_sessions_request.ListStageSessionsRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_storage_configurations(
+        self,
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_ivs_realtime.types.max_storage_configuration_results.MaxStorageConfigurationResults"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_storage_configurations_response.ListStorageConfigurationsResponse":
+        """<p>Gets summary information about all storage configurations in your account, in the AWS region where the API request is processed.</p>
+
+        Args:
+            next_token: <p>The first storage configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+            max_results: <p>Maximum number of storage configurations to return. Default: your service quota or 100, whichever is smaller.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_storage_configurations_request.ListStorageConfigurationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_storage_configurations_response.ListStorageConfigurationsResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_storage_configurations
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_storage_configurations.list_storage_configurations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_storage_configurations_request.ListStorageConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_ivs_realtime.types.resource_arn.ResourceArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Gets information about AWS tags for the specified ARN.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_tags_for_resource
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_composition(
+        self,
+        stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        destinations: "aws_sdk_ivs_realtime.types.destination_configuration_list.DestinationConfigurationList",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        idempotency_token: Optional[
+            "aws_sdk_ivs_realtime.types.composition_client_token.CompositionClientToken"
+        ] = None,
+        layout: Optional[
+            "aws_sdk_ivs_realtime.types.layout_configuration.LayoutConfiguration"
+        ] = None,
+        tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
+    ) -> (
+        "aws_sdk_ivs_realtime.types.start_composition_response.StartCompositionResponse"
+    ):
+        """<p>Starts a Composition from a stage based on the configuration provided in the request.</p> <p>A Composition is an ephemeral resource that exists after this operation returns successfully. Composition stops and the resource is deleted:</p> <ul> <li> <p>When <a>StopComposition</a> is called.</p> </li> <li> <p>After a 1-minute timeout, when all participants are disconnected from the stage.</p> </li> <li> <p>After a 1-minute timeout, if there are no participants in the stage when StartComposition is called.</p> </li> <li> <p>When broadcasting to the IVS channel fails and all retries are exhausted.</p> </li> <li> <p>When broadcasting is disconnected and all attempts to reconnect are exhausted.</p> </li> </ul>
+
+        Args:
+            stage_arn: <p>ARN of the stage to be used for compositing.</p>
+            idempotency_token: <p>Idempotency token.</p>
+            layout: <p>Layout object to configure composition parameters.</p>
+            destinations: <p>Array of destination configuration.</p>
+            tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.start_composition_request.StartCompositionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.start_composition_response.StartCompositionResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.start_composition
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.start_composition.start_composition(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.start_composition_request.StartCompositionRequest = {}  # type: ignore[typeddict-item]
+        input["stage_arn"] = stage_arn
+        if idempotency_token is not None:
+            input["idempotency_token"] = idempotency_token
+        if layout is not None:
+            input["layout"] = layout
+        input["destinations"] = destinations
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_participant_replication(
+        self,
+        source_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        destination_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        reconnect_window_seconds: Optional[
+            "aws_sdk_ivs_realtime.types.reconnect_window_seconds.ReconnectWindowSeconds"
+        ] = None,
+        attributes: Optional[
+            "aws_sdk_ivs_realtime.types.participant_attributes.ParticipantAttributes"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.start_participant_replication_response.StartParticipantReplicationResponse":
+        """<p>Starts replicating a publishing participant from a source stage to a destination stage.</p>
+
+        Args:
+            source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
+            destination_stage_arn: <p>ARN of the stage to which the participant will be replicated.</p>
+            participant_id: <p>Participant ID of the publisher that will be replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\">create a self signed token</a>. </p>
+            reconnect_window_seconds: <p>If the participant disconnects and then reconnects within the specified interval, replication will continue to be <code>ACTIVE</code>. Default: 0.</p>
+            attributes: <p>Application-provided attributes to set on the replicated participant in the destination stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p> <p>These attributes are merged with any attributes set for this participant when creating the token. If there is overlap in keys, the values in these attributes are replaced.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.start_participant_replication_request.StartParticipantReplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.start_participant_replication_response.StartParticipantReplicationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.start_participant_replication
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.start_participant_replication.start_participant_replication(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.start_participant_replication_request.StartParticipantReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["source_stage_arn"] = source_stage_arn
+        input["destination_stage_arn"] = destination_stage_arn
+        input["participant_id"] = participant_id
+        if reconnect_window_seconds is not None:
+            input["reconnect_window_seconds"] = reconnect_window_seconds
+        if attributes is not None:
+            input["attributes"] = attributes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def stop_composition(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.composition_arn.CompositionArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.stop_composition_response.StopCompositionResponse":
+        """<p>Stops and deletes a Composition resource. Any broadcast from the Composition resource is stopped.</p>
+
+        Args:
+            arn: <p>ARN of the Composition.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.stop_composition_request.StopCompositionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.stop_composition_response.StopCompositionResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.stop_composition
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.stop_composition.stop_composition(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.stop_composition_request.StopCompositionRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def stop_participant_replication(
+        self,
+        source_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        destination_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.stop_participant_replication_response.StopParticipantReplicationResponse":
+        """<p>Stops a replicated participant session.</p>
+
+        Args:
+            source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
+            destination_stage_arn: <p>ARN of the stage where the participant has been replicated.</p>
+            participant_id: <p>Participant ID of the publisher that has been replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\"> create a self signed token</a>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.stop_participant_replication_request.StopParticipantReplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.stop_participant_replication_response.StopParticipantReplicationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.stop_participant_replication
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.stop_participant_replication.stop_participant_replication(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.stop_participant_replication_request.StopParticipantReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["source_stage_arn"] = source_stage_arn
+        input["destination_stage_arn"] = destination_stage_arn
+        input["participant_id"] = participant_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_ivs_realtime.types.resource_arn.ResourceArn",
+        tags: "aws_sdk_ivs_realtime.types.tags.Tags",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.tag_resource_response.TagResourceResponse":
+        """<p>Adds or updates tags for the AWS resource with the specified ARN.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
+            tags: <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.tag_resource
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_ivs_realtime.types.resource_arn.ResourceArn",
+        tag_keys: "aws_sdk_ivs_realtime.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+    ) -> "aws_sdk_ivs_realtime.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes tags from the resource with the specified ARN.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>
+            tag_keys: <p>Array of tag keys (strings) for the tags to be removed. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.untag_resource
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_ingest_configuration(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.ingest_configuration_arn.IngestConfigurationArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        stage_arn: Optional[
+            "aws_sdk_ivs_realtime.types.ingest_configuration_stage_arn.IngestConfigurationStageArn"
+        ] = None,
+        redundant_ingest: Optional[
+            "aws_sdk_ivs_realtime.types.redundant_ingest.RedundantIngest"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.update_ingest_configuration_response.UpdateIngestConfigurationResponse":
+        """<p>Updates a specified IngestConfiguration. Only the stage ARN attached to the IngestConfiguration can be updated. An IngestConfiguration that is active cannot be updated.</p>
+
+        Args:
+            arn: <p>ARN of the IngestConfiguration, for which the related stage ARN needs to be updated.</p>
+            stage_arn: <p>Stage ARN that needs to be updated.</p>
+            redundant_ingest: <p>Indicates whether redundant ingest is enabled for the ingest configuration. Default: <code>false</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.update_ingest_configuration_request.UpdateIngestConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.update_ingest_configuration_response.UpdateIngestConfigurationResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.update_ingest_configuration
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.update_ingest_configuration.update_ingest_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.update_ingest_configuration_request.UpdateIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+        if stage_arn is not None:
+            input["stage_arn"] = stage_arn
+        if redundant_ingest is not None:
+            input["redundant_ingest"] = redundant_ingest
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_stage(
+        self,
+        arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn",
+        *,
+        config_overrides: Optional[IVSRealTimeClientConfig] = None,
+        name: Optional["aws_sdk_ivs_realtime.types.stage_name.StageName"] = None,
+        auto_participant_recording_configuration: Optional[
+            "aws_sdk_ivs_realtime.types.auto_participant_recording_configuration.AutoParticipantRecordingConfiguration"
+        ] = None,
+    ) -> "aws_sdk_ivs_realtime.types.update_stage_response.UpdateStageResponse":
+        """<p>Updates a stage’s configuration.</p>
+
+        Args:
+            arn: <p>ARN of the stage to be updated.</p>
+            name: <p>Name of the stage to be updated.</p>
+            auto_participant_recording_configuration: <p>Configuration object for individual participant recording, to attach to the stage. Note that this cannot be updated while recording is active.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_ivs_realtime.types.update_stage_request.UpdateStageRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_ivs_realtime.types.update_stage_response.UpdateStageResponse"
+        ]:
+            import aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.update_stage
+
+            output, http_response = (
+                aws_sdk_ivs_realtime._operations.amazon_interactive_video_service_real_time.update_stage.update_stage(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_ivs_realtime.types.update_stage_request.UpdateStageRequest = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+        if name is not None:
+            input["name"] = name
+        if auto_participant_recording_configuration is not None:
+            input["auto_participant_recording_configuration"] = (
+                auto_participant_recording_configuration
+            )
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

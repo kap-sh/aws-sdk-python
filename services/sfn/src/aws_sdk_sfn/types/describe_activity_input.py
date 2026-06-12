@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.sfn#DescribeActivityInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sfn.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sfn.types.arn
+
+
+class DescribeActivityInput(TypedDict):
+    activity_arn: "aws_sdk_sfn.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the activity to describe.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DescribeActivityInput) -> dict:
+    out: dict = {}
+    out["activityArn"] = value["activity_arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DescribeActivityInput:
+    out: DescribeActivityInput = {}  # type: ignore[typeddict-item]
+    if "activityArn" in data:
+        out["activity_arn"] = data["activityArn"]
+    else:
+        raise DeserializationError("DescribeActivityInput.activity_arn required")
+    return out

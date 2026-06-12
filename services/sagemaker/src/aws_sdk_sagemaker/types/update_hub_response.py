@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateHubResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.hub_arn
+
+
+class UpdateHubResponse(TypedDict):
+    hub_arn: NotRequired["aws_sdk_sagemaker.types.hub_arn.HubArn"]
+    """<p>The Amazon Resource Name (ARN) of the updated hub.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateHubResponse) -> dict:
+    out: dict = {}
+    if "hub_arn" in value:
+        out["HubArn"] = value["hub_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateHubResponse:
+    out: UpdateHubResponse = {}  # type: ignore[typeddict-item]
+    if "HubArn" in data:
+        out["hub_arn"] = data["HubArn"]
+    return out

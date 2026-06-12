@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudhsm_v2.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudhsm_v2.types.error_message
+
+
+class CloudHsmAccessDeniedException_(TypedDict):
+    message: NotRequired["aws_sdk_cloudhsm_v2.types.error_message.errorMessage"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CloudHsmAccessDeniedException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CloudHsmAccessDeniedException_:
+    out: CloudHsmAccessDeniedException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class CloudHsmAccessDeniedException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException``."""
+
+    code: str | None = "CloudHsmAccessDeniedException"
+
+    def __init__(self, data: CloudHsmAccessDeniedException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="CloudHsmAccessDeniedException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "CloudHsmAccessDeniedException":
+        return cls(deserialize_aws_json_1_1(data))

@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#StopContactRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_connect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_connect.types.contact_id
+    import aws_sdk_connect.types.disconnect_reason
+    import aws_sdk_connect.types.instance_id
+
+
+class StopContactRequest(TypedDict):
+    contact_id: "aws_sdk_connect.types.contact_id.ContactId"
+    """<p>The ID of the contact.</p>"""
+    instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
+    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    disconnect_reason: NotRequired[
+        "aws_sdk_connect.types.disconnect_reason.DisconnectReason"
+    ]
+    """<p>The reason a contact can be disconnected. Only Connect Customer outbound campaigns can provide this field. For a list and description of all the possible disconnect reasons by channel (including outbound campaign voice contacts) see DisconnectReason under <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord\">ContactTraceRecord</a> in the <i>Connect Customer Administrator Guide</i>. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StopContactRequest) -> dict:
+    out: dict = {}
+    out["ContactId"] = value["contact_id"]
+    out["InstanceId"] = value["instance_id"]
+    if "disconnect_reason" in value:
+        import aws_sdk_connect.types.disconnect_reason
+
+        out["DisconnectReason"] = (
+            aws_sdk_connect.types.disconnect_reason.serialize_json(
+                value["disconnect_reason"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> StopContactRequest:
+    out: StopContactRequest = {}  # type: ignore[typeddict-item]
+    if "ContactId" in data:
+        out["contact_id"] = data["ContactId"]
+    else:
+        raise DeserializationError("StopContactRequest.contact_id required")
+    if "InstanceId" in data:
+        out["instance_id"] = data["InstanceId"]
+    else:
+        raise DeserializationError("StopContactRequest.instance_id required")
+    if "DisconnectReason" in data:
+        import aws_sdk_connect.types.disconnect_reason
+
+        out["disconnect_reason"] = (
+            aws_sdk_connect.types.disconnect_reason.deserialize_json(
+                data["DisconnectReason"]
+            )
+        )
+    return out

@@ -1,0 +1,83 @@
+"""Generated from Smithy shape ``com.amazonaws.ecr#PutImageTagMutabilityRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ecr.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ecr.types.image_tag_mutability
+    import aws_sdk_ecr.types.image_tag_mutability_exclusion_filters
+    import aws_sdk_ecr.types.registry_id
+    import aws_sdk_ecr.types.repository_name
+
+
+class PutImageTagMutabilityRequest(TypedDict):
+    registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
+    """<p>The Amazon Web Services account ID associated with the registry that contains the repository in which to update the image tag mutability settings. If you do not specify a registry, the default registry is assumed.</p>"""
+    repository_name: "aws_sdk_ecr.types.repository_name.RepositoryName"
+    """<p>The name of the repository in which to update the image tag mutability settings.</p>"""
+    image_tag_mutability: "aws_sdk_ecr.types.image_tag_mutability.ImageTagMutability"
+    """<p>The tag mutability setting for the repository. If <code>MUTABLE</code> is specified, image tags can be overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.</p>"""
+    image_tag_mutability_exclusion_filters: NotRequired[
+        "aws_sdk_ecr.types.image_tag_mutability_exclusion_filters.ImageTagMutabilityExclusionFilters"
+    ]
+    """<p>A list of filters that specify which image tags should be excluded from the image tag mutability setting being applied.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutImageTagMutabilityRequest) -> dict:
+    out: dict = {}
+    if "registry_id" in value:
+        out["registryId"] = value["registry_id"]
+    out["repositoryName"] = value["repository_name"]
+    import aws_sdk_ecr.types.image_tag_mutability
+
+    out["imageTagMutability"] = (
+        aws_sdk_ecr.types.image_tag_mutability.serialize_aws_json_1_1(
+            value["image_tag_mutability"]
+        )
+    )
+    if "image_tag_mutability_exclusion_filters" in value:
+        import aws_sdk_ecr.types.image_tag_mutability_exclusion_filters
+
+        out["imageTagMutabilityExclusionFilters"] = (
+            aws_sdk_ecr.types.image_tag_mutability_exclusion_filters.serialize_aws_json_1_1(
+                value["image_tag_mutability_exclusion_filters"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutImageTagMutabilityRequest:
+    out: PutImageTagMutabilityRequest = {}  # type: ignore[typeddict-item]
+    if "registryId" in data:
+        out["registry_id"] = data["registryId"]
+    if "repositoryName" in data:
+        out["repository_name"] = data["repositoryName"]
+    else:
+        raise DeserializationError(
+            "PutImageTagMutabilityRequest.repository_name required"
+        )
+    if "imageTagMutability" in data:
+        import aws_sdk_ecr.types.image_tag_mutability
+
+        out["image_tag_mutability"] = (
+            aws_sdk_ecr.types.image_tag_mutability.deserialize_aws_json_1_1(
+                data["imageTagMutability"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "PutImageTagMutabilityRequest.image_tag_mutability required"
+        )
+    if "imageTagMutabilityExclusionFilters" in data:
+        import aws_sdk_ecr.types.image_tag_mutability_exclusion_filters
+
+        out["image_tag_mutability_exclusion_filters"] = (
+            aws_sdk_ecr.types.image_tag_mutability_exclusion_filters.deserialize_aws_json_1_1(
+                data["imageTagMutabilityExclusionFilters"]
+            )
+        )
+    return out

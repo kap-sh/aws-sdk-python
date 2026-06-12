@@ -1,0 +1,124 @@
+"""Generated from Smithy shape ``com.amazonaws.snowball#Address``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_snowball.types.address_id
+    import aws_sdk_snowball.types.address_type
+    import aws_sdk_snowball.types.boolean
+    import aws_sdk_snowball.types.string
+
+
+class Address(TypedDict):
+    address_id: NotRequired["aws_sdk_snowball.types.address_id.AddressId"]
+    """<p>The unique ID for an address.</p>"""
+    name: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The name of a person to receive a Snow device at an address.</p>"""
+    company: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The name of the company to receive a Snow device at an address.</p>"""
+    street1: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The first line in a street address that a Snow device is to be delivered to.</p>"""
+    street2: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The second line in a street address that a Snow device is to be delivered to.</p>"""
+    street3: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The third line in a street address that a Snow device is to be delivered to.</p>"""
+    city: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The city in an address that a Snow device is to be delivered to.</p>"""
+    state_or_province: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The state or province in an address that a Snow device is to be delivered to.</p>"""
+    prefecture_or_district: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>This field is no longer used and the value is ignored.</p>"""
+    landmark: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>This field is no longer used and the value is ignored.</p>"""
+    country: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The country in an address that a Snow device is to be delivered to.</p>"""
+    postal_code: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The postal code in an address that a Snow device is to be delivered to.</p>"""
+    phone_number: NotRequired["aws_sdk_snowball.types.string.String"]
+    """<p>The phone number associated with an address that a Snow device is to be delivered to.</p>"""
+    is_restricted: "aws_sdk_snowball.types.boolean.Boolean"
+    """<p>If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.</p>"""
+    type: NotRequired["aws_sdk_snowball.types.address_type.AddressType"]
+    """<p>Differentiates between delivery address and pickup address in the customer account. Provided at job creation.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Address) -> dict:
+    out: dict = {}
+    if "address_id" in value:
+        out["AddressId"] = value["address_id"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "company" in value:
+        out["Company"] = value["company"]
+    if "street1" in value:
+        out["Street1"] = value["street1"]
+    if "street2" in value:
+        out["Street2"] = value["street2"]
+    if "street3" in value:
+        out["Street3"] = value["street3"]
+    if "city" in value:
+        out["City"] = value["city"]
+    if "state_or_province" in value:
+        out["StateOrProvince"] = value["state_or_province"]
+    if "prefecture_or_district" in value:
+        out["PrefectureOrDistrict"] = value["prefecture_or_district"]
+    if "landmark" in value:
+        out["Landmark"] = value["landmark"]
+    if "country" in value:
+        out["Country"] = value["country"]
+    if "postal_code" in value:
+        out["PostalCode"] = value["postal_code"]
+    if "phone_number" in value:
+        out["PhoneNumber"] = value["phone_number"]
+    out["IsRestricted"] = value.get("is_restricted", False)
+    if "type" in value:
+        import aws_sdk_snowball.types.address_type
+
+        out["Type"] = aws_sdk_snowball.types.address_type.serialize_aws_json_1_1(
+            value["type"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Address:
+    out: Address = {}  # type: ignore[typeddict-item]
+    if "AddressId" in data:
+        out["address_id"] = data["AddressId"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Company" in data:
+        out["company"] = data["Company"]
+    if "Street1" in data:
+        out["street1"] = data["Street1"]
+    if "Street2" in data:
+        out["street2"] = data["Street2"]
+    if "Street3" in data:
+        out["street3"] = data["Street3"]
+    if "City" in data:
+        out["city"] = data["City"]
+    if "StateOrProvince" in data:
+        out["state_or_province"] = data["StateOrProvince"]
+    if "PrefectureOrDistrict" in data:
+        out["prefecture_or_district"] = data["PrefectureOrDistrict"]
+    if "Landmark" in data:
+        out["landmark"] = data["Landmark"]
+    if "Country" in data:
+        out["country"] = data["Country"]
+    if "PostalCode" in data:
+        out["postal_code"] = data["PostalCode"]
+    if "PhoneNumber" in data:
+        out["phone_number"] = data["PhoneNumber"]
+    if "IsRestricted" in data:
+        out["is_restricted"] = data["IsRestricted"]
+    else:
+        out["is_restricted"] = False
+    if "Type" in data:
+        import aws_sdk_snowball.types.address_type
+
+        out["type"] = aws_sdk_snowball.types.address_type.deserialize_aws_json_1_1(
+            data["Type"]
+        )
+    return out

@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchGetObjectInformation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_clouddirectory.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_clouddirectory.types.object_reference
+
+
+class BatchGetObjectInformation(TypedDict):
+    object_reference: "aws_sdk_clouddirectory.types.object_reference.ObjectReference"
+    """<p>A reference to the object.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchGetObjectInformation) -> dict:
+    out: dict = {}
+    import aws_sdk_clouddirectory.types.object_reference
+
+    out["ObjectReference"] = (
+        aws_sdk_clouddirectory.types.object_reference.serialize_json(
+            value["object_reference"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> BatchGetObjectInformation:
+    out: BatchGetObjectInformation = {}  # type: ignore[typeddict-item]
+    if "ObjectReference" in data:
+        import aws_sdk_clouddirectory.types.object_reference
+
+        out["object_reference"] = (
+            aws_sdk_clouddirectory.types.object_reference.deserialize_json(
+                data["ObjectReference"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "BatchGetObjectInformation.object_reference required"
+        )
+    return out

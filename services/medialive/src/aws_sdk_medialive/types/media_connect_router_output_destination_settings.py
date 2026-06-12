@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#MediaConnectRouterOutputDestinationSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__string
+    import aws_sdk_medialive.types.media_connect_router_output_encryption_type
+
+
+class MediaConnectRouterOutputDestinationSettings(TypedDict):
+    encryption_type: NotRequired[
+        "aws_sdk_medialive.types.media_connect_router_output_encryption_type.MediaConnectRouterOutputEncryptionType"
+    ]
+    """Encryption configuration for MediaConnect router. When using SECRETS_MANAGER encryption, you must provide the ARN of the secret used to encrypt data in transit. When using AUTOMATIC encryption, a service-managed secret will be used instead."""
+    secret_arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """ARN of the secret used to encrypt this input. Used only with the SECRETS_MANAGER encryption type."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MediaConnectRouterOutputDestinationSettings) -> dict:
+    out: dict = {}
+    if "encryption_type" in value:
+        import aws_sdk_medialive.types.media_connect_router_output_encryption_type
+
+        out["encryptionType"] = (
+            aws_sdk_medialive.types.media_connect_router_output_encryption_type.serialize_json(
+                value["encryption_type"]
+            )
+        )
+    if "secret_arn" in value:
+        out["secretArn"] = value["secret_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> MediaConnectRouterOutputDestinationSettings:
+    out: MediaConnectRouterOutputDestinationSettings = {}  # type: ignore[typeddict-item]
+    if "encryptionType" in data:
+        import aws_sdk_medialive.types.media_connect_router_output_encryption_type
+
+        out["encryption_type"] = (
+            aws_sdk_medialive.types.media_connect_router_output_encryption_type.deserialize_json(
+                data["encryptionType"]
+            )
+        )
+    if "secretArn" in data:
+        out["secret_arn"] = data["secretArn"]
+    return out

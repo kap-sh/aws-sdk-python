@@ -1,0 +1,107 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#UpdateApplicationComponentConfigRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_migrationhubstrategy.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_migrationhubstrategy.types.app_type
+    import aws_sdk_migrationhubstrategy.types.application_component_id
+    import aws_sdk_migrationhubstrategy.types.boolean
+    import aws_sdk_migrationhubstrategy.types.inclusion_status
+    import aws_sdk_migrationhubstrategy.types.secrets_manager_key
+    import aws_sdk_migrationhubstrategy.types.source_code_list
+    import aws_sdk_migrationhubstrategy.types.strategy_option
+
+
+class UpdateApplicationComponentConfigRequest(TypedDict):
+    application_component_id: "aws_sdk_migrationhubstrategy.types.application_component_id.ApplicationComponentId"
+    """<p> The ID of the application component. The ID is unique within an AWS account. </p>"""
+    inclusion_status: NotRequired[
+        "aws_sdk_migrationhubstrategy.types.inclusion_status.InclusionStatus"
+    ]
+    """<p> Indicates whether the application component has been included for server recommendation or not. </p>"""
+    strategy_option: NotRequired[
+        "aws_sdk_migrationhubstrategy.types.strategy_option.StrategyOption"
+    ]
+    """<p> The preferred strategy options for the application component. Use values from the <a>GetApplicationComponentStrategies</a> response. </p>"""
+    source_code_list: NotRequired[
+        "aws_sdk_migrationhubstrategy.types.source_code_list.SourceCodeList"
+    ]
+    """<p> The list of source code configurations to update for the application component. </p>"""
+    secrets_manager_key: NotRequired[
+        "aws_sdk_migrationhubstrategy.types.secrets_manager_key.SecretsManagerKey"
+    ]
+    """<p> Database credentials. </p>"""
+    configure_only: NotRequired["aws_sdk_migrationhubstrategy.types.boolean.Boolean"]
+    """<p>Update the configuration request of an application component. If it is set to true, the source code and/or database credentials are updated. If it is set to false, the source code and/or database credentials are updated and an analysis is initiated.</p>"""
+    app_type: NotRequired["aws_sdk_migrationhubstrategy.types.app_type.AppType"]
+    """<p>The type of known component.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateApplicationComponentConfigRequest) -> dict:
+    out: dict = {}
+    out["applicationComponentId"] = value["application_component_id"]
+    if "inclusion_status" in value:
+        out["inclusionStatus"] = value["inclusion_status"]
+    if "strategy_option" in value:
+        import aws_sdk_migrationhubstrategy.types.strategy_option
+
+        out["strategyOption"] = (
+            aws_sdk_migrationhubstrategy.types.strategy_option.serialize_json(
+                value["strategy_option"]
+            )
+        )
+    if "source_code_list" in value:
+        import aws_sdk_migrationhubstrategy.types.source_code_list
+
+        out["sourceCodeList"] = (
+            aws_sdk_migrationhubstrategy.types.source_code_list.serialize_json(
+                value["source_code_list"]
+            )
+        )
+    if "secrets_manager_key" in value:
+        out["secretsManagerKey"] = value["secrets_manager_key"]
+    if "configure_only" in value:
+        out["configureOnly"] = value["configure_only"]
+    if "app_type" in value:
+        out["appType"] = value["app_type"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateApplicationComponentConfigRequest:
+    out: UpdateApplicationComponentConfigRequest = {}  # type: ignore[typeddict-item]
+    if "applicationComponentId" in data:
+        out["application_component_id"] = data["applicationComponentId"]
+    else:
+        raise DeserializationError(
+            "UpdateApplicationComponentConfigRequest.application_component_id required"
+        )
+    if "inclusionStatus" in data:
+        out["inclusion_status"] = data["inclusionStatus"]
+    if "strategyOption" in data:
+        import aws_sdk_migrationhubstrategy.types.strategy_option
+
+        out["strategy_option"] = (
+            aws_sdk_migrationhubstrategy.types.strategy_option.deserialize_json(
+                data["strategyOption"]
+            )
+        )
+    if "sourceCodeList" in data:
+        import aws_sdk_migrationhubstrategy.types.source_code_list
+
+        out["source_code_list"] = (
+            aws_sdk_migrationhubstrategy.types.source_code_list.deserialize_json(
+                data["sourceCodeList"]
+            )
+        )
+    if "secretsManagerKey" in data:
+        out["secrets_manager_key"] = data["secretsManagerKey"]
+    if "configureOnly" in data:
+        out["configure_only"] = data["configureOnly"]
+    if "appType" in data:
+        out["app_type"] = data["appType"]
+    return out

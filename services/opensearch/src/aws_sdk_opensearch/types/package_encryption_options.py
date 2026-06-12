@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.opensearch#PackageEncryptionOptions``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_opensearch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_opensearch.types.boolean
+    import aws_sdk_opensearch.types.kms_key_id
+
+
+class PackageEncryptionOptions(TypedDict):
+    kms_key_identifier: NotRequired["aws_sdk_opensearch.types.kms_key_id.KmsKeyId"]
+    """<p>KMS key ID for encrypting the package.</p>"""
+    encryption_enabled: "aws_sdk_opensearch.types.boolean.Boolean"
+    """<p>Whether encryption is enabled for the package.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PackageEncryptionOptions) -> dict:
+    out: dict = {}
+    if "kms_key_identifier" in value:
+        out["KmsKeyIdentifier"] = value["kms_key_identifier"]
+    out["EncryptionEnabled"] = value["encryption_enabled"]
+    return out
+
+
+def deserialize_json(data: dict) -> PackageEncryptionOptions:
+    out: PackageEncryptionOptions = {}  # type: ignore[typeddict-item]
+    if "KmsKeyIdentifier" in data:
+        out["kms_key_identifier"] = data["KmsKeyIdentifier"]
+    if "EncryptionEnabled" in data:
+        out["encryption_enabled"] = data["EncryptionEnabled"]
+    else:
+        raise DeserializationError(
+            "PackageEncryptionOptions.encryption_enabled required"
+        )
+    return out

@@ -1,0 +1,590 @@
+from typing import TYPE_CHECKING, Optional
+
+import aws_sdk_controltower._auth._signers
+import aws_sdk_controltower._auth._sigv4
+from aws_sdk_controltower._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_controltower.types.arn
+    import aws_sdk_controltower.types.baseline_version
+    import aws_sdk_controltower.types.disable_baseline_input
+    import aws_sdk_controltower.types.disable_baseline_output
+    import aws_sdk_controltower.types.enable_baseline_input
+    import aws_sdk_controltower.types.enable_baseline_output
+    import aws_sdk_controltower.types.enabled_baseline_filter
+    import aws_sdk_controltower.types.enabled_baseline_parameters
+    import aws_sdk_controltower.types.enabled_baseline_summary
+    import aws_sdk_controltower.types.get_enabled_baseline_input
+    import aws_sdk_controltower.types.get_enabled_baseline_output
+    import aws_sdk_controltower.types.list_enabled_baselines_input
+    import aws_sdk_controltower.types.list_enabled_baselines_max_results
+    import aws_sdk_controltower.types.list_enabled_baselines_next_token
+    import aws_sdk_controltower.types.list_enabled_baselines_output
+    import aws_sdk_controltower.types.reset_enabled_baseline_input
+    import aws_sdk_controltower.types.reset_enabled_baseline_output
+    import aws_sdk_controltower.types.tag_map
+    import aws_sdk_controltower.types.update_enabled_baseline_input
+    import aws_sdk_controltower.types.update_enabled_baseline_output
+    from aws_sdk_controltower._services.async_control_tower import (
+        AsyncControlTowerClient,
+        AsyncControlTowerClientConfig,
+    )
+    from aws_sdk_controltower._services.control_tower import (
+        ControlTowerClient,
+        ControlTowerClientConfig,
+    )
+
+
+class EnabledBaselineResource:
+    def __init__(self, service: ControlTowerClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        baseline_version: "aws_sdk_controltower.types.baseline_version.BaselineVersion",
+        baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        target_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[ControlTowerClientConfig] = None,
+        parameters: Optional[
+            "aws_sdk_controltower.types.enabled_baseline_parameters.EnabledBaselineParameters"
+        ] = None,
+        tags: Optional["aws_sdk_controltower.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_controltower.types.enable_baseline_output.EnableBaselineOutput":
+        """<p>Enable (apply) a <code>Baseline</code> to a Target. This API starts an asynchronous operation to deploy resources specified by the <code>Baseline</code> to the specified Target. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            baseline_version: <p>The specific version to be enabled of the specified baseline.</p>
+            parameters: <p>A list of <code>key-value</code> objects that specify enablement parameters, where <code>key</code> is a string and <code>value</code> is a document of any type.</p>
+            baseline_identifier: <p>The ARN of the baseline to be enabled.</p>
+            target_identifier: <p>The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.</p>
+            tags: <p>Tags associated with input to <code>EnableBaseline</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput]",
+        ) -> OperationResponse[
+            "aws_sdk_controltower.types.enable_baseline_output.EnableBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.enable_baseline
+
+            output, http_response = (
+                aws_sdk_controltower._operations.aws_control_tower_apis.enable_baseline.enable_baseline(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput = {}  # type: ignore[typeddict-item]
+        input["baseline_version"] = baseline_version
+        if parameters is not None:
+            input["parameters"] = parameters
+        input["baseline_identifier"] = baseline_identifier
+        input["target_identifier"] = target_identifier
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[ControlTowerClientConfig] = None,
+    ) -> "aws_sdk_controltower.types.get_enabled_baseline_output.GetEnabledBaselineOutput":
+        """<p>Retrieve details of an <code>EnabledBaseline</code> resource by specifying its identifier.</p>
+
+        Args:
+            enabled_baseline_identifier: <p>Identifier of the <code>EnabledBaseline</code> resource to be retrieved, in ARN format.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput]",
+        ) -> OperationResponse[
+            "aws_sdk_controltower.types.get_enabled_baseline_output.GetEnabledBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.get_enabled_baseline
+
+            output, http_response = (
+                aws_sdk_controltower._operations.aws_control_tower_apis.get_enabled_baseline.get_enabled_baseline(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update(
+        self,
+        baseline_version: "aws_sdk_controltower.types.baseline_version.BaselineVersion",
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[ControlTowerClientConfig] = None,
+        parameters: Optional[
+            "aws_sdk_controltower.types.enabled_baseline_parameters.EnabledBaselineParameters"
+        ] = None,
+    ) -> "aws_sdk_controltower.types.update_enabled_baseline_output.UpdateEnabledBaselineOutput":
+        """<p>Updates an <code>EnabledBaseline</code> resource's applied parameters or version. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            baseline_version: <p>Specifies the new <code>Baseline</code> version, to which the <code>EnabledBaseline</code> should be updated.</p>
+            parameters: <p>Parameters to apply when making an update.</p>
+            enabled_baseline_identifier: <p>Specifies the <code>EnabledBaseline</code> resource to be updated.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput]",
+        ) -> OperationResponse[
+            "aws_sdk_controltower.types.update_enabled_baseline_output.UpdateEnabledBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.update_enabled_baseline
+
+            output, http_response = (
+                aws_sdk_controltower._operations.aws_control_tower_apis.update_enabled_baseline.update_enabled_baseline(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input["baseline_version"] = baseline_version
+        if parameters is not None:
+            input["parameters"] = parameters
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[ControlTowerClientConfig] = None,
+    ) -> "aws_sdk_controltower.types.disable_baseline_output.DisableBaselineOutput":
+        """<p>Disable an <code>EnabledBaseline</code> resource on the specified Target. This API starts an asynchronous operation to remove all resources deployed as part of the baseline enablement. The resource will vary depending on the enabled baseline. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            enabled_baseline_identifier: <p>Identifier of the <code>EnabledBaseline</code> resource to be deactivated, in ARN format.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput]",
+        ) -> OperationResponse[
+            "aws_sdk_controltower.types.disable_baseline_output.DisableBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.disable_baseline
+
+            output, http_response = (
+                aws_sdk_controltower._operations.aws_control_tower_apis.disable_baseline.disable_baseline(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput = {}  # type: ignore[typeddict-item]
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[ControlTowerClientConfig] = None,
+        filter: Optional[
+            "aws_sdk_controltower.types.enabled_baseline_filter.EnabledBaselineFilter"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_controltower.types.list_enabled_baselines_next_token.ListEnabledBaselinesNextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_controltower.types.list_enabled_baselines_max_results.ListEnabledBaselinesMaxResults"
+        ] = None,
+        include_children: Optional[bool] = None,
+    ) -> "aws_sdk_controltower.types.list_enabled_baselines_output.ListEnabledBaselinesOutput":
+        """<p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            filter: <p>A filter applied on the <code>ListEnabledBaseline</code> operation. Allowed filters are <code>baselineIdentifiers</code> and <code>targetIdentifiers</code>. The filter can be applied for either, or both.</p>
+            next_token: <p>A pagination token.</p>
+            max_results: <p>The maximum number of results to be shown.</p>
+            include_children: <p>A value that can be set to include the child enabled baselines in responses. The default value is false.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_controltower.types.list_enabled_baselines_output.ListEnabledBaselinesOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.list_enabled_baselines
+
+            output, http_response = (
+                aws_sdk_controltower._operations.aws_control_tower_apis.list_enabled_baselines.list_enabled_baselines(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput = {}  # type: ignore[typeddict-item]
+        if filter is not None:
+            input["filter"] = filter
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if include_children is not None:
+            input["include_children"] = include_children
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def reset_enabled_baseline(
+        self,
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[ControlTowerClientConfig] = None,
+    ) -> "aws_sdk_controltower.types.reset_enabled_baseline_output.ResetEnabledBaselineOutput":
+        """<p>Re-enables an <code>EnabledBaseline</code> resource. For example, this API can re-apply the existing <code>Baseline</code> after a new member account is moved to the target OU. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            enabled_baseline_identifier: <p>Specifies the ID of the <code>EnabledBaseline</code> resource to be re-enabled, in ARN format.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput]",
+        ) -> OperationResponse[
+            "aws_sdk_controltower.types.reset_enabled_baseline_output.ResetEnabledBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.reset_enabled_baseline
+
+            output, http_response = (
+                aws_sdk_controltower._operations.aws_control_tower_apis.reset_enabled_baseline.reset_enabled_baseline(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncEnabledBaselineResource:
+    def __init__(self, service: AsyncControlTowerClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        baseline_version: "aws_sdk_controltower.types.baseline_version.BaselineVersion",
+        baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        target_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncControlTowerClientConfig] = None,
+        parameters: Optional[
+            "aws_sdk_controltower.types.enabled_baseline_parameters.EnabledBaselineParameters"
+        ] = None,
+        tags: Optional["aws_sdk_controltower.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_controltower.types.enable_baseline_output.EnableBaselineOutput":
+        """<p>Enable (apply) a <code>Baseline</code> to a Target. This API starts an asynchronous operation to deploy resources specified by the <code>Baseline</code> to the specified Target. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            baseline_version: <p>The specific version to be enabled of the specified baseline.</p>
+            parameters: <p>A list of <code>key-value</code> objects that specify enablement parameters, where <code>key</code> is a string and <code>value</code> is a document of any type.</p>
+            baseline_identifier: <p>The ARN of the baseline to be enabled.</p>
+            target_identifier: <p>The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.</p>
+            tags: <p>Tags associated with input to <code>EnableBaseline</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_controltower.types.enable_baseline_output.EnableBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.enable_baseline
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_controltower._operations.aws_control_tower_apis.enable_baseline.async_enable_baseline(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput = {}  # type: ignore[typeddict-item]
+        input["baseline_version"] = baseline_version
+        if parameters is not None:
+            input["parameters"] = parameters
+        input["baseline_identifier"] = baseline_identifier
+        input["target_identifier"] = target_identifier
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncControlTowerClientConfig] = None,
+    ) -> "aws_sdk_controltower.types.get_enabled_baseline_output.GetEnabledBaselineOutput":
+        """<p>Retrieve details of an <code>EnabledBaseline</code> resource by specifying its identifier.</p>
+
+        Args:
+            enabled_baseline_identifier: <p>Identifier of the <code>EnabledBaseline</code> resource to be retrieved, in ARN format.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_controltower.types.get_enabled_baseline_output.GetEnabledBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.get_enabled_baseline
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_controltower._operations.aws_control_tower_apis.get_enabled_baseline.async_get_enabled_baseline(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update(
+        self,
+        baseline_version: "aws_sdk_controltower.types.baseline_version.BaselineVersion",
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncControlTowerClientConfig] = None,
+        parameters: Optional[
+            "aws_sdk_controltower.types.enabled_baseline_parameters.EnabledBaselineParameters"
+        ] = None,
+    ) -> "aws_sdk_controltower.types.update_enabled_baseline_output.UpdateEnabledBaselineOutput":
+        """<p>Updates an <code>EnabledBaseline</code> resource's applied parameters or version. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            baseline_version: <p>Specifies the new <code>Baseline</code> version, to which the <code>EnabledBaseline</code> should be updated.</p>
+            parameters: <p>Parameters to apply when making an update.</p>
+            enabled_baseline_identifier: <p>Specifies the <code>EnabledBaseline</code> resource to be updated.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_controltower.types.update_enabled_baseline_output.UpdateEnabledBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.update_enabled_baseline
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_controltower._operations.aws_control_tower_apis.update_enabled_baseline.async_update_enabled_baseline(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input["baseline_version"] = baseline_version
+        if parameters is not None:
+            input["parameters"] = parameters
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncControlTowerClientConfig] = None,
+    ) -> "aws_sdk_controltower.types.disable_baseline_output.DisableBaselineOutput":
+        """<p>Disable an <code>EnabledBaseline</code> resource on the specified Target. This API starts an asynchronous operation to remove all resources deployed as part of the baseline enablement. The resource will vary depending on the enabled baseline. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            enabled_baseline_identifier: <p>Identifier of the <code>EnabledBaseline</code> resource to be deactivated, in ARN format.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_controltower.types.disable_baseline_output.DisableBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.disable_baseline
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_controltower._operations.aws_control_tower_apis.disable_baseline.async_disable_baseline(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput = {}  # type: ignore[typeddict-item]
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncControlTowerClientConfig] = None,
+        filter: Optional[
+            "aws_sdk_controltower.types.enabled_baseline_filter.EnabledBaselineFilter"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_controltower.types.list_enabled_baselines_next_token.ListEnabledBaselinesNextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_controltower.types.list_enabled_baselines_max_results.ListEnabledBaselinesMaxResults"
+        ] = None,
+        include_children: Optional[bool] = None,
+    ) -> "aws_sdk_controltower.types.list_enabled_baselines_output.ListEnabledBaselinesOutput":
+        """<p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            filter: <p>A filter applied on the <code>ListEnabledBaseline</code> operation. Allowed filters are <code>baselineIdentifiers</code> and <code>targetIdentifiers</code>. The filter can be applied for either, or both.</p>
+            next_token: <p>A pagination token.</p>
+            max_results: <p>The maximum number of results to be shown.</p>
+            include_children: <p>A value that can be set to include the child enabled baselines in responses. The default value is false.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_controltower.types.list_enabled_baselines_output.ListEnabledBaselinesOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.list_enabled_baselines
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_controltower._operations.aws_control_tower_apis.list_enabled_baselines.async_list_enabled_baselines(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput = {}  # type: ignore[typeddict-item]
+        if filter is not None:
+            input["filter"] = filter
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if include_children is not None:
+            input["include_children"] = include_children
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def reset_enabled_baseline(
+        self,
+        enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncControlTowerClientConfig] = None,
+    ) -> "aws_sdk_controltower.types.reset_enabled_baseline_output.ResetEnabledBaselineOutput":
+        """<p>Re-enables an <code>EnabledBaseline</code> resource. For example, this API can re-apply the existing <code>Baseline</code> after a new member account is moved to the target OU. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+
+        Args:
+            enabled_baseline_identifier: <p>Specifies the ID of the <code>EnabledBaseline</code> resource to be re-enabled, in ARN format.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_controltower.types.reset_enabled_baseline_output.ResetEnabledBaselineOutput"
+        ]:
+            import aws_sdk_controltower._operations.aws_control_tower_apis.reset_enabled_baseline
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_controltower._operations.aws_control_tower_apis.reset_enabled_baseline.async_reset_enabled_baseline(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

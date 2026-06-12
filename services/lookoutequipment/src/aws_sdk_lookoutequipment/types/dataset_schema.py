@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.lookoutequipment#DatasetSchema``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lookoutequipment.types.synthesized_json_inline_data_schema
+
+
+class DatasetSchema(TypedDict):
+    inline_data_schema: NotRequired[
+        "aws_sdk_lookoutequipment.types.synthesized_json_inline_data_schema.SynthesizedJsonInlineDataSchema"
+    ]
+    """<p>The data schema used within the given dataset.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DatasetSchema) -> dict:
+    out: dict = {}
+    if "inline_data_schema" in value:
+        out["InlineDataSchema"] = value["inline_data_schema"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DatasetSchema:
+    out: DatasetSchema = {}  # type: ignore[typeddict-item]
+    if "InlineDataSchema" in data:
+        out["inline_data_schema"] = data["InlineDataSchema"]
+    return out

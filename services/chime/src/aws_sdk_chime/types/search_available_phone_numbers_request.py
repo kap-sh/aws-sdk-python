@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.chime#SearchAvailablePhoneNumbersRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_chime.types.alpha2_country_code
+    import aws_sdk_chime.types.phone_number_max_results
+    import aws_sdk_chime.types.phone_number_type
+    import aws_sdk_chime.types.string
+    import aws_sdk_chime.types.toll_free_prefix
+
+
+class SearchAvailablePhoneNumbersRequest(TypedDict):
+    area_code: NotRequired["aws_sdk_chime.types.string.String"]
+    """<p>The area code used to filter results. Only applies to the US.</p>"""
+    city: NotRequired["aws_sdk_chime.types.string.String"]
+    """<p>The city used to filter results. Only applies to the US.</p>"""
+    country: NotRequired["aws_sdk_chime.types.alpha2_country_code.Alpha2CountryCode"]
+    """<p>The country used to filter results. Defaults to the US Format: ISO 3166-1 alpha-2.</p>"""
+    state: NotRequired["aws_sdk_chime.types.string.String"]
+    """<p>The state used to filter results. Required only if you provide <code>City</code>. Only applies to the US.</p>"""
+    toll_free_prefix: NotRequired["aws_sdk_chime.types.toll_free_prefix.TollFreePrefix"]
+    """<p>The toll-free prefix that you use to filter results. Only applies to the US.</p>"""
+    phone_number_type: NotRequired[
+        "aws_sdk_chime.types.phone_number_type.PhoneNumberType"
+    ]
+    """<p>The phone number type used to filter results. Required for non-US numbers.</p>"""
+    max_results: NotRequired[
+        "aws_sdk_chime.types.phone_number_max_results.PhoneNumberMaxResults"
+    ]
+    """<p>The maximum number of results to return in a single call.</p>"""
+    next_token: NotRequired["aws_sdk_chime.types.string.String"]
+    """<p>The token used to retrieve the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SearchAvailablePhoneNumbersRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> SearchAvailablePhoneNumbersRequest:
+    out: SearchAvailablePhoneNumbersRequest = {}  # type: ignore[typeddict-item]
+    return out

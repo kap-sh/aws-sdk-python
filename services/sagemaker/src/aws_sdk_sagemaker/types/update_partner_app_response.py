@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#UpdatePartnerAppResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.partner_app_arn
+
+
+class UpdatePartnerAppResponse(TypedDict):
+    arn: NotRequired["aws_sdk_sagemaker.types.partner_app_arn.PartnerAppArn"]
+    """<p>The ARN of the SageMaker Partner AI App that was updated.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdatePartnerAppResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdatePartnerAppResponse:
+    out: UpdatePartnerAppResponse = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    return out

@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateMonitoringScheduleResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.monitoring_schedule_arn
+
+
+class UpdateMonitoringScheduleResponse(TypedDict):
+    monitoring_schedule_arn: NotRequired[
+        "aws_sdk_sagemaker.types.monitoring_schedule_arn.MonitoringScheduleArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateMonitoringScheduleResponse) -> dict:
+    out: dict = {}
+    if "monitoring_schedule_arn" in value:
+        out["MonitoringScheduleArn"] = value["monitoring_schedule_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateMonitoringScheduleResponse:
+    out: UpdateMonitoringScheduleResponse = {}  # type: ignore[typeddict-item]
+    if "MonitoringScheduleArn" in data:
+        out["monitoring_schedule_arn"] = data["MonitoringScheduleArn"]
+    return out

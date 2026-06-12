@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.appconfig#DeletionProtectionSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appconfig.types.boolean
+    import aws_sdk_appconfig.types.deletion_protection_duration
+
+
+class DeletionProtectionSettings(TypedDict):
+    enabled: NotRequired["aws_sdk_appconfig.types.boolean.Boolean"]
+    """<p>A parameter that indicates if deletion protection is enabled or not.</p>"""
+    protection_period_in_minutes: NotRequired[
+        "aws_sdk_appconfig.types.deletion_protection_duration.DeletionProtectionDuration"
+    ]
+    """<p>The time interval during which AppConfig monitors for calls to <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or for a configuration profile or from an environment. AppConfig returns an error if a user calls or for the designated configuration profile or environment. To bypass the error and delete a configuration profile or an environment, specify <code>BYPASS</code> for the <code>DeletionProtectionCheck</code> parameter for either or .</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeletionProtectionSettings) -> dict:
+    out: dict = {}
+    if "enabled" in value:
+        out["Enabled"] = value["enabled"]
+    if "protection_period_in_minutes" in value:
+        out["ProtectionPeriodInMinutes"] = value["protection_period_in_minutes"]
+    return out
+
+
+def deserialize_json(data: dict) -> DeletionProtectionSettings:
+    out: DeletionProtectionSettings = {}  # type: ignore[typeddict-item]
+    if "Enabled" in data:
+        out["enabled"] = data["Enabled"]
+    if "ProtectionPeriodInMinutes" in data:
+        out["protection_period_in_minutes"] = data["ProtectionPeriodInMinutes"]
+    return out

@@ -1,0 +1,110 @@
+"""Generated from Smithy shape ``com.amazonaws.observabilityadmin#TelemetryRuleSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_observabilityadmin.types.resource_arn
+    import aws_sdk_observabilityadmin.types.resource_type
+    import aws_sdk_observabilityadmin.types.rule_name
+    import aws_sdk_observabilityadmin.types.telemetry_source_types
+    import aws_sdk_observabilityadmin.types.telemetry_type
+
+
+class TelemetryRuleSummary(TypedDict):
+    rule_name: NotRequired["aws_sdk_observabilityadmin.types.rule_name.RuleName"]
+    """<p> The name of the telemetry rule. </p>"""
+    rule_arn: NotRequired["aws_sdk_observabilityadmin.types.resource_arn.ResourceArn"]
+    """<p> The Amazon Resource Name (ARN) of the telemetry rule. </p>"""
+    created_time_stamp: NotRequired["int"]
+    """<p> The timestamp when the telemetry rule was created. </p>"""
+    last_update_time_stamp: NotRequired["int"]
+    """<p> The timestamp when the telemetry rule was last modified. </p>"""
+    resource_type: NotRequired[
+        "aws_sdk_observabilityadmin.types.resource_type.ResourceType"
+    ]
+    """<p> The type of Amazon Web Services resource the rule applies to. </p>"""
+    telemetry_type: NotRequired[
+        "aws_sdk_observabilityadmin.types.telemetry_type.TelemetryType"
+    ]
+    """<p> The type of telemetry (Logs, Metrics, or Traces) the rule configures. </p>"""
+    telemetry_source_types: NotRequired[
+        "aws_sdk_observabilityadmin.types.telemetry_source_types.TelemetrySourceTypes"
+    ]
+    """<p> The types of telemetry sources configured for this rule, such as VPC Flow Logs or EKS audit logs. TelemetrySourceTypes must be correlated with the specific resource type. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TelemetryRuleSummary) -> dict:
+    out: dict = {}
+    if "rule_name" in value:
+        out["RuleName"] = value["rule_name"]
+    if "rule_arn" in value:
+        out["RuleArn"] = value["rule_arn"]
+    if "created_time_stamp" in value:
+        out["CreatedTimeStamp"] = value["created_time_stamp"]
+    if "last_update_time_stamp" in value:
+        out["LastUpdateTimeStamp"] = value["last_update_time_stamp"]
+    if "resource_type" in value:
+        import aws_sdk_observabilityadmin.types.resource_type
+
+        out["ResourceType"] = (
+            aws_sdk_observabilityadmin.types.resource_type.serialize_json(
+                value["resource_type"]
+            )
+        )
+    if "telemetry_type" in value:
+        import aws_sdk_observabilityadmin.types.telemetry_type
+
+        out["TelemetryType"] = (
+            aws_sdk_observabilityadmin.types.telemetry_type.serialize_json(
+                value["telemetry_type"]
+            )
+        )
+    if "telemetry_source_types" in value:
+        import aws_sdk_observabilityadmin.types.telemetry_source_types
+
+        out["TelemetrySourceTypes"] = (
+            aws_sdk_observabilityadmin.types.telemetry_source_types.serialize_json(
+                value["telemetry_source_types"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TelemetryRuleSummary:
+    out: TelemetryRuleSummary = {}  # type: ignore[typeddict-item]
+    if "RuleName" in data:
+        out["rule_name"] = data["RuleName"]
+    if "RuleArn" in data:
+        out["rule_arn"] = data["RuleArn"]
+    if "CreatedTimeStamp" in data:
+        out["created_time_stamp"] = data["CreatedTimeStamp"]
+    if "LastUpdateTimeStamp" in data:
+        out["last_update_time_stamp"] = data["LastUpdateTimeStamp"]
+    if "ResourceType" in data:
+        import aws_sdk_observabilityadmin.types.resource_type
+
+        out["resource_type"] = (
+            aws_sdk_observabilityadmin.types.resource_type.deserialize_json(
+                data["ResourceType"]
+            )
+        )
+    if "TelemetryType" in data:
+        import aws_sdk_observabilityadmin.types.telemetry_type
+
+        out["telemetry_type"] = (
+            aws_sdk_observabilityadmin.types.telemetry_type.deserialize_json(
+                data["TelemetryType"]
+            )
+        )
+    if "TelemetrySourceTypes" in data:
+        import aws_sdk_observabilityadmin.types.telemetry_source_types
+
+        out["telemetry_source_types"] = (
+            aws_sdk_observabilityadmin.types.telemetry_source_types.deserialize_json(
+                data["TelemetrySourceTypes"]
+            )
+        )
+    return out

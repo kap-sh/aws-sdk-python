@@ -1,0 +1,118 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#GetMetricDataOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.metric_data_result_messages
+    import aws_sdk_cloudwatch.types.metric_data_results
+    import aws_sdk_cloudwatch.types.next_token
+
+
+class GetMetricDataOutput(TypedDict):
+    metric_data_results: NotRequired[
+        "aws_sdk_cloudwatch.types.metric_data_results.MetricDataResults"
+    ]
+    """<p>The metrics that are returned, including the metric name, namespace, and dimensions.</p>"""
+    next_token: NotRequired["aws_sdk_cloudwatch.types.next_token.NextToken"]
+    """<p>A token that marks the next batch of returned results.</p>"""
+    messages: NotRequired[
+        "aws_sdk_cloudwatch.types.metric_data_result_messages.MetricDataResultMessages"
+    ]
+    """<p>Contains a message about this <code>GetMetricData</code> operation, if the operation results in such a message. An example of a message that might be returned is <code>Maximum number of allowed metrics exceeded</code>. If there is a message, as much of the operation as possible is still executed.</p> <p>A message appears here only if it is related to the global <code>GetMetricData</code> operation. Any message about a specific metric returned by the operation appears in the <code>MetricDataResult</code> object returned for that metric.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetMetricDataOutput) -> dict:
+    out: dict = {}
+    if "metric_data_results" in value:
+        import aws_sdk_cloudwatch.types.metric_data_results
+
+        out["MetricDataResults"] = (
+            aws_sdk_cloudwatch.types.metric_data_results.serialize_aws_json_1_0(
+                value["metric_data_results"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "messages" in value:
+        import aws_sdk_cloudwatch.types.metric_data_result_messages
+
+        out["Messages"] = (
+            aws_sdk_cloudwatch.types.metric_data_result_messages.serialize_aws_json_1_0(
+                value["messages"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetMetricDataOutput:
+    out: GetMetricDataOutput = {}  # type: ignore[typeddict-item]
+    if "MetricDataResults" in data:
+        import aws_sdk_cloudwatch.types.metric_data_results
+
+        out["metric_data_results"] = (
+            aws_sdk_cloudwatch.types.metric_data_results.deserialize_aws_json_1_0(
+                data["MetricDataResults"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Messages" in data:
+        import aws_sdk_cloudwatch.types.metric_data_result_messages
+
+        out["messages"] = (
+            aws_sdk_cloudwatch.types.metric_data_result_messages.deserialize_aws_json_1_0(
+                data["Messages"]
+            )
+        )
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: GetMetricDataOutput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "metric_data_results" in value:
+        import aws_sdk_cloudwatch.types.metric_data_results
+
+        aws_sdk_cloudwatch.types.metric_data_results.serialize_query(
+            value["metric_data_results"], pairs, f"{prefix}.MetricDataResults"
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "messages" in value:
+        import aws_sdk_cloudwatch.types.metric_data_result_messages
+
+        aws_sdk_cloudwatch.types.metric_data_result_messages.serialize_query(
+            value["messages"], pairs, f"{prefix}.Messages"
+        )
+
+
+def deserialize_query(el: Element) -> GetMetricDataOutput:
+    out: GetMetricDataOutput = {}  # type: ignore[typeddict-item]
+    child_metric_data_results = el.find("MetricDataResults")
+    if child_metric_data_results is not None:
+        import aws_sdk_cloudwatch.types.metric_data_results
+
+        out["metric_data_results"] = (
+            aws_sdk_cloudwatch.types.metric_data_results.deserialize_query(
+                child_metric_data_results
+            )
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_messages = el.find("Messages")
+    if child_messages is not None:
+        import aws_sdk_cloudwatch.types.metric_data_result_messages
+
+        out["messages"] = (
+            aws_sdk_cloudwatch.types.metric_data_result_messages.deserialize_query(
+                child_messages
+            )
+        )
+    return out

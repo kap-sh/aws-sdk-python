@@ -1,0 +1,112 @@
+"""Generated from Smithy shape ``com.amazonaws.ssoadmin#Grant``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_sso_admin.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sso_admin.types.authorization_code_grant
+    import aws_sdk_sso_admin.types.jwt_bearer_grant
+    import aws_sdk_sso_admin.types.refresh_token_grant
+    import aws_sdk_sso_admin.types.token_exchange_grant
+
+
+class _Grant_AuthorizationCode(TypedDict):
+    AuthorizationCode: (
+        "aws_sdk_sso_admin.types.authorization_code_grant.AuthorizationCodeGrant"
+    )
+
+
+class _Grant_JwtBearer(TypedDict):
+    JwtBearer: "aws_sdk_sso_admin.types.jwt_bearer_grant.JwtBearerGrant"
+
+
+class _Grant_RefreshToken(TypedDict):
+    RefreshToken: "aws_sdk_sso_admin.types.refresh_token_grant.RefreshTokenGrant"
+
+
+class _Grant_TokenExchange(TypedDict):
+    TokenExchange: "aws_sdk_sso_admin.types.token_exchange_grant.TokenExchangeGrant"
+
+
+Grant: TypeAlias = (
+    _Grant_AuthorizationCode
+    | _Grant_JwtBearer
+    | _Grant_RefreshToken
+    | _Grant_TokenExchange
+)
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Grant) -> dict:
+    if "AuthorizationCode" in value:
+        import aws_sdk_sso_admin.types.authorization_code_grant
+
+        return {
+            "AuthorizationCode": aws_sdk_sso_admin.types.authorization_code_grant.serialize_aws_json_1_1(
+                value["AuthorizationCode"]
+            )
+        }
+    elif "JwtBearer" in value:
+        import aws_sdk_sso_admin.types.jwt_bearer_grant
+
+        return {
+            "JwtBearer": aws_sdk_sso_admin.types.jwt_bearer_grant.serialize_aws_json_1_1(
+                value["JwtBearer"]
+            )
+        }
+    elif "RefreshToken" in value:
+        import aws_sdk_sso_admin.types.refresh_token_grant
+
+        return {
+            "RefreshToken": aws_sdk_sso_admin.types.refresh_token_grant.serialize_aws_json_1_1(
+                value["RefreshToken"]
+            )
+        }
+    elif "TokenExchange" in value:
+        import aws_sdk_sso_admin.types.token_exchange_grant
+
+        return {
+            "TokenExchange": aws_sdk_sso_admin.types.token_exchange_grant.serialize_aws_json_1_1(
+                value["TokenExchange"]
+            )
+        }
+    else:
+        raise SerializationError("Grant: no variant present")
+
+
+def deserialize_aws_json_1_1(data: dict) -> Grant:
+    if "AuthorizationCode" in data:
+        import aws_sdk_sso_admin.types.authorization_code_grant
+
+        return {
+            "AuthorizationCode": aws_sdk_sso_admin.types.authorization_code_grant.deserialize_aws_json_1_1(
+                data["AuthorizationCode"]
+            )
+        }
+    elif "JwtBearer" in data:
+        import aws_sdk_sso_admin.types.jwt_bearer_grant
+
+        return {
+            "JwtBearer": aws_sdk_sso_admin.types.jwt_bearer_grant.deserialize_aws_json_1_1(
+                data["JwtBearer"]
+            )
+        }
+    elif "RefreshToken" in data:
+        import aws_sdk_sso_admin.types.refresh_token_grant
+
+        return {
+            "RefreshToken": aws_sdk_sso_admin.types.refresh_token_grant.deserialize_aws_json_1_1(
+                data["RefreshToken"]
+            )
+        }
+    elif "TokenExchange" in data:
+        import aws_sdk_sso_admin.types.token_exchange_grant
+
+        return {
+            "TokenExchange": aws_sdk_sso_admin.types.token_exchange_grant.deserialize_aws_json_1_1(
+                data["TokenExchange"]
+            )
+        }
+    else:
+        raise DeserializationError("Grant: no recognized variant key")

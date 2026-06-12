@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticache#StorageEncryptionType``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_elasticache._protocol.xml import Element
+from aws_sdk_elasticache.errors import DeserializationError
+
+StorageEncryptionType: TypeAlias = Literal[
+    "none",
+    "sse-elasticache",
+    "sse-kms",
+]
+
+
+# --- awsQuery ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "none",
+        "sse-elasticache",
+        "sse-kms",
+    )
+)
+
+
+def to_query_text(value: StorageEncryptionType) -> str:
+    return value
+
+
+def from_query_text(text: str) -> StorageEncryptionType:
+    if text not in _VALUES:
+        raise DeserializationError(f"unknown StorageEncryptionType value: {text!r}")
+    return cast(StorageEncryptionType, text)
+
+
+def serialize_query(
+    value: StorageEncryptionType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> StorageEncryptionType:
+    return from_query_text(el.text or "")

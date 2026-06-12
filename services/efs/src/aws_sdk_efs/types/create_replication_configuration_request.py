@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.efs#CreateReplicationConfigurationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_efs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_efs.types.destinations_to_create
+    import aws_sdk_efs.types.file_system_id
+
+
+class CreateReplicationConfigurationRequest(TypedDict):
+    source_file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
+    """<p>Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be a source or destination file system in another replication configuration.</p>"""
+    destinations: "aws_sdk_efs.types.destinations_to_create.DestinationsToCreate"
+    """<p>An array of destination configuration objects. Only one destination configuration object is supported.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateReplicationConfigurationRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_efs.types.destinations_to_create
+
+    out["Destinations"] = aws_sdk_efs.types.destinations_to_create.serialize_json(
+        value["destinations"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateReplicationConfigurationRequest:
+    out: CreateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+    if "Destinations" in data:
+        import aws_sdk_efs.types.destinations_to_create
+
+        out["destinations"] = aws_sdk_efs.types.destinations_to_create.deserialize_json(
+            data["Destinations"]
+        )
+    else:
+        raise DeserializationError(
+            "CreateReplicationConfigurationRequest.destinations required"
+        )
+    return out

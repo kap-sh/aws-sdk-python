@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.keyspaces#DeleteTypeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_keyspaces.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_keyspaces.types.keyspace_name
+    import aws_sdk_keyspaces.types.type_name
+
+
+class DeleteTypeRequest(TypedDict):
+    keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
+    """<p> The name of the keyspace of the to be deleted type. </p>"""
+    type_name: "aws_sdk_keyspaces.types.type_name.TypeName"
+    """<p> The name of the type to be deleted. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DeleteTypeRequest) -> dict:
+    out: dict = {}
+    out["keyspaceName"] = value["keyspace_name"]
+    out["typeName"] = value["type_name"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DeleteTypeRequest:
+    out: DeleteTypeRequest = {}  # type: ignore[typeddict-item]
+    if "keyspaceName" in data:
+        out["keyspace_name"] = data["keyspaceName"]
+    else:
+        raise DeserializationError("DeleteTypeRequest.keyspace_name required")
+    if "typeName" in data:
+        out["type_name"] = data["typeName"]
+    else:
+        raise DeserializationError("DeleteTypeRequest.type_name required")
+    return out

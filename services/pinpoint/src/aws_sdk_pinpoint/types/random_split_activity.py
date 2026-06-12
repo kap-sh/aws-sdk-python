@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#RandomSplitActivity``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.list_of_random_split_entry
+
+
+class RandomSplitActivity(TypedDict):
+    branches: NotRequired[
+        "aws_sdk_pinpoint.types.list_of_random_split_entry.ListOfRandomSplitEntry"
+    ]
+    """<p>The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RandomSplitActivity) -> dict:
+    out: dict = {}
+    if "branches" in value:
+        import aws_sdk_pinpoint.types.list_of_random_split_entry
+
+        out["Branches"] = (
+            aws_sdk_pinpoint.types.list_of_random_split_entry.serialize_json(
+                value["branches"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> RandomSplitActivity:
+    out: RandomSplitActivity = {}  # type: ignore[typeddict-item]
+    if "Branches" in data:
+        import aws_sdk_pinpoint.types.list_of_random_split_entry
+
+        out["branches"] = (
+            aws_sdk_pinpoint.types.list_of_random_split_entry.deserialize_json(
+                data["Branches"]
+            )
+        )
+    return out

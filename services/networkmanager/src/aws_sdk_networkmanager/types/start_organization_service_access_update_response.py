@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.networkmanager#StartOrganizationServiceAccessUpdateResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_networkmanager.types.organization_status
+
+
+class StartOrganizationServiceAccessUpdateResponse(TypedDict):
+    organization_status: NotRequired[
+        "aws_sdk_networkmanager.types.organization_status.OrganizationStatus"
+    ]
+    """<p>The status of the service access update request for an Amazon Web Services Organization.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartOrganizationServiceAccessUpdateResponse) -> dict:
+    out: dict = {}
+    if "organization_status" in value:
+        import aws_sdk_networkmanager.types.organization_status
+
+        out["OrganizationStatus"] = (
+            aws_sdk_networkmanager.types.organization_status.serialize_json(
+                value["organization_status"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> StartOrganizationServiceAccessUpdateResponse:
+    out: StartOrganizationServiceAccessUpdateResponse = {}  # type: ignore[typeddict-item]
+    if "OrganizationStatus" in data:
+        import aws_sdk_networkmanager.types.organization_status
+
+        out["organization_status"] = (
+            aws_sdk_networkmanager.types.organization_status.deserialize_json(
+                data["OrganizationStatus"]
+            )
+        )
+    return out

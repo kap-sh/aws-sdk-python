@@ -1,0 +1,267 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#ContactSearchSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_connect.types.arn
+    import aws_sdk_connect.types.channel
+    import aws_sdk_connect.types.contact_id
+    import aws_sdk_connect.types.contact_initiation_method
+    import aws_sdk_connect.types.contact_search_summary_agent_info
+    import aws_sdk_connect.types.contact_search_summary_ai_agent_info_list
+    import aws_sdk_connect.types.contact_search_summary_queue_info
+    import aws_sdk_connect.types.contact_search_summary_segment_attributes
+    import aws_sdk_connect.types.contact_tag_map
+    import aws_sdk_connect.types.global_resiliency_metadata
+    import aws_sdk_connect.types.name
+    import aws_sdk_connect.types.routing_criteria
+    import aws_sdk_connect.types.timestamp
+
+
+class ContactSearchSummary(TypedDict):
+    arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
+    """<p>The Amazon Resource Name (ARN) of the contact.</p>"""
+    id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
+    """<p>The identifier of the contact summary.</p>"""
+    initial_contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
+    """<p>If this contact is related to other contacts, this is the ID of the initial contact.</p>"""
+    previous_contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
+    """<p>If this contact is not the first contact, this is the ID of the previous contact.</p>"""
+    initiation_method: NotRequired[
+        "aws_sdk_connect.types.contact_initiation_method.ContactInitiationMethod"
+    ]
+    """<p>Indicates how the contact was initiated.</p>"""
+    channel: NotRequired["aws_sdk_connect.types.channel.Channel"]
+    """<p>How the contact reached your contact center.</p>"""
+    queue_info: NotRequired[
+        "aws_sdk_connect.types.contact_search_summary_queue_info.ContactSearchSummaryQueueInfo"
+    ]
+    """<p>If this contact was queued, this contains information about the queue.</p>"""
+    agent_info: NotRequired[
+        "aws_sdk_connect.types.contact_search_summary_agent_info.ContactSearchSummaryAgentInfo"
+    ]
+    """<p>Information about the agent who accepted the contact.</p>"""
+    initiation_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
+    """<p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For API, this is when the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent started dialing the external participant. For <code>MONITOR</code>, this is when the supervisor started listening to a contact.</p>"""
+    disconnect_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
+    """<p>The timestamp when the customer endpoint disconnected from Connect Customer.</p>"""
+    scheduled_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
+    """<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.</p>"""
+    segment_attributes: NotRequired[
+        "aws_sdk_connect.types.contact_search_summary_segment_attributes.ContactSearchSummarySegmentAttributes"
+    ]
+    """<p>Set of segment attributes for a contact.</p>"""
+    name: NotRequired["aws_sdk_connect.types.name.Name"]
+    """<p>Indicates name of the contact.</p>"""
+    routing_criteria: NotRequired[
+        "aws_sdk_connect.types.routing_criteria.RoutingCriteria"
+    ]
+    tags: NotRequired["aws_sdk_connect.types.contact_tag_map.ContactTagMap"]
+    """<p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>"""
+    global_resiliency_metadata: NotRequired[
+        "aws_sdk_connect.types.global_resiliency_metadata.GlobalResiliencyMetadata"
+    ]
+    """<p>Additional routing information for contacts created in ACGR instances.</p>"""
+    ai_agent_info: NotRequired[
+        "aws_sdk_connect.types.contact_search_summary_ai_agent_info_list.ContactSearchSummaryAiAgentInfoList"
+    ]
+    """<p>Information about the AI agents involved in the contact.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ContactSearchSummary) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "id" in value:
+        out["Id"] = value["id"]
+    if "initial_contact_id" in value:
+        out["InitialContactId"] = value["initial_contact_id"]
+    if "previous_contact_id" in value:
+        out["PreviousContactId"] = value["previous_contact_id"]
+    if "initiation_method" in value:
+        import aws_sdk_connect.types.contact_initiation_method
+
+        out["InitiationMethod"] = (
+            aws_sdk_connect.types.contact_initiation_method.serialize_json(
+                value["initiation_method"]
+            )
+        )
+    if "channel" in value:
+        import aws_sdk_connect.types.channel
+
+        out["Channel"] = aws_sdk_connect.types.channel.serialize_json(value["channel"])
+    if "queue_info" in value:
+        import aws_sdk_connect.types.contact_search_summary_queue_info
+
+        out["QueueInfo"] = (
+            aws_sdk_connect.types.contact_search_summary_queue_info.serialize_json(
+                value["queue_info"]
+            )
+        )
+    if "agent_info" in value:
+        import aws_sdk_connect.types.contact_search_summary_agent_info
+
+        out["AgentInfo"] = (
+            aws_sdk_connect.types.contact_search_summary_agent_info.serialize_json(
+                value["agent_info"]
+            )
+        )
+    if "initiation_timestamp" in value:
+        import aws_sdk_connect.types.timestamp
+
+        out["InitiationTimestamp"] = aws_sdk_connect.types.timestamp.serialize_json(
+            value["initiation_timestamp"]
+        )
+    if "disconnect_timestamp" in value:
+        import aws_sdk_connect.types.timestamp
+
+        out["DisconnectTimestamp"] = aws_sdk_connect.types.timestamp.serialize_json(
+            value["disconnect_timestamp"]
+        )
+    if "scheduled_timestamp" in value:
+        import aws_sdk_connect.types.timestamp
+
+        out["ScheduledTimestamp"] = aws_sdk_connect.types.timestamp.serialize_json(
+            value["scheduled_timestamp"]
+        )
+    if "segment_attributes" in value:
+        import aws_sdk_connect.types.contact_search_summary_segment_attributes
+
+        out["SegmentAttributes"] = (
+            aws_sdk_connect.types.contact_search_summary_segment_attributes.serialize_json(
+                value["segment_attributes"]
+            )
+        )
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "routing_criteria" in value:
+        import aws_sdk_connect.types.routing_criteria
+
+        out["RoutingCriteria"] = aws_sdk_connect.types.routing_criteria.serialize_json(
+            value["routing_criteria"]
+        )
+    if "tags" in value:
+        import aws_sdk_connect.types.contact_tag_map
+
+        out["Tags"] = aws_sdk_connect.types.contact_tag_map.serialize_json(
+            value["tags"]
+        )
+    if "global_resiliency_metadata" in value:
+        import aws_sdk_connect.types.global_resiliency_metadata
+
+        out["GlobalResiliencyMetadata"] = (
+            aws_sdk_connect.types.global_resiliency_metadata.serialize_json(
+                value["global_resiliency_metadata"]
+            )
+        )
+    if "ai_agent_info" in value:
+        import aws_sdk_connect.types.contact_search_summary_ai_agent_info_list
+
+        out["AiAgentInfo"] = (
+            aws_sdk_connect.types.contact_search_summary_ai_agent_info_list.serialize_json(
+                value["ai_agent_info"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ContactSearchSummary:
+    out: ContactSearchSummary = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "Id" in data:
+        out["id"] = data["Id"]
+    if "InitialContactId" in data:
+        out["initial_contact_id"] = data["InitialContactId"]
+    if "PreviousContactId" in data:
+        out["previous_contact_id"] = data["PreviousContactId"]
+    if "InitiationMethod" in data:
+        import aws_sdk_connect.types.contact_initiation_method
+
+        out["initiation_method"] = (
+            aws_sdk_connect.types.contact_initiation_method.deserialize_json(
+                data["InitiationMethod"]
+            )
+        )
+    if "Channel" in data:
+        import aws_sdk_connect.types.channel
+
+        out["channel"] = aws_sdk_connect.types.channel.deserialize_json(data["Channel"])
+    if "QueueInfo" in data:
+        import aws_sdk_connect.types.contact_search_summary_queue_info
+
+        out["queue_info"] = (
+            aws_sdk_connect.types.contact_search_summary_queue_info.deserialize_json(
+                data["QueueInfo"]
+            )
+        )
+    if "AgentInfo" in data:
+        import aws_sdk_connect.types.contact_search_summary_agent_info
+
+        out["agent_info"] = (
+            aws_sdk_connect.types.contact_search_summary_agent_info.deserialize_json(
+                data["AgentInfo"]
+            )
+        )
+    if "InitiationTimestamp" in data:
+        import aws_sdk_connect.types.timestamp
+
+        out["initiation_timestamp"] = aws_sdk_connect.types.timestamp.deserialize_json(
+            data["InitiationTimestamp"]
+        )
+    if "DisconnectTimestamp" in data:
+        import aws_sdk_connect.types.timestamp
+
+        out["disconnect_timestamp"] = aws_sdk_connect.types.timestamp.deserialize_json(
+            data["DisconnectTimestamp"]
+        )
+    if "ScheduledTimestamp" in data:
+        import aws_sdk_connect.types.timestamp
+
+        out["scheduled_timestamp"] = aws_sdk_connect.types.timestamp.deserialize_json(
+            data["ScheduledTimestamp"]
+        )
+    if "SegmentAttributes" in data:
+        import aws_sdk_connect.types.contact_search_summary_segment_attributes
+
+        out["segment_attributes"] = (
+            aws_sdk_connect.types.contact_search_summary_segment_attributes.deserialize_json(
+                data["SegmentAttributes"]
+            )
+        )
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "RoutingCriteria" in data:
+        import aws_sdk_connect.types.routing_criteria
+
+        out["routing_criteria"] = (
+            aws_sdk_connect.types.routing_criteria.deserialize_json(
+                data["RoutingCriteria"]
+            )
+        )
+    if "Tags" in data:
+        import aws_sdk_connect.types.contact_tag_map
+
+        out["tags"] = aws_sdk_connect.types.contact_tag_map.deserialize_json(
+            data["Tags"]
+        )
+    if "GlobalResiliencyMetadata" in data:
+        import aws_sdk_connect.types.global_resiliency_metadata
+
+        out["global_resiliency_metadata"] = (
+            aws_sdk_connect.types.global_resiliency_metadata.deserialize_json(
+                data["GlobalResiliencyMetadata"]
+            )
+        )
+    if "AiAgentInfo" in data:
+        import aws_sdk_connect.types.contact_search_summary_ai_agent_info_list
+
+        out["ai_agent_info"] = (
+            aws_sdk_connect.types.contact_search_summary_ai_agent_info_list.deserialize_json(
+                data["AiAgentInfo"]
+            )
+        )
+    return out

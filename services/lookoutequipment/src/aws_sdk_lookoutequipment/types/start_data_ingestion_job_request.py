@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.lookoutequipment#StartDataIngestionJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_lookoutequipment.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lookoutequipment.types.dataset_identifier
+    import aws_sdk_lookoutequipment.types.iam_role_arn
+    import aws_sdk_lookoutequipment.types.idempotence_token
+    import aws_sdk_lookoutequipment.types.ingestion_input_configuration
+
+
+class StartDataIngestionJobRequest(TypedDict):
+    dataset_name: "aws_sdk_lookoutequipment.types.dataset_identifier.DatasetIdentifier"
+    """<p>The name of the dataset being used by the data ingestion job. </p>"""
+    ingestion_input_configuration: "aws_sdk_lookoutequipment.types.ingestion_input_configuration.IngestionInputConfiguration"
+    """<p> Specifies information for the input data for the data ingestion job, including dataset S3 location. </p>"""
+    role_arn: "aws_sdk_lookoutequipment.types.iam_role_arn.IamRoleArn"
+    """<p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the data ingestion job. </p>"""
+    client_token: "aws_sdk_lookoutequipment.types.idempotence_token.IdempotenceToken"
+    """<p> A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: StartDataIngestionJobRequest) -> dict:
+    out: dict = {}
+    out["DatasetName"] = value["dataset_name"]
+    import aws_sdk_lookoutequipment.types.ingestion_input_configuration
+
+    out["IngestionInputConfiguration"] = (
+        aws_sdk_lookoutequipment.types.ingestion_input_configuration.serialize_aws_json_1_0(
+            value["ingestion_input_configuration"]
+        )
+    )
+    out["RoleArn"] = value["role_arn"]
+    out["ClientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> StartDataIngestionJobRequest:
+    out: StartDataIngestionJobRequest = {}  # type: ignore[typeddict-item]
+    if "DatasetName" in data:
+        out["dataset_name"] = data["DatasetName"]
+    else:
+        raise DeserializationError("StartDataIngestionJobRequest.dataset_name required")
+    if "IngestionInputConfiguration" in data:
+        import aws_sdk_lookoutequipment.types.ingestion_input_configuration
+
+        out["ingestion_input_configuration"] = (
+            aws_sdk_lookoutequipment.types.ingestion_input_configuration.deserialize_aws_json_1_0(
+                data["IngestionInputConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "StartDataIngestionJobRequest.ingestion_input_configuration required"
+        )
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    else:
+        raise DeserializationError("StartDataIngestionJobRequest.role_arn required")
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    else:
+        raise DeserializationError("StartDataIngestionJobRequest.client_token required")
+    return out

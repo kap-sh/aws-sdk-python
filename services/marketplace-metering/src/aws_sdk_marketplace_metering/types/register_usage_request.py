@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplacemetering#RegisterUsageRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_marketplace_metering.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_marketplace_metering.types.nonce
+    import aws_sdk_marketplace_metering.types.product_code
+    import aws_sdk_marketplace_metering.types.version_integer
+
+
+class RegisterUsageRequest(TypedDict):
+    product_code: "aws_sdk_marketplace_metering.types.product_code.ProductCode"
+    """<p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>"""
+    public_key_version: (
+        "aws_sdk_marketplace_metering.types.version_integer.VersionInteger"
+    )
+    """<p>Public Key Version provided by Amazon Web Services Marketplace</p>"""
+    nonce: NotRequired["aws_sdk_marketplace_metering.types.nonce.Nonce"]
+    """<p>(Optional) To scope down the registration to a specific running software instance and guard against replay attacks.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RegisterUsageRequest) -> dict:
+    out: dict = {}
+    out["ProductCode"] = value["product_code"]
+    out["PublicKeyVersion"] = value["public_key_version"]
+    if "nonce" in value:
+        out["Nonce"] = value["nonce"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RegisterUsageRequest:
+    out: RegisterUsageRequest = {}  # type: ignore[typeddict-item]
+    if "ProductCode" in data:
+        out["product_code"] = data["ProductCode"]
+    else:
+        raise DeserializationError("RegisterUsageRequest.product_code required")
+    if "PublicKeyVersion" in data:
+        out["public_key_version"] = data["PublicKeyVersion"]
+    else:
+        raise DeserializationError("RegisterUsageRequest.public_key_version required")
+    if "Nonce" in data:
+        out["nonce"] = data["Nonce"]
+    return out

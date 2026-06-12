@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.mediastore#UntagResourceInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_mediastore.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mediastore.types.container_arn
+    import aws_sdk_mediastore.types.tag_key_list
+
+
+class UntagResourceInput(TypedDict):
+    resource: "aws_sdk_mediastore.types.container_arn.ContainerARN"
+    """<p>The Amazon Resource Name (ARN) for the container.</p>"""
+    tag_keys: "aws_sdk_mediastore.types.tag_key_list.TagKeyList"
+    """<p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove (priority).</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UntagResourceInput) -> dict:
+    out: dict = {}
+    out["Resource"] = value["resource"]
+    import aws_sdk_mediastore.types.tag_key_list
+
+    out["TagKeys"] = aws_sdk_mediastore.types.tag_key_list.serialize_aws_json_1_1(
+        value["tag_keys"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UntagResourceInput:
+    out: UntagResourceInput = {}  # type: ignore[typeddict-item]
+    if "Resource" in data:
+        out["resource"] = data["Resource"]
+    else:
+        raise DeserializationError("UntagResourceInput.resource required")
+    if "TagKeys" in data:
+        import aws_sdk_mediastore.types.tag_key_list
+
+        out["tag_keys"] = (
+            aws_sdk_mediastore.types.tag_key_list.deserialize_aws_json_1_1(
+                data["TagKeys"]
+            )
+        )
+    else:
+        raise DeserializationError("UntagResourceInput.tag_keys required")
+    return out

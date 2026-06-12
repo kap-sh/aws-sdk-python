@@ -1,0 +1,83 @@
+"""Generated from Smithy shape ``com.amazonaws.autoscaling#DescribePoliciesType``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_auto_scaling._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_auto_scaling.types.max_records
+    import aws_sdk_auto_scaling.types.policy_names
+    import aws_sdk_auto_scaling.types.policy_types
+    import aws_sdk_auto_scaling.types.xml_string
+    import aws_sdk_auto_scaling.types.xml_string_max_len255
+
+
+class DescribePoliciesType(TypedDict):
+    auto_scaling_group_name: NotRequired[
+        "aws_sdk_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p>The name of the Auto Scaling group.</p>"""
+    policy_names: NotRequired["aws_sdk_auto_scaling.types.policy_names.PolicyNames"]
+    """<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>"""
+    policy_types: NotRequired["aws_sdk_auto_scaling.types.policy_types.PolicyTypes"]
+    """<p>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.</p>"""
+    next_token: NotRequired["aws_sdk_auto_scaling.types.xml_string.XmlString"]
+    """<p>The token for the next set of items to return. (You received this token from a previous call.)</p>"""
+    max_records: NotRequired["aws_sdk_auto_scaling.types.max_records.MaxRecords"]
+    """<p>The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DescribePoliciesType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "auto_scaling_group_name" in value:
+        pairs.append(
+            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+        )
+    if "policy_names" in value:
+        import aws_sdk_auto_scaling.types.policy_names
+
+        aws_sdk_auto_scaling.types.policy_names.serialize_query(
+            value["policy_names"], pairs, f"{prefix}.PolicyNames"
+        )
+    if "policy_types" in value:
+        import aws_sdk_auto_scaling.types.policy_types
+
+        aws_sdk_auto_scaling.types.policy_types.serialize_query(
+            value["policy_types"], pairs, f"{prefix}.PolicyTypes"
+        )
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+    if "max_records" in value:
+        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+
+
+def deserialize_query(el: Element) -> DescribePoliciesType:
+    out: DescribePoliciesType = {}  # type: ignore[typeddict-item]
+    child_auto_scaling_group_name = el.find("AutoScalingGroupName")
+    if child_auto_scaling_group_name is not None:
+        out["auto_scaling_group_name"] = str(child_auto_scaling_group_name.text or "")
+    child_policy_names = el.find("PolicyNames")
+    if child_policy_names is not None:
+        import aws_sdk_auto_scaling.types.policy_names
+
+        out["policy_names"] = aws_sdk_auto_scaling.types.policy_names.deserialize_query(
+            child_policy_names
+        )
+    child_policy_types = el.find("PolicyTypes")
+    if child_policy_types is not None:
+        import aws_sdk_auto_scaling.types.policy_types
+
+        out["policy_types"] = aws_sdk_auto_scaling.types.policy_types.deserialize_query(
+            child_policy_types
+        )
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    child_max_records = el.find("MaxRecords")
+    if child_max_records is not None:
+        out["max_records"] = int(child_max_records.text or "")
+    return out

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.rdsdata#DatabaseUnavailableException``."""
+
+from typing import TypedDict
+
+from aws_sdk_rds_data.errors import ServiceError
+
+
+class DatabaseUnavailableException_(TypedDict):
+    pass
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DatabaseUnavailableException_) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DatabaseUnavailableException_:
+    out: DatabaseUnavailableException_ = {}  # type: ignore[typeddict-item]
+    return out
+
+
+class DatabaseUnavailableException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.rdsdata#DatabaseUnavailableException``."""
+
+    code: str | None = "DatabaseUnavailableException"
+
+    def __init__(self, data: DatabaseUnavailableException_):
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="DatabaseUnavailableException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "DatabaseUnavailableException":
+        return cls(deserialize_json(data))

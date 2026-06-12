@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetBuildsOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codebuild.types.build_ids
+    import aws_sdk_codebuild.types.builds
+
+
+class BatchGetBuildsOutput(TypedDict):
+    builds: NotRequired["aws_sdk_codebuild.types.builds.Builds"]
+    """<p>Information about the requested builds.</p>"""
+    builds_not_found: NotRequired["aws_sdk_codebuild.types.build_ids.BuildIds"]
+    """<p>The IDs of builds for which information could not be found.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BatchGetBuildsOutput) -> dict:
+    out: dict = {}
+    if "builds" in value:
+        import aws_sdk_codebuild.types.builds
+
+        out["builds"] = aws_sdk_codebuild.types.builds.serialize_aws_json_1_1(
+            value["builds"]
+        )
+    if "builds_not_found" in value:
+        import aws_sdk_codebuild.types.build_ids
+
+        out["buildsNotFound"] = (
+            aws_sdk_codebuild.types.build_ids.serialize_aws_json_1_1(
+                value["builds_not_found"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BatchGetBuildsOutput:
+    out: BatchGetBuildsOutput = {}  # type: ignore[typeddict-item]
+    if "builds" in data:
+        import aws_sdk_codebuild.types.builds
+
+        out["builds"] = aws_sdk_codebuild.types.builds.deserialize_aws_json_1_1(
+            data["builds"]
+        )
+    if "buildsNotFound" in data:
+        import aws_sdk_codebuild.types.build_ids
+
+        out["builds_not_found"] = (
+            aws_sdk_codebuild.types.build_ids.deserialize_aws_json_1_1(
+                data["buildsNotFound"]
+            )
+        )
+    return out

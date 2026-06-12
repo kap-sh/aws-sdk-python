@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#SystemContentBlock``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.cache_point_block
+    import aws_sdk_bedrock_agent.types.non_empty_string
+
+
+class _SystemContentBlock_text(TypedDict):
+    text: "aws_sdk_bedrock_agent.types.non_empty_string.NonEmptyString"
+
+
+class _SystemContentBlock_cachePoint(TypedDict):
+    cachePoint: "aws_sdk_bedrock_agent.types.cache_point_block.CachePointBlock"
+
+
+SystemContentBlock: TypeAlias = (
+    _SystemContentBlock_text | _SystemContentBlock_cachePoint
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SystemContentBlock) -> dict:
+    if "text" in value:
+        return {"text": value["text"]}
+    elif "cachePoint" in value:
+        import aws_sdk_bedrock_agent.types.cache_point_block
+
+        return {
+            "cachePoint": aws_sdk_bedrock_agent.types.cache_point_block.serialize_json(
+                value["cachePoint"]
+            )
+        }
+    else:
+        raise SerializationError("SystemContentBlock: no variant present")
+
+
+def deserialize_json(data: dict) -> SystemContentBlock:
+    if "text" in data:
+        return {"text": data["text"]}
+    elif "cachePoint" in data:
+        import aws_sdk_bedrock_agent.types.cache_point_block
+
+        return {
+            "cachePoint": aws_sdk_bedrock_agent.types.cache_point_block.deserialize_json(
+                data["cachePoint"]
+            )
+        }
+    else:
+        raise DeserializationError("SystemContentBlock: no recognized variant key")

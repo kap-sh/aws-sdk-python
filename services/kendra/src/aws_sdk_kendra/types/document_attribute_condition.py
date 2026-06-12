@@ -1,0 +1,74 @@
+"""Generated from Smithy shape ``com.amazonaws.kendra#DocumentAttributeCondition``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_kendra.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kendra.types.condition_operator
+    import aws_sdk_kendra.types.document_attribute_key
+    import aws_sdk_kendra.types.document_attribute_value
+
+
+class DocumentAttributeCondition(TypedDict):
+    condition_document_attribute_key: (
+        "aws_sdk_kendra.types.document_attribute_key.DocumentAttributeKey"
+    )
+    """<p>The identifier of the document attribute used for the condition.</p> <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.</p> <p>Amazon Kendra currently does not support <code>_document_body</code> as an attribute key used for the condition.</p>"""
+    operator: "aws_sdk_kendra.types.condition_operator.ConditionOperator"
+    """<p>The condition operator.</p> <p>For example, you can use 'Contains' to partially match a string.</p>"""
+    condition_on_value: NotRequired[
+        "aws_sdk_kendra.types.document_attribute_value.DocumentAttributeValue"
+    ]
+    """<p>The value used by the operator.</p> <p>For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DocumentAttributeCondition) -> dict:
+    out: dict = {}
+    out["ConditionDocumentAttributeKey"] = value["condition_document_attribute_key"]
+    import aws_sdk_kendra.types.condition_operator
+
+    out["Operator"] = aws_sdk_kendra.types.condition_operator.serialize_aws_json_1_1(
+        value["operator"]
+    )
+    if "condition_on_value" in value:
+        import aws_sdk_kendra.types.document_attribute_value
+
+        out["ConditionOnValue"] = (
+            aws_sdk_kendra.types.document_attribute_value.serialize_aws_json_1_1(
+                value["condition_on_value"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DocumentAttributeCondition:
+    out: DocumentAttributeCondition = {}  # type: ignore[typeddict-item]
+    if "ConditionDocumentAttributeKey" in data:
+        out["condition_document_attribute_key"] = data["ConditionDocumentAttributeKey"]
+    else:
+        raise DeserializationError(
+            "DocumentAttributeCondition.condition_document_attribute_key required"
+        )
+    if "Operator" in data:
+        import aws_sdk_kendra.types.condition_operator
+
+        out["operator"] = (
+            aws_sdk_kendra.types.condition_operator.deserialize_aws_json_1_1(
+                data["Operator"]
+            )
+        )
+    else:
+        raise DeserializationError("DocumentAttributeCondition.operator required")
+    if "ConditionOnValue" in data:
+        import aws_sdk_kendra.types.document_attribute_value
+
+        out["condition_on_value"] = (
+            aws_sdk_kendra.types.document_attribute_value.deserialize_aws_json_1_1(
+                data["ConditionOnValue"]
+            )
+        )
+    return out

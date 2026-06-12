@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#MetadataConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_customer_profiles.types.metadata_columns_list
+
+
+class MetadataConfig(TypedDict):
+    metadata_columns: NotRequired[
+        "aws_sdk_customer_profiles.types.metadata_columns_list.MetadataColumnsList"
+    ]
+    """<p>A list of metadata column names from your Items dataset to include in the recommendation response.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MetadataConfig) -> dict:
+    out: dict = {}
+    if "metadata_columns" in value:
+        import aws_sdk_customer_profiles.types.metadata_columns_list
+
+        out["MetadataColumns"] = (
+            aws_sdk_customer_profiles.types.metadata_columns_list.serialize_json(
+                value["metadata_columns"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> MetadataConfig:
+    out: MetadataConfig = {}  # type: ignore[typeddict-item]
+    if "MetadataColumns" in data:
+        import aws_sdk_customer_profiles.types.metadata_columns_list
+
+        out["metadata_columns"] = (
+            aws_sdk_customer_profiles.types.metadata_columns_list.deserialize_json(
+                data["MetadataColumns"]
+            )
+        )
+    return out

@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#PutConfigurationSetArchivingOptionsResponse``."""
+
+from typing import TypedDict
+
+
+class PutConfigurationSetArchivingOptionsResponse(TypedDict):
+    pass
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutConfigurationSetArchivingOptionsResponse) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> PutConfigurationSetArchivingOptionsResponse:
+    out: PutConfigurationSetArchivingOptionsResponse = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,93 @@
+"""Generated from Smithy shape ``com.amazonaws.eventbridge#UpdateConnectionOAuthRequestParameters``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_eventbridge.types.connection_http_parameters
+    import aws_sdk_eventbridge.types.connection_o_auth_http_method
+    import aws_sdk_eventbridge.types.https_endpoint
+    import aws_sdk_eventbridge.types.update_connection_o_auth_client_request_parameters
+
+
+class UpdateConnectionOAuthRequestParameters(TypedDict):
+    client_parameters: NotRequired[
+        "aws_sdk_eventbridge.types.update_connection_o_auth_client_request_parameters.UpdateConnectionOAuthClientRequestParameters"
+    ]
+    """<p>The client parameters to use for the connection when OAuth is specified as the authorization type.</p>"""
+    authorization_endpoint: NotRequired[
+        "aws_sdk_eventbridge.types.https_endpoint.HttpsEndpoint"
+    ]
+    """<p>The URL to the authorization endpoint when OAuth is specified as the authorization type.</p>"""
+    http_method: NotRequired[
+        "aws_sdk_eventbridge.types.connection_o_auth_http_method.ConnectionOAuthHttpMethod"
+    ]
+    """<p>The method used to connect to the HTTP endpoint.</p>"""
+    o_auth_http_parameters: NotRequired[
+        "aws_sdk_eventbridge.types.connection_http_parameters.ConnectionHttpParameters"
+    ]
+    """<p>The additional HTTP parameters used for the OAuth authorization request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateConnectionOAuthRequestParameters) -> dict:
+    out: dict = {}
+    if "client_parameters" in value:
+        import aws_sdk_eventbridge.types.update_connection_o_auth_client_request_parameters
+
+        out["ClientParameters"] = (
+            aws_sdk_eventbridge.types.update_connection_o_auth_client_request_parameters.serialize_aws_json_1_1(
+                value["client_parameters"]
+            )
+        )
+    if "authorization_endpoint" in value:
+        out["AuthorizationEndpoint"] = value["authorization_endpoint"]
+    if "http_method" in value:
+        import aws_sdk_eventbridge.types.connection_o_auth_http_method
+
+        out["HttpMethod"] = (
+            aws_sdk_eventbridge.types.connection_o_auth_http_method.serialize_aws_json_1_1(
+                value["http_method"]
+            )
+        )
+    if "o_auth_http_parameters" in value:
+        import aws_sdk_eventbridge.types.connection_http_parameters
+
+        out["OAuthHttpParameters"] = (
+            aws_sdk_eventbridge.types.connection_http_parameters.serialize_aws_json_1_1(
+                value["o_auth_http_parameters"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionOAuthRequestParameters:
+    out: UpdateConnectionOAuthRequestParameters = {}  # type: ignore[typeddict-item]
+    if "ClientParameters" in data:
+        import aws_sdk_eventbridge.types.update_connection_o_auth_client_request_parameters
+
+        out["client_parameters"] = (
+            aws_sdk_eventbridge.types.update_connection_o_auth_client_request_parameters.deserialize_aws_json_1_1(
+                data["ClientParameters"]
+            )
+        )
+    if "AuthorizationEndpoint" in data:
+        out["authorization_endpoint"] = data["AuthorizationEndpoint"]
+    if "HttpMethod" in data:
+        import aws_sdk_eventbridge.types.connection_o_auth_http_method
+
+        out["http_method"] = (
+            aws_sdk_eventbridge.types.connection_o_auth_http_method.deserialize_aws_json_1_1(
+                data["HttpMethod"]
+            )
+        )
+    if "OAuthHttpParameters" in data:
+        import aws_sdk_eventbridge.types.connection_http_parameters
+
+        out["o_auth_http_parameters"] = (
+            aws_sdk_eventbridge.types.connection_http_parameters.deserialize_aws_json_1_1(
+                data["OAuthHttpParameters"]
+            )
+        )
+    return out

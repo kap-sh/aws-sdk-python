@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.emrserverless#GetResourceDashboardRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_emr_serverless.types.application_id
+    import aws_sdk_emr_serverless.types.resource_id
+    import aws_sdk_emr_serverless.types.resource_type
+
+
+class GetResourceDashboardRequest(TypedDict):
+    application_id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
+    """<p>The ID of the application that the resource belongs to.</p>"""
+    resource_id: "aws_sdk_emr_serverless.types.resource_id.ResourceId"
+    """<p>The ID of the resource.</p>"""
+    resource_type: "aws_sdk_emr_serverless.types.resource_type.ResourceType"
+    """<p>The type of resource to access the dashboard for. Currently, only <code>Session</code> is supported.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetResourceDashboardRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetResourceDashboardRequest:
+    out: GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
+    return out

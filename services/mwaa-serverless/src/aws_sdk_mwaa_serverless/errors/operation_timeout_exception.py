@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.mwaaserverless#OperationTimeoutException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_mwaa_serverless.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_mwaa_serverless.types.error_message
+
+
+class OperationTimeoutException_(TypedDict):
+    message: NotRequired["aws_sdk_mwaa_serverless.types.error_message.ErrorMessage"]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: OperationTimeoutException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> OperationTimeoutException_:
+    out: OperationTimeoutException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class OperationTimeoutException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.mwaaserverless#OperationTimeoutException``."""
+
+    code: str | None = "OperationTimeoutException"
+
+    def __init__(self, data: OperationTimeoutException_):
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="OperationTimeoutException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "OperationTimeoutException":
+        return cls(deserialize_aws_json_1_0(data))

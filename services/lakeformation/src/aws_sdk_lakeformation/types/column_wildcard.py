@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.lakeformation#ColumnWildcard``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lakeformation.types.column_names
+
+
+class ColumnWildcard(TypedDict):
+    excluded_column_names: NotRequired[
+        "aws_sdk_lakeformation.types.column_names.ColumnNames"
+    ]
+    """<p>Excludes column names. Any column with this name will be excluded.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ColumnWildcard) -> dict:
+    out: dict = {}
+    if "excluded_column_names" in value:
+        import aws_sdk_lakeformation.types.column_names
+
+        out["ExcludedColumnNames"] = (
+            aws_sdk_lakeformation.types.column_names.serialize_json(
+                value["excluded_column_names"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ColumnWildcard:
+    out: ColumnWildcard = {}  # type: ignore[typeddict-item]
+    if "ExcludedColumnNames" in data:
+        import aws_sdk_lakeformation.types.column_names
+
+        out["excluded_column_names"] = (
+            aws_sdk_lakeformation.types.column_names.deserialize_json(
+                data["ExcludedColumnNames"]
+            )
+        )
+    return out

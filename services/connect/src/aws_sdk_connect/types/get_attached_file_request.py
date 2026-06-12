@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#GetAttachedFileRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_connect.types.arn
+    import aws_sdk_connect.types.file_id
+    import aws_sdk_connect.types.instance_id
+    import aws_sdk_connect.types.url_expiry_in_seconds
+
+
+class GetAttachedFileRequest(TypedDict):
+    instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
+    """<p>The unique identifier of the Connect Customer instance.</p>"""
+    file_id: "aws_sdk_connect.types.file_id.FileId"
+    """<p>The unique identifier of the attached file resource.</p>"""
+    url_expiry_in_seconds: NotRequired[
+        "aws_sdk_connect.types.url_expiry_in_seconds.URLExpiryInSeconds"
+    ]
+    """<p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is 300.</p>"""
+    associated_resource_arn: "aws_sdk_connect.types.arn.ARN"
+    """<p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/cases.html\">Cases</a> and <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html\">Email</a>.</p> <note> <p>This value must be a valid ARN.</p> </note>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetAttachedFileRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetAttachedFileRequest:
+    out: GetAttachedFileRequest = {}  # type: ignore[typeddict-item]
+    return out

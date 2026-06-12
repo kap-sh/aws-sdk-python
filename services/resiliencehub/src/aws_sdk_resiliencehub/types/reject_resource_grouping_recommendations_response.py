@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehub#RejectResourceGroupingRecommendationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_resiliencehub.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_resiliencehub.types.arn
+    import aws_sdk_resiliencehub.types.failed_grouping_recommendation_entries
+
+
+class RejectResourceGroupingRecommendationsResponse(TypedDict):
+    app_arn: "aws_sdk_resiliencehub.types.arn.Arn"
+    """<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>"""
+    failed_entries: "aws_sdk_resiliencehub.types.failed_grouping_recommendation_entries.FailedGroupingRecommendationEntries"
+    """<p>List of resource grouping recommendations that failed to get excluded in your application.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RejectResourceGroupingRecommendationsResponse) -> dict:
+    out: dict = {}
+    out["appArn"] = value["app_arn"]
+    import aws_sdk_resiliencehub.types.failed_grouping_recommendation_entries
+
+    out["failedEntries"] = (
+        aws_sdk_resiliencehub.types.failed_grouping_recommendation_entries.serialize_json(
+            value["failed_entries"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> RejectResourceGroupingRecommendationsResponse:
+    out: RejectResourceGroupingRecommendationsResponse = {}  # type: ignore[typeddict-item]
+    if "appArn" in data:
+        out["app_arn"] = data["appArn"]
+    else:
+        raise DeserializationError(
+            "RejectResourceGroupingRecommendationsResponse.app_arn required"
+        )
+    if "failedEntries" in data:
+        import aws_sdk_resiliencehub.types.failed_grouping_recommendation_entries
+
+        out["failed_entries"] = (
+            aws_sdk_resiliencehub.types.failed_grouping_recommendation_entries.deserialize_json(
+                data["failedEntries"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "RejectResourceGroupingRecommendationsResponse.failed_entries required"
+        )
+    return out

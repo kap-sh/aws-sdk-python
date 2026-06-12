@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#SortOrder``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_chime_sdk_messaging.errors import DeserializationError
+
+SortOrder: TypeAlias = Literal[
+    "ASCENDING",
+    "DESCENDING",
+]
+
+
+# --- restJson1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ASCENDING",
+        "DESCENDING",
+    )
+)
+
+
+def serialize_json(value: SortOrder) -> str:
+    return value
+
+
+def deserialize_json(data: str) -> SortOrder:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown SortOrder value: {data!r}")
+    return cast(SortOrder, data)

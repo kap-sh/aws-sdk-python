@@ -1,0 +1,176 @@
+"""Generated from Smithy shape ``com.amazonaws.codeartifact#ListPackages``."""
+
+from __future__ import annotations
+
+import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
+import aws_sdk_codeartifact._auth._signers
+import aws_sdk_codeartifact._auth._sigv4
+from aws_sdk_codeartifact._protocol.errors import parse_error_metadata_json
+from aws_sdk_codeartifact._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_codeartifact._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_codeartifact.errors import UnknownServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_codeartifact.types.list_packages_request
+    import aws_sdk_codeartifact.types.list_packages_result
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "AccessDeniedException":
+            import aws_sdk_codeartifact.errors.access_denied_exception
+
+            raise aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
+        case "InternalServerException":
+            import aws_sdk_codeartifact.errors.internal_server_exception
+
+            raise aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
+        case "ResourceNotFoundException":
+            import aws_sdk_codeartifact.errors.resource_not_found_exception
+
+            raise aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
+        case "ThrottlingException":
+            import aws_sdk_codeartifact.errors.throttling_exception
+
+            raise aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
+        case "ValidationException":
+            import aws_sdk_codeartifact.errors.validation_exception
+
+            raise aws_sdk_codeartifact.errors.validation_exception.ValidationException.from_json(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_codeartifact.types.list_packages_result.ListPackagesResult:
+    import aws_sdk_codeartifact.types.list_packages_result
+
+    out: aws_sdk_codeartifact.types.list_packages_result.ListPackagesResult = (
+        aws_sdk_codeartifact.types.list_packages_result.deserialize_json(
+            json.loads(response.read())
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_codeartifact._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_codeartifact._auth._sigv4.build_sigv4_auth_scheme(
+                "codeartifact", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return aws_sdk_codeartifact._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_codeartifact.types.list_packages_request.ListPackagesRequest,
+) -> zapros.Request:
+    endpoint = resolve(  # noqa: F841
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )
+    url = endpoint.url.rstrip("/") + "/v1/packages"
+    params: dict[str, str] = {}
+    if "domain" in input:
+        params["domain"] = str(input["domain"])
+    if "domain_owner" in input:
+        params["domain-owner"] = str(input["domain_owner"])
+    if "repository" in input:
+        params["repository"] = str(input["repository"])
+    if "format" in input:
+        params["format"] = str(input["format"])
+    if "namespace" in input:
+        params["namespace"] = str(input["namespace"])
+    if "package_prefix" in input:
+        params["package-prefix"] = str(input["package_prefix"])
+    if "max_results" in input:
+        params["max-results"] = str(input["max_results"])
+    if "next_token" in input:
+        params["next-token"] = str(input["next_token"])
+    if "publish" in input:
+        params["publish"] = str(input["publish"])
+    if "upstream" in input:
+        params["upstream"] = str(input["upstream"])
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    body: bytes | None = b""
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url,
+        "POST",
+        headers=headers,
+        body=body,
+        context={"signer": signer},
+    )
+
+
+def list_packages(
+    options: OperationOptions,
+    input: aws_sdk_codeartifact.types.list_packages_request.ListPackagesRequest,
+) -> tuple[
+    aws_sdk_codeartifact.types.list_packages_result.ListPackagesResult, zapros.Response
+]:
+    response = options.client.handler.handle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response, is_async=False), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_list_packages(
+    options: AsyncOperationOptions,
+    input: aws_sdk_codeartifact.types.list_packages_request.ListPackagesRequest,
+) -> tuple[
+    aws_sdk_codeartifact.types.list_packages_result.ListPackagesResult, zapros.Response
+]:
+    response = await options.client.handler.ahandle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return handle_response(response, is_async=True), response
+    except BaseException:
+        await response.aclose()
+        raise

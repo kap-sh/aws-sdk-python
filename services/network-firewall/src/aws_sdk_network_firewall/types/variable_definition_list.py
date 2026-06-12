@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#VariableDefinitionList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_network_firewall.types.variable_definition
+
+VariableDefinitionList: TypeAlias = list[
+    "aws_sdk_network_firewall.types.variable_definition.VariableDefinition"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: VariableDefinitionList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_0(data: list) -> VariableDefinitionList:
+    return list(data)

@@ -1,0 +1,65 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#PersistentVolumeConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.mount_path
+    import aws_sdk_deadline.types.persistent_volume_iops
+    import aws_sdk_deadline.types.persistent_volume_size_gi_b
+    import aws_sdk_deadline.types.persistent_volume_throughput_mi_b
+    import aws_sdk_deadline.types.persistent_volume_ttl_hours
+
+
+class PersistentVolumeConfiguration(TypedDict):
+    size_gi_b: (
+        "aws_sdk_deadline.types.persistent_volume_size_gi_b.PersistentVolumeSizeGiB"
+    )
+    """<p>The persistent volume size in GiB. The default is 250.</p>"""
+    iops: "aws_sdk_deadline.types.persistent_volume_iops.PersistentVolumeIops"
+    """<p>The IOPS per persistent volume. The default is 3000.</p>"""
+    throughput_mi_b: "aws_sdk_deadline.types.persistent_volume_throughput_mi_b.PersistentVolumeThroughputMiB"
+    """<p>The throughput per persistent volume in MiB. The default is 125.</p>"""
+    mount_path: "aws_sdk_deadline.types.mount_path.MountPath"
+    """<p>The file system path where the persistent volume is mounted on the worker instance.</p>"""
+    last_used_ttl_hours: (
+        "aws_sdk_deadline.types.persistent_volume_ttl_hours.PersistentVolumeTtlHours"
+    )
+    """<p>The number of hours a persistent volume can remain unused before it is deleted. The default is 168 (7 days).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PersistentVolumeConfiguration) -> dict:
+    out: dict = {}
+    out["sizeGiB"] = value.get("size_gi_b", 250)
+    out["iops"] = value.get("iops", 3000)
+    out["throughputMiB"] = value.get("throughput_mi_b", 125)
+    out["mountPath"] = value["mount_path"]
+    out["lastUsedTtlHours"] = value.get("last_used_ttl_hours", 168)
+    return out
+
+
+def deserialize_json(data: dict) -> PersistentVolumeConfiguration:
+    out: PersistentVolumeConfiguration = {}  # type: ignore[typeddict-item]
+    if "sizeGiB" in data:
+        out["size_gi_b"] = data["sizeGiB"]
+    else:
+        out["size_gi_b"] = 250
+    if "iops" in data:
+        out["iops"] = data["iops"]
+    else:
+        out["iops"] = 3000
+    if "throughputMiB" in data:
+        out["throughput_mi_b"] = data["throughputMiB"]
+    else:
+        out["throughput_mi_b"] = 125
+    if "mountPath" in data:
+        out["mount_path"] = data["mountPath"]
+    else:
+        raise DeserializationError("PersistentVolumeConfiguration.mount_path required")
+    if "lastUsedTtlHours" in data:
+        out["last_used_ttl_hours"] = data["lastUsedTtlHours"]
+    else:
+        out["last_used_ttl_hours"] = 168
+    return out

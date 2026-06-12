@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.billingconductor#ListPricingPlansOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_billingconductor.types.billing_period
+    import aws_sdk_billingconductor.types.pricing_plan_list
+    import aws_sdk_billingconductor.types.token
+
+
+class ListPricingPlansOutput(TypedDict):
+    billing_period: NotRequired[
+        "aws_sdk_billingconductor.types.billing_period.BillingPeriod"
+    ]
+    """<p> The billing period for which the described pricing plans are applicable. </p>"""
+    pricing_plans: NotRequired[
+        "aws_sdk_billingconductor.types.pricing_plan_list.PricingPlanList"
+    ]
+    """<p>A list of <code>PricingPlanListElement</code> retrieved. </p>"""
+    next_token: NotRequired["aws_sdk_billingconductor.types.token.Token"]
+    """<p>The pagination token that's used on subsequent calls to get pricing plans. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListPricingPlansOutput) -> dict:
+    out: dict = {}
+    if "billing_period" in value:
+        out["BillingPeriod"] = value["billing_period"]
+    if "pricing_plans" in value:
+        import aws_sdk_billingconductor.types.pricing_plan_list
+
+        out["PricingPlans"] = (
+            aws_sdk_billingconductor.types.pricing_plan_list.serialize_json(
+                value["pricing_plans"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListPricingPlansOutput:
+    out: ListPricingPlansOutput = {}  # type: ignore[typeddict-item]
+    if "BillingPeriod" in data:
+        out["billing_period"] = data["BillingPeriod"]
+    if "PricingPlans" in data:
+        import aws_sdk_billingconductor.types.pricing_plan_list
+
+        out["pricing_plans"] = (
+            aws_sdk_billingconductor.types.pricing_plan_list.deserialize_json(
+                data["PricingPlans"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

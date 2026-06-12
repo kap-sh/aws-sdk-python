@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#DevEndpointCustomLibraries``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.generic_string
+
+
+class DevEndpointCustomLibraries(TypedDict):
+    extra_python_libs_s3_path: NotRequired[
+        "aws_sdk_glue.types.generic_string.GenericString"
+    ]
+    """<p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not currently supported.</p> </note>"""
+    extra_jars_s3_path: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
+    """<p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p> <note> <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DevEndpointCustomLibraries) -> dict:
+    out: dict = {}
+    if "extra_python_libs_s3_path" in value:
+        out["ExtraPythonLibsS3Path"] = value["extra_python_libs_s3_path"]
+    if "extra_jars_s3_path" in value:
+        out["ExtraJarsS3Path"] = value["extra_jars_s3_path"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DevEndpointCustomLibraries:
+    out: DevEndpointCustomLibraries = {}  # type: ignore[typeddict-item]
+    if "ExtraPythonLibsS3Path" in data:
+        out["extra_python_libs_s3_path"] = data["ExtraPythonLibsS3Path"]
+    if "ExtraJarsS3Path" in data:
+        out["extra_jars_s3_path"] = data["ExtraJarsS3Path"]
+    return out

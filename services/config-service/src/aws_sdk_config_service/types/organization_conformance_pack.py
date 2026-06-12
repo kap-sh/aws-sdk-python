@@ -1,0 +1,129 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#OrganizationConformancePack``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_config_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_config_service.types.conformance_pack_input_parameters
+    import aws_sdk_config_service.types.date
+    import aws_sdk_config_service.types.delivery_s3_bucket
+    import aws_sdk_config_service.types.delivery_s3_key_prefix
+    import aws_sdk_config_service.types.excluded_accounts
+    import aws_sdk_config_service.types.organization_conformance_pack_name
+    import aws_sdk_config_service.types.string_with_char_limit256
+
+
+class OrganizationConformancePack(TypedDict):
+    organization_conformance_pack_name: "aws_sdk_config_service.types.organization_conformance_pack_name.OrganizationConformancePackName"
+    """<p>The name you assign to an organization conformance pack.</p>"""
+    organization_conformance_pack_arn: (
+        "aws_sdk_config_service.types.string_with_char_limit256.StringWithCharLimit256"
+    )
+    """<p>Amazon Resource Name (ARN) of organization conformance pack.</p>"""
+    delivery_s3_bucket: NotRequired[
+        "aws_sdk_config_service.types.delivery_s3_bucket.DeliveryS3Bucket"
+    ]
+    """<p>The name of the Amazon S3 bucket where Config stores conformance pack templates. </p> <note> <p>This field is optional.</p> </note>"""
+    delivery_s3_key_prefix: NotRequired[
+        "aws_sdk_config_service.types.delivery_s3_key_prefix.DeliveryS3KeyPrefix"
+    ]
+    """<p>Any folder structure you want to add to an Amazon S3 bucket.</p> <note> <p>This field is optional.</p> </note>"""
+    conformance_pack_input_parameters: NotRequired[
+        "aws_sdk_config_service.types.conformance_pack_input_parameters.ConformancePackInputParameters"
+    ]
+    """<p>A list of <code>ConformancePackInputParameter</code> objects.</p>"""
+    excluded_accounts: NotRequired[
+        "aws_sdk_config_service.types.excluded_accounts.ExcludedAccounts"
+    ]
+    """<p>A comma-separated list of accounts excluded from organization conformance pack.</p>"""
+    last_update_time: "aws_sdk_config_service.types.date.Date"
+    """<p>Last time when organization conformation pack was updated.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: OrganizationConformancePack) -> dict:
+    out: dict = {}
+    out["OrganizationConformancePackName"] = value["organization_conformance_pack_name"]
+    out["OrganizationConformancePackArn"] = value["organization_conformance_pack_arn"]
+    if "delivery_s3_bucket" in value:
+        out["DeliveryS3Bucket"] = value["delivery_s3_bucket"]
+    if "delivery_s3_key_prefix" in value:
+        out["DeliveryS3KeyPrefix"] = value["delivery_s3_key_prefix"]
+    if "conformance_pack_input_parameters" in value:
+        import aws_sdk_config_service.types.conformance_pack_input_parameters
+
+        out["ConformancePackInputParameters"] = (
+            aws_sdk_config_service.types.conformance_pack_input_parameters.serialize_aws_json_1_1(
+                value["conformance_pack_input_parameters"]
+            )
+        )
+    if "excluded_accounts" in value:
+        import aws_sdk_config_service.types.excluded_accounts
+
+        out["ExcludedAccounts"] = (
+            aws_sdk_config_service.types.excluded_accounts.serialize_aws_json_1_1(
+                value["excluded_accounts"]
+            )
+        )
+    import aws_sdk_config_service.types.date
+
+    out["LastUpdateTime"] = aws_sdk_config_service.types.date.serialize_aws_json_1_1(
+        value["last_update_time"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> OrganizationConformancePack:
+    out: OrganizationConformancePack = {}  # type: ignore[typeddict-item]
+    if "OrganizationConformancePackName" in data:
+        out["organization_conformance_pack_name"] = data[
+            "OrganizationConformancePackName"
+        ]
+    else:
+        raise DeserializationError(
+            "OrganizationConformancePack.organization_conformance_pack_name required"
+        )
+    if "OrganizationConformancePackArn" in data:
+        out["organization_conformance_pack_arn"] = data[
+            "OrganizationConformancePackArn"
+        ]
+    else:
+        raise DeserializationError(
+            "OrganizationConformancePack.organization_conformance_pack_arn required"
+        )
+    if "DeliveryS3Bucket" in data:
+        out["delivery_s3_bucket"] = data["DeliveryS3Bucket"]
+    if "DeliveryS3KeyPrefix" in data:
+        out["delivery_s3_key_prefix"] = data["DeliveryS3KeyPrefix"]
+    if "ConformancePackInputParameters" in data:
+        import aws_sdk_config_service.types.conformance_pack_input_parameters
+
+        out["conformance_pack_input_parameters"] = (
+            aws_sdk_config_service.types.conformance_pack_input_parameters.deserialize_aws_json_1_1(
+                data["ConformancePackInputParameters"]
+            )
+        )
+    if "ExcludedAccounts" in data:
+        import aws_sdk_config_service.types.excluded_accounts
+
+        out["excluded_accounts"] = (
+            aws_sdk_config_service.types.excluded_accounts.deserialize_aws_json_1_1(
+                data["ExcludedAccounts"]
+            )
+        )
+    if "LastUpdateTime" in data:
+        import aws_sdk_config_service.types.date
+
+        out["last_update_time"] = (
+            aws_sdk_config_service.types.date.deserialize_aws_json_1_1(
+                data["LastUpdateTime"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "OrganizationConformancePack.last_update_time required"
+        )
+    return out

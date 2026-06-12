@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#ListTopicRulesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.is_disabled
+    import aws_sdk_iot.types.next_token
+    import aws_sdk_iot.types.topic
+    import aws_sdk_iot.types.topic_rule_max_results
+
+
+class ListTopicRulesRequest(TypedDict):
+    topic: NotRequired["aws_sdk_iot.types.topic.Topic"]
+    """<p>The topic.</p>"""
+    max_results: NotRequired[
+        "aws_sdk_iot.types.topic_rule_max_results.TopicRuleMaxResults"
+    ]
+    """<p>The maximum number of results to return.</p>"""
+    next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]
+    """<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>"""
+    rule_disabled: NotRequired["aws_sdk_iot.types.is_disabled.IsDisabled"]
+    """<p>Specifies whether the rule is disabled.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListTopicRulesRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListTopicRulesRequest:
+    out: ListTopicRulesRequest = {}  # type: ignore[typeddict-item]
+    return out

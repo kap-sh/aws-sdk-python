@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.forecast#ResumeResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_forecast.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_forecast.types.arn
+
+
+class ResumeResourceRequest(TypedDict):
+    resource_arn: "aws_sdk_forecast.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ResumeResourceRequest) -> dict:
+    out: dict = {}
+    out["ResourceArn"] = value["resource_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ResumeResourceRequest:
+    out: ResumeResourceRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    else:
+        raise DeserializationError("ResumeResourceRequest.resource_arn required")
+    return out

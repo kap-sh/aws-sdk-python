@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailTopicPolicyAssessment``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_list
+
+class GuardrailTopicPolicyAssessment(TypedDict):
+    topics: NotRequired["aws_sdk_bedrock_agent_runtime.types.guardrail_topic_list.GuardrailTopicList"]
+    """<p>The topic details of the policy assessment used in the Guardrail.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GuardrailTopicPolicyAssessment) -> dict:
+    out: dict = {}
+    if "topics" in value:
+        import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_list
+        out["topics"] = aws_sdk_bedrock_agent_runtime.types.guardrail_topic_list.serialize_json(value["topics"])
+    return out
+
+
+def deserialize_json(data: dict) -> GuardrailTopicPolicyAssessment:
+    out: GuardrailTopicPolicyAssessment = {}  # type: ignore[typeddict-item]
+    if "topics" in data:
+        import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_list
+        out["topics"] = aws_sdk_bedrock_agent_runtime.types.guardrail_topic_list.deserialize_json(data["topics"])
+    return out

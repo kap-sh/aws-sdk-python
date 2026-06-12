@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#SnsDestination``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sesv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sesv2.types.amazon_resource_name
+
+
+class SnsDestination(TypedDict):
+    topic_arn: "aws_sdk_sesv2.types.amazon_resource_name.AmazonResourceName"
+    """<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to. For more information about Amazon SNS topics, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Amazon SNS Developer Guide</a>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SnsDestination) -> dict:
+    out: dict = {}
+    out["TopicArn"] = value["topic_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> SnsDestination:
+    out: SnsDestination = {}  # type: ignore[typeddict-item]
+    if "TopicArn" in data:
+        out["topic_arn"] = data["TopicArn"]
+    else:
+        raise DeserializationError("SnsDestination.topic_arn required")
+    return out

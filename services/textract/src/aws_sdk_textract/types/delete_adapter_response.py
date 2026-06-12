@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.textract#DeleteAdapterResponse``."""
+
+from typing import TypedDict
+
+
+class DeleteAdapterResponse(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteAdapterResponse) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteAdapterResponse:
+    out: DeleteAdapterResponse = {}  # type: ignore[typeddict-item]
+    return out

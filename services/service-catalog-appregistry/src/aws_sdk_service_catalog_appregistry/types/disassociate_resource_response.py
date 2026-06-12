@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#DisassociateResourceResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_service_catalog_appregistry.types.application_arn
+    import aws_sdk_service_catalog_appregistry.types.arn
+
+
+class DisassociateResourceResponse(TypedDict):
+    application_arn: NotRequired[
+        "aws_sdk_service_catalog_appregistry.types.application_arn.ApplicationArn"
+    ]
+    """<p>The Amazon resource name (ARN) that specifies the application.</p>"""
+    resource_arn: NotRequired["aws_sdk_service_catalog_appregistry.types.arn.Arn"]
+    """<p>The Amazon resource name (ARN) that specifies the resource.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DisassociateResourceResponse) -> dict:
+    out: dict = {}
+    if "application_arn" in value:
+        out["applicationArn"] = value["application_arn"]
+    if "resource_arn" in value:
+        out["resourceArn"] = value["resource_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> DisassociateResourceResponse:
+    out: DisassociateResourceResponse = {}  # type: ignore[typeddict-item]
+    if "applicationArn" in data:
+        out["application_arn"] = data["applicationArn"]
+    if "resourceArn" in data:
+        out["resource_arn"] = data["resourceArn"]
+    return out

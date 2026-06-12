@@ -1,0 +1,92 @@
+"""Generated from Smithy shape ``com.amazonaws.appfabric#AppAuthorizationSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_appfabric.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_appfabric.types.app_authorization_status
+    import aws_sdk_appfabric.types.arn
+    import aws_sdk_appfabric.types.date_time
+    import aws_sdk_appfabric.types.string255
+    import aws_sdk_appfabric.types.tenant
+
+
+class AppAuthorizationSummary(TypedDict):
+    app_authorization_arn: "aws_sdk_appfabric.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the app authorization.</p>"""
+    app_bundle_arn: "aws_sdk_appfabric.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>"""
+    app: "aws_sdk_appfabric.types.string255.String255"
+    """<p>The name of the application.</p>"""
+    tenant: "aws_sdk_appfabric.types.tenant.Tenant"
+    """<p>Contains information about an application tenant, such as the application display name and identifier.</p>"""
+    status: "aws_sdk_appfabric.types.app_authorization_status.AppAuthorizationStatus"
+    """<p>The state of the app authorization.</p> <p>The following states are possible:</p> <ul> <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li> <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li> <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li> <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li> </ul>"""
+    updated_at: "aws_sdk_appfabric.types.date_time.DateTime"
+    """<p>Timestamp for when the app authorization was last updated.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AppAuthorizationSummary) -> dict:
+    out: dict = {}
+    out["appAuthorizationArn"] = value["app_authorization_arn"]
+    out["appBundleArn"] = value["app_bundle_arn"]
+    out["app"] = value["app"]
+    import aws_sdk_appfabric.types.tenant
+
+    out["tenant"] = aws_sdk_appfabric.types.tenant.serialize_json(value["tenant"])
+    import aws_sdk_appfabric.types.app_authorization_status
+
+    out["status"] = aws_sdk_appfabric.types.app_authorization_status.serialize_json(
+        value["status"]
+    )
+    import aws_sdk_appfabric.types.date_time
+
+    out["updatedAt"] = aws_sdk_appfabric.types.date_time.serialize_json(
+        value["updated_at"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AppAuthorizationSummary:
+    out: AppAuthorizationSummary = {}  # type: ignore[typeddict-item]
+    if "appAuthorizationArn" in data:
+        out["app_authorization_arn"] = data["appAuthorizationArn"]
+    else:
+        raise DeserializationError(
+            "AppAuthorizationSummary.app_authorization_arn required"
+        )
+    if "appBundleArn" in data:
+        out["app_bundle_arn"] = data["appBundleArn"]
+    else:
+        raise DeserializationError("AppAuthorizationSummary.app_bundle_arn required")
+    if "app" in data:
+        out["app"] = data["app"]
+    else:
+        raise DeserializationError("AppAuthorizationSummary.app required")
+    if "tenant" in data:
+        import aws_sdk_appfabric.types.tenant
+
+        out["tenant"] = aws_sdk_appfabric.types.tenant.deserialize_json(data["tenant"])
+    else:
+        raise DeserializationError("AppAuthorizationSummary.tenant required")
+    if "status" in data:
+        import aws_sdk_appfabric.types.app_authorization_status
+
+        out["status"] = (
+            aws_sdk_appfabric.types.app_authorization_status.deserialize_json(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("AppAuthorizationSummary.status required")
+    if "updatedAt" in data:
+        import aws_sdk_appfabric.types.date_time
+
+        out["updated_at"] = aws_sdk_appfabric.types.date_time.deserialize_json(
+            data["updatedAt"]
+        )
+    else:
+        raise DeserializationError("AppAuthorizationSummary.updated_at required")
+    return out

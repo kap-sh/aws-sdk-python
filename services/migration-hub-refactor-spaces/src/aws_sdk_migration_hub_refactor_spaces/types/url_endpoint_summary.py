@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#UrlEndpointSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_migration_hub_refactor_spaces.types.uri
+
+
+class UrlEndpointSummary(TypedDict):
+    url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]
+    """<p> The URL to route traffic to. The URL must be an <a href=\"https://datatracker.ietf.org/doc/html/rfc3986\">rfc3986-formatted URL</a>. If the host is a domain name, the name must be resolvable over the public internet. If the scheme is <code>https</code>, the top level domain of the host must be listed in the <a href=\"https://www.iana.org/domains/root/db\">IANA root zone database</a>. </p>"""
+    health_url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]
+    """<p>The health check URL of the URL endpoint type. If the URL is a public endpoint, the <code>HealthUrl</code> must also be a public endpoint. If the URL is a private endpoint inside a virtual private cloud (VPC), the health URL must also be a private endpoint, and the host must be the same as the URL.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UrlEndpointSummary) -> dict:
+    out: dict = {}
+    if "url" in value:
+        out["Url"] = value["url"]
+    if "health_url" in value:
+        out["HealthUrl"] = value["health_url"]
+    return out
+
+
+def deserialize_json(data: dict) -> UrlEndpointSummary:
+    out: UrlEndpointSummary = {}  # type: ignore[typeddict-item]
+    if "Url" in data:
+        out["url"] = data["Url"]
+    if "HealthUrl" in data:
+        out["health_url"] = data["HealthUrl"]
+    return out

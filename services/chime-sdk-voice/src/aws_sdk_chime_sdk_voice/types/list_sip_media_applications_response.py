@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListSipMediaApplicationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_voice.types.next_token_string
+    import aws_sdk_chime_sdk_voice.types.sip_media_application_list
+
+
+class ListSipMediaApplicationsResponse(TypedDict):
+    sip_media_applications: NotRequired[
+        "aws_sdk_chime_sdk_voice.types.sip_media_application_list.SipMediaApplicationList"
+    ]
+    """<p>The list of SIP media applications and application details.</p>"""
+    next_token: NotRequired[
+        "aws_sdk_chime_sdk_voice.types.next_token_string.NextTokenString"
+    ]
+    """<p>The token used to return the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListSipMediaApplicationsResponse) -> dict:
+    out: dict = {}
+    if "sip_media_applications" in value:
+        import aws_sdk_chime_sdk_voice.types.sip_media_application_list
+
+        out["SipMediaApplications"] = (
+            aws_sdk_chime_sdk_voice.types.sip_media_application_list.serialize_json(
+                value["sip_media_applications"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListSipMediaApplicationsResponse:
+    out: ListSipMediaApplicationsResponse = {}  # type: ignore[typeddict-item]
+    if "SipMediaApplications" in data:
+        import aws_sdk_chime_sdk_voice.types.sip_media_application_list
+
+        out["sip_media_applications"] = (
+            aws_sdk_chime_sdk_voice.types.sip_media_application_list.deserialize_json(
+                data["SipMediaApplications"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

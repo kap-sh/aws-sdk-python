@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.databrew#DeleteRulesetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_databrew.types.ruleset_name
+
+
+class DeleteRulesetRequest(TypedDict):
+    name: "aws_sdk_databrew.types.ruleset_name.RulesetName"
+    """<p>The name of the ruleset to be deleted.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteRulesetRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteRulesetRequest:
+    out: DeleteRulesetRequest = {}  # type: ignore[typeddict-item]
+    return out

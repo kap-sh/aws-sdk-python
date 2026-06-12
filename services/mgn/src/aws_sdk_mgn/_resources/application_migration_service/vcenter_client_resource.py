@@ -1,0 +1,100 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_mgn._services.async_mgn import ensure_async_iterator
+from aws_sdk_mgn._services.mgn import ensure_sync_iterator
+from aws_sdk_mgn._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+import aws_sdk_mgn._auth._signers
+import aws_sdk_mgn._auth._sigv4
+if TYPE_CHECKING:
+    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
+    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
+    import aws_sdk_mgn.types.delete_vcenter_client_request
+    import aws_sdk_mgn.types.describe_vcenter_clients_request
+    import aws_sdk_mgn.types.describe_vcenter_clients_response
+    import aws_sdk_mgn.types.max_results_type
+    import aws_sdk_mgn.types.pagination_token
+    import aws_sdk_mgn.types.vcenter_client
+    import aws_sdk_mgn.types.vcenter_client_id
+
+class VcenterClientResource:
+    def __init__(self, service: mgnClient) -> None:
+        self._service = service
+    def delete(self, vcenter_client_id: "aws_sdk_mgn.types.vcenter_client_id.VcenterClientID", *, config_overrides: Optional[mgnClientConfig] = None) -> None:
+        """<p>Deletes a given vCenter client by ID.</p>
+
+        Args:
+            vcenter_client_id: <p>ID of resource to be deleted.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.delete_vcenter_client_request.DeleteVcenterClientRequest]') -> OperationResponse[None]:
+            import aws_sdk_mgn._operations.application_migration_service.delete_vcenter_client
+            output, http_response = aws_sdk_mgn._operations.application_migration_service.delete_vcenter_client.delete_vcenter_client(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_mgn.types.delete_vcenter_client_request.DeleteVcenterClientRequest = {}  # type: ignore[typeddict-item]
+        input["vcenter_client_id"] = vcenter_client_id
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list(self, *, config_overrides: Optional[mgnClientConfig] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.describe_vcenter_clients_response.DescribeVcenterClientsResponse":
+        """<p>Returns a list of the installed vCenter clients.</p>
+
+        Args:
+            max_results: <p>Maximum results to be returned in DescribeVcenterClients.</p>
+            next_token: <p>Next pagination token to be provided for DescribeVcenterClients.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.describe_vcenter_clients_request.DescribeVcenterClientsRequest]') -> OperationResponse["aws_sdk_mgn.types.describe_vcenter_clients_response.DescribeVcenterClientsResponse"]:
+            import aws_sdk_mgn._operations.application_migration_service.describe_vcenter_clients
+            output, http_response = aws_sdk_mgn._operations.application_migration_service.describe_vcenter_clients.describe_vcenter_clients(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_mgn.types.describe_vcenter_clients_request.DescribeVcenterClientsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+
+class AsyncVcenterClientResource:
+    def __init__(self, service: AsyncmgnClient) -> None:
+        self._service = service
+    async def delete(self, vcenter_client_id: "aws_sdk_mgn.types.vcenter_client_id.VcenterClientID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> None:
+        """<p>Deletes a given vCenter client by ID.</p>
+
+        Args:
+            vcenter_client_id: <p>ID of resource to be deleted.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.delete_vcenter_client_request.DeleteVcenterClientRequest]') -> AsyncOperationResponse[None]:
+            import aws_sdk_mgn._operations.application_migration_service.delete_vcenter_client
+            output, http_response = await aws_sdk_mgn._operations.application_migration_service.delete_vcenter_client.async_delete_vcenter_client(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_mgn.types.delete_vcenter_client_request.DeleteVcenterClientRequest = {}  # type: ignore[typeddict-item]
+        input["vcenter_client_id"] = vcenter_client_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list(self, *, config_overrides: Optional[AsyncmgnClientConfig] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.describe_vcenter_clients_response.DescribeVcenterClientsResponse":
+        """<p>Returns a list of the installed vCenter clients.</p>
+
+        Args:
+            max_results: <p>Maximum results to be returned in DescribeVcenterClients.</p>
+            next_token: <p>Next pagination token to be provided for DescribeVcenterClients.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.describe_vcenter_clients_request.DescribeVcenterClientsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.describe_vcenter_clients_response.DescribeVcenterClientsResponse"]:
+            import aws_sdk_mgn._operations.application_migration_service.describe_vcenter_clients
+            output, http_response = await aws_sdk_mgn._operations.application_migration_service.describe_vcenter_clients.async_describe_vcenter_clients(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_mgn.types.describe_vcenter_clients_request.DescribeVcenterClientsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output

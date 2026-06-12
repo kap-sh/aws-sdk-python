@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.networkmanager#Tag``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_networkmanager.types.tag_key
+    import aws_sdk_networkmanager.types.tag_value
+
+
+class Tag(TypedDict):
+    key: NotRequired["aws_sdk_networkmanager.types.tag_key.TagKey"]
+    """<p>The tag key.</p> <p>Constraints: Maximum length of 128 characters.</p>"""
+    value: NotRequired["aws_sdk_networkmanager.types.tag_value.TagValue"]
+    """<p>The tag value.</p> <p>Constraints: Maximum length of 256 characters.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Tag) -> dict:
+    out: dict = {}
+    if "key" in value:
+        out["Key"] = value["key"]
+    if "value" in value:
+        out["Value"] = value["value"]
+    return out
+
+
+def deserialize_json(data: dict) -> Tag:
+    out: Tag = {}  # type: ignore[typeddict-item]
+    if "Key" in data:
+        out["key"] = data["Key"]
+    if "Value" in data:
+        out["value"] = data["Value"]
+    return out

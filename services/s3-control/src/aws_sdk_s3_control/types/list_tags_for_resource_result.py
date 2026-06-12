@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#ListTagsForResourceResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_s3_control._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import aws_sdk_s3_control.types.tag_list
+
+
+class ListTagsForResourceResult(TypedDict):
+    tags: NotRequired["aws_sdk_s3_control.types.tag_list.TagList"]
+    """<p> The Amazon Web Services resource tags that are associated with the resource. </p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: ListTagsForResourceResult, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    if "tags" in value:
+        import aws_sdk_s3_control.types.tag_list
+
+        aws_sdk_s3_control.types.tag_list.serialize_xml(value["tags"], el, "Tags")
+
+
+def deserialize_xml(el: Element) -> ListTagsForResourceResult:
+    out: ListTagsForResourceResult = {}  # type: ignore[typeddict-item]
+    child_tags = el.find("Tags")
+    if child_tags is not None:
+        import aws_sdk_s3_control.types.tag_list
+
+        out["tags"] = aws_sdk_s3_control.types.tag_list.deserialize_xml(child_tags)
+    return out

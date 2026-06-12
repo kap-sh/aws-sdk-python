@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudtrail#DashboardDetail``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudtrail.types.dashboard_arn
+    import aws_sdk_cloudtrail.types.dashboard_type
+
+
+class DashboardDetail(TypedDict):
+    dashboard_arn: NotRequired["aws_sdk_cloudtrail.types.dashboard_arn.DashboardArn"]
+    """<p> The ARN for the dashboard. </p>"""
+    type: NotRequired["aws_sdk_cloudtrail.types.dashboard_type.DashboardType"]
+    """<p> The type of dashboard. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DashboardDetail) -> dict:
+    out: dict = {}
+    if "dashboard_arn" in value:
+        out["DashboardArn"] = value["dashboard_arn"]
+    if "type" in value:
+        import aws_sdk_cloudtrail.types.dashboard_type
+
+        out["Type"] = aws_sdk_cloudtrail.types.dashboard_type.serialize_aws_json_1_1(
+            value["type"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DashboardDetail:
+    out: DashboardDetail = {}  # type: ignore[typeddict-item]
+    if "DashboardArn" in data:
+        out["dashboard_arn"] = data["DashboardArn"]
+    if "Type" in data:
+        import aws_sdk_cloudtrail.types.dashboard_type
+
+        out["type"] = aws_sdk_cloudtrail.types.dashboard_type.deserialize_aws_json_1_1(
+            data["Type"]
+        )
+    return out

@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ListChannelsModeratedByAppInstanceUserRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_messaging.types.chime_arn
+    import aws_sdk_chime_sdk_messaging.types.max_results
+    import aws_sdk_chime_sdk_messaging.types.next_token
+
+
+class ListChannelsModeratedByAppInstanceUserRequest(TypedDict):
+    app_instance_user_arn: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    ]
+    """<p>The ARN of the user or bot in the moderated channel.</p>"""
+    max_results: NotRequired["aws_sdk_chime_sdk_messaging.types.max_results.MaxResults"]
+    """<p>The maximum number of channels in the request.</p>"""
+    next_token: NotRequired["aws_sdk_chime_sdk_messaging.types.next_token.NextToken"]
+    """<p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>"""
+    chime_bearer: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListChannelsModeratedByAppInstanceUserRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListChannelsModeratedByAppInstanceUserRequest:
+    out: ListChannelsModeratedByAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+    return out

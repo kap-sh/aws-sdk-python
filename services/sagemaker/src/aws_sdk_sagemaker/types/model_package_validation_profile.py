@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageValidationProfile``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.entity_name
+    import aws_sdk_sagemaker.types.transform_job_definition
+
+
+class ModelPackageValidationProfile(TypedDict):
+    profile_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
+    """<p>The name of the profile for the model package.</p>"""
+    transform_job_definition: NotRequired[
+        "aws_sdk_sagemaker.types.transform_job_definition.TransformJobDefinition"
+    ]
+    """<p>The <code>TransformJobDefinition</code> object that describes the transform job used for the validation of the model package.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ModelPackageValidationProfile) -> dict:
+    out: dict = {}
+    if "profile_name" in value:
+        out["ProfileName"] = value["profile_name"]
+    if "transform_job_definition" in value:
+        import aws_sdk_sagemaker.types.transform_job_definition
+
+        out["TransformJobDefinition"] = (
+            aws_sdk_sagemaker.types.transform_job_definition.serialize_aws_json_1_1(
+                value["transform_job_definition"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ModelPackageValidationProfile:
+    out: ModelPackageValidationProfile = {}  # type: ignore[typeddict-item]
+    if "ProfileName" in data:
+        out["profile_name"] = data["ProfileName"]
+    if "TransformJobDefinition" in data:
+        import aws_sdk_sagemaker.types.transform_job_definition
+
+        out["transform_job_definition"] = (
+            aws_sdk_sagemaker.types.transform_job_definition.deserialize_aws_json_1_1(
+                data["TransformJobDefinition"]
+            )
+        )
+    return out

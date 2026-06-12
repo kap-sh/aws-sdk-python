@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.wickr#ListSecurityGroupUsersRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_wickr.types.generic_string
+    import aws_sdk_wickr.types.network_id
+    import aws_sdk_wickr.types.sort_direction
+
+
+class ListSecurityGroupUsersRequest(TypedDict):
+    network_id: "aws_sdk_wickr.types.network_id.NetworkId"
+    """<p>The ID of the Wickr network containing the security group.</p>"""
+    group_id: "aws_sdk_wickr.types.generic_string.GenericString"
+    """<p>The unique identifier of the security group whose users will be listed.</p>"""
+    next_token: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
+    """<p>The token for retrieving the next page of results. This is returned from a previous request when there are more results available.</p>"""
+    max_results: NotRequired["int"]
+    """<p>The maximum number of users to return in a single page. Valid range is 1-100. Default is 10.</p>"""
+    sort_fields: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
+    """<p>The field to sort users by. Multiple fields can be specified by separating them with '+'. Accepted values include 'username', 'firstName', and 'lastName'.</p>"""
+    sort_direction: NotRequired["aws_sdk_wickr.types.sort_direction.SortDirection"]
+    """<p>The direction to sort results. Valid values are 'ASC' (ascending) or 'DESC' (descending). Default is 'DESC'.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListSecurityGroupUsersRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListSecurityGroupUsersRequest:
+    out: ListSecurityGroupUsersRequest = {}  # type: ignore[typeddict-item]
+    return out

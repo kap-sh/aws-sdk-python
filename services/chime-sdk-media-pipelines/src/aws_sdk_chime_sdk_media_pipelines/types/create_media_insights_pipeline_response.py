@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaInsightsPipelineResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline
+
+
+class CreateMediaInsightsPipelineResponse(TypedDict):
+    media_insights_pipeline: "aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline.MediaInsightsPipeline"
+    """<p>The media insights pipeline object.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateMediaInsightsPipelineResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline
+
+    out["MediaInsightsPipeline"] = (
+        aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline.serialize_json(
+            value["media_insights_pipeline"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateMediaInsightsPipelineResponse:
+    out: CreateMediaInsightsPipelineResponse = {}  # type: ignore[typeddict-item]
+    if "MediaInsightsPipeline" in data:
+        import aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline
+
+        out["media_insights_pipeline"] = (
+            aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline.deserialize_json(
+                data["MediaInsightsPipeline"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateMediaInsightsPipelineResponse.media_insights_pipeline required"
+        )
+    return out

@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.rekognition#LivenessOutputConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_rekognition.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_rekognition.types.liveness_s3_key_prefix
+    import aws_sdk_rekognition.types.s3_bucket
+
+
+class LivenessOutputConfig(TypedDict):
+    s3_bucket: "aws_sdk_rekognition.types.s3_bucket.S3Bucket"
+    """<p>The path to an AWS Amazon S3 bucket used to store Face Liveness session results.</p>"""
+    s3_key_prefix: NotRequired[
+        "aws_sdk_rekognition.types.liveness_s3_key_prefix.LivenessS3KeyPrefix"
+    ]
+    """<p>The prefix prepended to the output files for the Face Liveness session results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: LivenessOutputConfig) -> dict:
+    out: dict = {}
+    out["S3Bucket"] = value["s3_bucket"]
+    if "s3_key_prefix" in value:
+        out["S3KeyPrefix"] = value["s3_key_prefix"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> LivenessOutputConfig:
+    out: LivenessOutputConfig = {}  # type: ignore[typeddict-item]
+    if "S3Bucket" in data:
+        out["s3_bucket"] = data["S3Bucket"]
+    else:
+        raise DeserializationError("LivenessOutputConfig.s3_bucket required")
+    if "S3KeyPrefix" in data:
+        out["s3_key_prefix"] = data["S3KeyPrefix"]
+    return out

@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#BatchDetectSentimentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_comprehend.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.customer_input_string_list
+    import aws_sdk_comprehend.types.language_code
+
+
+class BatchDetectSentimentRequest(TypedDict):
+    text_list: (
+        "aws_sdk_comprehend.types.customer_input_string_list.CustomerInputStringList"
+    )
+    """<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB. </p>"""
+    language_code: "aws_sdk_comprehend.types.language_code.LanguageCode"
+    """<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BatchDetectSentimentRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_comprehend.types.customer_input_string_list
+
+    out["TextList"] = (
+        aws_sdk_comprehend.types.customer_input_string_list.serialize_aws_json_1_1(
+            value["text_list"]
+        )
+    )
+    import aws_sdk_comprehend.types.language_code
+
+    out["LanguageCode"] = aws_sdk_comprehend.types.language_code.serialize_aws_json_1_1(
+        value["language_code"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BatchDetectSentimentRequest:
+    out: BatchDetectSentimentRequest = {}  # type: ignore[typeddict-item]
+    if "TextList" in data:
+        import aws_sdk_comprehend.types.customer_input_string_list
+
+        out["text_list"] = (
+            aws_sdk_comprehend.types.customer_input_string_list.deserialize_aws_json_1_1(
+                data["TextList"]
+            )
+        )
+    else:
+        raise DeserializationError("BatchDetectSentimentRequest.text_list required")
+    if "LanguageCode" in data:
+        import aws_sdk_comprehend.types.language_code
+
+        out["language_code"] = (
+            aws_sdk_comprehend.types.language_code.deserialize_aws_json_1_1(
+                data["LanguageCode"]
+            )
+        )
+    else:
+        raise DeserializationError("BatchDetectSentimentRequest.language_code required")
+    return out

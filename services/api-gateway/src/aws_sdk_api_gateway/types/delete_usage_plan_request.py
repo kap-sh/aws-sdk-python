@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.apigateway#DeleteUsagePlanRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_api_gateway.types.string
+
+
+class DeleteUsagePlanRequest(TypedDict):
+    usage_plan_id: "aws_sdk_api_gateway.types.string.String"
+    """<p>The Id of the to-be-deleted usage plan.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteUsagePlanRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteUsagePlanRequest:
+    out: DeleteUsagePlanRequest = {}  # type: ignore[typeddict-item]
+    return out

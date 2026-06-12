@@ -1,0 +1,71 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#PollForJobsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codepipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.action_type_id
+    import aws_sdk_codepipeline.types.max_batch_size
+    import aws_sdk_codepipeline.types.query_param_map
+
+
+class PollForJobsInput(TypedDict):
+    action_type_id: "aws_sdk_codepipeline.types.action_type_id.ActionTypeId"
+    """<p>Represents information about an action type.</p>"""
+    max_batch_size: NotRequired[
+        "aws_sdk_codepipeline.types.max_batch_size.MaxBatchSize"
+    ]
+    """<p>The maximum number of jobs to return in a poll for jobs call.</p>"""
+    query_param: NotRequired["aws_sdk_codepipeline.types.query_param_map.QueryParamMap"]
+    """<p>A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PollForJobsInput) -> dict:
+    out: dict = {}
+    import aws_sdk_codepipeline.types.action_type_id
+
+    out["actionTypeId"] = (
+        aws_sdk_codepipeline.types.action_type_id.serialize_aws_json_1_1(
+            value["action_type_id"]
+        )
+    )
+    if "max_batch_size" in value:
+        out["maxBatchSize"] = value["max_batch_size"]
+    if "query_param" in value:
+        import aws_sdk_codepipeline.types.query_param_map
+
+        out["queryParam"] = (
+            aws_sdk_codepipeline.types.query_param_map.serialize_aws_json_1_1(
+                value["query_param"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PollForJobsInput:
+    out: PollForJobsInput = {}  # type: ignore[typeddict-item]
+    if "actionTypeId" in data:
+        import aws_sdk_codepipeline.types.action_type_id
+
+        out["action_type_id"] = (
+            aws_sdk_codepipeline.types.action_type_id.deserialize_aws_json_1_1(
+                data["actionTypeId"]
+            )
+        )
+    else:
+        raise DeserializationError("PollForJobsInput.action_type_id required")
+    if "maxBatchSize" in data:
+        out["max_batch_size"] = data["maxBatchSize"]
+    if "queryParam" in data:
+        import aws_sdk_codepipeline.types.query_param_map
+
+        out["query_param"] = (
+            aws_sdk_codepipeline.types.query_param_map.deserialize_aws_json_1_1(
+                data["queryParam"]
+            )
+        )
+    return out

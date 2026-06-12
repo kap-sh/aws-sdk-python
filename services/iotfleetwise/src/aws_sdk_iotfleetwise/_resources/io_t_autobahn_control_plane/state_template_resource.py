@@ -1,0 +1,573 @@
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_iotfleetwise._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_iotfleetwise.types.arn
+    import aws_sdk_iotfleetwise.types.create_state_template_request
+    import aws_sdk_iotfleetwise.types.create_state_template_response
+    import aws_sdk_iotfleetwise.types.delete_state_template_request
+    import aws_sdk_iotfleetwise.types.delete_state_template_response
+    import aws_sdk_iotfleetwise.types.description
+    import aws_sdk_iotfleetwise.types.get_state_template_request
+    import aws_sdk_iotfleetwise.types.get_state_template_response
+    import aws_sdk_iotfleetwise.types.list_response_scope
+    import aws_sdk_iotfleetwise.types.list_state_templates_request
+    import aws_sdk_iotfleetwise.types.list_state_templates_response
+    import aws_sdk_iotfleetwise.types.max_results
+    import aws_sdk_iotfleetwise.types.next_token
+    import aws_sdk_iotfleetwise.types.resource_identifier
+    import aws_sdk_iotfleetwise.types.resource_name
+    import aws_sdk_iotfleetwise.types.state_template_data_extra_dimension_node_path_list
+    import aws_sdk_iotfleetwise.types.state_template_metadata_extra_dimension_node_path_list
+    import aws_sdk_iotfleetwise.types.state_template_properties
+    import aws_sdk_iotfleetwise.types.state_template_summary
+    import aws_sdk_iotfleetwise.types.tag_list
+    import aws_sdk_iotfleetwise.types.update_state_template_request
+    import aws_sdk_iotfleetwise.types.update_state_template_response
+    from aws_sdk_iotfleetwise._services.async_io_t_fleet_wise import (
+        AsyncIoTFleetWiseClient,
+        AsyncIoTFleetWiseClientConfig,
+    )
+    from aws_sdk_iotfleetwise._services.io_t_fleet_wise import (
+        IoTFleetWiseClient,
+        IoTFleetWiseClientConfig,
+    )
+
+
+class StateTemplateResource:
+    def __init__(self, service: IoTFleetWiseClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        name: "aws_sdk_iotfleetwise.types.resource_name.resourceName",
+        signal_catalog_arn: "aws_sdk_iotfleetwise.types.arn.arn",
+        state_template_properties: "aws_sdk_iotfleetwise.types.state_template_properties.StateTemplateProperties",
+        *,
+        config_overrides: Optional[IoTFleetWiseClientConfig] = None,
+        description: Optional[
+            "aws_sdk_iotfleetwise.types.description.description"
+        ] = None,
+        data_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_data_extra_dimension_node_path_list.StateTemplateDataExtraDimensionNodePathList"
+        ] = None,
+        metadata_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_metadata_extra_dimension_node_path_list.StateTemplateMetadataExtraDimensionNodePathList"
+        ] = None,
+        tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_iotfleetwise.types.create_state_template_response.CreateStateTemplateResponse":
+        """<p>Creates a state template. State templates contain state properties, which are signals that belong to a signal catalog that is synchronized between the Amazon Web Services IoT FleetWise Edge and the Amazon Web Services Cloud.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            name: <p>The name of the state template.</p>
+            description: <p>A brief description of the state template.</p>
+            signal_catalog_arn: <p>The ARN of the signal catalog associated with the state template.</p>
+            state_template_properties: <p>A list of signals from which data is collected. The state template properties contain the fully qualified names of the signals.</p>
+            data_extra_dimensions: <p>A list of vehicle attributes to associate with the payload published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will enrich the protobuf encoded payload with those attributes in the <code>extraDimensions</code> field.</p>
+            metadata_extra_dimensions: <p>A list of vehicle attributes to associate with user properties of the messages published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will include these attributes as User Properties with the MQTT message.</p> <p>Default: An empty array</p>
+            tags: <p>Metadata that can be used to manage the state template.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_iotfleetwise.types.create_state_template_response.CreateStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.create_state_template
+
+            output, http_response = (
+                aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.create_state_template.create_state_template(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["signal_catalog_arn"] = signal_catalog_arn
+        input["state_template_properties"] = state_template_properties
+        if data_extra_dimensions is not None:
+            input["data_extra_dimensions"] = data_extra_dimensions
+        if metadata_extra_dimensions is not None:
+            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier",
+        *,
+        config_overrides: Optional[IoTFleetWiseClientConfig] = None,
+    ) -> "aws_sdk_iotfleetwise.types.get_state_template_response.GetStateTemplateResponse":
+        """<p>Retrieves information about a state template.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            identifier: <p>The unique ID of the state template.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_iotfleetwise.types.get_state_template_response.GetStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.get_state_template
+
+            output, http_response = (
+                aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.get_state_template.get_state_template(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update(
+        self,
+        identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier",
+        *,
+        config_overrides: Optional[IoTFleetWiseClientConfig] = None,
+        description: Optional[
+            "aws_sdk_iotfleetwise.types.description.description"
+        ] = None,
+        state_template_properties_to_add: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_properties.StateTemplateProperties"
+        ] = None,
+        state_template_properties_to_remove: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_properties.StateTemplateProperties"
+        ] = None,
+        data_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_data_extra_dimension_node_path_list.StateTemplateDataExtraDimensionNodePathList"
+        ] = None,
+        metadata_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_metadata_extra_dimension_node_path_list.StateTemplateMetadataExtraDimensionNodePathList"
+        ] = None,
+    ) -> "aws_sdk_iotfleetwise.types.update_state_template_response.UpdateStateTemplateResponse":
+        """<p>Updates a state template.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            identifier: <p>The unique ID of the state template.</p>
+            description: <p>A brief description of the state template.</p>
+            state_template_properties_to_add: <p>Add signals from which data is collected as part of the state template.</p>
+            state_template_properties_to_remove: <p>Remove signals from which data is collected as part of the state template.</p>
+            data_extra_dimensions: <p>A list of vehicle attributes to associate with the payload published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will enrich the protobuf encoded payload with those attributes in the <code>extraDimensions</code> field.</p> <p>Default: An empty array</p>
+            metadata_extra_dimensions: <p>A list of vehicle attributes to associate with user properties of the messages published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will include these attributes as User Properties with the MQTT message.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_iotfleetwise.types.update_state_template_response.UpdateStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.update_state_template
+
+            output, http_response = (
+                aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.update_state_template.update_state_template(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        if description is not None:
+            input["description"] = description
+        if state_template_properties_to_add is not None:
+            input["state_template_properties_to_add"] = state_template_properties_to_add
+        if state_template_properties_to_remove is not None:
+            input["state_template_properties_to_remove"] = (
+                state_template_properties_to_remove
+            )
+        if data_extra_dimensions is not None:
+            input["data_extra_dimensions"] = data_extra_dimensions
+        if metadata_extra_dimensions is not None:
+            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier",
+        *,
+        config_overrides: Optional[IoTFleetWiseClientConfig] = None,
+    ) -> "aws_sdk_iotfleetwise.types.delete_state_template_response.DeleteStateTemplateResponse":
+        """<p>Deletes a state template.</p>
+
+        Args:
+            identifier: <p>The unique ID of the state template.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_iotfleetwise.types.delete_state_template_response.DeleteStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.delete_state_template
+
+            output, http_response = (
+                aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.delete_state_template.delete_state_template(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[IoTFleetWiseClientConfig] = None,
+        next_token: Optional["aws_sdk_iotfleetwise.types.next_token.nextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_iotfleetwise.types.max_results.maxResults"
+        ] = None,
+        list_response_scope: Optional[
+            "aws_sdk_iotfleetwise.types.list_response_scope.ListResponseScope"
+        ] = None,
+    ) -> "aws_sdk_iotfleetwise.types.list_state_templates_response.ListStateTemplatesResponse":
+        """<p>Lists information about created state templates.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            next_token: <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
+            max_results: <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
+            list_response_scope: <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: state template ID, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_iotfleetwise.types.list_state_templates_response.ListStateTemplatesResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.list_state_templates
+
+            output, http_response = (
+                aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.list_state_templates.list_state_templates(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if list_response_scope is not None:
+            input["list_response_scope"] = list_response_scope
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncStateTemplateResource:
+    def __init__(self, service: AsyncIoTFleetWiseClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        name: "aws_sdk_iotfleetwise.types.resource_name.resourceName",
+        signal_catalog_arn: "aws_sdk_iotfleetwise.types.arn.arn",
+        state_template_properties: "aws_sdk_iotfleetwise.types.state_template_properties.StateTemplateProperties",
+        *,
+        config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None,
+        description: Optional[
+            "aws_sdk_iotfleetwise.types.description.description"
+        ] = None,
+        data_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_data_extra_dimension_node_path_list.StateTemplateDataExtraDimensionNodePathList"
+        ] = None,
+        metadata_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_metadata_extra_dimension_node_path_list.StateTemplateMetadataExtraDimensionNodePathList"
+        ] = None,
+        tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_iotfleetwise.types.create_state_template_response.CreateStateTemplateResponse":
+        """<p>Creates a state template. State templates contain state properties, which are signals that belong to a signal catalog that is synchronized between the Amazon Web Services IoT FleetWise Edge and the Amazon Web Services Cloud.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            name: <p>The name of the state template.</p>
+            description: <p>A brief description of the state template.</p>
+            signal_catalog_arn: <p>The ARN of the signal catalog associated with the state template.</p>
+            state_template_properties: <p>A list of signals from which data is collected. The state template properties contain the fully qualified names of the signals.</p>
+            data_extra_dimensions: <p>A list of vehicle attributes to associate with the payload published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will enrich the protobuf encoded payload with those attributes in the <code>extraDimensions</code> field.</p>
+            metadata_extra_dimensions: <p>A list of vehicle attributes to associate with user properties of the messages published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will include these attributes as User Properties with the MQTT message.</p> <p>Default: An empty array</p>
+            tags: <p>Metadata that can be used to manage the state template.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_iotfleetwise.types.create_state_template_response.CreateStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.create_state_template
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.create_state_template.async_create_state_template(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["signal_catalog_arn"] = signal_catalog_arn
+        input["state_template_properties"] = state_template_properties
+        if data_extra_dimensions is not None:
+            input["data_extra_dimensions"] = data_extra_dimensions
+        if metadata_extra_dimensions is not None:
+            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier",
+        *,
+        config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None,
+    ) -> "aws_sdk_iotfleetwise.types.get_state_template_response.GetStateTemplateResponse":
+        """<p>Retrieves information about a state template.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            identifier: <p>The unique ID of the state template.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_iotfleetwise.types.get_state_template_response.GetStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.get_state_template
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.get_state_template.async_get_state_template(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update(
+        self,
+        identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier",
+        *,
+        config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None,
+        description: Optional[
+            "aws_sdk_iotfleetwise.types.description.description"
+        ] = None,
+        state_template_properties_to_add: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_properties.StateTemplateProperties"
+        ] = None,
+        state_template_properties_to_remove: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_properties.StateTemplateProperties"
+        ] = None,
+        data_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_data_extra_dimension_node_path_list.StateTemplateDataExtraDimensionNodePathList"
+        ] = None,
+        metadata_extra_dimensions: Optional[
+            "aws_sdk_iotfleetwise.types.state_template_metadata_extra_dimension_node_path_list.StateTemplateMetadataExtraDimensionNodePathList"
+        ] = None,
+    ) -> "aws_sdk_iotfleetwise.types.update_state_template_response.UpdateStateTemplateResponse":
+        """<p>Updates a state template.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            identifier: <p>The unique ID of the state template.</p>
+            description: <p>A brief description of the state template.</p>
+            state_template_properties_to_add: <p>Add signals from which data is collected as part of the state template.</p>
+            state_template_properties_to_remove: <p>Remove signals from which data is collected as part of the state template.</p>
+            data_extra_dimensions: <p>A list of vehicle attributes to associate with the payload published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will enrich the protobuf encoded payload with those attributes in the <code>extraDimensions</code> field.</p> <p>Default: An empty array</p>
+            metadata_extra_dimensions: <p>A list of vehicle attributes to associate with user properties of the messages published on the state template's MQTT topic. (See <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data\"> Processing last known state vehicle data using MQTT messaging</a>). For example, if you add <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise will include these attributes as User Properties with the MQTT message.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_iotfleetwise.types.update_state_template_response.UpdateStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.update_state_template
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.update_state_template.async_update_state_template(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        if description is not None:
+            input["description"] = description
+        if state_template_properties_to_add is not None:
+            input["state_template_properties_to_add"] = state_template_properties_to_add
+        if state_template_properties_to_remove is not None:
+            input["state_template_properties_to_remove"] = (
+                state_template_properties_to_remove
+            )
+        if data_extra_dimensions is not None:
+            input["data_extra_dimensions"] = data_extra_dimensions
+        if metadata_extra_dimensions is not None:
+            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier",
+        *,
+        config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None,
+    ) -> "aws_sdk_iotfleetwise.types.delete_state_template_response.DeleteStateTemplateResponse":
+        """<p>Deletes a state template.</p>
+
+        Args:
+            identifier: <p>The unique ID of the state template.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_iotfleetwise.types.delete_state_template_response.DeleteStateTemplateResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.delete_state_template
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.delete_state_template.async_delete_state_template(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None,
+        next_token: Optional["aws_sdk_iotfleetwise.types.next_token.nextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_iotfleetwise.types.max_results.maxResults"
+        ] = None,
+        list_response_scope: Optional[
+            "aws_sdk_iotfleetwise.types.list_response_scope.ListResponseScope"
+        ] = None,
+    ) -> "aws_sdk_iotfleetwise.types.list_state_templates_response.ListStateTemplatesResponse":
+        """<p>Lists information about created state templates.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+
+        Args:
+            next_token: <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
+            max_results: <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
+            list_response_scope: <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: state template ID, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_iotfleetwise.types.list_state_templates_response.ListStateTemplatesResponse"
+        ]:
+            import aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.list_state_templates
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_iotfleetwise._operations.io_t_autobahn_control_plane.list_state_templates.async_list_state_templates(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if list_response_scope is not None:
+            input["list_response_scope"] = list_response_scope
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

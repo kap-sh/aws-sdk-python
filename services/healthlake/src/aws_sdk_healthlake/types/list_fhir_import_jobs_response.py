@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.healthlake#ListFHIRImportJobsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_healthlake.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_healthlake.types.import_job_properties_list
+    import aws_sdk_healthlake.types.next_token
+
+
+class ListFHIRImportJobsResponse(TypedDict):
+    import_job_properties_list: (
+        "aws_sdk_healthlake.types.import_job_properties_list.ImportJobPropertiesList"
+    )
+    """<p>The properties for listed import jobs.</p>"""
+    next_token: NotRequired["aws_sdk_healthlake.types.next_token.NextToken"]
+    """<p>The pagination token used to identify the next page of results to return.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListFHIRImportJobsResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_healthlake.types.import_job_properties_list
+
+    out["ImportJobPropertiesList"] = (
+        aws_sdk_healthlake.types.import_job_properties_list.serialize_aws_json_1_0(
+            value["import_job_properties_list"]
+        )
+    )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListFHIRImportJobsResponse:
+    out: ListFHIRImportJobsResponse = {}  # type: ignore[typeddict-item]
+    if "ImportJobPropertiesList" in data:
+        import aws_sdk_healthlake.types.import_job_properties_list
+
+        out["import_job_properties_list"] = (
+            aws_sdk_healthlake.types.import_job_properties_list.deserialize_aws_json_1_0(
+                data["ImportJobPropertiesList"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListFHIRImportJobsResponse.import_job_properties_list required"
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

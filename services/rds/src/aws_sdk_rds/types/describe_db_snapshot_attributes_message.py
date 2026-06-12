@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.rds#DescribeDBSnapshotAttributesMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_rds._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_rds.types.string
+
+
+class DescribeDBSnapshotAttributesMessage(TypedDict):
+    db_snapshot_identifier: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>The identifier for the DB snapshot to describe the attributes for.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DescribeDBSnapshotAttributesMessage,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "db_snapshot_identifier" in value:
+        pairs.append(
+            (f"{prefix}.DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
+        )
+
+
+def deserialize_query(el: Element) -> DescribeDBSnapshotAttributesMessage:
+    out: DescribeDBSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
+    child_db_snapshot_identifier = el.find("DBSnapshotIdentifier")
+    if child_db_snapshot_identifier is not None:
+        out["db_snapshot_identifier"] = str(child_db_snapshot_identifier.text or "")
+    return out

@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#DescribeReservationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__string
+
+
+class DescribeReservationRequest(TypedDict):
+    reservation_id: "aws_sdk_medialive.types.__string.__string"
+    """Unique reservation ID, e.g. '1234567'"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeReservationRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeReservationRequest:
+    out: DescribeReservationRequest = {}  # type: ignore[typeddict-item]
+    return out

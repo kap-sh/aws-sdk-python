@@ -1,0 +1,11 @@
+"""Generated from Smithy shape ``com.amazonaws.codeartifact#Asset``."""
+
+from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+
+T = TypeVar("T")
+
+
+class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
+
+
+Asset: TypeAlias = AnyIterator[bytes] | bytes

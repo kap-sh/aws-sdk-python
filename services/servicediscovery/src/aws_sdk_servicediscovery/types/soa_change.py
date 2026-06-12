@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.servicediscovery#SOAChange``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_servicediscovery.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_servicediscovery.types.record_ttl
+
+
+class SOAChange(TypedDict):
+    ttl: "aws_sdk_servicediscovery.types.record_ttl.RecordTTL"
+    """<p>The updated time to live (TTL) for purposes of negative caching.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SOAChange) -> dict:
+    out: dict = {}
+    out["TTL"] = value["ttl"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SOAChange:
+    out: SOAChange = {}  # type: ignore[typeddict-item]
+    if "TTL" in data:
+        out["ttl"] = data["TTL"]
+    else:
+        raise DeserializationError("SOAChange.ttl required")
+    return out

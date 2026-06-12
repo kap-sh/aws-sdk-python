@@ -1,0 +1,71 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcases#CaseFilter``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from aws_sdk_connectcases.errors import DeserializationError, SerializationError
+if TYPE_CHECKING:
+    import aws_sdk_connectcases.types.field_filter
+    import aws_sdk_connectcases.types.tag_filter
+    import aws_sdk_connectcases.types.case_filter_list
+    import aws_sdk_connectcases.types.case_filter
+    import aws_sdk_connectcases.types.case_filter_list
+
+class _CaseFilter_field(TypedDict):
+    field: "aws_sdk_connectcases.types.field_filter.FieldFilter"
+
+
+class _CaseFilter_not(TypedDict):
+    not: "aws_sdk_connectcases.types.case_filter.CaseFilter"
+
+
+class _CaseFilter_tag(TypedDict):
+    tag: "aws_sdk_connectcases.types.tag_filter.TagFilter"
+
+
+class _CaseFilter_andAll(TypedDict):
+    andAll: "aws_sdk_connectcases.types.case_filter_list.CaseFilterList"
+
+
+class _CaseFilter_orAll(TypedDict):
+    orAll: "aws_sdk_connectcases.types.case_filter_list.CaseFilterList"
+
+CaseFilter: TypeAlias = _CaseFilter_field | _CaseFilter_not | _CaseFilter_tag | _CaseFilter_andAll | _CaseFilter_orAll
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CaseFilter) -> dict:
+    if "field" in value:
+        import aws_sdk_connectcases.types.field_filter
+        return {"field": aws_sdk_connectcases.types.field_filter.serialize_json(value["field"])}
+    elif "not" in value:
+        import aws_sdk_connectcases.types.case_filter
+        return {"not": aws_sdk_connectcases.types.case_filter.serialize_json(value["not"])}
+    elif "tag" in value:
+        import aws_sdk_connectcases.types.tag_filter
+        return {"tag": aws_sdk_connectcases.types.tag_filter.serialize_json(value["tag"])}
+    elif "andAll" in value:
+        import aws_sdk_connectcases.types.case_filter_list
+        return {"andAll": aws_sdk_connectcases.types.case_filter_list.serialize_json(value["andAll"])}
+    elif "orAll" in value:
+        import aws_sdk_connectcases.types.case_filter_list
+        return {"orAll": aws_sdk_connectcases.types.case_filter_list.serialize_json(value["orAll"])}
+    else:
+        raise SerializationError("CaseFilter: no variant present")
+
+
+def deserialize_json(data: dict) -> CaseFilter:
+    if "field" in data:
+        import aws_sdk_connectcases.types.field_filter
+        return {"field": aws_sdk_connectcases.types.field_filter.deserialize_json(data["field"])}
+    elif "not" in data:
+        import aws_sdk_connectcases.types.case_filter
+        return {"not": aws_sdk_connectcases.types.case_filter.deserialize_json(data["not"])}
+    elif "tag" in data:
+        import aws_sdk_connectcases.types.tag_filter
+        return {"tag": aws_sdk_connectcases.types.tag_filter.deserialize_json(data["tag"])}
+    elif "andAll" in data:
+        import aws_sdk_connectcases.types.case_filter_list
+        return {"andAll": aws_sdk_connectcases.types.case_filter_list.deserialize_json(data["andAll"])}
+    elif "orAll" in data:
+        import aws_sdk_connectcases.types.case_filter_list
+        return {"orAll": aws_sdk_connectcases.types.case_filter_list.deserialize_json(data["orAll"])}
+    else:
+        raise DeserializationError("CaseFilter: no recognized variant key")

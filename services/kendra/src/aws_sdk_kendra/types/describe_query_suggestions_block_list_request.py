@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.kendra#DescribeQuerySuggestionsBlockListRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_kendra.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kendra.types.index_id
+    import aws_sdk_kendra.types.query_suggestions_block_list_id
+
+
+class DescribeQuerySuggestionsBlockListRequest(TypedDict):
+    index_id: "aws_sdk_kendra.types.index_id.IndexId"
+    """<p>The identifier of the index for the block list.</p>"""
+    id: "aws_sdk_kendra.types.query_suggestions_block_list_id.QuerySuggestionsBlockListId"
+    """<p>The identifier of the block list you want to get information on.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeQuerySuggestionsBlockListRequest) -> dict:
+    out: dict = {}
+    out["IndexId"] = value["index_id"]
+    out["Id"] = value["id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeQuerySuggestionsBlockListRequest:
+    out: DescribeQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
+    if "IndexId" in data:
+        out["index_id"] = data["IndexId"]
+    else:
+        raise DeserializationError(
+            "DescribeQuerySuggestionsBlockListRequest.index_id required"
+        )
+    if "Id" in data:
+        out["id"] = data["Id"]
+    else:
+        raise DeserializationError(
+            "DescribeQuerySuggestionsBlockListRequest.id required"
+        )
+    return out

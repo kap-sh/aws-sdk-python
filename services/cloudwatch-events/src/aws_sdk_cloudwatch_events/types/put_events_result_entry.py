@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutEventsResultEntry``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_events.types.error_code
+    import aws_sdk_cloudwatch_events.types.error_message
+    import aws_sdk_cloudwatch_events.types.event_id
+
+
+class PutEventsResultEntry(TypedDict):
+    event_id: NotRequired["aws_sdk_cloudwatch_events.types.event_id.EventId"]
+    """<p>The ID of the event.</p>"""
+    error_code: NotRequired["aws_sdk_cloudwatch_events.types.error_code.ErrorCode"]
+    """<p>The error code that indicates why the event submission failed.</p>"""
+    error_message: NotRequired[
+        "aws_sdk_cloudwatch_events.types.error_message.ErrorMessage"
+    ]
+    """<p>The error message that explains why the event submission failed.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutEventsResultEntry) -> dict:
+    out: dict = {}
+    if "event_id" in value:
+        out["EventId"] = value["event_id"]
+    if "error_code" in value:
+        out["ErrorCode"] = value["error_code"]
+    if "error_message" in value:
+        out["ErrorMessage"] = value["error_message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutEventsResultEntry:
+    out: PutEventsResultEntry = {}  # type: ignore[typeddict-item]
+    if "EventId" in data:
+        out["event_id"] = data["EventId"]
+    if "ErrorCode" in data:
+        out["error_code"] = data["ErrorCode"]
+    if "ErrorMessage" in data:
+        out["error_message"] = data["ErrorMessage"]
+    return out

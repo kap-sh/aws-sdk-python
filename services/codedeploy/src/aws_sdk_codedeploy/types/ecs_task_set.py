@@ -1,0 +1,107 @@
+"""Generated from Smithy shape ``com.amazonaws.codedeploy#ECSTaskSet``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codedeploy.types.ecs_task_set_count
+    import aws_sdk_codedeploy.types.ecs_task_set_identifier
+    import aws_sdk_codedeploy.types.ecs_task_set_status
+    import aws_sdk_codedeploy.types.target_group_info
+    import aws_sdk_codedeploy.types.target_label
+    import aws_sdk_codedeploy.types.traffic_weight
+
+
+class ECSTaskSet(TypedDict):
+    identifer: NotRequired[
+        "aws_sdk_codedeploy.types.ecs_task_set_identifier.ECSTaskSetIdentifier"
+    ]
+    """<p> A unique ID of an <code>ECSTaskSet</code>. </p>"""
+    desired_count: "aws_sdk_codedeploy.types.ecs_task_set_count.ECSTaskSetCount"
+    """<p> The number of tasks in a task set. During a deployment that uses the Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new task set and uses this value to determine how many tasks to create. After the updated task set is created, CodeDeploy shifts traffic to the new task set. </p>"""
+    pending_count: "aws_sdk_codedeploy.types.ecs_task_set_count.ECSTaskSetCount"
+    """<p> The number of tasks in the task set that are in the <code>PENDING</code> status during an Amazon ECS deployment. A task in the <code>PENDING</code> state is preparing to enter the <code>RUNNING</code> state. A task set enters the <code>PENDING</code> status when it launches for the first time, or when it is restarted after being in the <code>STOPPED</code> state. </p>"""
+    running_count: "aws_sdk_codedeploy.types.ecs_task_set_count.ECSTaskSetCount"
+    """<p> The number of tasks in the task set that are in the <code>RUNNING</code> status during an Amazon ECS deployment. A task in the <code>RUNNING</code> state is running and ready for use. </p>"""
+    status: NotRequired["aws_sdk_codedeploy.types.ecs_task_set_status.ECSTaskSetStatus"]
+    """<p> The status of the task set. There are three valid task set statuses: </p> <ul> <li> <p> <code>PRIMARY</code>: Indicates the task set is serving production traffic. </p> </li> <li> <p> <code>ACTIVE</code>: Indicates the task set is not serving production traffic. </p> </li> <li> <p> <code>DRAINING</code>: Indicates the tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group. </p> </li> </ul>"""
+    traffic_weight: "aws_sdk_codedeploy.types.traffic_weight.TrafficWeight"
+    """<p> The percentage of traffic served by this task set. </p>"""
+    target_group: NotRequired[
+        "aws_sdk_codedeploy.types.target_group_info.TargetGroupInfo"
+    ]
+    """<p> The target group associated with the task set. The target group is used by CodeDeploy to manage traffic to a task set. </p>"""
+    task_set_label: NotRequired["aws_sdk_codedeploy.types.target_label.TargetLabel"]
+    """<p> A label that identifies whether the ECS task set is an original target (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ECSTaskSet) -> dict:
+    out: dict = {}
+    if "identifer" in value:
+        out["identifer"] = value["identifer"]
+    out["desiredCount"] = value.get("desired_count", 0)
+    out["pendingCount"] = value.get("pending_count", 0)
+    out["runningCount"] = value.get("running_count", 0)
+    if "status" in value:
+        out["status"] = value["status"]
+    out["trafficWeight"] = value.get("traffic_weight", 0)
+    if "target_group" in value:
+        import aws_sdk_codedeploy.types.target_group_info
+
+        out["targetGroup"] = (
+            aws_sdk_codedeploy.types.target_group_info.serialize_aws_json_1_1(
+                value["target_group"]
+            )
+        )
+    if "task_set_label" in value:
+        import aws_sdk_codedeploy.types.target_label
+
+        out["taskSetLabel"] = (
+            aws_sdk_codedeploy.types.target_label.serialize_aws_json_1_1(
+                value["task_set_label"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ECSTaskSet:
+    out: ECSTaskSet = {}  # type: ignore[typeddict-item]
+    if "identifer" in data:
+        out["identifer"] = data["identifer"]
+    if "desiredCount" in data:
+        out["desired_count"] = data["desiredCount"]
+    else:
+        out["desired_count"] = 0
+    if "pendingCount" in data:
+        out["pending_count"] = data["pendingCount"]
+    else:
+        out["pending_count"] = 0
+    if "runningCount" in data:
+        out["running_count"] = data["runningCount"]
+    else:
+        out["running_count"] = 0
+    if "status" in data:
+        out["status"] = data["status"]
+    if "trafficWeight" in data:
+        out["traffic_weight"] = data["trafficWeight"]
+    else:
+        out["traffic_weight"] = 0
+    if "targetGroup" in data:
+        import aws_sdk_codedeploy.types.target_group_info
+
+        out["target_group"] = (
+            aws_sdk_codedeploy.types.target_group_info.deserialize_aws_json_1_1(
+                data["targetGroup"]
+            )
+        )
+    if "taskSetLabel" in data:
+        import aws_sdk_codedeploy.types.target_label
+
+        out["task_set_label"] = (
+            aws_sdk_codedeploy.types.target_label.deserialize_aws_json_1_1(
+                data["taskSetLabel"]
+            )
+        )
+    return out

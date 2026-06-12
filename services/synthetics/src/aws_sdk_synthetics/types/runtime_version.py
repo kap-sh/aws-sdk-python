@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.synthetics#RuntimeVersion``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_synthetics.types.string
+    import aws_sdk_synthetics.types.timestamp
+
+
+class RuntimeVersion(TypedDict):
+    version_name: NotRequired["aws_sdk_synthetics.types.string.String"]
+    """<p>The name of the runtime version. For a list of valid runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>.</p>"""
+    description: NotRequired["aws_sdk_synthetics.types.string.String"]
+    """<p>A description of the runtime version, created by Amazon.</p>"""
+    release_date: NotRequired["aws_sdk_synthetics.types.timestamp.Timestamp"]
+    """<p>The date that the runtime version was released.</p>"""
+    deprecation_date: NotRequired["aws_sdk_synthetics.types.timestamp.Timestamp"]
+    """<p>If this runtime version is deprecated, this value is the date of deprecation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RuntimeVersion) -> dict:
+    out: dict = {}
+    if "version_name" in value:
+        out["VersionName"] = value["version_name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "release_date" in value:
+        import aws_sdk_synthetics.types.timestamp
+
+        out["ReleaseDate"] = aws_sdk_synthetics.types.timestamp.serialize_json(
+            value["release_date"]
+        )
+    if "deprecation_date" in value:
+        import aws_sdk_synthetics.types.timestamp
+
+        out["DeprecationDate"] = aws_sdk_synthetics.types.timestamp.serialize_json(
+            value["deprecation_date"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> RuntimeVersion:
+    out: RuntimeVersion = {}  # type: ignore[typeddict-item]
+    if "VersionName" in data:
+        out["version_name"] = data["VersionName"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "ReleaseDate" in data:
+        import aws_sdk_synthetics.types.timestamp
+
+        out["release_date"] = aws_sdk_synthetics.types.timestamp.deserialize_json(
+            data["ReleaseDate"]
+        )
+    if "DeprecationDate" in data:
+        import aws_sdk_synthetics.types.timestamp
+
+        out["deprecation_date"] = aws_sdk_synthetics.types.timestamp.deserialize_json(
+            data["DeprecationDate"]
+        )
+    return out

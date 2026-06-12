@@ -1,0 +1,177 @@
+"""Generated from Smithy shape ``com.amazonaws.ivs#Channel``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs.types.channel_ad_configuration_arn
+    import aws_sdk_ivs.types.channel_arn
+    import aws_sdk_ivs.types.channel_latency_mode
+    import aws_sdk_ivs.types.channel_name
+    import aws_sdk_ivs.types.channel_playback_restriction_policy_arn
+    import aws_sdk_ivs.types.channel_recording_configuration_arn
+    import aws_sdk_ivs.types.channel_type
+    import aws_sdk_ivs.types.container_format
+    import aws_sdk_ivs.types.ingest_endpoint
+    import aws_sdk_ivs.types.insecure_ingest
+    import aws_sdk_ivs.types.is_authorized
+    import aws_sdk_ivs.types.multitrack_input_configuration
+    import aws_sdk_ivs.types.playback_url
+    import aws_sdk_ivs.types.srt
+    import aws_sdk_ivs.types.tags
+    import aws_sdk_ivs.types.transcode_preset
+
+
+class Channel(TypedDict):
+    arn: NotRequired["aws_sdk_ivs.types.channel_arn.ChannelArn"]
+    """<p>Channel ARN.</p>"""
+    name: NotRequired["aws_sdk_ivs.types.channel_name.ChannelName"]
+    """<p>Channel name.</p>"""
+    latency_mode: NotRequired[
+        "aws_sdk_ivs.types.channel_latency_mode.ChannelLatencyMode"
+    ]
+    """<p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default: <code>LOW</code>.</p>"""
+    type: NotRequired["aws_sdk_ivs.types.channel_type.ChannelType"]
+    """<p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html\">Channel Types</a>.</p>"""
+    recording_configuration_arn: NotRequired[
+        "aws_sdk_ivs.types.channel_recording_configuration_arn.ChannelRecordingConfigurationArn"
+    ]
+    """<p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording. Default: \"\" (empty string, recording is disabled).</p>"""
+    ingest_endpoint: NotRequired["aws_sdk_ivs.types.ingest_endpoint.IngestEndpoint"]
+    """<p>Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.</p>"""
+    playback_url: NotRequired["aws_sdk_ivs.types.playback_url.PlaybackURL"]
+    """<p>Channel playback URL.</p>"""
+    authorized: "aws_sdk_ivs.types.is_authorized.IsAuthorized"
+    """<p>Whether the channel is private (enabled for playback authorization). Default: <code>false</code>.</p>"""
+    tags: NotRequired["aws_sdk_ivs.types.tags.Tags"]
+    """<p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
+    insecure_ingest: "aws_sdk_ivs.types.insecure_ingest.InsecureIngest"
+    """<p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>"""
+    preset: NotRequired["aws_sdk_ivs.types.transcode_preset.TranscodePreset"]
+    """<p>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>\"\"</code>).</p>"""
+    srt: NotRequired["aws_sdk_ivs.types.srt.Srt"]
+    """<p>Specifies the endpoint and optional passphrase for streaming with the SRT protocol.</p>"""
+    playback_restriction_policy_arn: NotRequired[
+        "aws_sdk_ivs.types.channel_playback_restriction_policy_arn.ChannelPlaybackRestrictionPolicyArn"
+    ]
+    """<p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: \"\" (empty string, no playback restriction policy is applied).</p>"""
+    multitrack_input_configuration: NotRequired[
+        "aws_sdk_ivs.types.multitrack_input_configuration.MultitrackInputConfiguration"
+    ]
+    """<p>Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.</p>"""
+    container_format: NotRequired["aws_sdk_ivs.types.container_format.ContainerFormat"]
+    """<p>Indicates which content-packaging format is used (MPEG-TS or fMP4). If <code>multitrackInputConfiguration</code> is specified and <code>enabled</code> is <code>true</code>, then <code>containerFormat</code> is required and must be set to <code>FRAGMENTED_MP4</code>. Otherwise, <code>containerFormat</code> may be set to <code>TS</code> or <code>FRAGMENTED_MP4</code>. Default: <code>TS</code>.</p>"""
+    ad_configuration_arn: NotRequired[
+        "aws_sdk_ivs.types.channel_ad_configuration_arn.ChannelAdConfigurationArn"
+    ]
+    """<p>ARN of the ad configuration associated with the channel.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Channel) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "latency_mode" in value:
+        out["latencyMode"] = value["latency_mode"]
+    if "type" in value:
+        import aws_sdk_ivs.types.channel_type
+
+        out["type"] = aws_sdk_ivs.types.channel_type.serialize_json(value["type"])
+    if "recording_configuration_arn" in value:
+        out["recordingConfigurationArn"] = value["recording_configuration_arn"]
+    if "ingest_endpoint" in value:
+        out["ingestEndpoint"] = value["ingest_endpoint"]
+    if "playback_url" in value:
+        out["playbackUrl"] = value["playback_url"]
+    out["authorized"] = value.get("authorized", False)
+    if "tags" in value:
+        import aws_sdk_ivs.types.tags
+
+        out["tags"] = aws_sdk_ivs.types.tags.serialize_json(value["tags"])
+    out["insecureIngest"] = value.get("insecure_ingest", False)
+    if "preset" in value:
+        import aws_sdk_ivs.types.transcode_preset
+
+        out["preset"] = aws_sdk_ivs.types.transcode_preset.serialize_json(
+            value["preset"]
+        )
+    if "srt" in value:
+        import aws_sdk_ivs.types.srt
+
+        out["srt"] = aws_sdk_ivs.types.srt.serialize_json(value["srt"])
+    if "playback_restriction_policy_arn" in value:
+        out["playbackRestrictionPolicyArn"] = value["playback_restriction_policy_arn"]
+    if "multitrack_input_configuration" in value:
+        import aws_sdk_ivs.types.multitrack_input_configuration
+
+        out["multitrackInputConfiguration"] = (
+            aws_sdk_ivs.types.multitrack_input_configuration.serialize_json(
+                value["multitrack_input_configuration"]
+            )
+        )
+    if "container_format" in value:
+        out["containerFormat"] = value["container_format"]
+    if "ad_configuration_arn" in value:
+        out["adConfigurationArn"] = value["ad_configuration_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> Channel:
+    out: Channel = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "latencyMode" in data:
+        out["latency_mode"] = data["latencyMode"]
+    if "type" in data:
+        import aws_sdk_ivs.types.channel_type
+
+        out["type"] = aws_sdk_ivs.types.channel_type.deserialize_json(data["type"])
+    if "recordingConfigurationArn" in data:
+        out["recording_configuration_arn"] = data["recordingConfigurationArn"]
+    if "ingestEndpoint" in data:
+        out["ingest_endpoint"] = data["ingestEndpoint"]
+    if "playbackUrl" in data:
+        out["playback_url"] = data["playbackUrl"]
+    if "authorized" in data:
+        out["authorized"] = data["authorized"]
+    else:
+        out["authorized"] = False
+    if "tags" in data:
+        import aws_sdk_ivs.types.tags
+
+        out["tags"] = aws_sdk_ivs.types.tags.deserialize_json(data["tags"])
+    if "insecureIngest" in data:
+        out["insecure_ingest"] = data["insecureIngest"]
+    else:
+        out["insecure_ingest"] = False
+    if "preset" in data:
+        import aws_sdk_ivs.types.transcode_preset
+
+        out["preset"] = aws_sdk_ivs.types.transcode_preset.deserialize_json(
+            data["preset"]
+        )
+    if "srt" in data:
+        import aws_sdk_ivs.types.srt
+
+        out["srt"] = aws_sdk_ivs.types.srt.deserialize_json(data["srt"])
+    if "playbackRestrictionPolicyArn" in data:
+        out["playback_restriction_policy_arn"] = data["playbackRestrictionPolicyArn"]
+    if "multitrackInputConfiguration" in data:
+        import aws_sdk_ivs.types.multitrack_input_configuration
+
+        out["multitrack_input_configuration"] = (
+            aws_sdk_ivs.types.multitrack_input_configuration.deserialize_json(
+                data["multitrackInputConfiguration"]
+            )
+        )
+    if "containerFormat" in data:
+        out["container_format"] = data["containerFormat"]
+    if "adConfigurationArn" in data:
+        out["ad_configuration_arn"] = data["adConfigurationArn"]
+    return out

@@ -1,0 +1,233 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#Firewall``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_network_firewall.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_network_firewall.types.availability_zone_mappings
+    import aws_sdk_network_firewall.types.aws_account_id
+    import aws_sdk_network_firewall.types.boolean
+    import aws_sdk_network_firewall.types.description
+    import aws_sdk_network_firewall.types.enabled_analysis_types
+    import aws_sdk_network_firewall.types.encryption_configuration
+    import aws_sdk_network_firewall.types.number_of_associations
+    import aws_sdk_network_firewall.types.resource_arn
+    import aws_sdk_network_firewall.types.resource_id
+    import aws_sdk_network_firewall.types.resource_name
+    import aws_sdk_network_firewall.types.subnet_mappings
+    import aws_sdk_network_firewall.types.tag_list
+    import aws_sdk_network_firewall.types.transit_gateway_id
+    import aws_sdk_network_firewall.types.vpc_id
+
+
+class Firewall(TypedDict):
+    firewall_name: NotRequired[
+        "aws_sdk_network_firewall.types.resource_name.ResourceName"
+    ]
+    """<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>"""
+    firewall_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
+    """<p>The Amazon Resource Name (ARN) of the firewall.</p>"""
+    firewall_policy_arn: "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
+    """<p>The Amazon Resource Name (ARN) of the firewall policy.</p> <p>The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls. </p>"""
+    vpc_id: "aws_sdk_network_firewall.types.vpc_id.VpcId"
+    """<p>The unique identifier of the VPC where the firewall is in use. </p>"""
+    subnet_mappings: "aws_sdk_network_firewall.types.subnet_mappings.SubnetMappings"
+    """<p>The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.</p> <p>These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone. </p> <p>In addition to these subnets, you can define other endpoints for the firewall in <code>VpcEndpointAssociation</code> resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone. </p>"""
+    delete_protection: "aws_sdk_network_firewall.types.boolean.Boolean"
+    """<p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>"""
+    subnet_change_protection: "aws_sdk_network_firewall.types.boolean.Boolean"
+    """<p>A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"""
+    firewall_policy_change_protection: "aws_sdk_network_firewall.types.boolean.Boolean"
+    """<p>A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"""
+    description: NotRequired["aws_sdk_network_firewall.types.description.Description"]
+    """<p>A description of the firewall.</p>"""
+    firewall_id: "aws_sdk_network_firewall.types.resource_id.ResourceId"
+    """<p>The unique identifier for the firewall. </p>"""
+    tags: NotRequired["aws_sdk_network_firewall.types.tag_list.TagList"]
+    """<p></p>"""
+    encryption_configuration: NotRequired[
+        "aws_sdk_network_firewall.types.encryption_configuration.EncryptionConfiguration"
+    ]
+    """<p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your firewall.</p>"""
+    number_of_associations: NotRequired[
+        "aws_sdk_network_firewall.types.number_of_associations.NumberOfAssociations"
+    ]
+    """<p>The number of <code>VpcEndpointAssociation</code> resources that use this firewall. </p>"""
+    enabled_analysis_types: NotRequired[
+        "aws_sdk_network_firewall.types.enabled_analysis_types.EnabledAnalysisTypes"
+    ]
+    """<p>An optional setting indicating the specific traffic analysis types to enable on the firewall. </p>"""
+    transit_gateway_id: NotRequired[
+        "aws_sdk_network_firewall.types.transit_gateway_id.TransitGatewayId"
+    ]
+    """<p>The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.</p>"""
+    transit_gateway_owner_account_id: NotRequired[
+        "aws_sdk_network_firewall.types.aws_account_id.AWSAccountId"
+    ]
+    """<p>The Amazon Web Services account ID that owns the transit gateway. This may be different from the firewall owner's account ID when using a shared transit gateway.</p>"""
+    availability_zone_mappings: NotRequired[
+        "aws_sdk_network_firewall.types.availability_zone_mappings.AvailabilityZoneMappings"
+    ]
+    """<p>The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.</p>"""
+    availability_zone_change_protection: (
+        "aws_sdk_network_firewall.types.boolean.Boolean"
+    )
+    """<p>A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to <code>TRUE</code>, you must first disable this protection before adding or removing Availability Zones.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Firewall) -> dict:
+    out: dict = {}
+    if "firewall_name" in value:
+        out["FirewallName"] = value["firewall_name"]
+    if "firewall_arn" in value:
+        out["FirewallArn"] = value["firewall_arn"]
+    out["FirewallPolicyArn"] = value["firewall_policy_arn"]
+    out["VpcId"] = value["vpc_id"]
+    import aws_sdk_network_firewall.types.subnet_mappings
+
+    out["SubnetMappings"] = (
+        aws_sdk_network_firewall.types.subnet_mappings.serialize_aws_json_1_0(
+            value["subnet_mappings"]
+        )
+    )
+    out["DeleteProtection"] = value.get("delete_protection", False)
+    out["SubnetChangeProtection"] = value.get("subnet_change_protection", False)
+    out["FirewallPolicyChangeProtection"] = value.get(
+        "firewall_policy_change_protection", False
+    )
+    if "description" in value:
+        out["Description"] = value["description"]
+    out["FirewallId"] = value["firewall_id"]
+    if "tags" in value:
+        import aws_sdk_network_firewall.types.tag_list
+
+        out["Tags"] = aws_sdk_network_firewall.types.tag_list.serialize_aws_json_1_0(
+            value["tags"]
+        )
+    if "encryption_configuration" in value:
+        import aws_sdk_network_firewall.types.encryption_configuration
+
+        out["EncryptionConfiguration"] = (
+            aws_sdk_network_firewall.types.encryption_configuration.serialize_aws_json_1_0(
+                value["encryption_configuration"]
+            )
+        )
+    if "number_of_associations" in value:
+        out["NumberOfAssociations"] = value["number_of_associations"]
+    if "enabled_analysis_types" in value:
+        import aws_sdk_network_firewall.types.enabled_analysis_types
+
+        out["EnabledAnalysisTypes"] = (
+            aws_sdk_network_firewall.types.enabled_analysis_types.serialize_aws_json_1_0(
+                value["enabled_analysis_types"]
+            )
+        )
+    if "transit_gateway_id" in value:
+        out["TransitGatewayId"] = value["transit_gateway_id"]
+    if "transit_gateway_owner_account_id" in value:
+        out["TransitGatewayOwnerAccountId"] = value["transit_gateway_owner_account_id"]
+    if "availability_zone_mappings" in value:
+        import aws_sdk_network_firewall.types.availability_zone_mappings
+
+        out["AvailabilityZoneMappings"] = (
+            aws_sdk_network_firewall.types.availability_zone_mappings.serialize_aws_json_1_0(
+                value["availability_zone_mappings"]
+            )
+        )
+    out["AvailabilityZoneChangeProtection"] = value.get(
+        "availability_zone_change_protection", False
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Firewall:
+    out: Firewall = {}  # type: ignore[typeddict-item]
+    if "FirewallName" in data:
+        out["firewall_name"] = data["FirewallName"]
+    if "FirewallArn" in data:
+        out["firewall_arn"] = data["FirewallArn"]
+    if "FirewallPolicyArn" in data:
+        out["firewall_policy_arn"] = data["FirewallPolicyArn"]
+    else:
+        raise DeserializationError("Firewall.firewall_policy_arn required")
+    if "VpcId" in data:
+        out["vpc_id"] = data["VpcId"]
+    else:
+        raise DeserializationError("Firewall.vpc_id required")
+    if "SubnetMappings" in data:
+        import aws_sdk_network_firewall.types.subnet_mappings
+
+        out["subnet_mappings"] = (
+            aws_sdk_network_firewall.types.subnet_mappings.deserialize_aws_json_1_0(
+                data["SubnetMappings"]
+            )
+        )
+    else:
+        raise DeserializationError("Firewall.subnet_mappings required")
+    if "DeleteProtection" in data:
+        out["delete_protection"] = data["DeleteProtection"]
+    else:
+        out["delete_protection"] = False
+    if "SubnetChangeProtection" in data:
+        out["subnet_change_protection"] = data["SubnetChangeProtection"]
+    else:
+        out["subnet_change_protection"] = False
+    if "FirewallPolicyChangeProtection" in data:
+        out["firewall_policy_change_protection"] = data[
+            "FirewallPolicyChangeProtection"
+        ]
+    else:
+        out["firewall_policy_change_protection"] = False
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "FirewallId" in data:
+        out["firewall_id"] = data["FirewallId"]
+    else:
+        raise DeserializationError("Firewall.firewall_id required")
+    if "Tags" in data:
+        import aws_sdk_network_firewall.types.tag_list
+
+        out["tags"] = aws_sdk_network_firewall.types.tag_list.deserialize_aws_json_1_0(
+            data["Tags"]
+        )
+    if "EncryptionConfiguration" in data:
+        import aws_sdk_network_firewall.types.encryption_configuration
+
+        out["encryption_configuration"] = (
+            aws_sdk_network_firewall.types.encryption_configuration.deserialize_aws_json_1_0(
+                data["EncryptionConfiguration"]
+            )
+        )
+    if "NumberOfAssociations" in data:
+        out["number_of_associations"] = data["NumberOfAssociations"]
+    if "EnabledAnalysisTypes" in data:
+        import aws_sdk_network_firewall.types.enabled_analysis_types
+
+        out["enabled_analysis_types"] = (
+            aws_sdk_network_firewall.types.enabled_analysis_types.deserialize_aws_json_1_0(
+                data["EnabledAnalysisTypes"]
+            )
+        )
+    if "TransitGatewayId" in data:
+        out["transit_gateway_id"] = data["TransitGatewayId"]
+    if "TransitGatewayOwnerAccountId" in data:
+        out["transit_gateway_owner_account_id"] = data["TransitGatewayOwnerAccountId"]
+    if "AvailabilityZoneMappings" in data:
+        import aws_sdk_network_firewall.types.availability_zone_mappings
+
+        out["availability_zone_mappings"] = (
+            aws_sdk_network_firewall.types.availability_zone_mappings.deserialize_aws_json_1_0(
+                data["AvailabilityZoneMappings"]
+            )
+        )
+    if "AvailabilityZoneChangeProtection" in data:
+        out["availability_zone_change_protection"] = data[
+            "AvailabilityZoneChangeProtection"
+        ]
+    else:
+        out["availability_zone_change_protection"] = False
+    return out

@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.mturk#AssociateQualificationWithWorkerRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_mturk.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mturk.types.boolean
+    import aws_sdk_mturk.types.customer_id
+    import aws_sdk_mturk.types.entity_id
+    import aws_sdk_mturk.types.integer
+
+
+class AssociateQualificationWithWorkerRequest(TypedDict):
+    qualification_type_id: "aws_sdk_mturk.types.entity_id.EntityId"
+    """<p>The ID of the Qualification type to use for the assigned Qualification.</p>"""
+    worker_id: "aws_sdk_mturk.types.customer_id.CustomerId"
+    """<p> The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests. </p>"""
+    integer_value: NotRequired["aws_sdk_mturk.types.integer.Integer"]
+    """<p>The value of the Qualification to assign.</p>"""
+    send_notification: NotRequired["aws_sdk_mturk.types.boolean.Boolean"]
+    """<p> Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AssociateQualificationWithWorkerRequest) -> dict:
+    out: dict = {}
+    out["QualificationTypeId"] = value["qualification_type_id"]
+    out["WorkerId"] = value["worker_id"]
+    if "integer_value" in value:
+        out["IntegerValue"] = value["integer_value"]
+    if "send_notification" in value:
+        out["SendNotification"] = value["send_notification"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AssociateQualificationWithWorkerRequest:
+    out: AssociateQualificationWithWorkerRequest = {}  # type: ignore[typeddict-item]
+    if "QualificationTypeId" in data:
+        out["qualification_type_id"] = data["QualificationTypeId"]
+    else:
+        raise DeserializationError(
+            "AssociateQualificationWithWorkerRequest.qualification_type_id required"
+        )
+    if "WorkerId" in data:
+        out["worker_id"] = data["WorkerId"]
+    else:
+        raise DeserializationError(
+            "AssociateQualificationWithWorkerRequest.worker_id required"
+        )
+    if "IntegerValue" in data:
+        out["integer_value"] = data["IntegerValue"]
+    if "SendNotification" in data:
+        out["send_notification"] = data["SendNotification"]
+    return out

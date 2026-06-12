@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#GetRealtimeLogConfigRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudfront.types.string
+
+
+class GetRealtimeLogConfigRequest(TypedDict):
+    name: NotRequired["aws_sdk_cloudfront.types.string.string"]
+    """<p>The name of the real-time log configuration to get.</p>"""
+    arn: NotRequired["aws_sdk_cloudfront.types.string.string"]
+    """<p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: GetRealtimeLogConfigRequest, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    if "name" in value:
+        SubElement(el, "Name").text = str(value["name"])
+    if "arn" in value:
+        SubElement(el, "ARN").text = str(value["arn"])
+
+
+def deserialize_xml(el: Element) -> GetRealtimeLogConfigRequest:
+    out: GetRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_arn = el.find("ARN")
+    if child_arn is not None:
+        out["arn"] = str(child_arn.text or "")
+    return out

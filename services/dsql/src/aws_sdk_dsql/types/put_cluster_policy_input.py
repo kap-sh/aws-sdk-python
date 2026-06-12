@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.dsql#PutClusterPolicyInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_dsql.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_dsql.types.bypass_policy_lockout_safety_check
+    import aws_sdk_dsql.types.client_token
+    import aws_sdk_dsql.types.cluster_id
+    import aws_sdk_dsql.types.policy_document
+    import aws_sdk_dsql.types.policy_version
+
+class PutClusterPolicyInput(TypedDict):
+    identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
+    policy: "aws_sdk_dsql.types.policy_document.PolicyDocument"
+    """<p>The resource-based policy document to attach to the cluster. This should be a valid JSON policy document that defines permissions and conditions.</p>"""
+    bypass_policy_lockout_safety_check: "aws_sdk_dsql.types.bypass_policy_lockout_safety_check.BypassPolicyLockoutSafetyCheck"
+    """<p>A flag that allows you to bypass the policy lockout safety check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>"""
+    expected_policy_version: NotRequired["aws_sdk_dsql.types.policy_version.PolicyVersion"]
+    """<p>The expected version of the current policy. This parameter ensures that you're updating the correct version of the policy and helps prevent concurrent modification conflicts.</p>"""
+    client_token: NotRequired["aws_sdk_dsql.types.client_token.ClientToken"]
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutClusterPolicyInput) -> dict:
+    out: dict = {}
+    out["policy"] = value["policy"]
+    out["bypassPolicyLockoutSafetyCheck"] = value.get("bypass_policy_lockout_safety_check", False)
+    if "expected_policy_version" in value:
+        out["expectedPolicyVersion"] = value["expected_policy_version"]
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> PutClusterPolicyInput:
+    out: PutClusterPolicyInput = {}  # type: ignore[typeddict-item]
+    if "policy" in data:
+        out["policy"] = data["policy"]
+    else:
+        raise DeserializationError("PutClusterPolicyInput.policy required")
+    if "bypassPolicyLockoutSafetyCheck" in data:
+        out["bypass_policy_lockout_safety_check"] = data["bypassPolicyLockoutSafetyCheck"]
+    else:
+        out["bypass_policy_lockout_safety_check"] = False
+    if "expectedPolicyVersion" in data:
+        out["expected_policy_version"] = data["expectedPolicyVersion"]
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#DescribeChannelPlacementGroupSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__list_of__string
+    import aws_sdk_medialive.types.__string
+    import aws_sdk_medialive.types.channel_placement_group_state
+
+
+class DescribeChannelPlacementGroupSummary(TypedDict):
+    arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created."""
+    channels: NotRequired["aws_sdk_medialive.types.__list_of__string.__listOf__string"]
+    """Used in ListChannelPlacementGroupsResult"""
+    cluster_id: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """The ID of the Cluster that the Node belongs to."""
+    id: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN."""
+    name: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """The name that you specified for the ChannelPlacementGroup."""
+    nodes: NotRequired["aws_sdk_medialive.types.__list_of__string.__listOf__string"]
+    """An array with one item, which is the single Node that is associated with the ChannelPlacementGroup."""
+    state: NotRequired[
+        "aws_sdk_medialive.types.channel_placement_group_state.ChannelPlacementGroupState"
+    ]
+    """The current state of the ChannelPlacementGroup."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeChannelPlacementGroupSummary) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "channels" in value:
+        import aws_sdk_medialive.types.__list_of__string
+
+        out["channels"] = aws_sdk_medialive.types.__list_of__string.serialize_json(
+            value["channels"]
+        )
+    if "cluster_id" in value:
+        out["clusterId"] = value["cluster_id"]
+    if "id" in value:
+        out["id"] = value["id"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "nodes" in value:
+        import aws_sdk_medialive.types.__list_of__string
+
+        out["nodes"] = aws_sdk_medialive.types.__list_of__string.serialize_json(
+            value["nodes"]
+        )
+    if "state" in value:
+        import aws_sdk_medialive.types.channel_placement_group_state
+
+        out["state"] = (
+            aws_sdk_medialive.types.channel_placement_group_state.serialize_json(
+                value["state"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeChannelPlacementGroupSummary:
+    out: DescribeChannelPlacementGroupSummary = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "channels" in data:
+        import aws_sdk_medialive.types.__list_of__string
+
+        out["channels"] = aws_sdk_medialive.types.__list_of__string.deserialize_json(
+            data["channels"]
+        )
+    if "clusterId" in data:
+        out["cluster_id"] = data["clusterId"]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "nodes" in data:
+        import aws_sdk_medialive.types.__list_of__string
+
+        out["nodes"] = aws_sdk_medialive.types.__list_of__string.deserialize_json(
+            data["nodes"]
+        )
+    if "state" in data:
+        import aws_sdk_medialive.types.channel_placement_group_state
+
+        out["state"] = (
+            aws_sdk_medialive.types.channel_placement_group_state.deserialize_json(
+                data["state"]
+            )
+        )
+    return out

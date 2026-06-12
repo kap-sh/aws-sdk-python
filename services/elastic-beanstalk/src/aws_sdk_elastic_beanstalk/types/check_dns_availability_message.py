@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#CheckDNSAvailabilityMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_elastic_beanstalk._protocol.xml import Element
+from aws_sdk_elastic_beanstalk.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_elastic_beanstalk.types.dns_cname_prefix
+
+
+class CheckDNSAvailabilityMessage(TypedDict):
+    cname_prefix: "aws_sdk_elastic_beanstalk.types.dns_cname_prefix.DNSCnamePrefix"
+    """<p>The prefix used when this CNAME is reserved.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: CheckDNSAvailabilityMessage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.CNAMEPrefix", str(value["cname_prefix"])))
+
+
+def deserialize_query(el: Element) -> CheckDNSAvailabilityMessage:
+    out: CheckDNSAvailabilityMessage = {}  # type: ignore[typeddict-item]
+    child_cname_prefix = el.find("CNAMEPrefix")
+    if child_cname_prefix is not None:
+        out["cname_prefix"] = str(child_cname_prefix.text or "")
+    else:
+        raise DeserializationError("CheckDNSAvailabilityMessage.cname_prefix required")
+    return out

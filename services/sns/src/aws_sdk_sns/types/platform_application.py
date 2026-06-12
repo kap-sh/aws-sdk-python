@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.sns#PlatformApplication``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_sns._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_sns.types.map_string_to_string
+    import aws_sdk_sns.types.string
+
+
+class PlatformApplication(TypedDict):
+    platform_application_arn: NotRequired["aws_sdk_sns.types.string.String"]
+    """<p>PlatformApplicationArn for platform application object.</p>"""
+    attributes: NotRequired["aws_sdk_sns.types.map_string_to_string.MapStringToString"]
+    """<p>Attributes for platform application object.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: PlatformApplication, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "platform_application_arn" in value:
+        pairs.append(
+            (f"{prefix}.PlatformApplicationArn", str(value["platform_application_arn"]))
+        )
+    if "attributes" in value:
+        import aws_sdk_sns.types.map_string_to_string
+
+        aws_sdk_sns.types.map_string_to_string.serialize_query(
+            value["attributes"], pairs, f"{prefix}.Attributes"
+        )
+
+
+def deserialize_query(el: Element) -> PlatformApplication:
+    out: PlatformApplication = {}  # type: ignore[typeddict-item]
+    child_platform_application_arn = el.find("PlatformApplicationArn")
+    if child_platform_application_arn is not None:
+        out["platform_application_arn"] = str(child_platform_application_arn.text or "")
+    child_attributes = el.find("Attributes")
+    if child_attributes is not None:
+        import aws_sdk_sns.types.map_string_to_string
+
+        out["attributes"] = aws_sdk_sns.types.map_string_to_string.deserialize_query(
+            child_attributes
+        )
+    return out

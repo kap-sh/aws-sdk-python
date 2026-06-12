@@ -1,0 +1,295 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_cleanroomsml._services.async_clean_rooms_ml import ensure_async_iterator
+from aws_sdk_cleanroomsml._services.clean_rooms_ml import ensure_sync_iterator
+from aws_sdk_cleanroomsml._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+import aws_sdk_cleanroomsml._auth._signers
+import aws_sdk_cleanroomsml._auth._sigv4
+if TYPE_CHECKING:
+    from aws_sdk_cleanroomsml._services.clean_rooms_ml import CleanRoomsMLClient, CleanRoomsMLClientConfig
+    from aws_sdk_cleanroomsml._services.async_clean_rooms_ml import AsyncCleanRoomsMLClient, AsyncCleanRoomsMLClientConfig
+    import aws_sdk_cleanroomsml.types.audience_model_arn
+    import aws_sdk_cleanroomsml.types.audience_size_config
+    import aws_sdk_cleanroomsml.types.configured_audience_model_arn
+    import aws_sdk_cleanroomsml.types.configured_audience_model_output_config
+    import aws_sdk_cleanroomsml.types.configured_audience_model_summary
+    import aws_sdk_cleanroomsml.types.create_configured_audience_model_request
+    import aws_sdk_cleanroomsml.types.create_configured_audience_model_response
+    import aws_sdk_cleanroomsml.types.delete_configured_audience_model_request
+    import aws_sdk_cleanroomsml.types.get_configured_audience_model_request
+    import aws_sdk_cleanroomsml.types.get_configured_audience_model_response
+    import aws_sdk_cleanroomsml.types.list_configured_audience_models_request
+    import aws_sdk_cleanroomsml.types.list_configured_audience_models_response
+    import aws_sdk_cleanroomsml.types.max_results
+    import aws_sdk_cleanroomsml.types.metrics_list
+    import aws_sdk_cleanroomsml.types.min_matching_seed_size
+    import aws_sdk_cleanroomsml.types.name_string
+    import aws_sdk_cleanroomsml.types.next_token
+    import aws_sdk_cleanroomsml.types.resource_description
+    import aws_sdk_cleanroomsml.types.tag_map
+    import aws_sdk_cleanroomsml.types.tag_on_create_policy
+    import aws_sdk_cleanroomsml.types.update_configured_audience_model_request
+    import aws_sdk_cleanroomsml.types.update_configured_audience_model_response
+
+class ConfiguredAudienceModel:
+    def __init__(self, service: CleanRoomsMLClient) -> None:
+        self._service = service
+    def create(self, name: "aws_sdk_cleanroomsml.types.name_string.NameString", audience_model_arn: "aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn", output_config: "aws_sdk_cleanroomsml.types.configured_audience_model_output_config.ConfiguredAudienceModelOutputConfig", shared_audience_metrics: "aws_sdk_cleanroomsml.types.metrics_list.MetricsList", *, config_overrides: Optional[CleanRoomsMLClientConfig] = None, description: Optional["aws_sdk_cleanroomsml.types.resource_description.ResourceDescription"] = None, min_matching_seed_size: Optional["aws_sdk_cleanroomsml.types.min_matching_seed_size.MinMatchingSeedSize"] = None, audience_size_config: Optional["aws_sdk_cleanroomsml.types.audience_size_config.AudienceSizeConfig"] = None, tags: Optional["aws_sdk_cleanroomsml.types.tag_map.TagMap"] = None, child_resource_tag_on_create_policy: Optional["aws_sdk_cleanroomsml.types.tag_on_create_policy.TagOnCreatePolicy"] = None) -> "aws_sdk_cleanroomsml.types.create_configured_audience_model_response.CreateConfiguredAudienceModelResponse":
+        """<p>Defines the information necessary to create a configured audience model.</p>
+
+        Args:
+            name: <p>The name of the configured audience model.</p>
+            audience_model_arn: <p>The Amazon Resource Name (ARN) of the audience model to use for the configured audience model.</p>
+            output_config: <p>Configure the Amazon S3 location and IAM Role for audiences created using this configured audience model. Each audience will have a unique location. The IAM Role must have <code>s3:PutObject</code> permission on the destination Amazon S3 location. If the destination is protected with Amazon S3 KMS-SSE, then the Role must also have the required KMS permissions.</p>
+            description: <p>The description of the configured audience model.</p>
+            shared_audience_metrics: <p>Whether audience metrics are shared.</p>
+            min_matching_seed_size: <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model. The default value is 500.</p>
+            audience_size_config: <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+            tags: <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+            child_resource_tag_on_create_policy: <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p> <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest]') -> OperationResponse["aws_sdk_cleanroomsml.types.create_configured_audience_model_response.CreateConfiguredAudienceModelResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.create_configured_audience_model
+            output, http_response = aws_sdk_cleanroomsml._operations.aws_stark_control_service.create_configured_audience_model.create_configured_audience_model(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["audience_model_arn"] = audience_model_arn
+        input["output_config"] = output_config
+        if description is not None:
+            input["description"] = description
+        input["shared_audience_metrics"] = shared_audience_metrics
+        if min_matching_seed_size is not None:
+            input["min_matching_seed_size"] = min_matching_seed_size
+        if audience_size_config is not None:
+            input["audience_size_config"] = audience_size_config
+        if tags is not None:
+            input["tags"] = tags
+        if child_resource_tag_on_create_policy is not None:
+            input["child_resource_tag_on_create_policy"] = child_resource_tag_on_create_policy
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def read(self, configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn", *, config_overrides: Optional[CleanRoomsMLClientConfig] = None) -> "aws_sdk_cleanroomsml.types.get_configured_audience_model_response.GetConfiguredAudienceModelResponse":
+        """<p>Returns information about a specified configured audience model.</p>
+
+        Args:
+            configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest]') -> OperationResponse["aws_sdk_cleanroomsml.types.get_configured_audience_model_response.GetConfiguredAudienceModelResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.get_configured_audience_model
+            output, http_response = aws_sdk_cleanroomsml._operations.aws_stark_control_service.get_configured_audience_model.get_configured_audience_model(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["configured_audience_model_arn"] = configured_audience_model_arn
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def update(self, configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn", *, config_overrides: Optional[CleanRoomsMLClientConfig] = None, output_config: Optional["aws_sdk_cleanroomsml.types.configured_audience_model_output_config.ConfiguredAudienceModelOutputConfig"] = None, audience_model_arn: Optional["aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn"] = None, shared_audience_metrics: Optional["aws_sdk_cleanroomsml.types.metrics_list.MetricsList"] = None, min_matching_seed_size: Optional["aws_sdk_cleanroomsml.types.min_matching_seed_size.MinMatchingSeedSize"] = None, audience_size_config: Optional["aws_sdk_cleanroomsml.types.audience_size_config.AudienceSizeConfig"] = None, description: Optional["aws_sdk_cleanroomsml.types.resource_description.ResourceDescription"] = None) -> "aws_sdk_cleanroomsml.types.update_configured_audience_model_response.UpdateConfiguredAudienceModelResponse":
+        """<p>Provides the information necessary to update a configured audience model. Updates that impact audience generation jobs take effect when a new job starts, but do not impact currently running jobs.</p>
+
+        Args:
+            configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you want to update.</p>
+            output_config: <p>The new output configuration.</p>
+            audience_model_arn: <p>The Amazon Resource Name (ARN) of the new audience model that you want to use.</p>
+            shared_audience_metrics: <p>The new value for whether to share audience metrics.</p>
+            min_matching_seed_size: <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+            audience_size_config: <p>The new audience size configuration.</p>
+            description: <p>The new description of the configured audience model.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest]') -> OperationResponse["aws_sdk_cleanroomsml.types.update_configured_audience_model_response.UpdateConfiguredAudienceModelResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.update_configured_audience_model
+            output, http_response = aws_sdk_cleanroomsml._operations.aws_stark_control_service.update_configured_audience_model.update_configured_audience_model(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["configured_audience_model_arn"] = configured_audience_model_arn
+        if output_config is not None:
+            input["output_config"] = output_config
+        if audience_model_arn is not None:
+            input["audience_model_arn"] = audience_model_arn
+        if shared_audience_metrics is not None:
+            input["shared_audience_metrics"] = shared_audience_metrics
+        if min_matching_seed_size is not None:
+            input["min_matching_seed_size"] = min_matching_seed_size
+        if audience_size_config is not None:
+            input["audience_size_config"] = audience_size_config
+        if description is not None:
+            input["description"] = description
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete(self, configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn", *, config_overrides: Optional[CleanRoomsMLClientConfig] = None) -> None:
+        """<p>Deletes the specified configured audience model. You can't delete a configured audience model if there are any lookalike models that use the configured audience model. If you delete a configured audience model, it will be removed from any collaborations that it is associated to.</p>
+
+        Args:
+            configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you want to delete.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest]') -> OperationResponse[None]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.delete_configured_audience_model
+            output, http_response = aws_sdk_cleanroomsml._operations.aws_stark_control_service.delete_configured_audience_model.delete_configured_audience_model(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["configured_audience_model_arn"] = configured_audience_model_arn
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list(self, *, config_overrides: Optional[CleanRoomsMLClientConfig] = None, next_token: Optional["aws_sdk_cleanroomsml.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_cleanroomsml.types.max_results.MaxResults"] = None) -> "aws_sdk_cleanroomsml.types.list_configured_audience_models_response.ListConfiguredAudienceModelsResponse":
+        """<p>Returns a list of the configured audience models.</p>
+
+        Args:
+            next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
+            max_results: <p>The maximum size of the results that is returned per call.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest]') -> OperationResponse["aws_sdk_cleanroomsml.types.list_configured_audience_models_response.ListConfiguredAudienceModelsResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.list_configured_audience_models
+            output, http_response = aws_sdk_cleanroomsml._operations.aws_stark_control_service.list_configured_audience_models.list_configured_audience_models(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+
+class AsyncConfiguredAudienceModel:
+    def __init__(self, service: AsyncCleanRoomsMLClient) -> None:
+        self._service = service
+    async def create(self, name: "aws_sdk_cleanroomsml.types.name_string.NameString", audience_model_arn: "aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn", output_config: "aws_sdk_cleanroomsml.types.configured_audience_model_output_config.ConfiguredAudienceModelOutputConfig", shared_audience_metrics: "aws_sdk_cleanroomsml.types.metrics_list.MetricsList", *, config_overrides: Optional[AsyncCleanRoomsMLClientConfig] = None, description: Optional["aws_sdk_cleanroomsml.types.resource_description.ResourceDescription"] = None, min_matching_seed_size: Optional["aws_sdk_cleanroomsml.types.min_matching_seed_size.MinMatchingSeedSize"] = None, audience_size_config: Optional["aws_sdk_cleanroomsml.types.audience_size_config.AudienceSizeConfig"] = None, tags: Optional["aws_sdk_cleanroomsml.types.tag_map.TagMap"] = None, child_resource_tag_on_create_policy: Optional["aws_sdk_cleanroomsml.types.tag_on_create_policy.TagOnCreatePolicy"] = None) -> "aws_sdk_cleanroomsml.types.create_configured_audience_model_response.CreateConfiguredAudienceModelResponse":
+        """<p>Defines the information necessary to create a configured audience model.</p>
+
+        Args:
+            name: <p>The name of the configured audience model.</p>
+            audience_model_arn: <p>The Amazon Resource Name (ARN) of the audience model to use for the configured audience model.</p>
+            output_config: <p>Configure the Amazon S3 location and IAM Role for audiences created using this configured audience model. Each audience will have a unique location. The IAM Role must have <code>s3:PutObject</code> permission on the destination Amazon S3 location. If the destination is protected with Amazon S3 KMS-SSE, then the Role must also have the required KMS permissions.</p>
+            description: <p>The description of the configured audience model.</p>
+            shared_audience_metrics: <p>Whether audience metrics are shared.</p>
+            min_matching_seed_size: <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model. The default value is 500.</p>
+            audience_size_config: <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+            tags: <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+            child_resource_tag_on_create_policy: <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p> <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest]') -> AsyncOperationResponse["aws_sdk_cleanroomsml.types.create_configured_audience_model_response.CreateConfiguredAudienceModelResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.create_configured_audience_model
+            output, http_response = await aws_sdk_cleanroomsml._operations.aws_stark_control_service.create_configured_audience_model.async_create_configured_audience_model(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["audience_model_arn"] = audience_model_arn
+        input["output_config"] = output_config
+        if description is not None:
+            input["description"] = description
+        input["shared_audience_metrics"] = shared_audience_metrics
+        if min_matching_seed_size is not None:
+            input["min_matching_seed_size"] = min_matching_seed_size
+        if audience_size_config is not None:
+            input["audience_size_config"] = audience_size_config
+        if tags is not None:
+            input["tags"] = tags
+        if child_resource_tag_on_create_policy is not None:
+            input["child_resource_tag_on_create_policy"] = child_resource_tag_on_create_policy
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def read(self, configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn", *, config_overrides: Optional[AsyncCleanRoomsMLClientConfig] = None) -> "aws_sdk_cleanroomsml.types.get_configured_audience_model_response.GetConfiguredAudienceModelResponse":
+        """<p>Returns information about a specified configured audience model.</p>
+
+        Args:
+            configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest]') -> AsyncOperationResponse["aws_sdk_cleanroomsml.types.get_configured_audience_model_response.GetConfiguredAudienceModelResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.get_configured_audience_model
+            output, http_response = await aws_sdk_cleanroomsml._operations.aws_stark_control_service.get_configured_audience_model.async_get_configured_audience_model(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["configured_audience_model_arn"] = configured_audience_model_arn
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update(self, configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn", *, config_overrides: Optional[AsyncCleanRoomsMLClientConfig] = None, output_config: Optional["aws_sdk_cleanroomsml.types.configured_audience_model_output_config.ConfiguredAudienceModelOutputConfig"] = None, audience_model_arn: Optional["aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn"] = None, shared_audience_metrics: Optional["aws_sdk_cleanroomsml.types.metrics_list.MetricsList"] = None, min_matching_seed_size: Optional["aws_sdk_cleanroomsml.types.min_matching_seed_size.MinMatchingSeedSize"] = None, audience_size_config: Optional["aws_sdk_cleanroomsml.types.audience_size_config.AudienceSizeConfig"] = None, description: Optional["aws_sdk_cleanroomsml.types.resource_description.ResourceDescription"] = None) -> "aws_sdk_cleanroomsml.types.update_configured_audience_model_response.UpdateConfiguredAudienceModelResponse":
+        """<p>Provides the information necessary to update a configured audience model. Updates that impact audience generation jobs take effect when a new job starts, but do not impact currently running jobs.</p>
+
+        Args:
+            configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you want to update.</p>
+            output_config: <p>The new output configuration.</p>
+            audience_model_arn: <p>The Amazon Resource Name (ARN) of the new audience model that you want to use.</p>
+            shared_audience_metrics: <p>The new value for whether to share audience metrics.</p>
+            min_matching_seed_size: <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+            audience_size_config: <p>The new audience size configuration.</p>
+            description: <p>The new description of the configured audience model.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest]') -> AsyncOperationResponse["aws_sdk_cleanroomsml.types.update_configured_audience_model_response.UpdateConfiguredAudienceModelResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.update_configured_audience_model
+            output, http_response = await aws_sdk_cleanroomsml._operations.aws_stark_control_service.update_configured_audience_model.async_update_configured_audience_model(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["configured_audience_model_arn"] = configured_audience_model_arn
+        if output_config is not None:
+            input["output_config"] = output_config
+        if audience_model_arn is not None:
+            input["audience_model_arn"] = audience_model_arn
+        if shared_audience_metrics is not None:
+            input["shared_audience_metrics"] = shared_audience_metrics
+        if min_matching_seed_size is not None:
+            input["min_matching_seed_size"] = min_matching_seed_size
+        if audience_size_config is not None:
+            input["audience_size_config"] = audience_size_config
+        if description is not None:
+            input["description"] = description
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete(self, configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn", *, config_overrides: Optional[AsyncCleanRoomsMLClientConfig] = None) -> None:
+        """<p>Deletes the specified configured audience model. You can't delete a configured audience model if there are any lookalike models that use the configured audience model. If you delete a configured audience model, it will be removed from any collaborations that it is associated to.</p>
+
+        Args:
+            configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you want to delete.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest]') -> AsyncOperationResponse[None]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.delete_configured_audience_model
+            output, http_response = await aws_sdk_cleanroomsml._operations.aws_stark_control_service.delete_configured_audience_model.async_delete_configured_audience_model(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input["configured_audience_model_arn"] = configured_audience_model_arn
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list(self, *, config_overrides: Optional[AsyncCleanRoomsMLClientConfig] = None, next_token: Optional["aws_sdk_cleanroomsml.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_cleanroomsml.types.max_results.MaxResults"] = None) -> "aws_sdk_cleanroomsml.types.list_configured_audience_models_response.ListConfiguredAudienceModelsResponse":
+        """<p>Returns a list of the configured audience models.</p>
+
+        Args:
+            next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
+            max_results: <p>The maximum size of the results that is returned per call.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest]') -> AsyncOperationResponse["aws_sdk_cleanroomsml.types.list_configured_audience_models_response.ListConfiguredAudienceModelsResponse"]:
+            import aws_sdk_cleanroomsml._operations.aws_stark_control_service.list_configured_audience_models
+            output, http_response = await aws_sdk_cleanroomsml._operations.aws_stark_control_service.list_configured_audience_models.async_list_configured_audience_models(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output

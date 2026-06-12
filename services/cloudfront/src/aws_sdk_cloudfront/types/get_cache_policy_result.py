@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#GetCachePolicyResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudfront.types.cache_policy
+    import aws_sdk_cloudfront.types.string
+
+
+class GetCachePolicyResult(TypedDict):
+    cache_policy: NotRequired["aws_sdk_cloudfront.types.cache_policy.CachePolicy"]
+    """<p>The cache policy.</p>"""
+    e_tag: NotRequired["aws_sdk_cloudfront.types.string.string"]
+    """<p>The current version of the cache policy.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: GetCachePolicyResult, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    if "cache_policy" in value:
+        import aws_sdk_cloudfront.types.cache_policy
+
+        aws_sdk_cloudfront.types.cache_policy.serialize_xml(
+            value["cache_policy"], el, "CachePolicy"
+        )
+
+
+def deserialize_xml(el: Element) -> GetCachePolicyResult:
+    out: GetCachePolicyResult = {}  # type: ignore[typeddict-item]
+    child_cache_policy = el.find("CachePolicy")
+    if child_cache_policy is not None:
+        import aws_sdk_cloudfront.types.cache_policy
+
+        out["cache_policy"] = aws_sdk_cloudfront.types.cache_policy.deserialize_xml(
+            child_cache_policy
+        )
+    return out

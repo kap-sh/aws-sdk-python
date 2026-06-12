@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.glacier#DataRetrievalPolicy``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_glacier.types.data_retrieval_rules_list
+
+
+class DataRetrievalPolicy(TypedDict):
+    rules: NotRequired[
+        "aws_sdk_glacier.types.data_retrieval_rules_list.DataRetrievalRulesList"
+    ]
+    """<p>The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataRetrievalPolicy) -> dict:
+    out: dict = {}
+    if "rules" in value:
+        import aws_sdk_glacier.types.data_retrieval_rules_list
+
+        out["Rules"] = aws_sdk_glacier.types.data_retrieval_rules_list.serialize_json(
+            value["rules"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DataRetrievalPolicy:
+    out: DataRetrievalPolicy = {}  # type: ignore[typeddict-item]
+    if "Rules" in data:
+        import aws_sdk_glacier.types.data_retrieval_rules_list
+
+        out["rules"] = aws_sdk_glacier.types.data_retrieval_rules_list.deserialize_json(
+            data["Rules"]
+        )
+    return out

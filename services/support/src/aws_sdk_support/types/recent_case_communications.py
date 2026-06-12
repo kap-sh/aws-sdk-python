@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.support#RecentCaseCommunications``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_support.types.communication_list
+    import aws_sdk_support.types.next_token
+
+
+class RecentCaseCommunications(TypedDict):
+    communications: NotRequired[
+        "aws_sdk_support.types.communication_list.CommunicationList"
+    ]
+    """<p>The five most recent communications associated with the case.</p>"""
+    next_token: NotRequired["aws_sdk_support.types.next_token.NextToken"]
+    """<p>A resumption point for pagination.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RecentCaseCommunications) -> dict:
+    out: dict = {}
+    if "communications" in value:
+        import aws_sdk_support.types.communication_list
+
+        out["communications"] = (
+            aws_sdk_support.types.communication_list.serialize_aws_json_1_1(
+                value["communications"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RecentCaseCommunications:
+    out: RecentCaseCommunications = {}  # type: ignore[typeddict-item]
+    if "communications" in data:
+        import aws_sdk_support.types.communication_list
+
+        out["communications"] = (
+            aws_sdk_support.types.communication_list.deserialize_aws_json_1_1(
+                data["communications"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

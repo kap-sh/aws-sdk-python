@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.codeartifact#ListRepositoriesResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codeartifact.types.pagination_token
+    import aws_sdk_codeartifact.types.repository_summary_list
+
+
+class ListRepositoriesResult(TypedDict):
+    repositories: NotRequired[
+        "aws_sdk_codeartifact.types.repository_summary_list.RepositorySummaryList"
+    ]
+    """<p> The returned list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html\">RepositorySummary</a> objects. </p>"""
+    next_token: NotRequired[
+        "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
+    ]
+    """<p> If there are additional results, this is the token for the next set of results. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListRepositoriesResult) -> dict:
+    out: dict = {}
+    if "repositories" in value:
+        import aws_sdk_codeartifact.types.repository_summary_list
+
+        out["repositories"] = (
+            aws_sdk_codeartifact.types.repository_summary_list.serialize_json(
+                value["repositories"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListRepositoriesResult:
+    out: ListRepositoriesResult = {}  # type: ignore[typeddict-item]
+    if "repositories" in data:
+        import aws_sdk_codeartifact.types.repository_summary_list
+
+        out["repositories"] = (
+            aws_sdk_codeartifact.types.repository_summary_list.deserialize_json(
+                data["repositories"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

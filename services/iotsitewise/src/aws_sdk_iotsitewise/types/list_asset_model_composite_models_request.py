@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.iotsitewise#ListAssetModelCompositeModelsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iotsitewise.types.asset_model_version_filter
+    import aws_sdk_iotsitewise.types.custom_id
+    import aws_sdk_iotsitewise.types.max_results
+    import aws_sdk_iotsitewise.types.next_token
+
+
+class ListAssetModelCompositeModelsRequest(TypedDict):
+    asset_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"
+    """<p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]
+    """<p>The token to be used for the next set of paginated results.</p>"""
+    max_results: NotRequired["aws_sdk_iotsitewise.types.max_results.MaxResults"]
+    """<p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>"""
+    asset_model_version: NotRequired[
+        "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
+    ]
+    """<p>The version alias that specifies the latest or active version of the asset model. The details are returned in the response. The default value is <code>LATEST</code>. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html\"> Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAssetModelCompositeModelsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListAssetModelCompositeModelsRequest:
+    out: ListAssetModelCompositeModelsRequest = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#GetProfileHistoryRecordRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_customer_profiles.types.name
+    import aws_sdk_customer_profiles.types.uuid
+
+
+class GetProfileHistoryRecordRequest(TypedDict):
+    domain_name: "aws_sdk_customer_profiles.types.name.name"
+    """<p>The unique name of the domain for which to return a profile history record.</p>"""
+    profile_id: "aws_sdk_customer_profiles.types.uuid.uuid"
+    """<p>The unique identifier of the profile for which to return a history record.</p>"""
+    id: "aws_sdk_customer_profiles.types.uuid.uuid"
+    """<p>The unique identifier of the profile history record to return.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetProfileHistoryRecordRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetProfileHistoryRecordRequest:
+    out: GetProfileHistoryRecordRequest = {}  # type: ignore[typeddict-item]
+    return out

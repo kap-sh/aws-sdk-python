@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.sns#OptInPhoneNumberInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sns._protocol.xml import Element
+from aws_sdk_sns.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sns.types.phone_number
+
+
+class OptInPhoneNumberInput(TypedDict):
+    phone_number: "aws_sdk_sns.types.phone_number.PhoneNumber"
+    """<p>The phone number to opt in. Use E.164 format.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: OptInPhoneNumberInput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.phoneNumber", str(value["phone_number"])))
+
+
+def deserialize_query(el: Element) -> OptInPhoneNumberInput:
+    out: OptInPhoneNumberInput = {}  # type: ignore[typeddict-item]
+    child_phone_number = el.find("phoneNumber")
+    if child_phone_number is not None:
+        out["phone_number"] = str(child_phone_number.text or "")
+    else:
+        raise DeserializationError("OptInPhoneNumberInput.phone_number required")
+    return out

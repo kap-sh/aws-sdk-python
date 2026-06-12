@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GeneralAuthorizationUpdate``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_managed_integrations.types.auth_materials
+
+
+class GeneralAuthorizationUpdate(TypedDict):
+    auth_materials_to_add: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.auth_materials.AuthMaterials"
+    ]
+    """<p>The authorization materials to add.</p>"""
+    auth_materials_to_update: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.auth_materials.AuthMaterials"
+    ]
+    """<p>The authorization materials to update.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GeneralAuthorizationUpdate) -> dict:
+    out: dict = {}
+    if "auth_materials_to_add" in value:
+        import aws_sdk_iot_managed_integrations.types.auth_materials
+
+        out["AuthMaterialsToAdd"] = (
+            aws_sdk_iot_managed_integrations.types.auth_materials.serialize_json(
+                value["auth_materials_to_add"]
+            )
+        )
+    if "auth_materials_to_update" in value:
+        import aws_sdk_iot_managed_integrations.types.auth_materials
+
+        out["AuthMaterialsToUpdate"] = (
+            aws_sdk_iot_managed_integrations.types.auth_materials.serialize_json(
+                value["auth_materials_to_update"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GeneralAuthorizationUpdate:
+    out: GeneralAuthorizationUpdate = {}  # type: ignore[typeddict-item]
+    if "AuthMaterialsToAdd" in data:
+        import aws_sdk_iot_managed_integrations.types.auth_materials
+
+        out["auth_materials_to_add"] = (
+            aws_sdk_iot_managed_integrations.types.auth_materials.deserialize_json(
+                data["AuthMaterialsToAdd"]
+            )
+        )
+    if "AuthMaterialsToUpdate" in data:
+        import aws_sdk_iot_managed_integrations.types.auth_materials
+
+        out["auth_materials_to_update"] = (
+            aws_sdk_iot_managed_integrations.types.auth_materials.deserialize_json(
+                data["AuthMaterialsToUpdate"]
+            )
+        )
+    return out

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupVariablesPortSetsDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.non_empty_string_list
+
+
+class RuleGroupVariablesPortSetsDetails(TypedDict):
+    definition: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
+    ]
+    """<p>The list of port ranges.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RuleGroupVariablesPortSetsDetails) -> dict:
+    out: dict = {}
+    if "definition" in value:
+        import aws_sdk_securityhub.types.non_empty_string_list
+
+        out["Definition"] = (
+            aws_sdk_securityhub.types.non_empty_string_list.serialize_json(
+                value["definition"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> RuleGroupVariablesPortSetsDetails:
+    out: RuleGroupVariablesPortSetsDetails = {}  # type: ignore[typeddict-item]
+    if "Definition" in data:
+        import aws_sdk_securityhub.types.non_empty_string_list
+
+        out["definition"] = (
+            aws_sdk_securityhub.types.non_empty_string_list.deserialize_json(
+                data["Definition"]
+            )
+        )
+    return out

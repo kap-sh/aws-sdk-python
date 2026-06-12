@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.iotsitewise#ActionPayload``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iotsitewise.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iotsitewise.types.action_payload_string
+
+
+class ActionPayload(TypedDict):
+    string_value: "aws_sdk_iotsitewise.types.action_payload_string.ActionPayloadString"
+    """<p>The payload of the action in a JSON string.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ActionPayload) -> dict:
+    out: dict = {}
+    out["stringValue"] = value["string_value"]
+    return out
+
+
+def deserialize_json(data: dict) -> ActionPayload:
+    out: ActionPayload = {}  # type: ignore[typeddict-item]
+    if "stringValue" in data:
+        out["string_value"] = data["stringValue"]
+    else:
+        raise DeserializationError("ActionPayload.string_value required")
+    return out

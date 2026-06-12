@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.athena#MetadataException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_athena.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_athena.types.error_message
+
+
+class MetadataException_(TypedDict):
+    message: NotRequired["aws_sdk_athena.types.error_message.ErrorMessage"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: MetadataException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> MetadataException_:
+    out: MetadataException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class MetadataException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.athena#MetadataException``."""
+
+    code: str | None = "MetadataException"
+
+    def __init__(self, data: MetadataException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="MetadataException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "MetadataException":
+        return cls(deserialize_aws_json_1_1(data))

@@ -1,0 +1,73 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#DescribeConfigurationAggregatorSourcesStatusRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_config_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_config_service.types.aggregated_source_status_type_list
+    import aws_sdk_config_service.types.configuration_aggregator_name
+    import aws_sdk_config_service.types.limit
+    import aws_sdk_config_service.types.string
+
+
+class DescribeConfigurationAggregatorSourcesStatusRequest(TypedDict):
+    configuration_aggregator_name: "aws_sdk_config_service.types.configuration_aggregator_name.ConfigurationAggregatorName"
+    """<p>The name of the configuration aggregator.</p>"""
+    update_status: NotRequired[
+        "aws_sdk_config_service.types.aggregated_source_status_type_list.AggregatedSourceStatusTypeList"
+    ]
+    """<p>Filters the status type.</p> <ul> <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> </ul>"""
+    next_token: NotRequired["aws_sdk_config_service.types.string.String"]
+    """<p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>"""
+    limit: "aws_sdk_config_service.types.limit.Limit"
+    """<p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: DescribeConfigurationAggregatorSourcesStatusRequest,
+) -> dict:
+    out: dict = {}
+    out["ConfigurationAggregatorName"] = value["configuration_aggregator_name"]
+    if "update_status" in value:
+        import aws_sdk_config_service.types.aggregated_source_status_type_list
+
+        out["UpdateStatus"] = (
+            aws_sdk_config_service.types.aggregated_source_status_type_list.serialize_aws_json_1_1(
+                value["update_status"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    out["Limit"] = value.get("limit", 0)
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> DescribeConfigurationAggregatorSourcesStatusRequest:
+    out: DescribeConfigurationAggregatorSourcesStatusRequest = {}  # type: ignore[typeddict-item]
+    if "ConfigurationAggregatorName" in data:
+        out["configuration_aggregator_name"] = data["ConfigurationAggregatorName"]
+    else:
+        raise DeserializationError(
+            "DescribeConfigurationAggregatorSourcesStatusRequest.configuration_aggregator_name required"
+        )
+    if "UpdateStatus" in data:
+        import aws_sdk_config_service.types.aggregated_source_status_type_list
+
+        out["update_status"] = (
+            aws_sdk_config_service.types.aggregated_source_status_type_list.deserialize_aws_json_1_1(
+                data["UpdateStatus"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    else:
+        out["limit"] = 0
+    return out

@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.docdb#InsufficientDBClusterCapacityFault``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_docdb._protocol.xml import Element
+from aws_sdk_docdb.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_docdb.types.exception_message
+
+
+class InsufficientDBClusterCapacityFault_(TypedDict):
+    message: NotRequired["aws_sdk_docdb.types.exception_message.ExceptionMessage"]
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: InsufficientDBClusterCapacityFault_,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "message" in value:
+        pairs.append((f"{prefix}.message", str(value["message"])))
+
+
+def deserialize_query(el: Element) -> InsufficientDBClusterCapacityFault_:
+    out: InsufficientDBClusterCapacityFault_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class InsufficientDBClusterCapacityFault(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.docdb#InsufficientDBClusterCapacityFault``."""
+
+    code: str | None = "InsufficientDBClusterCapacityFault"
+
+    def __init__(self, data: InsufficientDBClusterCapacityFault_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InsufficientDBClusterCapacityFault",
+        )
+        self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InsufficientDBClusterCapacityFault":
+        return cls(deserialize_query(el))

@@ -1,0 +1,79 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#S3LogsConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codebuild.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codebuild.types.bucket_owner_access
+    import aws_sdk_codebuild.types.logs_config_status_type
+    import aws_sdk_codebuild.types.string
+    import aws_sdk_codebuild.types.wrapper_boolean
+
+
+class S3LogsConfig(TypedDict):
+    status: "aws_sdk_codebuild.types.logs_config_status_type.LogsConfigStatusType"
+    """<p>The current status of the S3 build logs. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: S3 build logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: S3 build logs are not enabled for this build project.</p> </li> </ul>"""
+    location: NotRequired["aws_sdk_codebuild.types.string.String"]
+    """<p> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then acceptable formats are <code>my-bucket/build-log</code> or <code>arn:aws:s3:::my-bucket/build-log</code>. </p>"""
+    encryption_disabled: NotRequired[
+        "aws_sdk_codebuild.types.wrapper_boolean.WrapperBoolean"
+    ]
+    """<p> Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. </p>"""
+    bucket_owner_access: NotRequired[
+        "aws_sdk_codebuild.types.bucket_owner_access.BucketOwnerAccess"
+    ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: S3LogsConfig) -> dict:
+    out: dict = {}
+    import aws_sdk_codebuild.types.logs_config_status_type
+
+    out["status"] = (
+        aws_sdk_codebuild.types.logs_config_status_type.serialize_aws_json_1_1(
+            value["status"]
+        )
+    )
+    if "location" in value:
+        out["location"] = value["location"]
+    if "encryption_disabled" in value:
+        out["encryptionDisabled"] = value["encryption_disabled"]
+    if "bucket_owner_access" in value:
+        import aws_sdk_codebuild.types.bucket_owner_access
+
+        out["bucketOwnerAccess"] = (
+            aws_sdk_codebuild.types.bucket_owner_access.serialize_aws_json_1_1(
+                value["bucket_owner_access"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> S3LogsConfig:
+    out: S3LogsConfig = {}  # type: ignore[typeddict-item]
+    if "status" in data:
+        import aws_sdk_codebuild.types.logs_config_status_type
+
+        out["status"] = (
+            aws_sdk_codebuild.types.logs_config_status_type.deserialize_aws_json_1_1(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("S3LogsConfig.status required")
+    if "location" in data:
+        out["location"] = data["location"]
+    if "encryptionDisabled" in data:
+        out["encryption_disabled"] = data["encryptionDisabled"]
+    if "bucketOwnerAccess" in data:
+        import aws_sdk_codebuild.types.bucket_owner_access
+
+        out["bucket_owner_access"] = (
+            aws_sdk_codebuild.types.bucket_owner_access.deserialize_aws_json_1_1(
+                data["bucketOwnerAccess"]
+            )
+        )
+    return out

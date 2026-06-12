@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#UpdateApnsVoipChannelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.__string
+    import aws_sdk_pinpoint.types.apns_voip_channel_request
+
+
+class UpdateApnsVoipChannelRequest(TypedDict):
+    apns_voip_channel_request: NotRequired[
+        "aws_sdk_pinpoint.types.apns_voip_channel_request.APNSVoipChannelRequest"
+    ]
+    application_id: "aws_sdk_pinpoint.types.__string.__string"
+    """<p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateApnsVoipChannelRequest) -> dict:
+    out: dict = {}
+    if "apns_voip_channel_request" in value:
+        import aws_sdk_pinpoint.types.apns_voip_channel_request
+
+        out["APNSVoipChannelRequest"] = (
+            aws_sdk_pinpoint.types.apns_voip_channel_request.serialize_json(
+                value["apns_voip_channel_request"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateApnsVoipChannelRequest:
+    out: UpdateApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
+    if "APNSVoipChannelRequest" in data:
+        import aws_sdk_pinpoint.types.apns_voip_channel_request
+
+        out["apns_voip_channel_request"] = (
+            aws_sdk_pinpoint.types.apns_voip_channel_request.deserialize_json(
+                data["APNSVoipChannelRequest"]
+            )
+        )
+    return out

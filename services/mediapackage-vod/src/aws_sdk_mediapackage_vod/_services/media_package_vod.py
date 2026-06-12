@@ -1,0 +1,988 @@
+"""Generated from Smithy shape ``com.amazonaws.mediapackagevod#MediaPackageVod``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+import aws_sdk_mediapackage_vod._auth._signers
+import aws_sdk_mediapackage_vod._auth._sigv4
+from aws_sdk_mediapackage_vod._auth._identity import Credentials
+from aws_sdk_mediapackage_vod._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_mediapackage_vod._auth._zapros_handler import AuthMiddleware
+from aws_sdk_mediapackage_vod._pagination import resolve_path as _resolve_path
+from aws_sdk_mediapackage_vod._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_mediapackage_vod.types.__list_of__string
+    import aws_sdk_mediapackage_vod.types.__map_of__string
+    import aws_sdk_mediapackage_vod.types.__string
+    import aws_sdk_mediapackage_vod.types.asset_shallow
+    import aws_sdk_mediapackage_vod.types.authorization
+    import aws_sdk_mediapackage_vod.types.cmaf_package
+    import aws_sdk_mediapackage_vod.types.configure_logs_request
+    import aws_sdk_mediapackage_vod.types.configure_logs_response
+    import aws_sdk_mediapackage_vod.types.create_asset_request
+    import aws_sdk_mediapackage_vod.types.create_asset_response
+    import aws_sdk_mediapackage_vod.types.create_packaging_configuration_request
+    import aws_sdk_mediapackage_vod.types.create_packaging_configuration_response
+    import aws_sdk_mediapackage_vod.types.create_packaging_group_request
+    import aws_sdk_mediapackage_vod.types.create_packaging_group_response
+    import aws_sdk_mediapackage_vod.types.dash_package
+    import aws_sdk_mediapackage_vod.types.delete_asset_request
+    import aws_sdk_mediapackage_vod.types.delete_asset_response
+    import aws_sdk_mediapackage_vod.types.delete_packaging_configuration_request
+    import aws_sdk_mediapackage_vod.types.delete_packaging_configuration_response
+    import aws_sdk_mediapackage_vod.types.delete_packaging_group_request
+    import aws_sdk_mediapackage_vod.types.delete_packaging_group_response
+    import aws_sdk_mediapackage_vod.types.describe_asset_request
+    import aws_sdk_mediapackage_vod.types.describe_asset_response
+    import aws_sdk_mediapackage_vod.types.describe_packaging_configuration_request
+    import aws_sdk_mediapackage_vod.types.describe_packaging_configuration_response
+    import aws_sdk_mediapackage_vod.types.describe_packaging_group_request
+    import aws_sdk_mediapackage_vod.types.describe_packaging_group_response
+    import aws_sdk_mediapackage_vod.types.egress_access_logs
+    import aws_sdk_mediapackage_vod.types.hls_package
+    import aws_sdk_mediapackage_vod.types.list_assets_request
+    import aws_sdk_mediapackage_vod.types.list_assets_response
+    import aws_sdk_mediapackage_vod.types.list_packaging_configurations_request
+    import aws_sdk_mediapackage_vod.types.list_packaging_configurations_response
+    import aws_sdk_mediapackage_vod.types.list_packaging_groups_request
+    import aws_sdk_mediapackage_vod.types.list_packaging_groups_response
+    import aws_sdk_mediapackage_vod.types.list_tags_for_resource_request
+    import aws_sdk_mediapackage_vod.types.list_tags_for_resource_response
+    import aws_sdk_mediapackage_vod.types.max_results
+    import aws_sdk_mediapackage_vod.types.mss_package
+    import aws_sdk_mediapackage_vod.types.packaging_configuration
+    import aws_sdk_mediapackage_vod.types.packaging_group
+    import aws_sdk_mediapackage_vod.types.tag_resource_request
+    import aws_sdk_mediapackage_vod.types.tags
+    import aws_sdk_mediapackage_vod.types.untag_resource_request
+    import aws_sdk_mediapackage_vod.types.update_packaging_group_request
+    import aws_sdk_mediapackage_vod.types.update_packaging_group_response
+
+
+class MediaPackageVodClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class MediaPackageVodClient:
+    """A client for the ``MediaPackageVod`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = MediaPackageVodClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[MediaPackageVodClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: MediaPackageVodClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def configure_logs(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        egress_access_logs: Optional[
+            "aws_sdk_mediapackage_vod.types.egress_access_logs.EgressAccessLogs"
+        ] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.configure_logs_response.ConfigureLogsResponse":
+        """Changes the packaging group's properities to configure log subscription
+
+        Args:
+            id: The ID of a MediaPackage VOD PackagingGroup resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.configure_logs_request.ConfigureLogsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.configure_logs_response.ConfigureLogsResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.configure_logs
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.configure_logs.configure_logs(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.configure_logs_request.ConfigureLogsRequest = {}  # type: ignore[typeddict-item]
+        if egress_access_logs is not None:
+            input["egress_access_logs"] = egress_access_logs
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_asset(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        packaging_group_id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        source_arn: "aws_sdk_mediapackage_vod.types.__string.__string",
+        source_role_arn: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        resource_id: Optional[
+            "aws_sdk_mediapackage_vod.types.__string.__string"
+        ] = None,
+        tags: Optional["aws_sdk_mediapackage_vod.types.tags.Tags"] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.create_asset_response.CreateAssetResponse":
+        """Creates a new MediaPackage VOD Asset resource.
+
+        Args:
+            id: The unique identifier for the Asset.
+            packaging_group_id: The ID of the PackagingGroup for the Asset.
+            resource_id: The resource ID to include in SPEKE key requests.
+            source_arn: ARN of the source object in S3.
+            source_role_arn: The IAM role ARN used to access the source S3 bucket.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.create_asset_request.CreateAssetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.create_asset_response.CreateAssetResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.create_asset
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.create_asset.create_asset(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+        input["packaging_group_id"] = packaging_group_id
+        if resource_id is not None:
+            input["resource_id"] = resource_id
+        input["source_arn"] = source_arn
+        input["source_role_arn"] = source_role_arn
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_packaging_configuration(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        packaging_group_id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        cmaf_package: Optional[
+            "aws_sdk_mediapackage_vod.types.cmaf_package.CmafPackage"
+        ] = None,
+        dash_package: Optional[
+            "aws_sdk_mediapackage_vod.types.dash_package.DashPackage"
+        ] = None,
+        hls_package: Optional[
+            "aws_sdk_mediapackage_vod.types.hls_package.HlsPackage"
+        ] = None,
+        mss_package: Optional[
+            "aws_sdk_mediapackage_vod.types.mss_package.MssPackage"
+        ] = None,
+        tags: Optional["aws_sdk_mediapackage_vod.types.tags.Tags"] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.create_packaging_configuration_response.CreatePackagingConfigurationResponse":
+        """Creates a new MediaPackage VOD PackagingConfiguration resource.
+
+        Args:
+            id: The ID of the PackagingConfiguration.
+            packaging_group_id: The ID of a PackagingGroup.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.create_packaging_configuration_request.CreatePackagingConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.create_packaging_configuration_response.CreatePackagingConfigurationResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.create_packaging_configuration
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.create_packaging_configuration.create_packaging_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.create_packaging_configuration_request.CreatePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        if cmaf_package is not None:
+            input["cmaf_package"] = cmaf_package
+        if dash_package is not None:
+            input["dash_package"] = dash_package
+        if hls_package is not None:
+            input["hls_package"] = hls_package
+        input["id"] = id
+        if mss_package is not None:
+            input["mss_package"] = mss_package
+        input["packaging_group_id"] = packaging_group_id
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_packaging_group(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        authorization: Optional[
+            "aws_sdk_mediapackage_vod.types.authorization.Authorization"
+        ] = None,
+        egress_access_logs: Optional[
+            "aws_sdk_mediapackage_vod.types.egress_access_logs.EgressAccessLogs"
+        ] = None,
+        tags: Optional["aws_sdk_mediapackage_vod.types.tags.Tags"] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.create_packaging_group_response.CreatePackagingGroupResponse":
+        """Creates a new MediaPackage VOD PackagingGroup resource.
+
+        Args:
+            id: The ID of the PackagingGroup.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.create_packaging_group_request.CreatePackagingGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.create_packaging_group_response.CreatePackagingGroupResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.create_packaging_group
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.create_packaging_group.create_packaging_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.create_packaging_group_request.CreatePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        if authorization is not None:
+            input["authorization"] = authorization
+        if egress_access_logs is not None:
+            input["egress_access_logs"] = egress_access_logs
+        input["id"] = id
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_asset(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.delete_asset_response.DeleteAssetResponse":
+        """Deletes an existing MediaPackage VOD Asset resource.
+
+        Args:
+            id: The ID of the MediaPackage VOD Asset resource to delete.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.delete_asset_request.DeleteAssetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.delete_asset_response.DeleteAssetResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.delete_asset
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.delete_asset.delete_asset(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_packaging_configuration(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.delete_packaging_configuration_response.DeletePackagingConfigurationResponse":
+        """Deletes a MediaPackage VOD PackagingConfiguration resource.
+
+        Args:
+            id: The ID of the MediaPackage VOD PackagingConfiguration resource to delete.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.delete_packaging_configuration_request.DeletePackagingConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.delete_packaging_configuration_response.DeletePackagingConfigurationResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.delete_packaging_configuration
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.delete_packaging_configuration.delete_packaging_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.delete_packaging_configuration_request.DeletePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_packaging_group(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.delete_packaging_group_response.DeletePackagingGroupResponse":
+        """Deletes a MediaPackage VOD PackagingGroup resource.
+
+        Args:
+            id: The ID of the MediaPackage VOD PackagingGroup resource to delete.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.delete_packaging_group_request.DeletePackagingGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.delete_packaging_group_response.DeletePackagingGroupResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.delete_packaging_group
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.delete_packaging_group.delete_packaging_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.delete_packaging_group_request.DeletePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_asset(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.describe_asset_response.DescribeAssetResponse":
+        """Returns a description of a MediaPackage VOD Asset resource.
+
+        Args:
+            id: The ID of an MediaPackage VOD Asset resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.describe_asset_request.DescribeAssetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.describe_asset_response.DescribeAssetResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.describe_asset
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.describe_asset.describe_asset(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.describe_asset_request.DescribeAssetRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_packaging_configuration(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.describe_packaging_configuration_response.DescribePackagingConfigurationResponse":
+        """Returns a description of a MediaPackage VOD PackagingConfiguration resource.
+
+        Args:
+            id: The ID of a MediaPackage VOD PackagingConfiguration resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.describe_packaging_configuration_request.DescribePackagingConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.describe_packaging_configuration_response.DescribePackagingConfigurationResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.describe_packaging_configuration
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.describe_packaging_configuration.describe_packaging_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.describe_packaging_configuration_request.DescribePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_packaging_group(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.describe_packaging_group_response.DescribePackagingGroupResponse":
+        """Returns a description of a MediaPackage VOD PackagingGroup resource.
+
+        Args:
+            id: The ID of a MediaPackage VOD PackagingGroup resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.describe_packaging_group_request.DescribePackagingGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.describe_packaging_group_response.DescribePackagingGroupResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.describe_packaging_group
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.describe_packaging_group.describe_packaging_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.describe_packaging_group_request.DescribePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_assets(
+        self,
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mediapackage_vod.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_mediapackage_vod.types.__string.__string"] = None,
+        packaging_group_id: Optional[
+            "aws_sdk_mediapackage_vod.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.list_assets_response.ListAssetsResponse":
+        """Returns a collection of MediaPackage VOD Asset resources.
+
+        Args:
+            max_results: Upper bound on number of records to return.
+            next_token: A token used to resume pagination from the end of a previous request.
+            packaging_group_id: Returns Assets associated with the specified PackagingGroup.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.list_assets_request.ListAssetsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.list_assets_response.ListAssetsResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.list_assets
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.list_assets.list_assets(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if packaging_group_id is not None:
+            input["packaging_group_id"] = packaging_group_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_assets(
+        self,
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mediapackage_vod.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_mediapackage_vod.types.__string.__string"] = None,
+        packaging_group_id: Optional[
+            "aws_sdk_mediapackage_vod.types.__string.__string"
+        ] = None,
+    ) -> "Iterator[aws_sdk_mediapackage_vod.types.asset_shallow.AssetShallow]":
+        _token = next_token
+        while True:
+            _response = self.list_assets(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                packaging_group_id=packaging_group_id,
+            )
+            _page = _resolve_path(_response, ("assets",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_packaging_configurations(
+        self,
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mediapackage_vod.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_mediapackage_vod.types.__string.__string"] = None,
+        packaging_group_id: Optional[
+            "aws_sdk_mediapackage_vod.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.list_packaging_configurations_response.ListPackagingConfigurationsResponse":
+        """Returns a collection of MediaPackage VOD PackagingConfiguration resources.
+
+        Args:
+            max_results: Upper bound on number of records to return.
+            next_token: A token used to resume pagination from the end of a previous request.
+            packaging_group_id: Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.list_packaging_configurations_request.ListPackagingConfigurationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.list_packaging_configurations_response.ListPackagingConfigurationsResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.list_packaging_configurations
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.list_packaging_configurations.list_packaging_configurations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.list_packaging_configurations_request.ListPackagingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if packaging_group_id is not None:
+            input["packaging_group_id"] = packaging_group_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_packaging_configurations(
+        self,
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mediapackage_vod.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_mediapackage_vod.types.__string.__string"] = None,
+        packaging_group_id: Optional[
+            "aws_sdk_mediapackage_vod.types.__string.__string"
+        ] = None,
+    ) -> "Iterator[aws_sdk_mediapackage_vod.types.packaging_configuration.PackagingConfiguration]":
+        _token = next_token
+        while True:
+            _response = self.list_packaging_configurations(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                packaging_group_id=packaging_group_id,
+            )
+            _page = _resolve_path(_response, ("packaging_configurations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_packaging_groups(
+        self,
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mediapackage_vod.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_mediapackage_vod.types.__string.__string"] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.list_packaging_groups_response.ListPackagingGroupsResponse":
+        """Returns a collection of MediaPackage VOD PackagingGroup resources.
+
+        Args:
+            max_results: Upper bound on number of records to return.
+            next_token: A token used to resume pagination from the end of a previous request.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.list_packaging_groups_request.ListPackagingGroupsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.list_packaging_groups_response.ListPackagingGroupsResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.list_packaging_groups
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.list_packaging_groups.list_packaging_groups(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.list_packaging_groups_request.ListPackagingGroupsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_packaging_groups(
+        self,
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mediapackage_vod.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_mediapackage_vod.types.__string.__string"] = None,
+    ) -> "Iterator[aws_sdk_mediapackage_vod.types.packaging_group.PackagingGroup]":
+        _token = next_token
+        while True:
+            _response = self.list_packaging_groups(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("packaging_groups",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """Returns a list of the tags assigned to the specified resource.
+
+        Args:
+            resource_arn: The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.list_tags_for_resource
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_mediapackage_vod.types.__string.__string",
+        tags: "aws_sdk_mediapackage_vod.types.__map_of__string.__mapOf__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> None:
+        """Adds tags to the specified resource. You can specify one or more tags to add.
+
+        Args:
+            resource_arn: The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+            tags: A collection of tags associated with a resource
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.tag_resource
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_mediapackage_vod.types.__string.__string",
+        tag_keys: "aws_sdk_mediapackage_vod.types.__list_of__string.__listOf__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+    ) -> None:
+        """Removes tags from the specified resource. You can specify one or more tags to remove.
+
+        Args:
+            resource_arn: The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+            tag_keys: A comma-separated list of the tag keys to remove from the resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.untag_resource
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_packaging_group(
+        self,
+        id: "aws_sdk_mediapackage_vod.types.__string.__string",
+        *,
+        config_overrides: Optional[MediaPackageVodClientConfig] = None,
+        authorization: Optional[
+            "aws_sdk_mediapackage_vod.types.authorization.Authorization"
+        ] = None,
+    ) -> "aws_sdk_mediapackage_vod.types.update_packaging_group_response.UpdatePackagingGroupResponse":
+        """Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.
+
+        Args:
+            id: The ID of a MediaPackage VOD PackagingGroup resource.
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mediapackage_vod.types.update_packaging_group_request.UpdatePackagingGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mediapackage_vod.types.update_packaging_group_response.UpdatePackagingGroupResponse"
+        ]:
+            import aws_sdk_mediapackage_vod._operations.media_package_vod.update_packaging_group
+
+            output, http_response = (
+                aws_sdk_mediapackage_vod._operations.media_package_vod.update_packaging_group.update_packaging_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_mediapackage_vod.types.update_packaging_group_request.UpdatePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        if authorization is not None:
+            input["authorization"] = authorization
+        input["id"] = id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

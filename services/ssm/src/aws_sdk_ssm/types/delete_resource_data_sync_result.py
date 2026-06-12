@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#DeleteResourceDataSyncResult``."""
+
+from typing import TypedDict
+
+
+class DeleteResourceDataSyncResult(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteResourceDataSyncResult) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteResourceDataSyncResult:
+    out: DeleteResourceDataSyncResult = {}  # type: ignore[typeddict-item]
+    return out

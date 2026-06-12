@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#BatchDetectDominantLanguageItemResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.integer
+    import aws_sdk_comprehend.types.list_of_dominant_languages
+
+
+class BatchDetectDominantLanguageItemResult(TypedDict):
+    index: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
+    """<p>The zero-based index of the document in the input list.</p>"""
+    languages: NotRequired[
+        "aws_sdk_comprehend.types.list_of_dominant_languages.ListOfDominantLanguages"
+    ]
+    """<p>One or more <a>DominantLanguage</a> objects describing the dominant languages in the document.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BatchDetectDominantLanguageItemResult) -> dict:
+    out: dict = {}
+    if "index" in value:
+        out["Index"] = value["index"]
+    if "languages" in value:
+        import aws_sdk_comprehend.types.list_of_dominant_languages
+
+        out["Languages"] = (
+            aws_sdk_comprehend.types.list_of_dominant_languages.serialize_aws_json_1_1(
+                value["languages"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BatchDetectDominantLanguageItemResult:
+    out: BatchDetectDominantLanguageItemResult = {}  # type: ignore[typeddict-item]
+    if "Index" in data:
+        out["index"] = data["Index"]
+    if "Languages" in data:
+        import aws_sdk_comprehend.types.list_of_dominant_languages
+
+        out["languages"] = (
+            aws_sdk_comprehend.types.list_of_dominant_languages.deserialize_aws_json_1_1(
+                data["Languages"]
+            )
+        )
+    return out

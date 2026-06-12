@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.pipes#PathParameterList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_pipes.types.path_parameter
+
+PathParameterList: TypeAlias = list["aws_sdk_pipes.types.path_parameter.PathParameter"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PathParameterList) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> PathParameterList:
+    return list(data)

@@ -1,0 +1,157 @@
+"""Generated from Smithy shape ``com.amazonaws.pipes#UpdatePipeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_pipes.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_pipes.types.arn
+    import aws_sdk_pipes.types.kms_key_identifier
+    import aws_sdk_pipes.types.optional_arn
+    import aws_sdk_pipes.types.pipe_description
+    import aws_sdk_pipes.types.pipe_enrichment_parameters
+    import aws_sdk_pipes.types.pipe_log_configuration_parameters
+    import aws_sdk_pipes.types.pipe_name
+    import aws_sdk_pipes.types.pipe_target_parameters
+    import aws_sdk_pipes.types.requested_pipe_state
+    import aws_sdk_pipes.types.role_arn
+    import aws_sdk_pipes.types.update_pipe_source_parameters
+
+
+class UpdatePipeRequest(TypedDict):
+    name: "aws_sdk_pipes.types.pipe_name.PipeName"
+    """<p>The name of the pipe.</p>"""
+    description: NotRequired["aws_sdk_pipes.types.pipe_description.PipeDescription"]
+    """<p>A description of the pipe.</p>"""
+    desired_state: NotRequired[
+        "aws_sdk_pipes.types.requested_pipe_state.RequestedPipeState"
+    ]
+    """<p>The state the pipe should be in.</p>"""
+    source_parameters: NotRequired[
+        "aws_sdk_pipes.types.update_pipe_source_parameters.UpdatePipeSourceParameters"
+    ]
+    """<p>The parameters required to set up a source for your pipe.</p>"""
+    enrichment: NotRequired["aws_sdk_pipes.types.optional_arn.OptionalArn"]
+    """<p>The ARN of the enrichment resource.</p>"""
+    enrichment_parameters: NotRequired[
+        "aws_sdk_pipes.types.pipe_enrichment_parameters.PipeEnrichmentParameters"
+    ]
+    """<p>The parameters required to set up enrichment on your pipe.</p>"""
+    target: NotRequired["aws_sdk_pipes.types.arn.Arn"]
+    """<p>The ARN of the target resource.</p>"""
+    target_parameters: NotRequired[
+        "aws_sdk_pipes.types.pipe_target_parameters.PipeTargetParameters"
+    ]
+    """<p>The parameters required to set up a target for your pipe.</p> <p>For more information about pipe target parameters, including how to use dynamic path parameters, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html\">Target parameters</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    role_arn: "aws_sdk_pipes.types.role_arn.RoleArn"
+    """<p>The ARN of the role that allows the pipe to send data to the target.</p>"""
+    log_configuration: NotRequired[
+        "aws_sdk_pipes.types.pipe_log_configuration_parameters.PipeLogConfigurationParameters"
+    ]
+    """<p>The logging configuration settings for the pipe.</p>"""
+    kms_key_identifier: NotRequired[
+        "aws_sdk_pipes.types.kms_key_identifier.KmsKeyIdentifier"
+    ]
+    """<p>The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p> <p>To update a pipe that is using the default Amazon Web Services owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.</p> <p>To update a pipe that is using a customer managed key to use the default Amazon Web Services owned key, specify an empty string.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service Developer Guide</i>. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdatePipeRequest) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "desired_state" in value:
+        out["DesiredState"] = value["desired_state"]
+    if "source_parameters" in value:
+        import aws_sdk_pipes.types.update_pipe_source_parameters
+
+        out["SourceParameters"] = (
+            aws_sdk_pipes.types.update_pipe_source_parameters.serialize_json(
+                value["source_parameters"]
+            )
+        )
+    if "enrichment" in value:
+        out["Enrichment"] = value["enrichment"]
+    if "enrichment_parameters" in value:
+        import aws_sdk_pipes.types.pipe_enrichment_parameters
+
+        out["EnrichmentParameters"] = (
+            aws_sdk_pipes.types.pipe_enrichment_parameters.serialize_json(
+                value["enrichment_parameters"]
+            )
+        )
+    if "target" in value:
+        out["Target"] = value["target"]
+    if "target_parameters" in value:
+        import aws_sdk_pipes.types.pipe_target_parameters
+
+        out["TargetParameters"] = (
+            aws_sdk_pipes.types.pipe_target_parameters.serialize_json(
+                value["target_parameters"]
+            )
+        )
+    out["RoleArn"] = value["role_arn"]
+    if "log_configuration" in value:
+        import aws_sdk_pipes.types.pipe_log_configuration_parameters
+
+        out["LogConfiguration"] = (
+            aws_sdk_pipes.types.pipe_log_configuration_parameters.serialize_json(
+                value["log_configuration"]
+            )
+        )
+    if "kms_key_identifier" in value:
+        out["KmsKeyIdentifier"] = value["kms_key_identifier"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdatePipeRequest:
+    out: UpdatePipeRequest = {}  # type: ignore[typeddict-item]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "DesiredState" in data:
+        out["desired_state"] = data["DesiredState"]
+    if "SourceParameters" in data:
+        import aws_sdk_pipes.types.update_pipe_source_parameters
+
+        out["source_parameters"] = (
+            aws_sdk_pipes.types.update_pipe_source_parameters.deserialize_json(
+                data["SourceParameters"]
+            )
+        )
+    if "Enrichment" in data:
+        out["enrichment"] = data["Enrichment"]
+    if "EnrichmentParameters" in data:
+        import aws_sdk_pipes.types.pipe_enrichment_parameters
+
+        out["enrichment_parameters"] = (
+            aws_sdk_pipes.types.pipe_enrichment_parameters.deserialize_json(
+                data["EnrichmentParameters"]
+            )
+        )
+    if "Target" in data:
+        out["target"] = data["Target"]
+    if "TargetParameters" in data:
+        import aws_sdk_pipes.types.pipe_target_parameters
+
+        out["target_parameters"] = (
+            aws_sdk_pipes.types.pipe_target_parameters.deserialize_json(
+                data["TargetParameters"]
+            )
+        )
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    else:
+        raise DeserializationError("UpdatePipeRequest.role_arn required")
+    if "LogConfiguration" in data:
+        import aws_sdk_pipes.types.pipe_log_configuration_parameters
+
+        out["log_configuration"] = (
+            aws_sdk_pipes.types.pipe_log_configuration_parameters.deserialize_json(
+                data["LogConfiguration"]
+            )
+        )
+    if "KmsKeyIdentifier" in data:
+        out["kms_key_identifier"] = data["KmsKeyIdentifier"]
+    return out

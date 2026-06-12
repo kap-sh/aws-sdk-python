@@ -1,0 +1,102 @@
+"""Generated from Smithy shape ``com.amazonaws.datasync#CreateAgentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_datasync.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_datasync.types.activation_key
+    import aws_sdk_datasync.types.input_tag_list
+    import aws_sdk_datasync.types.pl_security_group_arn_list
+    import aws_sdk_datasync.types.pl_subnet_arn_list
+    import aws_sdk_datasync.types.tag_value
+    import aws_sdk_datasync.types.vpc_endpoint_id
+
+
+class CreateAgentRequest(TypedDict):
+    activation_key: "aws_sdk_datasync.types.activation_key.ActivationKey"
+    """<p>Specifies your DataSync agent's activation key. If you don't have an activation key, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html\">Activating your agent</a>.</p>"""
+    agent_name: NotRequired["aws_sdk_datasync.types.tag_value.TagValue"]
+    """<p>Specifies a name for your agent. We recommend specifying a name that you can remember.</p>"""
+    tags: NotRequired["aws_sdk_datasync.types.input_tag_list.InputTagList"]
+    """<p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least one tag for your agent.</p>"""
+    vpc_endpoint_id: NotRequired["aws_sdk_datasync.types.vpc_endpoint_id.VpcEndpointId"]
+    """<p>Specifies the ID of the <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#datasync-in-vpc\">VPC service endpoint</a> that you're using. For example, a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p> <important> <p>The VPC service endpoint you use must include the DataSync service name (for example, <code>com.amazonaws.us-east-2.datasync</code>).</p> </important>"""
+    subnet_arns: NotRequired[
+        "aws_sdk_datasync.types.pl_subnet_arn_list.PLSubnetArnList"
+    ]
+    """<p>Specifies the ARN of the subnet where your VPC service endpoint is located. You can only specify one ARN.</p>"""
+    security_group_arns: NotRequired[
+        "aws_sdk_datasync.types.pl_security_group_arn_list.PLSecurityGroupArnList"
+    ]
+    """<p>Specifies the Amazon Resource Name (ARN) of the security group that allows traffic between your agent and VPC service endpoint. You can only specify one ARN.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateAgentRequest) -> dict:
+    out: dict = {}
+    out["ActivationKey"] = value["activation_key"]
+    if "agent_name" in value:
+        out["AgentName"] = value["agent_name"]
+    if "tags" in value:
+        import aws_sdk_datasync.types.input_tag_list
+
+        out["Tags"] = aws_sdk_datasync.types.input_tag_list.serialize_aws_json_1_1(
+            value["tags"]
+        )
+    if "vpc_endpoint_id" in value:
+        out["VpcEndpointId"] = value["vpc_endpoint_id"]
+    if "subnet_arns" in value:
+        import aws_sdk_datasync.types.pl_subnet_arn_list
+
+        out["SubnetArns"] = (
+            aws_sdk_datasync.types.pl_subnet_arn_list.serialize_aws_json_1_1(
+                value["subnet_arns"]
+            )
+        )
+    if "security_group_arns" in value:
+        import aws_sdk_datasync.types.pl_security_group_arn_list
+
+        out["SecurityGroupArns"] = (
+            aws_sdk_datasync.types.pl_security_group_arn_list.serialize_aws_json_1_1(
+                value["security_group_arns"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateAgentRequest:
+    out: CreateAgentRequest = {}  # type: ignore[typeddict-item]
+    if "ActivationKey" in data:
+        out["activation_key"] = data["ActivationKey"]
+    else:
+        raise DeserializationError("CreateAgentRequest.activation_key required")
+    if "AgentName" in data:
+        out["agent_name"] = data["AgentName"]
+    if "Tags" in data:
+        import aws_sdk_datasync.types.input_tag_list
+
+        out["tags"] = aws_sdk_datasync.types.input_tag_list.deserialize_aws_json_1_1(
+            data["Tags"]
+        )
+    if "VpcEndpointId" in data:
+        out["vpc_endpoint_id"] = data["VpcEndpointId"]
+    if "SubnetArns" in data:
+        import aws_sdk_datasync.types.pl_subnet_arn_list
+
+        out["subnet_arns"] = (
+            aws_sdk_datasync.types.pl_subnet_arn_list.deserialize_aws_json_1_1(
+                data["SubnetArns"]
+            )
+        )
+    if "SecurityGroupArns" in data:
+        import aws_sdk_datasync.types.pl_security_group_arn_list
+
+        out["security_group_arns"] = (
+            aws_sdk_datasync.types.pl_security_group_arn_list.deserialize_aws_json_1_1(
+                data["SecurityGroupArns"]
+            )
+        )
+    return out

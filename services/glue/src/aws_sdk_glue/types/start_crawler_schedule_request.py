@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#StartCrawlerScheduleRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.name_string
+
+
+class StartCrawlerScheduleRequest(TypedDict):
+    crawler_name: "aws_sdk_glue.types.name_string.NameString"
+    """<p>Name of the crawler to schedule.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: StartCrawlerScheduleRequest) -> dict:
+    out: dict = {}
+    out["CrawlerName"] = value["crawler_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> StartCrawlerScheduleRequest:
+    out: StartCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
+    if "CrawlerName" in data:
+        out["crawler_name"] = data["CrawlerName"]
+    else:
+        raise DeserializationError("StartCrawlerScheduleRequest.crawler_name required")
+    return out

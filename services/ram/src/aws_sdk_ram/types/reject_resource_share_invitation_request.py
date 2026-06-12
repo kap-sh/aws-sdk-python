@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.ram#RejectResourceShareInvitationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ram.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ram.types.string
+
+
+class RejectResourceShareInvitationRequest(TypedDict):
+    resource_share_invitation_arn: "aws_sdk_ram.types.string.String"
+    """<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation that you want to reject.</p>"""
+    client_token: NotRequired["aws_sdk_ram.types.string.String"]
+    """<p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RejectResourceShareInvitationRequest) -> dict:
+    out: dict = {}
+    out["resourceShareInvitationArn"] = value["resource_share_invitation_arn"]
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> RejectResourceShareInvitationRequest:
+    out: RejectResourceShareInvitationRequest = {}  # type: ignore[typeddict-item]
+    if "resourceShareInvitationArn" in data:
+        out["resource_share_invitation_arn"] = data["resourceShareInvitationArn"]
+    else:
+        raise DeserializationError(
+            "RejectResourceShareInvitationRequest.resource_share_invitation_arn required"
+        )
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

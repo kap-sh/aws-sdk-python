@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#AccessControlTranslation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_s3_control._protocol.xml import Element, SubElement
+from aws_sdk_s3_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_s3_control.types.owner_override
+
+
+class AccessControlTranslation(TypedDict):
+    owner: "aws_sdk_s3_control.types.owner_override.OwnerOverride"
+    """<p>Specifies the replica ownership.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: AccessControlTranslation, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    import aws_sdk_s3_control.types.owner_override
+
+    aws_sdk_s3_control.types.owner_override.serialize_xml(value["owner"], el, "Owner")
+
+
+def deserialize_xml(el: Element) -> AccessControlTranslation:
+    out: AccessControlTranslation = {}  # type: ignore[typeddict-item]
+    child_owner = el.find("Owner")
+    if child_owner is not None:
+        import aws_sdk_s3_control.types.owner_override
+
+        out["owner"] = aws_sdk_s3_control.types.owner_override.deserialize_xml(
+            child_owner
+        )
+    else:
+        raise DeserializationError("AccessControlTranslation.owner required")
+    return out

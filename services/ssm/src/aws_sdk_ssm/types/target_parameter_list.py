@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#TargetParameterList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.parameter_value
+
+TargetParameterList: TypeAlias = list[
+    "aws_sdk_ssm.types.parameter_value.ParameterValue"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TargetParameterList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> TargetParameterList:
+    return list(data)

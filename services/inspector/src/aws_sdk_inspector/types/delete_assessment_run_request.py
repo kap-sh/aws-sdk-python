@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector#DeleteAssessmentRunRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_inspector.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_inspector.types.arn
+
+
+class DeleteAssessmentRunRequest(TypedDict):
+    assessment_run_arn: "aws_sdk_inspector.types.arn.Arn"
+    """<p>The ARN that specifies the assessment run that you want to delete.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteAssessmentRunRequest) -> dict:
+    out: dict = {}
+    out["assessmentRunArn"] = value["assessment_run_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteAssessmentRunRequest:
+    out: DeleteAssessmentRunRequest = {}  # type: ignore[typeddict-item]
+    if "assessmentRunArn" in data:
+        out["assessment_run_arn"] = data["assessmentRunArn"]
+    else:
+        raise DeserializationError(
+            "DeleteAssessmentRunRequest.assessment_run_arn required"
+        )
+    return out

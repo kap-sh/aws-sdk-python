@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details
+
+
+class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails(TypedDict):
+    cloud_watch_logs_log_group: NotRequired[
+        "aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details.AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails"
+    ]
+    """<p> An object describing a CloudWatch Logs log group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html\"> Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(
+    value: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+) -> dict:
+    out: dict = {}
+    if "cloud_watch_logs_log_group" in value:
+        import aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details
+
+        out["CloudWatchLogsLogGroup"] = (
+            aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details.serialize_json(
+                value["cloud_watch_logs_log_group"]
+            )
+        )
+    return out
+
+
+def deserialize_json(
+    data: dict,
+) -> AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails:
+    out: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails = {}  # type: ignore[typeddict-item]
+    if "CloudWatchLogsLogGroup" in data:
+        import aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details
+
+        out["cloud_watch_logs_log_group"] = (
+            aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details.deserialize_json(
+                data["CloudWatchLogsLogGroup"]
+            )
+        )
+    return out

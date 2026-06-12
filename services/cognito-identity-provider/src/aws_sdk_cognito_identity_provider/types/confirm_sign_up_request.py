@@ -1,0 +1,136 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ConfirmSignUpRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cognito_identity_provider.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.analytics_metadata_type
+    import aws_sdk_cognito_identity_provider.types.client_id_type
+    import aws_sdk_cognito_identity_provider.types.client_metadata_type
+    import aws_sdk_cognito_identity_provider.types.confirmation_code_type
+    import aws_sdk_cognito_identity_provider.types.force_alias_creation
+    import aws_sdk_cognito_identity_provider.types.secret_hash_type
+    import aws_sdk_cognito_identity_provider.types.session_type
+    import aws_sdk_cognito_identity_provider.types.user_context_data_type
+    import aws_sdk_cognito_identity_provider.types.username_type
+
+
+class ConfirmSignUpRequest(TypedDict):
+    client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
+    """<p>The ID of the app client associated with the user pool.</p>"""
+    secret_hash: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.secret_hash_type.SecretHashType"
+    ]
+    """<p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message. For more information about <code>SecretHash</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>.</p>"""
+    username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType"
+    """<p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>"""
+    confirmation_code: "aws_sdk_cognito_identity_provider.types.confirmation_code_type.ConfirmationCodeType"
+    """<p>The confirmation code that your user pool sent in response to the <code>SignUp</code> request.</p>"""
+    force_alias_creation: "aws_sdk_cognito_identity_provider.types.force_alias_creation.ForceAliasCreation"
+    """<p>When <code>true</code>, forces user confirmation despite any existing aliases. Defaults to <code>false</code>. A value of <code>true</code> migrates the alias from an existing user to the new user if an existing user already has the phone number or email address as an alias.</p> <p>Say, for example, that an existing user has an <code>email</code> attribute of <code>bob@example.com</code> and email is an alias in your user pool. If the new user also has an email of <code>bob@example.com</code> and your <code>ConfirmSignUp</code> response sets <code>ForceAliasCreation</code> to <code>true</code>, the new user can sign in with a username of <code>bob@example.com</code> and the existing user can no longer do so.</p> <p>If <code>false</code> and an attribute belongs to an existing alias, this request returns an <b>AliasExistsException</b> error.</p> <p>For more information about sign-in aliases, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases\">Customizing sign-in attributes</a>.</p>"""
+    analytics_metadata: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+    ]
+    """<p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>"""
+    user_context_data: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+    ]
+    """<p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>"""
+    client_metadata: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+    ]
+    """<p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>"""
+    session: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+    ]
+    """<p>The optional session ID from a <code>SignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ConfirmSignUpRequest) -> dict:
+    out: dict = {}
+    out["ClientId"] = value["client_id"]
+    if "secret_hash" in value:
+        out["SecretHash"] = value["secret_hash"]
+    out["Username"] = value["username"]
+    out["ConfirmationCode"] = value["confirmation_code"]
+    out["ForceAliasCreation"] = value.get("force_alias_creation", False)
+    if "analytics_metadata" in value:
+        import aws_sdk_cognito_identity_provider.types.analytics_metadata_type
+
+        out["AnalyticsMetadata"] = (
+            aws_sdk_cognito_identity_provider.types.analytics_metadata_type.serialize_aws_json_1_1(
+                value["analytics_metadata"]
+            )
+        )
+    if "user_context_data" in value:
+        import aws_sdk_cognito_identity_provider.types.user_context_data_type
+
+        out["UserContextData"] = (
+            aws_sdk_cognito_identity_provider.types.user_context_data_type.serialize_aws_json_1_1(
+                value["user_context_data"]
+            )
+        )
+    if "client_metadata" in value:
+        import aws_sdk_cognito_identity_provider.types.client_metadata_type
+
+        out["ClientMetadata"] = (
+            aws_sdk_cognito_identity_provider.types.client_metadata_type.serialize_aws_json_1_1(
+                value["client_metadata"]
+            )
+        )
+    if "session" in value:
+        out["Session"] = value["session"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ConfirmSignUpRequest:
+    out: ConfirmSignUpRequest = {}  # type: ignore[typeddict-item]
+    if "ClientId" in data:
+        out["client_id"] = data["ClientId"]
+    else:
+        raise DeserializationError("ConfirmSignUpRequest.client_id required")
+    if "SecretHash" in data:
+        out["secret_hash"] = data["SecretHash"]
+    if "Username" in data:
+        out["username"] = data["Username"]
+    else:
+        raise DeserializationError("ConfirmSignUpRequest.username required")
+    if "ConfirmationCode" in data:
+        out["confirmation_code"] = data["ConfirmationCode"]
+    else:
+        raise DeserializationError("ConfirmSignUpRequest.confirmation_code required")
+    if "ForceAliasCreation" in data:
+        out["force_alias_creation"] = data["ForceAliasCreation"]
+    else:
+        out["force_alias_creation"] = False
+    if "AnalyticsMetadata" in data:
+        import aws_sdk_cognito_identity_provider.types.analytics_metadata_type
+
+        out["analytics_metadata"] = (
+            aws_sdk_cognito_identity_provider.types.analytics_metadata_type.deserialize_aws_json_1_1(
+                data["AnalyticsMetadata"]
+            )
+        )
+    if "UserContextData" in data:
+        import aws_sdk_cognito_identity_provider.types.user_context_data_type
+
+        out["user_context_data"] = (
+            aws_sdk_cognito_identity_provider.types.user_context_data_type.deserialize_aws_json_1_1(
+                data["UserContextData"]
+            )
+        )
+    if "ClientMetadata" in data:
+        import aws_sdk_cognito_identity_provider.types.client_metadata_type
+
+        out["client_metadata"] = (
+            aws_sdk_cognito_identity_provider.types.client_metadata_type.deserialize_aws_json_1_1(
+                data["ClientMetadata"]
+            )
+        )
+    if "Session" in data:
+        out["session"] = data["Session"]
+    return out

@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptography#DisableDefaultKeyReplicationRegionsOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_payment_cryptography.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography.types.regions
+
+
+class DisableDefaultKeyReplicationRegionsOutput(TypedDict):
+    enabled_replication_regions: "aws_sdk_payment_cryptography.types.regions.Regions"
+    """<p>The remaining list of regions where default key replication is still enabled for the account.</p> <p>This reflects the account's default replication configuration after removing the specified regions.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DisableDefaultKeyReplicationRegionsOutput) -> dict:
+    out: dict = {}
+    import aws_sdk_payment_cryptography.types.regions
+
+    out["EnabledReplicationRegions"] = (
+        aws_sdk_payment_cryptography.types.regions.serialize_aws_json_1_0(
+            value["enabled_replication_regions"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DisableDefaultKeyReplicationRegionsOutput:
+    out: DisableDefaultKeyReplicationRegionsOutput = {}  # type: ignore[typeddict-item]
+    if "EnabledReplicationRegions" in data:
+        import aws_sdk_payment_cryptography.types.regions
+
+        out["enabled_replication_regions"] = (
+            aws_sdk_payment_cryptography.types.regions.deserialize_aws_json_1_0(
+                data["EnabledReplicationRegions"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DisableDefaultKeyReplicationRegionsOutput.enabled_replication_regions required"
+        )
+    return out

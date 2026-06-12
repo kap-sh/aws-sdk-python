@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#UpdateMedicalVocabularyRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_transcribe.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_transcribe.types.language_code
+    import aws_sdk_transcribe.types.uri
+    import aws_sdk_transcribe.types.vocabulary_name
+
+
+class UpdateMedicalVocabularyRequest(TypedDict):
+    vocabulary_name: "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
+    """<p>The name of the custom medical vocabulary you want to update. Custom medical vocabulary names are case sensitive.</p>"""
+    language_code: "aws_sdk_transcribe.types.language_code.LanguageCode"
+    """<p>The language code that represents the language of the entries in the custom vocabulary you want to update. US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>"""
+    vocabulary_file_uri: "aws_sdk_transcribe.types.uri.Uri"
+    """<p>The Amazon S3 location of the text file that contains your custom medical vocabulary. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code> </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateMedicalVocabularyRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_transcribe.types.language_code
+
+    out["LanguageCode"] = aws_sdk_transcribe.types.language_code.serialize_aws_json_1_1(
+        value["language_code"]
+    )
+    out["VocabularyFileUri"] = value["vocabulary_file_uri"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateMedicalVocabularyRequest:
+    out: UpdateMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
+    if "LanguageCode" in data:
+        import aws_sdk_transcribe.types.language_code
+
+        out["language_code"] = (
+            aws_sdk_transcribe.types.language_code.deserialize_aws_json_1_1(
+                data["LanguageCode"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdateMedicalVocabularyRequest.language_code required"
+        )
+    if "VocabularyFileUri" in data:
+        out["vocabulary_file_uri"] = data["VocabularyFileUri"]
+    else:
+        raise DeserializationError(
+            "UpdateMedicalVocabularyRequest.vocabulary_file_uri required"
+        )
+    return out

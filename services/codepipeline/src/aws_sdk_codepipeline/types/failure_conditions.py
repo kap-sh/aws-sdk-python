@@ -1,0 +1,76 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#FailureConditions``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.condition_list
+    import aws_sdk_codepipeline.types.result
+    import aws_sdk_codepipeline.types.retry_configuration
+
+
+class FailureConditions(TypedDict):
+    result: NotRequired["aws_sdk_codepipeline.types.result.Result"]
+    """<p>The specified result for when the failure conditions are met, such as rolling back the stage.</p>"""
+    retry_configuration: NotRequired[
+        "aws_sdk_codepipeline.types.retry_configuration.RetryConfiguration"
+    ]
+    """<p>The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode.</p>"""
+    conditions: NotRequired["aws_sdk_codepipeline.types.condition_list.ConditionList"]
+    """<p>The conditions that are configured as failure conditions. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a> and <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html\">How do stage conditions work?</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: FailureConditions) -> dict:
+    out: dict = {}
+    if "result" in value:
+        import aws_sdk_codepipeline.types.result
+
+        out["result"] = aws_sdk_codepipeline.types.result.serialize_aws_json_1_1(
+            value["result"]
+        )
+    if "retry_configuration" in value:
+        import aws_sdk_codepipeline.types.retry_configuration
+
+        out["retryConfiguration"] = (
+            aws_sdk_codepipeline.types.retry_configuration.serialize_aws_json_1_1(
+                value["retry_configuration"]
+            )
+        )
+    if "conditions" in value:
+        import aws_sdk_codepipeline.types.condition_list
+
+        out["conditions"] = (
+            aws_sdk_codepipeline.types.condition_list.serialize_aws_json_1_1(
+                value["conditions"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> FailureConditions:
+    out: FailureConditions = {}  # type: ignore[typeddict-item]
+    if "result" in data:
+        import aws_sdk_codepipeline.types.result
+
+        out["result"] = aws_sdk_codepipeline.types.result.deserialize_aws_json_1_1(
+            data["result"]
+        )
+    if "retryConfiguration" in data:
+        import aws_sdk_codepipeline.types.retry_configuration
+
+        out["retry_configuration"] = (
+            aws_sdk_codepipeline.types.retry_configuration.deserialize_aws_json_1_1(
+                data["retryConfiguration"]
+            )
+        )
+    if "conditions" in data:
+        import aws_sdk_codepipeline.types.condition_list
+
+        out["conditions"] = (
+            aws_sdk_codepipeline.types.condition_list.deserialize_aws_json_1_1(
+                data["conditions"]
+            )
+        )
+    return out

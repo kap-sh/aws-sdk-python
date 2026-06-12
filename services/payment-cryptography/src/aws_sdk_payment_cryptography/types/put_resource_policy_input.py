@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptography#PutResourcePolicyInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_payment_cryptography.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography.types.resource_arn
+    import aws_sdk_payment_cryptography.types.resource_policy
+
+
+class PutResourcePolicyInput(TypedDict):
+    resource_arn: "aws_sdk_payment_cryptography.types.resource_arn.ResourceArn"
+    """<p>The <code>KeyARN</code> of the key to attach the resource-based policy to.</p>"""
+    policy: "aws_sdk_payment_cryptography.types.resource_policy.ResourcePolicy"
+    """<p>The resource-based policy to attach to the key, in JSON format.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: PutResourcePolicyInput) -> dict:
+    out: dict = {}
+    out["ResourceArn"] = value["resource_arn"]
+    out["Policy"] = value["policy"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> PutResourcePolicyInput:
+    out: PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    else:
+        raise DeserializationError("PutResourcePolicyInput.resource_arn required")
+    if "Policy" in data:
+        out["policy"] = data["Policy"]
+    else:
+        raise DeserializationError("PutResourcePolicyInput.policy required")
+    return out

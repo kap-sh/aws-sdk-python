@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconnect#BridgeSource``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+if TYPE_CHECKING:
+    import aws_sdk_mediaconnect.types.bridge_flow_source
+    import aws_sdk_mediaconnect.types.bridge_network_source
+
+class BridgeSource(TypedDict):
+    flow_source: NotRequired["aws_sdk_mediaconnect.types.bridge_flow_source.BridgeFlowSource"]
+    """<p> The source of the associated flow. </p>"""
+    network_source: NotRequired["aws_sdk_mediaconnect.types.bridge_network_source.BridgeNetworkSource"]
+    """<p> The network source for the bridge. </p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BridgeSource) -> dict:
+    out: dict = {}
+    if "flow_source" in value:
+        import aws_sdk_mediaconnect.types.bridge_flow_source
+        out["flowSource"] = aws_sdk_mediaconnect.types.bridge_flow_source.serialize_json(value["flow_source"])
+    if "network_source" in value:
+        import aws_sdk_mediaconnect.types.bridge_network_source
+        out["networkSource"] = aws_sdk_mediaconnect.types.bridge_network_source.serialize_json(value["network_source"])
+    return out
+
+
+def deserialize_json(data: dict) -> BridgeSource:
+    out: BridgeSource = {}  # type: ignore[typeddict-item]
+    if "flowSource" in data:
+        import aws_sdk_mediaconnect.types.bridge_flow_source
+        out["flow_source"] = aws_sdk_mediaconnect.types.bridge_flow_source.deserialize_json(data["flowSource"])
+    if "networkSource" in data:
+        import aws_sdk_mediaconnect.types.bridge_network_source
+        out["network_source"] = aws_sdk_mediaconnect.types.bridge_network_source.deserialize_json(data["networkSource"])
+    return out

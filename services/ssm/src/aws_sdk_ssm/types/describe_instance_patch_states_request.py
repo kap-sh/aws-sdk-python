@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstancePatchStatesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.instance_id_list
+    import aws_sdk_ssm.types.next_token
+    import aws_sdk_ssm.types.patch_compliance_max_results
+
+
+class DescribeInstancePatchStatesRequest(TypedDict):
+    instance_ids: "aws_sdk_ssm.types.instance_id_list.InstanceIdList"
+    """<p>The ID of the managed node for which patch state information should be retrieved.</p>"""
+    next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]
+    """<p>The token for the next set of items to return. (You received this token from a previous call.)</p>"""
+    max_results: NotRequired[
+        "aws_sdk_ssm.types.patch_compliance_max_results.PatchComplianceMaxResults"
+    ]
+    """<p>The maximum number of managed nodes to return (per page).</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeInstancePatchStatesRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_ssm.types.instance_id_list
+
+    out["InstanceIds"] = aws_sdk_ssm.types.instance_id_list.serialize_aws_json_1_1(
+        value["instance_ids"]
+    )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePatchStatesRequest:
+    out: DescribeInstancePatchStatesRequest = {}  # type: ignore[typeddict-item]
+    if "InstanceIds" in data:
+        import aws_sdk_ssm.types.instance_id_list
+
+        out["instance_ids"] = (
+            aws_sdk_ssm.types.instance_id_list.deserialize_aws_json_1_1(
+                data["InstanceIds"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DescribeInstancePatchStatesRequest.instance_ids required"
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

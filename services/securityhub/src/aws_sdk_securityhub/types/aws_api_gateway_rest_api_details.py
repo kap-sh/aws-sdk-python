@@ -1,0 +1,113 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#AwsApiGatewayRestApiDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.aws_api_gateway_endpoint_configuration
+    import aws_sdk_securityhub.types.integer
+    import aws_sdk_securityhub.types.non_empty_string
+    import aws_sdk_securityhub.types.non_empty_string_list
+
+
+class AwsApiGatewayRestApiDetails(TypedDict):
+    id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p>The identifier of the REST API.</p>"""
+    name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p>The name of the REST API.</p>"""
+    description: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>A description of the REST API.</p>"""
+    created_date: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>Indicates when the API was created.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    version: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p>The version identifier for the REST API.</p>"""
+    binary_media_types: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
+    ]
+    """<p>The list of binary media types supported by the REST API.</p>"""
+    minimum_compression_size: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
+    """<p>The minimum size in bytes of a payload before compression is enabled.</p> <p>If <code>null</code>, then compression is disabled.</p> <p>If 0, then all payloads are compressed.</p>"""
+    api_key_source: NotRequired[
+        "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>The source of the API key for metering requests according to a usage plan.</p> <p> <code>HEADER</code> indicates whether to read the API key from the X-API-Key header of a request.</p> <p> <code>AUTHORIZER</code> indicates whether to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</p>"""
+    endpoint_configuration: NotRequired[
+        "aws_sdk_securityhub.types.aws_api_gateway_endpoint_configuration.AwsApiGatewayEndpointConfiguration"
+    ]
+    """<p>The endpoint configuration of the REST API.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AwsApiGatewayRestApiDetails) -> dict:
+    out: dict = {}
+    if "id" in value:
+        out["Id"] = value["id"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "created_date" in value:
+        out["CreatedDate"] = value["created_date"]
+    if "version" in value:
+        out["Version"] = value["version"]
+    if "binary_media_types" in value:
+        import aws_sdk_securityhub.types.non_empty_string_list
+
+        out["BinaryMediaTypes"] = (
+            aws_sdk_securityhub.types.non_empty_string_list.serialize_json(
+                value["binary_media_types"]
+            )
+        )
+    if "minimum_compression_size" in value:
+        out["MinimumCompressionSize"] = value["minimum_compression_size"]
+    if "api_key_source" in value:
+        out["ApiKeySource"] = value["api_key_source"]
+    if "endpoint_configuration" in value:
+        import aws_sdk_securityhub.types.aws_api_gateway_endpoint_configuration
+
+        out["EndpointConfiguration"] = (
+            aws_sdk_securityhub.types.aws_api_gateway_endpoint_configuration.serialize_json(
+                value["endpoint_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AwsApiGatewayRestApiDetails:
+    out: AwsApiGatewayRestApiDetails = {}  # type: ignore[typeddict-item]
+    if "Id" in data:
+        out["id"] = data["Id"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "CreatedDate" in data:
+        out["created_date"] = data["CreatedDate"]
+    if "Version" in data:
+        out["version"] = data["Version"]
+    if "BinaryMediaTypes" in data:
+        import aws_sdk_securityhub.types.non_empty_string_list
+
+        out["binary_media_types"] = (
+            aws_sdk_securityhub.types.non_empty_string_list.deserialize_json(
+                data["BinaryMediaTypes"]
+            )
+        )
+    if "MinimumCompressionSize" in data:
+        out["minimum_compression_size"] = data["MinimumCompressionSize"]
+    if "ApiKeySource" in data:
+        out["api_key_source"] = data["ApiKeySource"]
+    if "EndpointConfiguration" in data:
+        import aws_sdk_securityhub.types.aws_api_gateway_endpoint_configuration
+
+        out["endpoint_configuration"] = (
+            aws_sdk_securityhub.types.aws_api_gateway_endpoint_configuration.deserialize_json(
+                data["EndpointConfiguration"]
+            )
+        )
+    return out

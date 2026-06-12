@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#Streams``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_media_pipelines.types.stream_configuration
+
+Streams: TypeAlias = list[
+    "aws_sdk_chime_sdk_media_pipelines.types.stream_configuration.StreamConfiguration"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Streams) -> list:
+    import aws_sdk_chime_sdk_media_pipelines.types.stream_configuration
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_chime_sdk_media_pipelines.types.stream_configuration.serialize_json(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_json(data: list) -> Streams:
+    import aws_sdk_chime_sdk_media_pipelines.types.stream_configuration
+
+    out: Streams = []
+    for item in data:
+        out.append(
+            aws_sdk_chime_sdk_media_pipelines.types.stream_configuration.deserialize_json(
+                item
+            )
+        )
+    return out

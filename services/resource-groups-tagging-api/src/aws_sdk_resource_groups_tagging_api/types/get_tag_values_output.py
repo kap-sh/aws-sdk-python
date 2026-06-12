@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#GetTagValuesOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_resource_groups_tagging_api.types.pagination_token
+    import aws_sdk_resource_groups_tagging_api.types.tag_values_output_list
+
+
+class GetTagValuesOutput(TypedDict):
+    pagination_token: NotRequired[
+        "aws_sdk_resource_groups_tagging_api.types.pagination_token.PaginationToken"
+    ]
+    """<p>A string that indicates that there is more data available than this response contains. To receive the next part of the response, specify this response value as the <code>PaginationToken</code> value in the request for the next page.</p>"""
+    tag_values: NotRequired[
+        "aws_sdk_resource_groups_tagging_api.types.tag_values_output_list.TagValuesOutputList"
+    ]
+    """<p>A list of all tag values for the specified key currently used in the specified Amazon Web Services Region for the calling account.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetTagValuesOutput) -> dict:
+    out: dict = {}
+    if "pagination_token" in value:
+        out["PaginationToken"] = value["pagination_token"]
+    if "tag_values" in value:
+        import aws_sdk_resource_groups_tagging_api.types.tag_values_output_list
+
+        out["TagValues"] = (
+            aws_sdk_resource_groups_tagging_api.types.tag_values_output_list.serialize_aws_json_1_1(
+                value["tag_values"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetTagValuesOutput:
+    out: GetTagValuesOutput = {}  # type: ignore[typeddict-item]
+    if "PaginationToken" in data:
+        out["pagination_token"] = data["PaginationToken"]
+    if "TagValues" in data:
+        import aws_sdk_resource_groups_tagging_api.types.tag_values_output_list
+
+        out["tag_values"] = (
+            aws_sdk_resource_groups_tagging_api.types.tag_values_output_list.deserialize_aws_json_1_1(
+                data["TagValues"]
+            )
+        )
+    return out

@@ -1,0 +1,178 @@
+"""Generated from Smithy shape ``com.amazonaws.codedeploy#CreateDeploymentInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codedeploy.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codedeploy.types.alarm_configuration
+    import aws_sdk_codedeploy.types.application_name
+    import aws_sdk_codedeploy.types.auto_rollback_configuration
+    import aws_sdk_codedeploy.types.boolean
+    import aws_sdk_codedeploy.types.deployment_config_name
+    import aws_sdk_codedeploy.types.deployment_group_name
+    import aws_sdk_codedeploy.types.description
+    import aws_sdk_codedeploy.types.file_exists_behavior
+    import aws_sdk_codedeploy.types.revision_location
+    import aws_sdk_codedeploy.types.target_instances
+
+
+class CreateDeploymentInput(TypedDict):
+    application_name: "aws_sdk_codedeploy.types.application_name.ApplicationName"
+    """<p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>"""
+    deployment_group_name: NotRequired[
+        "aws_sdk_codedeploy.types.deployment_group_name.DeploymentGroupName"
+    ]
+    """<p>The name of the deployment group.</p>"""
+    revision: NotRequired["aws_sdk_codedeploy.types.revision_location.RevisionLocation"]
+    """<p> The type and location of the revision to deploy. </p>"""
+    deployment_config_name: NotRequired[
+        "aws_sdk_codedeploy.types.deployment_config_name.DeploymentConfigName"
+    ]
+    """<p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p> <p>If not specified, the value configured in the deployment group is used as the default. If the deployment group does not have a deployment configuration associated with it, <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</p>"""
+    description: NotRequired["aws_sdk_codedeploy.types.description.Description"]
+    """<p>A comment about the deployment.</p>"""
+    ignore_application_stop_failures: "aws_sdk_codedeploy.types.boolean.Boolean"
+    """<p> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, or <code>AfterBlockTraffic</code> deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. For example, if <code>ApplicationStop</code> fails, the deployment continues with <code>DownloadBundle</code>. If <code>BeforeBlockTraffic</code> fails, the deployment continues with <code>BlockTraffic</code>. If <code>AfterBlockTraffic</code> fails, the deployment continues with <code>ApplicationStop</code>. </p> <p> If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted. </p> <p> During a deployment, the CodeDeploy agent runs the scripts specified for <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and <code>AfterBlockTraffic</code> in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail. </p> <p> If the cause of the failure is a script from the last successful deployment that will never run successfully, create a new deployment and use <code>ignoreApplicationStopFailures</code> to specify that the <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and <code>AfterBlockTraffic</code> failures should be ignored. </p>"""
+    target_instances: NotRequired[
+        "aws_sdk_codedeploy.types.target_instances.TargetInstances"
+    ]
+    """<p> Information about the instances that belong to the replacement environment in a blue/green deployment. </p>"""
+    auto_rollback_configuration: NotRequired[
+        "aws_sdk_codedeploy.types.auto_rollback_configuration.AutoRollbackConfiguration"
+    ]
+    """<p>Configuration information for an automatic rollback that is added when a deployment is created.</p>"""
+    update_outdated_instances_only: "aws_sdk_codedeploy.types.boolean.Boolean"
+    """<p> Indicates whether to deploy to all instances or only to instances that are not running the latest application revision. </p>"""
+    file_exists_behavior: NotRequired[
+        "aws_sdk_codedeploy.types.file_exists_behavior.FileExistsBehavior"
+    ]
+    """<p>Information about how CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.</p> <p>The <code>fileExistsBehavior</code> parameter takes any of the following values:</p> <ul> <li> <p>DISALLOW: The deployment fails. This is also the default behavior if no option is specified.</p> </li> <li> <p>OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.</p> </li> <li> <p>RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.</p> </li> </ul>"""
+    override_alarm_configuration: NotRequired[
+        "aws_sdk_codedeploy.types.alarm_configuration.AlarmConfiguration"
+    ]
+    """<p>Allows you to specify information about alarms associated with a deployment. The alarm configuration that you specify here will override the alarm configuration at the deployment group level. Consider overriding the alarm configuration if you have set up alarms at the deployment group level that are causing deployment failures. In this case, you would call <code>CreateDeployment</code> to create a new deployment that uses a previous application revision that is known to work, and set its alarm configuration to turn off alarm polling. Turning off alarm polling ensures that the new deployment proceeds without being blocked by the alarm that was generated by the previous, failed, deployment.</p> <note> <p>If you specify an <code>overrideAlarmConfiguration</code>, you need the <code>UpdateDeploymentGroup</code> IAM permission when calling <code>CreateDeployment</code>.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateDeploymentInput) -> dict:
+    out: dict = {}
+    out["applicationName"] = value["application_name"]
+    if "deployment_group_name" in value:
+        out["deploymentGroupName"] = value["deployment_group_name"]
+    if "revision" in value:
+        import aws_sdk_codedeploy.types.revision_location
+
+        out["revision"] = (
+            aws_sdk_codedeploy.types.revision_location.serialize_aws_json_1_1(
+                value["revision"]
+            )
+        )
+    if "deployment_config_name" in value:
+        out["deploymentConfigName"] = value["deployment_config_name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    out["ignoreApplicationStopFailures"] = value.get(
+        "ignore_application_stop_failures", False
+    )
+    if "target_instances" in value:
+        import aws_sdk_codedeploy.types.target_instances
+
+        out["targetInstances"] = (
+            aws_sdk_codedeploy.types.target_instances.serialize_aws_json_1_1(
+                value["target_instances"]
+            )
+        )
+    if "auto_rollback_configuration" in value:
+        import aws_sdk_codedeploy.types.auto_rollback_configuration
+
+        out["autoRollbackConfiguration"] = (
+            aws_sdk_codedeploy.types.auto_rollback_configuration.serialize_aws_json_1_1(
+                value["auto_rollback_configuration"]
+            )
+        )
+    out["updateOutdatedInstancesOnly"] = value.get(
+        "update_outdated_instances_only", False
+    )
+    if "file_exists_behavior" in value:
+        import aws_sdk_codedeploy.types.file_exists_behavior
+
+        out["fileExistsBehavior"] = (
+            aws_sdk_codedeploy.types.file_exists_behavior.serialize_aws_json_1_1(
+                value["file_exists_behavior"]
+            )
+        )
+    if "override_alarm_configuration" in value:
+        import aws_sdk_codedeploy.types.alarm_configuration
+
+        out["overrideAlarmConfiguration"] = (
+            aws_sdk_codedeploy.types.alarm_configuration.serialize_aws_json_1_1(
+                value["override_alarm_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateDeploymentInput:
+    out: CreateDeploymentInput = {}  # type: ignore[typeddict-item]
+    if "applicationName" in data:
+        out["application_name"] = data["applicationName"]
+    else:
+        raise DeserializationError("CreateDeploymentInput.application_name required")
+    if "deploymentGroupName" in data:
+        out["deployment_group_name"] = data["deploymentGroupName"]
+    if "revision" in data:
+        import aws_sdk_codedeploy.types.revision_location
+
+        out["revision"] = (
+            aws_sdk_codedeploy.types.revision_location.deserialize_aws_json_1_1(
+                data["revision"]
+            )
+        )
+    if "deploymentConfigName" in data:
+        out["deployment_config_name"] = data["deploymentConfigName"]
+    if "description" in data:
+        out["description"] = data["description"]
+    if "ignoreApplicationStopFailures" in data:
+        out["ignore_application_stop_failures"] = data["ignoreApplicationStopFailures"]
+    else:
+        out["ignore_application_stop_failures"] = False
+    if "targetInstances" in data:
+        import aws_sdk_codedeploy.types.target_instances
+
+        out["target_instances"] = (
+            aws_sdk_codedeploy.types.target_instances.deserialize_aws_json_1_1(
+                data["targetInstances"]
+            )
+        )
+    if "autoRollbackConfiguration" in data:
+        import aws_sdk_codedeploy.types.auto_rollback_configuration
+
+        out["auto_rollback_configuration"] = (
+            aws_sdk_codedeploy.types.auto_rollback_configuration.deserialize_aws_json_1_1(
+                data["autoRollbackConfiguration"]
+            )
+        )
+    if "updateOutdatedInstancesOnly" in data:
+        out["update_outdated_instances_only"] = data["updateOutdatedInstancesOnly"]
+    else:
+        out["update_outdated_instances_only"] = False
+    if "fileExistsBehavior" in data:
+        import aws_sdk_codedeploy.types.file_exists_behavior
+
+        out["file_exists_behavior"] = (
+            aws_sdk_codedeploy.types.file_exists_behavior.deserialize_aws_json_1_1(
+                data["fileExistsBehavior"]
+            )
+        )
+    if "overrideAlarmConfiguration" in data:
+        import aws_sdk_codedeploy.types.alarm_configuration
+
+        out["override_alarm_configuration"] = (
+            aws_sdk_codedeploy.types.alarm_configuration.deserialize_aws_json_1_1(
+                data["overrideAlarmConfiguration"]
+            )
+        )
+    return out

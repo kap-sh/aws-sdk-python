@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.guardduty#Ec2ImageDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_guardduty.types.string
+
+
+class Ec2ImageDetails(TypedDict):
+    image_arn: NotRequired["aws_sdk_guardduty.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the EC2 AMI.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Ec2ImageDetails) -> dict:
+    out: dict = {}
+    if "image_arn" in value:
+        out["imageArn"] = value["image_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> Ec2ImageDetails:
+    out: Ec2ImageDetails = {}  # type: ignore[typeddict-item]
+    if "imageArn" in data:
+        out["image_arn"] = data["imageArn"]
+    return out

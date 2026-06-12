@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisioningArtifactParameter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_service_catalog.types.default_value
+    import aws_sdk_service_catalog.types.description
+    import aws_sdk_service_catalog.types.no_echo
+    import aws_sdk_service_catalog.types.parameter_constraints
+    import aws_sdk_service_catalog.types.parameter_key
+    import aws_sdk_service_catalog.types.parameter_type
+
+
+class ProvisioningArtifactParameter(TypedDict):
+    parameter_key: NotRequired[
+        "aws_sdk_service_catalog.types.parameter_key.ParameterKey"
+    ]
+    """<p>The parameter key.</p>"""
+    default_value: NotRequired[
+        "aws_sdk_service_catalog.types.default_value.DefaultValue"
+    ]
+    """<p>The default value.</p>"""
+    parameter_type: NotRequired[
+        "aws_sdk_service_catalog.types.parameter_type.ParameterType"
+    ]
+    """<p>The parameter type.</p>"""
+    is_no_echo: "aws_sdk_service_catalog.types.no_echo.NoEcho"
+    """<p>If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.</p>"""
+    description: NotRequired["aws_sdk_service_catalog.types.description.Description"]
+    """<p>The description of the parameter.</p>"""
+    parameter_constraints: NotRequired[
+        "aws_sdk_service_catalog.types.parameter_constraints.ParameterConstraints"
+    ]
+    """<p>Constraints that the administrator has put on a parameter.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ProvisioningArtifactParameter) -> dict:
+    out: dict = {}
+    if "parameter_key" in value:
+        out["ParameterKey"] = value["parameter_key"]
+    if "default_value" in value:
+        out["DefaultValue"] = value["default_value"]
+    if "parameter_type" in value:
+        out["ParameterType"] = value["parameter_type"]
+    out["IsNoEcho"] = value.get("is_no_echo", False)
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "parameter_constraints" in value:
+        import aws_sdk_service_catalog.types.parameter_constraints
+
+        out["ParameterConstraints"] = (
+            aws_sdk_service_catalog.types.parameter_constraints.serialize_aws_json_1_1(
+                value["parameter_constraints"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ProvisioningArtifactParameter:
+    out: ProvisioningArtifactParameter = {}  # type: ignore[typeddict-item]
+    if "ParameterKey" in data:
+        out["parameter_key"] = data["ParameterKey"]
+    if "DefaultValue" in data:
+        out["default_value"] = data["DefaultValue"]
+    if "ParameterType" in data:
+        out["parameter_type"] = data["ParameterType"]
+    if "IsNoEcho" in data:
+        out["is_no_echo"] = data["IsNoEcho"]
+    else:
+        out["is_no_echo"] = False
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "ParameterConstraints" in data:
+        import aws_sdk_service_catalog.types.parameter_constraints
+
+        out["parameter_constraints"] = (
+            aws_sdk_service_catalog.types.parameter_constraints.deserialize_aws_json_1_1(
+                data["ParameterConstraints"]
+            )
+        )
+    return out

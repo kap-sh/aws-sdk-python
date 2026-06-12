@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#DescribeTestCasesOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codebuild.types.string
+    import aws_sdk_codebuild.types.test_cases
+
+
+class DescribeTestCasesOutput(TypedDict):
+    next_token: NotRequired["aws_sdk_codebuild.types.string.String"]
+    """<p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>"""
+    test_cases: NotRequired["aws_sdk_codebuild.types.test_cases.TestCases"]
+    """<p> The returned list of test cases. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeTestCasesOutput) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "test_cases" in value:
+        import aws_sdk_codebuild.types.test_cases
+
+        out["testCases"] = aws_sdk_codebuild.types.test_cases.serialize_aws_json_1_1(
+            value["test_cases"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeTestCasesOutput:
+    out: DescribeTestCasesOutput = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "testCases" in data:
+        import aws_sdk_codebuild.types.test_cases
+
+        out["test_cases"] = aws_sdk_codebuild.types.test_cases.deserialize_aws_json_1_1(
+            data["testCases"]
+        )
+    return out

@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.shield#DescribeAttackStatisticsRequest``."""
+
+from typing import TypedDict
+
+
+class DescribeAttackStatisticsRequest(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeAttackStatisticsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeAttackStatisticsRequest:
+    out: DescribeAttackStatisticsRequest = {}  # type: ignore[typeddict-item]
+    return out

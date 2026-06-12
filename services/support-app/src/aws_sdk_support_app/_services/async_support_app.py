@@ -1,0 +1,612 @@
+"""Generated from Smithy shape ``com.amazonaws.supportapp#SupportApp``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+import aws_sdk_support_app._auth._signers
+import aws_sdk_support_app._auth._sigv4
+from aws_sdk_support_app._auth._identity import Credentials
+from aws_sdk_support_app._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_support_app._auth._zapros_handler import AuthMiddleware
+from aws_sdk_support_app._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_support_app.types.aws_account_alias
+    import aws_sdk_support_app.types.boolean_value
+    import aws_sdk_support_app.types.channel_id
+    import aws_sdk_support_app.types.channel_name
+    import aws_sdk_support_app.types.create_slack_channel_configuration_request
+    import aws_sdk_support_app.types.create_slack_channel_configuration_result
+    import aws_sdk_support_app.types.delete_account_alias_request
+    import aws_sdk_support_app.types.delete_account_alias_result
+    import aws_sdk_support_app.types.delete_slack_channel_configuration_request
+    import aws_sdk_support_app.types.delete_slack_channel_configuration_result
+    import aws_sdk_support_app.types.delete_slack_workspace_configuration_request
+    import aws_sdk_support_app.types.delete_slack_workspace_configuration_result
+    import aws_sdk_support_app.types.get_account_alias_request
+    import aws_sdk_support_app.types.get_account_alias_result
+    import aws_sdk_support_app.types.list_slack_channel_configurations_request
+    import aws_sdk_support_app.types.list_slack_channel_configurations_result
+    import aws_sdk_support_app.types.list_slack_workspace_configurations_request
+    import aws_sdk_support_app.types.list_slack_workspace_configurations_result
+    import aws_sdk_support_app.types.notification_severity_level
+    import aws_sdk_support_app.types.pagination_token
+    import aws_sdk_support_app.types.put_account_alias_request
+    import aws_sdk_support_app.types.put_account_alias_result
+    import aws_sdk_support_app.types.register_slack_workspace_for_organization_request
+    import aws_sdk_support_app.types.register_slack_workspace_for_organization_result
+    import aws_sdk_support_app.types.role_arn
+    import aws_sdk_support_app.types.team_id
+    import aws_sdk_support_app.types.update_slack_channel_configuration_request
+    import aws_sdk_support_app.types.update_slack_channel_configuration_result
+
+
+class AsyncSupportAppClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncSupportAppClient:
+    """A client for the ``SupportApp`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncSupportAppClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncSupportAppClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncSupportAppClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def create_slack_channel_configuration(
+        self,
+        team_id: "aws_sdk_support_app.types.team_id.teamId",
+        channel_id: "aws_sdk_support_app.types.channel_id.channelId",
+        notify_on_case_severity: "aws_sdk_support_app.types.notification_severity_level.NotificationSeverityLevel",
+        channel_role_arn: "aws_sdk_support_app.types.role_arn.roleArn",
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+        channel_name: Optional[
+            "aws_sdk_support_app.types.channel_name.channelName"
+        ] = None,
+        notify_on_create_or_reopen_case: Optional[
+            "aws_sdk_support_app.types.boolean_value.booleanValue"
+        ] = None,
+        notify_on_add_correspondence_to_case: Optional[
+            "aws_sdk_support_app.types.boolean_value.booleanValue"
+        ] = None,
+        notify_on_resolve_case: Optional[
+            "aws_sdk_support_app.types.boolean_value.booleanValue"
+        ] = None,
+    ) -> "aws_sdk_support_app.types.create_slack_channel_configuration_result.CreateSlackChannelConfigurationResult":
+        """<p>Creates a Slack channel configuration for your Amazon Web Services account.</p> <note> <ul> <li> <p>You can add up to 5 Slack workspaces for your account.</p> </li> <li> <p>You can add up to 20 Slack channels for your account.</p> </li> </ul> </note> <p>A Slack channel can have up to 100 Amazon Web Services accounts. This means that only 100 accounts can add the same Slack channel to the Amazon Web Services Support App. We recommend that you only add the accounts that you need to manage support cases for your organization. This can reduce the notifications about case updates that you receive in the Slack channel.</p> <note> <p>We recommend that you choose a private Slack channel so that only members in that channel have read and write access to your support cases. Anyone in your Slack channel can create, update, or resolve support cases for your account. Users require an invitation to join private channels. </p> </note>
+
+        Args:
+            team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>
+            channel_id: <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+            channel_name: <p>The name of the Slack channel that you configure for the Amazon Web Services Support App.</p>
+            notify_on_create_or_reopen_case: <p>Whether you want to get notified when a support case is created or reopened.</p>
+            notify_on_add_correspondence_to_case: <p>Whether you want to get notified when a support case has a new correspondence.</p>
+            notify_on_resolve_case: <p>Whether you want to get notified when a support case is resolved.</p>
+            notify_on_case_severity: <p>The case severity for a support case that you want to receive notifications.</p> <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code> for at least one of the following parameters:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, the following parameters must be null or <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, they default to <code>false</code>.</p> </note>
+            channel_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html\">Managing access to the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.create_slack_channel_configuration_request.CreateSlackChannelConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.create_slack_channel_configuration_result.CreateSlackChannelConfigurationResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.create_slack_channel_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.create_slack_channel_configuration.async_create_slack_channel_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.create_slack_channel_configuration_request.CreateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["team_id"] = team_id
+        input["channel_id"] = channel_id
+        if channel_name is not None:
+            input["channel_name"] = channel_name
+        if notify_on_create_or_reopen_case is not None:
+            input["notify_on_create_or_reopen_case"] = notify_on_create_or_reopen_case
+        if notify_on_add_correspondence_to_case is not None:
+            input["notify_on_add_correspondence_to_case"] = (
+                notify_on_add_correspondence_to_case
+            )
+        if notify_on_resolve_case is not None:
+            input["notify_on_resolve_case"] = notify_on_resolve_case
+        input["notify_on_case_severity"] = notify_on_case_severity
+        input["channel_role_arn"] = channel_role_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_account_alias(
+        self, *, config_overrides: Optional[AsyncSupportAppClientConfig] = None
+    ) -> (
+        "aws_sdk_support_app.types.delete_account_alias_result.DeleteAccountAliasResult"
+    ):
+        """<p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.delete_account_alias_request.DeleteAccountAliasRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.delete_account_alias_result.DeleteAccountAliasResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.delete_account_alias
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.delete_account_alias.async_delete_account_alias(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.delete_account_alias_request.DeleteAccountAliasRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_slack_channel_configuration(
+        self,
+        team_id: "aws_sdk_support_app.types.team_id.teamId",
+        channel_id: "aws_sdk_support_app.types.channel_id.channelId",
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+    ) -> "aws_sdk_support_app.types.delete_slack_channel_configuration_result.DeleteSlackChannelConfigurationResult":
+        """<p>Deletes a Slack channel configuration from your Amazon Web Services account. This operation doesn't delete your Slack channel.</p>
+
+        Args:
+            team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>
+            channel_id: <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.delete_slack_channel_configuration_request.DeleteSlackChannelConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.delete_slack_channel_configuration_result.DeleteSlackChannelConfigurationResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.delete_slack_channel_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.delete_slack_channel_configuration.async_delete_slack_channel_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.delete_slack_channel_configuration_request.DeleteSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["team_id"] = team_id
+        input["channel_id"] = channel_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_slack_workspace_configuration(
+        self,
+        team_id: "aws_sdk_support_app.types.team_id.teamId",
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+    ) -> "aws_sdk_support_app.types.delete_slack_workspace_configuration_result.DeleteSlackWorkspaceConfigurationResult":
+        """<p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't delete your Slack workspace.</p>
+
+        Args:
+            team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.delete_slack_workspace_configuration_request.DeleteSlackWorkspaceConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.delete_slack_workspace_configuration_result.DeleteSlackWorkspaceConfigurationResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.delete_slack_workspace_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.delete_slack_workspace_configuration.async_delete_slack_workspace_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.delete_slack_workspace_configuration_request.DeleteSlackWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["team_id"] = team_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_account_alias(
+        self, *, config_overrides: Optional[AsyncSupportAppClientConfig] = None
+    ) -> "aws_sdk_support_app.types.get_account_alias_result.GetAccountAliasResult":
+        """<p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.get_account_alias_request.GetAccountAliasRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.get_account_alias_result.GetAccountAliasResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.get_account_alias
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.get_account_alias.async_get_account_alias(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.get_account_alias_request.GetAccountAliasRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_slack_channel_configurations(
+        self,
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_support_app.types.pagination_token.paginationToken"
+        ] = None,
+    ) -> "aws_sdk_support_app.types.list_slack_channel_configurations_result.ListSlackChannelConfigurationsResult":
+        """<p>Lists the Slack channel configurations for an Amazon Web Services account.</p>
+
+        Args:
+            next_token: <p>If the results of a search are large, the API only returns a portion of the results and includes a <code>nextToken</code> pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When the API returns the last set of results, the response doesn't include a pagination token value.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.list_slack_channel_configurations_request.ListSlackChannelConfigurationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.list_slack_channel_configurations_result.ListSlackChannelConfigurationsResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.list_slack_channel_configurations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.list_slack_channel_configurations.async_list_slack_channel_configurations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.list_slack_channel_configurations_request.ListSlackChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_slack_workspace_configurations(
+        self,
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_support_app.types.pagination_token.paginationToken"
+        ] = None,
+    ) -> "aws_sdk_support_app.types.list_slack_workspace_configurations_result.ListSlackWorkspaceConfigurationsResult":
+        """<p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
+
+        Args:
+            next_token: <p>If the results of a search are large, the API only returns a portion of the results and includes a <code>nextToken</code> pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When the API returns the last set of results, the response doesn't include a pagination token value.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.list_slack_workspace_configurations_request.ListSlackWorkspaceConfigurationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.list_slack_workspace_configurations_result.ListSlackWorkspaceConfigurationsResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.list_slack_workspace_configurations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.list_slack_workspace_configurations.async_list_slack_workspace_configurations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.list_slack_workspace_configurations_request.ListSlackWorkspaceConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def put_account_alias(
+        self,
+        account_alias: "aws_sdk_support_app.types.aws_account_alias.awsAccountAlias",
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+    ) -> "aws_sdk_support_app.types.put_account_alias_result.PutAccountAliasResult":
+        """<p>Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
+
+        Args:
+            account_alias: <p>An alias or short name for an Amazon Web Services account.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.put_account_alias_request.PutAccountAliasRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.put_account_alias_result.PutAccountAliasResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.put_account_alias
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.put_account_alias.async_put_account_alias(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.put_account_alias_request.PutAccountAliasRequest = {}  # type: ignore[typeddict-item]
+        input["account_alias"] = account_alias
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def register_slack_workspace_for_organization(
+        self,
+        team_id: "aws_sdk_support_app.types.team_id.teamId",
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+    ) -> "aws_sdk_support_app.types.register_slack_workspace_for_organization_result.RegisterSlackWorkspaceForOrganizationResult":
+        """<p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be part of an organization in Organizations.</p> <p>If you're the <i>management account</i> and you want to register Slack workspaces for your organization, you must complete the following tasks:</p> <ol> <li> <p>Sign in to the <a href=\"https://console.aws.amazon.com/support/app\">Amazon Web Services Support Center</a> and authorize the Slack workspaces where you want your organization to have access to. See <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html\">Authorize a Slack workspace</a> in the <i>Amazon Web Services Support User Guide</i>.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API to authorize each Slack workspace for the organization.</p> </li> </ol> <p>After the management account authorizes the Slack workspace, member accounts can call this API to authorize the same Slack workspace for their individual accounts. Member accounts don't need to authorize the Slack workspace manually through the <a href=\"https://console.aws.amazon.com/support/app\">Amazon Web Services Support Center</a>.</p> <p>To use the Amazon Web Services Support App, each account must then complete the following tasks:</p> <ul> <li> <p>Create an Identity and Access Management (IAM) role with the required permission. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html\">Managing access to the Amazon Web Services Support App</a>.</p> </li> <li> <p>Configure a Slack channel to use the Amazon Web Services Support App for support cases for that account. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/add-your-slack-channel.html\">Configuring a Slack channel</a>.</p> </li> </ul>
+
+        Args:
+            team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>. Specify the Slack workspace that you want to use for your organization.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.register_slack_workspace_for_organization_request.RegisterSlackWorkspaceForOrganizationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.register_slack_workspace_for_organization_result.RegisterSlackWorkspaceForOrganizationResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.register_slack_workspace_for_organization
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.register_slack_workspace_for_organization.async_register_slack_workspace_for_organization(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.register_slack_workspace_for_organization_request.RegisterSlackWorkspaceForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input["team_id"] = team_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_slack_channel_configuration(
+        self,
+        team_id: "aws_sdk_support_app.types.team_id.teamId",
+        channel_id: "aws_sdk_support_app.types.channel_id.channelId",
+        *,
+        config_overrides: Optional[AsyncSupportAppClientConfig] = None,
+        channel_name: Optional[
+            "aws_sdk_support_app.types.channel_name.channelName"
+        ] = None,
+        notify_on_create_or_reopen_case: Optional[
+            "aws_sdk_support_app.types.boolean_value.booleanValue"
+        ] = None,
+        notify_on_add_correspondence_to_case: Optional[
+            "aws_sdk_support_app.types.boolean_value.booleanValue"
+        ] = None,
+        notify_on_resolve_case: Optional[
+            "aws_sdk_support_app.types.boolean_value.booleanValue"
+        ] = None,
+        notify_on_case_severity: Optional[
+            "aws_sdk_support_app.types.notification_severity_level.NotificationSeverityLevel"
+        ] = None,
+        channel_role_arn: Optional["aws_sdk_support_app.types.role_arn.roleArn"] = None,
+    ) -> "aws_sdk_support_app.types.update_slack_channel_configuration_result.UpdateSlackChannelConfigurationResult":
+        """<p>Updates the configuration for a Slack channel, such as case update notifications.</p>
+
+        Args:
+            team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>
+            channel_id: <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+            channel_name: <p>The Slack channel name that you want to update.</p>
+            notify_on_create_or_reopen_case: <p>Whether you want to get notified when a support case is created or reopened.</p>
+            notify_on_add_correspondence_to_case: <p>Whether you want to get notified when a support case has a new correspondence.</p>
+            notify_on_resolve_case: <p>Whether you want to get notified when a support case is resolved.</p>
+            notify_on_case_severity: <p>The case severity for a support case that you want to receive notifications.</p> <p>If you specify <code>high</code> or <code>all</code>, at least one of the following parameters must be <code>true</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, any of the following parameters that you specify in your request must be <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current values by default.</p> </note>
+            channel_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html\">Managing access to the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_support_app.types.update_slack_channel_configuration_request.UpdateSlackChannelConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_support_app.types.update_slack_channel_configuration_result.UpdateSlackChannelConfigurationResult"
+        ]:
+            import aws_sdk_support_app._operations.support_app.update_slack_channel_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_support_app._operations.support_app.update_slack_channel_configuration.async_update_slack_channel_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_support_app.types.update_slack_channel_configuration_request.UpdateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["team_id"] = team_id
+        input["channel_id"] = channel_id
+        if channel_name is not None:
+            input["channel_name"] = channel_name
+        if notify_on_create_or_reopen_case is not None:
+            input["notify_on_create_or_reopen_case"] = notify_on_create_or_reopen_case
+        if notify_on_add_correspondence_to_case is not None:
+            input["notify_on_add_correspondence_to_case"] = (
+                notify_on_add_correspondence_to_case
+            )
+        if notify_on_resolve_case is not None:
+            input["notify_on_resolve_case"] = notify_on_resolve_case
+        if notify_on_case_severity is not None:
+            input["notify_on_case_severity"] = notify_on_case_severity
+        if channel_role_arn is not None:
+            input["channel_role_arn"] = channel_role_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

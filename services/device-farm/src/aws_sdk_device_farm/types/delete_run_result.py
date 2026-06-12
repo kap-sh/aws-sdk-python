@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteRunResult``."""
+
+from typing import TypedDict
+
+
+class DeleteRunResult(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteRunResult) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteRunResult:
+    out: DeleteRunResult = {}  # type: ignore[typeddict-item]
+    return out

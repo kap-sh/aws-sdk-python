@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.fms#ListThirdPartyFirewallFirewallPoliciesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_fms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_fms.types.pagination_max_results
+    import aws_sdk_fms.types.pagination_token
+    import aws_sdk_fms.types.third_party_firewall
+
+
+class ListThirdPartyFirewallFirewallPoliciesRequest(TypedDict):
+    third_party_firewall: "aws_sdk_fms.types.third_party_firewall.ThirdPartyFirewall"
+    """<p>The name of the third-party firewall vendor.</p>"""
+    next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]
+    """<p>If the previous response included a <code>NextToken</code> element, the specified third-party firewall vendor is associated with more third-party firewall policies. To get more third-party firewall policies, submit another <code>ListThirdPartyFirewallFirewallPoliciesRequest</code> request.</p> <p> For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response. If the previous response didn't include a <code>NextToken</code> element, there are no more third-party firewall policies to get. </p>"""
+    max_results: "aws_sdk_fms.types.pagination_max_results.PaginationMaxResults"
+    """<p>The maximum number of third-party firewall policies that you want Firewall Manager to return. If the specified third-party firewall vendor is associated with more than <code>MaxResults</code> firewall policies, the response includes a <code>NextToken</code> element. <code>NextToken</code> contains an encrypted token that identifies the first third-party firewall policies that Firewall Manager will return if you submit another request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: ListThirdPartyFirewallFirewallPoliciesRequest,
+) -> dict:
+    out: dict = {}
+    import aws_sdk_fms.types.third_party_firewall
+
+    out["ThirdPartyFirewall"] = (
+        aws_sdk_fms.types.third_party_firewall.serialize_aws_json_1_1(
+            value["third_party_firewall"]
+        )
+    )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> ListThirdPartyFirewallFirewallPoliciesRequest:
+    out: ListThirdPartyFirewallFirewallPoliciesRequest = {}  # type: ignore[typeddict-item]
+    if "ThirdPartyFirewall" in data:
+        import aws_sdk_fms.types.third_party_firewall
+
+        out["third_party_firewall"] = (
+            aws_sdk_fms.types.third_party_firewall.deserialize_aws_json_1_1(
+                data["ThirdPartyFirewall"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListThirdPartyFirewallFirewallPoliciesRequest.third_party_firewall required"
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    else:
+        raise DeserializationError(
+            "ListThirdPartyFirewallFirewallPoliciesRequest.max_results required"
+        )
+    return out

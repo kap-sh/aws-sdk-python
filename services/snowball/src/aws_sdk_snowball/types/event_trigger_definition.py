@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.snowball#EventTriggerDefinition``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_snowball.types.resource_arn
+
+
+class EventTriggerDefinition(TypedDict):
+    event_resource_arn: NotRequired["aws_sdk_snowball.types.resource_arn.ResourceARN"]
+    """<p>The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an Lambda function's event trigger associated with this job.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EventTriggerDefinition) -> dict:
+    out: dict = {}
+    if "event_resource_arn" in value:
+        out["EventResourceARN"] = value["event_resource_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EventTriggerDefinition:
+    out: EventTriggerDefinition = {}  # type: ignore[typeddict-item]
+    if "EventResourceARN" in data:
+        out["event_resource_arn"] = data["EventResourceARN"]
+    return out

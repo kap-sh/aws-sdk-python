@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#Artifact``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.artifact_location
+    import aws_sdk_codepipeline.types.artifact_name
+    import aws_sdk_codepipeline.types.revision
+
+
+class Artifact(TypedDict):
+    name: NotRequired["aws_sdk_codepipeline.types.artifact_name.ArtifactName"]
+    """<p>The artifact's name.</p>"""
+    revision: NotRequired["aws_sdk_codepipeline.types.revision.Revision"]
+    """<p>The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).</p>"""
+    location: NotRequired[
+        "aws_sdk_codepipeline.types.artifact_location.ArtifactLocation"
+    ]
+    """<p>The location of an artifact.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Artifact) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "revision" in value:
+        out["revision"] = value["revision"]
+    if "location" in value:
+        import aws_sdk_codepipeline.types.artifact_location
+
+        out["location"] = (
+            aws_sdk_codepipeline.types.artifact_location.serialize_aws_json_1_1(
+                value["location"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Artifact:
+    out: Artifact = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "revision" in data:
+        out["revision"] = data["revision"]
+    if "location" in data:
+        import aws_sdk_codepipeline.types.artifact_location
+
+        out["location"] = (
+            aws_sdk_codepipeline.types.artifact_location.deserialize_aws_json_1_1(
+                data["location"]
+            )
+        )
+    return out

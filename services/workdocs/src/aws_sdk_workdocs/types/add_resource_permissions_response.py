@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.workdocs#AddResourcePermissionsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_workdocs.types.share_results_list
+
+
+class AddResourcePermissionsResponse(TypedDict):
+    share_results: NotRequired[
+        "aws_sdk_workdocs.types.share_results_list.ShareResultsList"
+    ]
+    """<p>The share results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AddResourcePermissionsResponse) -> dict:
+    out: dict = {}
+    if "share_results" in value:
+        import aws_sdk_workdocs.types.share_results_list
+
+        out["ShareResults"] = aws_sdk_workdocs.types.share_results_list.serialize_json(
+            value["share_results"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AddResourcePermissionsResponse:
+    out: AddResourcePermissionsResponse = {}  # type: ignore[typeddict-item]
+    if "ShareResults" in data:
+        import aws_sdk_workdocs.types.share_results_list
+
+        out["share_results"] = (
+            aws_sdk_workdocs.types.share_results_list.deserialize_json(
+                data["ShareResults"]
+            )
+        )
+    return out

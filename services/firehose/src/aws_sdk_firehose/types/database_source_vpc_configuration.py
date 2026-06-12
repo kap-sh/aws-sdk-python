@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.firehose#DatabaseSourceVPCConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_firehose.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_firehose.types.vpc_endpoint_service_name
+
+
+class DatabaseSourceVPCConfiguration(TypedDict):
+    vpc_endpoint_service_name: (
+        "aws_sdk_firehose.types.vpc_endpoint_service_name.VpcEndpointServiceName"
+    )
+    """<p> The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle <code>firehose.amazonaws.com</code> as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like <code>com.amazonaws.vpce.<region>.<vpc-endpoint-service-id></code>. </p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DatabaseSourceVPCConfiguration) -> dict:
+    out: dict = {}
+    out["VpcEndpointServiceName"] = value["vpc_endpoint_service_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DatabaseSourceVPCConfiguration:
+    out: DatabaseSourceVPCConfiguration = {}  # type: ignore[typeddict-item]
+    if "VpcEndpointServiceName" in data:
+        out["vpc_endpoint_service_name"] = data["VpcEndpointServiceName"]
+    else:
+        raise DeserializationError(
+            "DatabaseSourceVPCConfiguration.vpc_endpoint_service_name required"
+        )
+    return out

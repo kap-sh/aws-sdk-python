@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.codestarconnections#DeleteHostInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codestar_connections.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codestar_connections.types.host_arn
+
+
+class DeleteHostInput(TypedDict):
+    host_arn: "aws_sdk_codestar_connections.types.host_arn.HostArn"
+    """<p>The Amazon Resource Name (ARN) of the host to be deleted.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DeleteHostInput) -> dict:
+    out: dict = {}
+    out["HostArn"] = value["host_arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DeleteHostInput:
+    out: DeleteHostInput = {}  # type: ignore[typeddict-item]
+    if "HostArn" in data:
+        out["host_arn"] = data["HostArn"]
+    else:
+        raise DeserializationError("DeleteHostInput.host_arn required")
+    return out

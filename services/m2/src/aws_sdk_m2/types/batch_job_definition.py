@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.m2#BatchJobDefinition``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_m2.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_m2.types.file_batch_job_definition
+    import aws_sdk_m2.types.script_batch_job_definition
+
+
+class _BatchJobDefinition_fileBatchJobDefinition(TypedDict):
+    fileBatchJobDefinition: (
+        "aws_sdk_m2.types.file_batch_job_definition.FileBatchJobDefinition"
+    )
+
+
+class _BatchJobDefinition_scriptBatchJobDefinition(TypedDict):
+    scriptBatchJobDefinition: (
+        "aws_sdk_m2.types.script_batch_job_definition.ScriptBatchJobDefinition"
+    )
+
+
+BatchJobDefinition: TypeAlias = (
+    _BatchJobDefinition_fileBatchJobDefinition
+    | _BatchJobDefinition_scriptBatchJobDefinition
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchJobDefinition) -> dict:
+    if "fileBatchJobDefinition" in value:
+        import aws_sdk_m2.types.file_batch_job_definition
+
+        return {
+            "fileBatchJobDefinition": aws_sdk_m2.types.file_batch_job_definition.serialize_json(
+                value["fileBatchJobDefinition"]
+            )
+        }
+    elif "scriptBatchJobDefinition" in value:
+        import aws_sdk_m2.types.script_batch_job_definition
+
+        return {
+            "scriptBatchJobDefinition": aws_sdk_m2.types.script_batch_job_definition.serialize_json(
+                value["scriptBatchJobDefinition"]
+            )
+        }
+    else:
+        raise SerializationError("BatchJobDefinition: no variant present")
+
+
+def deserialize_json(data: dict) -> BatchJobDefinition:
+    if "fileBatchJobDefinition" in data:
+        import aws_sdk_m2.types.file_batch_job_definition
+
+        return {
+            "fileBatchJobDefinition": aws_sdk_m2.types.file_batch_job_definition.deserialize_json(
+                data["fileBatchJobDefinition"]
+            )
+        }
+    elif "scriptBatchJobDefinition" in data:
+        import aws_sdk_m2.types.script_batch_job_definition
+
+        return {
+            "scriptBatchJobDefinition": aws_sdk_m2.types.script_batch_job_definition.deserialize_json(
+                data["scriptBatchJobDefinition"]
+            )
+        }
+    else:
+        raise DeserializationError("BatchJobDefinition: no recognized variant key")

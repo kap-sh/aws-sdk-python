@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.emrcontainers#JobDriver``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_emr_containers.types.spark_sql_job_driver
+    import aws_sdk_emr_containers.types.spark_submit_job_driver
+
+
+class JobDriver(TypedDict):
+    spark_submit_job_driver: NotRequired[
+        "aws_sdk_emr_containers.types.spark_submit_job_driver.SparkSubmitJobDriver"
+    ]
+    """<p>The job driver parameters specified for spark submit.</p>"""
+    spark_sql_job_driver: NotRequired[
+        "aws_sdk_emr_containers.types.spark_sql_job_driver.SparkSqlJobDriver"
+    ]
+    """<p>The job driver for job type.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: JobDriver) -> dict:
+    out: dict = {}
+    if "spark_submit_job_driver" in value:
+        import aws_sdk_emr_containers.types.spark_submit_job_driver
+
+        out["sparkSubmitJobDriver"] = (
+            aws_sdk_emr_containers.types.spark_submit_job_driver.serialize_json(
+                value["spark_submit_job_driver"]
+            )
+        )
+    if "spark_sql_job_driver" in value:
+        import aws_sdk_emr_containers.types.spark_sql_job_driver
+
+        out["sparkSqlJobDriver"] = (
+            aws_sdk_emr_containers.types.spark_sql_job_driver.serialize_json(
+                value["spark_sql_job_driver"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> JobDriver:
+    out: JobDriver = {}  # type: ignore[typeddict-item]
+    if "sparkSubmitJobDriver" in data:
+        import aws_sdk_emr_containers.types.spark_submit_job_driver
+
+        out["spark_submit_job_driver"] = (
+            aws_sdk_emr_containers.types.spark_submit_job_driver.deserialize_json(
+                data["sparkSubmitJobDriver"]
+            )
+        )
+    if "sparkSqlJobDriver" in data:
+        import aws_sdk_emr_containers.types.spark_sql_job_driver
+
+        out["spark_sql_job_driver"] = (
+            aws_sdk_emr_containers.types.spark_sql_job_driver.deserialize_json(
+                data["sparkSqlJobDriver"]
+            )
+        )
+    return out

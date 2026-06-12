@@ -1,0 +1,1929 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#KinesisAnalytics_20180523``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+from aws_sdk_kinesis_analytics_v2._auth._identity import Credentials
+from aws_sdk_kinesis_analytics_v2._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_kinesis_analytics_v2._auth._zapros_handler import AuthMiddleware
+from aws_sdk_kinesis_analytics_v2._pagination import resolve_path as _resolve_path
+from aws_sdk_kinesis_analytics_v2._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_request
+    import aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_response
+    import aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_request
+    import aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_response
+    import aws_sdk_kinesis_analytics_v2.types.add_application_input_request
+    import aws_sdk_kinesis_analytics_v2.types.add_application_input_response
+    import aws_sdk_kinesis_analytics_v2.types.add_application_output_request
+    import aws_sdk_kinesis_analytics_v2.types.add_application_output_response
+    import aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_request
+    import aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_response
+    import aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_request
+    import aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_response
+    import aws_sdk_kinesis_analytics_v2.types.application_configuration
+    import aws_sdk_kinesis_analytics_v2.types.application_configuration_update
+    import aws_sdk_kinesis_analytics_v2.types.application_description
+    import aws_sdk_kinesis_analytics_v2.types.application_maintenance_configuration_update
+    import aws_sdk_kinesis_analytics_v2.types.application_mode
+    import aws_sdk_kinesis_analytics_v2.types.application_name
+    import aws_sdk_kinesis_analytics_v2.types.application_operation_info
+    import aws_sdk_kinesis_analytics_v2.types.application_summary
+    import aws_sdk_kinesis_analytics_v2.types.application_version_id
+    import aws_sdk_kinesis_analytics_v2.types.application_version_summary
+    import aws_sdk_kinesis_analytics_v2.types.boolean_object
+    import aws_sdk_kinesis_analytics_v2.types.cloud_watch_logging_option
+    import aws_sdk_kinesis_analytics_v2.types.cloud_watch_logging_option_updates
+    import aws_sdk_kinesis_analytics_v2.types.cloud_watch_logging_options
+    import aws_sdk_kinesis_analytics_v2.types.conditional_token
+    import aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_request
+    import aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_response
+    import aws_sdk_kinesis_analytics_v2.types.create_application_request
+    import aws_sdk_kinesis_analytics_v2.types.create_application_response
+    import aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_request
+    import aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_output_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_output_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_response
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_request
+    import aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_response
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_operation_request
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_operation_response
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_request
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_response
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_request
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_response
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_version_request
+    import aws_sdk_kinesis_analytics_v2.types.describe_application_version_response
+    import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request
+    import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response
+    import aws_sdk_kinesis_analytics_v2.types.id
+    import aws_sdk_kinesis_analytics_v2.types.input
+    import aws_sdk_kinesis_analytics_v2.types.input_processing_configuration
+    import aws_sdk_kinesis_analytics_v2.types.input_starting_position_configuration
+    import aws_sdk_kinesis_analytics_v2.types.kinesis_analytics_arn
+    import aws_sdk_kinesis_analytics_v2.types.list_application_operations_input_limit
+    import aws_sdk_kinesis_analytics_v2.types.list_application_operations_request
+    import aws_sdk_kinesis_analytics_v2.types.list_application_operations_response
+    import aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_request
+    import aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_response
+    import aws_sdk_kinesis_analytics_v2.types.list_application_versions_input_limit
+    import aws_sdk_kinesis_analytics_v2.types.list_application_versions_request
+    import aws_sdk_kinesis_analytics_v2.types.list_application_versions_response
+    import aws_sdk_kinesis_analytics_v2.types.list_applications_input_limit
+    import aws_sdk_kinesis_analytics_v2.types.list_applications_request
+    import aws_sdk_kinesis_analytics_v2.types.list_applications_response
+    import aws_sdk_kinesis_analytics_v2.types.list_snapshots_input_limit
+    import aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_request
+    import aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_response
+    import aws_sdk_kinesis_analytics_v2.types.next_token
+    import aws_sdk_kinesis_analytics_v2.types.operation
+    import aws_sdk_kinesis_analytics_v2.types.operation_id
+    import aws_sdk_kinesis_analytics_v2.types.operation_status
+    import aws_sdk_kinesis_analytics_v2.types.output
+    import aws_sdk_kinesis_analytics_v2.types.reference_data_source
+    import aws_sdk_kinesis_analytics_v2.types.resource_arn
+    import aws_sdk_kinesis_analytics_v2.types.role_arn
+    import aws_sdk_kinesis_analytics_v2.types.rollback_application_request
+    import aws_sdk_kinesis_analytics_v2.types.rollback_application_response
+    import aws_sdk_kinesis_analytics_v2.types.run_configuration
+    import aws_sdk_kinesis_analytics_v2.types.run_configuration_update
+    import aws_sdk_kinesis_analytics_v2.types.runtime_environment
+    import aws_sdk_kinesis_analytics_v2.types.s3_configuration
+    import aws_sdk_kinesis_analytics_v2.types.session_expiration_duration_in_seconds
+    import aws_sdk_kinesis_analytics_v2.types.snapshot_details
+    import aws_sdk_kinesis_analytics_v2.types.snapshot_name
+    import aws_sdk_kinesis_analytics_v2.types.start_application_request
+    import aws_sdk_kinesis_analytics_v2.types.start_application_response
+    import aws_sdk_kinesis_analytics_v2.types.stop_application_request
+    import aws_sdk_kinesis_analytics_v2.types.stop_application_response
+    import aws_sdk_kinesis_analytics_v2.types.tag_keys
+    import aws_sdk_kinesis_analytics_v2.types.tag_resource_request
+    import aws_sdk_kinesis_analytics_v2.types.tag_resource_response
+    import aws_sdk_kinesis_analytics_v2.types.tags
+    import aws_sdk_kinesis_analytics_v2.types.timestamp
+    import aws_sdk_kinesis_analytics_v2.types.untag_resource_request
+    import aws_sdk_kinesis_analytics_v2.types.untag_resource_response
+    import aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_request
+    import aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_response
+    import aws_sdk_kinesis_analytics_v2.types.update_application_request
+    import aws_sdk_kinesis_analytics_v2.types.update_application_response
+    import aws_sdk_kinesis_analytics_v2.types.url_type
+    import aws_sdk_kinesis_analytics_v2.types.vpc_configuration
+
+
+class AsyncKinesisAnalyticsV2ClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncKinesisAnalyticsV2Client:
+    """A client for the ``KinesisAnalyticsV2`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncKinesisAnalyticsV2ClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncKinesisAnalyticsV2ClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def add_application_cloud_watch_logging_option(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        cloud_watch_logging_option: "aws_sdk_kinesis_analytics_v2.types.cloud_watch_logging_option.CloudWatchLoggingOption",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        current_application_version_id: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId"
+        ] = None,
+        conditional_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.conditional_token.ConditionalToken"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_response.AddApplicationCloudWatchLoggingOptionResponse":
+        """<p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>
+
+        Args:
+            application_name: <p>The Kinesis Data Analytics application name.</p>
+            current_application_version_id: <p>The version ID of the SQL-based Kinesis Data Analytics application. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can retrieve the application version ID using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+            cloud_watch_logging_option: <p>Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN). </p>
+            conditional_token: <p>A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_request.AddApplicationCloudWatchLoggingOptionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_response.AddApplicationCloudWatchLoggingOptionResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_cloud_watch_logging_option
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_cloud_watch_logging_option.async_add_application_cloud_watch_logging_option(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_request.AddApplicationCloudWatchLoggingOptionRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if current_application_version_id is not None:
+            input["current_application_version_id"] = current_application_version_id
+        input["cloud_watch_logging_option"] = cloud_watch_logging_option
+        if conditional_token is not None:
+            input["conditional_token"] = conditional_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def add_application_input(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        input: "aws_sdk_kinesis_analytics_v2.types.input.Input",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_input_response.AddApplicationInputResponse":
+        """<p> Adds a streaming source to your SQL-based Kinesis Data Analytics application. </p> <p>You can add a streaming source when you create an application, or you can use this operation to add a streaming source after you create an application. For more information, see <a>CreateApplication</a>.</p> <p>Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the <a>DescribeApplication</a> operation to find the current application version. </p>
+
+        Args:
+            application_name: <p>The name of your existing application to which you want to add the streaming source.</p>
+            current_application_version_id: <p>The current version of your application. You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.You can use the <a>DescribeApplication</a> operation to find the current application version.</p>
+            input: <p>The <a>Input</a> to add.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.add_application_input_request.AddApplicationInputRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.add_application_input_response.AddApplicationInputResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_input
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_input.async_add_application_input(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.add_application_input_request.AddApplicationInputRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["input"] = input
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def add_application_input_processing_configuration(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        input_id: "aws_sdk_kinesis_analytics_v2.types.id.Id",
+        input_processing_configuration: "aws_sdk_kinesis_analytics_v2.types.input_processing_configuration.InputProcessingConfiguration",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_response.AddApplicationInputProcessingConfigurationResponse":
+        """<p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records on the input stream before the application's SQL code executes. Currently, the only input processor available is <a href=\"https://docs.aws.amazon.com/lambda/\">Amazon Lambda</a>.</p>
+
+        Args:
+            application_name: <p>The name of the application to which you want to add the input processing configuration.</p>
+            current_application_version_id: <p>The version of the application to which you want to add the input processing configuration. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
+            input_id: <p>The ID of the input configuration to add the input processing configuration to. You can get a list of the input IDs for an application using the <a>DescribeApplication</a> operation.</p>
+            input_processing_configuration: <p>The <a>InputProcessingConfiguration</a> to add to the application.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_request.AddApplicationInputProcessingConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_response.AddApplicationInputProcessingConfigurationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_input_processing_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_input_processing_configuration.async_add_application_input_processing_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_request.AddApplicationInputProcessingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["input_id"] = input_id
+        input["input_processing_configuration"] = input_processing_configuration
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def add_application_output(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        output: "aws_sdk_kinesis_analytics_v2.types.output.Output",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_output_response.AddApplicationOutputResponse":
+        """<p>Adds an external destination to your SQL-based Kinesis Data Analytics application.</p> <p>If you want Kinesis Data Analytics to deliver data from an in-application stream within your application to an external destination (such as an Kinesis data stream, a Kinesis Data Firehose delivery stream, or an Amazon Lambda function), you add the relevant configuration to your application using this operation. You can configure one or more outputs for your application. Each output configuration maps an in-application stream and an external destination.</p> <p> You can use one of the output configurations to deliver data from your in-application error stream to an external destination so that you can analyze the errors. </p> <p> Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the <a>DescribeApplication</a> operation to find the current application version.</p>
+
+        Args:
+            application_name: <p>The name of the application to which you want to add the output configuration.</p>
+            current_application_version_id: <p>The version of the application to which you want to add the output configuration. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
+            output: <p>An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, a Kinesis data stream, a Kinesis Data Firehose delivery stream, or an Amazon Lambda function), and record the formation to use when writing to the destination.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.add_application_output_request.AddApplicationOutputRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.add_application_output_response.AddApplicationOutputResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_output
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_output.async_add_application_output(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.add_application_output_request.AddApplicationOutputRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["output"] = output
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def add_application_reference_data_source(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        reference_data_source: "aws_sdk_kinesis_analytics_v2.types.reference_data_source.ReferenceDataSource",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_response.AddApplicationReferenceDataSourceResponse":
+        """<p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p> <p>Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in an Amazon S3 object maps to columns in the resulting in-application table.</p>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            current_application_version_id: <p>The version of the application for which you are adding the reference data source. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
+            reference_data_source: <p>The reference data source can be an object in your Amazon S3 bucket. Kinesis Data Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_request.AddApplicationReferenceDataSourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_response.AddApplicationReferenceDataSourceResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_reference_data_source
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_reference_data_source.async_add_application_reference_data_source(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_request.AddApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["reference_data_source"] = reference_data_source
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def add_application_vpc_configuration(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        vpc_configuration: "aws_sdk_kinesis_analytics_v2.types.vpc_configuration.VpcConfiguration",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        current_application_version_id: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId"
+        ] = None,
+        conditional_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.conditional_token.ConditionalToken"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_response.AddApplicationVpcConfigurationResponse":
+        """<p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store and access resources securely.</p> <p>Note the following about VPC configurations for Managed Service for Apache Flink applications:</p> <ul> <li> <p>VPC configurations are not supported for SQL applications.</p> </li> <li> <p>When a VPC is added to a Managed Service for Apache Flink application, the application can no longer be accessed from the Internet directly. To enable Internet access to the application, add an Internet gateway to your VPC.</p> </li> </ul>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            current_application_version_id: <p>The version of the application to which you want to add the VPC configuration. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+            vpc_configuration: <p>Description of the VPC to add to the application.</p>
+            conditional_token: <p>A value you use to implement strong concurrency for application updates. You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_request.AddApplicationVpcConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_response.AddApplicationVpcConfigurationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_vpc_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.add_application_vpc_configuration.async_add_application_vpc_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_request.AddApplicationVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if current_application_version_id is not None:
+            input["current_application_version_id"] = current_application_version_id
+        input["vpc_configuration"] = vpc_configuration
+        if conditional_token is not None:
+            input["conditional_token"] = conditional_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        runtime_environment: "aws_sdk_kinesis_analytics_v2.types.runtime_environment.RuntimeEnvironment",
+        service_execution_role: "aws_sdk_kinesis_analytics_v2.types.role_arn.RoleARN",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        application_description: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_description.ApplicationDescription"
+        ] = None,
+        application_configuration: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_configuration.ApplicationConfiguration"
+        ] = None,
+        cloud_watch_logging_options: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.cloud_watch_logging_options.CloudWatchLoggingOptions"
+        ] = None,
+        tags: Optional["aws_sdk_kinesis_analytics_v2.types.tags.Tags"] = None,
+        application_mode: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_mode.ApplicationMode"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.create_application_response.CreateApplicationResponse":
+        """<p>Creates a Managed Service for Apache Flink application. For information about creating a Managed Service for Apache Flink application, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html\">Creating an Application</a>.</p>
+
+        Args:
+            application_name: <p>The name of your application (for example, <code>sample-app</code>).</p>
+            application_description: <p>A summary description of the application.</p>
+            runtime_environment: <p>The runtime environment for the application.</p>
+            service_execution_role: <p>The IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.</p>
+            application_configuration: <p>Use this parameter to configure the application.</p>
+            cloud_watch_logging_options: <p>Use this parameter to configure an Amazon CloudWatch log stream to monitor application configuration errors. </p>
+            tags: <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+            application_mode: <p>Use the <code>STREAMING</code> mode to create a Managed Service for Apache Flink application. To create a Managed Service for Apache Flink Studio notebook, use the <code>INTERACTIVE</code> mode.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.create_application_request.CreateApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.create_application_response.CreateApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.create_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.create_application.async_create_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if application_description is not None:
+            input["application_description"] = application_description
+        input["runtime_environment"] = runtime_environment
+        input["service_execution_role"] = service_execution_role
+        if application_configuration is not None:
+            input["application_configuration"] = application_configuration
+        if cloud_watch_logging_options is not None:
+            input["cloud_watch_logging_options"] = cloud_watch_logging_options
+        if tags is not None:
+            input["tags"] = tags
+        if application_mode is not None:
+            input["application_mode"] = application_mode
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_application_presigned_url(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        url_type: "aws_sdk_kinesis_analytics_v2.types.url_type.UrlType",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        session_expiration_duration_in_seconds: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.session_expiration_duration_in_seconds.SessionExpirationDurationInSeconds"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_response.CreateApplicationPresignedUrlResponse":
+        """<p>Creates and returns a URL that you can use to connect to an application's extension.</p> <p>The IAM role or user used to call this API defines the permissions to access the extension. After the presigned URL is created, no additional permission is required to access this URL. IAM authorization policies for this API are also enforced for every HTTP request that attempts to connect to the extension. </p> <p>You control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code> parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p> <note> <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes to be valid. If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p> </note>
+
+        Args:
+            application_name: <p>The name of the application.</p>
+            url_type: <p>The type of the extension for which to create and return a URL. Currently, the only valid extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p>
+            session_expiration_duration_in_seconds: <p>The duration in seconds for which the returned URL will be valid.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_request.CreateApplicationPresignedUrlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_response.CreateApplicationPresignedUrlResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.create_application_presigned_url
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.create_application_presigned_url.async_create_application_presigned_url(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_request.CreateApplicationPresignedUrlRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["url_type"] = url_type
+        if session_expiration_duration_in_seconds is not None:
+            input["session_expiration_duration_in_seconds"] = (
+                session_expiration_duration_in_seconds
+            )
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_application_snapshot(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        snapshot_name: "aws_sdk_kinesis_analytics_v2.types.snapshot_name.SnapshotName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_response.CreateApplicationSnapshotResponse":
+        """<p>Creates a snapshot of the application's state data.</p>
+
+        Args:
+            application_name: <p>The name of an existing application</p>
+            snapshot_name: <p>An identifier for the application snapshot.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_request.CreateApplicationSnapshotRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_response.CreateApplicationSnapshotResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.create_application_snapshot
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.create_application_snapshot.async_create_application_snapshot(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_request.CreateApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["snapshot_name"] = snapshot_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        create_timestamp: "aws_sdk_kinesis_analytics_v2.types.timestamp.Timestamp",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_response.DeleteApplicationResponse":
+        """<p>Deletes the specified application. Managed Service for Apache Flink halts application execution and deletes the application.</p>
+
+        Args:
+            application_name: <p>The name of the application to delete.</p>
+            create_timestamp: <p>Use the <code>DescribeApplication</code> operation to get this value.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_request.DeleteApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_response.DeleteApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application.async_delete_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["create_timestamp"] = create_timestamp
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application_cloud_watch_logging_option(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        cloud_watch_logging_option_id: "aws_sdk_kinesis_analytics_v2.types.id.Id",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        current_application_version_id: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId"
+        ] = None,
+        conditional_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.conditional_token.ConditionalToken"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_response.DeleteApplicationCloudWatchLoggingOptionResponse":
+        """<p>Deletes an Amazon CloudWatch log stream from an SQL-based Kinesis Data Analytics application. </p>
+
+        Args:
+            application_name: <p>The application name.</p>
+            current_application_version_id: <p>The version ID of the application. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can retrieve the application version ID using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+            cloud_watch_logging_option_id: <p>The <code>CloudWatchLoggingOptionId</code> of the Amazon CloudWatch logging option to delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a> operation. </p>
+            conditional_token: <p>A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_request.DeleteApplicationCloudWatchLoggingOptionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_response.DeleteApplicationCloudWatchLoggingOptionResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_cloud_watch_logging_option
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_cloud_watch_logging_option.async_delete_application_cloud_watch_logging_option(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_request.DeleteApplicationCloudWatchLoggingOptionRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if current_application_version_id is not None:
+            input["current_application_version_id"] = current_application_version_id
+        input["cloud_watch_logging_option_id"] = cloud_watch_logging_option_id
+        if conditional_token is not None:
+            input["conditional_token"] = conditional_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application_input_processing_configuration(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        input_id: "aws_sdk_kinesis_analytics_v2.types.id.Id",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_response.DeleteApplicationInputProcessingConfigurationResponse":
+        """<p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>
+
+        Args:
+            application_name: <p>The name of the application.</p>
+            current_application_version_id: <p>The application version. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
+            input_id: <p>The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the <a>DescribeApplication</a> operation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_request.DeleteApplicationInputProcessingConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_response.DeleteApplicationInputProcessingConfigurationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_input_processing_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_input_processing_configuration.async_delete_application_input_processing_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_request.DeleteApplicationInputProcessingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["input_id"] = input_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application_output(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        output_id: "aws_sdk_kinesis_analytics_v2.types.id.Id",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_output_response.DeleteApplicationOutputResponse":
+        """<p>Deletes the output destination configuration from your SQL-based Kinesis Data Analytics application's configuration. Kinesis Data Analytics will no longer write data from the corresponding in-application stream to the external output destination.</p>
+
+        Args:
+            application_name: <p>The application name.</p>
+            current_application_version_id: <p>The application version. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
+            output_id: <p>The ID of the configuration to delete. Each output configuration that is added to the application (either when the application is created or later) using the <a>AddApplicationOutput</a> operation has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the <a>DescribeApplication</a> operation to get the specific <code>OutputId</code>. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_output_request.DeleteApplicationOutputRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_output_response.DeleteApplicationOutputResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_output
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_output.async_delete_application_output(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_output_request.DeleteApplicationOutputRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["output_id"] = output_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application_reference_data_source(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        reference_id: "aws_sdk_kinesis_analytics_v2.types.id.Id",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_response.DeleteApplicationReferenceDataSourceResponse":
+        """<p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p> <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table that you created using the <a>AddApplicationReferenceDataSource</a> operation. </p>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            current_application_version_id: <p>The current application version. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
+            reference_id: <p>The ID of the reference data source. When you add a reference data source to your application using the <a>AddApplicationReferenceDataSource</a>, Kinesis Data Analytics assigns an ID. You can use the <a>DescribeApplication</a> operation to get the reference ID. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_request.DeleteApplicationReferenceDataSourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_response.DeleteApplicationReferenceDataSourceResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_reference_data_source
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_reference_data_source.async_delete_application_reference_data_source(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_request.DeleteApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+        input["reference_id"] = reference_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application_snapshot(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        snapshot_name: "aws_sdk_kinesis_analytics_v2.types.snapshot_name.SnapshotName",
+        snapshot_creation_timestamp: "aws_sdk_kinesis_analytics_v2.types.timestamp.Timestamp",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_response.DeleteApplicationSnapshotResponse":
+        """<p>Deletes a snapshot of application state.</p>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            snapshot_name: <p>The identifier for the snapshot delete.</p>
+            snapshot_creation_timestamp: <p>The creation timestamp of the application snapshot to delete. You can retrieve this value using or .</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_request.DeleteApplicationSnapshotRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_response.DeleteApplicationSnapshotResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_snapshot
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_snapshot.async_delete_application_snapshot(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_request.DeleteApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["snapshot_name"] = snapshot_name
+        input["snapshot_creation_timestamp"] = snapshot_creation_timestamp
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_application_vpc_configuration(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        vpc_configuration_id: "aws_sdk_kinesis_analytics_v2.types.id.Id",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        current_application_version_id: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId"
+        ] = None,
+        conditional_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.conditional_token.ConditionalToken"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_response.DeleteApplicationVpcConfigurationResponse":
+        """<p>Removes a VPC configuration from a Managed Service for Apache Flink application.</p>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            current_application_version_id: <p>The current application version ID. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can retrieve the application version ID using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+            vpc_configuration_id: <p>The ID of the VPC configuration to delete.</p>
+            conditional_token: <p>A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_request.DeleteApplicationVpcConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_response.DeleteApplicationVpcConfigurationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_vpc_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.delete_application_vpc_configuration.async_delete_application_vpc_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_request.DeleteApplicationVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if current_application_version_id is not None:
+            input["current_application_version_id"] = current_application_version_id
+        input["vpc_configuration_id"] = vpc_configuration_id
+        if conditional_token is not None:
+            input["conditional_token"] = conditional_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        include_additional_details: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.boolean_object.BooleanObject"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.describe_application_response.DescribeApplicationResponse":
+        """<p>Returns information about a specific Managed Service for Apache Flink application.</p> <p>If you want to retrieve a list of all applications in your account, use the <a>ListApplications</a> operation.</p>
+
+        Args:
+            application_name: <p>The name of the application.</p>
+            include_additional_details: <p>Displays verbose information about a Managed Service for Apache Flink application, including the application's job plan.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.describe_application_request.DescribeApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.describe_application_response.DescribeApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application.async_describe_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.describe_application_request.DescribeApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if include_additional_details is not None:
+            input["include_additional_details"] = include_additional_details
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_application_operation(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        operation_id: "aws_sdk_kinesis_analytics_v2.types.operation_id.OperationId",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.describe_application_operation_response.DescribeApplicationOperationResponse":
+        """<p>Provides a detailed description of a specified application operation. To see a list of all the operations of an application, invoke the <a>ListApplicationOperations</a> operation.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.describe_application_operation_request.DescribeApplicationOperationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.describe_application_operation_response.DescribeApplicationOperationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application_operation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application_operation.async_describe_application_operation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.describe_application_operation_request.DescribeApplicationOperationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["operation_id"] = operation_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_application_snapshot(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        snapshot_name: "aws_sdk_kinesis_analytics_v2.types.snapshot_name.SnapshotName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_response.DescribeApplicationSnapshotResponse":
+        """<p>Returns information about a snapshot of application state data.</p>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            snapshot_name: <p>The identifier of an application snapshot. You can retrieve this value using .</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_request.DescribeApplicationSnapshotRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_response.DescribeApplicationSnapshotResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application_snapshot
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application_snapshot.async_describe_application_snapshot(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_request.DescribeApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["snapshot_name"] = snapshot_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_application_version(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.describe_application_version_response.DescribeApplicationVersionResponse":
+        """<p>Provides a detailed description of a specified version of the application. To see a list of all the versions of an application, invoke the <a>ListApplicationVersions</a> operation.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
+
+        Args:
+            application_name: <p>The name of the application for which you want to get the version description.</p>
+            application_version_id: <p>The ID of the application version for which you want to get the description.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.describe_application_version_request.DescribeApplicationVersionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.describe_application_version_response.DescribeApplicationVersionResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application_version
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.describe_application_version.async_describe_application_version(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.describe_application_version_request.DescribeApplicationVersionRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["application_version_id"] = application_version_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def discover_input_schema(
+        self,
+        service_execution_role: "aws_sdk_kinesis_analytics_v2.types.role_arn.RoleARN",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        resource_arn: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.resource_arn.ResourceARN"
+        ] = None,
+        input_starting_position_configuration: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.input_starting_position_configuration.InputStartingPositionConfiguration"
+        ] = None,
+        s3_configuration: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.s3_configuration.S3Configuration"
+        ] = None,
+        input_processing_configuration: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.input_processing_configuration.InputProcessingConfiguration"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.DiscoverInputSchemaResponse":
+        """<p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose delivery stream) or Amazon S3 object. In the response, the operation returns the inferred schema and also the sample records that the operation used to infer the schema.</p> <p> You can use the inferred schema when configuring a streaming source for your application. When you create an application using the Kinesis Data Analytics console, the console uses this operation to infer a schema and show it in the console user interface. </p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the streaming source.</p>
+            service_execution_role: <p>The ARN of the role that is used to access the streaming source.</p>
+            input_starting_position_configuration: <p>The point at which you want Kinesis Data Analytics to start reading records from the specified streaming source for discovery purposes.</p>
+            s3_configuration: <p>Specify this parameter to discover a schema from data in an Amazon S3 object.</p>
+            input_processing_configuration: <p>The <a>InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request.DiscoverInputSchemaRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.DiscoverInputSchemaResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.discover_input_schema
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.discover_input_schema.async_discover_input_schema(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request.DiscoverInputSchemaRequest = {}  # type: ignore[typeddict-item]
+        if resource_arn is not None:
+            input["resource_arn"] = resource_arn
+        input["service_execution_role"] = service_execution_role
+        if input_starting_position_configuration is not None:
+            input["input_starting_position_configuration"] = (
+                input_starting_position_configuration
+            )
+        if s3_configuration is not None:
+            input["s3_configuration"] = s3_configuration
+        if input_processing_configuration is not None:
+            input["input_processing_configuration"] = input_processing_configuration
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_application_operations(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_operations_input_limit.ListApplicationOperationsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
+        ] = None,
+        operation: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.operation.Operation"
+        ] = None,
+        operation_status: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.operation_status.OperationStatus"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.list_application_operations_response.ListApplicationOperationsResponse":
+        """<p>Lists all the operations performed for the specified application such as UpdateApplication, StartApplication etc. The response also includes a summary of the operation.</p> <p>To get the complete description of a specific operation, invoke the <a>DescribeApplicationOperation</a> operation.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.list_application_operations_request.ListApplicationOperationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_operations_response.ListApplicationOperationsResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_application_operations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_application_operations.async_list_application_operations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.list_application_operations_request.ListApplicationOperationsRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+        if operation is not None:
+            input["operation"] = operation
+        if operation_status is not None:
+            input["operation_status"] = operation_status
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_application_operations(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_operations_input_limit.ListApplicationOperationsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
+        ] = None,
+        operation: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.operation.Operation"
+        ] = None,
+        operation_status: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.operation_status.OperationStatus"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_kinesis_analytics_v2.types.application_operation_info.ApplicationOperationInfo]":
+        _token = next_token
+        while True:
+            _response = await self.list_application_operations(
+                application_name,
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+                operation=operation,
+                operation_status=operation_status,
+            )
+            _page = _resolve_path(_response, ("application_operation_info_list",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_applications(
+        self,
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_applications_input_limit.ListApplicationsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.list_applications_response.ListApplicationsResponse":
+        """<p>Returns a list of Managed Service for Apache Flink applications in your account. For each application, the response includes the application name, Amazon Resource Name (ARN), and status. </p> <p>If you want detailed information about a specific application, use <a>DescribeApplication</a>.</p>
+
+        Args:
+            limit: <p>The maximum number of applications to list.</p>
+            next_token: <p>If a previous command returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.list_applications_request.ListApplicationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.list_applications_response.ListApplicationsResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_applications
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_applications.async_list_applications(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_applications(
+        self,
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_applications_input_limit.ListApplicationsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_kinesis_analytics_v2.types.application_summary.ApplicationSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_applications(
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("application_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_application_snapshots(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_snapshots_input_limit.ListSnapshotsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_response.ListApplicationSnapshotsResponse":
+        """<p>Lists information about the current application snapshots.</p>
+
+        Args:
+            application_name: <p>The name of an existing application.</p>
+            limit: <p>The maximum number of application snapshots to list.</p>
+            next_token: <p>Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_request.ListApplicationSnapshotsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_response.ListApplicationSnapshotsResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_application_snapshots
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_application_snapshots.async_list_application_snapshots(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_request.ListApplicationSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_application_snapshots(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_snapshots_input_limit.ListSnapshotsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_kinesis_analytics_v2.types.snapshot_details.SnapshotDetails]":
+        _token = next_token
+        while True:
+            _response = await self.list_application_snapshots(
+                application_name,
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("snapshot_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_application_versions(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_versions_input_limit.ListApplicationVersionsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.list_application_versions_response.ListApplicationVersionsResponse":
+        """<p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration associated with each version.</p> <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
+
+        Args:
+            application_name: <p>The name of the application for which you want to list all versions.</p>
+            limit: <p>The maximum number of versions to list in this invocation of the operation.</p>
+            next_token: <p>If a previous invocation of this operation returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.list_application_versions_request.ListApplicationVersionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_versions_response.ListApplicationVersionsResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_application_versions
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_application_versions.async_list_application_versions(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_application_versions(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.list_application_versions_input_limit.ListApplicationVersionsInputLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_kinesis_analytics_v2.types.application_version_summary.ApplicationVersionSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_application_versions(
+                application_name,
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("application_version_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_kinesis_analytics_v2.types.kinesis_analytics_arn.KinesisAnalyticsARN",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the application for which to retrieve tags.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def rollback_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        current_application_version_id: "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.rollback_application_response.RollbackApplicationResponse":
+        """<p>Reverts the application to the previous running version. You can roll back an application if you suspect it is stuck in a transient status or in the running status. </p> <p>You can roll back an application only if it is in the <code>UPDATING</code>, <code>AUTOSCALING</code>, or <code>RUNNING</code> statuses.</p> <p>When you rollback an application, it loads state data from the last successful snapshot. If the application has no snapshots, Managed Service for Apache Flink rejects the rollback request.</p>
+
+        Args:
+            application_name: <p>The name of the application.</p>
+            current_application_version_id: <p>The current application version ID. You can retrieve the application version ID using <a>DescribeApplication</a>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.rollback_application_request.RollbackApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.rollback_application_response.RollbackApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.rollback_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.rollback_application.async_rollback_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.rollback_application_request.RollbackApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["current_application_version_id"] = current_application_version_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def start_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        run_configuration: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.run_configuration.RunConfiguration"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.start_application_response.StartApplicationResponse":
+        """<p>Starts the specified Managed Service for Apache Flink application. After creating an application, you must exclusively call this operation to start your application.</p>
+
+        Args:
+            application_name: <p>The name of the application.</p>
+            run_configuration: <p>Identifies the run configuration (start parameters) of a Managed Service for Apache Flink application.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.start_application_request.StartApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.start_application_response.StartApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.start_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.start_application.async_start_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if run_configuration is not None:
+            input["run_configuration"] = run_configuration
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def stop_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        force: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.boolean_object.BooleanObject"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.stop_application_response.StopApplicationResponse":
+        """<p>Stops the application from processing data. You can stop an application only if it is in the running status, unless you set the <code>Force</code> parameter to <code>true</code>.</p> <p>You can use the <a>DescribeApplication</a> operation to find the application status. </p> <p>Managed Service for Apache Flink takes a snapshot when the application is stopped, unless <code>Force</code> is set to <code>true</code>.</p>
+
+        Args:
+            application_name: <p>The name of the running application to stop.</p>
+            force: <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code> to <code>true</code>, Managed Service for Apache Flink stops the application without taking a snapshot. </p> <note> <p>Force-stopping your application may lead to data loss or duplication. To prevent data loss or duplicate processing of data during application restarts, we recommend you to take frequent snapshots of your application.</p> </note> <p>You can only force stop a Managed Service for Apache Flink application. You can't force stop a SQL-based Kinesis Data Analytics application.</p> <p>The application must be in the <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>, <code>AUTOSCALING</code>, or <code>RUNNING</code> status. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.stop_application_request.StopApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.stop_application_response.StopApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.stop_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.stop_application.async_stop_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if force is not None:
+            input["force"] = force
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        resource_arn: "aws_sdk_kinesis_analytics_v2.types.kinesis_analytics_arn.KinesisAnalyticsARN",
+        tags: "aws_sdk_kinesis_analytics_v2.types.tags.Tags",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.tag_resource_response.TagResourceResponse":
+        """<p>Adds one or more key-value tags to a Managed Service for Apache Flink application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the application to assign the tags.</p>
+            tags: <p>The key-value tags to assign to the application.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        resource_arn: "aws_sdk_kinesis_analytics_v2.types.kinesis_analytics_arn.KinesisAnalyticsARN",
+        tag_keys: "aws_sdk_kinesis_analytics_v2.types.tag_keys.TagKeys",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes one or more tags from a Managed Service for Apache Flink application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the Managed Service for Apache Flink application from which to remove the tags.</p>
+            tag_keys: <p>A list of keys of tags to remove from the specified application.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_application(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+        current_application_version_id: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId"
+        ] = None,
+        application_configuration_update: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.application_configuration_update.ApplicationConfigurationUpdate"
+        ] = None,
+        service_execution_role_update: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.role_arn.RoleARN"
+        ] = None,
+        run_configuration_update: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.run_configuration_update.RunConfigurationUpdate"
+        ] = None,
+        cloud_watch_logging_option_updates: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.cloud_watch_logging_option_updates.CloudWatchLoggingOptionUpdates"
+        ] = None,
+        conditional_token: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.conditional_token.ConditionalToken"
+        ] = None,
+        runtime_environment_update: Optional[
+            "aws_sdk_kinesis_analytics_v2.types.runtime_environment.RuntimeEnvironment"
+        ] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.update_application_response.UpdateApplicationResponse":
+        """<p>Updates an existing Managed Service for Apache Flink application. Using this operation, you can update application code, input configuration, and output configuration. </p> <p>Managed Service for Apache Flink updates the <code>ApplicationVersionId</code> each time you update your application. </p>
+
+        Args:
+            application_name: <p>The name of the application to update.</p>
+            current_application_version_id: <p>The current application version ID. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can retrieve the application version ID using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+            application_configuration_update: <p>Describes application configuration updates.</p>
+            service_execution_role_update: <p>Describes updates to the service execution role.</p>
+            run_configuration_update: <p>Describes updates to the application's starting parameters.</p>
+            cloud_watch_logging_option_updates: <p>Describes application Amazon CloudWatch logging option updates. You can only update existing CloudWatch logging options with this action. To add a new CloudWatch logging option, use <a>AddApplicationCloudWatchLoggingOption</a>.</p>
+            conditional_token: <p>A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.</p>
+            runtime_environment_update: <p>Updates the Managed Service for Apache Flink runtime environment used to run your code. To avoid issues you must:</p> <ul> <li> <p>Ensure your new jar and dependencies are compatible with the new runtime selected.</p> </li> <li> <p>Ensure your new code's state is compatible with the snapshot from which your application will start</p> </li> </ul>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.update_application_request.UpdateApplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.update_application_response.UpdateApplicationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.update_application
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.update_application.async_update_application(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        if current_application_version_id is not None:
+            input["current_application_version_id"] = current_application_version_id
+        if application_configuration_update is not None:
+            input["application_configuration_update"] = application_configuration_update
+        if service_execution_role_update is not None:
+            input["service_execution_role_update"] = service_execution_role_update
+        if run_configuration_update is not None:
+            input["run_configuration_update"] = run_configuration_update
+        if cloud_watch_logging_option_updates is not None:
+            input["cloud_watch_logging_option_updates"] = (
+                cloud_watch_logging_option_updates
+            )
+        if conditional_token is not None:
+            input["conditional_token"] = conditional_token
+        if runtime_environment_update is not None:
+            input["runtime_environment_update"] = runtime_environment_update
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_application_maintenance_configuration(
+        self,
+        application_name: "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName",
+        application_maintenance_configuration_update: "aws_sdk_kinesis_analytics_v2.types.application_maintenance_configuration_update.ApplicationMaintenanceConfigurationUpdate",
+        *,
+        config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
+    ) -> "aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_response.UpdateApplicationMaintenanceConfigurationResponse":
+        """<p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p> <p>You can invoke this operation on an application that is in one of the two following states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is in a state other than these two states, it throws a <code>ResourceInUseException</code>. The service makes use of the updated configuration the next time it schedules maintenance for the application. If you invoke this operation after the service schedules maintenance, the service will apply the configuration update the next time it schedules maintenance for the application. This means that you might not see the maintenance configuration update applied to the maintenance process that follows a successful invocation of this operation, but to the following maintenance process instead.</p> <p>To see the current maintenance configuration of your application, invoke the <a>DescribeApplication</a> operation.</p> <p>For information about application maintenance, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html\">Managed Service for Apache Flink for Apache Flink Maintenance</a>.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
+
+        Args:
+            application_name: <p>The name of the application for which you want to update the maintenance configuration.</p>
+            application_maintenance_configuration_update: <p>Describes the application maintenance configuration update.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_request.UpdateApplicationMaintenanceConfigurationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_response.UpdateApplicationMaintenanceConfigurationResponse"
+        ]:
+            import aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.update_application_maintenance_configuration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_kinesis_analytics_v2._operations.kinesis_analytics_20180523.update_application_maintenance_configuration.async_update_application_maintenance_configuration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_request.UpdateApplicationMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["application_name"] = application_name
+        input["application_maintenance_configuration_update"] = (
+            application_maintenance_configuration_update
+        )
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

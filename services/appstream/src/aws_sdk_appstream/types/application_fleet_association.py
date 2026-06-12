@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#ApplicationFleetAssociation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appstream.types.arn
+    import aws_sdk_appstream.types.string
+
+
+class ApplicationFleetAssociation(TypedDict):
+    fleet_name: NotRequired["aws_sdk_appstream.types.string.String"]
+    """<p>The name of the fleet associated with the application.</p>"""
+    application_arn: NotRequired["aws_sdk_appstream.types.arn.Arn"]
+    """<p>The ARN of the application associated with the fleet.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ApplicationFleetAssociation) -> dict:
+    out: dict = {}
+    if "fleet_name" in value:
+        out["FleetName"] = value["fleet_name"]
+    if "application_arn" in value:
+        out["ApplicationArn"] = value["application_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ApplicationFleetAssociation:
+    out: ApplicationFleetAssociation = {}  # type: ignore[typeddict-item]
+    if "FleetName" in data:
+        out["fleet_name"] = data["FleetName"]
+    if "ApplicationArn" in data:
+        out["application_arn"] = data["ApplicationArn"]
+    return out

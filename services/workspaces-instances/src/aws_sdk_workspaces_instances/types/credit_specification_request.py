@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.workspacesinstances#CreditSpecificationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+if TYPE_CHECKING:
+    import aws_sdk_workspaces_instances.types.cpu_credits_enum
+
+class CreditSpecificationRequest(TypedDict):
+    cpu_credits: NotRequired["aws_sdk_workspaces_instances.types.cpu_credits_enum.CpuCreditsEnum"]
+    """<p>CPU credit specification mode.</p>"""
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CreditSpecificationRequest) -> dict:
+    out: dict = {}
+    if "cpu_credits" in value:
+        import aws_sdk_workspaces_instances.types.cpu_credits_enum
+        out["CpuCredits"] = aws_sdk_workspaces_instances.types.cpu_credits_enum.serialize_aws_json_1_0(value["cpu_credits"])
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CreditSpecificationRequest:
+    out: CreditSpecificationRequest = {}  # type: ignore[typeddict-item]
+    if "CpuCredits" in data:
+        import aws_sdk_workspaces_instances.types.cpu_credits_enum
+        out["cpu_credits"] = aws_sdk_workspaces_instances.types.cpu_credits_enum.deserialize_aws_json_1_0(data["CpuCredits"])
+    return out

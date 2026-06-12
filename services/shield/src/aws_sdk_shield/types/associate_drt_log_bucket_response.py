@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.shield#AssociateDRTLogBucketResponse``."""
+
+from typing import TypedDict
+
+
+class AssociateDRTLogBucketResponse(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AssociateDRTLogBucketResponse) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AssociateDRTLogBucketResponse:
+    out: AssociateDRTLogBucketResponse = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#DescribeDominantLanguageDetectionJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_comprehend.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.job_id
+
+
+class DescribeDominantLanguageDetectionJobRequest(TypedDict):
+    job_id: "aws_sdk_comprehend.types.job_id.JobId"
+    """<p>The identifier that Amazon Comprehend generated for the job. The <code>StartDominantLanguageDetectionJob</code> operation returns this identifier in its response.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeDominantLanguageDetectionJobRequest) -> dict:
+    out: dict = {}
+    out["JobId"] = value["job_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeDominantLanguageDetectionJobRequest:
+    out: DescribeDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
+    if "JobId" in data:
+        out["job_id"] = data["JobId"]
+    else:
+        raise DeserializationError(
+            "DescribeDominantLanguageDetectionJobRequest.job_id required"
+        )
+    return out

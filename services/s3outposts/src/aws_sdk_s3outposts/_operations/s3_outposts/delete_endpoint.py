@@ -1,0 +1,148 @@
+"""Generated from Smithy shape ``com.amazonaws.s3outposts#DeleteEndpoint``."""
+
+from __future__ import annotations
+
+import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
+import aws_sdk_s3outposts._auth._signers
+import aws_sdk_s3outposts._auth._sigv4
+from aws_sdk_s3outposts._protocol.errors import parse_error_metadata_json
+from aws_sdk_s3outposts._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_s3outposts._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_s3outposts.errors import UnknownServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_s3outposts.types.delete_endpoint_request
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "AccessDeniedException":
+            import aws_sdk_s3outposts.errors.access_denied_exception
+
+            raise aws_sdk_s3outposts.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
+        case "InternalServerException":
+            import aws_sdk_s3outposts.errors.internal_server_exception
+
+            raise aws_sdk_s3outposts.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
+        case "OutpostOfflineException":
+            import aws_sdk_s3outposts.errors.outpost_offline_exception
+
+            raise aws_sdk_s3outposts.errors.outpost_offline_exception.OutpostOfflineException.from_json(
+                data
+            )
+        case "ResourceNotFoundException":
+            import aws_sdk_s3outposts.errors.resource_not_found_exception
+
+            raise aws_sdk_s3outposts.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
+        case "ThrottlingException":
+            import aws_sdk_s3outposts.errors.throttling_exception
+
+            raise aws_sdk_s3outposts.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
+        case "ValidationException":
+            import aws_sdk_s3outposts.errors.validation_exception
+
+            raise aws_sdk_s3outposts.errors.validation_exception.ValidationException.from_json(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_s3outposts._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_s3outposts._auth._sigv4.build_sigv4_auth_scheme(
+                "s3-outposts", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return aws_sdk_s3outposts._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
+) -> zapros.Request:
+    endpoint = resolve(  # noqa: F841
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )
+    url = endpoint.url.rstrip("/") + "/S3Outposts/DeleteEndpoint"
+    params: dict[str, str] = {}
+    if "endpoint_id" in input:
+        params["endpointId"] = str(input["endpoint_id"])
+    if "outpost_id" in input:
+        params["outpostId"] = str(input["outpost_id"])
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    body: bytes | None = b""
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url,
+        "DELETE",
+        headers=headers,
+        body=body,
+        context={"signer": signer},
+    )
+
+
+def delete_endpoint(
+    options: OperationOptions,
+    input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
+) -> tuple[None, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return None, response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_delete_endpoint(
+    options: AsyncOperationOptions,
+    input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
+) -> tuple[None, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return None, response
+    except BaseException:
+        await response.aclose()
+        raise

@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.rdsdata#RollbackTransactionResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_rds_data.types.transaction_status
+
+
+class RollbackTransactionResponse(TypedDict):
+    transaction_status: NotRequired[
+        "aws_sdk_rds_data.types.transaction_status.TransactionStatus"
+    ]
+    """<p>The status of the rollback operation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RollbackTransactionResponse) -> dict:
+    out: dict = {}
+    if "transaction_status" in value:
+        out["transactionStatus"] = value["transaction_status"]
+    return out
+
+
+def deserialize_json(data: dict) -> RollbackTransactionResponse:
+    out: RollbackTransactionResponse = {}  # type: ignore[typeddict-item]
+    if "transactionStatus" in data:
+        out["transaction_status"] = data["transactionStatus"]
+    return out

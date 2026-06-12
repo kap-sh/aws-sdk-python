@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.m2#GetDataSetDetailsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_m2.types.identifier
+    import aws_sdk_m2.types.string200
+
+
+class GetDataSetDetailsRequest(TypedDict):
+    application_id: "aws_sdk_m2.types.identifier.Identifier"
+    """<p>The unique identifier of the application that this data set is associated with.</p>"""
+    data_set_name: "aws_sdk_m2.types.string200.String200"
+    """<p>The name of the data set.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetDataSetDetailsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetDataSetDetailsRequest:
+    out: GetDataSetDetailsRequest = {}  # type: ignore[typeddict-item]
+    return out

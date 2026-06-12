@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#DeleteDirectoryResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.directory_id
+
+
+class DeleteDirectoryResult(TypedDict):
+    directory_id: NotRequired[
+        "aws_sdk_directory_service.types.directory_id.DirectoryId"
+    ]
+    """<p>The directory identifier.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteDirectoryResult) -> dict:
+    out: dict = {}
+    if "directory_id" in value:
+        out["DirectoryId"] = value["directory_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteDirectoryResult:
+    out: DeleteDirectoryResult = {}  # type: ignore[typeddict-item]
+    if "DirectoryId" in data:
+        out["directory_id"] = data["DirectoryId"]
+    return out

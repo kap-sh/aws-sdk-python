@@ -1,0 +1,115 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotImportSpecification``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_lex_models_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lex_models_v2.types.data_privacy
+    import aws_sdk_lex_models_v2.types.error_log_settings
+    import aws_sdk_lex_models_v2.types.name
+    import aws_sdk_lex_models_v2.types.role_arn
+    import aws_sdk_lex_models_v2.types.session_ttl
+    import aws_sdk_lex_models_v2.types.tag_map
+
+
+class BotImportSpecification(TypedDict):
+    bot_name: "aws_sdk_lex_models_v2.types.name.Name"
+    """<p>The name that Amazon Lex should use for the bot.</p>"""
+    role_arn: "aws_sdk_lex_models_v2.types.role_arn.RoleArn"
+    """<p>The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.</p>"""
+    data_privacy: "aws_sdk_lex_models_v2.types.data_privacy.DataPrivacy"
+    error_log_settings: NotRequired[
+        "aws_sdk_lex_models_v2.types.error_log_settings.ErrorLogSettings"
+    ]
+    """<p>Allows you to configure destinations where error logs will be published during the bot import process.</p>"""
+    idle_session_ttl_in_seconds: NotRequired[
+        "aws_sdk_lex_models_v2.types.session_ttl.SessionTTL"
+    ]
+    """<p>The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. </p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.</p> <p>You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.</p>"""
+    bot_tags: NotRequired["aws_sdk_lex_models_v2.types.tag_map.TagMap"]
+    """<p>A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the <code>UpdateBot</code> operation to update tags. To update tags, use the <code>TagResource</code> operation.</p>"""
+    test_bot_alias_tags: NotRequired["aws_sdk_lex_models_v2.types.tag_map.TagMap"]
+    """<p>A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the <code>UpdateAlias</code> operation to update tags. To update tags on the test alias, use the <code>TagResource</code> operation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BotImportSpecification) -> dict:
+    out: dict = {}
+    out["botName"] = value["bot_name"]
+    out["roleArn"] = value["role_arn"]
+    import aws_sdk_lex_models_v2.types.data_privacy
+
+    out["dataPrivacy"] = aws_sdk_lex_models_v2.types.data_privacy.serialize_json(
+        value["data_privacy"]
+    )
+    if "error_log_settings" in value:
+        import aws_sdk_lex_models_v2.types.error_log_settings
+
+        out["errorLogSettings"] = (
+            aws_sdk_lex_models_v2.types.error_log_settings.serialize_json(
+                value["error_log_settings"]
+            )
+        )
+    if "idle_session_ttl_in_seconds" in value:
+        out["idleSessionTTLInSeconds"] = value["idle_session_ttl_in_seconds"]
+    if "bot_tags" in value:
+        import aws_sdk_lex_models_v2.types.tag_map
+
+        out["botTags"] = aws_sdk_lex_models_v2.types.tag_map.serialize_json(
+            value["bot_tags"]
+        )
+    if "test_bot_alias_tags" in value:
+        import aws_sdk_lex_models_v2.types.tag_map
+
+        out["testBotAliasTags"] = aws_sdk_lex_models_v2.types.tag_map.serialize_json(
+            value["test_bot_alias_tags"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> BotImportSpecification:
+    out: BotImportSpecification = {}  # type: ignore[typeddict-item]
+    if "botName" in data:
+        out["bot_name"] = data["botName"]
+    else:
+        raise DeserializationError("BotImportSpecification.bot_name required")
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    else:
+        raise DeserializationError("BotImportSpecification.role_arn required")
+    if "dataPrivacy" in data:
+        import aws_sdk_lex_models_v2.types.data_privacy
+
+        out["data_privacy"] = aws_sdk_lex_models_v2.types.data_privacy.deserialize_json(
+            data["dataPrivacy"]
+        )
+    else:
+        raise DeserializationError("BotImportSpecification.data_privacy required")
+    if "errorLogSettings" in data:
+        import aws_sdk_lex_models_v2.types.error_log_settings
+
+        out["error_log_settings"] = (
+            aws_sdk_lex_models_v2.types.error_log_settings.deserialize_json(
+                data["errorLogSettings"]
+            )
+        )
+    if "idleSessionTTLInSeconds" in data:
+        out["idle_session_ttl_in_seconds"] = data["idleSessionTTLInSeconds"]
+    if "botTags" in data:
+        import aws_sdk_lex_models_v2.types.tag_map
+
+        out["bot_tags"] = aws_sdk_lex_models_v2.types.tag_map.deserialize_json(
+            data["botTags"]
+        )
+    if "testBotAliasTags" in data:
+        import aws_sdk_lex_models_v2.types.tag_map
+
+        out["test_bot_alias_tags"] = (
+            aws_sdk_lex_models_v2.types.tag_map.deserialize_json(
+                data["testBotAliasTags"]
+            )
+        )
+    return out

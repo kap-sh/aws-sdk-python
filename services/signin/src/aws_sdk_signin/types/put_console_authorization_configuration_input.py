@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.signin#PutConsoleAuthorizationConfigurationInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_signin.types.target_id
+
+
+class PutConsoleAuthorizationConfigurationInput(TypedDict):
+    target_id: NotRequired["aws_sdk_signin.types.target_id.TargetId"]
+    """Target account identifier"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutConsoleAuthorizationConfigurationInput) -> dict:
+    out: dict = {}
+    if "target_id" in value:
+        out["targetId"] = value["target_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> PutConsoleAuthorizationConfigurationInput:
+    out: PutConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
+    if "targetId" in data:
+        out["target_id"] = data["targetId"]
+    return out

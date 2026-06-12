@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.mturk#ListWorkersWithQualificationTypeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_mturk.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mturk.types.entity_id
+    import aws_sdk_mturk.types.pagination_token
+    import aws_sdk_mturk.types.qualification_status
+    import aws_sdk_mturk.types.result_size
+
+
+class ListWorkersWithQualificationTypeRequest(TypedDict):
+    qualification_type_id: "aws_sdk_mturk.types.entity_id.EntityId"
+    """<p>The ID of the Qualification type of the Qualifications to return.</p>"""
+    status: NotRequired["aws_sdk_mturk.types.qualification_status.QualificationStatus"]
+    """<p> The status of the Qualifications to return. Can be <code>Granted | Revoked</code>. </p>"""
+    next_token: NotRequired["aws_sdk_mturk.types.pagination_token.PaginationToken"]
+    """<p>Pagination Token</p>"""
+    max_results: NotRequired["aws_sdk_mturk.types.result_size.ResultSize"]
+    """<p> Limit the number of results returned. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListWorkersWithQualificationTypeRequest) -> dict:
+    out: dict = {}
+    out["QualificationTypeId"] = value["qualification_type_id"]
+    if "status" in value:
+        import aws_sdk_mturk.types.qualification_status
+
+        out["Status"] = aws_sdk_mturk.types.qualification_status.serialize_aws_json_1_1(
+            value["status"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListWorkersWithQualificationTypeRequest:
+    out: ListWorkersWithQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+    if "QualificationTypeId" in data:
+        out["qualification_type_id"] = data["QualificationTypeId"]
+    else:
+        raise DeserializationError(
+            "ListWorkersWithQualificationTypeRequest.qualification_type_id required"
+        )
+    if "Status" in data:
+        import aws_sdk_mturk.types.qualification_status
+
+        out["status"] = (
+            aws_sdk_mturk.types.qualification_status.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

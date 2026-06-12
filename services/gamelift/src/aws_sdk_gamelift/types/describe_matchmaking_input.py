@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#DescribeMatchmakingInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.matchmaking_id_list
+
+
+class DescribeMatchmakingInput(TypedDict):
+    ticket_ids: NotRequired[
+        "aws_sdk_gamelift.types.matchmaking_id_list.MatchmakingIdList"
+    ]
+    """<p>A unique identifier for a matchmaking ticket. You can include up to 10 ID values. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeMatchmakingInput) -> dict:
+    out: dict = {}
+    if "ticket_ids" in value:
+        import aws_sdk_gamelift.types.matchmaking_id_list
+
+        out["TicketIds"] = (
+            aws_sdk_gamelift.types.matchmaking_id_list.serialize_aws_json_1_1(
+                value["ticket_ids"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeMatchmakingInput:
+    out: DescribeMatchmakingInput = {}  # type: ignore[typeddict-item]
+    if "TicketIds" in data:
+        import aws_sdk_gamelift.types.matchmaking_id_list
+
+        out["ticket_ids"] = (
+            aws_sdk_gamelift.types.matchmaking_id_list.deserialize_aws_json_1_1(
+                data["TicketIds"]
+            )
+        )
+    return out

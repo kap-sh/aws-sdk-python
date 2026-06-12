@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.health#DescribeAffectedEntitiesForOrganizationFailedSet``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_health.types.organization_affected_entities_error_item
+
+DescribeAffectedEntitiesForOrganizationFailedSet: TypeAlias = list[
+    "aws_sdk_health.types.organization_affected_entities_error_item.OrganizationAffectedEntitiesErrorItem"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: DescribeAffectedEntitiesForOrganizationFailedSet,
+) -> list:
+    import aws_sdk_health.types.organization_affected_entities_error_item
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_health.types.organization_affected_entities_error_item.serialize_aws_json_1_1(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: list,
+) -> DescribeAffectedEntitiesForOrganizationFailedSet:
+    import aws_sdk_health.types.organization_affected_entities_error_item
+
+    out: DescribeAffectedEntitiesForOrganizationFailedSet = []
+    for item in data:
+        out.append(
+            aws_sdk_health.types.organization_affected_entities_error_item.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

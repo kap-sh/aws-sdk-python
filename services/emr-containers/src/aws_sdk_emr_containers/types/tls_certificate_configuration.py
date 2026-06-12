@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.emrcontainers#TLSCertificateConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_emr_containers.types.certificate_provider_type
+    import aws_sdk_emr_containers.types.secrets_manager_arn
+
+
+class TLSCertificateConfiguration(TypedDict):
+    certificate_provider_type: NotRequired[
+        "aws_sdk_emr_containers.types.certificate_provider_type.CertificateProviderType"
+    ]
+    """<p>The TLS certificate type. Acceptable values: <code>PEM</code> or <code>Custom</code>.</p>"""
+    public_certificate_secret_arn: NotRequired[
+        "aws_sdk_emr_containers.types.secrets_manager_arn.SecretsManagerArn"
+    ]
+    """<p>Secrets Manager ARN that contains the public TLS certificate contents, used for communication between the user job and the system job.</p>"""
+    private_certificate_secret_arn: NotRequired[
+        "aws_sdk_emr_containers.types.secrets_manager_arn.SecretsManagerArn"
+    ]
+    """<p>Secrets Manager ARN that contains the private TLS certificate contents, used for communication between the user job and the system job.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TLSCertificateConfiguration) -> dict:
+    out: dict = {}
+    if "certificate_provider_type" in value:
+        import aws_sdk_emr_containers.types.certificate_provider_type
+
+        out["certificateProviderType"] = (
+            aws_sdk_emr_containers.types.certificate_provider_type.serialize_json(
+                value["certificate_provider_type"]
+            )
+        )
+    if "public_certificate_secret_arn" in value:
+        out["publicCertificateSecretArn"] = value["public_certificate_secret_arn"]
+    if "private_certificate_secret_arn" in value:
+        out["privateCertificateSecretArn"] = value["private_certificate_secret_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> TLSCertificateConfiguration:
+    out: TLSCertificateConfiguration = {}  # type: ignore[typeddict-item]
+    if "certificateProviderType" in data:
+        import aws_sdk_emr_containers.types.certificate_provider_type
+
+        out["certificate_provider_type"] = (
+            aws_sdk_emr_containers.types.certificate_provider_type.deserialize_json(
+                data["certificateProviderType"]
+            )
+        )
+    if "publicCertificateSecretArn" in data:
+        out["public_certificate_secret_arn"] = data["publicCertificateSecretArn"]
+    if "privateCertificateSecretArn" in data:
+        out["private_certificate_secret_arn"] = data["privateCertificateSecretArn"]
+    return out

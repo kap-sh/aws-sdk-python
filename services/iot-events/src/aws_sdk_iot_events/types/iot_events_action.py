@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.iotevents#IotEventsAction``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_iot_events.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_events.types.input_name
+    import aws_sdk_iot_events.types.payload
+
+
+class IotEventsAction(TypedDict):
+    input_name: "aws_sdk_iot_events.types.input_name.InputName"
+    """<p>The name of the AWS IoT Events input where the data is sent.</p>"""
+    payload: NotRequired["aws_sdk_iot_events.types.payload.Payload"]
+    """<p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IotEventsAction) -> dict:
+    out: dict = {}
+    out["inputName"] = value["input_name"]
+    if "payload" in value:
+        import aws_sdk_iot_events.types.payload
+
+        out["payload"] = aws_sdk_iot_events.types.payload.serialize_json(
+            value["payload"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> IotEventsAction:
+    out: IotEventsAction = {}  # type: ignore[typeddict-item]
+    if "inputName" in data:
+        out["input_name"] = data["inputName"]
+    else:
+        raise DeserializationError("IotEventsAction.input_name required")
+    if "payload" in data:
+        import aws_sdk_iot_events.types.payload
+
+        out["payload"] = aws_sdk_iot_events.types.payload.deserialize_json(
+            data["payload"]
+        )
+    return out

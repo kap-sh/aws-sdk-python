@@ -1,0 +1,83 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesis#Shard``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_kinesis.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis.types.hash_key_range
+    import aws_sdk_kinesis.types.sequence_number_range
+    import aws_sdk_kinesis.types.shard_id
+
+
+class Shard(TypedDict):
+    shard_id: "aws_sdk_kinesis.types.shard_id.ShardId"
+    """<p>The unique identifier of the shard within the stream.</p>"""
+    parent_shard_id: NotRequired["aws_sdk_kinesis.types.shard_id.ShardId"]
+    """<p>The shard ID of the shard's parent.</p>"""
+    adjacent_parent_shard_id: NotRequired["aws_sdk_kinesis.types.shard_id.ShardId"]
+    """<p>The shard ID of the shard adjacent to the shard's parent.</p>"""
+    hash_key_range: "aws_sdk_kinesis.types.hash_key_range.HashKeyRange"
+    """<p>The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.</p>"""
+    sequence_number_range: (
+        "aws_sdk_kinesis.types.sequence_number_range.SequenceNumberRange"
+    )
+    """<p>The range of possible sequence numbers for the shard.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Shard) -> dict:
+    out: dict = {}
+    out["ShardId"] = value["shard_id"]
+    if "parent_shard_id" in value:
+        out["ParentShardId"] = value["parent_shard_id"]
+    if "adjacent_parent_shard_id" in value:
+        out["AdjacentParentShardId"] = value["adjacent_parent_shard_id"]
+    import aws_sdk_kinesis.types.hash_key_range
+
+    out["HashKeyRange"] = aws_sdk_kinesis.types.hash_key_range.serialize_aws_json_1_1(
+        value["hash_key_range"]
+    )
+    import aws_sdk_kinesis.types.sequence_number_range
+
+    out["SequenceNumberRange"] = (
+        aws_sdk_kinesis.types.sequence_number_range.serialize_aws_json_1_1(
+            value["sequence_number_range"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Shard:
+    out: Shard = {}  # type: ignore[typeddict-item]
+    if "ShardId" in data:
+        out["shard_id"] = data["ShardId"]
+    else:
+        raise DeserializationError("Shard.shard_id required")
+    if "ParentShardId" in data:
+        out["parent_shard_id"] = data["ParentShardId"]
+    if "AdjacentParentShardId" in data:
+        out["adjacent_parent_shard_id"] = data["AdjacentParentShardId"]
+    if "HashKeyRange" in data:
+        import aws_sdk_kinesis.types.hash_key_range
+
+        out["hash_key_range"] = (
+            aws_sdk_kinesis.types.hash_key_range.deserialize_aws_json_1_1(
+                data["HashKeyRange"]
+            )
+        )
+    else:
+        raise DeserializationError("Shard.hash_key_range required")
+    if "SequenceNumberRange" in data:
+        import aws_sdk_kinesis.types.sequence_number_range
+
+        out["sequence_number_range"] = (
+            aws_sdk_kinesis.types.sequence_number_range.deserialize_aws_json_1_1(
+                data["SequenceNumberRange"]
+            )
+        )
+    else:
+        raise DeserializationError("Shard.sequence_number_range required")
+    return out

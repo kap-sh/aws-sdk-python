@@ -1,0 +1,2021 @@
+"""Generated from Smithy shape ``com.amazonaws.glacier#Glacier``."""
+
+import time
+import warnings
+from collections.abc import Generator, Iterator
+from contextlib import contextmanager
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+import aws_sdk_glacier._auth._signers
+import aws_sdk_glacier._auth._sigv4
+from aws_sdk_glacier._auth._identity import Credentials
+from aws_sdk_glacier._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_glacier._auth._zapros_handler import AuthMiddleware
+from aws_sdk_glacier._pagination import resolve_path as _resolve_path
+from aws_sdk_glacier._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+from aws_sdk_glacier.errors import ServiceError, WaiterTimeoutError
+
+if TYPE_CHECKING:
+    import aws_sdk_glacier.types.abort_multipart_upload_input
+    import aws_sdk_glacier.types.abort_vault_lock_input
+    import aws_sdk_glacier.types.add_tags_to_vault_input
+    import aws_sdk_glacier.types.archive_creation_output
+    import aws_sdk_glacier.types.complete_multipart_upload_input
+    import aws_sdk_glacier.types.complete_vault_lock_input
+    import aws_sdk_glacier.types.create_vault_input
+    import aws_sdk_glacier.types.create_vault_output
+    import aws_sdk_glacier.types.data_retrieval_policy
+    import aws_sdk_glacier.types.delete_archive_input
+    import aws_sdk_glacier.types.delete_vault_access_policy_input
+    import aws_sdk_glacier.types.delete_vault_input
+    import aws_sdk_glacier.types.delete_vault_notifications_input
+    import aws_sdk_glacier.types.describe_job_input
+    import aws_sdk_glacier.types.describe_vault_input
+    import aws_sdk_glacier.types.describe_vault_output
+    import aws_sdk_glacier.types.get_data_retrieval_policy_input
+    import aws_sdk_glacier.types.get_data_retrieval_policy_output
+    import aws_sdk_glacier.types.get_job_output_input
+    import aws_sdk_glacier.types.get_job_output_output
+    import aws_sdk_glacier.types.get_vault_access_policy_input
+    import aws_sdk_glacier.types.get_vault_access_policy_output
+    import aws_sdk_glacier.types.get_vault_lock_input
+    import aws_sdk_glacier.types.get_vault_lock_output
+    import aws_sdk_glacier.types.get_vault_notifications_input
+    import aws_sdk_glacier.types.get_vault_notifications_output
+    import aws_sdk_glacier.types.glacier_job_description
+    import aws_sdk_glacier.types.initiate_job_input
+    import aws_sdk_glacier.types.initiate_job_output
+    import aws_sdk_glacier.types.initiate_multipart_upload_input
+    import aws_sdk_glacier.types.initiate_multipart_upload_output
+    import aws_sdk_glacier.types.initiate_vault_lock_input
+    import aws_sdk_glacier.types.initiate_vault_lock_output
+    import aws_sdk_glacier.types.job_parameters
+    import aws_sdk_glacier.types.list_jobs_input
+    import aws_sdk_glacier.types.list_jobs_output
+    import aws_sdk_glacier.types.list_multipart_uploads_input
+    import aws_sdk_glacier.types.list_multipart_uploads_output
+    import aws_sdk_glacier.types.list_parts_input
+    import aws_sdk_glacier.types.list_parts_output
+    import aws_sdk_glacier.types.list_provisioned_capacity_input
+    import aws_sdk_glacier.types.list_provisioned_capacity_output
+    import aws_sdk_glacier.types.list_tags_for_vault_input
+    import aws_sdk_glacier.types.list_tags_for_vault_output
+    import aws_sdk_glacier.types.list_vaults_input
+    import aws_sdk_glacier.types.list_vaults_output
+    import aws_sdk_glacier.types.part_list_element
+    import aws_sdk_glacier.types.purchase_provisioned_capacity_input
+    import aws_sdk_glacier.types.purchase_provisioned_capacity_output
+    import aws_sdk_glacier.types.remove_tags_from_vault_input
+    import aws_sdk_glacier.types.set_data_retrieval_policy_input
+    import aws_sdk_glacier.types.set_vault_access_policy_input
+    import aws_sdk_glacier.types.set_vault_notifications_input
+    import aws_sdk_glacier.types.stream
+    import aws_sdk_glacier.types.string
+    import aws_sdk_glacier.types.tag_key_list
+    import aws_sdk_glacier.types.tag_map
+    import aws_sdk_glacier.types.upload_archive_input
+    import aws_sdk_glacier.types.upload_list_element
+    import aws_sdk_glacier.types.upload_multipart_part_input
+    import aws_sdk_glacier.types.upload_multipart_part_output
+    import aws_sdk_glacier.types.vault_access_policy
+    import aws_sdk_glacier.types.vault_lock_policy
+    import aws_sdk_glacier.types.vault_notification_config
+
+
+class GlacierClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class GlacierClient:
+    """A client for the ``Glacier`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = GlacierClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[GlacierClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: GlacierClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def abort_multipart_upload(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        upload_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation aborts a multipart upload identified by the upload ID.</p> <p>After the Abort Multipart Upload request succeeds, you cannot upload any more parts to the multipart upload or complete the multipart upload. Aborting a completed upload fails. However, aborting an already-aborted upload will succeed, for a short time. For more information about uploading a part and completing a multipart upload, see <a>UploadMultipartPart</a> and <a>CompleteMultipartUpload</a>.</p> <p>This operation is idempotent.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html\">Working with Archives in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html\">Abort Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            upload_id: <p>The upload ID of the multipart upload to delete.</p>
+
+        Examples:
+            To abort a multipart upload identified by the upload ID
+            The example deletes an in-progress multipart upload to a vault named my-vault:
+
+            >>> client.abort_multipart_upload(account_id='-', vault_name='my-vault', upload_id='19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.abort_multipart_upload_input.AbortMultipartUploadInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.abort_multipart_upload
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.abort_multipart_upload.abort_multipart_upload(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.abort_multipart_upload_input.AbortMultipartUploadInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["upload_id"] = upload_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def abort_vault_lock(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation aborts the vault locking process if the vault lock is not in the <code>Locked</code> state. If the vault lock is in the <code>Locked</code> state when this operation is requested, the operation returns an <code>AccessDeniedException</code> error. Aborting the vault locking process removes the vault lock policy from the specified vault. </p> <p>A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. A vault lock is put into the <code>Locked</code> state by calling <a>CompleteVaultLock</a>. You can get the state of a vault lock by calling <a>GetVaultLock</a>. For more information about the vault locking process, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html\">Amazon Glacier Vault Lock</a>. For more information about vault lock policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html\">Amazon Glacier Access Control with Vault Lock Policies</a>. </p> <p>This operation is idempotent. You can successfully invoke this operation multiple times, if the vault lock is in the <code>InProgress</code> state or if there is no policy associated with the vault.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To abort a vault lock
+            The example aborts the vault locking process if the vault lock is not in the Locked state for the vault named examplevault.
+
+            >>> client.abort_vault_lock(account_id='-', vault_name='examplevault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.abort_vault_lock_input.AbortVaultLockInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.abort_vault_lock
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.abort_vault_lock.abort_vault_lock(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.abort_vault_lock_input.AbortVaultLockInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def add_tags_to_vault(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        tags: Optional["aws_sdk_glacier.types.tag_map.TagMap"] = None,
+    ) -> None:
+        """<p>This operation adds the specified tags to a vault. Each tag is composed of a key and a value. Each vault can have up to 10 tags. If your request would cause the tag limit for the vault to be exceeded, the operation throws the <code>LimitExceededException</code> error. If a tag already exists on the vault under a specified key, the existing key value will be overwritten. For more information about tags, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html\">Tagging Amazon Glacier Resources</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            tags: <p>The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.</p>
+
+        Examples:
+            To add tags to a vault
+            The example adds two tags to a my-vault.
+
+            >>> client.add_tags_to_vault(account_id='-', vault_name='my-vault', tags={'examplekey1': 'examplevalue1', 'examplekey2': 'examplevalue2'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.add_tags_to_vault_input.AddTagsToVaultInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.add_tags_to_vault
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.add_tags_to_vault.add_tags_to_vault(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.add_tags_to_vault_input.AddTagsToVaultInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def complete_multipart_upload(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        upload_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        archive_size: Optional["aws_sdk_glacier.types.string.string"] = None,
+        checksum: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> "aws_sdk_glacier.types.archive_creation_output.ArchiveCreationOutput":
+        """<p>You call this operation to inform Amazon Glacier (Glacier) that all the archive parts have been uploaded and that Glacier can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Glacier returns the URI path of the newly created archive resource. Using the URI path, you can then access the archive. After you upload an archive, you should save the archive ID returned to retrieve the archive at a later point. You can also get the vault inventory to obtain a list of archive IDs in a vault. For more information, see <a>InitiateJob</a>.</p> <p>In the request, you must include the computed SHA256 tree hash of the entire archive you have uploaded. For information about computing a SHA256 tree hash, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html\">Computing Checksums</a>. On the server side, Glacier also constructs the SHA256 tree hash of the assembled archive. If the values match, Glacier saves the archive to the vault; otherwise, it returns an error, and the operation fails. The <a>ListParts</a> operation returns a list of parts uploaded for a specific multipart upload. It includes checksum information for each uploaded part that can be used to debug a bad checksum issue.</p> <p>Additionally, Glacier also checks for any missing content ranges when assembling the archive, if missing content ranges are found, Glacier returns an error and the operation fails.</p> <p>Complete Multipart Upload is an idempotent operation. After your first successful complete multipart upload, if you call the operation again within a short period, the operation will succeed and return the same archive ID. This is useful in the event you experience a network issue that causes an aborted connection or receive a 500 server error, in which case you can repeat your Complete Multipart Upload request and get the same archive ID without creating duplicate archives. Note, however, that after the multipart upload completes, you cannot call the List Parts operation and the multipart upload will not appear in List Multipart Uploads response, even if idempotent complete is possible.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html\">Uploading Large Archives in Parts (Multipart Upload)</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html\">Complete Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            upload_id: <p>The upload ID of the multipart upload.</p>
+            archive_size: <p>The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.</p>
+            checksum: <p>The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon Glacier (Glacier), Glacier returns an error and the request fails.</p>
+
+        Examples:
+            To complete a multipart upload
+            The example completes a multipart upload for a 3 MiB archive.
+
+            >>> client.complete_multipart_upload(checksum='9628195fcdbcbbe76cdde456d4646fa7de5f219fb39823836d81f0cc0e18aa67', vault_name='my-vault', upload_id='19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ', archive_size='3145728', account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.archive_creation_output.ArchiveCreationOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.complete_multipart_upload
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.complete_multipart_upload.complete_multipart_upload(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["upload_id"] = upload_id
+        if archive_size is not None:
+            input["archive_size"] = archive_size
+        if checksum is not None:
+            input["checksum"] = checksum
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def complete_vault_lock(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        lock_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation completes the vault locking process by transitioning the vault lock from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the vault lock policy to become unchangeable. A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. You can obtain the state of the vault lock by calling <a>GetVaultLock</a>. For more information about the vault locking process, <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html\">Amazon Glacier Vault Lock</a>. </p> <p>This operation is idempotent. This request is always successful if the vault lock is in the <code>Locked</code> state and the provided lock ID matches the lock ID originally used to lock the vault.</p> <p>If an invalid lock ID is passed in the request when the vault lock is in the <code>Locked</code> state, the operation returns an <code>AccessDeniedException</code> error. If an invalid lock ID is passed in the request when the vault lock is in the <code>InProgress</code> state, the operation throws an <code>InvalidParameter</code> error.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            lock_id: <p>The <code>lockId</code> value is the lock ID obtained from a <a>InitiateVaultLock</a> request.</p>
+
+        Examples:
+            To complete a vault lock
+            The example completes the vault locking process by transitioning the vault lock from the InProgress state to the Locked state.
+
+            >>> client.complete_vault_lock(account_id='-', vault_name='example-vault', lock_id='AE863rKkWZU53SLW5be4DUcW')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.complete_vault_lock_input.CompleteVaultLockInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.complete_vault_lock
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.complete_vault_lock.complete_vault_lock(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.complete_vault_lock_input.CompleteVaultLockInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["lock_id"] = lock_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_vault(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.create_vault_output.CreateVaultOutput":
+        """<p>This operation creates a new vault with the specified name. The name of the vault must be unique within a region for an AWS account. You can create up to 1,000 vaults per account. If you need to create more vaults, contact Amazon Glacier.</p> <p>You must use the following guidelines when naming a vault.</p> <ul> <li> <p>Names can be between 1 and 255 characters long.</p> </li> <li> <p>Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).</p> </li> </ul> <p>This operation is idempotent.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html\">Creating a Vault in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html\">Create Vault </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To create a new vault
+            The following example creates a new vault named my-vault.
+
+            >>> client.create_vault(vault_name='my-vault', account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.create_vault_input.CreateVaultInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.create_vault_output.CreateVaultOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.create_vault
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.create_vault.create_vault(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.create_vault_input.CreateVaultInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_archive(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        archive_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation deletes an archive from a vault. Subsequent requests to initiate a retrieval of this archive will fail. Archive retrievals that are in progress for this archive ID may or may not succeed according to the following scenarios:</p> <ul> <li> <p>If the archive retrieval job is actively preparing the data for download when Amazon Glacier receives the delete archive request, the archival retrieval operation might fail.</p> </li> <li> <p>If the archive retrieval job has successfully prepared the archive for download when Amazon Glacier receives the delete archive request, you will be able to download the output.</p> </li> </ul> <p>This operation is idempotent. Attempting to delete an already-deleted archive does not result in an error.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html\">Deleting an Archive in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html\">Delete Archive</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            archive_id: <p>The ID of the archive to delete.</p>
+
+        Examples:
+            To delete an archive
+            The example deletes the archive specified by the archive ID.
+
+            >>> client.delete_archive(account_id='-', vault_name='examplevault', archive_id='NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.delete_archive_input.DeleteArchiveInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.delete_archive
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.delete_archive.delete_archive(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.delete_archive_input.DeleteArchiveInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["archive_id"] = archive_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_vault(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation deletes a vault. Amazon Glacier will delete a vault only if there are no archives in the vault as of the last inventory and there have been no writes to the vault since the last inventory. If either of these conditions is not satisfied, the vault deletion fails (that is, the vault is not removed) and Amazon Glacier returns an error. You can use <a>DescribeVault</a> to return the number of archives in a vault, and you can use <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html\">Initiate a Job (POST jobs)</a> to initiate a new inventory retrieval for a vault. The inventory contains the archive IDs you use to delete archives using <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html\">Delete Archive (DELETE archive)</a>.</p> <p>This operation is idempotent.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html\">Deleting a Vault in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html\">Delete Vault </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To delete a vault
+            The example deletes a vault named my-vault:
+
+            >>> client.delete_vault(vault_name='my-vault', account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.delete_vault_input.DeleteVaultInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.delete_vault
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.delete_vault.delete_vault(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.delete_vault_input.DeleteVaultInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_vault_access_policy(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation deletes the access policy associated with the specified vault. The operation is eventually consistent; that is, it might take some time for Amazon Glacier to completely remove the access policy, and you might still see the effect of the policy for a short time after you send the delete request.</p> <p>This operation is idempotent. You can invoke delete multiple times, even if there is no policy associated with the vault. For more information about vault access policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html\">Amazon Glacier Access Control with Vault Access Policies</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To delete the vault access policy
+            The example deletes the access policy associated with the vault named examplevault.
+
+            >>> client.delete_vault_access_policy(account_id='-', vault_name='examplevault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.delete_vault_access_policy_input.DeleteVaultAccessPolicyInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.delete_vault_access_policy
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.delete_vault_access_policy.delete_vault_access_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.delete_vault_access_policy_input.DeleteVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_vault_notifications(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> None:
+        """<p>This operation deletes the notification configuration set for a vault. The operation is eventually consistent; that is, it might take some time for Amazon Glacier to completely disable the notifications and you might still receive some notifications for a short time after you send the delete request.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html\">Delete Vault Notification Configuration </a> in the Amazon Glacier Developer Guide. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To delete the notification configuration set for a vault
+            The example deletes the notification configuration set for the vault named examplevault.
+
+            >>> client.delete_vault_notifications(account_id='-', vault_name='examplevault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.delete_vault_notifications_input.DeleteVaultNotificationsInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.delete_vault_notifications
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.delete_vault_notifications.delete_vault_notifications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.delete_vault_notifications_input.DeleteVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_job(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        job_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.glacier_job_description.GlacierJobDescription":
+        """<p>This operation returns information about a job you previously initiated, including the job initiation date, the user who initiated the job, the job status code/message and the Amazon SNS topic to notify after Amazon Glacier (Glacier) completes the job. For more information about initiating a job, see <a>InitiateJob</a>. </p> <note> <p>This operation enables you to check the status of your job. However, it is strongly recommended that you set up an Amazon SNS topic and specify it in your initiate job request so that Glacier can notify the topic after it completes the job.</p> </note> <p>A job ID will not expire for at least 24 hours after Glacier completes the job.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For more information about using this operation, see the documentation for the underlying REST API <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html\">Describe Job</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            job_id: <p>The ID of the job to describe.</p>
+
+        Examples:
+            To get information about a previously initiated job
+            The example returns information about the previously initiated job specified by the job ID.
+
+            >>> client.describe_job(account_id='-', vault_name='my-vault', job_id='zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4Cn')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.describe_job_input.DescribeJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.glacier_job_description.GlacierJobDescription"
+        ]:
+            import aws_sdk_glacier._operations.glacier.describe_job
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.describe_job.describe_job(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.describe_job_input.DescribeJobInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["job_id"] = job_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_vault(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.describe_vault_output.DescribeVaultOutput":
+        """<p>This operation returns information about a vault, including the vault's Amazon Resource Name (ARN), the date the vault was created, the number of archives it contains, and the total size of all the archives in the vault. The number of archives and their total size are as of the last inventory generation. This means that if you add or remove an archive from a vault, and then immediately use Describe Vault, the change in contents will not be immediately reflected. If you want to retrieve the latest inventory of the vault, use <a>InitiateJob</a>. Amazon Glacier generates vault inventories approximately daily. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html\">Downloading a Vault Inventory in Amazon Glacier</a>. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html\">Retrieving Vault Metadata in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html\">Describe Vault </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To retrieve information about a vault
+            The example retrieves data about a vault named my-vault.
+
+            >>> client.describe_vault(vault_name='my-vault', account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.describe_vault_input.DescribeVaultInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.describe_vault_output.DescribeVaultOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.describe_vault
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.describe_vault.describe_vault(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.describe_vault_input.DescribeVaultInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def wait_vault_exists(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        max_wait_time: float,
+        min_delay: float = 3,
+        max_delay: float = 120,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.describe_vault_output.DescribeVaultOutput":
+        """Wait for vault_exists.
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            max_wait_time: Maximum total seconds to wait before raising WaiterTimeoutError.
+            min_delay: Minimum seconds between operation attempts (spec default 2).
+            max_delay: Maximum seconds between operation attempts (spec default 120).
+        """
+        start = time.monotonic()
+        attempt = 0
+        while True:
+            op_output: "aws_sdk_glacier.types.describe_vault_output.DescribeVaultOutput | None" = None
+            op_error: ServiceError | None = None
+            try:
+                op_output = self.describe_vault(  # noqa: F841
+                    account_id, vault_name, config_overrides=config_overrides
+                )
+            except ServiceError as e:
+                op_error = e
+            if op_output is not None:
+                return op_output
+            elif op_error is not None and op_error.code == "ResourceNotFoundException":
+                pass
+
+            elapsed = time.monotonic() - start
+            remaining = max_wait_time - elapsed
+            if remaining <= 0:
+                raise WaiterTimeoutError("vault_exists", max_wait_time)
+            delay = min(max_delay, min_delay * (2**attempt))
+            delay = min(delay, remaining)
+            time.sleep(delay)
+            attempt += 1
+
+    def wait_vault_not_exists(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        max_wait_time: float,
+        min_delay: float = 3,
+        max_delay: float = 120,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> ServiceError:
+        """Wait for vault_not_exists.
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            max_wait_time: Maximum total seconds to wait before raising WaiterTimeoutError.
+            min_delay: Minimum seconds between operation attempts (spec default 2).
+            max_delay: Maximum seconds between operation attempts (spec default 120).
+        """
+        start = time.monotonic()
+        attempt = 0
+        while True:
+            op_output: "aws_sdk_glacier.types.describe_vault_output.DescribeVaultOutput | None" = None
+            op_error: ServiceError | None = None
+            try:
+                op_output = self.describe_vault(  # noqa: F841
+                    account_id, vault_name, config_overrides=config_overrides
+                )
+            except ServiceError as e:
+                op_error = e
+            if op_output is not None:
+                pass
+            elif op_error is not None and op_error.code == "ResourceNotFoundException":
+                return op_error
+
+            elapsed = time.monotonic() - start
+            remaining = max_wait_time - elapsed
+            if remaining <= 0:
+                raise WaiterTimeoutError("vault_not_exists", max_wait_time)
+            delay = min(max_delay, min_delay * (2**attempt))
+            delay = min(delay, remaining)
+            time.sleep(delay)
+            attempt += 1
+
+    def get_data_retrieval_policy(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.get_data_retrieval_policy_output.GetDataRetrievalPolicyOutput":
+        """<p>This operation returns the current data retrieval policy for the account and region specified in the GET request. For more information about data retrieval policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html\">Amazon Glacier Data Retrieval Policies</a>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID. </p>
+
+        Examples:
+            To get the current data retrieval policy for an account
+            The example returns the current data retrieval policy for the account.
+
+            >>> client.get_data_retrieval_policy(account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.get_data_retrieval_policy_input.GetDataRetrievalPolicyInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.get_data_retrieval_policy_output.GetDataRetrievalPolicyOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.get_data_retrieval_policy
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.get_data_retrieval_policy.get_data_retrieval_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.get_data_retrieval_policy_input.GetDataRetrievalPolicyInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    @contextmanager
+    def get_job_output(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        job_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        range: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> "Generator[aws_sdk_glacier.types.get_job_output_output.GetJobOutputOutput]":
+        """<p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the job, the output will be either the content of an archive or a vault inventory.</p> <p>You can download all the job output or download a portion of the output by specifying a byte range. In the case of an archive retrieval job, depending on the byte range you specify, Amazon Glacier (Glacier) returns the checksum for the portion of the data. You can compute the checksum on the client and verify that the values match to ensure the portion you downloaded is the correct data.</p> <p>A job ID will not expire for at least 24 hours after Glacier completes the job. That a byte range. For both archive and inventory retrieval jobs, you should verify the downloaded size against the size returned in the headers from the <b>Get Job Output</b> response.</p> <p>For archive retrieval jobs, you should also verify that the size is what you expected. If you download a portion of the output, the expected size is based on the range of bytes you specified. For example, if you specify a range of <code>bytes=0-1048575</code>, you should verify your download size is 1,048,576 bytes. If you download an entire archive, the expected size is the size of the archive when you uploaded it to Amazon Glacier The expected size is also returned in the headers from the <b>Get Job Output</b> response.</p> <p>In the case of an archive retrieval job, depending on the byte range you specify, Glacier returns the checksum for the portion of the data. To ensure the portion you downloaded is the correct data, compute the checksum on the client, verify that the values match, and verify that the size is what you expected.</p> <p>A job ID does not expire for at least 24 hours after Glacier completes the job. That is, you can download the job output within the 24 hours period after Amazon Glacier completes the job.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and the underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html\">Downloading a Vault Inventory</a>, <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html\">Downloading an Archive</a>, and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html\">Get Job Output </a> </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            job_id: <p>The job ID whose data is downloaded.</p>
+            range: <p>The range of bytes to retrieve from the output. For example, if you want to download the first 1,048,576 bytes, specify the range as <code>bytes=0-1048575</code>. By default, this operation downloads the entire output.</p> <p>If the job output is large, then you can use a range to retrieve a portion of the output. This allows you to download the entire output in smaller chunks of bytes. For example, suppose you have 1 GB of job output you want to download and you decide to download 128 MB chunks of data at a time, which is a total of eight Get Job Output requests. You use the following process to download the job output:</p> <ol> <li> <p>Download a 128 MB chunk of output by specifying the appropriate byte range. Verify that all 128 MB of data was received.</p> </li> <li> <p>Along with the data, the response includes a SHA256 tree hash of the payload. You compute the checksum of the payload on the client and compare it with the checksum you received in the response to ensure you received all the expected data.</p> </li> <li> <p>Repeat steps 1 and 2 for all the eight 128 MB chunks of output data, each time specifying the appropriate byte range.</p> </li> <li> <p>After downloading all the parts of the job output, you have a list of eight checksum values. Compute the tree hash of these values to find the checksum of the entire output. Using the <a>DescribeJob</a> API, obtain job information of the job that provided you the output. The response includes the checksum of the entire archive stored in Amazon Glacier. You compare this value with the checksum you computed to ensure you have downloaded the entire archive content with no errors.</p> <p></p> </li> </ol>
+
+        Examples:
+            To get the output of a previously initiated job
+            The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.
+
+            >>> client.get_job_output(account_id='-', vault_name='my-vaul', job_id='zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW', range='')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.get_job_output_input.GetJobOutputInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.get_job_output_output.GetJobOutputOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.get_job_output
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.get_job_output.get_job_output(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.get_job_output_input.GetJobOutputInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["job_id"] = job_id
+        if range is not None:
+            input["range"] = range
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        yield response.output
+
+    def get_vault_access_policy(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.get_vault_access_policy_output.GetVaultAccessPolicyOutput":
+        """<p>This operation retrieves the <code>access-policy</code> subresource set on the vault; for more information on setting this subresource, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html\">Set Vault Access Policy (PUT access-policy)</a>. If there is no access policy set on the vault, the operation returns a <code>404 Not found</code> error. For more information about vault access policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html\">Amazon Glacier Access Control with Vault Access Policies</a>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To  get the access-policy set on the vault
+            The example retrieves the access-policy set on the vault named example-vault.
+
+            >>> client.get_vault_access_policy(account_id='-', vault_name='example-vault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.get_vault_access_policy_input.GetVaultAccessPolicyInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.get_vault_access_policy_output.GetVaultAccessPolicyOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.get_vault_access_policy
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.get_vault_access_policy.get_vault_access_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.get_vault_access_policy_input.GetVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_vault_lock(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.get_vault_lock_output.GetVaultLockOutput":
+        """<p>This operation retrieves the following attributes from the <code>lock-policy</code> subresource set on the specified vault: </p> <ul> <li> <p>The vault lock policy set on the vault.</p> </li> <li> <p>The state of the vault lock, which is either <code>InProgess</code> or <code>Locked</code>.</p> </li> <li> <p>When the lock ID expires. The lock ID is used to complete the vault locking process.</p> </li> <li> <p>When the vault lock was initiated and put into the <code>InProgress</code> state.</p> </li> </ul> <p>A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. A vault lock is put into the <code>Locked</code> state by calling <a>CompleteVaultLock</a>. You can abort the vault locking process by calling <a>AbortVaultLock</a>. For more information about the vault locking process, <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html\">Amazon Glacier Vault Lock</a>. </p> <p>If there is no vault lock policy set on the vault, the operation returns a <code>404 Not found</code> error. For more information about vault lock policies, <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html\">Amazon Glacier Access Control with Vault Lock Policies</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To retrieve vault lock-policy related attributes that are set on a vault
+            The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.
+
+            >>> client.get_vault_lock(account_id='-', vault_name='examplevault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.get_vault_lock_input.GetVaultLockInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.get_vault_lock_output.GetVaultLockOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.get_vault_lock
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.get_vault_lock.get_vault_lock(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.get_vault_lock_input.GetVaultLockInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_vault_notifications(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.get_vault_notifications_output.GetVaultNotificationsOutput":
+        """<p>This operation retrieves the <code>notification-configuration</code> subresource of the specified vault.</p> <p>For information about setting a notification configuration on a vault, see <a>SetVaultNotifications</a>. If a notification configuration for a vault is not set, the operation returns a <code>404 Not Found</code> error. For more information about vault notifications, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a>. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html\">Get Vault Notification Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To get the notification-configuration for the specified vault
+            The example retrieves the notification-configuration for the vault named my-vault.
+
+            >>> client.get_vault_notifications(account_id='-', vault_name='my-vault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.get_vault_notifications_input.GetVaultNotificationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.get_vault_notifications_output.GetVaultNotificationsOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.get_vault_notifications
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.get_vault_notifications.get_vault_notifications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.get_vault_notifications_input.GetVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def initiate_job(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        job_parameters: Optional[
+            "aws_sdk_glacier.types.job_parameters.JobParameters"
+        ] = None,
+    ) -> "aws_sdk_glacier.types.initiate_job_output.InitiateJobOutput":
+        """<p>This operation initiates a job of the specified type, which can be a select, an archival retrieval, or a vault retrieval. For more information about using this operation, see the documentation for the underlying REST API <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html\">Initiate a Job</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            job_parameters: <p>Provides options for specifying job information.</p>
+
+        Examples:
+            To initiate an inventory-retrieval job
+            The example initiates an inventory-retrieval job for the vault named examplevault.
+
+            >>> client.initiate_job(account_id='-', vault_name='examplevault', job_parameters={'Type': 'inventory-retrieval', 'Description': 'My inventory job', 'Format': 'CSV', 'SNSTopic': 'arn:aws:sns:us-west-2:111111111111:Glacier-InventoryRetrieval-topic-Example'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.initiate_job_input.InitiateJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.initiate_job_output.InitiateJobOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.initiate_job
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.initiate_job.initiate_job(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.initiate_job_input.InitiateJobInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if job_parameters is not None:
+            input["job_parameters"] = job_parameters
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def initiate_multipart_upload(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        archive_description: Optional["aws_sdk_glacier.types.string.string"] = None,
+        part_size: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> "aws_sdk_glacier.types.initiate_multipart_upload_output.InitiateMultipartUploadOutput":
+        """<p>This operation initiates a multipart upload. Amazon Glacier creates a multipart upload resource and returns its ID in the response. The multipart upload ID is used in subsequent requests to upload parts of an archive (see <a>UploadMultipartPart</a>).</p> <p>When you initiate a multipart upload, you specify the part size in number of bytes. The part size must be a megabyte (1024 KB) multiplied by a power of 2-for example, 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB.</p> <p>Every part you upload to this resource (see <a>UploadMultipartPart</a>), except the last one, must have the same size. The last one can be the same size or smaller. For example, suppose you want to upload a 16.2 MB file. If you initiate the multipart upload with a part size of 4 MB, you will upload four parts of 4 MB each and one part of 0.2 MB. </p> <note> <p>You don't need to know the size of the archive when you start a multipart upload because Amazon Glacier does not require you to specify the overall archive size.</p> </note> <p>After you complete the multipart upload, Amazon Glacier (Glacier) removes the multipart upload resource referenced by the ID. Glacier also removes the multipart upload resource if you cancel the multipart upload or it may be removed if there is no activity for a period of 24 hours.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html\">Uploading Large Archives in Parts (Multipart Upload)</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html\">Initiate Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            archive_description: <p>The archive description that you are uploading in parts.</p> <p>The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).</p>
+            part_size: <p>The size of each part except the last, in bytes. The last part can be smaller than this part size.</p>
+
+        Examples:
+            To initiate a multipart upload
+            The example initiates a multipart upload to a vault named my-vault with a part size of 1 MiB (1024 x 1024 bytes) per file.
+
+            >>> client.initiate_multipart_upload(account_id='-', part_size='1048576', vault_name='my-vault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.initiate_multipart_upload_input.InitiateMultipartUploadInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.initiate_multipart_upload_output.InitiateMultipartUploadOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.initiate_multipart_upload
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.initiate_multipart_upload.initiate_multipart_upload(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.initiate_multipart_upload_input.InitiateMultipartUploadInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if archive_description is not None:
+            input["archive_description"] = archive_description
+        if part_size is not None:
+            input["part_size"] = part_size
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def initiate_vault_lock(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        policy: Optional[
+            "aws_sdk_glacier.types.vault_lock_policy.VaultLockPolicy"
+        ] = None,
+    ) -> "aws_sdk_glacier.types.initiate_vault_lock_output.InitiateVaultLockOutput":
+        """<p>This operation initiates the vault locking process by doing the following:</p> <ul> <li> <p>Installing a vault lock policy on the specified vault.</p> </li> <li> <p>Setting the lock state of vault lock to <code>InProgress</code>.</p> </li> <li> <p>Returning a lock ID, which is used to complete the vault locking process.</p> </li> </ul> <p>You can set one vault lock policy for each vault and this policy can be up to 20 KB in size. For more information about vault lock policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html\">Amazon Glacier Access Control with Vault Lock Policies</a>. </p> <p>You must complete the vault locking process within 24 hours after the vault lock enters the <code>InProgress</code> state. After the 24 hour window ends, the lock ID expires, the vault automatically exits the <code>InProgress</code> state, and the vault lock policy is removed from the vault. You call <a>CompleteVaultLock</a> to complete the vault locking process by setting the state of the vault lock to <code>Locked</code>. </p> <p>After a vault lock is in the <code>Locked</code> state, you cannot initiate a new vault lock for the vault.</p> <p>You can abort the vault locking process by calling <a>AbortVaultLock</a>. You can get the state of the vault lock by calling <a>GetVaultLock</a>. For more information about the vault locking process, <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html\">Amazon Glacier Vault Lock</a>.</p> <p>If this operation is called when the vault lock is in the <code>InProgress</code> state, the operation returns an <code>AccessDeniedException</code> error. When the vault lock is in the <code>InProgress</code> state you must call <a>AbortVaultLock</a> before you can initiate a new vault lock policy. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            policy: <p>The vault lock policy as a JSON string, which uses \"\\" as an escape character.</p>
+
+        Examples:
+            To initiate the vault locking process
+            The example initiates the vault locking process for the vault named my-vault.
+
+            >>> client.initiate_vault_lock(account_id='-', vault_name='my-vault', policy={'Policy': '{"Version":"2012-10-17","Statement":[{"Sid":"Define-vault-lock","Effect":"Deny","Principal":{"AWS":"arn:aws:iam::999999999999:root"},"Action":"glacier:DeleteArchive","Resource":"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault","Condition":{"NumericLessThanEquals":{"glacier:ArchiveAgeinDays":"365"}}}]}'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.initiate_vault_lock_input.InitiateVaultLockInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.initiate_vault_lock_output.InitiateVaultLockOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.initiate_vault_lock
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.initiate_vault_lock.initiate_vault_lock(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.initiate_vault_lock_input.InitiateVaultLockInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if policy is not None:
+            input["policy"] = policy
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_jobs(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        limit: Optional[int] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+        statuscode: Optional["aws_sdk_glacier.types.string.string"] = None,
+        completed: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> "aws_sdk_glacier.types.list_jobs_output.ListJobsOutput":
+        """<p>This operation lists jobs for a vault, including jobs that are in-progress and jobs that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation time.</p> <note> <p>Amazon Glacier retains recently completed jobs for a period before deleting them; however, it eventually removes completed jobs. The output of completed jobs can be retrieved. Retaining completed jobs for a period of time after they have completed enables you to get a job output in the event you miss the job completion notification or your first attempt to download it fails. For example, suppose you start an archive retrieval job to download an archive. After the job completes, you start to download the archive but encounter a network error. In this scenario, you can retry and download the archive while the job exists.</p> </note> <p>The List Jobs operation supports pagination. You should always check the response <code>Marker</code> field. If there are no more jobs to list, the <code>Marker</code> field is set to <code>null</code>. If there are more jobs to list, the <code>Marker</code> field is set to a non-null value, which you can use to continue the pagination of the list. To return a list of jobs that begins at a specific job, set the marker request parameter to the <code>Marker</code> value for that job that you obtained from a previous List Jobs request.</p> <p>You can set a maximum limit for the number of jobs returned in the response by specifying the <code>limit</code> parameter in the request. The default limit is 50. The number of jobs returned might be fewer than the limit, but the number of returned jobs never exceeds the limit.</p> <p>Additionally, you can filter the jobs list returned by specifying the optional <code>statuscode</code> parameter or <code>completed</code> parameter, or both. Using the <code>statuscode</code> parameter, you can specify to return only jobs that match either the <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code> status. Using the <code>completed</code> parameter, you can specify to return only jobs that were completed (<code>true</code>) or jobs that were not completed (<code>false</code>).</p> <p>For more information about using this operation, see the documentation for the underlying REST API <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html\">List Jobs</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            limit: <p>The maximum number of jobs to be returned. The default limit is 50. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.</p>
+            marker: <p>An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.</p>
+            statuscode: <p>The type of job status to return. You can specify the following values: <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code>.</p>
+            completed: <p>The state of the jobs to return. You can specify <code>true</code> or <code>false</code>.</p>
+
+        Examples:
+            To list jobs for a vault
+            The example lists jobs for the vault named my-vault.
+
+            >>> client.list_jobs(account_id='-', vault_name='my-vault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.list_jobs_input.ListJobsInput]",
+        ) -> OperationResponse["aws_sdk_glacier.types.list_jobs_output.ListJobsOutput"]:
+            import aws_sdk_glacier._operations.glacier.list_jobs
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.list_jobs.list_jobs(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.list_jobs_input.ListJobsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if limit is not None:
+            input["limit"] = limit
+        if marker is not None:
+            input["marker"] = marker
+        if statuscode is not None:
+            input["statuscode"] = statuscode
+        if completed is not None:
+            input["completed"] = completed
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_jobs(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        limit: Optional[int] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+        statuscode: Optional["aws_sdk_glacier.types.string.string"] = None,
+        completed: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> (
+        "Iterator[aws_sdk_glacier.types.glacier_job_description.GlacierJobDescription]"
+    ):
+        _token = marker
+        while True:
+            _response = self.list_jobs(
+                account_id,
+                vault_name,
+                config_overrides=config_overrides,
+                limit=limit,
+                marker=_token,
+                statuscode=statuscode,
+                completed=completed,
+            )
+            _page = _resolve_path(_response, ("job_list",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("marker",))
+            if not _token:
+                break
+
+    def list_multipart_uploads(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        limit: Optional[int] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> (
+        "aws_sdk_glacier.types.list_multipart_uploads_output.ListMultipartUploadsOutput"
+    ):
+        """<p>This operation lists in-progress multipart uploads for the specified vault. An in-progress multipart upload is a multipart upload that has been initiated by an <a>InitiateMultipartUpload</a> request, but has not yet been completed or aborted. The list returned in the List Multipart Upload response has no guaranteed order. </p> <p>The List Multipart Uploads operation supports pagination. By default, this operation returns up to 50 multipart uploads in the response. You should always check the response for a <code>marker</code> at which to continue the list; if there are no more items the <code>marker</code> is <code>null</code>. To return a list of multipart uploads that begins at a specific upload, set the <code>marker</code> request parameter to the value you obtained from a previous List Multipart Upload request. You can also limit the number of uploads returned in the response by specifying the <code>limit</code> parameter in the request.</p> <p>Note the difference between this operation and listing parts (<a>ListParts</a>). The List Multipart Uploads operation lists all multipart uploads for a vault and does not require a multipart upload ID. The List Parts operation requires a multipart upload ID since parts are associated with a single upload.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and the underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html\">Working with Archives in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html\">List Multipart Uploads </a> in the <i>Amazon Glacier Developer Guide</i>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            limit: <p>Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.</p>
+            marker: <p>An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.</p>
+
+        Examples:
+            To list all the in-progress multipart uploads for a vault
+            The example lists all the in-progress multipart uploads for the vault named examplevault.
+
+            >>> client.list_multipart_uploads(account_id='-', vault_name='examplevault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.list_multipart_uploads_input.ListMultipartUploadsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.list_multipart_uploads_output.ListMultipartUploadsOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.list_multipart_uploads
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.list_multipart_uploads.list_multipart_uploads(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.list_multipart_uploads_input.ListMultipartUploadsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if limit is not None:
+            input["limit"] = limit
+        if marker is not None:
+            input["marker"] = marker
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_multipart_uploads(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        limit: Optional[int] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+    ) -> "Iterator[aws_sdk_glacier.types.upload_list_element.UploadListElement]":
+        _token = marker
+        while True:
+            _response = self.list_multipart_uploads(
+                account_id,
+                vault_name,
+                config_overrides=config_overrides,
+                limit=limit,
+                marker=_token,
+            )
+            _page = _resolve_path(_response, ("uploads_list",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("marker",))
+            if not _token:
+                break
+
+    def list_parts(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        upload_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+        limit: Optional[int] = None,
+    ) -> "aws_sdk_glacier.types.list_parts_output.ListPartsOutput":
+        """<p>This operation lists the parts of an archive that have been uploaded in a specific multipart upload. You can make this request at any time during an in-progress multipart upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List Parts returns an error for completed uploads. The list returned in the List Parts response is sorted by part range. </p> <p>The List Parts operation supports pagination. By default, this operation returns up to 50 uploaded parts in the response. You should always check the response for a <code>marker</code> at which to continue the list; if there are no more items the <code>marker</code> is <code>null</code>. To return a list of parts that begins at a specific part, set the <code>marker</code> request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the <code>limit</code> parameter in the request. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and the underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html\">Working with Archives in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html\">List Parts</a> in the <i>Amazon Glacier Developer Guide</i>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            upload_id: <p>The upload ID of the multipart upload.</p>
+            marker: <p>An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.</p>
+            limit: <p>The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.</p>
+
+        Examples:
+            To list the parts of an archive that have been uploaded in a multipart upload
+            The example lists all the parts of a multipart upload.
+
+            >>> client.list_parts(account_id='-', vault_name='examplevault', upload_id='OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.list_parts_input.ListPartsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.list_parts_output.ListPartsOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.list_parts
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.list_parts.list_parts(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.list_parts_input.ListPartsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["upload_id"] = upload_id
+        if marker is not None:
+            input["marker"] = marker
+        if limit is not None:
+            input["limit"] = limit
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_parts(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        upload_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+        limit: Optional[int] = None,
+    ) -> "Iterator[aws_sdk_glacier.types.part_list_element.PartListElement]":
+        _token = marker
+        while True:
+            _response = self.list_parts(
+                account_id,
+                vault_name,
+                upload_id,
+                config_overrides=config_overrides,
+                marker=_token,
+                limit=limit,
+            )
+            _page = _resolve_path(_response, ("parts",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("marker",))
+            if not _token:
+                break
+
+    def list_provisioned_capacity(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.list_provisioned_capacity_output.ListProvisionedCapacityOutput":
+        """<p>This operation lists the provisioned capacity units for the specified AWS account.</p>
+
+        Args:
+            account_id: <p>The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID. </p>
+
+        Examples:
+            To list the provisioned capacity units for an account
+            The example lists the provisioned capacity units for an account.
+
+            >>> client.list_provisioned_capacity(account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.list_provisioned_capacity_input.ListProvisionedCapacityInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.list_provisioned_capacity_output.ListProvisionedCapacityOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.list_provisioned_capacity
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.list_provisioned_capacity.list_provisioned_capacity(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.list_provisioned_capacity_input.ListProvisionedCapacityInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_tags_for_vault(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.list_tags_for_vault_output.ListTagsForVaultOutput":
+        """<p>This operation lists all the tags attached to a vault. The operation returns an empty map if there are no tags. For more information about tags, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html\">Tagging Amazon Glacier Resources</a>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+
+        Examples:
+            To list the tags for a vault
+            The example lists all the tags attached to the vault examplevault.
+
+            >>> client.list_tags_for_vault(account_id='-', vault_name='examplevault')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.list_tags_for_vault_input.ListTagsForVaultInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.list_tags_for_vault_output.ListTagsForVaultOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.list_tags_for_vault
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.list_tags_for_vault.list_tags_for_vault(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.list_tags_for_vault_input.ListTagsForVaultInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_vaults(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+        limit: Optional[int] = None,
+    ) -> "aws_sdk_glacier.types.list_vaults_output.ListVaultsOutput":
+        """<p>This operation lists all vaults owned by the calling user's account. The list returned in the response is ASCII-sorted by vault name.</p> <p>By default, this operation returns up to 10 items. If there are more vaults to list, the response <code>marker</code> field contains the vault Amazon Resource Name (ARN) at which to continue the list with a new List Vaults request; otherwise, the <code>marker</code> field is <code>null</code>. To return a list of vaults that begins at a specific vault, set the <code>marker</code> request parameter to the vault ARN you obtained from a previous List Vaults request. You can also limit the number of vaults returned in the response by specifying the <code>limit</code> parameter in the request. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html\">Retrieving Vault Metadata in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html\">List Vaults </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
+            marker: <p>A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.</p>
+            limit: <p>The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.</p>
+
+        Examples:
+            To list all vaults owned by the calling user's account
+            The example lists all vaults owned by the specified AWS account.
+
+            >>> client.list_vaults(account_id='-', marker='')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.list_vaults_input.ListVaultsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.list_vaults_output.ListVaultsOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.list_vaults
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.list_vaults.list_vaults(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.list_vaults_input.ListVaultsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        if marker is not None:
+            input["marker"] = marker
+        if limit is not None:
+            input["limit"] = limit
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_vaults(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        marker: Optional["aws_sdk_glacier.types.string.string"] = None,
+        limit: Optional[int] = None,
+    ) -> "Iterator[aws_sdk_glacier.types.describe_vault_output.DescribeVaultOutput]":
+        _token = marker
+        while True:
+            _response = self.list_vaults(
+                account_id,
+                config_overrides=config_overrides,
+                marker=_token,
+                limit=limit,
+            )
+            _page = _resolve_path(_response, ("vault_list",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("marker",))
+            if not _token:
+                break
+
+    def purchase_provisioned_capacity(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+    ) -> "aws_sdk_glacier.types.purchase_provisioned_capacity_output.PurchaseProvisionedCapacityOutput":
+        """<p>This operation purchases a provisioned capacity unit for an AWS account. </p>
+
+        Args:
+            account_id: <p>The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID. </p>
+
+        Examples:
+            To purchases a provisioned capacity unit for an AWS account
+            The example purchases provisioned capacity unit for an AWS account.
+
+            >>> client.purchase_provisioned_capacity(account_id='-')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.purchase_provisioned_capacity_input.PurchaseProvisionedCapacityInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.purchase_provisioned_capacity_output.PurchaseProvisionedCapacityOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.purchase_provisioned_capacity
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.purchase_provisioned_capacity.purchase_provisioned_capacity(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.purchase_provisioned_capacity_input.PurchaseProvisionedCapacityInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def remove_tags_from_vault(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        tag_keys: Optional["aws_sdk_glacier.types.tag_key_list.TagKeyList"] = None,
+    ) -> None:
+        """<p>This operation removes one or more tags from the set of tags attached to a vault. For more information about tags, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html\">Tagging Amazon Glacier Resources</a>. This operation is idempotent. The operation will be successful, even if there are no tags attached to the vault. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            tag_keys: <p>A list of tag keys. Each corresponding tag is removed from the vault.</p>
+
+        Examples:
+            To remove tags from a vault
+            The example removes two tags from the vault named examplevault.
+
+            >>> client.remove_tags_from_vault(account_id='-', vault_name='examplevault', tag_keys=['examplekey1', 'examplekey2'])
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.remove_tags_from_vault_input.RemoveTagsFromVaultInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.remove_tags_from_vault
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.remove_tags_from_vault.remove_tags_from_vault(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.remove_tags_from_vault_input.RemoveTagsFromVaultInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if tag_keys is not None:
+            input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_data_retrieval_policy(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        policy: Optional[
+            "aws_sdk_glacier.types.data_retrieval_policy.DataRetrievalPolicy"
+        ] = None,
+    ) -> None:
+        """<p>This operation sets and then enacts a data retrieval policy in the region specified in the PUT request. You can set one policy per region for an AWS account. The policy is enacted within a few minutes of a successful PUT operation.</p> <p>The set policy operation does not affect retrieval jobs that were in progress before the policy was enacted. For more information about data retrieval policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html\">Amazon Glacier Data Retrieval Policies</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
+            policy: <p>The data retrieval policy in JSON format.</p>
+
+        Examples:
+            To set and then enact a data retrieval policy
+            The example sets and then enacts a data retrieval policy.
+
+            >>> client.set_data_retrieval_policy(account_id='-', policy={'Rules': [{'Strategy': 'BytesPerHour', 'BytesPerHour': 10737418240}]})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.set_data_retrieval_policy_input.SetDataRetrievalPolicyInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.set_data_retrieval_policy
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.set_data_retrieval_policy.set_data_retrieval_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.set_data_retrieval_policy_input.SetDataRetrievalPolicyInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        if policy is not None:
+            input["policy"] = policy
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_vault_access_policy(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        policy: Optional[
+            "aws_sdk_glacier.types.vault_access_policy.VaultAccessPolicy"
+        ] = None,
+    ) -> None:
+        """<p>This operation configures an access policy for a vault and will overwrite an existing policy. To configure a vault access policy, send a PUT request to the <code>access-policy</code> subresource of the vault. An access policy is specific to a vault and is also called a vault subresource. You can set one access policy per vault and the policy can be up to 20 KB in size. For more information about vault access policies, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html\">Amazon Glacier Access Control with Vault Access Policies</a>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            policy: <p>The vault access policy as a JSON string.</p>
+
+        Examples:
+            To set the access-policy on a vault
+            The example configures an access policy for the vault named examplevault.
+
+            >>> client.set_vault_access_policy(account_id='-', vault_name='examplevault', policy={'Policy': '{"Version":"2012-10-17","Statement":[{"Sid":"Define-owner-access-rights","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::999999999999:root"},"Action":"glacier:DeleteArchive","Resource":"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault"}]}'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.set_vault_access_policy_input.SetVaultAccessPolicyInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.set_vault_access_policy
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.set_vault_access_policy.set_vault_access_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.set_vault_access_policy_input.SetVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if policy is not None:
+            input["policy"] = policy
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_vault_notifications(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        vault_notification_config: Optional[
+            "aws_sdk_glacier.types.vault_notification_config.VaultNotificationConfig"
+        ] = None,
+    ) -> None:
+        """<p>This operation configures notifications that will be sent when specific events happen to a vault. By default, you don't get any notifications.</p> <p>To configure vault notifications, send a PUT request to the <code>notification-configuration</code> subresource of the vault. The request should include a JSON document that provides an Amazon SNS topic and specific events for which you want Amazon Glacier to send notifications to the topic.</p> <p>Amazon SNS topics must grant permission to the vault to be allowed to publish notifications to the topic. You can configure a vault to publish a notification for the following vault events:</p> <ul> <li> <p> <b>ArchiveRetrievalCompleted</b> This event occurs when a job that was initiated for an archive retrieval is completed (<a>InitiateJob</a>). The status of the completed job can be \"Succeeded\" or \"Failed\". The notification sent to the SNS topic is the same output as returned from <a>DescribeJob</a>. </p> </li> <li> <p> <b>InventoryRetrievalCompleted</b> This event occurs when a job that was initiated for an inventory retrieval is completed (<a>InitiateJob</a>). The status of the completed job can be \"Succeeded\" or \"Failed\". The notification sent to the SNS topic is the same output as returned from <a>DescribeJob</a>. </p> </li> </ul> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html\">Set Vault Notification Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
+            vault_name: <p>The name of the vault.</p>
+            vault_notification_config: <p>Provides options for specifying notification configuration.</p>
+
+        Examples:
+            To configure a vault to post a message to an Amazon SNS topic when jobs complete
+            The example sets the examplevault notification configuration.
+
+            >>> client.set_vault_notifications(account_id='-', vault_name='examplevault', vault_notification_config={'Events': ['ArchiveRetrievalCompleted', 'InventoryRetrievalCompleted'], 'SNSTopic': 'arn:aws:sns:us-west-2:012345678901:mytopic'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.set_vault_notifications_input.SetVaultNotificationsInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_glacier._operations.glacier.set_vault_notifications
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.set_vault_notifications.set_vault_notifications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.set_vault_notifications_input.SetVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        if vault_notification_config is not None:
+            input["vault_notification_config"] = vault_notification_config
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def upload_archive(
+        self,
+        vault_name: "aws_sdk_glacier.types.string.string",
+        account_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        archive_description: Optional["aws_sdk_glacier.types.string.string"] = None,
+        checksum: Optional["aws_sdk_glacier.types.string.string"] = None,
+        body: Optional[Iterator[bytes] | bytes] = None,
+    ) -> "aws_sdk_glacier.types.archive_creation_output.ArchiveCreationOutput":
+        """<p>This operation adds an archive to a vault. This is a synchronous operation, and for a successful upload, your data is durably persisted. Amazon Glacier returns the archive ID in the <code>x-amz-archive-id</code> header of the response. </p> <p>You must use the archive ID to access your data in Amazon Glacier. After you upload an archive, you should save the archive ID returned so that you can retrieve or delete the archive later. Besides saving the archive ID, you can also index it and give it a friendly name to allow for better searching. You can also use the optional archive description field to specify how the archive is referred to in an external index of archives, such as you might create in Amazon DynamoDB. You can also get the vault inventory to obtain a list of archive IDs in a vault. For more information, see <a>InitiateJob</a>. </p> <p>You must provide a SHA256 tree hash of the data you are uploading. For information about computing a SHA256 tree hash, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html\">Computing Checksums</a>. </p> <p>You can optionally specify an archive description of up to 1,024 printable ASCII characters. You can get the archive description when you either retrieve the archive or get the vault inventory. For more information, see <a>InitiateJob</a>. Amazon Glacier does not interpret the description in any way. An archive description does not need to be unique. You cannot use the description to retrieve or sort the archive list. </p> <p>Archives are immutable. After you upload an archive, you cannot edit the archive or its description.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html\">Uploading an Archive in Amazon Glacier</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html\">Upload Archive</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+
+        Args:
+            vault_name: <p>The name of the vault.</p>
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            archive_description: <p>The optional description of the archive you are uploading.</p>
+            checksum: <p>The SHA256 tree hash of the data being uploaded.</p>
+            body: <p>The data to upload.</p>
+
+        Examples:
+            To upload an archive
+            The example adds an archive to a vault.
+
+            >>> client.upload_archive(vault_name='my-vault', account_id='-', archive_description='', checksum='', body='example-data-to-upload')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.upload_archive_input.UploadArchiveInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.archive_creation_output.ArchiveCreationOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.upload_archive
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.upload_archive.upload_archive(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.upload_archive_input.UploadArchiveInput = {}  # type: ignore[typeddict-item]
+        input["vault_name"] = vault_name
+        input["account_id"] = account_id
+        if archive_description is not None:
+            input["archive_description"] = archive_description
+        if checksum is not None:
+            input["checksum"] = checksum
+        if body is not None:
+            input["body"] = ensure_sync_iterator(body)  # type: ignore
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def upload_multipart_part(
+        self,
+        account_id: "aws_sdk_glacier.types.string.string",
+        vault_name: "aws_sdk_glacier.types.string.string",
+        upload_id: "aws_sdk_glacier.types.string.string",
+        *,
+        config_overrides: Optional[GlacierClientConfig] = None,
+        checksum: Optional["aws_sdk_glacier.types.string.string"] = None,
+        range: Optional["aws_sdk_glacier.types.string.string"] = None,
+        body: Optional[Iterator[bytes] | bytes] = None,
+    ) -> "aws_sdk_glacier.types.upload_multipart_part_output.UploadMultipartPartOutput":
+        """<p>This operation uploads a part of an archive. You can upload archive parts in any order. You can also upload them in parallel. You can upload up to 10,000 parts for a multipart upload.</p> <p>Amazon Glacier rejects your upload part request if any of the following conditions is true:</p> <ul> <li> <p> <b>SHA256 tree hash does not match</b>To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don't match, the operation fails. For information about computing a SHA256 tree hash, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html\">Computing Checksums</a>.</p> </li> <li> <p> <b>Part size does not match</b>The size of each part except the last must match the size specified in the corresponding <a>InitiateMultipartUpload</a> request. The size of the last part must be the same size as, or smaller than, the specified size.</p> <note> <p>If you upload a part whose size is smaller than the part size you specified in your initiate multipart upload request and that part is not the last part, then the upload part request will succeed. However, the subsequent Complete Multipart Upload request will fail.</p> </note> </li> <li> <p> <b>Range does not align</b>The byte range value in the request does not align with the part size specified in the corresponding initiate request. For example, if you specify a part size of 4194304 bytes (4 MB), then 0 to 4194303 bytes (4 MB - 1) and 4194304 (4 MB) to 8388607 (8 MB - 1) are valid part ranges. However, if you set a range value of 2 MB to 6 MB, the range does not align with the part size and the upload will fail. </p> </li> </ul> <p>This operation is idempotent. If you upload the same part multiple times, the data included in the most recent request overwrites the previously uploaded data.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html\">Uploading Large Archives in Parts (Multipart Upload)</a> and <a href=\"https://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html\">Upload Part </a> in the <i>Amazon Glacier Developer Guide</i>.</p>
+
+        Args:
+            account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
+            vault_name: <p>The name of the vault.</p>
+            upload_id: <p>The upload ID of the multipart upload.</p>
+            checksum: <p>The SHA256 tree hash of the data being uploaded.</p>
+            range: <p>Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.</p>
+            body: <p>The data to upload.</p>
+
+        Examples:
+            To upload the first part of an archive
+            The example uploads the first 1 MiB (1024 x 1024 bytes) part of an archive.
+
+            >>> client.upload_multipart_part(account_id='-', vault_name='examplevault', upload_id='19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ', checksum='c06f7cd4baacb087002a99a5f48bf953', range='bytes 0-1048575/*', body='part1')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_glacier.types.upload_multipart_part_input.UploadMultipartPartInput]",
+        ) -> OperationResponse[
+            "aws_sdk_glacier.types.upload_multipart_part_output.UploadMultipartPartOutput"
+        ]:
+            import aws_sdk_glacier._operations.glacier.upload_multipart_part
+
+            output, http_response = (
+                aws_sdk_glacier._operations.glacier.upload_multipart_part.upload_multipart_part(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_glacier.types.upload_multipart_part_input.UploadMultipartPartInput = {}  # type: ignore[typeddict-item]
+        input["account_id"] = account_id
+        input["vault_name"] = vault_name
+        input["upload_id"] = upload_id
+        if checksum is not None:
+            input["checksum"] = checksum
+        if range is not None:
+            input["range"] = range
+        if body is not None:
+            input["body"] = ensure_sync_iterator(body)  # type: ignore
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

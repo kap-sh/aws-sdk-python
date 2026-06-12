@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.xray#GetInsightRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_xray.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_xray.types.insight_id
+
+
+class GetInsightRequest(TypedDict):
+    insight_id: "aws_sdk_xray.types.insight_id.InsightId"
+    """<p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetInsightRequest) -> dict:
+    out: dict = {}
+    out["InsightId"] = value["insight_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetInsightRequest:
+    out: GetInsightRequest = {}  # type: ignore[typeddict-item]
+    if "InsightId" in data:
+        out["insight_id"] = data["InsightId"]
+    else:
+        raise DeserializationError("GetInsightRequest.insight_id required")
+    return out

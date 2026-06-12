@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.rekognition#ShotSegment``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_rekognition.types.segment_confidence
+    import aws_sdk_rekognition.types.u_long
+
+
+class ShotSegment(TypedDict):
+    index: NotRequired["aws_sdk_rekognition.types.u_long.ULong"]
+    """<p>An Identifier for a shot detection segment detected in a video. </p>"""
+    confidence: NotRequired[
+        "aws_sdk_rekognition.types.segment_confidence.SegmentConfidence"
+    ]
+    """<p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ShotSegment) -> dict:
+    out: dict = {}
+    if "index" in value:
+        out["Index"] = value["index"]
+    if "confidence" in value:
+        out["Confidence"] = value["confidence"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ShotSegment:
+    out: ShotSegment = {}  # type: ignore[typeddict-item]
+    if "Index" in data:
+        out["index"] = data["Index"]
+    if "Confidence" in data:
+        out["confidence"] = data["Confidence"]
+    return out

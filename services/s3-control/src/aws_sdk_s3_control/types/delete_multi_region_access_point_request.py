@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#DeleteMultiRegionAccessPointRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_s3_control._protocol.xml import Element, SubElement
+from aws_sdk_s3_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_s3_control.types.account_id
+    import aws_sdk_s3_control.types.delete_multi_region_access_point_input
+    import aws_sdk_s3_control.types.multi_region_access_point_client_token
+
+
+class DeleteMultiRegionAccessPointRequest(TypedDict):
+    account_id: "aws_sdk_s3_control.types.account_id.AccountId"
+    """<p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>"""
+    client_token: "aws_sdk_s3_control.types.multi_region_access_point_client_token.MultiRegionAccessPointClientToken"
+    """<p>An idempotency token used to identify the request and guarantee that requests are unique.</p>"""
+    details: "aws_sdk_s3_control.types.delete_multi_region_access_point_input.DeleteMultiRegionAccessPointInput"
+    """<p>A container element containing details about the Multi-Region Access Point.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: DeleteMultiRegionAccessPointRequest, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "ClientToken").text = str(value["client_token"])
+    import aws_sdk_s3_control.types.delete_multi_region_access_point_input
+
+    aws_sdk_s3_control.types.delete_multi_region_access_point_input.serialize_xml(
+        value["details"], el, "Details"
+    )
+
+
+def deserialize_xml(el: Element) -> DeleteMultiRegionAccessPointRequest:
+    out: DeleteMultiRegionAccessPointRequest = {}  # type: ignore[typeddict-item]
+    child_client_token = el.find("ClientToken")
+    if child_client_token is not None:
+        out["client_token"] = str(child_client_token.text or "")
+    else:
+        raise DeserializationError(
+            "DeleteMultiRegionAccessPointRequest.client_token required"
+        )
+    child_details = el.find("Details")
+    if child_details is not None:
+        import aws_sdk_s3_control.types.delete_multi_region_access_point_input
+
+        out["details"] = (
+            aws_sdk_s3_control.types.delete_multi_region_access_point_input.deserialize_xml(
+                child_details
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DeleteMultiRegionAccessPointRequest.details required"
+        )
+    return out

@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.schemas#StartDiscovererResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_schemas.types.__string
+    import aws_sdk_schemas.types.discoverer_state
+
+
+class StartDiscovererResponse(TypedDict):
+    discoverer_id: NotRequired["aws_sdk_schemas.types.__string.__string"]
+    """<p>The ID of the discoverer.</p>"""
+    state: NotRequired["aws_sdk_schemas.types.discoverer_state.DiscovererState"]
+    """<p>The state of the discoverer.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartDiscovererResponse) -> dict:
+    out: dict = {}
+    if "discoverer_id" in value:
+        out["DiscovererId"] = value["discoverer_id"]
+    if "state" in value:
+        import aws_sdk_schemas.types.discoverer_state
+
+        out["State"] = aws_sdk_schemas.types.discoverer_state.serialize_json(
+            value["state"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> StartDiscovererResponse:
+    out: StartDiscovererResponse = {}  # type: ignore[typeddict-item]
+    if "DiscovererId" in data:
+        out["discoverer_id"] = data["DiscovererId"]
+    if "State" in data:
+        import aws_sdk_schemas.types.discoverer_state
+
+        out["state"] = aws_sdk_schemas.types.discoverer_state.deserialize_json(
+            data["State"]
+        )
+    return out

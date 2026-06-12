@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.ssoadmin#DeleteApplicationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sso_admin.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sso_admin.types.application_arn
+
+
+class DeleteApplicationRequest(TypedDict):
+    application_arn: "aws_sdk_sso_admin.types.application_arn.ApplicationArn"
+    """<p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteApplicationRequest) -> dict:
+    out: dict = {}
+    out["ApplicationArn"] = value["application_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteApplicationRequest:
+    out: DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+    if "ApplicationArn" in data:
+        out["application_arn"] = data["ApplicationArn"]
+    else:
+        raise DeserializationError("DeleteApplicationRequest.application_arn required")
+    return out

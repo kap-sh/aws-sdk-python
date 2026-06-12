@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.translate#UntagResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_translate.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_translate.types.resource_arn
+    import aws_sdk_translate.types.tag_key_list
+
+
+class UntagResourceRequest(TypedDict):
+    resource_arn: "aws_sdk_translate.types.resource_arn.ResourceArn"
+    """<p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you want to remove the tags. </p>"""
+    tag_keys: "aws_sdk_translate.types.tag_key_list.TagKeyList"
+    """<p>The initial part of a key-value pair that forms a tag being removed from a given resource. Keys must be unique and cannot be duplicated for a particular resource. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UntagResourceRequest) -> dict:
+    out: dict = {}
+    out["ResourceArn"] = value["resource_arn"]
+    import aws_sdk_translate.types.tag_key_list
+
+    out["TagKeys"] = aws_sdk_translate.types.tag_key_list.serialize_aws_json_1_1(
+        value["tag_keys"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UntagResourceRequest:
+    out: UntagResourceRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    else:
+        raise DeserializationError("UntagResourceRequest.resource_arn required")
+    if "TagKeys" in data:
+        import aws_sdk_translate.types.tag_key_list
+
+        out["tag_keys"] = aws_sdk_translate.types.tag_key_list.deserialize_aws_json_1_1(
+            data["TagKeys"]
+        )
+    else:
+        raise DeserializationError("UntagResourceRequest.tag_keys required")
+    return out

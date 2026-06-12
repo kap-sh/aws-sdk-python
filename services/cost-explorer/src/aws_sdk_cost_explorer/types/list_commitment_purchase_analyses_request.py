@@ -1,0 +1,78 @@
+"""Generated from Smithy shape ``com.amazonaws.costexplorer#ListCommitmentPurchaseAnalysesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cost_explorer.types.analyses_page_size
+    import aws_sdk_cost_explorer.types.analysis_ids
+    import aws_sdk_cost_explorer.types.analysis_status
+    import aws_sdk_cost_explorer.types.next_page_token
+
+
+class ListCommitmentPurchaseAnalysesRequest(TypedDict):
+    analysis_status: NotRequired[
+        "aws_sdk_cost_explorer.types.analysis_status.AnalysisStatus"
+    ]
+    """<p>The status of the analysis.</p>"""
+    next_page_token: NotRequired[
+        "aws_sdk_cost_explorer.types.next_page_token.NextPageToken"
+    ]
+    """<p>The token to retrieve the next set of results.</p>"""
+    page_size: "aws_sdk_cost_explorer.types.analyses_page_size.AnalysesPageSize"
+    """<p>The number of analyses that you want returned in a single response object.</p>"""
+    analysis_ids: NotRequired["aws_sdk_cost_explorer.types.analysis_ids.AnalysisIds"]
+    """<p>The analysis IDs associated with the commitment purchase analyses.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListCommitmentPurchaseAnalysesRequest) -> dict:
+    out: dict = {}
+    if "analysis_status" in value:
+        import aws_sdk_cost_explorer.types.analysis_status
+
+        out["AnalysisStatus"] = (
+            aws_sdk_cost_explorer.types.analysis_status.serialize_aws_json_1_1(
+                value["analysis_status"]
+            )
+        )
+    if "next_page_token" in value:
+        out["NextPageToken"] = value["next_page_token"]
+    out["PageSize"] = value.get("page_size", 0)
+    if "analysis_ids" in value:
+        import aws_sdk_cost_explorer.types.analysis_ids
+
+        out["AnalysisIds"] = (
+            aws_sdk_cost_explorer.types.analysis_ids.serialize_aws_json_1_1(
+                value["analysis_ids"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListCommitmentPurchaseAnalysesRequest:
+    out: ListCommitmentPurchaseAnalysesRequest = {}  # type: ignore[typeddict-item]
+    if "AnalysisStatus" in data:
+        import aws_sdk_cost_explorer.types.analysis_status
+
+        out["analysis_status"] = (
+            aws_sdk_cost_explorer.types.analysis_status.deserialize_aws_json_1_1(
+                data["AnalysisStatus"]
+            )
+        )
+    if "NextPageToken" in data:
+        out["next_page_token"] = data["NextPageToken"]
+    if "PageSize" in data:
+        out["page_size"] = data["PageSize"]
+    else:
+        out["page_size"] = 0
+    if "AnalysisIds" in data:
+        import aws_sdk_cost_explorer.types.analysis_ids
+
+        out["analysis_ids"] = (
+            aws_sdk_cost_explorer.types.analysis_ids.deserialize_aws_json_1_1(
+                data["AnalysisIds"]
+            )
+        )
+    return out

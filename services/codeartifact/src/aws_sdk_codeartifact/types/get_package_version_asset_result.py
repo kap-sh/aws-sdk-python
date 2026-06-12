@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.codeartifact#GetPackageVersionAssetResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codeartifact.types.asset
+    import aws_sdk_codeartifact.types.asset_name
+    import aws_sdk_codeartifact.types.package_version
+    import aws_sdk_codeartifact.types.package_version_revision
+
+
+class GetPackageVersionAssetResult(TypedDict):
+    asset: "aws_sdk_codeartifact.types.asset.Asset"
+    """<p> The binary file, or asset, that is downloaded.</p>"""
+    asset_name: NotRequired["aws_sdk_codeartifact.types.asset_name.AssetName"]
+    """<p> The name of the asset that is downloaded. </p>"""
+    package_version: NotRequired[
+        "aws_sdk_codeartifact.types.package_version.PackageVersion"
+    ]
+    """<p> A string that contains the package version (for example, <code>3.5.2</code>). </p>"""
+    package_version_revision: NotRequired[
+        "aws_sdk_codeartifact.types.package_version_revision.PackageVersionRevision"
+    ]
+    """<p> The name of the package version revision that contains the downloaded asset. </p>"""

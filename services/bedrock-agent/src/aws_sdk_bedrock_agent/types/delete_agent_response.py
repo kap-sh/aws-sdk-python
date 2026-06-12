@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#DeleteAgentResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.agent_status
+    import aws_sdk_bedrock_agent.types.id
+
+
+class DeleteAgentResponse(TypedDict):
+    agent_id: "aws_sdk_bedrock_agent.types.id.Id"
+    """<p>The unique identifier of the agent that was deleted.</p>"""
+    agent_status: "aws_sdk_bedrock_agent.types.agent_status.AgentStatus"
+    """<p>The status of the agent.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteAgentResponse) -> dict:
+    out: dict = {}
+    out["agentId"] = value["agent_id"]
+    import aws_sdk_bedrock_agent.types.agent_status
+
+    out["agentStatus"] = aws_sdk_bedrock_agent.types.agent_status.serialize_json(
+        value["agent_status"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteAgentResponse:
+    out: DeleteAgentResponse = {}  # type: ignore[typeddict-item]
+    if "agentId" in data:
+        out["agent_id"] = data["agentId"]
+    else:
+        raise DeserializationError("DeleteAgentResponse.agent_id required")
+    if "agentStatus" in data:
+        import aws_sdk_bedrock_agent.types.agent_status
+
+        out["agent_status"] = aws_sdk_bedrock_agent.types.agent_status.deserialize_json(
+            data["agentStatus"]
+        )
+    else:
+        raise DeserializationError("DeleteAgentResponse.agent_status required")
+    return out

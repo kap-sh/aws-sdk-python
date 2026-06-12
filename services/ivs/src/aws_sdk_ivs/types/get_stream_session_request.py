@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.ivs#GetStreamSessionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ivs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs.types.channel_arn
+    import aws_sdk_ivs.types.stream_id
+
+
+class GetStreamSessionRequest(TypedDict):
+    channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
+    """<p>ARN of the channel resource</p>"""
+    stream_id: NotRequired["aws_sdk_ivs.types.stream_id.StreamId"]
+    """<p>Unique identifier for a live or previously live stream in the specified channel. If no <code>streamId</code> is provided, this returns the most recent stream session for the channel, if it exists.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetStreamSessionRequest) -> dict:
+    out: dict = {}
+    out["channelArn"] = value["channel_arn"]
+    if "stream_id" in value:
+        out["streamId"] = value["stream_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetStreamSessionRequest:
+    out: GetStreamSessionRequest = {}  # type: ignore[typeddict-item]
+    if "channelArn" in data:
+        out["channel_arn"] = data["channelArn"]
+    else:
+        raise DeserializationError("GetStreamSessionRequest.channel_arn required")
+    if "streamId" in data:
+        out["stream_id"] = data["streamId"]
+    return out

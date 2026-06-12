@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#AmazonQPropertiesOutput``."""
+
+from typing import TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_datazone.errors import DeserializationError
+
+class AmazonQPropertiesOutput(TypedDict):
+    is_enabled: "bool"
+    """<p>Specifies whether Amazon Q is enabled for the connection.</p>"""
+    profile_arn: NotRequired["str"]
+    """<p>The profile ARN of the connection's Amazon Q properties.</p>"""
+    auth_mode: NotRequired["str"]
+    """<p>The authentication mode of the connection's Amazon Q properties.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AmazonQPropertiesOutput) -> dict:
+    out: dict = {}
+    out["isEnabled"] = value["is_enabled"]
+    if "profile_arn" in value:
+        out["profileArn"] = value["profile_arn"]
+    if "auth_mode" in value:
+        out["authMode"] = value["auth_mode"]
+    return out
+
+
+def deserialize_json(data: dict) -> AmazonQPropertiesOutput:
+    out: AmazonQPropertiesOutput = {}  # type: ignore[typeddict-item]
+    if "isEnabled" in data:
+        out["is_enabled"] = data["isEnabled"]
+    else:
+        raise DeserializationError("AmazonQPropertiesOutput.is_enabled required")
+    if "profileArn" in data:
+        out["profile_arn"] = data["profileArn"]
+    if "authMode" in data:
+        out["auth_mode"] = data["authMode"]
+    return out

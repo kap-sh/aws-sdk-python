@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeSubscribedWorkteamResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.subscribed_workteam
+
+
+class DescribeSubscribedWorkteamResponse(TypedDict):
+    subscribed_workteam: NotRequired[
+        "aws_sdk_sagemaker.types.subscribed_workteam.SubscribedWorkteam"
+    ]
+    """<p>A <code>Workteam</code> instance that contains information about the work team.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeSubscribedWorkteamResponse) -> dict:
+    out: dict = {}
+    if "subscribed_workteam" in value:
+        import aws_sdk_sagemaker.types.subscribed_workteam
+
+        out["SubscribedWorkteam"] = (
+            aws_sdk_sagemaker.types.subscribed_workteam.serialize_aws_json_1_1(
+                value["subscribed_workteam"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeSubscribedWorkteamResponse:
+    out: DescribeSubscribedWorkteamResponse = {}  # type: ignore[typeddict-item]
+    if "SubscribedWorkteam" in data:
+        import aws_sdk_sagemaker.types.subscribed_workteam
+
+        out["subscribed_workteam"] = (
+            aws_sdk_sagemaker.types.subscribed_workteam.deserialize_aws_json_1_1(
+                data["SubscribedWorkteam"]
+            )
+        )
+    return out

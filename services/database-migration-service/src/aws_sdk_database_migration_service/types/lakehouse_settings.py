@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#LakehouseSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_database_migration_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_database_migration_service.types.string
+
+
+class LakehouseSettings(TypedDict):
+    arn: "aws_sdk_database_migration_service.types.string.String"
+    """<p>The Amazon Resource Name (ARN) of the Lakehouse resource that serves as the target for this endpoint.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: LakehouseSettings) -> dict:
+    out: dict = {}
+    out["Arn"] = value["arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> LakehouseSettings:
+    out: LakehouseSettings = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    else:
+        raise DeserializationError("LakehouseSettings.arn required")
+    return out

@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.fms#GetPolicyRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_fms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_fms.types.policy_id
+
+
+class GetPolicyRequest(TypedDict):
+    policy_id: "aws_sdk_fms.types.policy_id.PolicyId"
+    """<p>The ID of the Firewall Manager policy that you want the details for.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetPolicyRequest) -> dict:
+    out: dict = {}
+    out["PolicyId"] = value["policy_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetPolicyRequest:
+    out: GetPolicyRequest = {}  # type: ignore[typeddict-item]
+    if "PolicyId" in data:
+        out["policy_id"] = data["PolicyId"]
+    else:
+        raise DeserializationError("GetPolicyRequest.policy_id required")
+    return out

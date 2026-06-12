@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DescribeConfigurationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_application_discovery_service.types.describe_configurations_attributes
+
+
+class DescribeConfigurationsResponse(TypedDict):
+    configurations: NotRequired[
+        "aws_sdk_application_discovery_service.types.describe_configurations_attributes.DescribeConfigurationsAttributes"
+    ]
+    """<p>A key in the response map. The value is an array of data.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeConfigurationsResponse) -> dict:
+    out: dict = {}
+    if "configurations" in value:
+        import aws_sdk_application_discovery_service.types.describe_configurations_attributes
+
+        out["configurations"] = (
+            aws_sdk_application_discovery_service.types.describe_configurations_attributes.serialize_aws_json_1_1(
+                value["configurations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeConfigurationsResponse:
+    out: DescribeConfigurationsResponse = {}  # type: ignore[typeddict-item]
+    if "configurations" in data:
+        import aws_sdk_application_discovery_service.types.describe_configurations_attributes
+
+        out["configurations"] = (
+            aws_sdk_application_discovery_service.types.describe_configurations_attributes.deserialize_aws_json_1_1(
+                data["configurations"]
+            )
+        )
+    return out

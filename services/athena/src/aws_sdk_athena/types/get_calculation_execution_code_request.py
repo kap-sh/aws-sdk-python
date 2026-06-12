@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.athena#GetCalculationExecutionCodeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_athena.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_athena.types.calculation_execution_id
+
+
+class GetCalculationExecutionCodeRequest(TypedDict):
+    calculation_execution_id: (
+        "aws_sdk_athena.types.calculation_execution_id.CalculationExecutionId"
+    )
+    """<p>The calculation execution UUID.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetCalculationExecutionCodeRequest) -> dict:
+    out: dict = {}
+    out["CalculationExecutionId"] = value["calculation_execution_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetCalculationExecutionCodeRequest:
+    out: GetCalculationExecutionCodeRequest = {}  # type: ignore[typeddict-item]
+    if "CalculationExecutionId" in data:
+        out["calculation_execution_id"] = data["CalculationExecutionId"]
+    else:
+        raise DeserializationError(
+            "GetCalculationExecutionCodeRequest.calculation_execution_id required"
+        )
+    return out

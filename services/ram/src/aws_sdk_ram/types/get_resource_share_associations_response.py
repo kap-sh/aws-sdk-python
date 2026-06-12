@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.ram#GetResourceShareAssociationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ram.types.resource_share_association_list
+    import aws_sdk_ram.types.string
+
+
+class GetResourceShareAssociationsResponse(TypedDict):
+    resource_share_associations: NotRequired[
+        "aws_sdk_ram.types.resource_share_association_list.ResourceShareAssociationList"
+    ]
+    """<p>An array of objects that contain the details about the associations.</p>"""
+    next_token: NotRequired["aws_sdk_ram.types.string.String"]
+    """<p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetResourceShareAssociationsResponse) -> dict:
+    out: dict = {}
+    if "resource_share_associations" in value:
+        import aws_sdk_ram.types.resource_share_association_list
+
+        out["resourceShareAssociations"] = (
+            aws_sdk_ram.types.resource_share_association_list.serialize_json(
+                value["resource_share_associations"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetResourceShareAssociationsResponse:
+    out: GetResourceShareAssociationsResponse = {}  # type: ignore[typeddict-item]
+    if "resourceShareAssociations" in data:
+        import aws_sdk_ram.types.resource_share_association_list
+
+        out["resource_share_associations"] = (
+            aws_sdk_ram.types.resource_share_association_list.deserialize_json(
+                data["resourceShareAssociations"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

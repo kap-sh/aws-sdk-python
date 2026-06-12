@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.translate#AppliedTerminology``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_translate.types.resource_name
+    import aws_sdk_translate.types.term_list
+
+
+class AppliedTerminology(TypedDict):
+    name: NotRequired["aws_sdk_translate.types.resource_name.ResourceName"]
+    """<p>The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.</p>"""
+    terms: NotRequired["aws_sdk_translate.types.term_list.TermList"]
+    """<p>The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AppliedTerminology) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "terms" in value:
+        import aws_sdk_translate.types.term_list
+
+        out["Terms"] = aws_sdk_translate.types.term_list.serialize_aws_json_1_1(
+            value["terms"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AppliedTerminology:
+    out: AppliedTerminology = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Terms" in data:
+        import aws_sdk_translate.types.term_list
+
+        out["terms"] = aws_sdk_translate.types.term_list.deserialize_aws_json_1_1(
+            data["Terms"]
+        )
+    return out

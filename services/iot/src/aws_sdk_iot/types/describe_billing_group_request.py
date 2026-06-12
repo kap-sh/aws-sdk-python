@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#DescribeBillingGroupRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.billing_group_name
+
+
+class DescribeBillingGroupRequest(TypedDict):
+    billing_group_name: "aws_sdk_iot.types.billing_group_name.BillingGroupName"
+    """<p>The name of the billing group.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeBillingGroupRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeBillingGroupRequest:
+    out: DescribeBillingGroupRequest = {}  # type: ignore[typeddict-item]
+    return out

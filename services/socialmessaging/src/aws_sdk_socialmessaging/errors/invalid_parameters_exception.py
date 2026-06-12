@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.socialmessaging#InvalidParametersException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_socialmessaging.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_socialmessaging.types.error_message
+
+
+class InvalidParametersException_(TypedDict):
+    message: NotRequired["aws_sdk_socialmessaging.types.error_message.ErrorMessage"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: InvalidParametersException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> InvalidParametersException_:
+    out: InvalidParametersException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+class InvalidParametersException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.socialmessaging#InvalidParametersException``."""
+
+    code: str | None = "InvalidParametersException"
+
+    def __init__(self, data: InvalidParametersException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidParametersException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "InvalidParametersException":
+        return cls(deserialize_json(data))

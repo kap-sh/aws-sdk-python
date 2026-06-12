@@ -1,0 +1,81 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#ImportSourceCredentialsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codebuild.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codebuild.types.auth_type
+    import aws_sdk_codebuild.types.non_empty_string
+    import aws_sdk_codebuild.types.sensitive_non_empty_string
+    import aws_sdk_codebuild.types.server_type
+    import aws_sdk_codebuild.types.wrapper_boolean
+
+
+class ImportSourceCredentialsInput(TypedDict):
+    username: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
+    """<p> The Bitbucket username when the <code>authType</code> is BASIC_AUTH. This parameter is not valid for other types of source providers or connections. </p>"""
+    token: "aws_sdk_codebuild.types.sensitive_non_empty_string.SensitiveNonEmptyString"
+    """<p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is either the access token or the app password. For the <code>authType</code> CODECONNECTIONS, this is the <code>connectionArn</code>. For the <code>authType</code> SECRETS_MANAGER, this is the <code>secretArn</code>.</p>"""
+    server_type: "aws_sdk_codebuild.types.server_type.ServerType"
+    """<p> The source provider used for this project. </p>"""
+    auth_type: "aws_sdk_codebuild.types.auth_type.AuthType"
+    """<p> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository. An OAUTH connection is not supported by the API and must be created using the CodeBuild console.</p>"""
+    should_overwrite: NotRequired[
+        "aws_sdk_codebuild.types.wrapper_boolean.WrapperBoolean"
+    ]
+    """<p> Set to <code>false</code> to prevent overwriting the repository source credentials. Set to <code>true</code> to overwrite the repository source credentials. The default value is <code>true</code>. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ImportSourceCredentialsInput) -> dict:
+    out: dict = {}
+    if "username" in value:
+        out["username"] = value["username"]
+    out["token"] = value["token"]
+    import aws_sdk_codebuild.types.server_type
+
+    out["serverType"] = aws_sdk_codebuild.types.server_type.serialize_aws_json_1_1(
+        value["server_type"]
+    )
+    import aws_sdk_codebuild.types.auth_type
+
+    out["authType"] = aws_sdk_codebuild.types.auth_type.serialize_aws_json_1_1(
+        value["auth_type"]
+    )
+    if "should_overwrite" in value:
+        out["shouldOverwrite"] = value["should_overwrite"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ImportSourceCredentialsInput:
+    out: ImportSourceCredentialsInput = {}  # type: ignore[typeddict-item]
+    if "username" in data:
+        out["username"] = data["username"]
+    if "token" in data:
+        out["token"] = data["token"]
+    else:
+        raise DeserializationError("ImportSourceCredentialsInput.token required")
+    if "serverType" in data:
+        import aws_sdk_codebuild.types.server_type
+
+        out["server_type"] = (
+            aws_sdk_codebuild.types.server_type.deserialize_aws_json_1_1(
+                data["serverType"]
+            )
+        )
+    else:
+        raise DeserializationError("ImportSourceCredentialsInput.server_type required")
+    if "authType" in data:
+        import aws_sdk_codebuild.types.auth_type
+
+        out["auth_type"] = aws_sdk_codebuild.types.auth_type.deserialize_aws_json_1_1(
+            data["authType"]
+        )
+    else:
+        raise DeserializationError("ImportSourceCredentialsInput.auth_type required")
+    if "shouldOverwrite" in data:
+        out["should_overwrite"] = data["shouldOverwrite"]
+    return out

@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.directconnect#DescribeDirectConnectGatewayAssociationsResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_direct_connect.types.direct_connect_gateway_association_list
+    import aws_sdk_direct_connect.types.pagination_token
+
+
+class DescribeDirectConnectGatewayAssociationsResult(TypedDict):
+    direct_connect_gateway_associations: NotRequired[
+        "aws_sdk_direct_connect.types.direct_connect_gateway_association_list.DirectConnectGatewayAssociationList"
+    ]
+    """<p>Information about the associations.</p>"""
+    next_token: NotRequired[
+        "aws_sdk_direct_connect.types.pagination_token.PaginationToken"
+    ]
+    """<p>The token to retrieve the next page.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: DescribeDirectConnectGatewayAssociationsResult,
+) -> dict:
+    out: dict = {}
+    if "direct_connect_gateway_associations" in value:
+        import aws_sdk_direct_connect.types.direct_connect_gateway_association_list
+
+        out["directConnectGatewayAssociations"] = (
+            aws_sdk_direct_connect.types.direct_connect_gateway_association_list.serialize_aws_json_1_1(
+                value["direct_connect_gateway_associations"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> DescribeDirectConnectGatewayAssociationsResult:
+    out: DescribeDirectConnectGatewayAssociationsResult = {}  # type: ignore[typeddict-item]
+    if "directConnectGatewayAssociations" in data:
+        import aws_sdk_direct_connect.types.direct_connect_gateway_association_list
+
+        out["direct_connect_gateway_associations"] = (
+            aws_sdk_direct_connect.types.direct_connect_gateway_association_list.deserialize_aws_json_1_1(
+                data["directConnectGatewayAssociations"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

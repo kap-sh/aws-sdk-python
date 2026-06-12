@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#EncodingTypeValue``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_database_migration_service.errors import DeserializationError
+
+EncodingTypeValue: TypeAlias = Literal[
+    "plain",
+    "plain-dictionary",
+    "rle-dictionary",
+]
+
+
+# --- awsJson1_1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "plain",
+        "plain-dictionary",
+        "rle-dictionary",
+    )
+)
+
+
+def serialize_aws_json_1_1(value: EncodingTypeValue) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> EncodingTypeValue:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown EncodingTypeValue value: {data!r}")
+    return cast(EncodingTypeValue, data)

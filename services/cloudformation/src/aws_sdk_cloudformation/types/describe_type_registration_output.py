@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudformation#DescribeTypeRegistrationOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudformation._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudformation.types.description
+    import aws_sdk_cloudformation.types.registration_status
+    import aws_sdk_cloudformation.types.type_arn
+
+
+class DescribeTypeRegistrationOutput(TypedDict):
+    progress_status: NotRequired[
+        "aws_sdk_cloudformation.types.registration_status.RegistrationStatus"
+    ]
+    """<p>The current status of the extension registration request.</p>"""
+    description: NotRequired["aws_sdk_cloudformation.types.description.Description"]
+    """<p>The description of the extension registration request.</p>"""
+    type_arn: NotRequired["aws_sdk_cloudformation.types.type_arn.TypeArn"]
+    """<p>The Amazon Resource Name (ARN) of the extension being registered.</p> <p>For registration requests with a <code>ProgressStatus</code> of other than <code>COMPLETE</code>, this will be <code>null</code>.</p>"""
+    type_version_arn: NotRequired["aws_sdk_cloudformation.types.type_arn.TypeArn"]
+    """<p>The Amazon Resource Name (ARN) of this specific version of the extension being registered.</p> <p>For registration requests with a <code>ProgressStatus</code> of other than <code>COMPLETE</code>, this will be <code>null</code>.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DescribeTypeRegistrationOutput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "progress_status" in value:
+        import aws_sdk_cloudformation.types.registration_status
+
+        aws_sdk_cloudformation.types.registration_status.serialize_query(
+            value["progress_status"], pairs, f"{prefix}.ProgressStatus"
+        )
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "type_arn" in value:
+        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+    if "type_version_arn" in value:
+        pairs.append((f"{prefix}.TypeVersionArn", str(value["type_version_arn"])))
+
+
+def deserialize_query(el: Element) -> DescribeTypeRegistrationOutput:
+    out: DescribeTypeRegistrationOutput = {}  # type: ignore[typeddict-item]
+    child_progress_status = el.find("ProgressStatus")
+    if child_progress_status is not None:
+        import aws_sdk_cloudformation.types.registration_status
+
+        out["progress_status"] = (
+            aws_sdk_cloudformation.types.registration_status.deserialize_query(
+                child_progress_status
+            )
+        )
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_type_arn = el.find("TypeArn")
+    if child_type_arn is not None:
+        out["type_arn"] = str(child_type_arn.text or "")
+    child_type_version_arn = el.find("TypeVersionArn")
+    if child_type_version_arn is not None:
+        out["type_version_arn"] = str(child_type_version_arn.text or "")
+    return out

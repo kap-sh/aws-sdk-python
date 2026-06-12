@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.iotwireless#WcdmaNmrObj``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_iot_wireless.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_wireless.types.path_loss
+    import aws_sdk_iot_wireless.types.psc
+    import aws_sdk_iot_wireless.types.rscp
+    import aws_sdk_iot_wireless.types.uarfcndl
+    import aws_sdk_iot_wireless.types.utran_cid
+
+
+class WcdmaNmrObj(TypedDict):
+    uarfcndl: "aws_sdk_iot_wireless.types.uarfcndl.UARFCNDL"
+    """<p>WCDMA UTRA Absolute RF Channel Number downlink.</p>"""
+    psc: "aws_sdk_iot_wireless.types.psc.PSC"
+    """<p>Primary Scrambling Code.</p>"""
+    utran_cid: "aws_sdk_iot_wireless.types.utran_cid.UtranCid"
+    """<p>UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.</p>"""
+    rscp: NotRequired["aws_sdk_iot_wireless.types.rscp.RSCP"]
+    """<p>Received Signal Code Power (signal power) (dBm)</p>"""
+    path_loss: NotRequired["aws_sdk_iot_wireless.types.path_loss.PathLoss"]
+    """<p>Path loss, or path attenuation, is the reduction in power density of an electromagnetic wave as it propagates through space.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: WcdmaNmrObj) -> dict:
+    out: dict = {}
+    out["Uarfcndl"] = value["uarfcndl"]
+    out["Psc"] = value["psc"]
+    out["UtranCid"] = value["utran_cid"]
+    if "rscp" in value:
+        out["Rscp"] = value["rscp"]
+    if "path_loss" in value:
+        out["PathLoss"] = value["path_loss"]
+    return out
+
+
+def deserialize_json(data: dict) -> WcdmaNmrObj:
+    out: WcdmaNmrObj = {}  # type: ignore[typeddict-item]
+    if "Uarfcndl" in data:
+        out["uarfcndl"] = data["Uarfcndl"]
+    else:
+        raise DeserializationError("WcdmaNmrObj.uarfcndl required")
+    if "Psc" in data:
+        out["psc"] = data["Psc"]
+    else:
+        raise DeserializationError("WcdmaNmrObj.psc required")
+    if "UtranCid" in data:
+        out["utran_cid"] = data["UtranCid"]
+    else:
+        raise DeserializationError("WcdmaNmrObj.utran_cid required")
+    if "Rscp" in data:
+        out["rscp"] = data["Rscp"]
+    if "PathLoss" in data:
+        out["path_loss"] = data["PathLoss"]
+    return out

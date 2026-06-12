@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudhsmv2#ModifyBackupAttributesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cloudhsm_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudhsm_v2.types.backup_id
+    import aws_sdk_cloudhsm_v2.types.boolean
+
+
+class ModifyBackupAttributesRequest(TypedDict):
+    backup_id: "aws_sdk_cloudhsm_v2.types.backup_id.BackupId"
+    """<p>The identifier (ID) of the backup to modify. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>"""
+    never_expires: "aws_sdk_cloudhsm_v2.types.boolean.Boolean"
+    """<p>Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ModifyBackupAttributesRequest) -> dict:
+    out: dict = {}
+    out["BackupId"] = value["backup_id"]
+    out["NeverExpires"] = value["never_expires"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ModifyBackupAttributesRequest:
+    out: ModifyBackupAttributesRequest = {}  # type: ignore[typeddict-item]
+    if "BackupId" in data:
+        out["backup_id"] = data["BackupId"]
+    else:
+        raise DeserializationError("ModifyBackupAttributesRequest.backup_id required")
+    if "NeverExpires" in data:
+        out["never_expires"] = data["NeverExpires"]
+    else:
+        raise DeserializationError(
+            "ModifyBackupAttributesRequest.never_expires required"
+        )
+    return out

@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AdminSetUserPasswordRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cognito_identity_provider.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.boolean_type
+    import aws_sdk_cognito_identity_provider.types.password_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_id_type
+    import aws_sdk_cognito_identity_provider.types.username_type
+
+
+class AdminSetUserPasswordRequest(TypedDict):
+    user_pool_id: (
+        "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType"
+    )
+    """<p>The ID of the user pool where you want to set the user's password.</p>"""
+    username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType"
+    """<p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>"""
+    password: "aws_sdk_cognito_identity_provider.types.password_type.PasswordType"
+    """<p>The new temporary or permanent password that you want to set for the user. You can't remove the password for a user who already has a password so that they can only sign in with passwordless methods. In this scenario, you must create a new user without a password.</p>"""
+    permanent: "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+    """<p>Set to <code>true</code> to set a password that the user can immediately sign in with. Set to <code>false</code> to set a temporary password that the user must change on their next sign-in.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AdminSetUserPasswordRequest) -> dict:
+    out: dict = {}
+    out["UserPoolId"] = value["user_pool_id"]
+    out["Username"] = value["username"]
+    out["Password"] = value["password"]
+    out["Permanent"] = value.get("permanent", False)
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AdminSetUserPasswordRequest:
+    out: AdminSetUserPasswordRequest = {}  # type: ignore[typeddict-item]
+    if "UserPoolId" in data:
+        out["user_pool_id"] = data["UserPoolId"]
+    else:
+        raise DeserializationError("AdminSetUserPasswordRequest.user_pool_id required")
+    if "Username" in data:
+        out["username"] = data["Username"]
+    else:
+        raise DeserializationError("AdminSetUserPasswordRequest.username required")
+    if "Password" in data:
+        out["password"] = data["Password"]
+    else:
+        raise DeserializationError("AdminSetUserPasswordRequest.password required")
+    if "Permanent" in data:
+        out["permanent"] = data["Permanent"]
+    else:
+        out["permanent"] = False
+    return out

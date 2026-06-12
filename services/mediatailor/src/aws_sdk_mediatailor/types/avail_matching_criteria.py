@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.mediatailor#AvailMatchingCriteria``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_mediatailor.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mediatailor.types.__string
+    import aws_sdk_mediatailor.types.operator
+
+
+class AvailMatchingCriteria(TypedDict):
+    dynamic_variable: "aws_sdk_mediatailor.types.__string.__string"
+    """<p>The dynamic variable(s) that MediaTailor should use as avail matching criteria. MediaTailor only places the prefetched ads into the avail if the avail matches the criteria defined by the dynamic variable. For information about dynamic variables, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html\">Using dynamic ad variables</a> in the <i>MediaTailor User Guide</i>.</p> <p>You can include up to 100 dynamic variables.</p>"""
+    operator: "aws_sdk_mediatailor.types.operator.Operator"
+    """<p>For the <code>DynamicVariable</code> specified in <code>AvailMatchingCriteria</code>, the Operator that is used for the comparison.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AvailMatchingCriteria) -> dict:
+    out: dict = {}
+    out["DynamicVariable"] = value["dynamic_variable"]
+    import aws_sdk_mediatailor.types.operator
+
+    out["Operator"] = aws_sdk_mediatailor.types.operator.serialize_json(
+        value["operator"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AvailMatchingCriteria:
+    out: AvailMatchingCriteria = {}  # type: ignore[typeddict-item]
+    if "DynamicVariable" in data:
+        out["dynamic_variable"] = data["DynamicVariable"]
+    else:
+        raise DeserializationError("AvailMatchingCriteria.dynamic_variable required")
+    if "Operator" in data:
+        import aws_sdk_mediatailor.types.operator
+
+        out["operator"] = aws_sdk_mediatailor.types.operator.deserialize_json(
+            data["Operator"]
+        )
+    else:
+        raise DeserializationError("AvailMatchingCriteria.operator required")
+    return out

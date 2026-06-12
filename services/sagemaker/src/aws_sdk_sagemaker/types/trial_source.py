@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#TrialSource``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.source_type
+    import aws_sdk_sagemaker.types.trial_source_arn
+
+
+class TrialSource(TypedDict):
+    source_arn: NotRequired["aws_sdk_sagemaker.types.trial_source_arn.TrialSourceArn"]
+    """<p>The Amazon Resource Name (ARN) of the source.</p>"""
+    source_type: NotRequired["aws_sdk_sagemaker.types.source_type.SourceType"]
+    """<p>The source job type.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TrialSource) -> dict:
+    out: dict = {}
+    if "source_arn" in value:
+        out["SourceArn"] = value["source_arn"]
+    if "source_type" in value:
+        out["SourceType"] = value["source_type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TrialSource:
+    out: TrialSource = {}  # type: ignore[typeddict-item]
+    if "SourceArn" in data:
+        out["source_arn"] = data["SourceArn"]
+    if "SourceType" in data:
+        out["source_type"] = data["SourceType"]
+    return out

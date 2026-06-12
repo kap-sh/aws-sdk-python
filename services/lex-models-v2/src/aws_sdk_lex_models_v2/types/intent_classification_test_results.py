@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentClassificationTestResults``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_lex_models_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list
+
+
+class IntentClassificationTestResults(TypedDict):
+    items: "aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list.IntentClassificationTestResultItemList"
+    """<p>A list of the results for the intent classification test.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IntentClassificationTestResults) -> dict:
+    out: dict = {}
+    import aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list
+
+    out["items"] = (
+        aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list.serialize_json(
+            value["items"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> IntentClassificationTestResults:
+    out: IntentClassificationTestResults = {}  # type: ignore[typeddict-item]
+    if "items" in data:
+        import aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list
+
+        out["items"] = (
+            aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list.deserialize_json(
+                data["items"]
+            )
+        )
+    else:
+        raise DeserializationError("IntentClassificationTestResults.items required")
+    return out

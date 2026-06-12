@@ -1,0 +1,90 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#EntityMetricData``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.entity
+    import aws_sdk_cloudwatch.types.metric_data
+
+
+class EntityMetricData(TypedDict):
+    entity: NotRequired["aws_sdk_cloudwatch.types.entity.Entity"]
+    """<p>The entity associated with the metrics.</p>"""
+    metric_data: NotRequired["aws_sdk_cloudwatch.types.metric_data.MetricData"]
+    """<p>The metric data.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: EntityMetricData) -> dict:
+    out: dict = {}
+    if "entity" in value:
+        import aws_sdk_cloudwatch.types.entity
+
+        out["Entity"] = aws_sdk_cloudwatch.types.entity.serialize_aws_json_1_0(
+            value["entity"]
+        )
+    if "metric_data" in value:
+        import aws_sdk_cloudwatch.types.metric_data
+
+        out["MetricData"] = aws_sdk_cloudwatch.types.metric_data.serialize_aws_json_1_0(
+            value["metric_data"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> EntityMetricData:
+    out: EntityMetricData = {}  # type: ignore[typeddict-item]
+    if "Entity" in data:
+        import aws_sdk_cloudwatch.types.entity
+
+        out["entity"] = aws_sdk_cloudwatch.types.entity.deserialize_aws_json_1_0(
+            data["Entity"]
+        )
+    if "MetricData" in data:
+        import aws_sdk_cloudwatch.types.metric_data
+
+        out["metric_data"] = (
+            aws_sdk_cloudwatch.types.metric_data.deserialize_aws_json_1_0(
+                data["MetricData"]
+            )
+        )
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: EntityMetricData, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "entity" in value:
+        import aws_sdk_cloudwatch.types.entity
+
+        aws_sdk_cloudwatch.types.entity.serialize_query(
+            value["entity"], pairs, f"{prefix}.Entity"
+        )
+    if "metric_data" in value:
+        import aws_sdk_cloudwatch.types.metric_data
+
+        aws_sdk_cloudwatch.types.metric_data.serialize_query(
+            value["metric_data"], pairs, f"{prefix}.MetricData"
+        )
+
+
+def deserialize_query(el: Element) -> EntityMetricData:
+    out: EntityMetricData = {}  # type: ignore[typeddict-item]
+    child_entity = el.find("Entity")
+    if child_entity is not None:
+        import aws_sdk_cloudwatch.types.entity
+
+        out["entity"] = aws_sdk_cloudwatch.types.entity.deserialize_query(child_entity)
+    child_metric_data = el.find("MetricData")
+    if child_metric_data is not None:
+        import aws_sdk_cloudwatch.types.metric_data
+
+        out["metric_data"] = aws_sdk_cloudwatch.types.metric_data.deserialize_query(
+            child_metric_data
+        )
+    return out

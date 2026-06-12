@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#FileMetadata``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.file_mode_type_enum
+    import aws_sdk_codecommit.types.object_id
+    import aws_sdk_codecommit.types.path
+
+
+class FileMetadata(TypedDict):
+    absolute_path: NotRequired["aws_sdk_codecommit.types.path.Path"]
+    """<p>The full path to the file to be added or updated, including the name of the file.</p>"""
+    blob_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
+    """<p>The blob ID that contains the file information.</p>"""
+    file_mode: NotRequired[
+        "aws_sdk_codecommit.types.file_mode_type_enum.FileModeTypeEnum"
+    ]
+    """<p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: FileMetadata) -> dict:
+    out: dict = {}
+    if "absolute_path" in value:
+        out["absolutePath"] = value["absolute_path"]
+    if "blob_id" in value:
+        out["blobId"] = value["blob_id"]
+    if "file_mode" in value:
+        import aws_sdk_codecommit.types.file_mode_type_enum
+
+        out["fileMode"] = (
+            aws_sdk_codecommit.types.file_mode_type_enum.serialize_aws_json_1_1(
+                value["file_mode"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> FileMetadata:
+    out: FileMetadata = {}  # type: ignore[typeddict-item]
+    if "absolutePath" in data:
+        out["absolute_path"] = data["absolutePath"]
+    if "blobId" in data:
+        out["blob_id"] = data["blobId"]
+    if "fileMode" in data:
+        import aws_sdk_codecommit.types.file_mode_type_enum
+
+        out["file_mode"] = (
+            aws_sdk_codecommit.types.file_mode_type_enum.deserialize_aws_json_1_1(
+                data["fileMode"]
+            )
+        )
+    return out

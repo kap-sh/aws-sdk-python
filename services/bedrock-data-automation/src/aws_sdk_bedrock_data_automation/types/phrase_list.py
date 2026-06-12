@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#PhraseList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_data_automation.types.phrase
+
+PhraseList: TypeAlias = list["aws_sdk_bedrock_data_automation.types.phrase.Phrase"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PhraseList) -> list:
+    import aws_sdk_bedrock_data_automation.types.phrase
+
+    out: list = []
+    for item in value:
+        out.append(aws_sdk_bedrock_data_automation.types.phrase.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> PhraseList:
+    import aws_sdk_bedrock_data_automation.types.phrase
+
+    out: PhraseList = []
+    for item in data:
+        out.append(aws_sdk_bedrock_data_automation.types.phrase.deserialize_json(item))
+    return out

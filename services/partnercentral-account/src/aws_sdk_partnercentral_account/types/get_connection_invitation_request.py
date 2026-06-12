@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralaccount#GetConnectionInvitationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_partnercentral_account.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_account.types.catalog
+    import aws_sdk_partnercentral_account.types.connection_invitation_id
+
+
+class GetConnectionInvitationRequest(TypedDict):
+    catalog: "aws_sdk_partnercentral_account.types.catalog.Catalog"
+    """<p>The catalog identifier where the connection invitation exists.</p>"""
+    identifier: "aws_sdk_partnercentral_account.types.connection_invitation_id.ConnectionInvitationId"
+    """<p>The unique identifier of the connection invitation to retrieve.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetConnectionInvitationRequest) -> dict:
+    out: dict = {}
+    out["Catalog"] = value["catalog"]
+    out["Identifier"] = value["identifier"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetConnectionInvitationRequest:
+    out: GetConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+    if "Catalog" in data:
+        out["catalog"] = data["Catalog"]
+    else:
+        raise DeserializationError("GetConnectionInvitationRequest.catalog required")
+    if "Identifier" in data:
+        out["identifier"] = data["Identifier"]
+    else:
+        raise DeserializationError("GetConnectionInvitationRequest.identifier required")
+    return out

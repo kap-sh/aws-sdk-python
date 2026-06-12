@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationSystemRollbackConfigurationUpdate``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis_analytics_v2.types.boolean_object
+
+
+class ApplicationSystemRollbackConfigurationUpdate(TypedDict):
+    rollback_enabled_update: (
+        "aws_sdk_kinesis_analytics_v2.types.boolean_object.BooleanObject"
+    )
+    """<p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ApplicationSystemRollbackConfigurationUpdate) -> dict:
+    out: dict = {}
+    out["RollbackEnabledUpdate"] = value["rollback_enabled_update"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> ApplicationSystemRollbackConfigurationUpdate:
+    out: ApplicationSystemRollbackConfigurationUpdate = {}  # type: ignore[typeddict-item]
+    if "RollbackEnabledUpdate" in data:
+        out["rollback_enabled_update"] = data["RollbackEnabledUpdate"]
+    else:
+        raise DeserializationError(
+            "ApplicationSystemRollbackConfigurationUpdate.rollback_enabled_update required"
+        )
+    return out

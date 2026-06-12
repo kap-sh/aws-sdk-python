@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.sfn#DeleteStateMachineAliasInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sfn.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sfn.types.arn
+
+
+class DeleteStateMachineAliasInput(TypedDict):
+    state_machine_alias_arn: "aws_sdk_sfn.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the state machine alias to delete.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DeleteStateMachineAliasInput) -> dict:
+    out: dict = {}
+    out["stateMachineAliasArn"] = value["state_machine_alias_arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DeleteStateMachineAliasInput:
+    out: DeleteStateMachineAliasInput = {}  # type: ignore[typeddict-item]
+    if "stateMachineAliasArn" in data:
+        out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
+    else:
+        raise DeserializationError(
+            "DeleteStateMachineAliasInput.state_machine_alias_arn required"
+        )
+    return out

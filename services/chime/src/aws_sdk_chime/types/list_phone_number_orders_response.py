@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.chime#ListPhoneNumberOrdersResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_chime.types.phone_number_order_list
+    import aws_sdk_chime.types.string
+
+
+class ListPhoneNumberOrdersResponse(TypedDict):
+    phone_number_orders: NotRequired[
+        "aws_sdk_chime.types.phone_number_order_list.PhoneNumberOrderList"
+    ]
+    """<p>The phone number order details.</p>"""
+    next_token: NotRequired["aws_sdk_chime.types.string.String"]
+    """<p>The token to use to retrieve the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListPhoneNumberOrdersResponse) -> dict:
+    out: dict = {}
+    if "phone_number_orders" in value:
+        import aws_sdk_chime.types.phone_number_order_list
+
+        out["PhoneNumberOrders"] = (
+            aws_sdk_chime.types.phone_number_order_list.serialize_json(
+                value["phone_number_orders"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListPhoneNumberOrdersResponse:
+    out: ListPhoneNumberOrdersResponse = {}  # type: ignore[typeddict-item]
+    if "PhoneNumberOrders" in data:
+        import aws_sdk_chime.types.phone_number_order_list
+
+        out["phone_number_orders"] = (
+            aws_sdk_chime.types.phone_number_order_list.deserialize_json(
+                data["PhoneNumberOrders"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

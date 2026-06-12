@@ -1,0 +1,76 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#EntityKeyAttributesMap``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.entity_key_attributes_map_key_string
+    import aws_sdk_cloudwatch.types.entity_key_attributes_map_value_string
+
+EntityKeyAttributesMap: TypeAlias = dict[
+    "aws_sdk_cloudwatch.types.entity_key_attributes_map_key_string.EntityKeyAttributesMapKeyString",
+    "aws_sdk_cloudwatch.types.entity_key_attributes_map_value_string.EntityKeyAttributesMapValueString",
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(input_to_serialize: EntityKeyAttributesMap) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        out[key] = value
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> EntityKeyAttributesMap:
+    out: EntityKeyAttributesMap = {}
+    for key, value in data.items():
+        out[key] = value
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    input_to_serialize: EntityKeyAttributesMap,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    for n, (key, value) in enumerate(input_to_serialize.items(), 1):
+        pairs.append((f"{prefix}.entry.{n}.key", str(key)))
+        pairs.append((f"{prefix}.entry.{n}.value", str(value)))
+
+
+def deserialize_query(el: Element) -> EntityKeyAttributesMap:
+    out: EntityKeyAttributesMap = {}
+    for entry in el.findall("entry"):
+        key_element = entry.find("key")
+        value_element = entry.find("value")
+        if key_element is None or value_element is None:
+            continue
+        key = str(key_element.text or "")
+        value = str(value_element.text or "")
+        out[key] = value
+    return out
+
+
+def serialize_query_flat(
+    input_to_serialize: EntityKeyAttributesMap,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    for n, (key, value) in enumerate(input_to_serialize.items(), 1):
+        pairs.append((f"{prefix}.{n}.key", str(key)))
+        pairs.append((f"{prefix}.{n}.value", str(value)))
+
+
+def deserialize_query_flat(parent: Element, tag: str) -> EntityKeyAttributesMap:
+    out: EntityKeyAttributesMap = {}
+    for entry in parent.findall(tag):
+        key_element = entry.find("key")
+        value_element = entry.find("value")
+        if key_element is None or value_element is None:
+            continue
+        key = str(key_element.text or "")
+        value = str(value_element.text or "")
+        out[key] = value
+    return out

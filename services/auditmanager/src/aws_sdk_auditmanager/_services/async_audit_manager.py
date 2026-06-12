@@ -1,0 +1,3135 @@
+"""Generated from Smithy shape ``com.amazonaws.auditmanager#BedrockAssessmentManagerLambda``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+import aws_sdk_auditmanager._auth._signers
+import aws_sdk_auditmanager._auth._sigv4
+from aws_sdk_auditmanager._auth._identity import Credentials
+from aws_sdk_auditmanager._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_auditmanager._auth._zapros_handler import AuthMiddleware
+from aws_sdk_auditmanager._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_auditmanager.types.account_id
+    import aws_sdk_auditmanager.types.action_plan_instructions
+    import aws_sdk_auditmanager.types.action_plan_title
+    import aws_sdk_auditmanager.types.assessment_description
+    import aws_sdk_auditmanager.types.assessment_name
+    import aws_sdk_auditmanager.types.assessment_report_description
+    import aws_sdk_auditmanager.types.assessment_report_name
+    import aws_sdk_auditmanager.types.assessment_reports_destination
+    import aws_sdk_auditmanager.types.assessment_status
+    import aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_request
+    import aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_response
+    import aws_sdk_auditmanager.types.audit_manager_arn
+    import aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_request
+    import aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_response
+    import aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_request
+    import aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_response
+    import aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_request
+    import aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_response
+    import aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_request
+    import aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_response
+    import aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_request
+    import aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_response
+    import aws_sdk_auditmanager.types.boolean
+    import aws_sdk_auditmanager.types.compliance_type
+    import aws_sdk_auditmanager.types.control_catalog_id
+    import aws_sdk_auditmanager.types.control_comment_body
+    import aws_sdk_auditmanager.types.control_description
+    import aws_sdk_auditmanager.types.control_domain_id
+    import aws_sdk_auditmanager.types.control_mapping_sources
+    import aws_sdk_auditmanager.types.control_name
+    import aws_sdk_auditmanager.types.control_set_id
+    import aws_sdk_auditmanager.types.control_set_status
+    import aws_sdk_auditmanager.types.control_status
+    import aws_sdk_auditmanager.types.control_type
+    import aws_sdk_auditmanager.types.create_assessment_framework_control_sets
+    import aws_sdk_auditmanager.types.create_assessment_framework_request
+    import aws_sdk_auditmanager.types.create_assessment_framework_response
+    import aws_sdk_auditmanager.types.create_assessment_report_request
+    import aws_sdk_auditmanager.types.create_assessment_report_response
+    import aws_sdk_auditmanager.types.create_assessment_request
+    import aws_sdk_auditmanager.types.create_assessment_response
+    import aws_sdk_auditmanager.types.create_control_mapping_sources
+    import aws_sdk_auditmanager.types.create_control_request
+    import aws_sdk_auditmanager.types.create_control_response
+    import aws_sdk_auditmanager.types.create_delegation_requests
+    import aws_sdk_auditmanager.types.data_source_type
+    import aws_sdk_auditmanager.types.default_export_destination
+    import aws_sdk_auditmanager.types.delegation_comment
+    import aws_sdk_auditmanager.types.delegation_ids
+    import aws_sdk_auditmanager.types.delete_assessment_framework_request
+    import aws_sdk_auditmanager.types.delete_assessment_framework_response
+    import aws_sdk_auditmanager.types.delete_assessment_framework_share_request
+    import aws_sdk_auditmanager.types.delete_assessment_framework_share_response
+    import aws_sdk_auditmanager.types.delete_assessment_report_request
+    import aws_sdk_auditmanager.types.delete_assessment_report_response
+    import aws_sdk_auditmanager.types.delete_assessment_request
+    import aws_sdk_auditmanager.types.delete_assessment_response
+    import aws_sdk_auditmanager.types.delete_control_request
+    import aws_sdk_auditmanager.types.delete_control_response
+    import aws_sdk_auditmanager.types.deregister_account_request
+    import aws_sdk_auditmanager.types.deregister_account_response
+    import aws_sdk_auditmanager.types.deregister_organization_admin_account_request
+    import aws_sdk_auditmanager.types.deregister_organization_admin_account_response
+    import aws_sdk_auditmanager.types.deregistration_policy
+    import aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_request
+    import aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_response
+    import aws_sdk_auditmanager.types.evidence_ids
+    import aws_sdk_auditmanager.types.framework_description
+    import aws_sdk_auditmanager.types.framework_name
+    import aws_sdk_auditmanager.types.framework_type
+    import aws_sdk_auditmanager.types.get_account_status_request
+    import aws_sdk_auditmanager.types.get_account_status_response
+    import aws_sdk_auditmanager.types.get_assessment_framework_request
+    import aws_sdk_auditmanager.types.get_assessment_framework_response
+    import aws_sdk_auditmanager.types.get_assessment_report_url_request
+    import aws_sdk_auditmanager.types.get_assessment_report_url_response
+    import aws_sdk_auditmanager.types.get_assessment_request
+    import aws_sdk_auditmanager.types.get_assessment_response
+    import aws_sdk_auditmanager.types.get_change_logs_request
+    import aws_sdk_auditmanager.types.get_change_logs_response
+    import aws_sdk_auditmanager.types.get_control_request
+    import aws_sdk_auditmanager.types.get_control_response
+    import aws_sdk_auditmanager.types.get_delegations_request
+    import aws_sdk_auditmanager.types.get_delegations_response
+    import aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_request
+    import aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_response
+    import aws_sdk_auditmanager.types.get_evidence_file_upload_url_request
+    import aws_sdk_auditmanager.types.get_evidence_file_upload_url_response
+    import aws_sdk_auditmanager.types.get_evidence_folder_request
+    import aws_sdk_auditmanager.types.get_evidence_folder_response
+    import aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_request
+    import aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_response
+    import aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request
+    import aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_response
+    import aws_sdk_auditmanager.types.get_evidence_request
+    import aws_sdk_auditmanager.types.get_evidence_response
+    import aws_sdk_auditmanager.types.get_insights_by_assessment_request
+    import aws_sdk_auditmanager.types.get_insights_by_assessment_response
+    import aws_sdk_auditmanager.types.get_insights_request
+    import aws_sdk_auditmanager.types.get_insights_response
+    import aws_sdk_auditmanager.types.get_organization_admin_account_request
+    import aws_sdk_auditmanager.types.get_organization_admin_account_response
+    import aws_sdk_auditmanager.types.get_services_in_scope_request
+    import aws_sdk_auditmanager.types.get_services_in_scope_response
+    import aws_sdk_auditmanager.types.get_settings_request
+    import aws_sdk_auditmanager.types.get_settings_response
+    import aws_sdk_auditmanager.types.kms_key
+    import aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_request
+    import aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_response
+    import aws_sdk_auditmanager.types.list_assessment_framework_share_requests_request
+    import aws_sdk_auditmanager.types.list_assessment_framework_share_requests_response
+    import aws_sdk_auditmanager.types.list_assessment_frameworks_request
+    import aws_sdk_auditmanager.types.list_assessment_frameworks_response
+    import aws_sdk_auditmanager.types.list_assessment_reports_request
+    import aws_sdk_auditmanager.types.list_assessment_reports_response
+    import aws_sdk_auditmanager.types.list_assessments_request
+    import aws_sdk_auditmanager.types.list_assessments_response
+    import aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_request
+    import aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_response
+    import aws_sdk_auditmanager.types.list_control_domain_insights_request
+    import aws_sdk_auditmanager.types.list_control_domain_insights_response
+    import aws_sdk_auditmanager.types.list_control_insights_by_control_domain_request
+    import aws_sdk_auditmanager.types.list_control_insights_by_control_domain_response
+    import aws_sdk_auditmanager.types.list_controls_request
+    import aws_sdk_auditmanager.types.list_controls_response
+    import aws_sdk_auditmanager.types.list_keywords_for_data_source_request
+    import aws_sdk_auditmanager.types.list_keywords_for_data_source_response
+    import aws_sdk_auditmanager.types.list_notifications_request
+    import aws_sdk_auditmanager.types.list_notifications_response
+    import aws_sdk_auditmanager.types.list_tags_for_resource_request
+    import aws_sdk_auditmanager.types.list_tags_for_resource_response
+    import aws_sdk_auditmanager.types.manual_evidence_list
+    import aws_sdk_auditmanager.types.manual_evidence_local_file_name
+    import aws_sdk_auditmanager.types.max_results
+    import aws_sdk_auditmanager.types.query_statement
+    import aws_sdk_auditmanager.types.region
+    import aws_sdk_auditmanager.types.register_account_request
+    import aws_sdk_auditmanager.types.register_account_response
+    import aws_sdk_auditmanager.types.register_organization_admin_account_request
+    import aws_sdk_auditmanager.types.register_organization_admin_account_response
+    import aws_sdk_auditmanager.types.roles
+    import aws_sdk_auditmanager.types.s3_url
+    import aws_sdk_auditmanager.types.scope
+    import aws_sdk_auditmanager.types.setting_attribute
+    import aws_sdk_auditmanager.types.share_request_action
+    import aws_sdk_auditmanager.types.share_request_comment
+    import aws_sdk_auditmanager.types.share_request_type
+    import aws_sdk_auditmanager.types.sns_arn
+    import aws_sdk_auditmanager.types.start_assessment_framework_share_request
+    import aws_sdk_auditmanager.types.start_assessment_framework_share_response
+    import aws_sdk_auditmanager.types.string
+    import aws_sdk_auditmanager.types.tag_key_list
+    import aws_sdk_auditmanager.types.tag_map
+    import aws_sdk_auditmanager.types.tag_resource_request
+    import aws_sdk_auditmanager.types.tag_resource_response
+    import aws_sdk_auditmanager.types.testing_information
+    import aws_sdk_auditmanager.types.token
+    import aws_sdk_auditmanager.types.untag_resource_request
+    import aws_sdk_auditmanager.types.untag_resource_response
+    import aws_sdk_auditmanager.types.update_assessment_control_request
+    import aws_sdk_auditmanager.types.update_assessment_control_response
+    import aws_sdk_auditmanager.types.update_assessment_control_set_status_request
+    import aws_sdk_auditmanager.types.update_assessment_control_set_status_response
+    import aws_sdk_auditmanager.types.update_assessment_framework_control_sets
+    import aws_sdk_auditmanager.types.update_assessment_framework_request
+    import aws_sdk_auditmanager.types.update_assessment_framework_response
+    import aws_sdk_auditmanager.types.update_assessment_framework_share_request
+    import aws_sdk_auditmanager.types.update_assessment_framework_share_response
+    import aws_sdk_auditmanager.types.update_assessment_request
+    import aws_sdk_auditmanager.types.update_assessment_response
+    import aws_sdk_auditmanager.types.update_assessment_status_request
+    import aws_sdk_auditmanager.types.update_assessment_status_response
+    import aws_sdk_auditmanager.types.update_control_request
+    import aws_sdk_auditmanager.types.update_control_response
+    import aws_sdk_auditmanager.types.update_settings_request
+    import aws_sdk_auditmanager.types.update_settings_response
+    import aws_sdk_auditmanager.types.uuid
+    import aws_sdk_auditmanager.types.validate_assessment_report_integrity_request
+    import aws_sdk_auditmanager.types.validate_assessment_report_integrity_response
+
+
+class AsyncAuditManagerClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncAuditManagerClient:
+    """A client for the ``AuditManager`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncAuditManagerClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncAuditManagerClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncAuditManagerClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def associate_assessment_report_evidence_folder(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_response.AssociateAssessmentReportEvidenceFolderResponse":
+        """<p> Associates an evidence folder to an assessment report in an Audit Manager assessment. </p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+            evidence_folder_id: <p> The identifier for the folder that the evidence is stored in. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_request.AssociateAssessmentReportEvidenceFolderRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_response.AssociateAssessmentReportEvidenceFolderResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.associate_assessment_report_evidence_folder
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.associate_assessment_report_evidence_folder.async_associate_assessment_report_evidence_folder(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_request.AssociateAssessmentReportEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["evidence_folder_id"] = evidence_folder_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_associate_assessment_report_evidence(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_ids: "aws_sdk_auditmanager.types.evidence_ids.EvidenceIds",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_response.BatchAssociateAssessmentReportEvidenceResponse":
+        """<p> Associates a list of evidence to an assessment report in an Audit Manager assessment. </p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+            evidence_folder_id: <p> The identifier for the folder that the evidence is stored in. </p>
+            evidence_ids: <p> The list of evidence identifiers. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_request.BatchAssociateAssessmentReportEvidenceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_response.BatchAssociateAssessmentReportEvidenceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_associate_assessment_report_evidence
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_associate_assessment_report_evidence.async_batch_associate_assessment_report_evidence(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_request.BatchAssociateAssessmentReportEvidenceRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["evidence_folder_id"] = evidence_folder_id
+        input["evidence_ids"] = evidence_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_create_delegation_by_assessment(
+        self,
+        create_delegation_requests: "aws_sdk_auditmanager.types.create_delegation_requests.CreateDelegationRequests",
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_response.BatchCreateDelegationByAssessmentResponse":
+        """<p> Creates a batch of delegations for an assessment in Audit Manager. </p>
+
+        Args:
+            create_delegation_requests: <p> The API request to batch create delegations in Audit Manager. </p>
+            assessment_id: <p> The identifier for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_request.BatchCreateDelegationByAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_response.BatchCreateDelegationByAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_create_delegation_by_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_create_delegation_by_assessment.async_batch_create_delegation_by_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_request.BatchCreateDelegationByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["create_delegation_requests"] = create_delegation_requests
+        input["assessment_id"] = assessment_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_delete_delegation_by_assessment(
+        self,
+        delegation_ids: "aws_sdk_auditmanager.types.delegation_ids.DelegationIds",
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_response.BatchDeleteDelegationByAssessmentResponse":
+        """<p> Deletes a batch of delegations for an assessment in Audit Manager. </p>
+
+        Args:
+            delegation_ids: <p> The identifiers for the delegations. </p>
+            assessment_id: <p> The identifier for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_request.BatchDeleteDelegationByAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_response.BatchDeleteDelegationByAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_delete_delegation_by_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_delete_delegation_by_assessment.async_batch_delete_delegation_by_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_request.BatchDeleteDelegationByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["delegation_ids"] = delegation_ids
+        input["assessment_id"] = assessment_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_disassociate_assessment_report_evidence(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_ids: "aws_sdk_auditmanager.types.evidence_ids.EvidenceIds",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_response.BatchDisassociateAssessmentReportEvidenceResponse":
+        """<p> Disassociates a list of evidence from an assessment report in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+            evidence_folder_id: <p> The identifier for the folder that the evidence is stored in. </p>
+            evidence_ids: <p> The list of evidence identifiers. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_request.BatchDisassociateAssessmentReportEvidenceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_response.BatchDisassociateAssessmentReportEvidenceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_disassociate_assessment_report_evidence
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_disassociate_assessment_report_evidence.async_batch_disassociate_assessment_report_evidence(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_request.BatchDisassociateAssessmentReportEvidenceRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["evidence_folder_id"] = evidence_folder_id
+        input["evidence_ids"] = evidence_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_import_evidence_to_assessment_control(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId",
+        control_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        manual_evidence: "aws_sdk_auditmanager.types.manual_evidence_list.ManualEvidenceList",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_response.BatchImportEvidenceToAssessmentControlResponse":
+        """<p>Adds one or more pieces of evidence to a control in an Audit Manager assessment. </p> <p>You can import manual evidence from any S3 bucket by specifying the S3 URI of the object. You can also upload a file from your browser, or enter plain text in response to a risk assessment question. </p> <p>The following restrictions apply to this action:</p> <ul> <li> <p> <code>manualEvidence</code> can be only one of the following: <code>evidenceFileName</code>, <code>s3ResourcePath</code>, or <code>textResponse</code> </p> </li> <li> <p>Maximum size of an individual evidence file: 100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per control: 100</p> </li> <li> <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i> </p> </li> </ul> <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+            control_set_id: <p> The identifier for the control set. </p>
+            control_id: <p> The identifier for the control. </p>
+            manual_evidence: <p> The list of manual evidence objects. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_request.BatchImportEvidenceToAssessmentControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_response.BatchImportEvidenceToAssessmentControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_import_evidence_to_assessment_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.batch_import_evidence_to_assessment_control.async_batch_import_evidence_to_assessment_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_request.BatchImportEvidenceToAssessmentControlRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["control_id"] = control_id
+        input["manual_evidence"] = manual_evidence
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_assessment(
+        self,
+        name: "aws_sdk_auditmanager.types.assessment_name.AssessmentName",
+        assessment_reports_destination: "aws_sdk_auditmanager.types.assessment_reports_destination.AssessmentReportsDestination",
+        scope: "aws_sdk_auditmanager.types.scope.Scope",
+        roles: "aws_sdk_auditmanager.types.roles.Roles",
+        framework_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        description: Optional[
+            "aws_sdk_auditmanager.types.assessment_description.AssessmentDescription"
+        ] = None,
+        tags: Optional["aws_sdk_auditmanager.types.tag_map.TagMap"] = None,
+    ) -> (
+        "aws_sdk_auditmanager.types.create_assessment_response.CreateAssessmentResponse"
+    ):
+        """<p> Creates an assessment in Audit Manager. </p>
+
+        Args:
+            name: <p> The name of the assessment to be created. </p>
+            description: <p> The optional description of the assessment to be created. </p>
+            assessment_reports_destination: <p> The assessment report storage destination for the assessment that's being created. </p>
+            roles: <p> The list of roles for the assessment. </p>
+            framework_id: <p> The identifier for the framework that the assessment will be created from. </p>
+            tags: <p> The tags that are associated with the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.create_assessment_request.CreateAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.create_assessment_response.CreateAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_assessment.async_create_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.create_assessment_request.CreateAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["assessment_reports_destination"] = assessment_reports_destination
+        input["scope"] = scope
+        input["roles"] = roles
+        input["framework_id"] = framework_id
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_assessment_framework(
+        self,
+        name: "aws_sdk_auditmanager.types.framework_name.FrameworkName",
+        control_sets: "aws_sdk_auditmanager.types.create_assessment_framework_control_sets.CreateAssessmentFrameworkControlSets",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        description: Optional[
+            "aws_sdk_auditmanager.types.framework_description.FrameworkDescription"
+        ] = None,
+        compliance_type: Optional[
+            "aws_sdk_auditmanager.types.compliance_type.ComplianceType"
+        ] = None,
+        tags: Optional["aws_sdk_auditmanager.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_auditmanager.types.create_assessment_framework_response.CreateAssessmentFrameworkResponse":
+        """<p> Creates a custom framework in Audit Manager. </p>
+
+        Args:
+            name: <p> The name of the new custom framework. </p>
+            description: <p> An optional description for the new custom framework. </p>
+            compliance_type: <p> The compliance type that the new custom framework supports, such as CIS or HIPAA. </p>
+            control_sets: <p> The control sets that are associated with the framework. </p> <note> <p>The <code>Controls</code> object returns a partial response when called through Framework APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p> </note>
+            tags: <p> The tags that are associated with the framework. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.create_assessment_framework_request.CreateAssessmentFrameworkRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.create_assessment_framework_response.CreateAssessmentFrameworkResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_assessment_framework
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_assessment_framework.async_create_assessment_framework(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.create_assessment_framework_request.CreateAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if compliance_type is not None:
+            input["compliance_type"] = compliance_type
+        input["control_sets"] = control_sets
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_assessment_report(
+        self,
+        name: "aws_sdk_auditmanager.types.assessment_report_name.AssessmentReportName",
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        description: Optional[
+            "aws_sdk_auditmanager.types.assessment_report_description.AssessmentReportDescription"
+        ] = None,
+        query_statement: Optional[
+            "aws_sdk_auditmanager.types.query_statement.QueryStatement"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.create_assessment_report_response.CreateAssessmentReportResponse":
+        """<p> Creates an assessment report for the specified assessment. </p>
+
+        Args:
+            name: <p> The name of the new assessment report. </p>
+            description: <p> The description of the assessment report. </p>
+            assessment_id: <p> The identifier for the assessment. </p>
+            query_statement: <p>A SQL statement that represents an evidence finder query.</p> <p>Provide this parameter when you want to generate an assessment report from the results of an evidence finder search query. When you use this parameter, Audit Manager generates a one-time report using only the evidence from the query output. This report does not include any assessment evidence that was manually <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence\">added to a report using the console</a>, or <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html\">associated with a report using the API</a>. </p> <p>To use this parameter, the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus\">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p> <p> For examples and help resolving <code>queryStatement</code> validation exceptions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions\">Troubleshooting evidence finder issues</a> in the <i>Audit Manager User Guide.</i> </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.create_assessment_report_request.CreateAssessmentReportRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.create_assessment_report_response.CreateAssessmentReportResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_assessment_report
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_assessment_report.async_create_assessment_report(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.create_assessment_report_request.CreateAssessmentReportRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["assessment_id"] = assessment_id
+        if query_statement is not None:
+            input["query_statement"] = query_statement
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_control(
+        self,
+        name: "aws_sdk_auditmanager.types.control_name.ControlName",
+        control_mapping_sources: "aws_sdk_auditmanager.types.create_control_mapping_sources.CreateControlMappingSources",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        description: Optional[
+            "aws_sdk_auditmanager.types.control_description.ControlDescription"
+        ] = None,
+        testing_information: Optional[
+            "aws_sdk_auditmanager.types.testing_information.TestingInformation"
+        ] = None,
+        action_plan_title: Optional[
+            "aws_sdk_auditmanager.types.action_plan_title.ActionPlanTitle"
+        ] = None,
+        action_plan_instructions: Optional[
+            "aws_sdk_auditmanager.types.action_plan_instructions.ActionPlanInstructions"
+        ] = None,
+        tags: Optional["aws_sdk_auditmanager.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_auditmanager.types.create_control_response.CreateControlResponse":
+        """<p> Creates a new custom control in Audit Manager. </p>
+
+        Args:
+            name: <p> The name of the control. </p>
+            description: <p> The description of the control. </p>
+            testing_information: <p> The steps to follow to determine if the control is satisfied. </p>
+            action_plan_title: <p> The title of the action plan for remediating the control. </p>
+            action_plan_instructions: <p> The recommended actions to carry out if the control isn't fulfilled. </p>
+            control_mapping_sources: <p> The data mapping sources for the control. </p>
+            tags: <p> The tags that are associated with the control. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.create_control_request.CreateControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.create_control_response.CreateControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.create_control.async_create_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.create_control_request.CreateControlRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if testing_information is not None:
+            input["testing_information"] = testing_information
+        if action_plan_title is not None:
+            input["action_plan_title"] = action_plan_title
+        if action_plan_instructions is not None:
+            input["action_plan_instructions"] = action_plan_instructions
+        input["control_mapping_sources"] = control_mapping_sources
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_assessment(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> (
+        "aws_sdk_auditmanager.types.delete_assessment_response.DeleteAssessmentResponse"
+    ):
+        """<p> Deletes an assessment in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.delete_assessment_request.DeleteAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.delete_assessment_response.DeleteAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment.async_delete_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.delete_assessment_request.DeleteAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_assessment_framework(
+        self,
+        framework_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.delete_assessment_framework_response.DeleteAssessmentFrameworkResponse":
+        """<p> Deletes a custom framework in Audit Manager. </p>
+
+        Args:
+            framework_id: <p> The identifier for the custom framework. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.delete_assessment_framework_request.DeleteAssessmentFrameworkRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.delete_assessment_framework_response.DeleteAssessmentFrameworkResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment_framework
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment_framework.async_delete_assessment_framework(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.delete_assessment_framework_request.DeleteAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input["framework_id"] = framework_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_assessment_framework_share(
+        self,
+        request_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        request_type: "aws_sdk_auditmanager.types.share_request_type.ShareRequestType",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.delete_assessment_framework_share_response.DeleteAssessmentFrameworkShareResponse":
+        """<p> Deletes a share request for a custom framework in Audit Manager. </p>
+
+        Args:
+            request_id: <p>The unique identifier for the share request to be deleted.</p>
+            request_type: <p>Specifies whether the share request is a sent request or a received request.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.delete_assessment_framework_share_request.DeleteAssessmentFrameworkShareRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.delete_assessment_framework_share_response.DeleteAssessmentFrameworkShareResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment_framework_share
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment_framework_share.async_delete_assessment_framework_share(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.delete_assessment_framework_share_request.DeleteAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
+        input["request_id"] = request_id
+        input["request_type"] = request_type
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_assessment_report(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        assessment_report_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.delete_assessment_report_response.DeleteAssessmentReportResponse":
+        """<p>Deletes an assessment report in Audit Manager. </p> <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts to delete the following data:</p> <ol> <li> <p>The specified assessment report that’s stored in your S3 bucket</p> </li> <li> <p>The associated metadata that’s stored in Audit Manager</p> </li> </ol> <p>If Audit Manager can’t access the assessment report in your S3 bucket, the report isn’t deleted. In this event, the <code>DeleteAssessmentReport</code> operation doesn’t fail. Instead, it proceeds to delete the associated metadata only. You must then delete the assessment report from the S3 bucket yourself. </p> <p>This scenario happens when Audit Manager receives a <code>403 (Forbidden)</code> or <code>404 (Not Found)</code> error from Amazon S3. To avoid this, make sure that your S3 bucket is available, and that you configured the correct permissions for Audit Manager to delete resources in your S3 bucket. For an example permissions policy that you can use, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination\">Assessment report destination permissions</a> in the <i>Audit Manager User Guide</i>. For information about the issues that could cause a <code>403 (Forbidden)</code> or <code>404 (Not Found</code>) error from Amazon S3, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a> in the <i>Amazon Simple Storage Service API Reference</i>. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            assessment_report_id: <p> The unique identifier for the assessment report. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.delete_assessment_report_request.DeleteAssessmentReportRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.delete_assessment_report_response.DeleteAssessmentReportResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment_report
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_assessment_report.async_delete_assessment_report(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.delete_assessment_report_request.DeleteAssessmentReportRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["assessment_report_id"] = assessment_report_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_control(
+        self,
+        control_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.delete_control_response.DeleteControlResponse":
+        """<p> Deletes a custom control in Audit Manager. </p> <important> <p>When you invoke this operation, the custom control is deleted from any frameworks or assessments that it’s currently part of. As a result, Audit Manager will stop collecting evidence for that custom control in all of your assessments. This includes assessments that you previously created before you deleted the custom control.</p> </important>
+
+        Args:
+            control_id: <p> The unique identifier for the control. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.delete_control_request.DeleteControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.delete_control_response.DeleteControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.delete_control.async_delete_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.delete_control_request.DeleteControlRequest = {}  # type: ignore[typeddict-item]
+        input["control_id"] = control_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def deregister_account(
+        self, *, config_overrides: Optional[AsyncAuditManagerClientConfig] = None
+    ) -> "aws_sdk_auditmanager.types.deregister_account_response.DeregisterAccountResponse":
+        """<p> Deregisters an account in Audit Manager. </p> <note> <p>Before you deregister, you can use the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html\">UpdateSettings</a> API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the <code>DeregistrationPolicy</code> attribute to request the deletion of your data. </p> <p>For more information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data Protection</a> in the <i>Audit Manager User Guide</i>. </p> </note>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.deregister_account_request.DeregisterAccountRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.deregister_account_response.DeregisterAccountResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.deregister_account
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.deregister_account.async_deregister_account(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.deregister_account_request.DeregisterAccountRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def deregister_organization_admin_account(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        admin_account_id: Optional[
+            "aws_sdk_auditmanager.types.account_id.AccountId"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.deregister_organization_admin_account_response.DeregisterOrganizationAdminAccountResponse":
+        """<p>Removes the specified Amazon Web Services account as a delegated administrator for Audit Manager. </p> <p>When you remove a delegated administrator from your Audit Manager settings, you continue to have access to the evidence that you previously collected under that account. This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to that delegated administrator account moving forward.</p> <important> <p>Keep in mind the following cleanup task if you use evidence finder:</p> <p>Before you use your management account to remove a delegated administrator, make sure that the current delegated administrator account signs in to Audit Manager and disables evidence finder first. Disabling evidence finder automatically deletes the event data store that was created in their account when they enabled evidence finder. If this task isn’t completed, the event data store remains in their account. In this case, we recommend that the original delegated administrator goes to CloudTrail Lake and manually <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html\">deletes the event data store</a>.</p> <p>This cleanup task is necessary to ensure that you don't end up with multiple event data stores. Audit Manager ignores an unused event data store after you remove or change a delegated administrator account. However, the unused event data store continues to incur storage costs from CloudTrail Lake if you don't delete it.</p> </important> <p>When you deregister a delegated administrator account for Audit Manager, the data for that account isn’t deleted. If you want to delete resource data for a delegated administrator account, you must perform that task separately before you deregister the account. Either, you can do this in the Audit Manager console. Or, you can use one of the delete API operations that are provided by Audit Manager. </p> <p>To delete your Audit Manager resource data, see the following instructions: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an assessment</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a custom framework</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom control</a> in the <i>Audit Manager User Guide</i>)</p> </li> </ul> <p>At this time, Audit Manager doesn't provide an option to delete evidence for a specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the time of deregistration.</p>
+
+        Args:
+            admin_account_id: <p> The identifier for the administrator account. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.deregister_organization_admin_account_request.DeregisterOrganizationAdminAccountRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.deregister_organization_admin_account_response.DeregisterOrganizationAdminAccountResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.deregister_organization_admin_account
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.deregister_organization_admin_account.async_deregister_organization_admin_account(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.deregister_organization_admin_account_request.DeregisterOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        if admin_account_id is not None:
+            input["admin_account_id"] = admin_account_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def disassociate_assessment_report_evidence_folder(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_response.DisassociateAssessmentReportEvidenceFolderResponse":
+        """<p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_request.DisassociateAssessmentReportEvidenceFolderRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_response.DisassociateAssessmentReportEvidenceFolderResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.disassociate_assessment_report_evidence_folder
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.disassociate_assessment_report_evidence_folder.async_disassociate_assessment_report_evidence_folder(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_request.DisassociateAssessmentReportEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["evidence_folder_id"] = evidence_folder_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_account_status(
+        self, *, config_overrides: Optional[AsyncAuditManagerClientConfig] = None
+    ) -> "aws_sdk_auditmanager.types.get_account_status_response.GetAccountStatusResponse":
+        """<p> Gets the registration status of an account in Audit Manager. </p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_account_status_request.GetAccountStatusRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_account_status_response.GetAccountStatusResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_account_status
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_account_status.async_get_account_status(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_account_status_request.GetAccountStatusRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_assessment(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_assessment_response.GetAssessmentResponse":
+        """<p>Gets information about a specified assessment. </p>
+
+        Args:
+            assessment_id: <p>The unique identifier for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_assessment_request.GetAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_assessment_response.GetAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_assessment.async_get_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_assessment_request.GetAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_assessment_framework(
+        self,
+        framework_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_assessment_framework_response.GetAssessmentFrameworkResponse":
+        """<p>Gets information about a specified framework.</p>
+
+        Args:
+            framework_id: <p> The identifier for the framework. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_assessment_framework_request.GetAssessmentFrameworkRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_assessment_framework_response.GetAssessmentFrameworkResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_assessment_framework
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_assessment_framework.async_get_assessment_framework(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_assessment_framework_request.GetAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input["framework_id"] = framework_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_assessment_report_url(
+        self,
+        assessment_report_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_assessment_report_url_response.GetAssessmentReportUrlResponse":
+        """<p> Gets the URL of an assessment report in Audit Manager. </p>
+
+        Args:
+            assessment_report_id: <p> The unique identifier for the assessment report. </p>
+            assessment_id: <p> The unique identifier for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_assessment_report_url_request.GetAssessmentReportUrlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_assessment_report_url_response.GetAssessmentReportUrlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_assessment_report_url
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_assessment_report_url.async_get_assessment_report_url(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_assessment_report_url_request.GetAssessmentReportUrlRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_report_id"] = assessment_report_id
+        input["assessment_id"] = assessment_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_change_logs(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        control_set_id: Optional[
+            "aws_sdk_auditmanager.types.control_set_id.ControlSetId"
+        ] = None,
+        control_id: Optional["aws_sdk_auditmanager.types.uuid.UUID"] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.get_change_logs_response.GetChangeLogsResponse":
+        """<p> Gets a list of changelogs from Audit Manager. </p>
+
+        Args:
+            assessment_id: <p>The unique identifier for the assessment. </p>
+            control_set_id: <p> The unique identifier for the control set. </p>
+            control_id: <p> The unique identifier for the control. </p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_change_logs_request.GetChangeLogsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_change_logs_response.GetChangeLogsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_change_logs
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_change_logs.async_get_change_logs(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_change_logs_request.GetChangeLogsRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        if control_set_id is not None:
+            input["control_set_id"] = control_set_id
+        if control_id is not None:
+            input["control_id"] = control_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_control(
+        self,
+        control_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_control_response.GetControlResponse":
+        """<p> Gets information about a specified control.</p>
+
+        Args:
+            control_id: <p> The identifier for the control. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_control_request.GetControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_control_response.GetControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_control.async_get_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_control_request.GetControlRequest = {}  # type: ignore[typeddict-item]
+        input["control_id"] = control_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_delegations(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.get_delegations_response.GetDelegationsResponse":
+        """<p> Gets a list of delegations from an audit owner to a delegate. </p>
+
+        Args:
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_delegations_request.GetDelegationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_delegations_response.GetDelegationsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_delegations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_delegations.async_get_delegations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_delegations_request.GetDelegationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_evidence(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        evidence_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_evidence_response.GetEvidenceResponse":
+        """<p> Gets information about a specified evidence item.</p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            control_set_id: <p> The unique identifier for the control set. </p>
+            evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
+            evidence_id: <p> The unique identifier for the evidence. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_evidence_request.GetEvidenceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_evidence_response.GetEvidenceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence.async_get_evidence(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_evidence_request.GetEvidenceRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["evidence_folder_id"] = evidence_folder_id
+        input["evidence_id"] = evidence_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_evidence_by_evidence_folder(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_response.GetEvidenceByEvidenceFolderResponse":
+        """<p> Gets all evidence from a specified evidence folder in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+            control_set_id: <p> The identifier for the control set. </p>
+            evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_request.GetEvidenceByEvidenceFolderRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_response.GetEvidenceByEvidenceFolderResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_by_evidence_folder
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_by_evidence_folder.async_get_evidence_by_evidence_folder(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_request.GetEvidenceByEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["evidence_folder_id"] = evidence_folder_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_evidence_file_upload_url(
+        self,
+        file_name: "aws_sdk_auditmanager.types.manual_evidence_local_file_name.ManualEvidenceLocalFileName",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_evidence_file_upload_url_response.GetEvidenceFileUploadUrlResponse":
+        """<p>Creates a presigned Amazon S3 URL that can be used to upload a file as manual evidence. For instructions on how to use this operation, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files\">Upload a file from your browser </a> in the <i>Audit Manager User Guide</i>.</p> <p>The following restrictions apply to this operation:</p> <ul> <li> <p>Maximum size of an individual evidence file: 100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per control: 100</p> </li> <li> <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i> </p> </li> </ul> <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+
+        Args:
+            file_name: <p>The file that you want to upload. For a list of supported file formats, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_evidence_file_upload_url_request.GetEvidenceFileUploadUrlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_evidence_file_upload_url_response.GetEvidenceFileUploadUrlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_file_upload_url
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_file_upload_url.async_get_evidence_file_upload_url(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_evidence_file_upload_url_request.GetEvidenceFileUploadUrlRequest = {}  # type: ignore[typeddict-item]
+        input["file_name"] = file_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_evidence_folder(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId",
+        evidence_folder_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_evidence_folder_response.GetEvidenceFolderResponse":
+        """<p> Gets an evidence folder from a specified assessment in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            control_set_id: <p> The unique identifier for the control set. </p>
+            evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_evidence_folder_request.GetEvidenceFolderRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_evidence_folder_response.GetEvidenceFolderResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_folder
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_folder.async_get_evidence_folder(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_evidence_folder_request.GetEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["evidence_folder_id"] = evidence_folder_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_evidence_folders_by_assessment(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_response.GetEvidenceFoldersByAssessmentResponse":
+        """<p> Gets the evidence folders from a specified assessment in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_response.GetEvidenceFoldersByAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_folders_by_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_folders_by_assessment.async_get_evidence_folders_by_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_evidence_folders_by_assessment_control(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId",
+        control_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_response.GetEvidenceFoldersByAssessmentControlResponse":
+        """<p> Gets a list of evidence folders that are associated with a specified control in an Audit Manager assessment. </p>
+
+        Args:
+            assessment_id: <p> The identifier for the assessment. </p>
+            control_set_id: <p> The identifier for the control set. </p>
+            control_id: <p> The identifier for the control. </p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_request.GetEvidenceFoldersByAssessmentControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_response.GetEvidenceFoldersByAssessmentControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_folders_by_assessment_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_evidence_folders_by_assessment_control.async_get_evidence_folders_by_assessment_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_request.GetEvidenceFoldersByAssessmentControlRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["control_id"] = control_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_insights(
+        self, *, config_overrides: Optional[AsyncAuditManagerClientConfig] = None
+    ) -> "aws_sdk_auditmanager.types.get_insights_response.GetInsightsResponse":
+        """<p>Gets the latest analytics data for all your current active assessments. </p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_insights_request.GetInsightsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_insights_response.GetInsightsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_insights
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_insights.async_get_insights(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_insights_request.GetInsightsRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_insights_by_assessment(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_insights_by_assessment_response.GetInsightsByAssessmentResponse":
+        """<p>Gets the latest analytics data for a specific active assessment. </p>
+
+        Args:
+            assessment_id: <p>The unique identifier for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_insights_by_assessment_request.GetInsightsByAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_insights_by_assessment_response.GetInsightsByAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_insights_by_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_insights_by_assessment.async_get_insights_by_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_insights_by_assessment_request.GetInsightsByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_organization_admin_account(
+        self, *, config_overrides: Optional[AsyncAuditManagerClientConfig] = None
+    ) -> "aws_sdk_auditmanager.types.get_organization_admin_account_response.GetOrganizationAdminAccountResponse":
+        """<p> Gets the name of the delegated Amazon Web Services administrator account for a specified organization. </p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_organization_admin_account_request.GetOrganizationAdminAccountRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_organization_admin_account_response.GetOrganizationAdminAccountResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_organization_admin_account
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_organization_admin_account.async_get_organization_admin_account(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_organization_admin_account_request.GetOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_services_in_scope(
+        self, *, config_overrides: Optional[AsyncAuditManagerClientConfig] = None
+    ) -> "aws_sdk_auditmanager.types.get_services_in_scope_response.GetServicesInScopeResponse":
+        """<p>Gets a list of the Amazon Web Services services from which Audit Manager can collect evidence. </p> <p>Audit Manager defines which Amazon Web Services services are in scope for an assessment. Audit Manager infers this scope by examining the assessment’s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services services that are in this list.</p> <note> <p>For information about why it's no longer possible to specify services in scope manually, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services\">I can't edit the services in scope for my assessment</a> in the <i>Troubleshooting</i> section of the Audit Manager user guide.</p> </note>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_services_in_scope_request.GetServicesInScopeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_services_in_scope_response.GetServicesInScopeResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_services_in_scope
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_services_in_scope.async_get_services_in_scope(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_services_in_scope_request.GetServicesInScopeRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_settings(
+        self,
+        attribute: "aws_sdk_auditmanager.types.setting_attribute.SettingAttribute",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.get_settings_response.GetSettingsResponse":
+        """<p> Gets the settings for a specified Amazon Web Services account. </p>
+
+        Args:
+            attribute: <p> The list of setting attribute enum values. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.get_settings_request.GetSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.get_settings_response.GetSettingsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_settings
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.get_settings.async_get_settings(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.get_settings_request.GetSettingsRequest = {}  # type: ignore[typeddict-item]
+        input["attribute"] = attribute
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_assessment_control_insights_by_control_domain(
+        self,
+        control_domain_id: "aws_sdk_auditmanager.types.control_domain_id.ControlDomainId",
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_response.ListAssessmentControlInsightsByControlDomainResponse":
+        """<p>Lists the latest analytics data for controls within a specific control domain and a specific active assessment.</p> <note> <p>Control insights are listed only if the control belongs to the control domain and assessment that was specified. Moreover, the control must have collected evidence on the <code>lastUpdated</code> date of <code>controlInsightsByAssessment</code>. If neither of these conditions are met, no data is listed for that control. </p> </note>
+
+        Args:
+            control_domain_id: <p>The unique identifier for the control domain. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p>
+            assessment_id: <p>The unique identifier for the active assessment. </p>
+            next_token: <p>The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_request.ListAssessmentControlInsightsByControlDomainRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_response.ListAssessmentControlInsightsByControlDomainResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_control_insights_by_control_domain
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_control_insights_by_control_domain.async_list_assessment_control_insights_by_control_domain(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_request.ListAssessmentControlInsightsByControlDomainRequest = {}  # type: ignore[typeddict-item]
+        input["control_domain_id"] = control_domain_id
+        input["assessment_id"] = assessment_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_assessment_frameworks(
+        self,
+        framework_type: "aws_sdk_auditmanager.types.framework_type.FrameworkType",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_assessment_frameworks_response.ListAssessmentFrameworksResponse":
+        """<p> Returns a list of the frameworks that are available in the Audit Manager framework library. </p>
+
+        Args:
+            framework_type: <p> The type of framework, such as a standard framework or a custom framework. </p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_assessment_frameworks_request.ListAssessmentFrameworksRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_assessment_frameworks_response.ListAssessmentFrameworksResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_frameworks
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_frameworks.async_list_assessment_frameworks(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_assessment_frameworks_request.ListAssessmentFrameworksRequest = {}  # type: ignore[typeddict-item]
+        input["framework_type"] = framework_type
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_assessment_framework_share_requests(
+        self,
+        request_type: "aws_sdk_auditmanager.types.share_request_type.ShareRequestType",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_assessment_framework_share_requests_response.ListAssessmentFrameworkShareRequestsResponse":
+        """<p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>
+
+        Args:
+            request_type: <p> Specifies whether the share request is a sent request or a received request.</p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_assessment_framework_share_requests_request.ListAssessmentFrameworkShareRequestsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_assessment_framework_share_requests_response.ListAssessmentFrameworkShareRequestsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_framework_share_requests
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_framework_share_requests.async_list_assessment_framework_share_requests(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_assessment_framework_share_requests_request.ListAssessmentFrameworkShareRequestsRequest = {}  # type: ignore[typeddict-item]
+        input["request_type"] = request_type
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_assessment_reports(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_assessment_reports_response.ListAssessmentReportsResponse":
+        """<p> Returns a list of assessment reports created in Audit Manager. </p>
+
+        Args:
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_assessment_reports_request.ListAssessmentReportsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_assessment_reports_response.ListAssessmentReportsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_reports
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessment_reports.async_list_assessment_reports(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_assessment_reports_request.ListAssessmentReportsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_assessments(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        status: Optional[
+            "aws_sdk_auditmanager.types.assessment_status.AssessmentStatus"
+        ] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_assessments_response.ListAssessmentsResponse":
+        """<p> Returns a list of current and past assessments from Audit Manager. </p>
+
+        Args:
+            status: <p> The current status of the assessment.</p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_assessments_request.ListAssessmentsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_assessments_response.ListAssessmentsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessments
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_assessments.async_list_assessments(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_assessments_request.ListAssessmentsRequest = {}  # type: ignore[typeddict-item]
+        if status is not None:
+            input["status"] = status
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_control_domain_insights(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_control_domain_insights_response.ListControlDomainInsightsResponse":
+        """<p>Lists the latest analytics data for control domains across all of your active assessments. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p> <note> <p>A control domain is listed only if at least one of the controls within that domain collected evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed for that control domain.</p> </note>
+
+        Args:
+            next_token: <p>The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_control_domain_insights_request.ListControlDomainInsightsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_control_domain_insights_response.ListControlDomainInsightsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_control_domain_insights
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_control_domain_insights.async_list_control_domain_insights(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_control_domain_insights_request.ListControlDomainInsightsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_control_domain_insights_by_assessment(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_response.ListControlDomainInsightsByAssessmentResponse":
+        """<p>Lists analytics data for control domains within a specified active assessment.</p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p> <note> <p>A control domain is listed only if at least one of the controls within that domain collected evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed for that domain.</p> </note>
+
+        Args:
+            assessment_id: <p>The unique identifier for the active assessment. </p>
+            next_token: <p>The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_request.ListControlDomainInsightsByAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_response.ListControlDomainInsightsByAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_control_domain_insights_by_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_control_domain_insights_by_assessment.async_list_control_domain_insights_by_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_request.ListControlDomainInsightsByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_control_insights_by_control_domain(
+        self,
+        control_domain_id: "aws_sdk_auditmanager.types.control_domain_id.ControlDomainId",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_control_insights_by_control_domain_response.ListControlInsightsByControlDomainResponse":
+        """<p>Lists the latest analytics data for controls within a specific control domain across all active assessments.</p> <note> <p>Control insights are listed only if the control belongs to the control domain that was specified and the control collected evidence on the <code>lastUpdated</code> date of <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data is listed for that control. </p> </note>
+
+        Args:
+            control_domain_id: <p>The unique identifier for the control domain. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p>
+            next_token: <p>The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_control_insights_by_control_domain_request.ListControlInsightsByControlDomainRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_control_insights_by_control_domain_response.ListControlInsightsByControlDomainResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_control_insights_by_control_domain
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_control_insights_by_control_domain.async_list_control_insights_by_control_domain(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_control_insights_by_control_domain_request.ListControlInsightsByControlDomainRequest = {}  # type: ignore[typeddict-item]
+        input["control_domain_id"] = control_domain_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_controls(
+        self,
+        control_type: "aws_sdk_auditmanager.types.control_type.ControlType",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+        control_catalog_id: Optional[
+            "aws_sdk_auditmanager.types.control_catalog_id.ControlCatalogId"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_controls_response.ListControlsResponse":
+        """<p> Returns a list of controls from Audit Manager. </p>
+
+        Args:
+            control_type: <p>A filter that narrows the list of controls to a specific type. </p>
+            next_token: <p>The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p>The maximum number of results on a page or for an API request call. </p>
+            control_catalog_id: <p>A filter that narrows the list of controls to a specific resource from the Amazon Web Services Control Catalog. </p> <p>To use this parameter, specify the ARN of the Control Catalog resource. You can specify either a control domain, a control objective, or a common control. For information about how to find the ARNs for these resources, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a>, <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListObjectives.html\"> <code>ListObjectives</code> </a>, and <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListCommonControls.html\"> <code>ListCommonControls</code> </a>.</p> <note> <p>You can only filter by one Control Catalog resource at a time. Specifying multiple resource ARNs isn’t currently supported. If you want to filter by more than one ARN, we recommend that you run the <code>ListControls</code> operation separately for each ARN. </p> </note> <p>Alternatively, specify <code>UNCATEGORIZED</code> to list controls that aren't mapped to a Control Catalog resource. For example, this operation might return a list of custom controls that don't belong to any control domain or control objective.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_controls_request.ListControlsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_controls_response.ListControlsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_controls
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_controls.async_list_controls(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_controls_request.ListControlsRequest = {}  # type: ignore[typeddict-item]
+        input["control_type"] = control_type
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if control_catalog_id is not None:
+            input["control_catalog_id"] = control_catalog_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_keywords_for_data_source(
+        self,
+        source: "aws_sdk_auditmanager.types.data_source_type.DataSourceType",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_keywords_for_data_source_response.ListKeywordsForDataSourceResponse":
+        """<p>Returns a list of keywords that are pre-mapped to the specified control data source.</p>
+
+        Args:
+            source: <p>The control mapping data source that the keywords apply to. </p>
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_keywords_for_data_source_request.ListKeywordsForDataSourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_keywords_for_data_source_response.ListKeywordsForDataSourceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_keywords_for_data_source
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_keywords_for_data_source.async_list_keywords_for_data_source(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_keywords_for_data_source_request.ListKeywordsForDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input["source"] = source
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_notifications(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        next_token: Optional["aws_sdk_auditmanager.types.token.Token"] = None,
+        max_results: Optional[
+            "aws_sdk_auditmanager.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.list_notifications_response.ListNotificationsResponse":
+        """<p> Returns a list of all Audit Manager notifications. </p>
+
+        Args:
+            next_token: <p> The pagination token that's used to fetch the next set of results. </p>
+            max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_notifications_request.ListNotificationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_notifications_response.ListNotificationsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_notifications
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_notifications.async_list_notifications(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_notifications_request.ListNotificationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_auditmanager.types.audit_manager_arn.AuditManagerArn",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p> Returns a list of tags for the specified resource in Audit Manager. </p>
+
+        Args:
+            resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def register_account(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        kms_key: Optional["aws_sdk_auditmanager.types.kms_key.KmsKey"] = None,
+        delegated_admin_account: Optional[
+            "aws_sdk_auditmanager.types.account_id.AccountId"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.register_account_response.RegisterAccountResponse":
+        """<p> Enables Audit Manager for the specified Amazon Web Services account. </p>
+
+        Args:
+            kms_key: <p> The KMS key details. </p>
+            delegated_admin_account: <p> The delegated administrator account for Audit Manager. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.register_account_request.RegisterAccountRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.register_account_response.RegisterAccountResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.register_account
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.register_account.async_register_account(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.register_account_request.RegisterAccountRequest = {}  # type: ignore[typeddict-item]
+        if kms_key is not None:
+            input["kms_key"] = kms_key
+        if delegated_admin_account is not None:
+            input["delegated_admin_account"] = delegated_admin_account
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def register_organization_admin_account(
+        self,
+        admin_account_id: "aws_sdk_auditmanager.types.account_id.AccountId",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.register_organization_admin_account_response.RegisterOrganizationAdminAccountResponse":
+        """<p> Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager. </p>
+
+        Args:
+            admin_account_id: <p> The identifier for the delegated administrator account. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.register_organization_admin_account_request.RegisterOrganizationAdminAccountRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.register_organization_admin_account_response.RegisterOrganizationAdminAccountResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.register_organization_admin_account
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.register_organization_admin_account.async_register_organization_admin_account(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.register_organization_admin_account_request.RegisterOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input["admin_account_id"] = admin_account_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def start_assessment_framework_share(
+        self,
+        framework_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        destination_account: "aws_sdk_auditmanager.types.account_id.AccountId",
+        destination_region: "aws_sdk_auditmanager.types.region.Region",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        comment: Optional[
+            "aws_sdk_auditmanager.types.share_request_comment.ShareRequestComment"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.start_assessment_framework_share_response.StartAssessmentFrameworkShareResponse":
+        """<p> Creates a share request for a custom framework in Audit Manager. </p> <p>The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires.</p> <p>When you create a share request, Audit Manager stores a snapshot of your custom framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.</p> <p>Audit Manager deletes the snapshot and the backup snapshot when one of the following events occurs:</p> <ul> <li> <p>The sender revokes the share request.</p> </li> <li> <p>The recipient declines the share request.</p> </li> <li> <p>The recipient encounters an error and doesn't successfully accept the share request.</p> </li> <li> <p>The share request expires before the recipient responds to the request.</p> </li> </ul> <p>When a sender <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend\">resends a share request</a>, the snapshot is replaced with an updated version that corresponds with the latest version of the custom framework. </p> <p>When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share request. </p> <important> <p>When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about to share a custom framework with another Amazon Web Services account. You may not share a custom framework that is derived from a standard framework if the standard framework is designated as not eligible for sharing by Amazon Web Services, unless you have obtained permission to do so from the owner of the standard framework. To learn more about which standard frameworks are eligible for sharing, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility\">Framework sharing eligibility</a> in the <i>Audit Manager User Guide</i>.</p> </important>
+
+        Args:
+            framework_id: <p> The unique identifier for the custom framework to be shared. </p>
+            destination_account: <p> The Amazon Web Services account of the recipient. </p>
+            destination_region: <p> The Amazon Web Services Region of the recipient. </p>
+            comment: <p> An optional comment from the sender about the share request. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.start_assessment_framework_share_request.StartAssessmentFrameworkShareRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.start_assessment_framework_share_response.StartAssessmentFrameworkShareResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.start_assessment_framework_share
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.start_assessment_framework_share.async_start_assessment_framework_share(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.start_assessment_framework_share_request.StartAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
+        input["framework_id"] = framework_id
+        input["destination_account"] = destination_account
+        input["destination_region"] = destination_region
+        if comment is not None:
+            input["comment"] = comment
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        resource_arn: "aws_sdk_auditmanager.types.audit_manager_arn.AuditManagerArn",
+        tags: "aws_sdk_auditmanager.types.tag_map.TagMap",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.tag_resource_response.TagResourceResponse":
+        """<p> Tags the specified resource in Audit Manager. </p>
+
+        Args:
+            resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
+            tags: <p> The tags that are associated with the resource. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        resource_arn: "aws_sdk_auditmanager.types.audit_manager_arn.AuditManagerArn",
+        tag_keys: "aws_sdk_auditmanager.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.untag_resource_response.UntagResourceResponse":
+        """<p> Removes a tag from a resource in Audit Manager. </p>
+
+        Args:
+            resource_arn: <p> The Amazon Resource Name (ARN) of the specified resource. </p>
+            tag_keys: <p> The name or key of the tag. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_assessment(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        scope: "aws_sdk_auditmanager.types.scope.Scope",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        assessment_name: Optional[
+            "aws_sdk_auditmanager.types.assessment_name.AssessmentName"
+        ] = None,
+        assessment_description: Optional[
+            "aws_sdk_auditmanager.types.assessment_description.AssessmentDescription"
+        ] = None,
+        assessment_reports_destination: Optional[
+            "aws_sdk_auditmanager.types.assessment_reports_destination.AssessmentReportsDestination"
+        ] = None,
+        roles: Optional["aws_sdk_auditmanager.types.roles.Roles"] = None,
+    ) -> (
+        "aws_sdk_auditmanager.types.update_assessment_response.UpdateAssessmentResponse"
+    ):
+        """<p> Edits an Audit Manager assessment. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            assessment_name: <p> The name of the assessment to be updated. </p>
+            assessment_description: <p> The description of the assessment. </p>
+            scope: <p> The scope of the assessment. </p>
+            assessment_reports_destination: <p> The assessment report storage destination for the assessment that's being updated. </p>
+            roles: <p> The list of roles for the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_assessment_request.UpdateAssessmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_assessment_response.UpdateAssessmentResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment.async_update_assessment(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_assessment_request.UpdateAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        if assessment_name is not None:
+            input["assessment_name"] = assessment_name
+        if assessment_description is not None:
+            input["assessment_description"] = assessment_description
+        input["scope"] = scope
+        if assessment_reports_destination is not None:
+            input["assessment_reports_destination"] = assessment_reports_destination
+        if roles is not None:
+            input["roles"] = roles
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_assessment_control(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId",
+        control_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        control_status: Optional[
+            "aws_sdk_auditmanager.types.control_status.ControlStatus"
+        ] = None,
+        comment_body: Optional[
+            "aws_sdk_auditmanager.types.control_comment_body.ControlCommentBody"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.update_assessment_control_response.UpdateAssessmentControlResponse":
+        """<p> Updates a control within an assessment in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            control_set_id: <p> The unique identifier for the control set. </p>
+            control_id: <p> The unique identifier for the control. </p>
+            control_status: <p> The status of the control. </p>
+            comment_body: <p> The comment body text for the control. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_assessment_control_request.UpdateAssessmentControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_assessment_control_response.UpdateAssessmentControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_control.async_update_assessment_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_assessment_control_request.UpdateAssessmentControlRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["control_id"] = control_id
+        if control_status is not None:
+            input["control_status"] = control_status
+        if comment_body is not None:
+            input["comment_body"] = comment_body
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_assessment_control_set_status(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        control_set_id: "aws_sdk_auditmanager.types.string.String",
+        status: "aws_sdk_auditmanager.types.control_set_status.ControlSetStatus",
+        comment: "aws_sdk_auditmanager.types.delegation_comment.DelegationComment",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.update_assessment_control_set_status_response.UpdateAssessmentControlSetStatusResponse":
+        """<p> Updates the status of a control set in an Audit Manager assessment. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            control_set_id: <p> The unique identifier for the control set. </p>
+            status: <p> The status of the control set that's being updated. </p>
+            comment: <p> The comment that's related to the status update. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_assessment_control_set_status_request.UpdateAssessmentControlSetStatusRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_assessment_control_set_status_response.UpdateAssessmentControlSetStatusResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_control_set_status
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_control_set_status.async_update_assessment_control_set_status(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_assessment_control_set_status_request.UpdateAssessmentControlSetStatusRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["control_set_id"] = control_set_id
+        input["status"] = status
+        input["comment"] = comment
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_assessment_framework(
+        self,
+        framework_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        name: "aws_sdk_auditmanager.types.framework_name.FrameworkName",
+        control_sets: "aws_sdk_auditmanager.types.update_assessment_framework_control_sets.UpdateAssessmentFrameworkControlSets",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        description: Optional[
+            "aws_sdk_auditmanager.types.framework_description.FrameworkDescription"
+        ] = None,
+        compliance_type: Optional[
+            "aws_sdk_auditmanager.types.compliance_type.ComplianceType"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.update_assessment_framework_response.UpdateAssessmentFrameworkResponse":
+        """<p> Updates a custom framework in Audit Manager. </p>
+
+        Args:
+            framework_id: <p> The unique identifier for the framework. </p>
+            name: <p> The name of the framework to be updated. </p>
+            description: <p> The description of the updated framework. </p>
+            compliance_type: <p> The compliance type that the new custom framework supports, such as CIS or HIPAA. </p>
+            control_sets: <p> The control sets that are associated with the framework. </p> <note> <p>The <code>Controls</code> object returns a partial response when called through Framework APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p> </note>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_assessment_framework_request.UpdateAssessmentFrameworkRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_assessment_framework_response.UpdateAssessmentFrameworkResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_framework
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_framework.async_update_assessment_framework(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_assessment_framework_request.UpdateAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input["framework_id"] = framework_id
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if compliance_type is not None:
+            input["compliance_type"] = compliance_type
+        input["control_sets"] = control_sets
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_assessment_framework_share(
+        self,
+        request_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        request_type: "aws_sdk_auditmanager.types.share_request_type.ShareRequestType",
+        action: "aws_sdk_auditmanager.types.share_request_action.ShareRequestAction",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.update_assessment_framework_share_response.UpdateAssessmentFrameworkShareResponse":
+        """<p> Updates a share request for a custom framework in Audit Manager. </p>
+
+        Args:
+            request_id: <p> The unique identifier for the share request. </p>
+            request_type: <p>Specifies whether the share request is a sent request or a received request.</p>
+            action: <p>Specifies the update action for the share request.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_assessment_framework_share_request.UpdateAssessmentFrameworkShareRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_assessment_framework_share_response.UpdateAssessmentFrameworkShareResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_framework_share
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_framework_share.async_update_assessment_framework_share(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_assessment_framework_share_request.UpdateAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
+        input["request_id"] = request_id
+        input["request_type"] = request_type
+        input["action"] = action
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_assessment_status(
+        self,
+        assessment_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        status: "aws_sdk_auditmanager.types.assessment_status.AssessmentStatus",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.update_assessment_status_response.UpdateAssessmentStatusResponse":
+        """<p> Updates the status of an assessment in Audit Manager. </p>
+
+        Args:
+            assessment_id: <p> The unique identifier for the assessment. </p>
+            status: <p> The current status of the assessment. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_assessment_status_request.UpdateAssessmentStatusRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_assessment_status_response.UpdateAssessmentStatusResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_status
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_assessment_status.async_update_assessment_status(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_assessment_status_request.UpdateAssessmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input["assessment_id"] = assessment_id
+        input["status"] = status
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_control(
+        self,
+        control_id: "aws_sdk_auditmanager.types.uuid.UUID",
+        name: "aws_sdk_auditmanager.types.control_name.ControlName",
+        control_mapping_sources: "aws_sdk_auditmanager.types.control_mapping_sources.ControlMappingSources",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        description: Optional[
+            "aws_sdk_auditmanager.types.control_description.ControlDescription"
+        ] = None,
+        testing_information: Optional[
+            "aws_sdk_auditmanager.types.testing_information.TestingInformation"
+        ] = None,
+        action_plan_title: Optional[
+            "aws_sdk_auditmanager.types.action_plan_title.ActionPlanTitle"
+        ] = None,
+        action_plan_instructions: Optional[
+            "aws_sdk_auditmanager.types.action_plan_instructions.ActionPlanInstructions"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.update_control_response.UpdateControlResponse":
+        """<p> Updates a custom control in Audit Manager. </p>
+
+        Args:
+            control_id: <p> The identifier for the control. </p>
+            name: <p> The name of the updated control. </p>
+            description: <p> The optional description of the control. </p>
+            testing_information: <p> The steps that you should follow to determine if the control is met. </p>
+            action_plan_title: <p> The title of the action plan for remediating the control. </p>
+            action_plan_instructions: <p> The recommended actions to carry out if the control isn't fulfilled. </p>
+            control_mapping_sources: <p> The data mapping sources for the control. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_control_request.UpdateControlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_control_response.UpdateControlResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_control
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_control.async_update_control(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_control_request.UpdateControlRequest = {}  # type: ignore[typeddict-item]
+        input["control_id"] = control_id
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if testing_information is not None:
+            input["testing_information"] = testing_information
+        if action_plan_title is not None:
+            input["action_plan_title"] = action_plan_title
+        if action_plan_instructions is not None:
+            input["action_plan_instructions"] = action_plan_instructions
+        input["control_mapping_sources"] = control_mapping_sources
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_settings(
+        self,
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+        sns_topic: Optional["aws_sdk_auditmanager.types.sns_arn.SnsArn"] = None,
+        default_assessment_reports_destination: Optional[
+            "aws_sdk_auditmanager.types.assessment_reports_destination.AssessmentReportsDestination"
+        ] = None,
+        default_process_owners: Optional[
+            "aws_sdk_auditmanager.types.roles.Roles"
+        ] = None,
+        kms_key: Optional["aws_sdk_auditmanager.types.kms_key.KmsKey"] = None,
+        evidence_finder_enabled: Optional[
+            "aws_sdk_auditmanager.types.boolean.Boolean"
+        ] = None,
+        deregistration_policy: Optional[
+            "aws_sdk_auditmanager.types.deregistration_policy.DeregistrationPolicy"
+        ] = None,
+        default_export_destination: Optional[
+            "aws_sdk_auditmanager.types.default_export_destination.DefaultExportDestination"
+        ] = None,
+    ) -> "aws_sdk_auditmanager.types.update_settings_response.UpdateSettingsResponse":
+        """<p> Updates Audit Manager settings for the current account. </p>
+
+        Args:
+            sns_topic: <p> The Amazon Simple Notification Service (Amazon SNS) topic that Audit Manager sends notifications to. </p>
+            default_assessment_reports_destination: <p> The default S3 destination bucket for storing assessment reports. </p>
+            default_process_owners: <p> A list of the default audit owners. </p>
+            kms_key: <p> The KMS key details. </p>
+            evidence_finder_enabled: <p>Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.</p> <important> <p>When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that’s used to query your evidence data. As a result, you can’t re-enable evidence finder and use the feature again. Your only alternative is to <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister</a> and then <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register</a> Audit Manager. </p> </important>
+            deregistration_policy: <p>The deregistration policy for your Audit Manager data. You can use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
+            default_export_destination: <p> The default S3 destination bucket for storing evidence finder exports. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.update_settings_request.UpdateSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.update_settings_response.UpdateSettingsResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_settings
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.update_settings.async_update_settings(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.update_settings_request.UpdateSettingsRequest = {}  # type: ignore[typeddict-item]
+        if sns_topic is not None:
+            input["sns_topic"] = sns_topic
+        if default_assessment_reports_destination is not None:
+            input["default_assessment_reports_destination"] = (
+                default_assessment_reports_destination
+            )
+        if default_process_owners is not None:
+            input["default_process_owners"] = default_process_owners
+        if kms_key is not None:
+            input["kms_key"] = kms_key
+        if evidence_finder_enabled is not None:
+            input["evidence_finder_enabled"] = evidence_finder_enabled
+        if deregistration_policy is not None:
+            input["deregistration_policy"] = deregistration_policy
+        if default_export_destination is not None:
+            input["default_export_destination"] = default_export_destination
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def validate_assessment_report_integrity(
+        self,
+        s3_relative_path: "aws_sdk_auditmanager.types.s3_url.S3Url",
+        *,
+        config_overrides: Optional[AsyncAuditManagerClientConfig] = None,
+    ) -> "aws_sdk_auditmanager.types.validate_assessment_report_integrity_response.ValidateAssessmentReportIntegrityResponse":
+        """<p> Validates the integrity of an assessment report in Audit Manager. </p>
+
+        Args:
+            s3_relative_path: <p> The relative path of the Amazon S3 bucket that the assessment report is stored in. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_auditmanager.types.validate_assessment_report_integrity_request.ValidateAssessmentReportIntegrityRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_auditmanager.types.validate_assessment_report_integrity_response.ValidateAssessmentReportIntegrityResponse"
+        ]:
+            import aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.validate_assessment_report_integrity
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_auditmanager._operations.bedrock_assessment_manager_lambda.validate_assessment_report_integrity.async_validate_assessment_report_integrity(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_auditmanager.types.validate_assessment_report_integrity_request.ValidateAssessmentReportIntegrityRequest = {}  # type: ignore[typeddict-item]
+        input["s3_relative_path"] = s3_relative_path
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

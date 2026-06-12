@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.keyspaces#GetTypeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_keyspaces.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_keyspaces.types.keyspace_name
+    import aws_sdk_keyspaces.types.type_name
+
+
+class GetTypeRequest(TypedDict):
+    keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
+    """<p> The name of the keyspace that contains this type. </p>"""
+    type_name: "aws_sdk_keyspaces.types.type_name.TypeName"
+    """<p>The formatted name of the type. For example, if the name of the type was created without double quotes, Amazon Keyspaces saved the name in lower-case characters. If the name was created in double quotes, you must use double quotes to specify the type name. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetTypeRequest) -> dict:
+    out: dict = {}
+    out["keyspaceName"] = value["keyspace_name"]
+    out["typeName"] = value["type_name"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetTypeRequest:
+    out: GetTypeRequest = {}  # type: ignore[typeddict-item]
+    if "keyspaceName" in data:
+        out["keyspace_name"] = data["keyspaceName"]
+    else:
+        raise DeserializationError("GetTypeRequest.keyspace_name required")
+    if "typeName" in data:
+        out["type_name"] = data["typeName"]
+    else:
+        raise DeserializationError("GetTypeRequest.type_name required")
+    return out

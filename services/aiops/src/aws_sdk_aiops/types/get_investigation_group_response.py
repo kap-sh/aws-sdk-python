@@ -1,0 +1,174 @@
+"""Generated from Smithy shape ``com.amazonaws.aiops#GetInvestigationGroupResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_aiops.types.chatbot_notification_channel
+    import aws_sdk_aiops.types.cross_account_configurations
+    import aws_sdk_aiops.types.encryption_configuration
+    import aws_sdk_aiops.types.identifier_string_with_pattern_and_length_limits
+    import aws_sdk_aiops.types.investigation_group_arn
+    import aws_sdk_aiops.types.retention
+    import aws_sdk_aiops.types.role_arn
+    import aws_sdk_aiops.types.string_with_pattern_and_length_limits
+    import aws_sdk_aiops.types.tag_key_boundaries
+
+
+class GetInvestigationGroupResponse(TypedDict):
+    created_by: NotRequired[
+        "aws_sdk_aiops.types.identifier_string_with_pattern_and_length_limits.IdentifierStringWithPatternAndLengthLimits"
+    ]
+    """<p>The name of the user who created the investigation group.</p>"""
+    created_at: NotRequired["int"]
+    """<p>The date and time that the investigation group was created.</p>"""
+    last_modified_by: NotRequired[
+        "aws_sdk_aiops.types.identifier_string_with_pattern_and_length_limits.IdentifierStringWithPatternAndLengthLimits"
+    ]
+    """<p>The name of the user who created the investigation group.</p>"""
+    last_modified_at: NotRequired["int"]
+    """<p>The date and time that the investigation group was most recently modified.</p>"""
+    name: NotRequired[
+        "aws_sdk_aiops.types.string_with_pattern_and_length_limits.StringWithPatternAndLengthLimits"
+    ]
+    """<p>The name of the investigation group.</p>"""
+    arn: NotRequired[
+        "aws_sdk_aiops.types.investigation_group_arn.InvestigationGroupArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the investigation group.</p>"""
+    role_arn: NotRequired["aws_sdk_aiops.types.role_arn.RoleArn"]
+    """<p>The ARN of the IAM role that the investigation group uses for permissions to gather data.</p>"""
+    encryption_configuration: NotRequired[
+        "aws_sdk_aiops.types.encryption_configuration.EncryptionConfiguration"
+    ]
+    """<p>Specifies the customer managed KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an Amazon Web Services key to encrypt the data.</p>"""
+    retention_in_days: NotRequired["aws_sdk_aiops.types.retention.Retention"]
+    """<p>Specifies how long that investigation data is kept.</p>"""
+    chatbot_notification_channel: NotRequired[
+        "aws_sdk_aiops.types.chatbot_notification_channel.ChatbotNotificationChannel"
+    ]
+    """<p>This structure is a string array. The first string is the ARN of a Amazon SNS topic. The array of strings display the ARNs of chat applications configurations that are associated with that topic. For more information about these configuration ARNs, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html\">Getting started with Amazon Q in chat applications</a> and <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies\">Resource type defined by Amazon Web Services Chatbot</a>.</p>"""
+    tag_key_boundaries: NotRequired[
+        "aws_sdk_aiops.types.tag_key_boundaries.TagKeyBoundaries"
+    ]
+    """<p>Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. </p>"""
+    is_cloud_trail_event_history_enabled: NotRequired["bool"]
+    """<p>Specifies whether CloudWatch investigationshas access to change events that are recorded by CloudTrail.</p>"""
+    cross_account_configurations: NotRequired[
+        "aws_sdk_aiops.types.cross_account_configurations.CrossAccountConfigurations"
+    ]
+    """<p>Lists the <code>AWSAccountId</code> of the accounts configured for cross-account access and the results of the last scan performed on each account.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetInvestigationGroupResponse) -> dict:
+    out: dict = {}
+    if "created_by" in value:
+        out["createdBy"] = value["created_by"]
+    if "created_at" in value:
+        out["createdAt"] = value["created_at"]
+    if "last_modified_by" in value:
+        out["lastModifiedBy"] = value["last_modified_by"]
+    if "last_modified_at" in value:
+        out["lastModifiedAt"] = value["last_modified_at"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "role_arn" in value:
+        out["roleArn"] = value["role_arn"]
+    if "encryption_configuration" in value:
+        import aws_sdk_aiops.types.encryption_configuration
+
+        out["encryptionConfiguration"] = (
+            aws_sdk_aiops.types.encryption_configuration.serialize_json(
+                value["encryption_configuration"]
+            )
+        )
+    if "retention_in_days" in value:
+        out["retentionInDays"] = value["retention_in_days"]
+    if "chatbot_notification_channel" in value:
+        import aws_sdk_aiops.types.chatbot_notification_channel
+
+        out["chatbotNotificationChannel"] = (
+            aws_sdk_aiops.types.chatbot_notification_channel.serialize_json(
+                value["chatbot_notification_channel"]
+            )
+        )
+    if "tag_key_boundaries" in value:
+        import aws_sdk_aiops.types.tag_key_boundaries
+
+        out["tagKeyBoundaries"] = aws_sdk_aiops.types.tag_key_boundaries.serialize_json(
+            value["tag_key_boundaries"]
+        )
+    if "is_cloud_trail_event_history_enabled" in value:
+        out["isCloudTrailEventHistoryEnabled"] = value[
+            "is_cloud_trail_event_history_enabled"
+        ]
+    if "cross_account_configurations" in value:
+        import aws_sdk_aiops.types.cross_account_configurations
+
+        out["crossAccountConfigurations"] = (
+            aws_sdk_aiops.types.cross_account_configurations.serialize_json(
+                value["cross_account_configurations"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetInvestigationGroupResponse:
+    out: GetInvestigationGroupResponse = {}  # type: ignore[typeddict-item]
+    if "createdBy" in data:
+        out["created_by"] = data["createdBy"]
+    if "createdAt" in data:
+        out["created_at"] = data["createdAt"]
+    if "lastModifiedBy" in data:
+        out["last_modified_by"] = data["lastModifiedBy"]
+    if "lastModifiedAt" in data:
+        out["last_modified_at"] = data["lastModifiedAt"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    if "encryptionConfiguration" in data:
+        import aws_sdk_aiops.types.encryption_configuration
+
+        out["encryption_configuration"] = (
+            aws_sdk_aiops.types.encryption_configuration.deserialize_json(
+                data["encryptionConfiguration"]
+            )
+        )
+    if "retentionInDays" in data:
+        out["retention_in_days"] = data["retentionInDays"]
+    if "chatbotNotificationChannel" in data:
+        import aws_sdk_aiops.types.chatbot_notification_channel
+
+        out["chatbot_notification_channel"] = (
+            aws_sdk_aiops.types.chatbot_notification_channel.deserialize_json(
+                data["chatbotNotificationChannel"]
+            )
+        )
+    if "tagKeyBoundaries" in data:
+        import aws_sdk_aiops.types.tag_key_boundaries
+
+        out["tag_key_boundaries"] = (
+            aws_sdk_aiops.types.tag_key_boundaries.deserialize_json(
+                data["tagKeyBoundaries"]
+            )
+        )
+    if "isCloudTrailEventHistoryEnabled" in data:
+        out["is_cloud_trail_event_history_enabled"] = data[
+            "isCloudTrailEventHistoryEnabled"
+        ]
+    if "crossAccountConfigurations" in data:
+        import aws_sdk_aiops.types.cross_account_configurations
+
+        out["cross_account_configurations"] = (
+            aws_sdk_aiops.types.cross_account_configurations.deserialize_json(
+                data["crossAccountConfigurations"]
+            )
+        )
+    return out

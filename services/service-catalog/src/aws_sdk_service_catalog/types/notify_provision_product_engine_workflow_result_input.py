@@ -1,0 +1,132 @@
+"""Generated from Smithy shape ``com.amazonaws.servicecatalog#NotifyProvisionProductEngineWorkflowResultInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_service_catalog.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_service_catalog.types.engine_workflow_failure_reason
+    import aws_sdk_service_catalog.types.engine_workflow_resource_identifier
+    import aws_sdk_service_catalog.types.engine_workflow_status
+    import aws_sdk_service_catalog.types.engine_workflow_token
+    import aws_sdk_service_catalog.types.id
+    import aws_sdk_service_catalog.types.idempotency_token
+    import aws_sdk_service_catalog.types.record_outputs
+
+
+class NotifyProvisionProductEngineWorkflowResultInput(TypedDict):
+    workflow_token: (
+        "aws_sdk_service_catalog.types.engine_workflow_token.EngineWorkflowToken"
+    )
+    """<p> The encrypted contents of the provisioning engine execution payload that Service Catalog sends after the Terraform product provisioning workflow starts. </p>"""
+    record_id: "aws_sdk_service_catalog.types.id.Id"
+    """<p> The identifier of the record. </p>"""
+    status: "aws_sdk_service_catalog.types.engine_workflow_status.EngineWorkflowStatus"
+    """<p> The status of the provisioning engine execution. </p>"""
+    failure_reason: NotRequired[
+        "aws_sdk_service_catalog.types.engine_workflow_failure_reason.EngineWorkflowFailureReason"
+    ]
+    """<p> The reason why the provisioning engine execution failed. </p>"""
+    resource_identifier: NotRequired[
+        "aws_sdk_service_catalog.types.engine_workflow_resource_identifier.EngineWorkflowResourceIdentifier"
+    ]
+    """<p> The ID for the provisioned product resources that are part of a resource group. </p>"""
+    outputs: NotRequired["aws_sdk_service_catalog.types.record_outputs.RecordOutputs"]
+    """<p> The output of the provisioning engine execution. </p>"""
+    idempotency_token: (
+        "aws_sdk_service_catalog.types.idempotency_token.IdempotencyToken"
+    )
+    """<p> The idempotency token that identifies the provisioning engine execution. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: NotifyProvisionProductEngineWorkflowResultInput,
+) -> dict:
+    out: dict = {}
+    out["WorkflowToken"] = value["workflow_token"]
+    out["RecordId"] = value["record_id"]
+    import aws_sdk_service_catalog.types.engine_workflow_status
+
+    out["Status"] = (
+        aws_sdk_service_catalog.types.engine_workflow_status.serialize_aws_json_1_1(
+            value["status"]
+        )
+    )
+    if "failure_reason" in value:
+        out["FailureReason"] = value["failure_reason"]
+    if "resource_identifier" in value:
+        import aws_sdk_service_catalog.types.engine_workflow_resource_identifier
+
+        out["ResourceIdentifier"] = (
+            aws_sdk_service_catalog.types.engine_workflow_resource_identifier.serialize_aws_json_1_1(
+                value["resource_identifier"]
+            )
+        )
+    if "outputs" in value:
+        import aws_sdk_service_catalog.types.record_outputs
+
+        out["Outputs"] = (
+            aws_sdk_service_catalog.types.record_outputs.serialize_aws_json_1_1(
+                value["outputs"]
+            )
+        )
+    out["IdempotencyToken"] = value["idempotency_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> NotifyProvisionProductEngineWorkflowResultInput:
+    out: NotifyProvisionProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
+    if "WorkflowToken" in data:
+        out["workflow_token"] = data["WorkflowToken"]
+    else:
+        raise DeserializationError(
+            "NotifyProvisionProductEngineWorkflowResultInput.workflow_token required"
+        )
+    if "RecordId" in data:
+        out["record_id"] = data["RecordId"]
+    else:
+        raise DeserializationError(
+            "NotifyProvisionProductEngineWorkflowResultInput.record_id required"
+        )
+    if "Status" in data:
+        import aws_sdk_service_catalog.types.engine_workflow_status
+
+        out["status"] = (
+            aws_sdk_service_catalog.types.engine_workflow_status.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "NotifyProvisionProductEngineWorkflowResultInput.status required"
+        )
+    if "FailureReason" in data:
+        out["failure_reason"] = data["FailureReason"]
+    if "ResourceIdentifier" in data:
+        import aws_sdk_service_catalog.types.engine_workflow_resource_identifier
+
+        out["resource_identifier"] = (
+            aws_sdk_service_catalog.types.engine_workflow_resource_identifier.deserialize_aws_json_1_1(
+                data["ResourceIdentifier"]
+            )
+        )
+    if "Outputs" in data:
+        import aws_sdk_service_catalog.types.record_outputs
+
+        out["outputs"] = (
+            aws_sdk_service_catalog.types.record_outputs.deserialize_aws_json_1_1(
+                data["Outputs"]
+            )
+        )
+    if "IdempotencyToken" in data:
+        out["idempotency_token"] = data["IdempotencyToken"]
+    else:
+        raise DeserializationError(
+            "NotifyProvisionProductEngineWorkflowResultInput.idempotency_token required"
+        )
+    return out

@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchevents#DeactivateEventSourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cloudwatch_events.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_events.types.event_source_name
+
+
+class DeactivateEventSourceRequest(TypedDict):
+    name: "aws_sdk_cloudwatch_events.types.event_source_name.EventSourceName"
+    """<p>The name of the partner event source to deactivate.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeactivateEventSourceRequest) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeactivateEventSourceRequest:
+    out: DeactivateEventSourceRequest = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("DeactivateEventSourceRequest.name required")
+    return out

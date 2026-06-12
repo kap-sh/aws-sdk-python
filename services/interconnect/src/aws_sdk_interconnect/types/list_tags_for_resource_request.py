@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.interconnect#ListTagsForResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_interconnect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_interconnect.types.amazon_resource_name
+
+
+class ListTagsForResourceRequest(TypedDict):
+    arn: "aws_sdk_interconnect.types.amazon_resource_name.AmazonResourceName"
+    """<p>The resource ARN for which to list tags. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListTagsForResourceRequest) -> dict:
+    out: dict = {}
+    out["arn"] = value["arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListTagsForResourceRequest:
+    out: ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("ListTagsForResourceRequest.arn required")
+    return out

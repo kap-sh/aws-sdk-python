@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#ListStorageLensGroupsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_s3_control._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import aws_sdk_s3_control.types.account_id
+    import aws_sdk_s3_control.types.continuation_token
+
+
+class ListStorageLensGroupsRequest(TypedDict):
+    account_id: "aws_sdk_s3_control.types.account_id.AccountId"
+    """<p> The Amazon Web Services account ID that owns the Storage Lens groups. </p>"""
+    next_token: NotRequired[
+        "aws_sdk_s3_control.types.continuation_token.ContinuationToken"
+    ]
+    """<p>The token for the next set of results, or <code>null</code> if there are no more results. </p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: ListStorageLensGroupsRequest, parent: Element, tag: str
+) -> None:
+    SubElement(parent, tag)
+
+
+def deserialize_xml(el: Element) -> ListStorageLensGroupsRequest:
+    out: ListStorageLensGroupsRequest = {}  # type: ignore[typeddict-item]
+    return out

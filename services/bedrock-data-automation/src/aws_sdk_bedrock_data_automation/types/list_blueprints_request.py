@@ -1,0 +1,105 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ListBlueprintsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_data_automation.types.blueprint_arn
+    import aws_sdk_bedrock_data_automation.types.blueprint_stage_filter
+    import aws_sdk_bedrock_data_automation.types.data_automation_project_filter
+    import aws_sdk_bedrock_data_automation.types.max_results
+    import aws_sdk_bedrock_data_automation.types.next_token
+    import aws_sdk_bedrock_data_automation.types.resource_owner
+
+
+class ListBlueprintsRequest(TypedDict):
+    blueprint_arn: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.blueprint_arn.BlueprintArn"
+    ]
+    resource_owner: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.resource_owner.ResourceOwner"
+    ]
+    blueprint_stage_filter: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.blueprint_stage_filter.BlueprintStageFilter"
+    ]
+    max_results: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.max_results.MaxResults"
+    ]
+    next_token: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.next_token.NextToken"
+    ]
+    project_filter: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.data_automation_project_filter.DataAutomationProjectFilter"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListBlueprintsRequest) -> dict:
+    out: dict = {}
+    if "blueprint_arn" in value:
+        out["blueprintArn"] = value["blueprint_arn"]
+    if "resource_owner" in value:
+        import aws_sdk_bedrock_data_automation.types.resource_owner
+
+        out["resourceOwner"] = (
+            aws_sdk_bedrock_data_automation.types.resource_owner.serialize_json(
+                value["resource_owner"]
+            )
+        )
+    if "blueprint_stage_filter" in value:
+        import aws_sdk_bedrock_data_automation.types.blueprint_stage_filter
+
+        out["blueprintStageFilter"] = (
+            aws_sdk_bedrock_data_automation.types.blueprint_stage_filter.serialize_json(
+                value["blueprint_stage_filter"]
+            )
+        )
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "project_filter" in value:
+        import aws_sdk_bedrock_data_automation.types.data_automation_project_filter
+
+        out["projectFilter"] = (
+            aws_sdk_bedrock_data_automation.types.data_automation_project_filter.serialize_json(
+                value["project_filter"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListBlueprintsRequest:
+    out: ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
+    if "blueprintArn" in data:
+        out["blueprint_arn"] = data["blueprintArn"]
+    if "resourceOwner" in data:
+        import aws_sdk_bedrock_data_automation.types.resource_owner
+
+        out["resource_owner"] = (
+            aws_sdk_bedrock_data_automation.types.resource_owner.deserialize_json(
+                data["resourceOwner"]
+            )
+        )
+    if "blueprintStageFilter" in data:
+        import aws_sdk_bedrock_data_automation.types.blueprint_stage_filter
+
+        out["blueprint_stage_filter"] = (
+            aws_sdk_bedrock_data_automation.types.blueprint_stage_filter.deserialize_json(
+                data["blueprintStageFilter"]
+            )
+        )
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "projectFilter" in data:
+        import aws_sdk_bedrock_data_automation.types.data_automation_project_filter
+
+        out["project_filter"] = (
+            aws_sdk_bedrock_data_automation.types.data_automation_project_filter.deserialize_json(
+                data["projectFilter"]
+            )
+        )
+    return out

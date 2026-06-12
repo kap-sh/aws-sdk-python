@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemakerjobruntime#CompleteRolloutRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_sagemakerjobruntime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemakerjobruntime.types.completion_status
+    import aws_sdk_sagemakerjobruntime.types.job_arn
+    import aws_sdk_sagemakerjobruntime.types.trajectory_id
+
+
+class CompleteRolloutRequest(TypedDict):
+    job_arn: "aws_sdk_sagemakerjobruntime.types.job_arn.JobArn"
+    """The job ARN."""
+    trajectory_id: "aws_sdk_sagemakerjobruntime.types.trajectory_id.TrajectoryId"
+    """The trajectory ID to mark as complete."""
+    status: NotRequired[
+        "aws_sdk_sagemakerjobruntime.types.completion_status.CompletionStatus"
+    ]
+    """The target status for the trajectory. Defaults to READY if not specified. Set to FAILED if the rollout encountered an error and the trajectory should not be used for processing."""
+    client_token: NotRequired["str"]
+    """A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CompleteRolloutRequest) -> dict:
+    out: dict = {}
+    out["TrajectoryId"] = value["trajectory_id"]
+    if "status" in value:
+        import aws_sdk_sagemakerjobruntime.types.completion_status
+
+        out["Status"] = (
+            aws_sdk_sagemakerjobruntime.types.completion_status.serialize_json(
+                value["status"]
+            )
+        )
+    if "client_token" in value:
+        out["ClientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> CompleteRolloutRequest:
+    out: CompleteRolloutRequest = {}  # type: ignore[typeddict-item]
+    if "TrajectoryId" in data:
+        out["trajectory_id"] = data["TrajectoryId"]
+    else:
+        raise DeserializationError("CompleteRolloutRequest.trajectory_id required")
+    if "Status" in data:
+        import aws_sdk_sagemakerjobruntime.types.completion_status
+
+        out["status"] = (
+            aws_sdk_sagemakerjobruntime.types.completion_status.deserialize_json(
+                data["Status"]
+            )
+        )
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    return out

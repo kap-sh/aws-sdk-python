@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#OtherMetadataValueListItem``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.created_timestamp
+    import aws_sdk_glue.types.metadata_value_string
+
+
+class OtherMetadataValueListItem(TypedDict):
+    metadata_value: NotRequired[
+        "aws_sdk_glue.types.metadata_value_string.MetadataValueString"
+    ]
+    """<p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>"""
+    created_time: NotRequired["aws_sdk_glue.types.created_timestamp.CreatedTimestamp"]
+    """<p>The time at which the entry was created.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: OtherMetadataValueListItem) -> dict:
+    out: dict = {}
+    if "metadata_value" in value:
+        out["MetadataValue"] = value["metadata_value"]
+    if "created_time" in value:
+        out["CreatedTime"] = value["created_time"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> OtherMetadataValueListItem:
+    out: OtherMetadataValueListItem = {}  # type: ignore[typeddict-item]
+    if "MetadataValue" in data:
+        out["metadata_value"] = data["MetadataValue"]
+    if "CreatedTime" in data:
+        out["created_time"] = data["CreatedTime"]
+    return out

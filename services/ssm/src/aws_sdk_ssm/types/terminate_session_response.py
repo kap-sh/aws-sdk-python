@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#TerminateSessionResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.session_id
+
+
+class TerminateSessionResponse(TypedDict):
+    session_id: NotRequired["aws_sdk_ssm.types.session_id.SessionId"]
+    """<p>The ID of the session that has been terminated.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TerminateSessionResponse) -> dict:
+    out: dict = {}
+    if "session_id" in value:
+        out["SessionId"] = value["session_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TerminateSessionResponse:
+    out: TerminateSessionResponse = {}  # type: ignore[typeddict-item]
+    if "SessionId" in data:
+        out["session_id"] = data["SessionId"]
+    return out

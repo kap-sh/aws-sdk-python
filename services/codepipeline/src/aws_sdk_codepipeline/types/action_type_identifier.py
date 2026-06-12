@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypeIdentifier``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codepipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.action_category
+    import aws_sdk_codepipeline.types.action_provider
+    import aws_sdk_codepipeline.types.action_type_owner
+    import aws_sdk_codepipeline.types.version
+
+
+class ActionTypeIdentifier(TypedDict):
+    category: "aws_sdk_codepipeline.types.action_category.ActionCategory"
+    """<p>Defines what kind of action can be taken in the stage, one of the following:</p> <ul> <li> <p> <code>Source</code> </p> </li> <li> <p> <code>Build</code> </p> </li> <li> <p> <code>Test</code> </p> </li> <li> <p> <code>Deploy</code> </p> </li> <li> <p> <code>Approval</code> </p> </li> <li> <p> <code>Invoke</code> </p> </li> </ul>"""
+    owner: "aws_sdk_codepipeline.types.action_type_owner.ActionTypeOwner"
+    """<p>The creator of the action type being called: <code>AWS</code> or <code>ThirdParty</code>.</p>"""
+    provider: "aws_sdk_codepipeline.types.action_provider.ActionProvider"
+    """<p>The provider of the action type being called. The provider name is supplied when the action type is created.</p>"""
+    version: "aws_sdk_codepipeline.types.version.Version"
+    """<p>A string that describes the action type version.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ActionTypeIdentifier) -> dict:
+    out: dict = {}
+    import aws_sdk_codepipeline.types.action_category
+
+    out["category"] = aws_sdk_codepipeline.types.action_category.serialize_aws_json_1_1(
+        value["category"]
+    )
+    out["owner"] = value["owner"]
+    out["provider"] = value["provider"]
+    out["version"] = value["version"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ActionTypeIdentifier:
+    out: ActionTypeIdentifier = {}  # type: ignore[typeddict-item]
+    if "category" in data:
+        import aws_sdk_codepipeline.types.action_category
+
+        out["category"] = (
+            aws_sdk_codepipeline.types.action_category.deserialize_aws_json_1_1(
+                data["category"]
+            )
+        )
+    else:
+        raise DeserializationError("ActionTypeIdentifier.category required")
+    if "owner" in data:
+        out["owner"] = data["owner"]
+    else:
+        raise DeserializationError("ActionTypeIdentifier.owner required")
+    if "provider" in data:
+        out["provider"] = data["provider"]
+    else:
+        raise DeserializationError("ActionTypeIdentifier.provider required")
+    if "version" in data:
+        out["version"] = data["version"]
+    else:
+        raise DeserializationError("ActionTypeIdentifier.version required")
+    return out

@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.athena#GetNotebookMetadataInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_athena.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_athena.types.notebook_id
+
+
+class GetNotebookMetadataInput(TypedDict):
+    notebook_id: "aws_sdk_athena.types.notebook_id.NotebookId"
+    """<p>The ID of the notebook whose metadata is to be retrieved.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetNotebookMetadataInput) -> dict:
+    out: dict = {}
+    out["NotebookId"] = value["notebook_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetNotebookMetadataInput:
+    out: GetNotebookMetadataInput = {}  # type: ignore[typeddict-item]
+    if "NotebookId" in data:
+        out["notebook_id"] = data["NotebookId"]
+    else:
+        raise DeserializationError("GetNotebookMetadataInput.notebook_id required")
+    return out

@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitosync#IdentityPoolUsage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_sync.types.date
+    import aws_sdk_cognito_sync.types.identity_pool_id
+    import aws_sdk_cognito_sync.types.long
+
+
+class IdentityPoolUsage(TypedDict):
+    identity_pool_id: NotRequired[
+        "aws_sdk_cognito_sync.types.identity_pool_id.IdentityPoolId"
+    ]
+    """A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region."""
+    sync_sessions_count: NotRequired["aws_sdk_cognito_sync.types.long.Long"]
+    """Number of sync sessions for the identity pool."""
+    data_storage: NotRequired["aws_sdk_cognito_sync.types.long.Long"]
+    """Data storage information for the identity pool."""
+    last_modified_date: NotRequired["aws_sdk_cognito_sync.types.date.Date"]
+    """Date on which the identity pool was last modified."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IdentityPoolUsage) -> dict:
+    out: dict = {}
+    if "identity_pool_id" in value:
+        out["IdentityPoolId"] = value["identity_pool_id"]
+    if "sync_sessions_count" in value:
+        out["SyncSessionsCount"] = value["sync_sessions_count"]
+    if "data_storage" in value:
+        out["DataStorage"] = value["data_storage"]
+    if "last_modified_date" in value:
+        import aws_sdk_cognito_sync.types.date
+
+        out["LastModifiedDate"] = aws_sdk_cognito_sync.types.date.serialize_json(
+            value["last_modified_date"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> IdentityPoolUsage:
+    out: IdentityPoolUsage = {}  # type: ignore[typeddict-item]
+    if "IdentityPoolId" in data:
+        out["identity_pool_id"] = data["IdentityPoolId"]
+    if "SyncSessionsCount" in data:
+        out["sync_sessions_count"] = data["SyncSessionsCount"]
+    if "DataStorage" in data:
+        out["data_storage"] = data["DataStorage"]
+    if "LastModifiedDate" in data:
+        import aws_sdk_cognito_sync.types.date
+
+        out["last_modified_date"] = aws_sdk_cognito_sync.types.date.deserialize_json(
+            data["LastModifiedDate"]
+        )
+    return out

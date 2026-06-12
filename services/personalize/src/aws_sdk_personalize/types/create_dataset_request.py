@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.personalize#CreateDatasetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_personalize.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_personalize.types.arn
+    import aws_sdk_personalize.types.dataset_type
+    import aws_sdk_personalize.types.name
+    import aws_sdk_personalize.types.tags
+
+
+class CreateDatasetRequest(TypedDict):
+    name: "aws_sdk_personalize.types.name.Name"
+    """<p>The name for the dataset.</p>"""
+    schema_arn: "aws_sdk_personalize.types.arn.Arn"
+    """<p>The ARN of the schema to associate with the dataset. The schema defines the dataset fields.</p>"""
+    dataset_group_arn: "aws_sdk_personalize.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>"""
+    dataset_type: "aws_sdk_personalize.types.dataset_type.DatasetType"
+    """<p>The type of dataset.</p> <p>One of the following (case insensitive) values:</p> <ul> <li> <p>Interactions</p> </li> <li> <p>Items</p> </li> <li> <p>Users</p> </li> <li> <p>Actions</p> </li> <li> <p>Action_Interactions</p> </li> </ul>"""
+    tags: NotRequired["aws_sdk_personalize.types.tags.Tags"]
+    """<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the dataset.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateDatasetRequest) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    out["schemaArn"] = value["schema_arn"]
+    out["datasetGroupArn"] = value["dataset_group_arn"]
+    out["datasetType"] = value["dataset_type"]
+    if "tags" in value:
+        import aws_sdk_personalize.types.tags
+
+        out["tags"] = aws_sdk_personalize.types.tags.serialize_aws_json_1_1(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateDatasetRequest:
+    out: CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("CreateDatasetRequest.name required")
+    if "schemaArn" in data:
+        out["schema_arn"] = data["schemaArn"]
+    else:
+        raise DeserializationError("CreateDatasetRequest.schema_arn required")
+    if "datasetGroupArn" in data:
+        out["dataset_group_arn"] = data["datasetGroupArn"]
+    else:
+        raise DeserializationError("CreateDatasetRequest.dataset_group_arn required")
+    if "datasetType" in data:
+        out["dataset_type"] = data["datasetType"]
+    else:
+        raise DeserializationError("CreateDatasetRequest.dataset_type required")
+    if "tags" in data:
+        import aws_sdk_personalize.types.tags
+
+        out["tags"] = aws_sdk_personalize.types.tags.deserialize_aws_json_1_1(
+            data["tags"]
+        )
+    return out

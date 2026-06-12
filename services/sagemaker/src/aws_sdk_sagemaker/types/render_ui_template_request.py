@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#RenderUiTemplateRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.human_task_ui_arn
+    import aws_sdk_sagemaker.types.renderable_task
+    import aws_sdk_sagemaker.types.role_arn
+    import aws_sdk_sagemaker.types.ui_template
+
+
+class RenderUiTemplateRequest(TypedDict):
+    ui_template: NotRequired["aws_sdk_sagemaker.types.ui_template.UiTemplate"]
+    """<p>A <code>Template</code> object containing the worker UI template to render.</p>"""
+    task: NotRequired["aws_sdk_sagemaker.types.renderable_task.RenderableTask"]
+    """<p>A <code>RenderableTask</code> object containing a representative task to render.</p>"""
+    role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
+    """<p>The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.</p>"""
+    human_task_ui_arn: NotRequired[
+        "aws_sdk_sagemaker.types.human_task_ui_arn.HumanTaskUiArn"
+    ]
+    """<p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</p> <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html\">UiConfig</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RenderUiTemplateRequest) -> dict:
+    out: dict = {}
+    if "ui_template" in value:
+        import aws_sdk_sagemaker.types.ui_template
+
+        out["UiTemplate"] = aws_sdk_sagemaker.types.ui_template.serialize_aws_json_1_1(
+            value["ui_template"]
+        )
+    if "task" in value:
+        import aws_sdk_sagemaker.types.renderable_task
+
+        out["Task"] = aws_sdk_sagemaker.types.renderable_task.serialize_aws_json_1_1(
+            value["task"]
+        )
+    if "role_arn" in value:
+        out["RoleArn"] = value["role_arn"]
+    if "human_task_ui_arn" in value:
+        out["HumanTaskUiArn"] = value["human_task_ui_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RenderUiTemplateRequest:
+    out: RenderUiTemplateRequest = {}  # type: ignore[typeddict-item]
+    if "UiTemplate" in data:
+        import aws_sdk_sagemaker.types.ui_template
+
+        out["ui_template"] = (
+            aws_sdk_sagemaker.types.ui_template.deserialize_aws_json_1_1(
+                data["UiTemplate"]
+            )
+        )
+    if "Task" in data:
+        import aws_sdk_sagemaker.types.renderable_task
+
+        out["task"] = aws_sdk_sagemaker.types.renderable_task.deserialize_aws_json_1_1(
+            data["Task"]
+        )
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    if "HumanTaskUiArn" in data:
+        out["human_task_ui_arn"] = data["HumanTaskUiArn"]
+    return out

@@ -1,0 +1,81 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralselling#EngagementResourceAssociationSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_partnercentral_selling.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_selling.types.aws_account
+    import aws_sdk_partnercentral_selling.types.catalog_identifier
+    import aws_sdk_partnercentral_selling.types.engagement_identifier
+    import aws_sdk_partnercentral_selling.types.resource_identifier
+    import aws_sdk_partnercentral_selling.types.resource_type
+
+
+class EngagementResourceAssociationSummary(TypedDict):
+    catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
+    """<p> Indicates the environment in which the resource and engagement exist. </p>"""
+    engagement_id: NotRequired[
+        "aws_sdk_partnercentral_selling.types.engagement_identifier.EngagementIdentifier"
+    ]
+    """<p> A unique identifier for the engagement associated with the resource. </p>"""
+    resource_type: NotRequired[
+        "aws_sdk_partnercentral_selling.types.resource_type.ResourceType"
+    ]
+    """<p> Categorizes the type of resource associated with the engagement. </p>"""
+    resource_id: NotRequired[
+        "aws_sdk_partnercentral_selling.types.resource_identifier.ResourceIdentifier"
+    ]
+    """<p> A unique identifier for the specific resource. Varies depending on the resource type. </p>"""
+    created_by: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_account.AwsAccount"
+    ]
+    """<p>The AWS account ID of the entity that owns the resource. Identifies the account responsible for or having primary control over the resource. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: EngagementResourceAssociationSummary) -> dict:
+    out: dict = {}
+    out["Catalog"] = value["catalog"]
+    if "engagement_id" in value:
+        out["EngagementId"] = value["engagement_id"]
+    if "resource_type" in value:
+        import aws_sdk_partnercentral_selling.types.resource_type
+
+        out["ResourceType"] = (
+            aws_sdk_partnercentral_selling.types.resource_type.serialize_aws_json_1_0(
+                value["resource_type"]
+            )
+        )
+    if "resource_id" in value:
+        out["ResourceId"] = value["resource_id"]
+    if "created_by" in value:
+        out["CreatedBy"] = value["created_by"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> EngagementResourceAssociationSummary:
+    out: EngagementResourceAssociationSummary = {}  # type: ignore[typeddict-item]
+    if "Catalog" in data:
+        out["catalog"] = data["Catalog"]
+    else:
+        raise DeserializationError(
+            "EngagementResourceAssociationSummary.catalog required"
+        )
+    if "EngagementId" in data:
+        out["engagement_id"] = data["EngagementId"]
+    if "ResourceType" in data:
+        import aws_sdk_partnercentral_selling.types.resource_type
+
+        out["resource_type"] = (
+            aws_sdk_partnercentral_selling.types.resource_type.deserialize_aws_json_1_0(
+                data["ResourceType"]
+            )
+        )
+    if "ResourceId" in data:
+        out["resource_id"] = data["ResourceId"]
+    if "CreatedBy" in data:
+        out["created_by"] = data["CreatedBy"]
+    return out

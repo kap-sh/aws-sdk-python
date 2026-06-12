@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#CreatePackageResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.package_arn
+    import aws_sdk_iot.types.package_name
+    import aws_sdk_iot.types.resource_description
+
+
+class CreatePackageResponse(TypedDict):
+    package_name: NotRequired["aws_sdk_iot.types.package_name.PackageName"]
+    """<p>The name of the software package.</p>"""
+    package_arn: NotRequired["aws_sdk_iot.types.package_arn.PackageArn"]
+    """<p>The Amazon Resource Name (ARN) for the package.</p>"""
+    description: NotRequired[
+        "aws_sdk_iot.types.resource_description.ResourceDescription"
+    ]
+    """<p>The package description.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreatePackageResponse) -> dict:
+    out: dict = {}
+    if "package_name" in value:
+        out["packageName"] = value["package_name"]
+    if "package_arn" in value:
+        out["packageArn"] = value["package_arn"]
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreatePackageResponse:
+    out: CreatePackageResponse = {}  # type: ignore[typeddict-item]
+    if "packageName" in data:
+        out["package_name"] = data["packageName"]
+    if "packageArn" in data:
+        out["package_arn"] = data["packageArn"]
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

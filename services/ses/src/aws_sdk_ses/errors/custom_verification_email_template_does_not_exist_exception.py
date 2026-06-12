@@ -1,0 +1,75 @@
+"""Generated from Smithy shape ``com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ses._protocol.xml import Element
+from aws_sdk_ses.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_ses.types.error_message
+    import aws_sdk_ses.types.template_name
+
+
+class CustomVerificationEmailTemplateDoesNotExistException_(TypedDict):
+    custom_verification_email_template_name: NotRequired[
+        "aws_sdk_ses.types.template_name.TemplateName"
+    ]
+    """<p>Indicates that the provided custom verification email template does not exist.</p>"""
+    message: NotRequired["aws_sdk_ses.types.error_message.ErrorMessage"]
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: CustomVerificationEmailTemplateDoesNotExistException_,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "custom_verification_email_template_name" in value:
+        pairs.append(
+            (
+                f"{prefix}.CustomVerificationEmailTemplateName",
+                str(value["custom_verification_email_template_name"]),
+            )
+        )
+    if "message" in value:
+        pairs.append((f"{prefix}.message", str(value["message"])))
+
+
+def deserialize_query(
+    el: Element,
+) -> CustomVerificationEmailTemplateDoesNotExistException_:
+    out: CustomVerificationEmailTemplateDoesNotExistException_ = {}  # type: ignore[typeddict-item]
+    child_custom_verification_email_template_name = el.find(
+        "CustomVerificationEmailTemplateName"
+    )
+    if child_custom_verification_email_template_name is not None:
+        out["custom_verification_email_template_name"] = str(
+            child_custom_verification_email_template_name.text or ""
+        )
+    child_message = el.find("message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class CustomVerificationEmailTemplateDoesNotExistException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException``."""
+
+    code: str | None = "CustomVerificationEmailTemplateDoesNotExistException"
+
+    def __init__(self, data: CustomVerificationEmailTemplateDoesNotExistException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="CustomVerificationEmailTemplateDoesNotExistException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_query(
+        cls, el: Element
+    ) -> "CustomVerificationEmailTemplateDoesNotExistException":
+        return cls(deserialize_query(el))

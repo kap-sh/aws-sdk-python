@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.appfabric#AuthRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_appfabric.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_appfabric.types.redirect_uri
+    import aws_sdk_appfabric.types.sensitive_string2048
+
+
+class AuthRequest(TypedDict):
+    redirect_uri: "aws_sdk_appfabric.types.redirect_uri.RedirectUri"
+    """<p>The redirect URL that is specified in the AuthURL and the application client.</p>"""
+    code: "aws_sdk_appfabric.types.sensitive_string2048.SensitiveString2048"
+    """<p>The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AuthRequest) -> dict:
+    out: dict = {}
+    out["redirectUri"] = value["redirect_uri"]
+    out["code"] = value["code"]
+    return out
+
+
+def deserialize_json(data: dict) -> AuthRequest:
+    out: AuthRequest = {}  # type: ignore[typeddict-item]
+    if "redirectUri" in data:
+        out["redirect_uri"] = data["redirectUri"]
+    else:
+        raise DeserializationError("AuthRequest.redirect_uri required")
+    if "code" in data:
+        out["code"] = data["code"]
+    else:
+        raise DeserializationError("AuthRequest.code required")
+    return out

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.memorydb#DescribeMultiRegionClustersResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_memorydb.types.multi_region_cluster_list
+    import aws_sdk_memorydb.types.string
+
+
+class DescribeMultiRegionClustersResponse(TypedDict):
+    next_token: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>A token to use to retrieve the next page of results.</p>"""
+    multi_region_clusters: NotRequired[
+        "aws_sdk_memorydb.types.multi_region_cluster_list.MultiRegionClusterList"
+    ]
+    """<p>A list of multi-Region clusters.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeMultiRegionClustersResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "multi_region_clusters" in value:
+        import aws_sdk_memorydb.types.multi_region_cluster_list
+
+        out["MultiRegionClusters"] = (
+            aws_sdk_memorydb.types.multi_region_cluster_list.serialize_aws_json_1_1(
+                value["multi_region_clusters"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeMultiRegionClustersResponse:
+    out: DescribeMultiRegionClustersResponse = {}  # type: ignore[typeddict-item]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MultiRegionClusters" in data:
+        import aws_sdk_memorydb.types.multi_region_cluster_list
+
+        out["multi_region_clusters"] = (
+            aws_sdk_memorydb.types.multi_region_cluster_list.deserialize_aws_json_1_1(
+                data["MultiRegionClusters"]
+            )
+        )
+    return out

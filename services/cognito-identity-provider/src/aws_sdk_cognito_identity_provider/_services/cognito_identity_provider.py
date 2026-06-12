@@ -1,0 +1,7345 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AWSCognitoIdentityProviderService``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+from aws_sdk_cognito_identity_provider._auth._identity import Credentials
+from aws_sdk_cognito_identity_provider._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_cognito_identity_provider._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cognito_identity_provider._pagination import resolve_path as _resolve_path
+from aws_sdk_cognito_identity_provider._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.access_token_validity_type
+    import aws_sdk_cognito_identity_provider.types.account_recovery_setting_type
+    import aws_sdk_cognito_identity_provider.types.account_takeover_risk_configuration_type
+    import aws_sdk_cognito_identity_provider.types.add_custom_attributes_request
+    import aws_sdk_cognito_identity_provider.types.add_custom_attributes_response
+    import aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_request
+    import aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_response
+    import aws_sdk_cognito_identity_provider.types.admin_add_user_to_group_request
+    import aws_sdk_cognito_identity_provider.types.admin_confirm_sign_up_request
+    import aws_sdk_cognito_identity_provider.types.admin_confirm_sign_up_response
+    import aws_sdk_cognito_identity_provider.types.admin_create_user_config_type
+    import aws_sdk_cognito_identity_provider.types.admin_create_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_create_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_delete_user_attributes_request
+    import aws_sdk_cognito_identity_provider.types.admin_delete_user_attributes_response
+    import aws_sdk_cognito_identity_provider.types.admin_delete_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_disable_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_disable_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_enable_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_enable_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_forget_device_request
+    import aws_sdk_cognito_identity_provider.types.admin_get_device_request
+    import aws_sdk_cognito_identity_provider.types.admin_get_device_response
+    import aws_sdk_cognito_identity_provider.types.admin_get_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_get_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_initiate_auth_request
+    import aws_sdk_cognito_identity_provider.types.admin_initiate_auth_response
+    import aws_sdk_cognito_identity_provider.types.admin_link_provider_for_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_link_provider_for_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_list_devices_request
+    import aws_sdk_cognito_identity_provider.types.admin_list_devices_response
+    import aws_sdk_cognito_identity_provider.types.admin_list_groups_for_user_request
+    import aws_sdk_cognito_identity_provider.types.admin_list_groups_for_user_response
+    import aws_sdk_cognito_identity_provider.types.admin_list_user_auth_events_request
+    import aws_sdk_cognito_identity_provider.types.admin_list_user_auth_events_response
+    import aws_sdk_cognito_identity_provider.types.admin_remove_user_from_group_request
+    import aws_sdk_cognito_identity_provider.types.admin_reset_user_password_request
+    import aws_sdk_cognito_identity_provider.types.admin_reset_user_password_response
+    import aws_sdk_cognito_identity_provider.types.admin_respond_to_auth_challenge_request
+    import aws_sdk_cognito_identity_provider.types.admin_respond_to_auth_challenge_response
+    import aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_request
+    import aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_response
+    import aws_sdk_cognito_identity_provider.types.admin_set_user_password_request
+    import aws_sdk_cognito_identity_provider.types.admin_set_user_password_response
+    import aws_sdk_cognito_identity_provider.types.admin_set_user_settings_request
+    import aws_sdk_cognito_identity_provider.types.admin_set_user_settings_response
+    import aws_sdk_cognito_identity_provider.types.admin_update_auth_event_feedback_request
+    import aws_sdk_cognito_identity_provider.types.admin_update_auth_event_feedback_response
+    import aws_sdk_cognito_identity_provider.types.admin_update_device_status_request
+    import aws_sdk_cognito_identity_provider.types.admin_update_device_status_response
+    import aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_request
+    import aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_response
+    import aws_sdk_cognito_identity_provider.types.admin_user_global_sign_out_request
+    import aws_sdk_cognito_identity_provider.types.admin_user_global_sign_out_response
+    import aws_sdk_cognito_identity_provider.types.alias_attributes_list_type
+    import aws_sdk_cognito_identity_provider.types.analytics_configuration_type
+    import aws_sdk_cognito_identity_provider.types.analytics_metadata_type
+    import aws_sdk_cognito_identity_provider.types.arn_type
+    import aws_sdk_cognito_identity_provider.types.asset_list_type
+    import aws_sdk_cognito_identity_provider.types.associate_software_token_request
+    import aws_sdk_cognito_identity_provider.types.associate_software_token_response
+    import aws_sdk_cognito_identity_provider.types.attribute_list_type
+    import aws_sdk_cognito_identity_provider.types.attribute_mapping_type
+    import aws_sdk_cognito_identity_provider.types.attribute_name_list_type
+    import aws_sdk_cognito_identity_provider.types.attribute_name_type
+    import aws_sdk_cognito_identity_provider.types.auth_event_type
+    import aws_sdk_cognito_identity_provider.types.auth_flow_type
+    import aws_sdk_cognito_identity_provider.types.auth_parameters_type
+    import aws_sdk_cognito_identity_provider.types.auth_session_validity_type
+    import aws_sdk_cognito_identity_provider.types.boolean_type
+    import aws_sdk_cognito_identity_provider.types.callback_ur_ls_list_type
+    import aws_sdk_cognito_identity_provider.types.challenge_name_type
+    import aws_sdk_cognito_identity_provider.types.challenge_responses_type
+    import aws_sdk_cognito_identity_provider.types.change_password_request
+    import aws_sdk_cognito_identity_provider.types.change_password_response
+    import aws_sdk_cognito_identity_provider.types.client_id_type
+    import aws_sdk_cognito_identity_provider.types.client_metadata_type
+    import aws_sdk_cognito_identity_provider.types.client_name_type
+    import aws_sdk_cognito_identity_provider.types.client_permission_list_type
+    import aws_sdk_cognito_identity_provider.types.client_secret_id_type
+    import aws_sdk_cognito_identity_provider.types.client_secret_type
+    import aws_sdk_cognito_identity_provider.types.complete_web_authn_registration_request
+    import aws_sdk_cognito_identity_provider.types.complete_web_authn_registration_response
+    import aws_sdk_cognito_identity_provider.types.compromised_credentials_risk_configuration_type
+    import aws_sdk_cognito_identity_provider.types.confirm_device_request
+    import aws_sdk_cognito_identity_provider.types.confirm_device_response
+    import aws_sdk_cognito_identity_provider.types.confirm_forgot_password_request
+    import aws_sdk_cognito_identity_provider.types.confirm_forgot_password_response
+    import aws_sdk_cognito_identity_provider.types.confirm_sign_up_request
+    import aws_sdk_cognito_identity_provider.types.confirm_sign_up_response
+    import aws_sdk_cognito_identity_provider.types.confirmation_code_type
+    import aws_sdk_cognito_identity_provider.types.context_data_type
+    import aws_sdk_cognito_identity_provider.types.create_group_request
+    import aws_sdk_cognito_identity_provider.types.create_group_response
+    import aws_sdk_cognito_identity_provider.types.create_identity_provider_request
+    import aws_sdk_cognito_identity_provider.types.create_identity_provider_response
+    import aws_sdk_cognito_identity_provider.types.create_managed_login_branding_request
+    import aws_sdk_cognito_identity_provider.types.create_managed_login_branding_response
+    import aws_sdk_cognito_identity_provider.types.create_resource_server_request
+    import aws_sdk_cognito_identity_provider.types.create_resource_server_response
+    import aws_sdk_cognito_identity_provider.types.create_terms_request
+    import aws_sdk_cognito_identity_provider.types.create_terms_response
+    import aws_sdk_cognito_identity_provider.types.create_user_import_job_request
+    import aws_sdk_cognito_identity_provider.types.create_user_import_job_response
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_client_request
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_client_response
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_domain_request
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_domain_response
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_replica_request
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_replica_response
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_request
+    import aws_sdk_cognito_identity_provider.types.create_user_pool_response
+    import aws_sdk_cognito_identity_provider.types.css_type
+    import aws_sdk_cognito_identity_provider.types.custom_attributes_list_type
+    import aws_sdk_cognito_identity_provider.types.custom_domain_config_type
+    import aws_sdk_cognito_identity_provider.types.delete_group_request
+    import aws_sdk_cognito_identity_provider.types.delete_identity_provider_request
+    import aws_sdk_cognito_identity_provider.types.delete_managed_login_branding_request
+    import aws_sdk_cognito_identity_provider.types.delete_resource_server_request
+    import aws_sdk_cognito_identity_provider.types.delete_terms_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_attributes_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_attributes_response
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_client_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_client_secret_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_client_secret_response
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_domain_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_domain_response
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_replica_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_replica_response
+    import aws_sdk_cognito_identity_provider.types.delete_user_pool_request
+    import aws_sdk_cognito_identity_provider.types.delete_user_request
+    import aws_sdk_cognito_identity_provider.types.delete_web_authn_credential_request
+    import aws_sdk_cognito_identity_provider.types.delete_web_authn_credential_response
+    import aws_sdk_cognito_identity_provider.types.deletion_protection_type
+    import aws_sdk_cognito_identity_provider.types.delivery_medium_list_type
+    import aws_sdk_cognito_identity_provider.types.describe_identity_provider_request
+    import aws_sdk_cognito_identity_provider.types.describe_identity_provider_response
+    import aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_request
+    import aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_response
+    import aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_request
+    import aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_response
+    import aws_sdk_cognito_identity_provider.types.describe_resource_server_request
+    import aws_sdk_cognito_identity_provider.types.describe_resource_server_response
+    import aws_sdk_cognito_identity_provider.types.describe_risk_configuration_request
+    import aws_sdk_cognito_identity_provider.types.describe_risk_configuration_response
+    import aws_sdk_cognito_identity_provider.types.describe_terms_request
+    import aws_sdk_cognito_identity_provider.types.describe_terms_response
+    import aws_sdk_cognito_identity_provider.types.describe_user_import_job_request
+    import aws_sdk_cognito_identity_provider.types.describe_user_import_job_response
+    import aws_sdk_cognito_identity_provider.types.describe_user_pool_client_request
+    import aws_sdk_cognito_identity_provider.types.describe_user_pool_client_response
+    import aws_sdk_cognito_identity_provider.types.describe_user_pool_domain_request
+    import aws_sdk_cognito_identity_provider.types.describe_user_pool_domain_response
+    import aws_sdk_cognito_identity_provider.types.describe_user_pool_request
+    import aws_sdk_cognito_identity_provider.types.describe_user_pool_response
+    import aws_sdk_cognito_identity_provider.types.description_type
+    import aws_sdk_cognito_identity_provider.types.device_configuration_type
+    import aws_sdk_cognito_identity_provider.types.device_key_type
+    import aws_sdk_cognito_identity_provider.types.device_name_type
+    import aws_sdk_cognito_identity_provider.types.device_remembered_status_type
+    import aws_sdk_cognito_identity_provider.types.device_secret_verifier_config_type
+    import aws_sdk_cognito_identity_provider.types.document
+    import aws_sdk_cognito_identity_provider.types.domain_type
+    import aws_sdk_cognito_identity_provider.types.email_configuration_type
+    import aws_sdk_cognito_identity_provider.types.email_mfa_config_type
+    import aws_sdk_cognito_identity_provider.types.email_mfa_settings_type
+    import aws_sdk_cognito_identity_provider.types.email_verification_message_type
+    import aws_sdk_cognito_identity_provider.types.email_verification_subject_type
+    import aws_sdk_cognito_identity_provider.types.event_id_type
+    import aws_sdk_cognito_identity_provider.types.explicit_auth_flows_list_type
+    import aws_sdk_cognito_identity_provider.types.feedback_value_type
+    import aws_sdk_cognito_identity_provider.types.force_alias_creation
+    import aws_sdk_cognito_identity_provider.types.forget_device_request
+    import aws_sdk_cognito_identity_provider.types.forgot_password_request
+    import aws_sdk_cognito_identity_provider.types.forgot_password_response
+    import aws_sdk_cognito_identity_provider.types.generate_secret
+    import aws_sdk_cognito_identity_provider.types.get_csv_header_request
+    import aws_sdk_cognito_identity_provider.types.get_csv_header_response
+    import aws_sdk_cognito_identity_provider.types.get_device_request
+    import aws_sdk_cognito_identity_provider.types.get_device_response
+    import aws_sdk_cognito_identity_provider.types.get_group_request
+    import aws_sdk_cognito_identity_provider.types.get_group_response
+    import aws_sdk_cognito_identity_provider.types.get_identity_provider_by_identifier_request
+    import aws_sdk_cognito_identity_provider.types.get_identity_provider_by_identifier_response
+    import aws_sdk_cognito_identity_provider.types.get_log_delivery_configuration_request
+    import aws_sdk_cognito_identity_provider.types.get_log_delivery_configuration_response
+    import aws_sdk_cognito_identity_provider.types.get_signing_certificate_request
+    import aws_sdk_cognito_identity_provider.types.get_signing_certificate_response
+    import aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_request
+    import aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_response
+    import aws_sdk_cognito_identity_provider.types.get_ui_customization_request
+    import aws_sdk_cognito_identity_provider.types.get_ui_customization_response
+    import aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_request
+    import aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_response
+    import aws_sdk_cognito_identity_provider.types.get_user_auth_factors_request
+    import aws_sdk_cognito_identity_provider.types.get_user_auth_factors_response
+    import aws_sdk_cognito_identity_provider.types.get_user_pool_mfa_config_request
+    import aws_sdk_cognito_identity_provider.types.get_user_pool_mfa_config_response
+    import aws_sdk_cognito_identity_provider.types.get_user_request
+    import aws_sdk_cognito_identity_provider.types.get_user_response
+    import aws_sdk_cognito_identity_provider.types.global_sign_out_request
+    import aws_sdk_cognito_identity_provider.types.global_sign_out_response
+    import aws_sdk_cognito_identity_provider.types.group_name_type
+    import aws_sdk_cognito_identity_provider.types.group_type
+    import aws_sdk_cognito_identity_provider.types.id_token_validity_type
+    import aws_sdk_cognito_identity_provider.types.identity_provider_type_type
+    import aws_sdk_cognito_identity_provider.types.idp_identifier_type
+    import aws_sdk_cognito_identity_provider.types.idp_identifiers_list_type
+    import aws_sdk_cognito_identity_provider.types.image_file_type
+    import aws_sdk_cognito_identity_provider.types.initiate_auth_request
+    import aws_sdk_cognito_identity_provider.types.initiate_auth_response
+    import aws_sdk_cognito_identity_provider.types.issuer_configuration_type
+    import aws_sdk_cognito_identity_provider.types.key_configuration_type
+    import aws_sdk_cognito_identity_provider.types.lambda_config_type
+    import aws_sdk_cognito_identity_provider.types.links_type
+    import aws_sdk_cognito_identity_provider.types.list_devices_request
+    import aws_sdk_cognito_identity_provider.types.list_devices_response
+    import aws_sdk_cognito_identity_provider.types.list_groups_request
+    import aws_sdk_cognito_identity_provider.types.list_groups_response
+    import aws_sdk_cognito_identity_provider.types.list_identity_providers_request
+    import aws_sdk_cognito_identity_provider.types.list_identity_providers_response
+    import aws_sdk_cognito_identity_provider.types.list_providers_limit_type
+    import aws_sdk_cognito_identity_provider.types.list_resource_servers_limit_type
+    import aws_sdk_cognito_identity_provider.types.list_resource_servers_request
+    import aws_sdk_cognito_identity_provider.types.list_resource_servers_response
+    import aws_sdk_cognito_identity_provider.types.list_tags_for_resource_request
+    import aws_sdk_cognito_identity_provider.types.list_tags_for_resource_response
+    import aws_sdk_cognito_identity_provider.types.list_terms_request
+    import aws_sdk_cognito_identity_provider.types.list_terms_request_max_results_integer
+    import aws_sdk_cognito_identity_provider.types.list_terms_response
+    import aws_sdk_cognito_identity_provider.types.list_user_import_jobs_request
+    import aws_sdk_cognito_identity_provider.types.list_user_import_jobs_response
+    import aws_sdk_cognito_identity_provider.types.list_user_pool_client_secrets_request
+    import aws_sdk_cognito_identity_provider.types.list_user_pool_client_secrets_response
+    import aws_sdk_cognito_identity_provider.types.list_user_pool_clients_request
+    import aws_sdk_cognito_identity_provider.types.list_user_pool_clients_response
+    import aws_sdk_cognito_identity_provider.types.list_user_pool_replicas_request
+    import aws_sdk_cognito_identity_provider.types.list_user_pool_replicas_response
+    import aws_sdk_cognito_identity_provider.types.list_user_pools_request
+    import aws_sdk_cognito_identity_provider.types.list_user_pools_response
+    import aws_sdk_cognito_identity_provider.types.list_users_in_group_request
+    import aws_sdk_cognito_identity_provider.types.list_users_in_group_response
+    import aws_sdk_cognito_identity_provider.types.list_users_request
+    import aws_sdk_cognito_identity_provider.types.list_users_response
+    import aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_request
+    import aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_response
+    import aws_sdk_cognito_identity_provider.types.log_configuration_list_type
+    import aws_sdk_cognito_identity_provider.types.logout_ur_ls_list_type
+    import aws_sdk_cognito_identity_provider.types.managed_login_branding_id_type
+    import aws_sdk_cognito_identity_provider.types.message_action_type
+    import aws_sdk_cognito_identity_provider.types.mfa_option_list_type
+    import aws_sdk_cognito_identity_provider.types.o_auth_flows_type
+    import aws_sdk_cognito_identity_provider.types.pagination_key
+    import aws_sdk_cognito_identity_provider.types.pagination_key_type
+    import aws_sdk_cognito_identity_provider.types.password_type
+    import aws_sdk_cognito_identity_provider.types.pool_query_limit_type
+    import aws_sdk_cognito_identity_provider.types.precedence_type
+    import aws_sdk_cognito_identity_provider.types.prevent_user_existence_error_types
+    import aws_sdk_cognito_identity_provider.types.provider_description
+    import aws_sdk_cognito_identity_provider.types.provider_details_type
+    import aws_sdk_cognito_identity_provider.types.provider_name_type
+    import aws_sdk_cognito_identity_provider.types.provider_name_type_v2
+    import aws_sdk_cognito_identity_provider.types.provider_user_identifier_type
+    import aws_sdk_cognito_identity_provider.types.query_limit
+    import aws_sdk_cognito_identity_provider.types.query_limit_type
+    import aws_sdk_cognito_identity_provider.types.redirect_url_type
+    import aws_sdk_cognito_identity_provider.types.refresh_token_rotation_type
+    import aws_sdk_cognito_identity_provider.types.refresh_token_validity_type
+    import aws_sdk_cognito_identity_provider.types.region_name_type
+    import aws_sdk_cognito_identity_provider.types.resend_confirmation_code_request
+    import aws_sdk_cognito_identity_provider.types.resend_confirmation_code_response
+    import aws_sdk_cognito_identity_provider.types.resource_server_identifier_type
+    import aws_sdk_cognito_identity_provider.types.resource_server_name_type
+    import aws_sdk_cognito_identity_provider.types.resource_server_scope_list_type
+    import aws_sdk_cognito_identity_provider.types.resource_server_type
+    import aws_sdk_cognito_identity_provider.types.respond_to_auth_challenge_request
+    import aws_sdk_cognito_identity_provider.types.respond_to_auth_challenge_response
+    import aws_sdk_cognito_identity_provider.types.revoke_token_request
+    import aws_sdk_cognito_identity_provider.types.revoke_token_response
+    import aws_sdk_cognito_identity_provider.types.risk_exception_configuration_type
+    import aws_sdk_cognito_identity_provider.types.routing_type
+    import aws_sdk_cognito_identity_provider.types.schema_attributes_list_type
+    import aws_sdk_cognito_identity_provider.types.scope_list_type
+    import aws_sdk_cognito_identity_provider.types.search_pagination_token_type
+    import aws_sdk_cognito_identity_provider.types.searched_attribute_names_list_type
+    import aws_sdk_cognito_identity_provider.types.secret_hash_type
+    import aws_sdk_cognito_identity_provider.types.session_type
+    import aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_request
+    import aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_response
+    import aws_sdk_cognito_identity_provider.types.set_risk_configuration_request
+    import aws_sdk_cognito_identity_provider.types.set_risk_configuration_response
+    import aws_sdk_cognito_identity_provider.types.set_ui_customization_request
+    import aws_sdk_cognito_identity_provider.types.set_ui_customization_response
+    import aws_sdk_cognito_identity_provider.types.set_user_mfa_preference_request
+    import aws_sdk_cognito_identity_provider.types.set_user_mfa_preference_response
+    import aws_sdk_cognito_identity_provider.types.set_user_pool_mfa_config_request
+    import aws_sdk_cognito_identity_provider.types.set_user_pool_mfa_config_response
+    import aws_sdk_cognito_identity_provider.types.set_user_settings_request
+    import aws_sdk_cognito_identity_provider.types.set_user_settings_response
+    import aws_sdk_cognito_identity_provider.types.sign_up_request
+    import aws_sdk_cognito_identity_provider.types.sign_up_response
+    import aws_sdk_cognito_identity_provider.types.sms_configuration_type
+    import aws_sdk_cognito_identity_provider.types.sms_mfa_config_type
+    import aws_sdk_cognito_identity_provider.types.sms_mfa_settings_type
+    import aws_sdk_cognito_identity_provider.types.sms_verification_message_type
+    import aws_sdk_cognito_identity_provider.types.software_token_mfa_config_type
+    import aws_sdk_cognito_identity_provider.types.software_token_mfa_settings_type
+    import aws_sdk_cognito_identity_provider.types.software_token_mfa_user_code_type
+    import aws_sdk_cognito_identity_provider.types.start_user_import_job_request
+    import aws_sdk_cognito_identity_provider.types.start_user_import_job_response
+    import aws_sdk_cognito_identity_provider.types.start_web_authn_registration_request
+    import aws_sdk_cognito_identity_provider.types.start_web_authn_registration_response
+    import aws_sdk_cognito_identity_provider.types.stop_user_import_job_request
+    import aws_sdk_cognito_identity_provider.types.stop_user_import_job_response
+    import aws_sdk_cognito_identity_provider.types.string_type
+    import aws_sdk_cognito_identity_provider.types.supported_identity_providers_list_type
+    import aws_sdk_cognito_identity_provider.types.tag_resource_request
+    import aws_sdk_cognito_identity_provider.types.tag_resource_response
+    import aws_sdk_cognito_identity_provider.types.terms_enforcement_type
+    import aws_sdk_cognito_identity_provider.types.terms_id_type
+    import aws_sdk_cognito_identity_provider.types.terms_name_type
+    import aws_sdk_cognito_identity_provider.types.terms_source_type
+    import aws_sdk_cognito_identity_provider.types.token_model_type
+    import aws_sdk_cognito_identity_provider.types.token_validity_units_type
+    import aws_sdk_cognito_identity_provider.types.untag_resource_request
+    import aws_sdk_cognito_identity_provider.types.untag_resource_response
+    import aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_request
+    import aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_response
+    import aws_sdk_cognito_identity_provider.types.update_device_status_request
+    import aws_sdk_cognito_identity_provider.types.update_device_status_response
+    import aws_sdk_cognito_identity_provider.types.update_group_request
+    import aws_sdk_cognito_identity_provider.types.update_group_response
+    import aws_sdk_cognito_identity_provider.types.update_identity_provider_request
+    import aws_sdk_cognito_identity_provider.types.update_identity_provider_response
+    import aws_sdk_cognito_identity_provider.types.update_managed_login_branding_request
+    import aws_sdk_cognito_identity_provider.types.update_managed_login_branding_response
+    import aws_sdk_cognito_identity_provider.types.update_replica_status_type
+    import aws_sdk_cognito_identity_provider.types.update_resource_server_request
+    import aws_sdk_cognito_identity_provider.types.update_resource_server_response
+    import aws_sdk_cognito_identity_provider.types.update_terms_request
+    import aws_sdk_cognito_identity_provider.types.update_terms_response
+    import aws_sdk_cognito_identity_provider.types.update_user_attributes_request
+    import aws_sdk_cognito_identity_provider.types.update_user_attributes_response
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_client_request
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_client_response
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_domain_request
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_domain_response
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_replica_request
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_replica_response
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_request
+    import aws_sdk_cognito_identity_provider.types.update_user_pool_response
+    import aws_sdk_cognito_identity_provider.types.user_attribute_update_settings_type
+    import aws_sdk_cognito_identity_provider.types.user_context_data_type
+    import aws_sdk_cognito_identity_provider.types.user_filter_type
+    import aws_sdk_cognito_identity_provider.types.user_import_job_id_type
+    import aws_sdk_cognito_identity_provider.types.user_import_job_name_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_add_ons_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_client_description
+    import aws_sdk_cognito_identity_provider.types.user_pool_description_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_id_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_mfa_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_name_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_policy_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_tags_list_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_tags_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_tier_type
+    import aws_sdk_cognito_identity_provider.types.user_type
+    import aws_sdk_cognito_identity_provider.types.username_attributes_list_type
+    import aws_sdk_cognito_identity_provider.types.username_configuration_type
+    import aws_sdk_cognito_identity_provider.types.username_type
+    import aws_sdk_cognito_identity_provider.types.verification_message_template_type
+    import aws_sdk_cognito_identity_provider.types.verified_attributes_list_type
+    import aws_sdk_cognito_identity_provider.types.verify_software_token_request
+    import aws_sdk_cognito_identity_provider.types.verify_software_token_response
+    import aws_sdk_cognito_identity_provider.types.verify_user_attribute_request
+    import aws_sdk_cognito_identity_provider.types.verify_user_attribute_response
+    import aws_sdk_cognito_identity_provider.types.web_authn_configuration_type
+    import aws_sdk_cognito_identity_provider.types.web_authn_credentials_query_limit_type
+    import aws_sdk_cognito_identity_provider.types.web_authn_mfa_settings_type
+    import aws_sdk_cognito_identity_provider.types.wrapped_boolean_type
+    import aws_sdk_cognito_identity_provider.types.wrapped_integer_type
+
+
+class CognitoIdentityProviderClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class CognitoIdentityProviderClient:
+    """A client for the ``CognitoIdentityProvider`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = CognitoIdentityProviderClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[CognitoIdentityProviderClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: CognitoIdentityProviderClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def add_custom_attributes(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        custom_attributes: "aws_sdk_cognito_identity_provider.types.custom_attributes_list_type.CustomAttributesListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.add_custom_attributes_response.AddCustomAttributesResponse":
+        """<p>Adds additional user attributes to the user pool schema. Custom attributes can be mutable or immutable and have a <code>custom:</code> or <code>dev:</code> prefix. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes\">Custom attributes</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to add custom attributes.</p>
+            custom_attributes: <p>An array of custom attribute names and other properties. Sets the following characteristics:</p> <dl> <dt>AttributeDataType</dt> <dd> <p>The expected data type. Can be a string, a number, a date and time, or a boolean.</p> </dd> <dt>Mutable</dt> <dd> <p>If true, you can grant app clients write access to the attribute value. If false, the attribute value can only be set up on sign-up or administrator creation of users.</p> </dd> <dt>Name</dt> <dd> <p>The attribute name. For an attribute like <code>custom:myAttribute</code>, enter <code>myAttribute</code> for this field.</p> </dd> <dt>Required</dt> <dd> <p>When true, users who sign up or are created must set a value for the attribute.</p> </dd> <dt>NumberAttributeConstraints</dt> <dd> <p>The minimum and maximum length of accepted values for a <code>Number</code>-type attribute.</p> </dd> <dt>StringAttributeConstraints</dt> <dd> <p>The minimum and maximum length of accepted values for a <code>String</code>-type attribute.</p> </dd> <dt>DeveloperOnlyAttribute</dt> <dd> <p>This legacy option creates an attribute with a <code>dev:</code> prefix. You can only set the value of a developer-only attribute with administrative IAM credentials.</p> </dd> </dl>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.add_custom_attributes_request.AddCustomAttributesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.add_custom_attributes_response.AddCustomAttributesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.add_custom_attributes
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.add_custom_attributes.add_custom_attributes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.add_custom_attributes_request.AddCustomAttributesRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["custom_attributes"] = custom_attributes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def add_user_pool_client_secret(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_secret: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_secret_type.ClientSecretType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_response.AddUserPoolClientSecretResponse":
+        """<p>Creates a new client secret for an existing confidential user pool app client. Supports up to 2 active secrets per app client for zero-downtime credential rotation workflows.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the app client.</p>
+            client_id: <p>The ID of the app client for which you want to create a new secret.</p>
+            client_secret: <p>The client secret value you want to use. If you don't provide this parameter, Amazon Cognito generates a secure secret for you.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_request.AddUserPoolClientSecretRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_response.AddUserPoolClientSecretResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.add_user_pool_client_secret
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.add_user_pool_client_secret.add_user_pool_client_secret(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_request.AddUserPoolClientSecretRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        if client_secret is not None:
+            input["client_secret"] = client_secret
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_add_user_to_group(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Adds a user to a group. A user who is in a group can present a preferred-role claim to an identity pool, and populates a <code>cognito:groups</code> claim to their access and identity tokens.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the group that you want to add the user to.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            group_name: <p>The name of the group that you want to add your user to.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_add_user_to_group_request.AdminAddUserToGroupRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_add_user_to_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_add_user_to_group.admin_add_user_to_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_add_user_to_group_request.AdminAddUserToGroupRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["group_name"] = group_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_confirm_sign_up(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_confirm_sign_up_response.AdminConfirmSignUpResponse":
+        """<p>Confirms user sign-up as an administrator. </p> <p>This request sets a user account active in a user pool that <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#signing-up-users-in-your-app-and-confirming-them-as-admin\">requires confirmation of new user accounts</a> before they can sign in. You can configure your user pool to not send confirmation codes to new users and instead confirm them with this API operation on the back end.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note> <p>To configure your user pool to require administrative confirmation of users, set <code>AllowAdminCreateUserOnly</code> to <code>true</code> in a <code>CreateUserPool</code> or <code>UpdateUserPool</code> request.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to confirm a user's sign-up request.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_confirm_sign_up_request.AdminConfirmSignUpRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_confirm_sign_up_response.AdminConfirmSignUpResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_confirm_sign_up
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_confirm_sign_up.admin_confirm_sign_up(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_confirm_sign_up_request.AdminConfirmSignUpRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_create_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        user_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType"
+        ] = None,
+        validation_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType"
+        ] = None,
+        temporary_password: Optional[
+            "aws_sdk_cognito_identity_provider.types.password_type.PasswordType"
+        ] = None,
+        force_alias_creation: Optional[
+            "aws_sdk_cognito_identity_provider.types.force_alias_creation.ForceAliasCreation"
+        ] = None,
+        message_action: Optional[
+            "aws_sdk_cognito_identity_provider.types.message_action_type.MessageActionType"
+        ] = None,
+        desired_delivery_mediums: Optional[
+            "aws_sdk_cognito_identity_provider.types.delivery_medium_list_type.DeliveryMediumListType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_create_user_response.AdminCreateUserResponse":
+        """<p>Creates a new user in the specified user pool.</p> <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via email or phone (SMS).</p> <p>This message is based on a template that you configured in your call to create or update a user pool. This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code> for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p> <p>In either case, if the user has a password, they will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and set their password. Your invitation message template must have the <code>{####}</code> password placeholder if your users have passwords. If your template doesn't have this placeholder, Amazon Cognito doesn't deliver the invitation message. In this case, you must update your message template and resend the password with a new <code>AdminCreateUser</code> request with a <code>MessageAction</code> value of <code>RESEND</code>.</p> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to create a user.</p>
+            username: <p>The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.</p> <ul> <li> <p>The username can't be a duplicate of another username in the same user pool.</p> </li> <li> <p>You can't change the value of a username after you create it.</p> </li> <li> <p>You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases\">Customizing sign-in attributes</a>.</p> </li> </ul>
+            user_attributes: <p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (when creating a user pool or in the <b>Attributes</b> tab of the console) either you should supply (in your call to <code>AdminCreateUser</code>) or the user should supply (when they sign up in response to your welcome message).</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. You can do this in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>You must also provide an email address or phone number when you expect the user to do passwordless sign-in with an email or SMS OTP. These attributes must be provided when passwordless options are the only available, or when you don't submit a <code>TemporaryPassword</code>.</p> <p>In your <code>AdminCreateUser</code> request, you can set the <code>email_verified</code> and <code>phone_number_verified</code> attributes to <code>true</code>. The following conditions apply:</p> <dl> <dt>email</dt> <dd> <p>The email address where you want the user to receive their confirmation code and username. You must provide a value for <code>email</code> when you want to set <code>email_verified</code> to <code>true</code>, or if you set <code>EMAIL</code> in the <code>DesiredDeliveryMediums</code> parameter.</p> </dd> <dt>phone_number</dt> <dd> <p>The phone number where you want the user to receive their confirmation code and username. You must provide a value for <code>phone_number</code> when you want to set <code>phone_number_verified</code> to <code>true</code>, or if you set <code>SMS</code> in the <code>DesiredDeliveryMediums</code> parameter.</p> </dd> </dl>
+            validation_data: <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.</p> <p>Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.</p> <p>For more information about the pre sign-up Lambda trigger, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html\">Pre sign-up Lambda trigger</a>.</p>
+            temporary_password: <p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The exception to the requirement for a password is when your user pool supports passwordless sign-in with email or SMS OTPs. To create a user with no password, omit this parameter or submit a blank value. You can only create a passwordless user when passwordless sign-in is available.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page, along with a new password to be used in all future sign-ins.</p> <p>If you don't specify a value, Amazon Cognito generates one for you unless you have passwordless options active for your user pool.</p> <p>The temporary password can only be used until the user account expiration limit that you set for your user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again and specify <code>RESEND</code> for the <code>MessageAction</code> parameter.</p>
+            force_alias_creation: <p>This parameter is used only if the <code>phone_number_verified</code> or <code>email_verified</code> attribute is set to <code>True</code>. Otherwise, it is ignored.</p> <p>If this parameter is set to <code>True</code> and the phone number or email address specified in the <code>UserAttributes</code> parameter already exists as an alias with a different user, this request migrates the alias from the previous user to the newly-created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to <code>False</code>, the API throws an <code>AliasExistsException</code> error if the alias already exists. The default value is <code>False</code>.</p>
+            message_action: <p>Set to <code>RESEND</code> to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to <code>SUPPRESS</code> to suppress sending the message. You can specify only one value.</p>
+            desired_delivery_mediums: <p>Specify <code>EMAIL</code> if email will be used to send the welcome message. Specify <code>SMS</code> if the phone number will be used. The default value is <code>SMS</code>. You can specify more than one value.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Examples:
+            An AdminCreateUser request for for a test user named John.
+            This request submits a value for all possible parameters for AdminCreateUser.
+
+            >>> client.admin_create_user(user_pool_id='us-east-1_EXAMPLE', username='testuser', desired_delivery_mediums=['SMS'], message_action='SUPPRESS', temporary_password='This-is-my-test-99!', user_attributes=[{'Name': 'name', 'Value': 'John'}, {'Name': 'phone_number', 'Value': '+12065551212'}, {'Name': 'email', 'Value': 'testuser@example.com'}])
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_create_user_request.AdminCreateUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_create_user_response.AdminCreateUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_create_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_create_user.admin_create_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_create_user_request.AdminCreateUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        if user_attributes is not None:
+            input["user_attributes"] = user_attributes
+        if validation_data is not None:
+            input["validation_data"] = validation_data
+        if temporary_password is not None:
+            input["temporary_password"] = temporary_password
+        if force_alias_creation is not None:
+            input["force_alias_creation"] = force_alias_creation
+        if message_action is not None:
+            input["message_action"] = message_action
+        if desired_delivery_mediums is not None:
+            input["desired_delivery_mediums"] = desired_delivery_mediums
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_delete_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a user profile in your user pool.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to delete the user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_delete_user_request.AdminDeleteUserRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_delete_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_delete_user.admin_delete_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_delete_user_request.AdminDeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_delete_user_attributes(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        user_attribute_names: "aws_sdk_cognito_identity_provider.types.attribute_name_list_type.AttributeNameListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_delete_user_attributes_response.AdminDeleteUserAttributesResponse":
+        """<p>Deletes attribute values from a user. This operation doesn't affect tokens for existing user sessions. The next ID token that the user receives will no longer have the deleted attributes.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to delete user attributes.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            user_attribute_names: <p>An array of strings representing the user attribute names you want to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_delete_user_attributes_request.AdminDeleteUserAttributesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_delete_user_attributes_response.AdminDeleteUserAttributesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_delete_user_attributes
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_delete_user_attributes.admin_delete_user_attributes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_delete_user_attributes_request.AdminDeleteUserAttributesRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["user_attribute_names"] = user_attribute_names
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_disable_provider_for_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.string_type.StringType",
+        user: "aws_sdk_cognito_identity_provider.types.provider_user_identifier_type.ProviderUserIdentifierType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_response.AdminDisableProviderForUserResponse":
+        """<p>Prevents the user from signing in with the specified external (SAML or social) identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools native username + password user, they can't use their password to sign in. If the user to deactivate is a linked external IdP user, any link between that user and an existing user is removed. When the external user signs in again, and the user is no longer attached to the previously linked <code>DestinationUser</code>, the user must create a new user account.</p> <p>The value of <code>ProviderName</code> must match the name of a user pool IdP.</p> <p>To deactivate a local user, set <code>ProviderName</code> to <code>Cognito</code> and the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be user's local username.</p> <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social IdPs. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p> <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. This is also true if the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>. If the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the <code>NameID</code> from their SAML assertion.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to delete the user's linked identities.</p>
+            user: <p>The user profile that you want to delete a linked identity from.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_request.AdminDisableProviderForUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_response.AdminDisableProviderForUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_disable_provider_for_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_disable_provider_for_user.admin_disable_provider_for_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_request.AdminDisableProviderForUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["user"] = user
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_disable_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_disable_user_response.AdminDisableUserResponse":
+        """<p>Deactivates a user profile and revokes all access tokens for the user. A deactivated user can't sign in, but still appears in the responses to <code>ListUsers</code> API requests.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to disable the user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_disable_user_request.AdminDisableUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_disable_user_response.AdminDisableUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_disable_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_disable_user.admin_disable_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_disable_user_request.AdminDisableUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_enable_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_enable_user_response.AdminEnableUserResponse":
+        """<p>Activates sign-in for a user profile that previously had sign-in access disabled.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to activate sign-in for the user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_enable_user_request.AdminEnableUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_enable_user_response.AdminEnableUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_enable_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_enable_user.admin_enable_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_enable_user_request.AdminEnableUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_forget_device(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Forgets, or deletes, a remembered device from a user's profile. After you forget the device, the user can no longer complete device authentication with that device and when applicable, must submit MFA codes again. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where the device owner is a user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            device_key: <p>The key ID of the device that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_forget_device_request.AdminForgetDeviceRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_forget_device
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_forget_device.admin_forget_device(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_forget_device_request.AdminForgetDeviceRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["device_key"] = device_key
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_get_device(
+        self,
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_get_device_response.AdminGetDeviceResponse":
+        """<p>Given the device key, returns details for a user's device. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            device_key: <p>The key of the device that you want to delete.</p>
+            user_pool_id: <p>The ID of the user pool where the device owner is a user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_get_device_request.AdminGetDeviceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_get_device_response.AdminGetDeviceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_get_device
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_get_device.admin_get_device(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_get_device_request.AdminGetDeviceRequest = {}  # type: ignore[typeddict-item]
+        input["device_key"] = device_key
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_get_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_get_user_response.AdminGetUserResponse":
+        """<p>Given a username, returns details about a user profile in a user pool. You can specify alias attributes in the <code>Username</code> request parameter.</p> <p>This operation contributes to your monthly active user (MAU) count for the purpose of billing.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to get information about the user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_get_user_request.AdminGetUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_get_user_response.AdminGetUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_get_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_get_user.admin_get_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_get_user_request.AdminGetUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_initiate_auth(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        auth_flow: "aws_sdk_cognito_identity_provider.types.auth_flow_type.AuthFlowType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        auth_parameters: Optional[
+            "aws_sdk_cognito_identity_provider.types.auth_parameters_type.AuthParametersType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.context_data_type.ContextDataType"
+        ] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_initiate_auth_response.AdminInitiateAuthResponse":
+        """<p>Starts sign-in for applications with a server-side component, for example a traditional web application. This operation specifies the authentication flow that you'd like to begin. The authentication flow that you specify must be supported in your app client configuration. For more information about authentication flows, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html\">Authentication flows</a>.</p> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where the user wants to sign in.</p>
+            client_id: <p>The ID of the app client where the user wants to sign in.</p>
+            auth_flow: <p>The authentication flow that you want to initiate. Each <code>AuthFlow</code> has linked <code>AuthParameters</code> that you must submit. The following are some example flows.</p> <dl> <dt>USER_AUTH</dt> <dd> <p>The entry point for <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice\">choice-based authentication</a> with passwords, one-time passwords, and WebAuthn authenticators. Request a preferred authentication type or review available authentication types. From the offered authentication types, select one in a challenge response and then authenticate with that method in an additional challenge response. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p> </dd> <dt>USER_SRP_AUTH</dt> <dd> <p>Username-password authentication with the Secure Remote Password (SRP) protocol. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#Using-SRP-password-verification-in-custom-authentication-flow\">Use SRP password verification in custom authentication flow</a>.</p> </dd> <dt>REFRESH_TOKEN_AUTH and REFRESH_TOKEN</dt> <dd> <p>Receive new ID and access tokens when you pass a <code>REFRESH_TOKEN</code> parameter with a valid refresh token as the value. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html\">Using the refresh token</a>.</p> </dd> <dt>CUSTOM_AUTH</dt> <dd> <p>Custom authentication with Lambda triggers. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">Custom authentication challenge Lambda triggers</a>.</p> </dd> <dt>ADMIN_USER_PASSWORD_AUTH</dt> <dd> <p>Server-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html\">SDK authorization models</a>.</p> </dd> </dl>
+            auth_parameters: <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you're invoking.</p> <p>The following are some authentication flows and their parameters. Add a <code>SECRET_HASH</code> parameter if your app client has a client secret. Add <code>DEVICE_KEY</code> if you want to bypass multi-factor authentication with a remembered device. </p> <dl> <dt>USER_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>PREFERRED_CHALLENGE</code>. If you don't provide a value for <code>PREFERRED_CHALLENGE</code>, Amazon Cognito responds with the <code>AvailableChallenges</code> parameter that specifies the available sign-in methods.</p> </li> </ul> </dd> <dt>USER_SRP_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>SRP_A</code> (required)</p> </li> </ul> </dd> <dt>ADMIN_USER_PASSWORD_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>PASSWORD</code> (required)</p> </li> </ul> </dd> <dt>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</dt> <dd> <ul> <li> <p> <code>REFRESH_TOKEN</code>(required)</p> </li> </ul> </dd> <dt>CUSTOM_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>ChallengeName: SRP_A</code> (when preceding custom authentication with SRP authentication)</p> </li> <li> <p> <code>SRP_A: (An SRP_A value)</code> (when preceding custom authentication with SRP authentication)</p> </li> </ul> </dd> </dl> <p>For more information about <code>SECRET_HASH</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <p>The <code>ClientMetadata</code> value is passed as input to the functions for only the following triggers:</p> <ul> <li> <p>Pre signup</p> </li> <li> <p>Pre authentication</p> </li> <li> <p>User migration</p> </li> </ul> <p>This request also invokes the functions for the following triggers, but doesn't pass <code>ClientMetadata</code>:</p> <ul> <li> <p>Post authentication</p> </li> <li> <p>Custom message</p> </li> <li> <p>Pre token generation</p> </li> <li> <p>Create auth challenge</p> </li> <li> <p>Define auth challenge</p> </li> <li> <p>Custom email sender</p> </li> <li> <p>Custom SMS sender</p> </li> </ul> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            session: <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with an <code>AuthFlow</code> of <code>USER_AUTH</code> and <code>AuthParameters</code> of <code>EMAIL_OTP</code> or <code>SMS_OTP</code>, depending on how your user pool sent the confirmation-code message.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_initiate_auth_request.AdminInitiateAuthRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_initiate_auth_response.AdminInitiateAuthResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_initiate_auth
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_initiate_auth.admin_initiate_auth(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_initiate_auth_request.AdminInitiateAuthRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        input["auth_flow"] = auth_flow
+        if auth_parameters is not None:
+            input["auth_parameters"] = auth_parameters
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if context_data is not None:
+            input["context_data"] = context_data
+        if session is not None:
+            input["session"] = session
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_link_provider_for_user(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.string_type.StringType",
+        destination_user: "aws_sdk_cognito_identity_provider.types.provider_user_identifier_type.ProviderUserIdentifierType",
+        source_user: "aws_sdk_cognito_identity_provider.types.provider_user_identifier_type.ProviderUserIdentifierType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_link_provider_for_user_response.AdminLinkProviderForUserResponse":
+        """<p>Links an existing user account in a user pool, or <code>DestinationUser</code>, to an identity from an external IdP, or <code>SourceUser</code>, based on a specified attribute name and value from the external IdP.</p> <p>This operation connects a local user profile with a user identity who hasn't yet signed in from their third-party IdP. When the user signs in with their IdP, they get access-control configuration from the local user profile. Linked local users can also sign in with SDK-based API operations like <code>InitiateAuth</code> after they sign in at least once through their IdP. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html\">Linking federated users</a>.</p> <note> <p>The maximum number of federated identities linked to a user is five.</p> </note> <important> <p>Because this API allows a user with an external federated identity to sign in as a local user, it is critical that it only be used with external IdPs and linked attributes that you trust.</p> </important> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to link a federated identity.</p>
+            destination_user: <p>The existing user in the user pool that you want to assign to the external IdP user account. This user can be a local (Username + Password) Amazon Cognito user pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, Amazon Cognito generates an exception. Amazon Cognito returns this user when the new user (with the linked IdP attribute) signs in.</p> <p>For a native username + password user, the <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> should be the username in the user pool. For a federated user, it should be the provider-specific <code>user_id</code>.</p> <p>The <code>ProviderAttributeName</code> of the <code>DestinationUser</code> is ignored.</p> <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p> <important> <p>All attributes in the DestinationUser profile must be mutable. If you have assigned the user any immutable custom attributes, the operation won't succeed.</p> </important>
+            source_user: <p>An external IdP account for a user who doesn't exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p> <p>If the <code>SourceUser</code> is using a federated social IdP, such as Facebook, Google, or Login with Amazon, you must set the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. For social IdPs, the <code>ProviderName</code> will be <code>Facebook</code>, <code>Google</code>, or <code>LoginWithAmazon</code>, and Amazon Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for <code>id</code>, <code>sub</code>, and <code>user_id</code>, respectively. The <code>ProviderAttributeValue</code> for the user must be the same value as the <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social IdP token.</p> <p>For OIDC, the <code>ProviderAttributeName</code> can be any mapped value from a claim in the ID token, or that your app retrieves from the <code>userInfo</code> endpoint. For SAML, the <code>ProviderAttributeName</code> can be any mapped value from a claim in the SAML assertion.</p> <p>The following additional considerations apply to <code>SourceUser</code> for OIDC and SAML providers.</p> <ul> <li> <p>You must map the claim to a user pool attribute in your IdP configuration, and set the user pool attribute name as the value of <code>ProviderAttributeName</code> in your <code>AdminLinkProviderForUser</code> request. For example, <code>email</code>.</p> </li> <li> <p>When you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique identifier found in the subject from the IdP token.</p> </li> </ul>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_link_provider_for_user_request.AdminLinkProviderForUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_link_provider_for_user_response.AdminLinkProviderForUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_link_provider_for_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_link_provider_for_user.admin_link_provider_for_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_link_provider_for_user_request.AdminLinkProviderForUserRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["destination_user"] = destination_user
+        input["source_user"] = source_user
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_list_devices(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        pagination_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.search_pagination_token_type.SearchPaginationTokenType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_list_devices_response.AdminListDevicesResponse":
+        """<p>Lists a user's registered devices. Remembered devices are used in authentication services where you offer a \"Remember me\" option for users who you want to permit to sign in without MFA from a trusted device. Users can bypass MFA while your application performs device SRP authentication on the back end. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where the device owner is a user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            limit: <p>The maximum number of devices that you want Amazon Cognito to return in the response.</p>
+            pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_list_devices_request.AdminListDevicesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_list_devices_response.AdminListDevicesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_list_devices
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_list_devices.admin_list_devices(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_list_devices_request.AdminListDevicesRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        if limit is not None:
+            input["limit"] = limit
+        if pagination_token is not None:
+            input["pagination_token"] = pagination_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_list_groups_for_user(
+        self,
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_list_groups_for_user_response.AdminListGroupsForUserResponse":
+        """<p>Lists the groups that a user belongs to. User pool groups are identifiers that you can reference from the contents of ID and access tokens, and set preferred IAM roles for identity-pool authentication. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            user_pool_id: <p>The ID of the user pool where you want to view a user's groups.</p>
+            limit: <p>The maximum number of groups that you want Amazon Cognito to return in the response.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_list_groups_for_user_request.AdminListGroupsForUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_list_groups_for_user_response.AdminListGroupsForUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_list_groups_for_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_list_groups_for_user.admin_list_groups_for_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_list_groups_for_user_request.AdminListGroupsForUserRequest = {}  # type: ignore[typeddict-item]
+        input["username"] = username
+        input["user_pool_id"] = user_pool_id
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_admin_list_groups_for_user(
+        self,
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.group_type.GroupType]":
+        _token = next_token
+        while True:
+            _response = self.admin_list_groups_for_user(
+                username,
+                user_pool_id,
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("groups",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def admin_list_user_auth_events(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_list_user_auth_events_response.AdminListUserAuthEventsResponse":
+        """<p>Requests a history of user activity and any risks detected as part of Amazon Cognito threat protection. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-event-user-history\">Viewing user event history</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The Id of the user pool that contains the user profile with the logged events.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            max_results: <p>The maximum number of authentication events to return. Returns 60 events if you set <code>MaxResults</code> to 0, or if you don't include a <code>MaxResults</code> parameter.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_list_user_auth_events_request.AdminListUserAuthEventsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_list_user_auth_events_response.AdminListUserAuthEventsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_list_user_auth_events
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_list_user_auth_events.admin_list_user_auth_events(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_list_user_auth_events_request.AdminListUserAuthEventsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_admin_list_user_auth_events(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.auth_event_type.AuthEventType]":
+        _token = next_token
+        while True:
+            _response = self.admin_list_user_auth_events(
+                user_pool_id,
+                username,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("auth_events",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def admin_remove_user_from_group(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Given a username and a group name, removes them from the group. User pool groups are identifiers that you can reference from the contents of ID and access tokens, and set preferred IAM roles for identity-pool authentication. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the group and the user that you want to remove.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            group_name: <p>The name of the group that you want to remove the user from, for example <code>MyTestGroup</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_remove_user_from_group_request.AdminRemoveUserFromGroupRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_remove_user_from_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_remove_user_from_group.admin_remove_user_from_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_remove_user_from_group_request.AdminRemoveUserFromGroupRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["group_name"] = group_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_reset_user_password(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_reset_user_password_response.AdminResetUserPasswordResponse":
+        """<p>Begins the password reset process. Sets the requested user’s account into a <code>RESET_REQUIRED</code> status, and sends them a password-reset code. Your user pool also sends the user a notification with a reset code and the information that their password has been reset. At sign-in, your application or the managed login session receives a challenge to complete the reset by confirming the code and setting a new password.</p> <p>To use this API operation, your user pool must have self-service account recovery configured.</p> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to reset the user's password.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_reset_user_password_request.AdminResetUserPasswordRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_reset_user_password_response.AdminResetUserPasswordResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_reset_user_password
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_reset_user_password.admin_reset_user_password(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_reset_user_password_request.AdminResetUserPasswordRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_respond_to_auth_challenge(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        challenge_name: "aws_sdk_cognito_identity_provider.types.challenge_name_type.ChallengeNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        challenge_responses: Optional[
+            "aws_sdk_cognito_identity_provider.types.challenge_responses_type.ChallengeResponsesType"
+        ] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.context_data_type.ContextDataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_respond_to_auth_challenge_response.AdminRespondToAuthChallengeResponse":
+        """<p>Some API operations in a user pool generate a challenge, like a prompt for an MFA code, for device authentication that bypasses MFA, or for a custom authentication challenge. An <code>AdminRespondToAuthChallenge</code> API request provides the answer to that challenge, like a code or a secure remote password (SRP). The parameters of a response to an authentication challenge vary with the type of challenge.</p> <p>For more information about custom authentication challenges, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">Custom authentication challenge Lambda triggers</a>.</p> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to respond to an authentication challenge.</p>
+            client_id: <p>The ID of the app client where you initiated sign-in.</p>
+            challenge_name: <p>The name of the challenge that you are responding to.</p> <p>Possible challenges include the following:</p> <note> <p>All of the following challenges require <code>USERNAME</code> and, when the app client has a client secret, <code>SECRET_HASH</code> in the parameters. Include a <code>DEVICE_KEY</code> for device authentication.</p> </note> <ul> <li> <p> <code>WEB_AUTHN</code>: Respond to the challenge with the results of a successful authentication with a WebAuthn authenticator, or passkey, as <code>CREDENTIAL</code>. Examples of WebAuthn authenticators include biometric devices and security keys.</p> </li> <li> <p> <code>PASSWORD</code>: Respond with the user's password as <code>PASSWORD</code>.</p> </li> <li> <p> <code>PASSWORD_SRP</code>: Respond with the initial SRP secret as <code>SRP_A</code>.</p> </li> <li> <p> <code>SELECT_CHALLENGE</code>: Respond with a challenge selection as <code>ANSWER</code>. It must be one of the challenge types in the <code>AvailableChallenges</code> response parameter. Add the parameters of the selected challenge, for example <code>USERNAME</code> and <code>SMS_OTP</code>.</p> </li> <li> <p> <code>SMS_MFA</code>: Respond with the code that your user pool delivered in an SMS message, as <code>SMS_MFA_CODE</code> </p> </li> <li> <p> <code>EMAIL_MFA</code>: Respond with the code that your user pool delivered in an email message, as <code>EMAIL_MFA_CODE</code> </p> </li> <li> <p> <code>EMAIL_OTP</code>: Respond with the code that your user pool delivered in an email message, as <code>EMAIL_OTP_CODE</code> .</p> </li> <li> <p> <code>SMS_OTP</code>: Respond with the code that your user pool delivered in an SMS message, as <code>SMS_OTP_CODE</code>.</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: Respond with the second stage of SRP secrets as <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code>.</p> </li> <li> <p> <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued. The parameters of the challenge are determined by your Lambda function and issued in the <code>ChallengeParameters</code> of a challenge response.</p> </li> <li> <p> <code>DEVICE_SRP_AUTH</code>: Respond with the initial parameters of device SRP authentication. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html#user-pools-remembered-devices-signing-in-with-a-device\">Signing in with a device</a>.</p> </li> <li> <p> <code>DEVICE_PASSWORD_VERIFIER</code>: Respond with <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after client-side SRP calculations. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html#user-pools-remembered-devices-signing-in-with-a-device\">Signing in with a device</a>.</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: For users who are required to change their passwords after successful first login. Respond to this challenge with <code>NEW_PASSWORD</code> and any required attributes that Amazon Cognito returned in the <code>requiredAttributes</code> parameter. You can also set values for attributes that aren't required by your user pool and that your app client can write.</p> <p>Amazon Cognito only returns this challenge for users who have temporary passwords. When you create passwordless users, you must provide values for all required attributes.</p> <note> <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value. In <code>AdminRespondToAuthChallenge</code> or <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter, then use the <code>AdminUpdateUserAttributes</code> or <code>UpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p> </note> </li> <li> <p> <code>MFA_SETUP</code>: For users who are required to setup an MFA factor before they can sign in. The MFA types activated for the user pool will be listed in the challenge parameters <code>MFAS_CAN_SETUP</code> value. </p> <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in. </p> <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request. </p> </li> </ul>
+            challenge_responses: <p>The responses to the challenge that you received in the previous request. Each challenge has its own required response parameters. The following examples are partial JSON request bodies that highlight challenge-response parameters.</p> <important> <p>You must provide a SECRET_HASH parameter in all challenge responses to an app client that has a client secret. Include a <code>DEVICE_KEY</code> for device authentication.</p> </important> <dl> <dt>SELECT_CHALLENGE</dt> <dd> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"ANSWER\": \"[Challenge name]\"}</code> </p> <p>Available challenges are <code>PASSWORD</code>, <code>PASSWORD_SRP</code>, <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code>.</p> <p>Complete authentication in the <code>SELECT_CHALLENGE</code> response for <code>PASSWORD</code>, <code>PASSWORD_SRP</code>, and <code>WEB_AUTHN</code>:</p> <ul> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"WEB_AUTHN\", \"USERNAME\": \"[username]\", \"CREDENTIAL\": \"[AuthenticationResponseJSON]\"}</code> </p> <p>See <a href=\"https://www.w3.org/TR/WebAuthn-3/#dictdef-authenticationresponsejson\"> AuthenticationResponseJSON</a>.</p> </li> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"PASSWORD\", \"USERNAME\": \"[username]\", \"PASSWORD\": \"[password]\"}</code> </p> </li> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"PASSWORD_SRP\", \"USERNAME\": \"[username]\", \"SRP_A\": \"[SRP_A]\"}</code> </p> </li> </ul> <p>For <code>SMS_OTP</code> and <code>EMAIL_OTP</code>, respond with the username and answer. Your user pool will send a code for the user to submit in the next challenge response.</p> <ul> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"SMS_OTP\", \"USERNAME\": \"[username]\"}</code> </p> </li> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"EMAIL_OTP\", \"USERNAME\": \"[username]\"}</code> </p> </li> </ul> </dd> <dt>WEB_AUTHN</dt> <dd> <p> <code>\"ChallengeName\": \"WEB_AUTHN\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"CREDENTIAL\": \"[AuthenticationResponseJSON]\"}</code> </p> <p>See <a href=\"https://www.w3.org/TR/WebAuthn-3/#dictdef-authenticationresponsejson\"> AuthenticationResponseJSON</a>.</p> </dd> <dt>PASSWORD</dt> <dd> <p> <code>\"ChallengeName\": \"PASSWORD\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"PASSWORD\": \"[password]\"}</code> </p> </dd> <dt>PASSWORD_SRP</dt> <dd> <p> <code>\"ChallengeName\": \"PASSWORD_SRP\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"SRP_A\": \"[SRP_A]\"}</code> </p> </dd> <dt>SMS_OTP</dt> <dd> <p> <code>\"ChallengeName\": \"SMS_OTP\", \"ChallengeResponses\": {\"SMS_OTP_CODE\": \"[code]\", \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>EMAIL_OTP</dt> <dd> <p> <code>\"ChallengeName\": \"EMAIL_OTP\", \"ChallengeResponses\": {\"EMAIL_OTP_CODE\": \"[code]\", \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>SMS_MFA</dt> <dd> <p> <code>\"ChallengeName\": \"SMS_MFA\", \"ChallengeResponses\": {\"SMS_MFA_CODE\": \"[code]\", \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>PASSWORD_VERIFIER</dt> <dd> <p>This challenge response is part of the SRP flow. Amazon Cognito requires that your application respond to this challenge within a few seconds. When the response time exceeds this period, your user pool returns a <code>NotAuthorizedException</code> error.</p> <p> <code>\"ChallengeName\": \"PASSWORD_VERIFIER\", \"ChallengeResponses\": {\"PASSWORD_CLAIM_SIGNATURE\": \"[claim_signature]\", \"PASSWORD_CLAIM_SECRET_BLOCK\": \"[secret_block]\", \"TIMESTAMP\": [timestamp], \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>CUSTOM_CHALLENGE</dt> <dd> <p> <code>\"ChallengeName\": \"CUSTOM_CHALLENGE\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"ANSWER\": \"[challenge_answer]\"}</code> </p> </dd> <dt>NEW_PASSWORD_REQUIRED</dt> <dd> <p> <code>\"ChallengeName\": \"NEW_PASSWORD_REQUIRED\", \"ChallengeResponses\": {\"NEW_PASSWORD\": \"[new_password]\", \"USERNAME\": \"[username]\"}</code> </p> <p>To set any required attributes that <code>InitiateAuth</code> returned in an <code>requiredAttributes</code> parameter, add <code>\"userAttributes.[attribute_name]\": \"[attribute_value]\"</code>. This parameter can also set values for writable attributes that aren't required by your user pool.</p> <note> <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value. In <code>AdminRespondToAuthChallenge</code> or <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter, then use the <code>AdminUpdateUserAttributes</code> or <code>UpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p> </note> </dd> <dt>SOFTWARE_TOKEN_MFA</dt> <dd> <p> <code>\"ChallengeName\": \"SOFTWARE_TOKEN_MFA\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"SOFTWARE_TOKEN_MFA_CODE\": [authenticator_code]}</code> </p> </dd> <dt>DEVICE_SRP_AUTH</dt> <dd> <p> <code>\"ChallengeName\": \"DEVICE_SRP_AUTH\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"DEVICE_KEY\": \"[device_key]\", \"SRP_A\": \"[srp_a]\"}</code> </p> </dd> <dt>DEVICE_PASSWORD_VERIFIER</dt> <dd> <p> <code>\"ChallengeName\": \"DEVICE_PASSWORD_VERIFIER\", \"ChallengeResponses\": {\"DEVICE_KEY\": \"[device_key]\", \"PASSWORD_CLAIM_SIGNATURE\": \"[claim_signature]\", \"PASSWORD_CLAIM_SECRET_BLOCK\": \"[secret_block]\", \"TIMESTAMP\": [timestamp], \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>MFA_SETUP</dt> <dd> <p> <code>\"ChallengeName\": \"MFA_SETUP\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\"}, \"SESSION\": \"[Session ID from VerifySoftwareToken]\"</code> </p> </dd> <dt>SELECT_MFA_TYPE</dt> <dd> <p> <code>\"ChallengeName\": \"SELECT_MFA_TYPE\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"ANSWER\": \"[SMS_MFA|EMAIL_MFA|SOFTWARE_TOKEN_MFA]\"}</code> </p> </dd> </dl> <p>For more information about <code>SECRET_HASH</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p>
+            session: <p>The session identifier that maintains the state of authentication requests and challenge responses. If an <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API request results in a determination that your application must pass another challenge, Amazon Cognito returns a session with other challenge parameters. Send this session identifier, unmodified, to the next <code>AdminRespondToAuthChallenge</code> request.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_respond_to_auth_challenge_request.AdminRespondToAuthChallengeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_respond_to_auth_challenge_response.AdminRespondToAuthChallengeResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_respond_to_auth_challenge
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_respond_to_auth_challenge.admin_respond_to_auth_challenge(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_respond_to_auth_challenge_request.AdminRespondToAuthChallengeRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        input["challenge_name"] = challenge_name
+        if challenge_responses is not None:
+            input["challenge_responses"] = challenge_responses
+        if session is not None:
+            input["session"] = session
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if context_data is not None:
+            input["context_data"] = context_data
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_set_user_mfa_preference(
+        self,
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        sms_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_mfa_settings_type.SMSMfaSettingsType"
+        ] = None,
+        software_token_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.software_token_mfa_settings_type.SoftwareTokenMfaSettingsType"
+        ] = None,
+        email_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_mfa_settings_type.EmailMfaSettingsType"
+        ] = None,
+        web_authn_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.web_authn_mfa_settings_type.WebAuthnMfaSettingsType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_response.AdminSetUserMFAPreferenceResponse":
+        """<p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are activated, and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are activated. If multiple options are activated and no preference is set, a challenge to choose an MFA option will be returned during sign-in.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            sms_mfa_settings: <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+            software_token_mfa_settings: <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+            email_mfa_settings: <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
+            web_authn_mfa_settings: <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            user_pool_id: <p>The ID of the user pool where you want to set a user's MFA preferences.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_request.AdminSetUserMFAPreferenceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_response.AdminSetUserMFAPreferenceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_set_user_mfa_preference
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_set_user_mfa_preference.admin_set_user_mfa_preference(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_request.AdminSetUserMFAPreferenceRequest = {}  # type: ignore[typeddict-item]
+        if sms_mfa_settings is not None:
+            input["sms_mfa_settings"] = sms_mfa_settings
+        if software_token_mfa_settings is not None:
+            input["software_token_mfa_settings"] = software_token_mfa_settings
+        if email_mfa_settings is not None:
+            input["email_mfa_settings"] = email_mfa_settings
+        if web_authn_mfa_settings is not None:
+            input["web_authn_mfa_settings"] = web_authn_mfa_settings
+        input["username"] = username
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_set_user_password(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        password: "aws_sdk_cognito_identity_provider.types.password_type.PasswordType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        permanent: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_set_user_password_response.AdminSetUserPasswordResponse":
+        """<p>Sets the specified user's password in a user pool. This operation administratively sets a temporary or permanent password for a user. With this operation, you can bypass self-service password changes and permit immediate sign-in with the password that you set. To do this, set <code>Permanent</code> to <code>true</code>.</p> <p>You can also set a new temporary password in this request, send it to a user, and require them to choose a new password on their next sign-in. To do this, set <code>Permanent</code> to <code>false</code>.</p> <p>If the password is temporary, the user's <code>Status</code> becomes <code>FORCE_CHANGE_PASSWORD</code>. When the user next tries to sign in, the <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> response includes the <code>NEW_PASSWORD_REQUIRED</code> challenge. If the user doesn't sign in before the temporary password expires, they can no longer sign in and you must repeat this operation to set a temporary or permanent password for them.</p> <p>After the user sets a new password, or if you set a permanent password, their status becomes <code>Confirmed</code>.</p> <p> <code>AdminSetUserPassword</code> can set a password for the user profile that Amazon Cognito creates for third-party federated users. When you set a password, the federated user's status changes from <code>EXTERNAL_PROVIDER</code> to <code>CONFIRMED</code>. A user in this state can sign in as a federated user, and initiate authentication flows in the API like a linked native user. They can also modify their password and attributes in token-authenticated API requests like <code>ChangePassword</code> and <code>UpdateUserAttributes</code>. As a best security practice and to keep users in sync with your external IdP, don't set passwords on federated user profiles. To set up a federated user for native sign-in with a linked native user, refer to <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html\">Linking federated users to an existing user profile</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to set the user's password.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            password: <p>The new temporary or permanent password that you want to set for the user. You can't remove the password for a user who already has a password so that they can only sign in with passwordless methods. In this scenario, you must create a new user without a password.</p>
+            permanent: <p>Set to <code>true</code> to set a password that the user can immediately sign in with. Set to <code>false</code> to set a temporary password that the user must change on their next sign-in.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_set_user_password_request.AdminSetUserPasswordRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_set_user_password_response.AdminSetUserPasswordResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_set_user_password
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_set_user_password.admin_set_user_password(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_set_user_password_request.AdminSetUserPasswordRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["password"] = password
+        if permanent is not None:
+            input["permanent"] = permanent
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_set_user_settings(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        mfa_options: "aws_sdk_cognito_identity_provider.types.mfa_option_list_type.MFAOptionListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_set_user_settings_response.AdminSetUserSettingsResponse":
+        """<p> <i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software token MFA.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the user whose options you're setting.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            mfa_options: <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_set_user_settings_request.AdminSetUserSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_set_user_settings_response.AdminSetUserSettingsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_set_user_settings
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_set_user_settings.admin_set_user_settings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_set_user_settings_request.AdminSetUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["mfa_options"] = mfa_options
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_update_auth_event_feedback(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        event_id: "aws_sdk_cognito_identity_provider.types.event_id_type.EventIdType",
+        feedback_value: "aws_sdk_cognito_identity_provider.types.feedback_value_type.FeedbackValueType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_update_auth_event_feedback_response.AdminUpdateAuthEventFeedbackResponse":
+        """<p>Provides the feedback for an authentication event generated by threat protection features. Your response indicates that you think that the event either was from a valid user or was an unwanted authentication attempt. This feedback improves the risk evaluation decision for the user pool as part of Amazon Cognito threat protection. To activate this setting, your user pool must be on the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html\"> Plus tier</a>.</p> <p>To train the threat-protection model to recognize trusted and untrusted sign-in characteristics, configure threat protection in audit-only mode and provide a mechanism for users or administrators to submit feedback. Your feedback can tell Amazon Cognito that a risk rating was assigned at a level you don't agree with.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to submit authentication-event feedback.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            event_id: <p>The ID of the threat protection authentication event that you want to update.</p>
+            feedback_value: <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_update_auth_event_feedback_request.AdminUpdateAuthEventFeedbackRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_update_auth_event_feedback_response.AdminUpdateAuthEventFeedbackResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_update_auth_event_feedback
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_update_auth_event_feedback.admin_update_auth_event_feedback(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_update_auth_event_feedback_request.AdminUpdateAuthEventFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["event_id"] = event_id
+        input["feedback_value"] = feedback_value
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_update_device_status(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        device_remembered_status: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_remembered_status_type.DeviceRememberedStatusType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_update_device_status_response.AdminUpdateDeviceStatusResponse":
+        """<p>Updates the status of a user's device so that it is marked as remembered or not remembered for the purpose of device authentication. Device authentication is a \"remember me\" mechanism that silently completes sign-in from trusted devices with a device key instead of a user-provided MFA code. This operation changes the status of a device without deleting it, so you can enable it again later. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to change a user's device status.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            device_key: <p>The unique identifier, or device key, of the device that you want to update the status for.</p>
+            device_remembered_status: <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_update_device_status_request.AdminUpdateDeviceStatusRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_update_device_status_response.AdminUpdateDeviceStatusResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_update_device_status
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_update_device_status.admin_update_device_status(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_update_device_status_request.AdminUpdateDeviceStatusRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["device_key"] = device_key
+        if device_remembered_status is not None:
+            input["device_remembered_status"] = device_remembered_status
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_update_user_attributes(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        user_attributes: "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_response.AdminUpdateUserAttributesResponse":
+        """<p>Updates the specified user's attributes. To delete an attribute from your user, submit the attribute in your API request with a blank value.</p> <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p> <p>This operation can set a user's email address or phone number as verified and permit immediate sign-in in user pools that require verification of these attributes. To do this, set the <code>email_verified</code> or <code>phone_number_verified</code> attribute to <code>true</code>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to update user attributes.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            user_attributes: <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>If your user pool requires verification before Amazon Cognito updates an attribute value that you specify in this request, Amazon Cognito doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p> <p>To skip the verification message and update the value of an attribute that requires verification in the same API request, include the <code>email_verified</code> or <code>phone_number_verified</code> attribute, with a value of <code>true</code>. If you set the <code>email_verified</code> or <code>phone_number_verified</code> value for an <code>email</code> or <code>phone_number</code> attribute that requires verification to <code>true</code>, Amazon Cognito doesn’t send a verification message to your user.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_request.AdminUpdateUserAttributesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_response.AdminUpdateUserAttributesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_update_user_attributes
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_update_user_attributes.admin_update_user_attributes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_request.AdminUpdateUserAttributesRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["user_attributes"] = user_attributes
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def admin_user_global_sign_out(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.admin_user_global_sign_out_response.AdminUserGlobalSignOutResponse":
+        """<p>Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call this operation with your administrative credentials when your user signs out of your app. This results in the following behavior.</p> <ul> <li> <p>Amazon Cognito no longer accepts <i>token-authorized</i> user operations that you authorize with a signed-out user's access tokens. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> <p>Amazon Cognito returns an <code>Access Token has been revoked</code> error when your app attempts to authorize a user pools API request with a revoked access token that contains the scope <code>aws.cognito.signin.user.admin</code>.</p> </li> <li> <p>Amazon Cognito no longer accepts a signed-out user's ID token in a <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html\">GetId </a> request to an identity pool with <code>ServerSideTokenCheck</code> enabled for its user pool IdP configuration in <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CognitoIdentityProvider.html\">CognitoIdentityProvider</a>.</p> </li> <li> <p>Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh requests.</p> </li> </ul> <p>Other requests might be valid until your user's token expires. This operation doesn't clear the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html\">managed login</a> session cookie. To clear the session for a user who signed in with managed login or the classic hosted UI, direct their browser session to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html\">logout endpoint</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to sign out a user.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.admin_user_global_sign_out_request.AdminUserGlobalSignOutRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.admin_user_global_sign_out_response.AdminUserGlobalSignOutResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_user_global_sign_out
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.admin_user_global_sign_out.admin_user_global_sign_out(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.admin_user_global_sign_out_request.AdminUserGlobalSignOutRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def associate_software_token(
+        self,
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        access_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType"
+        ] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.associate_software_token_response.AssociateSoftwareTokenResponse":
+        """<p>Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA) for a user, with a unique private key that Amazon Cognito generates and returns in the API response. You can authorize an <code>AssociateSoftwareToken</code> request with either the user's access token, or a session string from a challenge response that you received from Amazon Cognito.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p> <p>You can provide either an access token or a session ID in the request.</p>
+            session: <p>The session identifier that maintains the state of authentication requests and challenge responses. In <code>AssociateSoftwareToken</code>, this is the session ID from a successful sign-in. You can provide either an access token or a session ID in the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.associate_software_token_request.AssociateSoftwareTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.associate_software_token_response.AssociateSoftwareTokenResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.associate_software_token
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.associate_software_token.associate_software_token(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.associate_software_token_request.AssociateSoftwareTokenRequest = {}  # type: ignore[typeddict-item]
+        if access_token is not None:
+            input["access_token"] = access_token
+        if session is not None:
+            input["session"] = session
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def change_password(
+        self,
+        proposed_password: "aws_sdk_cognito_identity_provider.types.password_type.PasswordType",
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        previous_password: Optional[
+            "aws_sdk_cognito_identity_provider.types.password_type.PasswordType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.change_password_response.ChangePasswordResponse":
+        """<p>Changes the password for the currently signed-in user.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            previous_password: <p>The user's previous password. Required if the user has a password. If the user has no password and only signs in with passwordless authentication options, you can omit this parameter.</p>
+            proposed_password: <p>A new password that you prompted the user to enter in your application.</p>
+            access_token: <p>A valid access token that Amazon Cognito issued to the user whose password you want to change.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.change_password_request.ChangePasswordRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.change_password_response.ChangePasswordResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.change_password
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.change_password.change_password(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.change_password_request.ChangePasswordRequest = {}  # type: ignore[typeddict-item]
+        if previous_password is not None:
+            input["previous_password"] = previous_password
+        input["proposed_password"] = proposed_password
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def complete_web_authn_registration(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        credential: "aws_sdk_cognito_identity_provider.types.document.Document",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.complete_web_authn_registration_response.CompleteWebAuthnRegistrationResponse":
+        """<p>Completes registration of a passkey authenticator for the currently signed-in user.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            credential: <p>A <a href=\"https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson\">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.complete_web_authn_registration_request.CompleteWebAuthnRegistrationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.complete_web_authn_registration_response.CompleteWebAuthnRegistrationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.complete_web_authn_registration
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.complete_web_authn_registration.complete_web_authn_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.complete_web_authn_registration_request.CompleteWebAuthnRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["credential"] = credential
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def confirm_device(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        device_secret_verifier_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_secret_verifier_config_type.DeviceSecretVerifierConfigType"
+        ] = None,
+        device_name: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_name_type.DeviceNameType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.confirm_device_response.ConfirmDeviceResponse":
+        """<p>Confirms a device that a user wants to remember. A remembered device is a \"Remember me on this device\" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            device_key: <p>The unique identifier, or device key, of the device that you want to update the status for.</p>
+            device_secret_verifier_config: <p>The configuration of the device secret verifier.</p>
+            device_name: <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.confirm_device_request.ConfirmDeviceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.confirm_device_response.ConfirmDeviceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.confirm_device
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.confirm_device.confirm_device(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.confirm_device_request.ConfirmDeviceRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["device_key"] = device_key
+        if device_secret_verifier_config is not None:
+            input["device_secret_verifier_config"] = device_secret_verifier_config
+        if device_name is not None:
+            input["device_name"] = device_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def confirm_forgot_password(
+        self,
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        confirmation_code: "aws_sdk_cognito_identity_provider.types.confirmation_code_type.ConfirmationCodeType",
+        password: "aws_sdk_cognito_identity_provider.types.password_type.PasswordType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        secret_hash: Optional[
+            "aws_sdk_cognito_identity_provider.types.secret_hash_type.SecretHashType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.confirm_forgot_password_response.ConfirmForgotPasswordResponse":
+        """<p>This public API operation accepts a confirmation code that Amazon Cognito sent to a user and accepts a new password for that user.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            client_id: <p>The ID of the app client where the user wants to reset their password. This parameter is an identifier of the client application that users are resetting their password from, but this operation resets users' irrespective of the app clients they sign in to.</p>
+            secret_hash: <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message. For more information about <code>SecretHash</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            confirmation_code: <p>The confirmation code that your user pool delivered when your user requested to reset their password.</p>
+            password: <p>The new password that your user wants to set.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.confirm_forgot_password_request.ConfirmForgotPasswordRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.confirm_forgot_password_response.ConfirmForgotPasswordResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.confirm_forgot_password
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.confirm_forgot_password.confirm_forgot_password(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.confirm_forgot_password_request.ConfirmForgotPasswordRequest = {}  # type: ignore[typeddict-item]
+        input["client_id"] = client_id
+        if secret_hash is not None:
+            input["secret_hash"] = secret_hash
+        input["username"] = username
+        input["confirmation_code"] = confirmation_code
+        input["password"] = password
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def confirm_sign_up(
+        self,
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        confirmation_code: "aws_sdk_cognito_identity_provider.types.confirmation_code_type.ConfirmationCodeType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        secret_hash: Optional[
+            "aws_sdk_cognito_identity_provider.types.secret_hash_type.SecretHashType"
+        ] = None,
+        force_alias_creation: Optional[
+            "aws_sdk_cognito_identity_provider.types.force_alias_creation.ForceAliasCreation"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.confirm_sign_up_response.ConfirmSignUpResponse":
+        """<p>Confirms the account of a new user. This public API operation submits a code that Amazon Cognito sent to your user when they signed up in your user pool. After your user enters their code, they confirm ownership of the email address or phone number that they provided, and their user account becomes active. Depending on your user pool configuration, your users will receive their confirmation code in an email or SMS message.</p> <p>Local users who signed up in your user pool are the only type of user who can confirm sign-up with a code. Users who federate through an external identity provider (IdP) have already been confirmed by their IdP.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            client_id: <p>The ID of the app client associated with the user pool.</p>
+            secret_hash: <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message. For more information about <code>SecretHash</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            confirmation_code: <p>The confirmation code that your user pool sent in response to the <code>SignUp</code> request.</p>
+            force_alias_creation: <p>When <code>true</code>, forces user confirmation despite any existing aliases. Defaults to <code>false</code>. A value of <code>true</code> migrates the alias from an existing user to the new user if an existing user already has the phone number or email address as an alias.</p> <p>Say, for example, that an existing user has an <code>email</code> attribute of <code>bob@example.com</code> and email is an alias in your user pool. If the new user also has an email of <code>bob@example.com</code> and your <code>ConfirmSignUp</code> response sets <code>ForceAliasCreation</code> to <code>true</code>, the new user can sign in with a username of <code>bob@example.com</code> and the existing user can no longer do so.</p> <p>If <code>false</code> and an attribute belongs to an existing alias, this request returns an <b>AliasExistsException</b> error.</p> <p>For more information about sign-in aliases, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases\">Customizing sign-in attributes</a>.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+            session: <p>The optional session ID from a <code>SignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.confirm_sign_up_request.ConfirmSignUpRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.confirm_sign_up_response.ConfirmSignUpResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.confirm_sign_up
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.confirm_sign_up.confirm_sign_up(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.confirm_sign_up_request.ConfirmSignUpRequest = {}  # type: ignore[typeddict-item]
+        input["client_id"] = client_id
+        if secret_hash is not None:
+            input["secret_hash"] = secret_hash
+        input["username"] = username
+        input["confirmation_code"] = confirmation_code
+        if force_alias_creation is not None:
+            input["force_alias_creation"] = force_alias_creation
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+        if session is not None:
+            input["session"] = session
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_group(
+        self,
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        description: Optional[
+            "aws_sdk_cognito_identity_provider.types.description_type.DescriptionType"
+        ] = None,
+        role_arn: Optional[
+            "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
+        ] = None,
+        precedence: Optional[
+            "aws_sdk_cognito_identity_provider.types.precedence_type.PrecedenceType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_group_response.CreateGroupResponse":
+        """<p>Creates a new group in the specified user pool. For more information about user pool groups, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            group_name: <p>A name for the group. This name must be unique in your user pool.</p>
+            user_pool_id: <p>The ID of the user pool where you want to create a user group.</p>
+            description: <p>A description of the group that you're creating.</p>
+            role_arn: <p>The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a <code>cognito:preferred_role</code> claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a <code>cognito:groups</code> claim that list all the groups that a user is a member of.</p>
+            precedence: <p>A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim isn't set in users' tokens.</p> <p>The default <code>Precedence</code> value is null. The maximum <code>Precedence</code> value is <code>2^31-1</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_group_request.CreateGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_group_response.CreateGroupResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_group.create_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_name"] = group_name
+        input["user_pool_id"] = user_pool_id
+        if description is not None:
+            input["description"] = description
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if precedence is not None:
+            input["precedence"] = precedence
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_identity_provider(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        provider_name: "aws_sdk_cognito_identity_provider.types.provider_name_type_v2.ProviderNameTypeV2",
+        provider_type: "aws_sdk_cognito_identity_provider.types.identity_provider_type_type.IdentityProviderTypeType",
+        provider_details: "aws_sdk_cognito_identity_provider.types.provider_details_type.ProviderDetailsType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        attribute_mapping: Optional[
+            "aws_sdk_cognito_identity_provider.types.attribute_mapping_type.AttributeMappingType"
+        ] = None,
+        idp_identifiers: Optional[
+            "aws_sdk_cognito_identity_provider.types.idp_identifiers_list_type.IdpIdentifiersListType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_identity_provider_response.CreateIdentityProviderResponse":
+        """<p>Adds a configuration and trust relationship between a third-party identity provider (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers through managed login and OIDC relying-party libraries. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html\">Third-party IdP sign-in</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The Id of the user pool where you want to create an IdP.</p>
+            provider_name: <p>The name that you want to assign to the IdP. You can pass the identity provider name in the <code>identity_provider</code> query parameter of requests to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html\">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP.</p>
+            provider_type: <p>The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.</p>
+            provider_details: <p>The scopes, URLs, and identifiers for your external identity provider. The following examples describe the provider detail keys for each IdP type. These values and their schema are subject to change. Social IdP <code>authorize_scopes</code> values must match the values listed here.</p> <dl> <dt>OpenID Connect (OIDC)</dt> <dd> <p>Amazon Cognito accepts the following elements when it can't discover endpoint URLs from <code>oidc_issuer</code>: <code>attributes_url</code>, <code>authorize_url</code>, <code>jwks_uri</code>, <code>token_url</code>.</p> <p>Create or update request: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> </dd> <dt>SAML</dt> <dd> <p>Create or update request with Metadata URL: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>Create or update request with Metadata file: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataFile\": \"[metadata XML]\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all quote (\") characters escaped by backslashes.</p> <p>Describe response: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"ActiveEncryptionCertificate\": \"[certificate]\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\", \"SLORedirectBindingURI\": \"https://auth.example.com/slo/saml\", \"SSORedirectBindingURI\": \"https://auth.example.com/sso/saml\" }</code> </p> </dd> <dt>LoginWithAmazon</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"profile postal_code\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\"</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://api.amazon.com/user/profile\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"profile postal_code\", \"authorize_url\": \"https://www.amazon.com/ap/oa\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"POST\", \"token_url\": \"https://api.amazon.com/auth/o2/token\" }</code> </p> </dd> <dt>Google</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email profile openid\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://people.googleapis.com/v1/people/me?personFields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"email profile openid\", \"authorize_url\": \"https://accounts.google.com/o/oauth2/v2/auth\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\", \"oidc_issuer\": \"https://accounts.google.com\", \"token_request_method\": \"POST\", \"token_url\": \"https://www.googleapis.com/oauth2/v4/token\" }</code> </p> </dd> <dt>SignInWithApple</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email name\", \"client_id\": \"com.example.cognito\", \"private_key\": \"1EXAMPLE\", \"key_id\": \"2EXAMPLE\", \"team_id\": \"3EXAMPLE\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"email name\", \"authorize_url\": \"https://appleid.apple.com/auth/authorize\", \"client_id\": \"com.example.cognito\", \"key_id\": \"1EXAMPLE\", \"oidc_issuer\": \"https://appleid.apple.com\", \"team_id\": \"2EXAMPLE\", \"token_request_method\": \"POST\", \"token_url\": \"https://appleid.apple.com/auth/token\" }</code> </p> </dd> <dt>Facebook</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"authorize_scopes\": \"public_profile, email\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"attributes_url\": \"https://graph.facebook.com/v17.0/me?fields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"public_profile, email\", \"authorize_url\": \"https://www.facebook.com/v17.0/dialog/oauth\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"GET\", \"token_url\": \"https://graph.facebook.com/v17.0/oauth/access_token\" }</code> </p> </dd> </dl>
+            attribute_mapping: <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
+            idp_identifiers: <p>An array of IdP identifiers, for example <code>\"IdPIdentifiers\": [ \"MyIdP\", \"MyIdP2\" ]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html\">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html\">email-address matching with SAML providers</a>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_identity_provider_request.CreateIdentityProviderRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_identity_provider_response.CreateIdentityProviderResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_identity_provider
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_identity_provider.create_identity_provider(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_identity_provider_request.CreateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["provider_name"] = provider_name
+        input["provider_type"] = provider_type
+        input["provider_details"] = provider_details
+        if attribute_mapping is not None:
+            input["attribute_mapping"] = attribute_mapping
+        if idp_identifiers is not None:
+            input["idp_identifiers"] = idp_identifiers
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_managed_login_branding(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        use_cognito_provided_values: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+        settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.document.Document"
+        ] = None,
+        assets: Optional[
+            "aws_sdk_cognito_identity_provider.types.asset_list_type.AssetListType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_managed_login_branding_response.CreateManagedLoginBrandingResponse":
+        """<p>Creates a new set of branding settings for a user pool style and associates it with an app client. This operation is the programmatic option for the creation of a new style in the branding editor.</p> <p>Provides values for UI customization in a <code>Settings</code> JSON object and image files in an <code>Assets</code> array. To send the JSON object <code>Document</code> type parameter in <code>Settings</code>, you might need to update to the most recent version of your Amazon Web Services SDK. To create a new style with default settings, set <code>UseCognitoProvidedValues</code> to <code>true</code> and don't provide values for any other options.</p> <p> This operation has a 2-megabyte request-size limit and include the CSS settings and image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito doesn't require that you pass all parameters in one request and preserves existing style settings that you don't specify. If your request is larger than 2MB, separate it into multiple requests, each with a size smaller than the limit. </p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to create a new branding style.</p>
+            client_id: <p>The app client that you want to create the branding style for. Each style is linked to an app client until you delete it.</p>
+            use_cognito_provided_values: <p>When true, applies the default branding style options. These default options are managed by Amazon Cognito. You can modify them later in the branding editor.</p> <p>When you specify <code>true</code> for this option, you must also omit values for <code>Settings</code> and <code>Assets</code> in the request.</p>
+            settings: <p>A JSON file, encoded as a <code>Document</code> type, with the the settings that you want to apply to your style.</p> <p>The following components are not currently implemented and reserved for future use:</p> <ul> <li> <p> <code>signUp</code> </p> </li> <li> <p> <code>instructions</code> </p> </li> <li> <p> <code>sessionTimerDisplay</code> </p> </li> <li> <p> <code>languageSelector</code> (for localization, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization\">Managed login localization)</a> </p> </li> </ul>
+            assets: <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_managed_login_branding_request.CreateManagedLoginBrandingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_managed_login_branding_response.CreateManagedLoginBrandingResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_managed_login_branding
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_managed_login_branding.create_managed_login_branding(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_managed_login_branding_request.CreateManagedLoginBrandingRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        if use_cognito_provided_values is not None:
+            input["use_cognito_provided_values"] = use_cognito_provided_values
+        if settings is not None:
+            input["settings"] = settings
+        if assets is not None:
+            input["assets"] = assets
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_resource_server(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        identifier: "aws_sdk_cognito_identity_provider.types.resource_server_identifier_type.ResourceServerIdentifierType",
+        name: "aws_sdk_cognito_identity_provider.types.resource_server_name_type.ResourceServerNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        scopes: Optional[
+            "aws_sdk_cognito_identity_provider.types.resource_server_scope_list_type.ResourceServerScopeListType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_resource_server_response.CreateResourceServerResponse":
+        """<p>Creates a new OAuth2.0 resource server and defines custom scopes within it. Resource servers are associated with custom scopes and machine-to-machine (M2M) authorization. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html\">Access control with resource servers</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to create a resource server.</p>
+            identifier: <p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>
+            name: <p>A friendly name for the resource server.</p>
+            scopes: <p>A list of custom scopes. Each scope is a key-value map with the keys <code>ScopeName</code> and <code>ScopeDescription</code>. The name of a custom scope is a combination of <code>ScopeName</code> and the resource server <code>Name</code> in this request, for example <code>MyResourceServerName/MyScopeName</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_resource_server_request.CreateResourceServerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_resource_server_response.CreateResourceServerResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_resource_server
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_resource_server.create_resource_server(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_resource_server_request.CreateResourceServerRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["identifier"] = identifier
+        input["name"] = name
+        if scopes is not None:
+            input["scopes"] = scopes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_terms(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        terms_name: "aws_sdk_cognito_identity_provider.types.terms_name_type.TermsNameType",
+        terms_source: "aws_sdk_cognito_identity_provider.types.terms_source_type.TermsSourceType",
+        enforcement: "aws_sdk_cognito_identity_provider.types.terms_enforcement_type.TermsEnforcementType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        links: Optional[
+            "aws_sdk_cognito_identity_provider.types.links_type.LinksType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_terms_response.CreateTermsResponse":
+        """<p>Creates terms documents for the requested app client. When Terms and conditions and Privacy policy documents are configured, the app client displays links to them in the sign-up page of managed login for the app client.</p> <p>You can provide URLs for terms documents in the languages that are supported by <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization\">managed login localization</a>. Amazon Cognito directs users to the terms documents for their current language, with fallback to <code>default</code> if no document exists for the language.</p> <p>Each request accepts one type of terms document and a map of language-to-link for that document type. You must provide both types of terms documents in at least one language before Amazon Cognito displays your terms documents. Supply each type in separate requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents\">Terms documents</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to create terms documents.</p>
+            client_id: <p>The ID of the app client where you want to create terms documents. Must be an app client in the requested user pool.</p>
+            terms_name: <p>A friendly name for the document that you want to create in the current request. Must begin with <code>terms-of-use</code> or <code>privacy-policy</code> as identification of the document type. Provide URLs for both <code>terms-of-use</code> and <code>privacy-policy</code> in separate requests.</p>
+            terms_source: <p>This parameter is reserved for future use and currently accepts only one value.</p>
+            enforcement: <p>This parameter is reserved for future use and currently accepts only one value.</p>
+            links: <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p> <p>For example, <code>\"cognito:default\": \"https://terms.example.com\", \"cognito:spanish\": \"https://terms.example.com/es\"</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_terms_request.CreateTermsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_terms_response.CreateTermsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_terms
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_terms.create_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_terms_request.CreateTermsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        input["terms_name"] = terms_name
+        input["terms_source"] = terms_source
+        input["enforcement"] = enforcement
+        if links is not None:
+            input["links"] = links
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_import_job(
+        self,
+        job_name: "aws_sdk_cognito_identity_provider.types.user_import_job_name_type.UserImportJobNameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        cloud_watch_logs_role_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_user_import_job_response.CreateUserImportJobResponse":
+        """<p>Creates a user import job. You can import users into user pools from a comma-separated values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web Services bill.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            job_name: <p>A friendly name for the user import job.</p>
+            user_pool_id: <p>The ID of the user pool that you want to import users into.</p>
+            cloud_watch_logs_role_arn: <p>You must specify an IAM role that has permission to log import-job results to Amazon CloudWatch Logs. This parameter is the ARN of that role.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_user_import_job_request.CreateUserImportJobRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_user_import_job_response.CreateUserImportJobResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_import_job
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_import_job.create_user_import_job(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_user_import_job_request.CreateUserImportJobRequest = {}  # type: ignore[typeddict-item]
+        input["job_name"] = job_name
+        input["user_pool_id"] = user_pool_id
+        input["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_pool(
+        self,
+        pool_name: "aws_sdk_cognito_identity_provider.types.user_pool_name_type.UserPoolNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        policies: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_policy_type.UserPoolPolicyType"
+        ] = None,
+        deletion_protection: Optional[
+            "aws_sdk_cognito_identity_provider.types.deletion_protection_type.DeletionProtectionType"
+        ] = None,
+        lambda_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.lambda_config_type.LambdaConfigType"
+        ] = None,
+        auto_verified_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.verified_attributes_list_type.VerifiedAttributesListType"
+        ] = None,
+        alias_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.alias_attributes_list_type.AliasAttributesListType"
+        ] = None,
+        username_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.username_attributes_list_type.UsernameAttributesListType"
+        ] = None,
+        sms_verification_message: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_verification_message_type.SmsVerificationMessageType"
+        ] = None,
+        email_verification_message: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_verification_message_type.EmailVerificationMessageType"
+        ] = None,
+        email_verification_subject: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_verification_subject_type.EmailVerificationSubjectType"
+        ] = None,
+        verification_message_template: Optional[
+            "aws_sdk_cognito_identity_provider.types.verification_message_template_type.VerificationMessageTemplateType"
+        ] = None,
+        sms_authentication_message: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_verification_message_type.SmsVerificationMessageType"
+        ] = None,
+        mfa_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_mfa_type.UserPoolMfaType"
+        ] = None,
+        user_attribute_update_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_attribute_update_settings_type.UserAttributeUpdateSettingsType"
+        ] = None,
+        device_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_configuration_type.DeviceConfigurationType"
+        ] = None,
+        email_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_configuration_type.EmailConfigurationType"
+        ] = None,
+        sms_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_configuration_type.SmsConfigurationType"
+        ] = None,
+        user_pool_tags: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_tags_type.UserPoolTagsType"
+        ] = None,
+        admin_create_user_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.admin_create_user_config_type.AdminCreateUserConfigType"
+        ] = None,
+        schema: Optional[
+            "aws_sdk_cognito_identity_provider.types.schema_attributes_list_type.SchemaAttributesListType"
+        ] = None,
+        user_pool_add_ons: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_add_ons_type.UserPoolAddOnsType"
+        ] = None,
+        username_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.username_configuration_type.UsernameConfigurationType"
+        ] = None,
+        account_recovery_setting: Optional[
+            "aws_sdk_cognito_identity_provider.types.account_recovery_setting_type.AccountRecoverySettingType"
+        ] = None,
+        user_pool_tier: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_tier_type.UserPoolTierType"
+        ] = None,
+        key_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.key_configuration_type.KeyConfigurationType"
+        ] = None,
+        issuer_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.issuer_configuration_type.IssuerConfigurationType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_user_pool_response.CreateUserPoolResponse":
+        """<p>Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration options.</p> <important> <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p> </important> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            pool_name: <p>A friendly name for your user pool.</p>
+            policies: <p>The password policy and sign-in policy in the user pool. The password policy sets options like password complexity requirements and password history. The sign-in policy sets the options available to applications in <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice\">choice-based authentication</a>.</p>
+            deletion_protection: <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p> <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
+            lambda_config: <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.</p>
+            auto_verified_attributes: <p>The attributes that you want your user pool to automatically verify. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves\">Verifying contact information at sign-up</a>.</p>
+            alias_attributes: <p>Attributes supported as an alias for this user pool. For more information about alias attributes, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases\">Customizing sign-in attributes</a>.</p>
+            username_attributes: <p>Specifies whether a user can use an email address or phone number as a username when they sign up. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases\">Customizing sign-in attributes</a>.</p>
+            sms_verification_message: <p>This parameter is no longer used.</p>
+            email_verification_message: <p>This parameter is no longer used.</p>
+            email_verification_subject: <p>This parameter is no longer used.</p>
+            verification_message_template: <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p> <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
+            sms_authentication_message: <p>The contents of the SMS message that your user pool sends to users in SMS OTP and MFA authentication.</p>
+            mfa_configuration: <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p> <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
+            user_attribute_update_settings: <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates\"> Verifying updates to email addresses and phone numbers</a>.</p>
+            device_configuration: <p>The device-remembering configuration for a user pool. Device remembering or device tracking is a \"Remember me on this device\" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>. A null value indicates that you have deactivated device remembering in your user pool.</p> <note> <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> </note>
+            email_configuration: <p>The email configuration of your user pool. The email configuration type sets your preferred sending method, Amazon Web Services Region, and sender for messages from your user pool.</p>
+            sms_configuration: <p>The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\">SMS message settings</a>.</p>
+            user_pool_tags: <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
+            admin_create_user_config: <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
+            schema: <p>An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html\">Working with user attributes</a>.</p>
+            user_pool_add_ons: <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html\">Adding advanced security to a user pool</a>. To activate this setting, your user pool must be on the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html\"> Plus tier</a>.</p>
+            username_configuration: <p>Sets the case sensitivity option for sign-in usernames. When <code>CaseSensitive</code> is <code>false</code> (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, <code>username</code>, <code>USERNAME</code>, or <code>UserName</code>, or for email, <code>email@example.com</code> or <code>EMaiL@eXamplE.Com</code>. For most use cases, set case sensitivity to <code>false</code> as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.</p> <p>When <code>CaseSensitive</code> is <code>true</code> (case sensitive), Amazon Cognito interprets <code>USERNAME</code> and <code>UserName</code> as distinct users.</p> <p>This configuration is immutable after you set it.</p>
+            account_recovery_setting: <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. Email MFA is also disqualifying for account recovery with email. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p> <p>As a best practice, configure both <code>verified_email</code> and <code>verified_phone_number</code>, with one having a higher priority than the other.</p>
+            user_pool_tier: <p>The user pool <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a>, or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to <code>ESSENTIALS</code>.</p>
+            key_configuration: <p>The key configuration for the user pool. Specifies the key type and KMS key ARN for encryption.</p>
+            issuer_configuration: <p>The issuer configuration for the user pool. Specifies the issuer type for token generation.</p>
+
+        Examples:
+            Example user pool with email and username sign-in
+            The following example creates a user pool with all configurable properties set to an example value. The resulting user pool allows sign-in with username or email address, has optional MFA, and has a Lambda function assigned to each possible trigger.
+
+            >>> client.create_user_pool(account_recovery_setting={'RecoveryMechanisms': [{'Name': 'verified_email', 'Priority': 1}]}, admin_create_user_config={'AllowAdminCreateUserOnly': False, 'InviteMessageTemplate': {'EmailMessage': 'Your username is {username} and temporary password is {####}.', 'EmailSubject': 'Your sign-in information', 'SMSMessage': 'Your username is {username} and temporary password is {####}.'}}, alias_attributes=['email'], auto_verified_attributes=['email'], device_configuration={'ChallengeRequiredOnNewDevice': True, 'DeviceOnlyRememberedOnUserPrompt': True}, deletion_protection='ACTIVE', email_configuration={'ConfigurationSet': 'my-test-ses-configuration-set', 'EmailSendingAccount': 'DEVELOPER', 'From': 'support@example.com', 'ReplyToEmailAddress': 'support@example.com', 'SourceArn': 'arn:aws:ses:us-east-1:123456789012:identity/support@example.com'}, email_verification_message='Your verification code is {####}.', email_verification_subject='Verify your email address', lambda_config={'KMSKeyID': 'arn:aws:kms:us-east-1:123456789012:key/a6c4f8e2-0c45-47db-925f-87854bc9e357', 'CustomEmailSender': {'LambdaArn': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'LambdaVersion': 'V1_0'}, 'CustomSMSSender': {'LambdaArn': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'LambdaVersion': 'V1_0'}, 'CustomMessage': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'DefineAuthChallenge': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'InboundFederation': {'LambdaArn': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'LambdaVersion': 'V1_0'}, 'PostAuthentication': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'PostConfirmation': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'PreAuthentication': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'PreSignUp': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'PreTokenGeneration': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'UserMigration': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction', 'VerifyAuthChallengeResponse': 'arn:aws:lambda:us-east-1:123456789012:function:MyFunction'}, mfa_configuration='OPTIONAL', policies={'PasswordPolicy': {'MinimumLength': 6, 'RequireLowercase': True, 'RequireNumbers': True, 'RequireSymbols': True, 'RequireUppercase': True, 'TemporaryPasswordValidityDays': 7}}, pool_name='my-test-user-pool', schema=[{'AttributeDataType': 'Number', 'DeveloperOnlyAttribute': True, 'Mutable': True, 'Name': 'mydev', 'NumberAttributeConstraints': {'MaxValue': '99', 'MinValue': '1'}, 'Required': False, 'StringAttributeConstraints': {'MaxLength': '99', 'MinLength': '1'}}], sms_authentication_message='Your verification code is {####}.', sms_configuration={'ExternalId': 'my-role-external-id', 'SnsCallerArn': 'arn:aws:iam::123456789012:role/service-role/test-cognito-SMS-Role'}, sms_verification_message='Your verification code is {####}.', user_attribute_update_settings={'AttributesRequireVerificationBeforeUpdate': ['email']}, username_configuration={'CaseSensitive': True}, user_pool_add_ons={'AdvancedSecurityMode': 'OFF'}, user_pool_tags={'my-test-tag-key': 'my-test-tag-key'}, verification_message_template={'DefaultEmailOption': 'CONFIRM_WITH_CODE', 'EmailMessage': 'Your confirmation code is {####}', 'EmailMessageByLink': 'Choose this link to {##verify your email##}', 'EmailSubject': 'Here is your confirmation code', 'EmailSubjectByLink': 'Here is your confirmation link', 'SmsMessage': 'Your confirmation code is {####}'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_user_pool_request.CreateUserPoolRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_user_pool_response.CreateUserPoolResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool.create_user_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_user_pool_request.CreateUserPoolRequest = {}  # type: ignore[typeddict-item]
+        input["pool_name"] = pool_name
+        if policies is not None:
+            input["policies"] = policies
+        if deletion_protection is not None:
+            input["deletion_protection"] = deletion_protection
+        if lambda_config is not None:
+            input["lambda_config"] = lambda_config
+        if auto_verified_attributes is not None:
+            input["auto_verified_attributes"] = auto_verified_attributes
+        if alias_attributes is not None:
+            input["alias_attributes"] = alias_attributes
+        if username_attributes is not None:
+            input["username_attributes"] = username_attributes
+        if sms_verification_message is not None:
+            input["sms_verification_message"] = sms_verification_message
+        if email_verification_message is not None:
+            input["email_verification_message"] = email_verification_message
+        if email_verification_subject is not None:
+            input["email_verification_subject"] = email_verification_subject
+        if verification_message_template is not None:
+            input["verification_message_template"] = verification_message_template
+        if sms_authentication_message is not None:
+            input["sms_authentication_message"] = sms_authentication_message
+        if mfa_configuration is not None:
+            input["mfa_configuration"] = mfa_configuration
+        if user_attribute_update_settings is not None:
+            input["user_attribute_update_settings"] = user_attribute_update_settings
+        if device_configuration is not None:
+            input["device_configuration"] = device_configuration
+        if email_configuration is not None:
+            input["email_configuration"] = email_configuration
+        if sms_configuration is not None:
+            input["sms_configuration"] = sms_configuration
+        if user_pool_tags is not None:
+            input["user_pool_tags"] = user_pool_tags
+        if admin_create_user_config is not None:
+            input["admin_create_user_config"] = admin_create_user_config
+        if schema is not None:
+            input["schema"] = schema
+        if user_pool_add_ons is not None:
+            input["user_pool_add_ons"] = user_pool_add_ons
+        if username_configuration is not None:
+            input["username_configuration"] = username_configuration
+        if account_recovery_setting is not None:
+            input["account_recovery_setting"] = account_recovery_setting
+        if user_pool_tier is not None:
+            input["user_pool_tier"] = user_pool_tier
+        if key_configuration is not None:
+            input["key_configuration"] = key_configuration
+        if issuer_configuration is not None:
+            input["issuer_configuration"] = issuer_configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_pool_client(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_name: "aws_sdk_cognito_identity_provider.types.client_name_type.ClientNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        generate_secret: Optional[
+            "aws_sdk_cognito_identity_provider.types.generate_secret.GenerateSecret"
+        ] = None,
+        client_secret: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_secret_type.ClientSecretType"
+        ] = None,
+        refresh_token_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.refresh_token_validity_type.RefreshTokenValidityType"
+        ] = None,
+        access_token_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.access_token_validity_type.AccessTokenValidityType"
+        ] = None,
+        id_token_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.id_token_validity_type.IdTokenValidityType"
+        ] = None,
+        token_validity_units: Optional[
+            "aws_sdk_cognito_identity_provider.types.token_validity_units_type.TokenValidityUnitsType"
+        ] = None,
+        read_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_permission_list_type.ClientPermissionListType"
+        ] = None,
+        write_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_permission_list_type.ClientPermissionListType"
+        ] = None,
+        explicit_auth_flows: Optional[
+            "aws_sdk_cognito_identity_provider.types.explicit_auth_flows_list_type.ExplicitAuthFlowsListType"
+        ] = None,
+        supported_identity_providers: Optional[
+            "aws_sdk_cognito_identity_provider.types.supported_identity_providers_list_type.SupportedIdentityProvidersListType"
+        ] = None,
+        callback_ur_ls: Optional[
+            "aws_sdk_cognito_identity_provider.types.callback_ur_ls_list_type.CallbackURLsListType"
+        ] = None,
+        logout_ur_ls: Optional[
+            "aws_sdk_cognito_identity_provider.types.logout_ur_ls_list_type.LogoutURLsListType"
+        ] = None,
+        default_redirect_uri: Optional[
+            "aws_sdk_cognito_identity_provider.types.redirect_url_type.RedirectUrlType"
+        ] = None,
+        allowed_o_auth_flows: Optional[
+            "aws_sdk_cognito_identity_provider.types.o_auth_flows_type.OAuthFlowsType"
+        ] = None,
+        allowed_o_auth_scopes: Optional[
+            "aws_sdk_cognito_identity_provider.types.scope_list_type.ScopeListType"
+        ] = None,
+        allowed_o_auth_flows_user_pool_client: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+        analytics_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_configuration_type.AnalyticsConfigurationType"
+        ] = None,
+        prevent_user_existence_errors: Optional[
+            "aws_sdk_cognito_identity_provider.types.prevent_user_existence_error_types.PreventUserExistenceErrorTypes"
+        ] = None,
+        enable_token_revocation: Optional[
+            "aws_sdk_cognito_identity_provider.types.wrapped_boolean_type.WrappedBooleanType"
+        ] = None,
+        enable_propagate_additional_user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.wrapped_boolean_type.WrappedBooleanType"
+        ] = None,
+        auth_session_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.auth_session_validity_type.AuthSessionValidityType"
+        ] = None,
+        refresh_token_rotation: Optional[
+            "aws_sdk_cognito_identity_provider.types.refresh_token_rotation_type.RefreshTokenRotationType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_user_pool_client_response.CreateUserPoolClientResponse":
+        """<p>Creates an app client in a user pool. This operation sets basic and advanced configuration options.</p> <p>Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't available for your client until after you apply a branding style.</p> <important> <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p> </important> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to create an app client.</p>
+            client_name: <p>A friendly name for the app client that you want to create.</p>
+            generate_secret: <p>When <code>true</code>, generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. Client secrets are automatically generated; you can't specify a secret value. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types\">App client types</a>.</p>
+            client_secret: <p>A custom client secret that you want to use for the app client. You cannot specify both GenerateSecret as true and provide a ClientSecret value.</p>
+            refresh_token_validity: <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p> <p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p> <p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p> <p>If you don't specify otherwise in the configuration of your app client, your refresh tokens are valid for 30 days.</p>
+            access_token_validity: <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p> <p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p> <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p> <p>If you don't specify otherwise in the configuration of your app client, your access tokens are valid for one hour.</p>
+            id_token_validity: <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p> <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p> <p>The default time unit for <code>IdTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p> <p>If you don't specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
+            token_validity_units: <p>The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.</p>
+            read_attributes: <p>The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.</p> <p>When you don't specify the <code>ReadAttributes</code> for your app client, your app can read the values of <code>email_verified</code>, <code>phone_number_verified</code>, and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only populates <code>ReadAttributes</code> in the API response if you have specified your own custom set of read attributes.</p>
+            write_attributes: <p>The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.</p> <p>When you don't specify the <code>WriteAttributes</code> for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, <code>WriteAttributes</code> doesn't return any information. Amazon Cognito only populates <code>WriteAttributes</code> in the API response if you have specified your own custom set of write attributes.</p> <p>If your app client allows users to sign in through an IdP, this array must include all attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html\">Specifying IdP Attribute Mappings for Your user pool</a>.</p>
+            explicit_auth_flows: <p>The <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html\">authentication flows</a> that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p> <note> <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>. </p> </note> <p>The values for authentication flow options include the following.</p> <ul> <li> <p> <code>ALLOW_USER_AUTH</code>: Enable selection-based sign-in with <code>USER_AUTH</code>. This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other <code>ExplicitAuthFlows</code> permitting them. For example users can complete an SRP challenge through <code>USER_AUTH</code> without the flow <code>USER_SRP_AUTH</code> being active for the app client. This flow doesn't include <code>CUSTOM_AUTH</code>. </p> <p>To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p> </li> <li> <p> <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p> </li> <li> <p> <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p> </li> <li> <p> <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul> <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p>
+            supported_identity_providers: <p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p> <p>This parameter sets the IdPs that <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html\">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html\">WAF rule</a>. </p>
+            callback_ur_ls: <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p> <p>A redirect URI must meet the following requirements:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with <code>redirect_uri</code> values that aren't in the list of <code>CallbackURLs</code> that you provide in this parameter.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href=\"https://tools.ietf.org/html/rfc6749#section-3.1.2\">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://[::1]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p> <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
+            logout_ur_ls: <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects \"Sign out\" and you redirect them to your public homepage. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html\">Logout endpoint</a>.</p>
+            default_redirect_uri: <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
+            allowed_o_auth_flows: <p>The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add <code>client_credentials</code> as the only allowed OAuth flow.</p> <dl> <dt>code</dt> <dd> <p>Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the <code>/oauth2/token</code> endpoint.</p> </dd> <dt>implicit</dt> <dd> <p>Issue the access token, and the ID token when scopes like <code>openid</code> and <code>profile</code> are requested, directly to your user.</p> </dd> <dt>client_credentials</dt> <dd> <p>Issue the access token from the <code>/oauth2/token</code> endpoint directly to a non-person user, authorized by a combination of the client ID and client secret.</p> </dd> </dl>
+            allowed_o_auth_scopes: <p>The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the <code>userInfo</code> endpoint, and third-party APIs. Scope values include <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. The <code>aws.cognito.signin.user.admin</code> scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.</p>
+            allowed_o_auth_flows_user_pool_client: <p>Set to <code>true</code> to use OAuth 2.0 authorization server features in your app client.</p> <p>This parameter must have a value of <code>true</code> before you can configure the following features in your app client.</p> <ul> <li> <p> <code>CallBackURLs</code>: Callback URLs.</p> </li> <li> <p> <code>LogoutURLs</code>: Sign-out redirect URLs.</p> </li> <li> <p> <code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</p> </li> <li> <p> <code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p> </li> </ul> <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p>
+            analytics_configuration: <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p> <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html\">Using Amazon Pinpoint analytics</a>.</p>
+            prevent_user_existence_errors: <p>When <code>ENABLED</code>, suppresses messages that might indicate a valid user exists when someone attempts sign-in. This parameters sets your preference for the errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to <code>ENABLED</code> and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs return a <code>UserNotFoundException</code> exception if the user doesn't exist in the user pool.</p> <p>Defaults to <code>LEGACY</code>.</p>
+            enable_token_revocation: <p>Activates or deactivates <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html\">token revocation</a> in the target app client.</p> <p>If you don't include this parameter, token revocation is automatically activated for the new user pool client.</p>
+            enable_propagate_additional_user_context_data: <p>When <code>true</code>, your application can include additional <code>UserContextData</code> in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\">Adding session data to API requests</a>. If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>
+            auth_session_validity: <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+            refresh_token_rotation: <p>The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.</p>
+
+        Examples:
+            Example user pool app client with email and username sign-in
+            The following example creates an app client with all configurable properties set to an example value. The resulting user pool client connects to an analytics client, allows sign-in with username and password, and has two external identity providers associated with it.
+
+            >>> client.create_user_pool_client(access_token_validity=6, allowed_o_auth_flows=['code'], allowed_o_auth_flows_user_pool_client=True, allowed_o_auth_scopes=['aws.cognito.signin.user.admin', 'openid'], analytics_configuration={'ApplicationId': 'd70b2ba36a8c4dc5a04a0451a31a1e12', 'ExternalId': 'my-external-id', 'RoleArn': 'arn:aws:iam::123456789012:role/test-cognitouserpool-role', 'UserDataShared': True}, callback_ur_ls=['https://example.com', 'http://localhost', 'myapp://example'], client_name='my-test-app-client', default_redirect_uri='https://example.com', explicit_auth_flows=['ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH'], generate_secret=True, id_token_validity=6, logout_ur_ls=['https://example.com/logout'], prevent_user_existence_errors='ENABLED', read_attributes=['email', 'address', 'preferred_username'], refresh_token_validity=6, supported_identity_providers=['SignInWithApple', 'MySSO'], token_validity_units={'AccessToken': 'hours', 'IdToken': 'minutes', 'RefreshToken': 'days'}, user_pool_id='us-east-1_EXAMPLE', write_attributes=['family_name', 'email'])
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_user_pool_client_request.CreateUserPoolClientRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_user_pool_client_response.CreateUserPoolClientResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool_client
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool_client.create_user_pool_client(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_user_pool_client_request.CreateUserPoolClientRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_name"] = client_name
+        if generate_secret is not None:
+            input["generate_secret"] = generate_secret
+        if client_secret is not None:
+            input["client_secret"] = client_secret
+        if refresh_token_validity is not None:
+            input["refresh_token_validity"] = refresh_token_validity
+        if access_token_validity is not None:
+            input["access_token_validity"] = access_token_validity
+        if id_token_validity is not None:
+            input["id_token_validity"] = id_token_validity
+        if token_validity_units is not None:
+            input["token_validity_units"] = token_validity_units
+        if read_attributes is not None:
+            input["read_attributes"] = read_attributes
+        if write_attributes is not None:
+            input["write_attributes"] = write_attributes
+        if explicit_auth_flows is not None:
+            input["explicit_auth_flows"] = explicit_auth_flows
+        if supported_identity_providers is not None:
+            input["supported_identity_providers"] = supported_identity_providers
+        if callback_ur_ls is not None:
+            input["callback_ur_ls"] = callback_ur_ls
+        if logout_ur_ls is not None:
+            input["logout_ur_ls"] = logout_ur_ls
+        if default_redirect_uri is not None:
+            input["default_redirect_uri"] = default_redirect_uri
+        if allowed_o_auth_flows is not None:
+            input["allowed_o_auth_flows"] = allowed_o_auth_flows
+        if allowed_o_auth_scopes is not None:
+            input["allowed_o_auth_scopes"] = allowed_o_auth_scopes
+        if allowed_o_auth_flows_user_pool_client is not None:
+            input["allowed_o_auth_flows_user_pool_client"] = (
+                allowed_o_auth_flows_user_pool_client
+            )
+        if analytics_configuration is not None:
+            input["analytics_configuration"] = analytics_configuration
+        if prevent_user_existence_errors is not None:
+            input["prevent_user_existence_errors"] = prevent_user_existence_errors
+        if enable_token_revocation is not None:
+            input["enable_token_revocation"] = enable_token_revocation
+        if enable_propagate_additional_user_context_data is not None:
+            input["enable_propagate_additional_user_context_data"] = (
+                enable_propagate_additional_user_context_data
+            )
+        if auth_session_validity is not None:
+            input["auth_session_validity"] = auth_session_validity
+        if refresh_token_rotation is not None:
+            input["refresh_token_rotation"] = refresh_token_rotation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_pool_domain(
+        self,
+        domain: "aws_sdk_cognito_identity_provider.types.domain_type.DomainType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        managed_login_version: Optional[
+            "aws_sdk_cognito_identity_provider.types.wrapped_integer_type.WrappedIntegerType"
+        ] = None,
+        custom_domain_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.custom_domain_config_type.CustomDomainConfigType"
+        ] = None,
+        routing: Optional[
+            "aws_sdk_cognito_identity_provider.types.routing_type.RoutingType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_user_pool_domain_response.CreateUserPoolDomainResponse":
+        """<p>A user pool domain hosts managed login, an authorization server and web server for authentication in your application. This operation creates a new user pool prefix domain or custom domain and sets the managed login branding version. Set the branding version to <code>1</code> for hosted UI (classic) or <code>2</code> for managed login. When you choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia) Amazon Web Services Region in your request.</p> <p>Your prefix domain might take up to one minute to take effect. Your custom domain is online within five minutes, but it can take up to one hour to distribute your SSL certificate.</p> <p>For more information about adding a custom domain to your user pool, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html\">Configuring a user pool domain</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            domain: <p>The domain string. For custom domains, this is the fully-qualified domain name, such as <code>auth.example.com</code>. For prefix domains, this is the prefix alone, such as <code>myprefix</code>. A prefix value of <code>myprefix</code> for a user pool in the <code>us-east-1</code> Region results in a domain of <code>myprefix.auth.us-east-1.amazoncognito.com</code>.</p>
+            user_pool_id: <p>The ID of the user pool where you want to add a domain.</p>
+            managed_login_version: <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) and a version of <code>2</code> indicates managed login.</p> <p>Managed login requires that your user pool be configured for any <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a> other than <code>Lite</code>.</p>
+            custom_domain_config: <p>The configuration for a custom domain. Configures your domain with an Certificate Manager certificate in the <code>us-east-1</code> Region.</p> <p>Provide this parameter only if you want to use a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html\">custom domain</a> for your user pool. Otherwise, you can omit this parameter and use a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html\">prefix domain</a> instead.</p> <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
+            routing: <p>The configuration of routing for requests to the domain for replicas of a replicated user pool. The routing configuration is currently only supported for custom domains.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_user_pool_domain_request.CreateUserPoolDomainRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_user_pool_domain_response.CreateUserPoolDomainResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool_domain
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool_domain.create_user_pool_domain(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_user_pool_domain_request.CreateUserPoolDomainRequest = {}  # type: ignore[typeddict-item]
+        input["domain"] = domain
+        input["user_pool_id"] = user_pool_id
+        if managed_login_version is not None:
+            input["managed_login_version"] = managed_login_version
+        if custom_domain_config is not None:
+            input["custom_domain_config"] = custom_domain_config
+        if routing is not None:
+            input["routing"] = routing
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_pool_replica(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        region_name: "aws_sdk_cognito_identity_provider.types.region_name_type.RegionNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        user_pool_tags: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_tags_type.UserPoolTagsType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.create_user_pool_replica_response.CreateUserPoolReplicaResponse":
+        """<p>Creates a replica of an existing user pool in a specified Amazon Web Services Region. The replica enables multi-region replication for high availability and disaster recovery. To create a replica, you must have permissions to create user pools in the target Region.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool to replicate.</p>
+            region_name: <p>The Amazon Web Services Region where you want to create the replica user pool.</p>
+            user_pool_tags: <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
+
+        Examples:
+            Example create a replica of a user pool in a new Region
+            The following example creates a replica of a user pool in the ap-south-1 Region.
+
+            >>> client.create_user_pool_replica(user_pool_id='us-east-1_abcd12345', region_name='ap-south-1')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.create_user_pool_replica_request.CreateUserPoolReplicaRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.create_user_pool_replica_response.CreateUserPoolReplicaResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool_replica
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.create_user_pool_replica.create_user_pool_replica(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.create_user_pool_replica_request.CreateUserPoolReplicaRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["region_name"] = region_name
+        if user_pool_tags is not None:
+            input["user_pool_tags"] = user_pool_tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_group(
+        self,
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a group from the specified user pool. When you delete a group, that group no longer contributes to users' <code>cognito:preferred_group</code> or <code>cognito:groups</code> claims, and no longer influence access-control decision that are based on group membership. For more information about user pool groups, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            group_name: <p>The name of the group that you want to delete.</p>
+            user_pool_id: <p>The ID of the user pool where you want to delete the group.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_group_request.DeleteGroupRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_group.delete_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_name"] = group_name
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_identity_provider(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        provider_name: "aws_sdk_cognito_identity_provider.types.provider_name_type.ProviderNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a user pool identity provider (IdP). After you delete an IdP, users can no longer sign in to your user pool through that IdP. For more information about user pool IdPs, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html\">Third-party IdP sign-in</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to delete the identity provider.</p>
+            provider_name: <p>The name of the IdP that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_identity_provider_request.DeleteIdentityProviderRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_identity_provider
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_identity_provider.delete_identity_provider(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_identity_provider_request.DeleteIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["provider_name"] = provider_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_managed_login_branding(
+        self,
+        managed_login_branding_id: "aws_sdk_cognito_identity_provider.types.managed_login_branding_id_type.ManagedLoginBrandingIdType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a managed login branding style. When you delete a style, you delete the branding association for an app client. When an app client doesn't have a style assigned, your managed login pages for that app client are nonfunctional until you create a new style or switch the domain branding version.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            managed_login_branding_id: <p>The ID of the managed login branding style that you want to delete.</p>
+            user_pool_id: <p>The ID of the user pool that contains the managed login branding style that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_managed_login_branding_request.DeleteManagedLoginBrandingRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_managed_login_branding
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_managed_login_branding.delete_managed_login_branding(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_managed_login_branding_request.DeleteManagedLoginBrandingRequest = {}  # type: ignore[typeddict-item]
+        input["managed_login_branding_id"] = managed_login_branding_id
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_resource_server(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        identifier: "aws_sdk_cognito_identity_provider.types.resource_server_identifier_type.ResourceServerIdentifierType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a resource server. After you delete a resource server, users can no longer generate access tokens with scopes that are associate with that resource server.</p> <p>Resource servers are associated with custom scopes and machine-to-machine (M2M) authorization. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html\">Access control with resource servers</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to delete the resource server.</p>
+            identifier: <p>The identifier of the resource server that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_resource_server_request.DeleteResourceServerRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_resource_server
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_resource_server.delete_resource_server(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_resource_server_request.DeleteResourceServerRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_terms(
+        self,
+        terms_id: "aws_sdk_cognito_identity_provider.types.terms_id_type.TermsIdType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the terms documents with the requested ID from your app client.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            terms_id: <p>The ID of the terms documents that you want to delete.</p>
+            user_pool_id: <p>The ID of the user pool that contains the terms documents that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_terms_request.DeleteTermsRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_terms
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_terms.delete_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_terms_request.DeleteTermsRequest = {}  # type: ignore[typeddict-item]
+        input["terms_id"] = terms_id
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the profile of the currently signed-in user. A deleted user profile can no longer be used to sign in and can't be restored.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_request.DeleteUserRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user.delete_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_attributes(
+        self,
+        user_attribute_names: "aws_sdk_cognito_identity_provider.types.attribute_name_list_type.AttributeNameListType",
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.delete_user_attributes_response.DeleteUserAttributesResponse":
+        """<p>Deletes attributes from the currently signed-in user. For example, your application can submit a request to this operation when a user wants to remove their <code>birthdate</code> attribute value.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            user_attribute_names: <p>An array of strings representing the user attribute names you want to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_attributes_request.DeleteUserAttributesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.delete_user_attributes_response.DeleteUserAttributesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_attributes
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_attributes.delete_user_attributes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_attributes_request.DeleteUserAttributesRequest = {}  # type: ignore[typeddict-item]
+        input["user_attribute_names"] = user_attribute_names
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_pool(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a user pool. After you delete a user pool, users can no longer sign in to any associated applications. </p> <p>When you delete a user pool, it's no longer visible or operational in your Amazon Web Services account. Amazon Cognito retains deleted user pools in an inactive state for 14 days, then begins a cleanup process that fully removes them from Amazon Web Services systems. In case of accidental deletion, contact Amazon Web Services Support within 14 days for restoration assistance.</p> <p>Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In the case of large user pools, the cleanup process might take significant additional time before all user data is permanently deleted.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_pool_request.DeleteUserPoolRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool.delete_user_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_pool_request.DeleteUserPoolRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_pool_client(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a user pool app client. After you delete an app client, users can no longer sign in to the associated application.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to delete the client.</p>
+            client_id: <p>The ID of the user pool app client that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_pool_client_request.DeleteUserPoolClientRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_client
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_client.delete_user_pool_client(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_pool_client_request.DeleteUserPoolClientRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_pool_client_secret(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        client_secret_id: "aws_sdk_cognito_identity_provider.types.client_secret_id_type.ClientSecretIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.delete_user_pool_client_secret_response.DeleteUserPoolClientSecretResponse":
+        """<p>Deletes a specific client secret from a user pool app client. You cannot delete the last remaining secret for an app client.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the app client.</p>
+            client_id: <p>The ID of the app client from which you want to delete the secret.</p>
+            client_secret_id: <p>The unique identifier of the client secret you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_pool_client_secret_request.DeleteUserPoolClientSecretRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.delete_user_pool_client_secret_response.DeleteUserPoolClientSecretResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_client_secret
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_client_secret.delete_user_pool_client_secret(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_pool_client_secret_request.DeleteUserPoolClientSecretRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        input["client_secret_id"] = client_secret_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_pool_domain(
+        self,
+        domain: "aws_sdk_cognito_identity_provider.types.domain_type.DomainType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.delete_user_pool_domain_response.DeleteUserPoolDomainResponse":
+        """<p>Given a user pool ID and domain identifier, deletes a user pool domain. After you delete a user pool domain, your managed login pages and authorization server are no longer available.</p>
+
+        Args:
+            domain: <p>The domain that you want to delete. For custom domains, this is the fully-qualified domain name like <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone, like <code>myprefix</code>.</p>
+            user_pool_id: <p>The ID of the user pool where you want to delete the domain.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_pool_domain_request.DeleteUserPoolDomainRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.delete_user_pool_domain_response.DeleteUserPoolDomainResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_domain
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_domain.delete_user_pool_domain(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_pool_domain_request.DeleteUserPoolDomainRequest = {}  # type: ignore[typeddict-item]
+        input["domain"] = domain
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_pool_replica(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        region_name: "aws_sdk_cognito_identity_provider.types.region_name_type.RegionNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.delete_user_pool_replica_response.DeleteUserPoolReplicaResponse":
+        """<p>Deletes a secondary replica user pool. You can only delete replicas that are in the INACTIVE status. This operation must be called from the primary Region.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the replica to delete.</p>
+            region_name: <p>The Amazon Web Services Region of the replica to delete.</p>
+
+        Examples:
+            Example delete a user pool replica
+            The following example deletes a user pool replica in the us-east-2 Region.
+
+            >>> client.delete_user_pool_replica(user_pool_id='us-west-2_abcd12345', region_name='us-east-2')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_user_pool_replica_request.DeleteUserPoolReplicaRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.delete_user_pool_replica_response.DeleteUserPoolReplicaResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_replica
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_user_pool_replica.delete_user_pool_replica(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_user_pool_replica_request.DeleteUserPoolReplicaRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["region_name"] = region_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_web_authn_credential(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        credential_id: "aws_sdk_cognito_identity_provider.types.string_type.StringType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.delete_web_authn_credential_response.DeleteWebAuthnCredentialResponse":
+        """<p>Deletes a registered passkey, or WebAuthn, authenticator for the currently signed-in user.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            credential_id: <p>The unique identifier of the passkey that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.delete_web_authn_credential_request.DeleteWebAuthnCredentialRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.delete_web_authn_credential_response.DeleteWebAuthnCredentialResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_web_authn_credential
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.delete_web_authn_credential.delete_web_authn_credential(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.delete_web_authn_credential_request.DeleteWebAuthnCredentialRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["credential_id"] = credential_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_identity_provider(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        provider_name: "aws_sdk_cognito_identity_provider.types.provider_name_type.ProviderNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_identity_provider_response.DescribeIdentityProviderResponse":
+        """<p>Given a user pool ID and identity provider (IdP) name, returns details about the IdP.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that has the IdP that you want to describe..</p>
+            provider_name: <p>The name of the IdP that you want to describe.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_identity_provider_request.DescribeIdentityProviderRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_identity_provider_response.DescribeIdentityProviderResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_identity_provider
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_identity_provider.describe_identity_provider(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_identity_provider_request.DescribeIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["provider_name"] = provider_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_managed_login_branding(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        managed_login_branding_id: "aws_sdk_cognito_identity_provider.types.managed_login_branding_id_type.ManagedLoginBrandingIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        return_merged_resources: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_response.DescribeManagedLoginBrandingResponse":
+        """<p>Given the ID of a managed login branding style, returns detailed information about the style.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the managed login branding style that you want to get information about.</p>
+            managed_login_branding_id: <p>The ID of the managed login branding style that you want to get more information about.</p>
+            return_merged_resources: <p>When <code>true</code>, returns values for branding options that are unchanged from Amazon Cognito defaults. When <code>false</code> or when you omit this parameter, returns only values that you customized in your branding style.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_request.DescribeManagedLoginBrandingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_response.DescribeManagedLoginBrandingResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_managed_login_branding
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_managed_login_branding.describe_managed_login_branding(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_request.DescribeManagedLoginBrandingRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["managed_login_branding_id"] = managed_login_branding_id
+        if return_merged_resources is not None:
+            input["return_merged_resources"] = return_merged_resources
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_managed_login_branding_by_client(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        return_merged_resources: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_response.DescribeManagedLoginBrandingByClientResponse":
+        """<p>Given the ID of a user pool app client, returns detailed information about the style assigned to the app client.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the app client where you want more information about the managed login branding style.</p>
+            client_id: <p>The app client that's assigned to the branding style that you want more information about.</p>
+            return_merged_resources: <p>When <code>true</code>, returns values for branding options that are unchanged from Amazon Cognito defaults. When <code>false</code> or when you omit this parameter, returns only values that you customized in your branding style.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_request.DescribeManagedLoginBrandingByClientRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_response.DescribeManagedLoginBrandingByClientResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_managed_login_branding_by_client
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_managed_login_branding_by_client.describe_managed_login_branding_by_client(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_request.DescribeManagedLoginBrandingByClientRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        if return_merged_resources is not None:
+            input["return_merged_resources"] = return_merged_resources
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_resource_server(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        identifier: "aws_sdk_cognito_identity_provider.types.resource_server_identifier_type.ResourceServerIdentifierType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_resource_server_response.DescribeResourceServerResponse":
+        """<p>Describes a resource server. For more information about resource servers, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html\">Access control with resource servers</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that hosts the resource server.</p>
+            identifier: <p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_resource_server_request.DescribeResourceServerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_resource_server_response.DescribeResourceServerResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_resource_server
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_resource_server.describe_resource_server(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_resource_server_request.DescribeResourceServerRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_risk_configuration(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_id: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_risk_configuration_response.DescribeRiskConfigurationResponse":
+        """<p>Given an app client or user pool ID where threat protection is configured, describes the risk configuration. This operation returns details about adaptive authentication, compromised credentials, and IP-address allow- and denylists. For more information about threat protection, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html\">Threat protection</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool with the risk configuration that you want to inspect. You can apply default risk configuration at the user pool level and further customize it from user pool defaults at the app-client level. Specify <code>ClientId</code> to inspect client-level configuration, or <code>UserPoolId</code> to inspect pool-level configuration.</p>
+            client_id: <p>The ID of the app client with the risk configuration that you want to inspect. You can apply default risk configuration at the user pool level and further customize it from user pool defaults at the app-client level. Specify <code>ClientId</code> to inspect client-level configuration, or <code>UserPoolId</code> to inspect pool-level configuration.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_risk_configuration_request.DescribeRiskConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_risk_configuration_response.DescribeRiskConfigurationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_risk_configuration
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_risk_configuration.describe_risk_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_risk_configuration_request.DescribeRiskConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if client_id is not None:
+            input["client_id"] = client_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_terms(
+        self,
+        terms_id: "aws_sdk_cognito_identity_provider.types.terms_id_type.TermsIdType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_terms_response.DescribeTermsResponse":
+        """<p>Returns details for the requested terms documents ID. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents\">Terms documents</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            terms_id: <p>The ID of the terms documents that you want to describe.</p>
+            user_pool_id: <p>The ID of the user pool that contains the terms documents that you want to describe.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_terms_request.DescribeTermsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_terms_response.DescribeTermsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_terms
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_terms.describe_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_terms_request.DescribeTermsRequest = {}  # type: ignore[typeddict-item]
+        input["terms_id"] = terms_id
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_user_import_job(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        job_id: "aws_sdk_cognito_identity_provider.types.user_import_job_id_type.UserImportJobIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_user_import_job_response.DescribeUserImportJobResponse":
+        """<p>Describes a user import job. For more information about user CSV import, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html\">Importing users from a CSV file</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that's associated with the import job.</p>
+            job_id: <p>The Id of the user import job that you want to describe.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_user_import_job_request.DescribeUserImportJobRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_user_import_job_response.DescribeUserImportJobResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_import_job
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_import_job.describe_user_import_job(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_user_import_job_request.DescribeUserImportJobRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["job_id"] = job_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_user_pool(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_user_pool_response.DescribeUserPoolResponse":
+        """<p>Given a user pool ID, returns configuration information. This operation is useful when you want to inspect an existing user pool and programmatically replicate the configuration to another user pool.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool you want to describe.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_user_pool_request.DescribeUserPoolRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_user_pool_response.DescribeUserPoolResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_pool
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_pool.describe_user_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_user_pool_request.DescribeUserPoolRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_user_pool_client(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_user_pool_client_response.DescribeUserPoolClientResponse":
+        """<p>Given an app client ID, returns configuration information. This operation is useful when you want to inspect an existing app client and programmatically replicate the configuration to another app client. For more information about app clients, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html\">App clients</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the app client you want to describe.</p>
+            client_id: <p>The ID of the app client that you want to describe.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_user_pool_client_request.DescribeUserPoolClientRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_user_pool_client_response.DescribeUserPoolClientResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_pool_client
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_pool_client.describe_user_pool_client(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_user_pool_client_request.DescribeUserPoolClientRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_user_pool_domain(
+        self,
+        domain: "aws_sdk_cognito_identity_provider.types.domain_type.DomainType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.describe_user_pool_domain_response.DescribeUserPoolDomainResponse":
+        """<p>Given a user pool domain name, returns information about the domain configuration.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            domain: <p>The domain that you want to describe. For custom domains, this is the fully-qualified domain name, such as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone, such as <code>auth</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.describe_user_pool_domain_request.DescribeUserPoolDomainRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.describe_user_pool_domain_response.DescribeUserPoolDomainResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_pool_domain
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.describe_user_pool_domain.describe_user_pool_domain(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.describe_user_pool_domain_request.DescribeUserPoolDomainRequest = {}  # type: ignore[typeddict-item]
+        input["domain"] = domain
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def forget_device(
+        self,
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        access_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType"
+        ] = None,
+    ) -> None:
+        """<p>Given a device key, deletes a remembered device as the currently signed-in user. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            device_key: <p>The unique identifier, or device key, of the device that the user wants to forget.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.forget_device_request.ForgetDeviceRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.forget_device
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.forget_device.forget_device(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.forget_device_request.ForgetDeviceRequest = {}  # type: ignore[typeddict-item]
+        if access_token is not None:
+            input["access_token"] = access_token
+        input["device_key"] = device_key
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def forgot_password(
+        self,
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        secret_hash: Optional[
+            "aws_sdk_cognito_identity_provider.types.secret_hash_type.SecretHashType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.forgot_password_response.ForgotPasswordResponse":
+        """<p>Sends a password-reset confirmation code to the email address or phone number of the requested username. The message delivery method is determined by the user's available attributes and the <code>AccountRecoverySetting</code> configuration of the user pool.</p> <p>For the <code>Username</code> parameter, you can use the username or an email, phone, or preferred username alias.</p> <p>If neither a verified phone number nor a verified email exists, Amazon Cognito responds with an <code>InvalidParameterException</code> error . If your app client has a client secret and you don't provide a <code>SECRET_HASH</code> parameter, this API returns <code>NotAuthorizedException</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            client_id: <p>The ID of the user pool app client associated with the current signed-in user.</p>
+            secret_hash: <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message. For more information about <code>SecretHash</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.forgot_password_request.ForgotPasswordRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.forgot_password_response.ForgotPasswordResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.forgot_password
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.forgot_password.forgot_password(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.forgot_password_request.ForgotPasswordRequest = {}  # type: ignore[typeddict-item]
+        input["client_id"] = client_id
+        if secret_hash is not None:
+            input["secret_hash"] = secret_hash
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        input["username"] = username
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_csv_header(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_csv_header_response.GetCSVHeaderResponse":
+        """<p>Given a user pool ID, generates a comma-separated value (CSV) list populated with available user attributes in the user pool. This list is the header for the CSV file that determines the users in a user import job. Save the content of <code>CSVHeader</code> in the response as a <code>.csv</code> file and populate it with the usernames and attributes of users that you want to import. For more information about CSV user import, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html\">Importing users from a CSV file</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that you want to import users into.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_csv_header_request.GetCSVHeaderRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_csv_header_response.GetCSVHeaderResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_csv_header
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_csv_header.get_csv_header(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_csv_header_request.GetCSVHeaderRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_device(
+        self,
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        access_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType"
+        ] = None,
+    ) -> (
+        "aws_sdk_cognito_identity_provider.types.get_device_response.GetDeviceResponse"
+    ):
+        """<p>Given a device key, returns information about a remembered device for the current user. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            device_key: <p>The key of the device that you want to get information about.</p>
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_device_request.GetDeviceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_device_response.GetDeviceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_device
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_device.get_device(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_device_request.GetDeviceRequest = {}  # type: ignore[typeddict-item]
+        input["device_key"] = device_key
+        if access_token is not None:
+            input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_group(
+        self,
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_group_response.GetGroupResponse":
+        """<p>Given a user pool ID and a group name, returns information about the user group.</p> <p> For more information about user pool groups, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            group_name: <p>The name of the group that you want to get information about.</p>
+            user_pool_id: <p>The ID of the user pool that contains the group that you want to query.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_group_request.GetGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_group_response.GetGroupResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_group.get_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_name"] = group_name
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_identity_provider_by_identifier(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        idp_identifier: "aws_sdk_cognito_identity_provider.types.idp_identifier_type.IdpIdentifierType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_identity_provider_by_identifier_response.GetIdentityProviderByIdentifierResponse":
+        """<p>Given the identifier of an identity provider (IdP), for example <code>examplecorp</code>, returns information about the user pool configuration for that IdP. For more information about IdPs, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html\">Third-party IdP sign-in</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to get information about the IdP.</p>
+            idp_identifier: <p>The identifier that you assigned to your user pool. The identifier is an alternative name for an IdP that is distinct from the IdP name. For example, an IdP with a name of <code>MyIdP</code> might have an identifier of the email domain <code>example.com</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_identity_provider_by_identifier_request.GetIdentityProviderByIdentifierRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_identity_provider_by_identifier_response.GetIdentityProviderByIdentifierResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_identity_provider_by_identifier
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_identity_provider_by_identifier.get_identity_provider_by_identifier(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_identity_provider_by_identifier_request.GetIdentityProviderByIdentifierRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["idp_identifier"] = idp_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_log_delivery_configuration(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_log_delivery_configuration_response.GetLogDeliveryConfigurationResponse":
+        """<p>Given a user pool ID, returns the logging configuration. User pools can export message-delivery error and threat-protection activity logs to external Amazon Web Services services. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html\">Exporting user pool logs</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that has the logging configuration that you want to view.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_log_delivery_configuration_request.GetLogDeliveryConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_log_delivery_configuration_response.GetLogDeliveryConfigurationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_log_delivery_configuration
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_log_delivery_configuration.get_log_delivery_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_log_delivery_configuration_request.GetLogDeliveryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_signing_certificate(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_signing_certificate_response.GetSigningCertificateResponse":
+        """<p>Given a user pool ID, returns the signing certificate for SAML 2.0 federation.</p> <p>Issued certificates are valid for 10 years from the date of issue. Amazon Cognito issues and assigns a new signing certificate annually. This renewal process returns a new value in the response to <code>GetSigningCertificate</code>, but doesn't invalidate the original certificate.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-SAML-signing-encryption.html#cognito-user-pools-SAML-signing\">Signing SAML requests</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to view the signing certificate.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_signing_certificate_request.GetSigningCertificateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_signing_certificate_response.GetSigningCertificateResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_signing_certificate
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_signing_certificate.get_signing_certificate(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_signing_certificate_request.GetSigningCertificateRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_tokens_from_refresh_token(
+        self,
+        refresh_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_secret: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_secret_type.ClientSecretType"
+        ] = None,
+        device_key: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_response.GetTokensFromRefreshTokenResponse":
+        """<p>Given a refresh token, issues new ID, access, and optionally refresh tokens for the user who owns the submitted token. This operation issues a new refresh token and invalidates the original refresh token after an optional grace period when refresh token rotation is enabled. If refresh token rotation is disabled, issues new ID and access tokens only.</p>
+
+        Args:
+            refresh_token: <p>A valid refresh token that can authorize the request for new tokens. When refresh token rotation is active in the requested app client, this token is invalidated after the request is complete and after an optional grace period.</p>
+            client_id: <p>The app client that issued the refresh token to the user who wants to request new tokens.</p>
+            client_secret: <p>The client secret of the requested app client, if the client has a secret.</p>
+            device_key: <p>When you enable device remembering, Amazon Cognito issues a device key that you can use for device authentication that bypasses multi-factor authentication (MFA). To implement <code>GetTokensFromRefreshToken</code> in a user pool with device remembering, you must capture the device key from the initial authentication request. If your application doesn't provide the key of a registered device, Amazon Cognito issues a new one. You must provide the confirmed device key in this request if device remembering is enabled in your user pool.</p> <p>For more information about device remembering, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_request.GetTokensFromRefreshTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_response.GetTokensFromRefreshTokenResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_tokens_from_refresh_token
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_tokens_from_refresh_token.get_tokens_from_refresh_token(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_request.GetTokensFromRefreshTokenRequest = {}  # type: ignore[typeddict-item]
+        input["refresh_token"] = refresh_token
+        input["client_id"] = client_id
+        if client_secret is not None:
+            input["client_secret"] = client_secret
+        if device_key is not None:
+            input["device_key"] = device_key
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ui_customization(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_id: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_ui_customization_response.GetUICustomizationResponse":
+        """<p>Given a user pool ID or app client, returns information about classic hosted UI branding that you applied, if any. Returns user-pool level branding information if no app client branding is applied, or if you don't specify an app client ID. Returns an empty object if you haven't applied hosted UI branding to either the client or the user pool. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/hosted-ui-classic-branding.html\">Hosted UI (classic) branding</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that you want to query for branding settings.</p>
+            client_id: <p>The ID of the app client that you want to query for branding settings.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_ui_customization_request.GetUICustomizationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_ui_customization_response.GetUICustomizationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_ui_customization
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_ui_customization.get_ui_customization(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_ui_customization_request.GetUICustomizationRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if client_id is not None:
+            input["client_id"] = client_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_user(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_user_response.GetUserResponse":
+        """<p>Gets user attributes and and MFA settings for the currently signed-in user.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_user_request.GetUserRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_user_response.GetUserResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user.get_user(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_user_attribute_verification_code(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        attribute_name: "aws_sdk_cognito_identity_provider.types.attribute_name_type.AttributeNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_response.GetUserAttributeVerificationCodeResponse":
+        """<p>Given an attribute name, sends a user attribute verification code for the specified attribute name to the currently signed-in user.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            attribute_name: <p>The name of the attribute that the user wants to verify, for example <code>email</code>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_request.GetUserAttributeVerificationCodeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_response.GetUserAttributeVerificationCodeResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user_attribute_verification_code
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user_attribute_verification_code.get_user_attribute_verification_code(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_request.GetUserAttributeVerificationCodeRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["attribute_name"] = attribute_name
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_user_auth_factors(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_user_auth_factors_response.GetUserAuthFactorsResponse":
+        """<p>Lists the authentication options for the currently signed-in user. Returns the following:</p> <ol> <li> <p>The user's multi-factor authentication (MFA) preferences.</p> </li> <li> <p>The user's options for choice-based authentication with the <code>USER_AUTH</code> flow.</p> </li> </ol> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_user_auth_factors_request.GetUserAuthFactorsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_user_auth_factors_response.GetUserAuthFactorsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user_auth_factors
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user_auth_factors.get_user_auth_factors(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_user_auth_factors_request.GetUserAuthFactorsRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_user_pool_mfa_config(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.get_user_pool_mfa_config_response.GetUserPoolMfaConfigResponse":
+        """<p>Given a user pool ID, returns configuration for sign-in with WebAuthn authenticators and for multi-factor authentication (MFA). This operation describes the following:</p> <ul> <li> <p>The WebAuthn relying party (RP) ID and user-verification settings.</p> </li> <li> <p>The required, optional, or disabled state of MFA for all user pool users.</p> </li> <li> <p>The message templates for email and SMS MFA.</p> </li> <li> <p>The enabled or disabled state of time-based one-time password (TOTP) MFA.</p> </li> </ul> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to query WebAuthn and MFA configuration.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.get_user_pool_mfa_config_request.GetUserPoolMfaConfigRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.get_user_pool_mfa_config_response.GetUserPoolMfaConfigResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user_pool_mfa_config
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.get_user_pool_mfa_config.get_user_pool_mfa_config(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.get_user_pool_mfa_config_request.GetUserPoolMfaConfigRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def global_sign_out(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.global_sign_out_response.GlobalSignOutResponse":
+        """<p>Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call this operation when your user signs out of your app. This results in the following behavior. </p> <ul> <li> <p>Amazon Cognito no longer accepts <i>token-authorized</i> user operations that you authorize with a signed-out user's access tokens. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> <p>Amazon Cognito returns an <code>Access Token has been revoked</code> error when your app attempts to authorize a user pools API request with a revoked access token that contains the scope <code>aws.cognito.signin.user.admin</code>.</p> </li> <li> <p>Amazon Cognito no longer accepts a signed-out user's ID token in a <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html\">GetId </a> request to an identity pool with <code>ServerSideTokenCheck</code> enabled for its user pool IdP configuration in <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CognitoIdentityProvider.html\">CognitoIdentityProvider</a>.</p> </li> <li> <p>Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh requests.</p> </li> </ul> <p>Other requests might be valid until your user's token expires. This operation doesn't clear the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html\">managed login</a> session cookie. To clear the session for a user who signed in with managed login or the classic hosted UI, direct their browser session to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html\">logout endpoint</a>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.global_sign_out_request.GlobalSignOutRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.global_sign_out_response.GlobalSignOutResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.global_sign_out
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.global_sign_out.global_sign_out(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.global_sign_out_request.GlobalSignOutRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def initiate_auth(
+        self,
+        auth_flow: "aws_sdk_cognito_identity_provider.types.auth_flow_type.AuthFlowType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        auth_parameters: Optional[
+            "aws_sdk_cognito_identity_provider.types.auth_parameters_type.AuthParametersType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.initiate_auth_response.InitiateAuthResponse":
+        """<p>Declares an authentication flow and initiates sign-in for a user in the Amazon Cognito user directory. Amazon Cognito might respond with an additional challenge or an <code>AuthenticationResult</code> that contains the outcome of a successful authentication. You can't sign in a user with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html\">Authentication</a>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            auth_flow: <p>The authentication flow that you want to initiate. Each <code>AuthFlow</code> has linked <code>AuthParameters</code> that you must submit. The following are some example flows.</p> <dl> <dt>USER_AUTH</dt> <dd> <p>The entry point for <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice\">choice-based authentication</a> with passwords, one-time passwords, and WebAuthn authenticators. Request a preferred authentication type or review available authentication types. From the offered authentication types, select one in a challenge response and then authenticate with that method in an additional challenge response. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p> </dd> <dt>USER_SRP_AUTH</dt> <dd> <p>Username-password authentication with the Secure Remote Password (SRP) protocol. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#Using-SRP-password-verification-in-custom-authentication-flow\">Use SRP password verification in custom authentication flow</a>.</p> </dd> <dt>REFRESH_TOKEN_AUTH and REFRESH_TOKEN</dt> <dd> <p>Receive new ID and access tokens when you pass a <code>REFRESH_TOKEN</code> parameter with a valid refresh token as the value. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html\">Using the refresh token</a>.</p> </dd> <dt>CUSTOM_AUTH</dt> <dd> <p>Custom authentication with Lambda triggers. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">Custom authentication challenge Lambda triggers</a>.</p> </dd> <dt>USER_PASSWORD_AUTH</dt> <dd> <p>Client-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html\">SDK authorization models</a>.</p> </dd> </dl> <p> <code>ADMIN_USER_PASSWORD_AUTH</code> is a flow type of <code>AdminInitiateAuth</code> and isn't valid for InitiateAuth. <code>ADMIN_NO_SRP_AUTH</code> is a legacy server-side username-password flow and isn't valid for InitiateAuth.</p>
+            auth_parameters: <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you're invoking.</p> <p>The following are some authentication flows and their parameters. Add a <code>SECRET_HASH</code> parameter if your app client has a client secret. Add <code>DEVICE_KEY</code> if you want to bypass multi-factor authentication with a remembered device. </p> <dl> <dt>USER_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>PREFERRED_CHALLENGE</code>. If you don't provide a value for <code>PREFERRED_CHALLENGE</code>, Amazon Cognito responds with the <code>AvailableChallenges</code> parameter that specifies the available sign-in methods.</p> </li> </ul> </dd> <dt>USER_SRP_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>SRP_A</code> (required)</p> </li> </ul> </dd> <dt>USER_PASSWORD_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>PASSWORD</code> (required)</p> </li> </ul> </dd> <dt>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</dt> <dd> <ul> <li> <p> <code>REFRESH_TOKEN</code>(required)</p> </li> </ul> </dd> <dt>CUSTOM_AUTH</dt> <dd> <ul> <li> <p> <code>USERNAME</code> (required)</p> </li> <li> <p> <code>ChallengeName: SRP_A</code> (when doing SRP authentication before custom challenges)</p> </li> <li> <p> <code>SRP_A: (An SRP_A value)</code> (when doing SRP authentication before custom challenges)</p> </li> </ul> </dd> </dl> <p>For more information about <code>SECRET_HASH</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <p>The <code>ClientMetadata</code> value is passed as input to the functions for only the following triggers:</p> <ul> <li> <p>Pre signup</p> </li> <li> <p>Pre authentication</p> </li> <li> <p>User migration</p> </li> </ul> <p>This request also invokes the functions for the following triggers, but doesn't pass <code>ClientMetadata</code>:</p> <ul> <li> <p>Post authentication</p> </li> <li> <p>Custom message</p> </li> <li> <p>Pre token generation</p> </li> <li> <p>Create auth challenge</p> </li> <li> <p>Define auth challenge</p> </li> <li> <p>Custom email sender</p> </li> <li> <p>Custom SMS sender</p> </li> </ul> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+            client_id: <p>The ID of the app client that your user wants to sign in to.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            session: <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow. When you pass the session ID to <code>InitiateAuth</code>, Amazon Cognito assumes the SMS or email message one-time verification password from <code>ConfirmSignUp</code> as the primary authentication factor. You're not required to submit this code a second time. This option is only valid for users who have confirmed their sign-up and are signing in for the first time within the authentication flow session duration of the session ID.</p>
+
+        Examples:
+            Example username and password sign-in for a user who has TOTP MFA
+            The following example signs in the user mytestuser with analytics data, client metadata, and user context data for advanced security.
+
+            >>> client.initiate_auth(auth_flow='USER_PASSWORD_AUTH', client_id='1example23456789', auth_parameters={'USERNAME': 'mytestuser', 'PASSWORD': 'This-is-my-test-99!', 'SECRET_HASH': 'oT5ZkS8ctnrhYeeGsGTvOzPhoc/Jd1cO5fueBWFVmp8='}, analytics_metadata={'AnalyticsEndpointId': 'd70b2ba36a8c4dc5a04a0451a31a1e12'}, user_context_data={'EncodedData': 'AmazonCognitoAdvancedSecurityData_object', 'IpAddress': '192.0.2.1'}, client_metadata={'MyTestKey': 'MyTestValue'})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.initiate_auth_request.InitiateAuthRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.initiate_auth_response.InitiateAuthResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.initiate_auth
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.initiate_auth.initiate_auth(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.initiate_auth_request.InitiateAuthRequest = {}  # type: ignore[typeddict-item]
+        input["auth_flow"] = auth_flow
+        if auth_parameters is not None:
+            input["auth_parameters"] = auth_parameters
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+        input["client_id"] = client_id
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        if session is not None:
+            input["session"] = session
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_devices(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        pagination_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.search_pagination_token_type.SearchPaginationTokenType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_devices_response.ListDevicesResponse":
+        """<p>Lists the devices that Amazon Cognito has registered to the currently signed-in user. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            limit: <p>The maximum number of devices that you want Amazon Cognito to return in the response.</p>
+            pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_devices_request.ListDevicesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_devices_response.ListDevicesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_devices
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_devices.list_devices(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        if limit is not None:
+            input["limit"] = limit
+        if pagination_token is not None:
+            input["pagination_token"] = pagination_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_groups(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_groups_response.ListGroupsResponse":
+        """<p>Given a user pool ID, returns user pool groups and their details.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to list user groups.</p>
+            limit: <p>The maximum number of groups that you want Amazon Cognito to return in the response.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_groups_request.ListGroupsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_groups_response.ListGroupsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_groups
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_groups.list_groups(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_groups(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.group_type.GroupType]":
+        _token = next_token
+        while True:
+            _response = self.list_groups(
+                user_pool_id,
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("groups",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_identity_providers(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.list_providers_limit_type.ListProvidersLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_identity_providers_response.ListIdentityProvidersResponse":
+        """<p>Given a user pool ID, returns information about configured identity providers (IdPs). For more information about IdPs, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html\">Third-party IdP sign-in</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to list IdPs.</p>
+            max_results: <p>The maximum number of IdPs that you want Amazon Cognito to return in the response.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_identity_providers_request.ListIdentityProvidersRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_identity_providers_response.ListIdentityProvidersResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_identity_providers
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_identity_providers.list_identity_providers(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_identity_providers(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.list_providers_limit_type.ListProvidersLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.provider_description.ProviderDescription]":
+        _token = next_token
+        while True:
+            _response = self.list_identity_providers(
+                user_pool_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("providers",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_resource_servers(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.list_resource_servers_limit_type.ListResourceServersLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_resource_servers_response.ListResourceServersResponse":
+        """<p>Given a user pool ID, returns all resource servers and their details. For more information about resource servers, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html\">Access control with resource servers</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to list resource servers.</p>
+            max_results: <p>The maximum number of resource servers that you want Amazon Cognito to return in the response.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_resource_servers_request.ListResourceServersRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_resource_servers_response.ListResourceServersResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_resource_servers
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_resource_servers.list_resource_servers(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_resource_servers_request.ListResourceServersRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_resource_servers(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.list_resource_servers_limit_type.ListResourceServersLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.resource_server_type.ResourceServerType]":
+        _token = next_token
+        while True:
+            _response = self.list_resource_servers(
+                user_pool_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("resource_servers",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists the tags that are assigned to an Amazon Cognito user pool. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/tagging.html\">Tagging resources</a>.</p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_tags_for_resource
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_terms(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.list_terms_request_max_results_integer.ListTermsRequestMaxResultsInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.string_type.StringType"
+        ] = None,
+    ) -> (
+        "aws_sdk_cognito_identity_provider.types.list_terms_response.ListTermsResponse"
+    ):
+        """<p>Returns details about all terms documents for the requested user pool.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to list terms documents.</p>
+            max_results: <p>The maximum number of terms documents that you want Amazon Cognito to return in the response.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_terms_request.ListTermsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_terms_response.ListTermsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_terms
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_terms.list_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_terms_request.ListTermsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_user_import_jobs(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        max_results: "aws_sdk_cognito_identity_provider.types.pool_query_limit_type.PoolQueryLimitType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        pagination_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_user_import_jobs_response.ListUserImportJobsResponse":
+        """<p>Given a user pool ID, returns user import jobs and their details. Import jobs are retained in user pool configuration so that you can stage, stop, start, review, and delete them. For more information about user import, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html\">Importing users from a CSV file</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to list import jobs.</p>
+            max_results: <p>The maximum number of import jobs that you want Amazon Cognito to return in the response.</p>
+            pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_user_import_jobs_request.ListUserImportJobsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_user_import_jobs_response.ListUserImportJobsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_import_jobs
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_import_jobs.list_user_import_jobs(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_user_import_jobs_request.ListUserImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["max_results"] = max_results
+        if pagination_token is not None:
+            input["pagination_token"] = pagination_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_user_pool_clients(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit.QueryLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_user_pool_clients_response.ListUserPoolClientsResponse":
+        """<p>Given a user pool ID, lists app clients. App clients are sets of rules for the access that you want a user pool to grant to one application. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html\">App clients</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to list user pool clients.</p>
+            max_results: <p>The maximum number of app clients that you want Amazon Cognito to return in the response.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_user_pool_clients_request.ListUserPoolClientsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_user_pool_clients_response.ListUserPoolClientsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pool_clients
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pool_clients.list_user_pool_clients(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_user_pool_clients_request.ListUserPoolClientsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_user_pool_clients(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit.QueryLimit"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.user_pool_client_description.UserPoolClientDescription]":
+        _token = next_token
+        while True:
+            _response = self.list_user_pool_clients(
+                user_pool_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("user_pool_clients",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_user_pool_client_secrets(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_user_pool_client_secrets_response.ListUserPoolClientSecretsResponse":
+        """<p>Lists all client secrets associated with a user pool app client. Returns metadata about the secrets. The response does not include pagination tokens as there are only 2 secrets at any given time and we return both with every ListUserPoolClientSecrets call. For security reasons, the response never reveals the actual secret value in ClientSecretValue.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the app client.</p>
+            client_id: <p>The ID of the app client whose secrets you want to list.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_user_pool_client_secrets_request.ListUserPoolClientSecretsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_user_pool_client_secrets_response.ListUserPoolClientSecretsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pool_client_secrets
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pool_client_secrets.list_user_pool_client_secrets(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_user_pool_client_secrets_request.ListUserPoolClientSecretsRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_user_pool_replicas(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_user_pool_replicas_response.ListUserPoolReplicasResponse":
+        """<p>Lists all replicas for a user pool, including both primary and secondary replicas. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool for which to list replicas.</p>
+            next_token: <p>A pagination token for retrieving the next page of results. If this parameter is omitted, the operation returns the first page of results.</p>
+
+        Examples:
+            Example list the replicas of a user pool
+            The following example lists the replicas of a user pool that has a replica in the ap-south-1 Region.
+
+            >>> client.list_user_pool_replicas(user_pool_id='eu-north-1_abcd12345')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_user_pool_replicas_request.ListUserPoolReplicasRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_user_pool_replicas_response.ListUserPoolReplicasResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pool_replicas
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pool_replicas.list_user_pool_replicas(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_user_pool_replicas_request.ListUserPoolReplicasRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_user_pools(
+        self,
+        max_results: "aws_sdk_cognito_identity_provider.types.pool_query_limit_type.PoolQueryLimitType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_user_pools_response.ListUserPoolsResponse":
+        """<p>Lists user pools and their details in the current Amazon Web Services account.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+            max_results: <p>The maximum number of user pools that you want Amazon Cognito to return in the response.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_user_pools_request.ListUserPoolsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_user_pools_response.ListUserPoolsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pools
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_user_pools.list_user_pools(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_user_pools_request.ListUserPoolsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_user_pools(
+        self,
+        max_results: "aws_sdk_cognito_identity_provider.types.pool_query_limit_type.PoolQueryLimitType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.user_pool_description_type.UserPoolDescriptionType]":
+        _token = next_token
+        while True:
+            _response = self.list_user_pools(
+                max_results,
+                config_overrides=config_overrides,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("user_pools",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_users(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        attributes_to_get: Optional[
+            "aws_sdk_cognito_identity_provider.types.searched_attribute_names_list_type.SearchedAttributeNamesListType"
+        ] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        pagination_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.search_pagination_token_type.SearchPaginationTokenType"
+        ] = None,
+        filter: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_filter_type.UserFilterType"
+        ] = None,
+    ) -> (
+        "aws_sdk_cognito_identity_provider.types.list_users_response.ListUsersResponse"
+    ):
+        """<p>Given a user pool ID, returns a list of users and their basic details in a user pool.</p> <p>This operation is eventually consistent. You might experience a delay before results are up-to-date. To validate the existence or configuration of an individual user, use <code>AdminGetUser</code>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to display or search for users.</p>
+            attributes_to_get: <p>A JSON array of user attribute names, for example <code>given_name</code>, that you want Amazon Cognito to include in the response for each user. When you don't provide an <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for each user.</p> <p>Use <code>AttributesToGet</code> with required attributes in your user pool, or in conjunction with <code>Filter</code>. Amazon Cognito returns an error if not all users in the results have set a value for the attribute you request. Attributes that you can't filter on, including custom attributes, must have a value set in every user profile before an <code>AttributesToGet</code> parameter returns results.</p>
+            limit: <p>The maximum number of users that you want Amazon Cognito to return in the response. In some SDK contexts, this operation might return fewer items than you specify in the <code>Limit</code> parameter without having reached the end of the full list. If the response contains a <code>PaginationToken</code>, then there are more results.</p>
+            pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+            filter: <p>A filter string of the form <code>\"AttributeName Filter-Type \"AttributeValue\"</code>. Quotation marks within the filter string must be escaped using the backslash (<code>\</code>) character. For example, <code>\"family_name = \\"Reddy\\"\"</code>.</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use <code>=</code>, for example, \"<code>given_name = \\"Jon\\"</code>\". For a prefix (\"starts with\") match, use <code>^=</code>, for example, \"<code>given_name ^= \\"Jon\\"</code>\". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p> </li> <li> <p> <code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code> </p> </li> <li> <p> <code>sub</code> </p> </li> </ul> <p>Custom attributes aren't searchable.</p> <note> <p>You can also list users with a client-side filter. The server-side filter matches no more than one attribute. For an advanced search, use a client-side filter with the <code>--query</code> parameter of the <code>list-users</code> action in the CLI. When you use a client-side filter, ListUsers returns a paginated list of zero or more users. You can receive multiple pages in a row with zero results. Repeat the query with each pagination token that is returned until you receive a null pagination token value, and then review the combined result. </p> <p>For more information about server-side and client-side filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">FilteringCLI output</a> in the <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Command Line Interface User Guide</a>. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api\">Searching for Users Using the ListUsers API</a> and <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples\">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+
+        Examples:
+            A ListUsers request for the next 3 users whose email address starts with "testuser."
+            This request submits a value for all possible parameters for ListUsers. By iterating the PaginationToken, you can page through and collect all users in a user pool.
+
+            >>> client.list_users(attributes_to_get=['email', 'sub'], filter='"email"^="testuser"', limit=3, pagination_token='abcd1234EXAMPLE', user_pool_id='us-east-1_EXAMPLE')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_users_request.ListUsersRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_users_response.ListUsersResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_users
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_users.list_users(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if attributes_to_get is not None:
+            input["attributes_to_get"] = attributes_to_get
+        if limit is not None:
+            input["limit"] = limit
+        if pagination_token is not None:
+            input["pagination_token"] = pagination_token
+        if filter is not None:
+            input["filter"] = filter
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_users(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        attributes_to_get: Optional[
+            "aws_sdk_cognito_identity_provider.types.searched_attribute_names_list_type.SearchedAttributeNamesListType"
+        ] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        pagination_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.search_pagination_token_type.SearchPaginationTokenType"
+        ] = None,
+        filter: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_filter_type.UserFilterType"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.user_type.UserType]":
+        _token = pagination_token
+        while True:
+            _response = self.list_users(
+                user_pool_id,
+                config_overrides=config_overrides,
+                attributes_to_get=attributes_to_get,
+                limit=limit,
+                pagination_token=_token,
+                filter=filter,
+            )
+            _page = _resolve_path(_response, ("users",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("pagination_token",))
+            if not _token:
+                break
+
+    def list_users_in_group(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_users_in_group_response.ListUsersInGroupResponse":
+        """<p>Given a user pool ID and a group name, returns a list of users in the group. For more information about user pool groups, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to view the membership of the requested group.</p>
+            group_name: <p>The name of the group that you want to query for user membership.</p>
+            limit: <p>The maximum number of groups that you want Amazon Cognito to return in the response. In some SDK contexts, this operation might return fewer items than you specify in the <code>Limit</code> parameter without having reached the end of the full list. If the response contains a <code>PaginationToken</code>, then there are more results.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_users_in_group_request.ListUsersInGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_users_in_group_response.ListUsersInGroupResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_users_in_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_users_in_group.list_users_in_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_users_in_group_request.ListUsersInGroupRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["group_name"] = group_name
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_users_in_group(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_cognito_identity_provider.types.query_limit_type.QueryLimitType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+    ) -> "Iterator[aws_sdk_cognito_identity_provider.types.user_type.UserType]":
+        _token = next_token
+        while True:
+            _response = self.list_users_in_group(
+                user_pool_id,
+                group_name,
+                config_overrides=config_overrides,
+                limit=limit,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("users",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_web_authn_credentials(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.pagination_key.PaginationKey"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_cognito_identity_provider.types.web_authn_credentials_query_limit_type.WebAuthnCredentialsQueryLimitType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_response.ListWebAuthnCredentialsResponse":
+        """<p>Generates a list of the currently signed-in user's registered passkey, or WebAuthn, credentials.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+            max_results: <p>The maximum number of the user's passkey credentials that you want to return.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_request.ListWebAuthnCredentialsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_response.ListWebAuthnCredentialsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_web_authn_credentials
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.list_web_authn_credentials.list_web_authn_credentials(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_request.ListWebAuthnCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def resend_confirmation_code(
+        self,
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        secret_hash: Optional[
+            "aws_sdk_cognito_identity_provider.types.secret_hash_type.SecretHashType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.resend_confirmation_code_response.ResendConfirmationCodeResponse":
+        """<p>Resends the code that confirms a new account for a user who has signed up in your user pool. Amazon Cognito sends confirmation codes to the user attribute in the <code>AutoVerifiedAttributes</code> property of your user pool. When you prompt new users for the confirmation code, include a \"Resend code\" option that generates a call to this API operation.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            client_id: <p>The ID of the user pool app client where the user signed up.</p>
+            secret_hash: <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message. For more information about <code>SecretHash</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.resend_confirmation_code_request.ResendConfirmationCodeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.resend_confirmation_code_response.ResendConfirmationCodeResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.resend_confirmation_code
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.resend_confirmation_code.resend_confirmation_code(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.resend_confirmation_code_request.ResendConfirmationCodeRequest = {}  # type: ignore[typeddict-item]
+        input["client_id"] = client_id
+        if secret_hash is not None:
+            input["secret_hash"] = secret_hash
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        input["username"] = username
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def respond_to_auth_challenge(
+        self,
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        challenge_name: "aws_sdk_cognito_identity_provider.types.challenge_name_type.ChallengeNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+        challenge_responses: Optional[
+            "aws_sdk_cognito_identity_provider.types.challenge_responses_type.ChallengeResponsesType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.respond_to_auth_challenge_response.RespondToAuthChallengeResponse":
+        """<p>Some API operations in a user pool generate a challenge, like a prompt for an MFA code, for device authentication that bypasses MFA, or for a custom authentication challenge. A <code>RespondToAuthChallenge</code> API request provides the answer to that challenge, like a code or a secure remote password (SRP). The parameters of a response to an authentication challenge vary with the type of challenge.</p> <p>For more information about custom authentication challenges, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">Custom authentication challenge Lambda triggers</a>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            client_id: <p>The ID of the app client where the user is signing in.</p>
+            challenge_name: <p>The name of the challenge that you are responding to.</p> <note> <p>You can't respond to an <code>ADMIN_NO_SRP_AUTH</code> challenge with this operation.</p> </note> <p>Possible challenges include the following:</p> <note> <p>All of the following challenges require <code>USERNAME</code> and, when the app client has a client secret, <code>SECRET_HASH</code> in the parameters. Include a <code>DEVICE_KEY</code> for device authentication.</p> </note> <ul> <li> <p> <code>WEB_AUTHN</code>: Respond to the challenge with the results of a successful authentication with a WebAuthn authenticator, or passkey, as <code>CREDENTIAL</code>. Examples of WebAuthn authenticators include biometric devices and security keys.</p> </li> <li> <p> <code>PASSWORD</code>: Respond with the user's password as <code>PASSWORD</code>.</p> </li> <li> <p> <code>PASSWORD_SRP</code>: Respond with the initial SRP secret as <code>SRP_A</code>.</p> </li> <li> <p> <code>SELECT_CHALLENGE</code>: Respond with a challenge selection as <code>ANSWER</code>. It must be one of the challenge types in the <code>AvailableChallenges</code> response parameter. Add the parameters of the selected challenge, for example <code>USERNAME</code> and <code>SMS_OTP</code>.</p> </li> <li> <p> <code>SMS_MFA</code>: Respond with the code that your user pool delivered in an SMS message, as <code>SMS_MFA_CODE</code> </p> </li> <li> <p> <code>EMAIL_MFA</code>: Respond with the code that your user pool delivered in an email message, as <code>EMAIL_MFA_CODE</code> </p> </li> <li> <p> <code>EMAIL_OTP</code>: Respond with the code that your user pool delivered in an email message, as <code>EMAIL_OTP_CODE</code> .</p> </li> <li> <p> <code>SMS_OTP</code>: Respond with the code that your user pool delivered in an SMS message, as <code>SMS_OTP_CODE</code>.</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: Respond with the second stage of SRP secrets as <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code>.</p> </li> <li> <p> <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued. The parameters of the challenge are determined by your Lambda function and issued in the <code>ChallengeParameters</code> of a challenge response.</p> </li> <li> <p> <code>DEVICE_SRP_AUTH</code>: Respond with the initial parameters of device SRP authentication. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html#user-pools-remembered-devices-signing-in-with-a-device\">Signing in with a device</a>.</p> </li> <li> <p> <code>DEVICE_PASSWORD_VERIFIER</code>: Respond with <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after client-side SRP calculations. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html#user-pools-remembered-devices-signing-in-with-a-device\">Signing in with a device</a>.</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: For users who are required to change their passwords after successful first login. Respond to this challenge with <code>NEW_PASSWORD</code> and any required attributes that Amazon Cognito returned in the <code>requiredAttributes</code> parameter. You can also set values for attributes that aren't required by your user pool and that your app client can write.</p> <p>Amazon Cognito only returns this challenge for users who have temporary passwords. When you create passwordless users, you must provide values for all required attributes.</p> <note> <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value. In <code>AdminRespondToAuthChallenge</code> or <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter, then use the <code>AdminUpdateUserAttributes</code> or <code>UpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p> </note> </li> <li> <p> <code>MFA_SETUP</code>: For users who are required to setup an MFA factor before they can sign in. The MFA types activated for the user pool will be listed in the challenge parameters <code>MFAS_CAN_SETUP</code> value. </p> <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in. </p> <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request. </p> </li> </ul>
+            session: <p>The session identifier that maintains the state of authentication requests and challenge responses. If an <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API request results in a determination that your application must pass another challenge, Amazon Cognito returns a session with other challenge parameters. Send this session identifier, unmodified, to the next <code>AdminRespondToAuthChallenge</code> request.</p>
+            challenge_responses: <p>The responses to the challenge that you received in the previous request. Each challenge has its own required response parameters. The following examples are partial JSON request bodies that highlight challenge-response parameters.</p> <important> <p>You must provide a SECRET_HASH parameter in all challenge responses to an app client that has a client secret. Include a <code>DEVICE_KEY</code> for device authentication.</p> </important> <dl> <dt>SELECT_CHALLENGE</dt> <dd> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"ANSWER\": \"[Challenge name]\"}</code> </p> <p>Available challenges are <code>PASSWORD</code>, <code>PASSWORD_SRP</code>, <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code>.</p> <p>Complete authentication in the <code>SELECT_CHALLENGE</code> response for <code>PASSWORD</code>, <code>PASSWORD_SRP</code>, and <code>WEB_AUTHN</code>:</p> <ul> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"WEB_AUTHN\", \"USERNAME\": \"[username]\", \"CREDENTIAL\": \"[AuthenticationResponseJSON]\"}</code> </p> <p>See <a href=\"https://www.w3.org/TR/WebAuthn-3/#dictdef-authenticationresponsejson\"> AuthenticationResponseJSON</a>.</p> </li> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"PASSWORD\", \"USERNAME\": \"[username]\", \"PASSWORD\": \"[password]\"}</code> </p> </li> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"PASSWORD_SRP\", \"USERNAME\": \"[username]\", \"SRP_A\": \"[SRP_A]\"}</code> </p> </li> </ul> <p>For <code>SMS_OTP</code> and <code>EMAIL_OTP</code>, respond with the username and answer. Your user pool will send a code for the user to submit in the next challenge response.</p> <ul> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"SMS_OTP\", \"USERNAME\": \"[username]\"}</code> </p> </li> <li> <p> <code>\"ChallengeName\": \"SELECT_CHALLENGE\", \"ChallengeResponses\": { \"ANSWER\": \"EMAIL_OTP\", \"USERNAME\": \"[username]\"}</code> </p> </li> </ul> </dd> <dt>WEB_AUTHN</dt> <dd> <p> <code>\"ChallengeName\": \"WEB_AUTHN\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"CREDENTIAL\": \"[AuthenticationResponseJSON]\"}</code> </p> <p>See <a href=\"https://www.w3.org/TR/WebAuthn-3/#dictdef-authenticationresponsejson\"> AuthenticationResponseJSON</a>.</p> </dd> <dt>PASSWORD</dt> <dd> <p> <code>\"ChallengeName\": \"PASSWORD\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"PASSWORD\": \"[password]\"}</code> </p> </dd> <dt>PASSWORD_SRP</dt> <dd> <p> <code>\"ChallengeName\": \"PASSWORD_SRP\", \"ChallengeResponses\": { \"USERNAME\": \"[username]\", \"SRP_A\": \"[SRP_A]\"}</code> </p> </dd> <dt>SMS_OTP</dt> <dd> <p> <code>\"ChallengeName\": \"SMS_OTP\", \"ChallengeResponses\": {\"SMS_OTP_CODE\": \"[code]\", \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>EMAIL_OTP</dt> <dd> <p> <code>\"ChallengeName\": \"EMAIL_OTP\", \"ChallengeResponses\": {\"EMAIL_OTP_CODE\": \"[code]\", \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>SMS_MFA</dt> <dd> <p> <code>\"ChallengeName\": \"SMS_MFA\", \"ChallengeResponses\": {\"SMS_MFA_CODE\": \"[code]\", \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>PASSWORD_VERIFIER</dt> <dd> <p>This challenge response is part of the SRP flow. Amazon Cognito requires that your application respond to this challenge within a few seconds. When the response time exceeds this period, your user pool returns a <code>NotAuthorizedException</code> error.</p> <p> <code>\"ChallengeName\": \"PASSWORD_VERIFIER\", \"ChallengeResponses\": {\"PASSWORD_CLAIM_SIGNATURE\": \"[claim_signature]\", \"PASSWORD_CLAIM_SECRET_BLOCK\": \"[secret_block]\", \"TIMESTAMP\": [timestamp], \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>CUSTOM_CHALLENGE</dt> <dd> <p> <code>\"ChallengeName\": \"CUSTOM_CHALLENGE\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"ANSWER\": \"[challenge_answer]\"}</code> </p> </dd> <dt>NEW_PASSWORD_REQUIRED</dt> <dd> <p> <code>\"ChallengeName\": \"NEW_PASSWORD_REQUIRED\", \"ChallengeResponses\": {\"NEW_PASSWORD\": \"[new_password]\", \"USERNAME\": \"[username]\"}</code> </p> <p>To set any required attributes that <code>InitiateAuth</code> returned in an <code>requiredAttributes</code> parameter, add <code>\"userAttributes.[attribute_name]\": \"[attribute_value]\"</code>. This parameter can also set values for writable attributes that aren't required by your user pool.</p> <note> <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value. In <code>AdminRespondToAuthChallenge</code> or <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter, then use the <code>AdminUpdateUserAttributes</code> or <code>UpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p> </note> </dd> <dt>SOFTWARE_TOKEN_MFA</dt> <dd> <p> <code>\"ChallengeName\": \"SOFTWARE_TOKEN_MFA\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"SOFTWARE_TOKEN_MFA_CODE\": [authenticator_code]}</code> </p> </dd> <dt>DEVICE_SRP_AUTH</dt> <dd> <p> <code>\"ChallengeName\": \"DEVICE_SRP_AUTH\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"DEVICE_KEY\": \"[device_key]\", \"SRP_A\": \"[srp_a]\"}</code> </p> </dd> <dt>DEVICE_PASSWORD_VERIFIER</dt> <dd> <p> <code>\"ChallengeName\": \"DEVICE_PASSWORD_VERIFIER\", \"ChallengeResponses\": {\"DEVICE_KEY\": \"[device_key]\", \"PASSWORD_CLAIM_SIGNATURE\": \"[claim_signature]\", \"PASSWORD_CLAIM_SECRET_BLOCK\": \"[secret_block]\", \"TIMESTAMP\": [timestamp], \"USERNAME\": \"[username]\"}</code> </p> </dd> <dt>MFA_SETUP</dt> <dd> <p> <code>\"ChallengeName\": \"MFA_SETUP\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\"}, \"SESSION\": \"[Session ID from VerifySoftwareToken]\"</code> </p> </dd> <dt>SELECT_MFA_TYPE</dt> <dd> <p> <code>\"ChallengeName\": \"SELECT_MFA_TYPE\", \"ChallengeResponses\": {\"USERNAME\": \"[username]\", \"ANSWER\": \"[SMS_MFA|EMAIL_MFA|SOFTWARE_TOKEN_MFA]\"}</code> </p> </dd> </dl> <p>For more information about <code>SECRET_HASH</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.respond_to_auth_challenge_request.RespondToAuthChallengeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.respond_to_auth_challenge_response.RespondToAuthChallengeResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.respond_to_auth_challenge
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.respond_to_auth_challenge.respond_to_auth_challenge(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.respond_to_auth_challenge_request.RespondToAuthChallengeRequest = {}  # type: ignore[typeddict-item]
+        input["client_id"] = client_id
+        input["challenge_name"] = challenge_name
+        if session is not None:
+            input["session"] = session
+        if challenge_responses is not None:
+            input["challenge_responses"] = challenge_responses
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def revoke_token(
+        self,
+        token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_secret: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_secret_type.ClientSecretType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.revoke_token_response.RevokeTokenResponse":
+        """<p>Revokes all of the access tokens generated by, and at the same time as, the specified refresh token. After a token is revoked, you can't use the revoked token to access Amazon Cognito user APIs, or to authorize access to your resource server.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            token: <p>The refresh token that you want to revoke.</p>
+            client_id: <p>The ID of the app client where the token that you want to revoke was issued.</p>
+            client_secret: <p>The client secret of the requested app client, if the client has a secret.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.revoke_token_request.RevokeTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.revoke_token_response.RevokeTokenResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.revoke_token
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.revoke_token.revoke_token(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.revoke_token_request.RevokeTokenRequest = {}  # type: ignore[typeddict-item]
+        input["token"] = token
+        input["client_id"] = client_id
+        if client_secret is not None:
+            input["client_secret"] = client_secret
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_log_delivery_configuration(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        log_configurations: "aws_sdk_cognito_identity_provider.types.log_configuration_list_type.LogConfigurationListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_response.SetLogDeliveryConfigurationResponse":
+        """<p>Sets up or modifies the logging configuration of a user pool. User pools can export user notification logs and, when threat protection is active, user-activity logs. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html\">Exporting user pool logs</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to configure logging.</p>
+            log_configurations: <p>A collection of the logging configurations for a user pool.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_request.SetLogDeliveryConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_response.SetLogDeliveryConfigurationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_log_delivery_configuration
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_log_delivery_configuration.set_log_delivery_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_request.SetLogDeliveryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["log_configurations"] = log_configurations
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_risk_configuration(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_id: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
+        ] = None,
+        compromised_credentials_risk_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.compromised_credentials_risk_configuration_type.CompromisedCredentialsRiskConfigurationType"
+        ] = None,
+        account_takeover_risk_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.account_takeover_risk_configuration_type.AccountTakeoverRiskConfigurationType"
+        ] = None,
+        risk_exception_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.risk_exception_configuration_type.RiskExceptionConfigurationType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.set_risk_configuration_response.SetRiskConfigurationResponse":
+        """<p>Configures threat protection for a user pool or app client. Sets configuration for the following.</p> <ul> <li> <p>Responses to risks with adaptive authentication</p> </li> <li> <p>Responses to vulnerable passwords with compromised-credentials detection</p> </li> <li> <p>Notifications to users who have had risky activity detected</p> </li> <li> <p>IP-address denylist and allowlist</p> </li> </ul> <p>To set the risk configuration for the user pool to defaults, send this request with only the <code>UserPoolId</code> parameter. To reset the threat protection settings of an app client to be inherited from the user pool, send <code>UserPoolId</code> and <code>ClientId</code> parameters only. To change threat protection to audit-only or off, update the value of <code>UserPoolAddOns</code> in an <code>UpdateUserPool</code> request. To activate this setting, your user pool must be on the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html\"> Plus tier</a>.</p> <p>In secondary regions for user pools with multi-region replication, only the <code>SourceARN</code> and <code>From</code> attributes of <code>NotifyConfiguration</code> can be modified to configure region-specific SES integration. All other risk configuration settings must match the existing values to maintain consistency across replicas.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to set a risk configuration. If you include <code>UserPoolId</code> in your request, don't include <code>ClientId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool. When you include both <code>ClientId</code> and <code>UserPoolId</code>, Amazon Cognito maps the configuration to the app client only.</p>
+            client_id: <p>The ID of the app client where you want to set a risk configuration. If <code>ClientId</code> is null, then the risk configuration is mapped to <code>UserPoolId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.</p> <p>When you include a <code>ClientId</code> parameter, Amazon Cognito maps the configuration to the app client. When you include both <code>ClientId</code> and <code>UserPoolId</code>, Amazon Cognito maps the configuration to the app client only.</p>
+            compromised_credentials_risk_configuration: <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
+            account_takeover_risk_configuration: <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
+            risk_exception_configuration: <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.set_risk_configuration_request.SetRiskConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.set_risk_configuration_response.SetRiskConfigurationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_risk_configuration
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_risk_configuration.set_risk_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.set_risk_configuration_request.SetRiskConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if client_id is not None:
+            input["client_id"] = client_id
+        if compromised_credentials_risk_configuration is not None:
+            input["compromised_credentials_risk_configuration"] = (
+                compromised_credentials_risk_configuration
+            )
+        if account_takeover_risk_configuration is not None:
+            input["account_takeover_risk_configuration"] = (
+                account_takeover_risk_configuration
+            )
+        if risk_exception_configuration is not None:
+            input["risk_exception_configuration"] = risk_exception_configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_ui_customization(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_id: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
+        ] = None,
+        css: Optional[
+            "aws_sdk_cognito_identity_provider.types.css_type.CSSType"
+        ] = None,
+        image_file: Optional[
+            "aws_sdk_cognito_identity_provider.types.image_file_type.ImageFileType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.set_ui_customization_response.SetUICustomizationResponse":
+        """<p>Configures UI branding settings for domains with the hosted UI (classic) branding version. Your user pool must have a domain. Configure a domain with .</p> <p>Set the default configuration for all clients with a <code>ClientId</code> of <code>ALL</code>. When the <code>ClientId</code> value is an app client ID, the settings you pass in this request apply to that app client and override the default <code>ALL</code> configuration.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to apply branding to the classic hosted UI.</p>
+            client_id: <p>The ID of the app client that you want to customize. To apply a default style to all app clients not configured with client-level branding, set this parameter value to <code>ALL</code>.</p>
+            css: <p>A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool <i>App clients</i> tab, select <i>Login pages</i>, edit <i>Hosted UI (classic) style</i>, and select the link to <code>CSS template.css</code>.</p>
+            image_file: <p>The image that you want to set as your login in the classic hosted UI, as a Base64-formatted binary object.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.set_ui_customization_request.SetUICustomizationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.set_ui_customization_response.SetUICustomizationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_ui_customization
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_ui_customization.set_ui_customization(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.set_ui_customization_request.SetUICustomizationRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if client_id is not None:
+            input["client_id"] = client_id
+        if css is not None:
+            input["css"] = css
+        if image_file is not None:
+            input["image_file"] = image_file
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_user_mfa_preference(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        sms_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_mfa_settings_type.SMSMfaSettingsType"
+        ] = None,
+        software_token_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.software_token_mfa_settings_type.SoftwareTokenMfaSettingsType"
+        ] = None,
+        email_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_mfa_settings_type.EmailMfaSettingsType"
+        ] = None,
+        web_authn_mfa_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.web_authn_mfa_settings_type.WebAuthnMfaSettingsType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.set_user_mfa_preference_response.SetUserMFAPreferenceResponse":
+        """<p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are activated and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are activated. If multiple options are activated and no preference is set, a challenge to choose an MFA option will be returned during sign-in. If an MFA type is activated for a user, the user will be prompted for MFA during all sign-in attempts unless device tracking is turned on and the device has been trusted. If you want MFA to be applied selectively based on the assessed risk level of sign-in attempts, deactivate MFA for users and turn on Adaptive Authentication for the user pool.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            sms_mfa_settings: <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+            software_token_mfa_settings: <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available. Users must register a TOTP authenticator before they set this as their preferred MFA method.</p>
+            email_mfa_settings: <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
+            web_authn_mfa_settings: <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.set_user_mfa_preference_request.SetUserMFAPreferenceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.set_user_mfa_preference_response.SetUserMFAPreferenceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_user_mfa_preference
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_user_mfa_preference.set_user_mfa_preference(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.set_user_mfa_preference_request.SetUserMFAPreferenceRequest = {}  # type: ignore[typeddict-item]
+        if sms_mfa_settings is not None:
+            input["sms_mfa_settings"] = sms_mfa_settings
+        if software_token_mfa_settings is not None:
+            input["software_token_mfa_settings"] = software_token_mfa_settings
+        if email_mfa_settings is not None:
+            input["email_mfa_settings"] = email_mfa_settings
+        if web_authn_mfa_settings is not None:
+            input["web_authn_mfa_settings"] = web_authn_mfa_settings
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_user_pool_mfa_config(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        sms_mfa_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_mfa_config_type.SmsMfaConfigType"
+        ] = None,
+        software_token_mfa_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.software_token_mfa_config_type.SoftwareTokenMfaConfigType"
+        ] = None,
+        email_mfa_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_mfa_config_type.EmailMfaConfigType"
+        ] = None,
+        mfa_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_mfa_type.UserPoolMfaType"
+        ] = None,
+        web_authn_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.web_authn_configuration_type.WebAuthnConfigurationType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.set_user_pool_mfa_config_response.SetUserPoolMfaConfigResponse":
+        """<p>Sets user pool multi-factor authentication (MFA) and passkey configuration. For more information about user pool MFA, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html\">Adding MFA</a>. For more information about WebAuthn passkeys see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html#amazon-cognito-user-pools-authentication-flow-methods-passkey\">Authentication flows</a>.</p> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            user_pool_id: <p>The user pool ID.</p>
+            sms_mfa_configuration: <p>Configures user pool SMS messages for MFA. Sets the message template and the SMS message sending configuration for Amazon SNS.</p>
+            software_token_mfa_configuration: <p>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or disables TOTP.</p>
+            email_mfa_configuration: <p>Sets configuration for user pool email message MFA and sign-in with one-time passwords (OTPs). Includes the subject and body of the email message template for sign-in and MFA messages. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
+            mfa_configuration: <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p> <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
+            web_authn_configuration: <p>The configuration of your user pool for passkey, or WebAuthn, authentication and registration. Includes relying-party configuration, user-verification requirements, and whether passkeys can satisfy MFA requirements.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.set_user_pool_mfa_config_request.SetUserPoolMfaConfigRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.set_user_pool_mfa_config_response.SetUserPoolMfaConfigResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_user_pool_mfa_config
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_user_pool_mfa_config.set_user_pool_mfa_config(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.set_user_pool_mfa_config_request.SetUserPoolMfaConfigRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if sms_mfa_configuration is not None:
+            input["sms_mfa_configuration"] = sms_mfa_configuration
+        if software_token_mfa_configuration is not None:
+            input["software_token_mfa_configuration"] = software_token_mfa_configuration
+        if email_mfa_configuration is not None:
+            input["email_mfa_configuration"] = email_mfa_configuration
+        if mfa_configuration is not None:
+            input["mfa_configuration"] = mfa_configuration
+        if web_authn_configuration is not None:
+            input["web_authn_configuration"] = web_authn_configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def set_user_settings(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        mfa_options: "aws_sdk_cognito_identity_provider.types.mfa_option_list_type.MFAOptionListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.set_user_settings_response.SetUserSettingsResponse":
+        """<p> <i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software token or email MFA.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            mfa_options: <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.set_user_settings_request.SetUserSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.set_user_settings_response.SetUserSettingsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_user_settings
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.set_user_settings.set_user_settings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.set_user_settings_request.SetUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["mfa_options"] = mfa_options
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def sign_up(
+        self,
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        secret_hash: Optional[
+            "aws_sdk_cognito_identity_provider.types.secret_hash_type.SecretHashType"
+        ] = None,
+        password: Optional[
+            "aws_sdk_cognito_identity_provider.types.password_type.PasswordType"
+        ] = None,
+        user_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType"
+        ] = None,
+        validation_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType"
+        ] = None,
+        analytics_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_metadata_type.AnalyticsMetadataType"
+        ] = None,
+        user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_context_data_type.UserContextDataType"
+        ] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.sign_up_response.SignUpResponse":
+        """<p>Registers a user with an app client and requests a user name, password, and user attributes in the user pool.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <p>You might receive a <code>LimitExceeded</code> exception in response to this request if you have exceeded a rate quota for email or SMS messages, and if your user pool automatically verifies email addresses or phone numbers. When you get this exception in the response, the user is successfully created and is in an <code>UNCONFIRMED</code> state.</p>
+
+        Args:
+            client_id: <p>The ID of the app client where the user wants to sign up.</p>
+            secret_hash: <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message. For more information about <code>SecretHash</code>, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash\">Computing secret hash values</a>.</p>
+            username: <p>The username of the user that you want to sign up. The value of this parameter is typically a username, but can be any alias attribute in your user pool.</p>
+            password: <p>The user's proposed password. The password must comply with the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users-passwords.html\">password requirements</a> of your user pool.</p> <p>Users can sign up without a password when your user pool supports passwordless sign-in with email or SMS OTPs. To create a user with no password, omit this parameter or submit a blank value. You can only create a passwordless user when passwordless sign-in is available.</p>
+            user_attributes: <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, include a <code>custom:</code> prefix in the attribute name, for example <code>custom:department</code>.</p>
+            validation_data: <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.</p> <p>Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.</p> <p>For more information about the pre sign-up Lambda trigger, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html\">Pre sign-up Lambda trigger</a>.</p>
+            analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+            user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.sign_up_request.SignUpRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.sign_up_response.SignUpResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.sign_up
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.sign_up.sign_up(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.sign_up_request.SignUpRequest = {}  # type: ignore[typeddict-item]
+        input["client_id"] = client_id
+        if secret_hash is not None:
+            input["secret_hash"] = secret_hash
+        input["username"] = username
+        if password is not None:
+            input["password"] = password
+        if user_attributes is not None:
+            input["user_attributes"] = user_attributes
+        if validation_data is not None:
+            input["validation_data"] = validation_data
+        if analytics_metadata is not None:
+            input["analytics_metadata"] = analytics_metadata
+        if user_context_data is not None:
+            input["user_context_data"] = user_context_data
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_user_import_job(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        job_id: "aws_sdk_cognito_identity_provider.types.user_import_job_id_type.UserImportJobIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.start_user_import_job_response.StartUserImportJobResponse":
+        """<p>Instructs your user pool to start importing users from a CSV file that contains their usernames and attributes. For more information about importing users from a CSV file, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html\">Importing users from a CSV file</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that you want to start importing users into.</p>
+            job_id: <p>The ID of a user import job that you previously created.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.start_user_import_job_request.StartUserImportJobRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.start_user_import_job_response.StartUserImportJobResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.start_user_import_job
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.start_user_import_job.start_user_import_job(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.start_user_import_job_request.StartUserImportJobRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["job_id"] = job_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_web_authn_registration(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.start_web_authn_registration_response.StartWebAuthnRegistrationResponse":
+        """<p>Requests credential creation options from your user pool for the currently signed-in user. Returns information about the user pool, the user profile, and authentication requirements. Users must provide this information in their request to enroll your application with their passkey provider.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.start_web_authn_registration_request.StartWebAuthnRegistrationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.start_web_authn_registration_response.StartWebAuthnRegistrationResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.start_web_authn_registration
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.start_web_authn_registration.start_web_authn_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.start_web_authn_registration_request.StartWebAuthnRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def stop_user_import_job(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        job_id: "aws_sdk_cognito_identity_provider.types.user_import_job_id_type.UserImportJobIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.stop_user_import_job_response.StopUserImportJobResponse":
+        """<p>Instructs your user pool to stop a running job that's importing users from a CSV file that contains their usernames and attributes. For more information about importing users from a CSV file, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html\">Importing users from a CSV file</a>.</p>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that you want to stop.</p>
+            job_id: <p>The ID of a running user import job.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.stop_user_import_job_request.StopUserImportJobRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.stop_user_import_job_response.StopUserImportJobResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.stop_user_import_job
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.stop_user_import_job.stop_user_import_job(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.stop_user_import_job_request.StopUserImportJobRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["job_id"] = job_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType",
+        tags: "aws_sdk_cognito_identity_provider.types.user_pool_tags_type.UserPoolTagsType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.tag_resource_response.TagResourceResponse":
+        """<p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p> <p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of a user pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both user pools. The value of this key might be <code>Test</code> for one user pool, and <code>Production</code> for the other.</p> <p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your user pools. In an Identity and Access Management policy, you can constrain permissions for user pools based on specific tags or tag values.</p> <p>You can use this action up to 5 times per second, per account. A user pool can have as many as 50 tags.</p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
+            tags: <p>An array of tag keys and values that you want to assign to the user pool.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.tag_resource
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType",
+        tag_keys: "aws_sdk_cognito_identity_provider.types.user_pool_tags_list_type.UserPoolTagsListType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.untag_resource_response.UntagResourceResponse":
+        """<p>Given tag IDs that you previously assigned to a user pool, removes them.</p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+            tag_keys: <p>An array of tag keys that you want to remove from the user pool.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.untag_resource
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_auth_event_feedback(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        username: "aws_sdk_cognito_identity_provider.types.username_type.UsernameType",
+        event_id: "aws_sdk_cognito_identity_provider.types.event_id_type.EventIdType",
+        feedback_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        feedback_value: "aws_sdk_cognito_identity_provider.types.feedback_value_type.FeedbackValueType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_response.UpdateAuthEventFeedbackResponse":
+        """<p>Provides the feedback for an authentication event generated by threat protection features. The user's response indicates that you think that the event either was from a valid user or was an unwanted authentication attempt. This feedback improves the risk evaluation decision for the user pool as part of Amazon Cognito threat protection. To activate this setting, your user pool must be on the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html\"> Plus tier</a>.</p> <p>This operation requires a <code>FeedbackToken</code> that Amazon Cognito generates and adds to notification emails when users have potentially suspicious authentication events. Users invoke this operation when they select the link that corresponds to <code>{one-click-link-valid}</code> or <code>{one-click-link-invalid}</code> in your notification template. Because <code>FeedbackToken</code> is a required parameter, you can't make requests to <code>UpdateAuthEventFeedback</code> without the contents of the notification email message.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to update auth event feedback.</p>
+            username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+            event_id: <p>The ID of the authentication event that you want to submit feedback for.</p>
+            feedback_token: <p>The feedback token, an encrypted object generated by Amazon Cognito and passed to your user in the notification email message from the event.</p>
+            feedback_value: <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_request.UpdateAuthEventFeedbackRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_response.UpdateAuthEventFeedbackResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_auth_event_feedback
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_auth_event_feedback.update_auth_event_feedback(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_request.UpdateAuthEventFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["username"] = username
+        input["event_id"] = event_id
+        input["feedback_token"] = feedback_token
+        input["feedback_value"] = feedback_value
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_device_status(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        device_key: "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        device_remembered_status: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_remembered_status_type.DeviceRememberedStatusType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_device_status_response.UpdateDeviceStatusResponse":
+        """<p>Updates the status of a the currently signed-in user's device so that it is marked as remembered or not remembered for the purpose of device authentication. Device authentication is a \"remember me\" mechanism that silently completes sign-in from trusted devices with a device key instead of a user-provided MFA code. This operation changes the status of a device without deleting it, so you can enable it again later. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            device_key: <p>The device key of the device you want to update, for example <code>us-west-2_a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+            device_remembered_status: <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_device_status_request.UpdateDeviceStatusRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_device_status_response.UpdateDeviceStatusResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_device_status
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_device_status.update_device_status(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_device_status_request.UpdateDeviceStatusRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["device_key"] = device_key
+        if device_remembered_status is not None:
+            input["device_remembered_status"] = device_remembered_status
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_group(
+        self,
+        group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        description: Optional[
+            "aws_sdk_cognito_identity_provider.types.description_type.DescriptionType"
+        ] = None,
+        role_arn: Optional[
+            "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
+        ] = None,
+        precedence: Optional[
+            "aws_sdk_cognito_identity_provider.types.precedence_type.PrecedenceType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_group_response.UpdateGroupResponse":
+        """<p>Given the name of a user pool group, updates any of the properties for precedence, IAM role, or description. For more information about user pool groups, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html\">Adding groups to a user pool</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            group_name: <p>The name of the group that you want to update.</p>
+            user_pool_id: <p>The ID of the user pool that contains the group you want to update.</p>
+            description: <p>A new description of the existing group.</p>
+            role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that you want to associate with the group. The role assignment contributes to the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in group members' tokens.</p>
+            precedence: <p>A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim isn't set in users' tokens.</p> <p>The default <code>Precedence</code> value is null. The maximum <code>Precedence</code> value is <code>2^31-1</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_group_request.UpdateGroupRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_group_response.UpdateGroupResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_group
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_group.update_group(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_name"] = group_name
+        input["user_pool_id"] = user_pool_id
+        if description is not None:
+            input["description"] = description
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if precedence is not None:
+            input["precedence"] = precedence
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_identity_provider(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        provider_name: "aws_sdk_cognito_identity_provider.types.provider_name_type.ProviderNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        provider_details: Optional[
+            "aws_sdk_cognito_identity_provider.types.provider_details_type.ProviderDetailsType"
+        ] = None,
+        attribute_mapping: Optional[
+            "aws_sdk_cognito_identity_provider.types.attribute_mapping_type.AttributeMappingType"
+        ] = None,
+        idp_identifiers: Optional[
+            "aws_sdk_cognito_identity_provider.types.idp_identifiers_list_type.IdpIdentifiersListType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_identity_provider_response.UpdateIdentityProviderResponse":
+        """<p>Modifies the configuration and trust relationship between a third-party identity provider (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers through managed login and OIDC relying-party libraries. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html\">Third-party IdP sign-in</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The Id of the user pool where you want to update your IdP.</p>
+            provider_name: <p>The name of the IdP that you want to update. You can pass the identity provider name in the <code>identity_provider</code> query parameter of requests to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html\">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP.</p>
+            provider_details: <p>The scopes, URLs, and identifiers for your external identity provider. The following examples describe the provider detail keys for each IdP type. These values and their schema are subject to change. Social IdP <code>authorize_scopes</code> values must match the values listed here.</p> <dl> <dt>OpenID Connect (OIDC)</dt> <dd> <p>Amazon Cognito accepts the following elements when it can't discover endpoint URLs from <code>oidc_issuer</code>: <code>attributes_url</code>, <code>authorize_url</code>, <code>jwks_uri</code>, <code>token_url</code>.</p> <p>Create or update request: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> </dd> <dt>SAML</dt> <dd> <p>Create or update request with Metadata URL: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>Create or update request with Metadata file: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataFile\": \"[metadata XML]\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all quote (\") characters escaped by backslashes.</p> <p>Describe response: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"ActiveEncryptionCertificate\": \"[certificate]\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\", \"SLORedirectBindingURI\": \"https://auth.example.com/slo/saml\", \"SSORedirectBindingURI\": \"https://auth.example.com/sso/saml\" }</code> </p> </dd> <dt>LoginWithAmazon</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"profile postal_code\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\"</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://api.amazon.com/user/profile\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"profile postal_code\", \"authorize_url\": \"https://www.amazon.com/ap/oa\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"POST\", \"token_url\": \"https://api.amazon.com/auth/o2/token\" }</code> </p> </dd> <dt>Google</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email profile openid\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://people.googleapis.com/v1/people/me?personFields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"email profile openid\", \"authorize_url\": \"https://accounts.google.com/o/oauth2/v2/auth\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\", \"oidc_issuer\": \"https://accounts.google.com\", \"token_request_method\": \"POST\", \"token_url\": \"https://www.googleapis.com/oauth2/v4/token\" }</code> </p> </dd> <dt>SignInWithApple</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email name\", \"client_id\": \"com.example.cognito\", \"private_key\": \"1EXAMPLE\", \"key_id\": \"2EXAMPLE\", \"team_id\": \"3EXAMPLE\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"email name\", \"authorize_url\": \"https://appleid.apple.com/auth/authorize\", \"client_id\": \"com.example.cognito\", \"key_id\": \"1EXAMPLE\", \"oidc_issuer\": \"https://appleid.apple.com\", \"team_id\": \"2EXAMPLE\", \"token_request_method\": \"POST\", \"token_url\": \"https://appleid.apple.com/auth/token\" }</code> </p> </dd> <dt>Facebook</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"authorize_scopes\": \"public_profile, email\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"attributes_url\": \"https://graph.facebook.com/v17.0/me?fields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"public_profile, email\", \"authorize_url\": \"https://www.facebook.com/v17.0/dialog/oauth\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"GET\", \"token_url\": \"https://graph.facebook.com/v17.0/oauth/access_token\" }</code> </p> </dd> </dl>
+            attribute_mapping: <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
+            idp_identifiers: <p>An array of IdP identifiers, for example <code>\"IdPIdentifiers\": [ \"MyIdP\", \"MyIdP2\" ]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html\">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html\">email-address matching with SAML providers</a>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_identity_provider_request.UpdateIdentityProviderRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_identity_provider_response.UpdateIdentityProviderResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_identity_provider
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_identity_provider.update_identity_provider(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_identity_provider_request.UpdateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["provider_name"] = provider_name
+        if provider_details is not None:
+            input["provider_details"] = provider_details
+        if attribute_mapping is not None:
+            input["attribute_mapping"] = attribute_mapping
+        if idp_identifiers is not None:
+            input["idp_identifiers"] = idp_identifiers
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_managed_login_branding(
+        self,
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        user_pool_id: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType"
+        ] = None,
+        managed_login_branding_id: Optional[
+            "aws_sdk_cognito_identity_provider.types.managed_login_branding_id_type.ManagedLoginBrandingIdType"
+        ] = None,
+        use_cognito_provided_values: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+        settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.document.Document"
+        ] = None,
+        assets: Optional[
+            "aws_sdk_cognito_identity_provider.types.asset_list_type.AssetListType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_managed_login_branding_response.UpdateManagedLoginBrandingResponse":
+        """<p>Configures the branding settings for a user pool style. This operation is the programmatic option for the configuration of a style in the branding editor.</p> <p>Provides values for UI customization in a <code>Settings</code> JSON object and image files in an <code>Assets</code> array.</p> <p> This operation has a 2-megabyte request-size limit and include the CSS settings and image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito doesn't require that you pass all parameters in one request and preserves existing style settings that you don't specify. If your request is larger than 2MB, separate it into multiple requests, each with a size smaller than the limit.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the managed login branding style that you want to update.</p>
+            managed_login_branding_id: <p>The ID of the managed login branding style that you want to update.</p>
+            use_cognito_provided_values: <p>When <code>true</code>, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.</p> <p>When you specify <code>true</code> for this option, you must also omit values for <code>Settings</code> and <code>Assets</code> in the request.</p>
+            settings: <p>A JSON file, encoded as a <code>Document</code> type, with the the settings that you want to apply to your style.</p> <p>The following components are not currently implemented and reserved for future use:</p> <ul> <li> <p> <code>signUp</code> </p> </li> <li> <p> <code>instructions</code> </p> </li> <li> <p> <code>sessionTimerDisplay</code> </p> </li> <li> <p> <code>languageSelector</code> (for localization, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization\">Managed login localization)</a> </p> </li> </ul>
+            assets: <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_managed_login_branding_request.UpdateManagedLoginBrandingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_managed_login_branding_response.UpdateManagedLoginBrandingResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_managed_login_branding
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_managed_login_branding.update_managed_login_branding(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_managed_login_branding_request.UpdateManagedLoginBrandingRequest = {}  # type: ignore[typeddict-item]
+        if user_pool_id is not None:
+            input["user_pool_id"] = user_pool_id
+        if managed_login_branding_id is not None:
+            input["managed_login_branding_id"] = managed_login_branding_id
+        if use_cognito_provided_values is not None:
+            input["use_cognito_provided_values"] = use_cognito_provided_values
+        if settings is not None:
+            input["settings"] = settings
+        if assets is not None:
+            input["assets"] = assets
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_resource_server(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        identifier: "aws_sdk_cognito_identity_provider.types.resource_server_identifier_type.ResourceServerIdentifierType",
+        name: "aws_sdk_cognito_identity_provider.types.resource_server_name_type.ResourceServerNameType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        scopes: Optional[
+            "aws_sdk_cognito_identity_provider.types.resource_server_scope_list_type.ResourceServerScopeListType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_resource_server_response.UpdateResourceServerResponse":
+        """<p>Updates the name and scopes of a resource server. All other fields are read-only. For more information about resource servers, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html\">Access control with resource servers</a>.</p> <important> <p>If you don't provide a value for an attribute, it is set to the default value.</p> </important> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the resource server that you want to update.</p>
+            identifier: <p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>
+            name: <p>The updated name of the resource server.</p>
+            scopes: <p>An array of updated custom scope names and descriptions that you want to associate with your resource server.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_resource_server_request.UpdateResourceServerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_resource_server_response.UpdateResourceServerResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_resource_server
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_resource_server.update_resource_server(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_resource_server_request.UpdateResourceServerRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["identifier"] = identifier
+        input["name"] = name
+        if scopes is not None:
+            input["scopes"] = scopes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_terms(
+        self,
+        terms_id: "aws_sdk_cognito_identity_provider.types.terms_id_type.TermsIdType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        terms_name: Optional[
+            "aws_sdk_cognito_identity_provider.types.terms_name_type.TermsNameType"
+        ] = None,
+        terms_source: Optional[
+            "aws_sdk_cognito_identity_provider.types.terms_source_type.TermsSourceType"
+        ] = None,
+        enforcement: Optional[
+            "aws_sdk_cognito_identity_provider.types.terms_enforcement_type.TermsEnforcementType"
+        ] = None,
+        links: Optional[
+            "aws_sdk_cognito_identity_provider.types.links_type.LinksType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_terms_response.UpdateTermsResponse":
+        """<p>Modifies existing terms documents for the requested app client. When Terms and conditions and Privacy policy documents are configured, the app client displays links to them in the sign-up page of managed login for the app client.</p> <p>You can provide URLs for terms documents in the languages that are supported by <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization\">managed login localization</a>. Amazon Cognito directs users to the terms documents for their current language, with fallback to <code>default</code> if no document exists for the language.</p> <p>Each request accepts one type of terms document and a map of language-to-link for that document type. You must provide both types of terms documents in at least one language before Amazon Cognito displays your terms documents. Supply each type in separate requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents\">Terms documents</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            terms_id: <p>The ID of the terms document that you want to update.</p>
+            user_pool_id: <p>The ID of the user pool that contains the terms that you want to update.</p>
+            terms_name: <p>The new name that you want to apply to the requested terms documents.</p>
+            terms_source: <p>This parameter is reserved for future use and currently accepts only one value.</p>
+            enforcement: <p>This parameter is reserved for future use and currently accepts only one value.</p>
+            links: <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p> <p>For example, <code>\"cognito:default\": \"https://terms.example.com\", \"cognito:spanish\": \"https://terms.example.com/es\"</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_terms_request.UpdateTermsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_terms_response.UpdateTermsResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_terms
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_terms.update_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_terms_request.UpdateTermsRequest = {}  # type: ignore[typeddict-item]
+        input["terms_id"] = terms_id
+        input["user_pool_id"] = user_pool_id
+        if terms_name is not None:
+            input["terms_name"] = terms_name
+        if terms_source is not None:
+            input["terms_source"] = terms_source
+        if enforcement is not None:
+            input["enforcement"] = enforcement
+        if links is not None:
+            input["links"] = links
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_attributes(
+        self,
+        user_attributes: "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType",
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_metadata: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_metadata_type.ClientMetadataType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_user_attributes_response.UpdateUserAttributesResponse":
+        """<p>Updates the currently signed-in user's attributes. To delete an attribute from the user, submit the attribute in your API request with a blank value.</p> <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>
+
+        Args:
+            user_attributes: <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p> <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_user_attributes_request.UpdateUserAttributesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_user_attributes_response.UpdateUserAttributesResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_attributes
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_attributes.update_user_attributes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_user_attributes_request.UpdateUserAttributesRequest = {}  # type: ignore[typeddict-item]
+        input["user_attributes"] = user_attributes
+        input["access_token"] = access_token
+        if client_metadata is not None:
+            input["client_metadata"] = client_metadata
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_pool(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        policies: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_policy_type.UserPoolPolicyType"
+        ] = None,
+        deletion_protection: Optional[
+            "aws_sdk_cognito_identity_provider.types.deletion_protection_type.DeletionProtectionType"
+        ] = None,
+        lambda_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.lambda_config_type.LambdaConfigType"
+        ] = None,
+        auto_verified_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.verified_attributes_list_type.VerifiedAttributesListType"
+        ] = None,
+        sms_verification_message: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_verification_message_type.SmsVerificationMessageType"
+        ] = None,
+        email_verification_message: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_verification_message_type.EmailVerificationMessageType"
+        ] = None,
+        email_verification_subject: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_verification_subject_type.EmailVerificationSubjectType"
+        ] = None,
+        verification_message_template: Optional[
+            "aws_sdk_cognito_identity_provider.types.verification_message_template_type.VerificationMessageTemplateType"
+        ] = None,
+        sms_authentication_message: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_verification_message_type.SmsVerificationMessageType"
+        ] = None,
+        user_attribute_update_settings: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_attribute_update_settings_type.UserAttributeUpdateSettingsType"
+        ] = None,
+        mfa_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_mfa_type.UserPoolMfaType"
+        ] = None,
+        device_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.device_configuration_type.DeviceConfigurationType"
+        ] = None,
+        email_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.email_configuration_type.EmailConfigurationType"
+        ] = None,
+        sms_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.sms_configuration_type.SmsConfigurationType"
+        ] = None,
+        user_pool_tags: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_tags_type.UserPoolTagsType"
+        ] = None,
+        admin_create_user_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.admin_create_user_config_type.AdminCreateUserConfigType"
+        ] = None,
+        user_pool_add_ons: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_add_ons_type.UserPoolAddOnsType"
+        ] = None,
+        account_recovery_setting: Optional[
+            "aws_sdk_cognito_identity_provider.types.account_recovery_setting_type.AccountRecoverySettingType"
+        ] = None,
+        pool_name: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_name_type.UserPoolNameType"
+        ] = None,
+        user_pool_tier: Optional[
+            "aws_sdk_cognito_identity_provider.types.user_pool_tier_type.UserPoolTierType"
+        ] = None,
+        key_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.key_configuration_type.KeyConfigurationType"
+        ] = None,
+        issuer_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.issuer_configuration_type.IssuerConfigurationType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_user_pool_response.UpdateUserPoolResponse":
+        """<p>Updates the configuration of a user pool. To avoid setting parameters to Amazon Cognito defaults, construct this API request to pass the existing configuration of your user pool, modified to include the changes that you want to make.</p> <important> <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p> </important> <p>In secondary regions for user pools with multi-region replication, regional configurations for email, SMS, Lambda functions, and tags can be updated. Both global and regional settings must be provided as inputs, with global settings required to match existing values to maintain consistency across replicas.</p> <note> <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href=\"https://console.aws.amazon.com/pinpoint/home/\">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool you want to update.</p>
+            policies: <p>The password policy and sign-in policy in the user pool. The password policy sets options like password complexity requirements and password history. The sign-in policy sets the options available to applications in <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice\">choice-based authentication</a>.</p>
+            deletion_protection: <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p> <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
+            lambda_config: <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.</p>
+            auto_verified_attributes: <p>The attributes that you want your user pool to automatically verify. Possible values: <b>email</b>, <b>phone_number</b>. For more information see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves\">Verifying contact information at sign-up</a>.</p>
+            sms_verification_message: <p>This parameter is no longer used.</p>
+            email_verification_message: <p>This parameter is no longer used.</p>
+            email_verification_subject: <p>This parameter is no longer used.</p>
+            verification_message_template: <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p> <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
+            sms_authentication_message: <p>The contents of the SMS message that your user pool sends to users in SMS authentication.</p>
+            user_attribute_update_settings: <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates\"> Verifying updates to email addresses and phone numbers</a>.</p>
+            mfa_configuration: <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p> <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
+            device_configuration: <p>The device-remembering configuration for a user pool. Device remembering or device tracking is a \"Remember me on this device\" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with user devices in your user pool</a>. A null value indicates that you have deactivated device remembering in your user pool.</p> <note> <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p> </note>
+            email_configuration: <p>The email configuration of your user pool. The email configuration type sets your preferred sending method, Amazon Web Services Region, and sender for email invitation and verification messages from your user pool.</p>
+            sms_configuration: <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html\">SMS message settings</a>.</p>
+            user_pool_tags: <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
+            admin_create_user_config: <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
+            user_pool_add_ons: <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html\">Adding advanced security to a user pool</a>. To activate this setting, your user pool must be on the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html\"> Plus tier</a>.</p>
+            account_recovery_setting: <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.</p>
+            pool_name: <p>The updated name of your user pool.</p>
+            user_pool_tier: <p>The user pool <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a>, or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to <code>ESSENTIALS</code>.</p>
+            key_configuration: <p>The key configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
+            issuer_configuration: <p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_user_pool_request.UpdateUserPoolRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_user_pool_response.UpdateUserPoolResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool.update_user_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_user_pool_request.UpdateUserPoolRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        if policies is not None:
+            input["policies"] = policies
+        if deletion_protection is not None:
+            input["deletion_protection"] = deletion_protection
+        if lambda_config is not None:
+            input["lambda_config"] = lambda_config
+        if auto_verified_attributes is not None:
+            input["auto_verified_attributes"] = auto_verified_attributes
+        if sms_verification_message is not None:
+            input["sms_verification_message"] = sms_verification_message
+        if email_verification_message is not None:
+            input["email_verification_message"] = email_verification_message
+        if email_verification_subject is not None:
+            input["email_verification_subject"] = email_verification_subject
+        if verification_message_template is not None:
+            input["verification_message_template"] = verification_message_template
+        if sms_authentication_message is not None:
+            input["sms_authentication_message"] = sms_authentication_message
+        if user_attribute_update_settings is not None:
+            input["user_attribute_update_settings"] = user_attribute_update_settings
+        if mfa_configuration is not None:
+            input["mfa_configuration"] = mfa_configuration
+        if device_configuration is not None:
+            input["device_configuration"] = device_configuration
+        if email_configuration is not None:
+            input["email_configuration"] = email_configuration
+        if sms_configuration is not None:
+            input["sms_configuration"] = sms_configuration
+        if user_pool_tags is not None:
+            input["user_pool_tags"] = user_pool_tags
+        if admin_create_user_config is not None:
+            input["admin_create_user_config"] = admin_create_user_config
+        if user_pool_add_ons is not None:
+            input["user_pool_add_ons"] = user_pool_add_ons
+        if account_recovery_setting is not None:
+            input["account_recovery_setting"] = account_recovery_setting
+        if pool_name is not None:
+            input["pool_name"] = pool_name
+        if user_pool_tier is not None:
+            input["user_pool_tier"] = user_pool_tier
+        if key_configuration is not None:
+            input["key_configuration"] = key_configuration
+        if issuer_configuration is not None:
+            input["issuer_configuration"] = issuer_configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_pool_client(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        client_name: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_name_type.ClientNameType"
+        ] = None,
+        refresh_token_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.refresh_token_validity_type.RefreshTokenValidityType"
+        ] = None,
+        access_token_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.access_token_validity_type.AccessTokenValidityType"
+        ] = None,
+        id_token_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.id_token_validity_type.IdTokenValidityType"
+        ] = None,
+        token_validity_units: Optional[
+            "aws_sdk_cognito_identity_provider.types.token_validity_units_type.TokenValidityUnitsType"
+        ] = None,
+        read_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_permission_list_type.ClientPermissionListType"
+        ] = None,
+        write_attributes: Optional[
+            "aws_sdk_cognito_identity_provider.types.client_permission_list_type.ClientPermissionListType"
+        ] = None,
+        explicit_auth_flows: Optional[
+            "aws_sdk_cognito_identity_provider.types.explicit_auth_flows_list_type.ExplicitAuthFlowsListType"
+        ] = None,
+        supported_identity_providers: Optional[
+            "aws_sdk_cognito_identity_provider.types.supported_identity_providers_list_type.SupportedIdentityProvidersListType"
+        ] = None,
+        callback_ur_ls: Optional[
+            "aws_sdk_cognito_identity_provider.types.callback_ur_ls_list_type.CallbackURLsListType"
+        ] = None,
+        logout_ur_ls: Optional[
+            "aws_sdk_cognito_identity_provider.types.logout_ur_ls_list_type.LogoutURLsListType"
+        ] = None,
+        default_redirect_uri: Optional[
+            "aws_sdk_cognito_identity_provider.types.redirect_url_type.RedirectUrlType"
+        ] = None,
+        allowed_o_auth_flows: Optional[
+            "aws_sdk_cognito_identity_provider.types.o_auth_flows_type.OAuthFlowsType"
+        ] = None,
+        allowed_o_auth_scopes: Optional[
+            "aws_sdk_cognito_identity_provider.types.scope_list_type.ScopeListType"
+        ] = None,
+        allowed_o_auth_flows_user_pool_client: Optional[
+            "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
+        ] = None,
+        analytics_configuration: Optional[
+            "aws_sdk_cognito_identity_provider.types.analytics_configuration_type.AnalyticsConfigurationType"
+        ] = None,
+        prevent_user_existence_errors: Optional[
+            "aws_sdk_cognito_identity_provider.types.prevent_user_existence_error_types.PreventUserExistenceErrorTypes"
+        ] = None,
+        enable_token_revocation: Optional[
+            "aws_sdk_cognito_identity_provider.types.wrapped_boolean_type.WrappedBooleanType"
+        ] = None,
+        enable_propagate_additional_user_context_data: Optional[
+            "aws_sdk_cognito_identity_provider.types.wrapped_boolean_type.WrappedBooleanType"
+        ] = None,
+        auth_session_validity: Optional[
+            "aws_sdk_cognito_identity_provider.types.auth_session_validity_type.AuthSessionValidityType"
+        ] = None,
+        refresh_token_rotation: Optional[
+            "aws_sdk_cognito_identity_provider.types.refresh_token_rotation_type.RefreshTokenRotationType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_user_pool_client_response.UpdateUserPoolClientResponse":
+        """<p>Given a user pool app client ID, updates the configuration. To avoid setting parameters to Amazon Cognito defaults, construct this API request to pass the existing configuration of your app client, modified to include the changes that you want to make.</p> <important> <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p> </important> <p>Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't available for your client until after you apply a branding style.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool where you want to update the app client.</p>
+            client_id: <p>The ID of the app client that you want to update.</p>
+            client_name: <p>A friendly name for the app client.</p>
+            refresh_token_validity: <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p> <p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p> <p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p> <p>If you don't specify otherwise in the configuration of your app client, your refresh tokens are valid for 30 days.</p>
+            access_token_validity: <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p> <p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p> <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p> <p>If you don't specify otherwise in the configuration of your app client, your access tokens are valid for one hour.</p>
+            id_token_validity: <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p> <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p> <p>The default time unit for <code>IdTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p> <p>If you don't specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
+            token_validity_units: <p>The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.</p>
+            read_attributes: <p>The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.</p> <p>When you don't specify the <code>ReadAttributes</code> for your app client, your app can read the values of <code>email_verified</code>, <code>phone_number_verified</code>, and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only populates <code>ReadAttributes</code> in the API response if you have specified your own custom set of read attributes.</p>
+            write_attributes: <p>The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.</p> <p>When you don't specify the <code>WriteAttributes</code> for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, <code>WriteAttributes</code> doesn't return any information. Amazon Cognito only populates <code>WriteAttributes</code> in the API response if you have specified your own custom set of write attributes.</p> <p>If your app client allows users to sign in through an IdP, this array must include all attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html\">Specifying IdP Attribute Mappings for Your user pool</a>.</p>
+            explicit_auth_flows: <p>The <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html\">authentication flows</a> that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p> <note> <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>. </p> </note> <p>The values for authentication flow options include the following.</p> <ul> <li> <p> <code>ALLOW_USER_AUTH</code>: Enable selection-based sign-in with <code>USER_AUTH</code>. This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other <code>ExplicitAuthFlows</code> permitting them. For example users can complete an SRP challenge through <code>USER_AUTH</code> without the flow <code>USER_SRP_AUTH</code> being active for the app client. This flow doesn't include <code>CUSTOM_AUTH</code>. </p> <p>To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p> </li> <li> <p> <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p> </li> <li> <p> <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p> </li> <li> <p> <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul> <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p>
+            supported_identity_providers: <p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p> <p>This parameter sets the IdPs that <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html\">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html\">WAF rule</a>. </p>
+            callback_ur_ls: <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p> <p>A redirect URI must meet the following requirements:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with <code>redirect_uri</code> values that aren't in the list of <code>CallbackURLs</code> that you provide in this parameter.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href=\"https://tools.ietf.org/html/rfc6749#section-3.1.2\">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
+            logout_ur_ls: <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects \"Sign out\" and you redirect them to your public homepage. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html\">Logout endpoint</a>.</p>
+            default_redirect_uri: <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
+            allowed_o_auth_flows: <p>The OAuth grant types that you want your app client to generate. To create an app client that generates client credentials grants, you must add <code>client_credentials</code> as the only allowed OAuth flow.</p> <dl> <dt>code</dt> <dd> <p>Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the <code>/oauth2/token</code> endpoint.</p> </dd> <dt>implicit</dt> <dd> <p>Issue the access token (and, optionally, ID token, based on scopes) directly to your user.</p> </dd> <dt>client_credentials</dt> <dd> <p>Issue the access token from the <code>/oauth2/token</code> endpoint directly to a non-person user using a combination of the client ID and client secret.</p> </dd> </dl>
+            allowed_o_auth_scopes: <p>The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the <code>userInfo</code> endpoint, and third-party APIs. Scope values include <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. The <code>aws.cognito.signin.user.admin</code> scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.</p>
+            allowed_o_auth_flows_user_pool_client: <p>Set to <code>true</code> to use OAuth 2.0 authorization server features in your app client.</p> <p>This parameter must have a value of <code>true</code> before you can configure the following features in your app client.</p> <ul> <li> <p> <code>CallBackURLs</code>: Callback URLs.</p> </li> <li> <p> <code>LogoutURLs</code>: Sign-out redirect URLs.</p> </li> <li> <p> <code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</p> </li> <li> <p> <code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p> </li> </ul> <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p>
+            analytics_configuration: <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p> <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html\">Using Amazon Pinpoint analytics</a>.</p>
+            prevent_user_existence_errors: <p>When <code>ENABLED</code>, suppresses messages that might indicate a valid user exists when someone attempts sign-in. This parameters sets your preference for the errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to <code>ENABLED</code> and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs return a <code>UserNotFoundException</code> exception if the user doesn't exist in the user pool.</p> <p>Defaults to <code>LEGACY</code>.</p>
+            enable_token_revocation: <p>Activates or deactivates <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html\">token revocation</a> in the target app client.</p>
+            enable_propagate_additional_user_context_data: <p>When <code>true</code>, your application can include additional <code>UserContextData</code> in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\">Adding session data to API requests</a>. If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>
+            auth_session_validity: <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+            refresh_token_rotation: <p>The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_user_pool_client_request.UpdateUserPoolClientRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_user_pool_client_response.UpdateUserPoolClientResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool_client
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool_client.update_user_pool_client(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_user_pool_client_request.UpdateUserPoolClientRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["client_id"] = client_id
+        if client_name is not None:
+            input["client_name"] = client_name
+        if refresh_token_validity is not None:
+            input["refresh_token_validity"] = refresh_token_validity
+        if access_token_validity is not None:
+            input["access_token_validity"] = access_token_validity
+        if id_token_validity is not None:
+            input["id_token_validity"] = id_token_validity
+        if token_validity_units is not None:
+            input["token_validity_units"] = token_validity_units
+        if read_attributes is not None:
+            input["read_attributes"] = read_attributes
+        if write_attributes is not None:
+            input["write_attributes"] = write_attributes
+        if explicit_auth_flows is not None:
+            input["explicit_auth_flows"] = explicit_auth_flows
+        if supported_identity_providers is not None:
+            input["supported_identity_providers"] = supported_identity_providers
+        if callback_ur_ls is not None:
+            input["callback_ur_ls"] = callback_ur_ls
+        if logout_ur_ls is not None:
+            input["logout_ur_ls"] = logout_ur_ls
+        if default_redirect_uri is not None:
+            input["default_redirect_uri"] = default_redirect_uri
+        if allowed_o_auth_flows is not None:
+            input["allowed_o_auth_flows"] = allowed_o_auth_flows
+        if allowed_o_auth_scopes is not None:
+            input["allowed_o_auth_scopes"] = allowed_o_auth_scopes
+        if allowed_o_auth_flows_user_pool_client is not None:
+            input["allowed_o_auth_flows_user_pool_client"] = (
+                allowed_o_auth_flows_user_pool_client
+            )
+        if analytics_configuration is not None:
+            input["analytics_configuration"] = analytics_configuration
+        if prevent_user_existence_errors is not None:
+            input["prevent_user_existence_errors"] = prevent_user_existence_errors
+        if enable_token_revocation is not None:
+            input["enable_token_revocation"] = enable_token_revocation
+        if enable_propagate_additional_user_context_data is not None:
+            input["enable_propagate_additional_user_context_data"] = (
+                enable_propagate_additional_user_context_data
+            )
+        if auth_session_validity is not None:
+            input["auth_session_validity"] = auth_session_validity
+        if refresh_token_rotation is not None:
+            input["refresh_token_rotation"] = refresh_token_rotation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_pool_domain(
+        self,
+        domain: "aws_sdk_cognito_identity_provider.types.domain_type.DomainType",
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        managed_login_version: Optional[
+            "aws_sdk_cognito_identity_provider.types.wrapped_integer_type.WrappedIntegerType"
+        ] = None,
+        custom_domain_config: Optional[
+            "aws_sdk_cognito_identity_provider.types.custom_domain_config_type.CustomDomainConfigType"
+        ] = None,
+        routing: Optional[
+            "aws_sdk_cognito_identity_provider.types.routing_type.RoutingType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_user_pool_domain_response.UpdateUserPoolDomainResponse":
+        """<p>A user pool domain hosts managed login, an authorization server and web server for authentication in your application. This operation updates the branding version for user pool domains between <code>1</code> for hosted UI (classic) and <code>2</code> for managed login. It also updates the SSL certificate for user pool custom domains.</p> <p>Changes to the domain branding version take up to one minute to take effect for a prefix domain and up to five minutes for a custom domain.</p> <p>This operation doesn't change the name of your user pool domain. To change your domain, delete it with <code>DeleteUserPoolDomain</code> and create a new domain with <code>CreateUserPoolDomain</code>.</p> <p>You can pass the ARN of a new Certificate Manager certificate in this request. Typically, ACM certificates automatically renew and you user pool can continue to use the same ARN. But if you generate a new certificate for your custom domain name, replace the original configuration with the new ARN in this request.</p> <p>ACM certificates for custom domains must be in the US East (N. Virginia) Amazon Web Services Region. After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p> <p>For more information about adding a custom domain to your user pool, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html\">Configuring a user pool domain</a>.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            domain: <p>The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example <code>auth.example.com</code>. For prefix domains, this is the prefix alone, such as <code>myprefix</code>.</p>
+            user_pool_id: <p>The ID of the user pool that is associated with the domain you're updating.</p>
+            managed_login_version: <p>A version number that indicates the state of managed login for your domain. Version <code>1</code> is hosted UI (classic). Version <code>2</code> is the newer managed login with the branding editor. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html\">Managed login</a>.</p>
+            custom_domain_config: <p>The configuration for a custom domain that hosts managed login for your application. In an <code>UpdateUserPoolDomain</code> request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in <code>us-east-1</code>.</p> <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
+            routing: <p>The routing configuration for the user pool domain. Specifies failover settings for multi-region deployments.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_user_pool_domain_request.UpdateUserPoolDomainRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_user_pool_domain_response.UpdateUserPoolDomainResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool_domain
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool_domain.update_user_pool_domain(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_user_pool_domain_request.UpdateUserPoolDomainRequest = {}  # type: ignore[typeddict-item]
+        input["domain"] = domain
+        input["user_pool_id"] = user_pool_id
+        if managed_login_version is not None:
+            input["managed_login_version"] = managed_login_version
+        if custom_domain_config is not None:
+            input["custom_domain_config"] = custom_domain_config
+        if routing is not None:
+            input["routing"] = routing
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_pool_replica(
+        self,
+        user_pool_id: "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType",
+        region_name: "aws_sdk_cognito_identity_provider.types.region_name_type.RegionNameType",
+        status: "aws_sdk_cognito_identity_provider.types.update_replica_status_type.UpdateReplicaStatusType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.update_user_pool_replica_response.UpdateUserPoolReplicaResponse":
+        """<p>Updates replica-specific settings for a user pool replica. You can modify the status to activate or deactivate the replica. This request can be made in both primary and secondary regions of the user pool.</p> <note> <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> <p class=\"title\"> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html\">Signing Amazon Web Services API Requests</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> </ul> </note>
+
+        Args:
+            user_pool_id: <p>The ID of the user pool that contains the replica to update.</p>
+            region_name: <p>The Amazon Web Services Region of the replica to update.</p>
+            status: <p>The status to set for the replica. Valid values are ACTIVE and INACTIVE.</p>
+
+        Examples:
+            Example update a user pool replica
+            The following example sets the status of a user pool replica in the us-east-1 Region to ACTIVE.
+
+            >>> client.update_user_pool_replica(user_pool_id='ap-south-1_abcd12345', region_name='us-east-1', status='ACTIVE')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.update_user_pool_replica_request.UpdateUserPoolReplicaRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.update_user_pool_replica_response.UpdateUserPoolReplicaResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool_replica
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.update_user_pool_replica.update_user_pool_replica(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.update_user_pool_replica_request.UpdateUserPoolReplicaRequest = {}  # type: ignore[typeddict-item]
+        input["user_pool_id"] = user_pool_id
+        input["region_name"] = region_name
+        input["status"] = status
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def verify_software_token(
+        self,
+        user_code: "aws_sdk_cognito_identity_provider.types.software_token_mfa_user_code_type.SoftwareTokenMFAUserCodeType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+        access_token: Optional[
+            "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType"
+        ] = None,
+        session: Optional[
+            "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
+        ] = None,
+        friendly_device_name: Optional[
+            "aws_sdk_cognito_identity_provider.types.string_type.StringType"
+        ] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.verify_software_token_response.VerifySoftwareTokenResponse":
+        """<p>Registers the current user's time-based one-time password (TOTP) authenticator with a code generated in their authenticator app from a private key that's supplied by your user pool. Marks the user's software token MFA status as \"verified\" if successful. The request takes an access token or a session string, but not both.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            session: <p>The session ID from an <code>AssociateSoftwareToken</code> request.</p>
+            user_code: <p>A TOTP that the user generated in their configured authenticator app.</p>
+            friendly_device_name: <p>A friendly name for the device that's running the TOTP authenticator.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.verify_software_token_request.VerifySoftwareTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.verify_software_token_response.VerifySoftwareTokenResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.verify_software_token
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.verify_software_token.verify_software_token(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.verify_software_token_request.VerifySoftwareTokenRequest = {}  # type: ignore[typeddict-item]
+        if access_token is not None:
+            input["access_token"] = access_token
+        if session is not None:
+            input["session"] = session
+        input["user_code"] = user_code
+        if friendly_device_name is not None:
+            input["friendly_device_name"] = friendly_device_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def verify_user_attribute(
+        self,
+        access_token: "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType",
+        attribute_name: "aws_sdk_cognito_identity_provider.types.attribute_name_type.AttributeNameType",
+        code: "aws_sdk_cognito_identity_provider.types.confirmation_code_type.ConfirmationCodeType",
+        *,
+        config_overrides: Optional[CognitoIdentityProviderClientConfig] = None,
+    ) -> "aws_sdk_cognito_identity_provider.types.verify_user_attribute_response.VerifyUserAttributeResponse":
+        """<p>Submits a verification code for a signed-in user who has added or changed a value of an auto-verified attribute. When successful, the user's attribute becomes verified and the attribute <code>email_verified</code> or <code>phone_number_verified</code> becomes <code>true</code>.</p> <p> If your user pool requires verification before Amazon Cognito updates the attribute value, this operation updates the affected attribute to its pending value.</p> <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p> <note> <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html\">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p> </note>
+
+        Args:
+            access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+            attribute_name: <p>The name of the attribute that you want to verify.</p>
+            code: <p>The verification code that your user pool sent to the added or changed attribute, for example the user's email address.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_cognito_identity_provider.types.verify_user_attribute_request.VerifyUserAttributeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_cognito_identity_provider.types.verify_user_attribute_response.VerifyUserAttributeResponse"
+        ]:
+            import aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.verify_user_attribute
+
+            output, http_response = (
+                aws_sdk_cognito_identity_provider._operations.aws_cognito_identity_provider_service.verify_user_attribute.verify_user_attribute(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cognito_identity_provider.types.verify_user_attribute_request.VerifyUserAttributeRequest = {}  # type: ignore[typeddict-item]
+        input["access_token"] = access_token
+        input["attribute_name"] = attribute_name
+        input["code"] = code
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

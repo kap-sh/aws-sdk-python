@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#RecipeAction``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.operation
+    import aws_sdk_glue.types.parameter_map
+
+
+class RecipeAction(TypedDict):
+    operation: "aws_sdk_glue.types.operation.Operation"
+    """<p>The operation of the recipe action.</p>"""
+    parameters: NotRequired["aws_sdk_glue.types.parameter_map.ParameterMap"]
+    """<p>The parameters of the recipe action.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RecipeAction) -> dict:
+    out: dict = {}
+    out["Operation"] = value["operation"]
+    if "parameters" in value:
+        import aws_sdk_glue.types.parameter_map
+
+        out["Parameters"] = aws_sdk_glue.types.parameter_map.serialize_aws_json_1_1(
+            value["parameters"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RecipeAction:
+    out: RecipeAction = {}  # type: ignore[typeddict-item]
+    if "Operation" in data:
+        out["operation"] = data["Operation"]
+    else:
+        raise DeserializationError("RecipeAction.operation required")
+    if "Parameters" in data:
+        import aws_sdk_glue.types.parameter_map
+
+        out["parameters"] = aws_sdk_glue.types.parameter_map.deserialize_aws_json_1_1(
+            data["Parameters"]
+        )
+    return out

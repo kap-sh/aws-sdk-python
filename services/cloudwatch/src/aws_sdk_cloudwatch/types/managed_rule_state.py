@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#ManagedRuleState``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.insight_rule_name
+    import aws_sdk_cloudwatch.types.insight_rule_state
+
+
+class ManagedRuleState(TypedDict):
+    rule_name: NotRequired["aws_sdk_cloudwatch.types.insight_rule_name.InsightRuleName"]
+    """<p> The name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource. </p>"""
+    state: NotRequired["aws_sdk_cloudwatch.types.insight_rule_state.InsightRuleState"]
+    """<p> Indicates whether the rule is enabled or disabled. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ManagedRuleState) -> dict:
+    out: dict = {}
+    if "rule_name" in value:
+        out["RuleName"] = value["rule_name"]
+    if "state" in value:
+        out["State"] = value["state"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ManagedRuleState:
+    out: ManagedRuleState = {}  # type: ignore[typeddict-item]
+    if "RuleName" in data:
+        out["rule_name"] = data["RuleName"]
+    if "State" in data:
+        out["state"] = data["State"]
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: ManagedRuleState, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "rule_name" in value:
+        pairs.append((f"{prefix}.RuleName", str(value["rule_name"])))
+    if "state" in value:
+        pairs.append((f"{prefix}.State", str(value["state"])))
+
+
+def deserialize_query(el: Element) -> ManagedRuleState:
+    out: ManagedRuleState = {}  # type: ignore[typeddict-item]
+    child_rule_name = el.find("RuleName")
+    if child_rule_name is not None:
+        out["rule_name"] = str(child_rule_name.text or "")
+    child_state = el.find("State")
+    if child_state is not None:
+        out["state"] = str(child_state.text or "")
+    return out

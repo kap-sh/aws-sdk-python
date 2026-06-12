@@ -1,0 +1,228 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#SMBFileShareInfo``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+if TYPE_CHECKING:
+    import aws_sdk_storage_gateway.types.audit_destination_arn
+    import aws_sdk_storage_gateway.types.authentication
+    import aws_sdk_storage_gateway.types.boolean
+    import aws_sdk_storage_gateway.types.boolean2
+    import aws_sdk_storage_gateway.types.cache_attributes
+    import aws_sdk_storage_gateway.types.case_sensitivity
+    import aws_sdk_storage_gateway.types.dns_host_name
+    import aws_sdk_storage_gateway.types.encryption_type
+    import aws_sdk_storage_gateway.types.file_share_arn
+    import aws_sdk_storage_gateway.types.file_share_id
+    import aws_sdk_storage_gateway.types.file_share_name
+    import aws_sdk_storage_gateway.types.file_share_status
+    import aws_sdk_storage_gateway.types.gateway_arn
+    import aws_sdk_storage_gateway.types.kms_key
+    import aws_sdk_storage_gateway.types.location_arn
+    import aws_sdk_storage_gateway.types.notification_policy
+    import aws_sdk_storage_gateway.types.object_acl
+    import aws_sdk_storage_gateway.types.path
+    import aws_sdk_storage_gateway.types.region_id
+    import aws_sdk_storage_gateway.types.role
+    import aws_sdk_storage_gateway.types.storage_class
+    import aws_sdk_storage_gateway.types.tags
+    import aws_sdk_storage_gateway.types.user_list
+
+class SMBFileShareInfo(TypedDict):
+    file_share_arn: NotRequired["aws_sdk_storage_gateway.types.file_share_arn.FileShareARN"]
+    file_share_id: NotRequired["aws_sdk_storage_gateway.types.file_share_id.FileShareId"]
+    file_share_status: NotRequired["aws_sdk_storage_gateway.types.file_share_status.FileShareStatus"]
+    gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
+    encryption_type: NotRequired["aws_sdk_storage_gateway.types.encryption_type.EncryptionType"]
+    """<p>A value that specifies the type of server-side encryption that the file share will use for the data that it stores in Amazon S3.</p> <note> <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code> to set the file share encryption method. You do not need to provide values for both parameters.</p> <p>If values for both parameters exist in the same request, then the specified encryption methods must not conflict. For example, if <code>EncryptionType</code> is <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then <code>KMSEncrypted</code> must be <code>true</code>.</p> </note>"""
+    kms_encrypted: "aws_sdk_storage_gateway.types.boolean2.Boolean2"
+    """<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the <code>EncryptionType</code> parameter instead.</p> <note> <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code> to set the file share encryption method. You do not need to provide values for both parameters.</p> <p>If values for both parameters exist in the same request, then the specified encryption methods must not conflict. For example, if <code>EncryptionType</code> is <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then <code>KMSEncrypted</code> must be <code>true</code>.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+    kms_key: NotRequired["aws_sdk_storage_gateway.types.kms_key.KMSKey"]
+    path: NotRequired["aws_sdk_storage_gateway.types.path.Path"]
+    """<p>The file share path used by the SMB client to identify the mount point.</p>"""
+    role: NotRequired["aws_sdk_storage_gateway.types.role.Role"]
+    location_arn: NotRequired["aws_sdk_storage_gateway.types.location_arn.LocationARN"]
+    default_storage_class: NotRequired["aws_sdk_storage_gateway.types.storage_class.StorageClass"]
+    """<p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p> <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code> </p>"""
+    object_acl: NotRequired["aws_sdk_storage_gateway.types.object_acl.ObjectACL"]
+    read_only: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    """<p>A value that sets the write status of a file share. Set this value to <code>true</code> to set the write status to read-only, otherwise set to <code>false</code>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+    guess_mime_type_enabled: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    """<p>A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set to <code>false</code>. The default value is <code>true</code>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+    requester_pays: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    """<p>A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to <code>true</code>, the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.</p> <note> <p> <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+    smbacl_enabled: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    """<p>If this value is set to <code>true</code>, it indicates that access control list (ACL) is enabled on the SMB file share. If it is set to <code>false</code>, it indicates that file and directory permissions are mapped to the POSIX permission.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html\">Using Windows ACLs to limit SMB file share access</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p>"""
+    access_based_enumeration: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    """<p>Indicates whether <code>AccessBasedEnumeration</code> is enabled.</p>"""
+    admin_user_list: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
+    """<p>A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
+    valid_user_list: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
+    """<p>A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
+    invalid_user_list: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
+    """<p>A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
+    audit_destination_arn: NotRequired["aws_sdk_storage_gateway.types.audit_destination_arn.AuditDestinationARN"]
+    """<p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>"""
+    authentication: NotRequired["aws_sdk_storage_gateway.types.authentication.Authentication"]
+    case_sensitivity: NotRequired["aws_sdk_storage_gateway.types.case_sensitivity.CaseSensitivity"]
+    """<p>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>, the client determines the case sensitivity. For <code>CaseSensitive</code>, the gateway determines the case sensitivity. The default value is <code>ClientSpecified</code>.</p>"""
+    tags: NotRequired["aws_sdk_storage_gateway.types.tags.Tags"]
+    """<p>A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the <code>ListTagsForResource</code> API operation.</p>"""
+    file_share_name: NotRequired["aws_sdk_storage_gateway.types.file_share_name.FileShareName"]
+    """<p>The name of the file share. Optional.</p> <note> <p> <code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>, or if an access point or access point alias is used.</p> </note>"""
+    cache_attributes: NotRequired["aws_sdk_storage_gateway.types.cache_attributes.CacheAttributes"]
+    """<p>Refresh cache information for the file share.</p>"""
+    notification_policy: NotRequired["aws_sdk_storage_gateway.types.notification_policy.NotificationPolicy"]
+    """<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls the number of seconds to wait after the last point in time a client wrote to a file before generating an <code>ObjectUploaded</code> notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period.</p> <note> <p> <code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading to Amazon S3, only the timing of the notification.</p> <p>This setting is not meant to specify an exact time at which the notification will be sent. In some cases, the gateway might require more than the specified delay time to generate and send notifications.</p> </note> <p>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code> set to 60.</p> <p> <code>{\\"Upload\\": {\\"SettlingTimeInSeconds\\": 60}}</code> </p> <p>The following example sets <code>NotificationPolicy</code> off.</p> <p> <code>{}</code> </p>"""
+    vpc_endpoint_dns_name: NotRequired["aws_sdk_storage_gateway.types.dns_host_name.DNSHostName"]
+    """<p>Specifies the DNS name for the VPC endpoint that the SMB file share uses to connect to Amazon S3.</p> <note> <p>This parameter is required for SMB file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>"""
+    bucket_region: NotRequired["aws_sdk_storage_gateway.types.region_id.RegionId"]
+    """<p>Specifies the Region of the S3 bucket where the SMB file share stores files.</p> <note> <p>This parameter is required for SMB file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>"""
+    oplocks_enabled: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    """<p>Specifies whether opportunistic locking is enabled for the SMB file share.</p> <note> <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve access to files with the same name in different case.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SMBFileShareInfo) -> dict:
+    out: dict = {}
+    if "file_share_arn" in value:
+        out["FileShareARN"] = value["file_share_arn"]
+    if "file_share_id" in value:
+        out["FileShareId"] = value["file_share_id"]
+    if "file_share_status" in value:
+        out["FileShareStatus"] = value["file_share_status"]
+    if "gateway_arn" in value:
+        out["GatewayARN"] = value["gateway_arn"]
+    if "encryption_type" in value:
+        import aws_sdk_storage_gateway.types.encryption_type
+        out["EncryptionType"] = aws_sdk_storage_gateway.types.encryption_type.serialize_aws_json_1_1(value["encryption_type"])
+    out["KMSEncrypted"] = value.get("kms_encrypted", False)
+    if "kms_key" in value:
+        out["KMSKey"] = value["kms_key"]
+    if "path" in value:
+        out["Path"] = value["path"]
+    if "role" in value:
+        out["Role"] = value["role"]
+    if "location_arn" in value:
+        out["LocationARN"] = value["location_arn"]
+    if "default_storage_class" in value:
+        out["DefaultStorageClass"] = value["default_storage_class"]
+    if "object_acl" in value:
+        import aws_sdk_storage_gateway.types.object_acl
+        out["ObjectACL"] = aws_sdk_storage_gateway.types.object_acl.serialize_aws_json_1_1(value["object_acl"])
+    if "read_only" in value:
+        out["ReadOnly"] = value["read_only"]
+    if "guess_mime_type_enabled" in value:
+        out["GuessMIMETypeEnabled"] = value["guess_mime_type_enabled"]
+    if "requester_pays" in value:
+        out["RequesterPays"] = value["requester_pays"]
+    if "smbacl_enabled" in value:
+        out["SMBACLEnabled"] = value["smbacl_enabled"]
+    if "access_based_enumeration" in value:
+        out["AccessBasedEnumeration"] = value["access_based_enumeration"]
+    if "admin_user_list" in value:
+        import aws_sdk_storage_gateway.types.user_list
+        out["AdminUserList"] = aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(value["admin_user_list"])
+    if "valid_user_list" in value:
+        import aws_sdk_storage_gateway.types.user_list
+        out["ValidUserList"] = aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(value["valid_user_list"])
+    if "invalid_user_list" in value:
+        import aws_sdk_storage_gateway.types.user_list
+        out["InvalidUserList"] = aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(value["invalid_user_list"])
+    if "audit_destination_arn" in value:
+        out["AuditDestinationARN"] = value["audit_destination_arn"]
+    if "authentication" in value:
+        out["Authentication"] = value["authentication"]
+    if "case_sensitivity" in value:
+        import aws_sdk_storage_gateway.types.case_sensitivity
+        out["CaseSensitivity"] = aws_sdk_storage_gateway.types.case_sensitivity.serialize_aws_json_1_1(value["case_sensitivity"])
+    if "tags" in value:
+        import aws_sdk_storage_gateway.types.tags
+        out["Tags"] = aws_sdk_storage_gateway.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "file_share_name" in value:
+        out["FileShareName"] = value["file_share_name"]
+    if "cache_attributes" in value:
+        import aws_sdk_storage_gateway.types.cache_attributes
+        out["CacheAttributes"] = aws_sdk_storage_gateway.types.cache_attributes.serialize_aws_json_1_1(value["cache_attributes"])
+    if "notification_policy" in value:
+        out["NotificationPolicy"] = value["notification_policy"]
+    if "vpc_endpoint_dns_name" in value:
+        out["VPCEndpointDNSName"] = value["vpc_endpoint_dns_name"]
+    if "bucket_region" in value:
+        out["BucketRegion"] = value["bucket_region"]
+    if "oplocks_enabled" in value:
+        out["OplocksEnabled"] = value["oplocks_enabled"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SMBFileShareInfo:
+    out: SMBFileShareInfo = {}  # type: ignore[typeddict-item]
+    if "FileShareARN" in data:
+        out["file_share_arn"] = data["FileShareARN"]
+    if "FileShareId" in data:
+        out["file_share_id"] = data["FileShareId"]
+    if "FileShareStatus" in data:
+        out["file_share_status"] = data["FileShareStatus"]
+    if "GatewayARN" in data:
+        out["gateway_arn"] = data["GatewayARN"]
+    if "EncryptionType" in data:
+        import aws_sdk_storage_gateway.types.encryption_type
+        out["encryption_type"] = aws_sdk_storage_gateway.types.encryption_type.deserialize_aws_json_1_1(data["EncryptionType"])
+    if "KMSEncrypted" in data:
+        out["kms_encrypted"] = data["KMSEncrypted"]
+    else:
+        out["kms_encrypted"] = False
+    if "KMSKey" in data:
+        out["kms_key"] = data["KMSKey"]
+    if "Path" in data:
+        out["path"] = data["Path"]
+    if "Role" in data:
+        out["role"] = data["Role"]
+    if "LocationARN" in data:
+        out["location_arn"] = data["LocationARN"]
+    if "DefaultStorageClass" in data:
+        out["default_storage_class"] = data["DefaultStorageClass"]
+    if "ObjectACL" in data:
+        import aws_sdk_storage_gateway.types.object_acl
+        out["object_acl"] = aws_sdk_storage_gateway.types.object_acl.deserialize_aws_json_1_1(data["ObjectACL"])
+    if "ReadOnly" in data:
+        out["read_only"] = data["ReadOnly"]
+    if "GuessMIMETypeEnabled" in data:
+        out["guess_mime_type_enabled"] = data["GuessMIMETypeEnabled"]
+    if "RequesterPays" in data:
+        out["requester_pays"] = data["RequesterPays"]
+    if "SMBACLEnabled" in data:
+        out["smbacl_enabled"] = data["SMBACLEnabled"]
+    if "AccessBasedEnumeration" in data:
+        out["access_based_enumeration"] = data["AccessBasedEnumeration"]
+    if "AdminUserList" in data:
+        import aws_sdk_storage_gateway.types.user_list
+        out["admin_user_list"] = aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(data["AdminUserList"])
+    if "ValidUserList" in data:
+        import aws_sdk_storage_gateway.types.user_list
+        out["valid_user_list"] = aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(data["ValidUserList"])
+    if "InvalidUserList" in data:
+        import aws_sdk_storage_gateway.types.user_list
+        out["invalid_user_list"] = aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(data["InvalidUserList"])
+    if "AuditDestinationARN" in data:
+        out["audit_destination_arn"] = data["AuditDestinationARN"]
+    if "Authentication" in data:
+        out["authentication"] = data["Authentication"]
+    if "CaseSensitivity" in data:
+        import aws_sdk_storage_gateway.types.case_sensitivity
+        out["case_sensitivity"] = aws_sdk_storage_gateway.types.case_sensitivity.deserialize_aws_json_1_1(data["CaseSensitivity"])
+    if "Tags" in data:
+        import aws_sdk_storage_gateway.types.tags
+        out["tags"] = aws_sdk_storage_gateway.types.tags.deserialize_aws_json_1_1(data["Tags"])
+    if "FileShareName" in data:
+        out["file_share_name"] = data["FileShareName"]
+    if "CacheAttributes" in data:
+        import aws_sdk_storage_gateway.types.cache_attributes
+        out["cache_attributes"] = aws_sdk_storage_gateway.types.cache_attributes.deserialize_aws_json_1_1(data["CacheAttributes"])
+    if "NotificationPolicy" in data:
+        out["notification_policy"] = data["NotificationPolicy"]
+    if "VPCEndpointDNSName" in data:
+        out["vpc_endpoint_dns_name"] = data["VPCEndpointDNSName"]
+    if "BucketRegion" in data:
+        out["bucket_region"] = data["BucketRegion"]
+    if "OplocksEnabled" in data:
+        out["oplocks_enabled"] = data["OplocksEnabled"]
+    return out

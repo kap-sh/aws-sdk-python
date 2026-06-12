@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.xray#PutResourcePolicyResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_xray.types.resource_policy
+
+
+class PutResourcePolicyResult(TypedDict):
+    resource_policy: NotRequired["aws_sdk_xray.types.resource_policy.ResourcePolicy"]
+    """<p>The resource policy document, as provided in the <code>PutResourcePolicyRequest</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutResourcePolicyResult) -> dict:
+    out: dict = {}
+    if "resource_policy" in value:
+        import aws_sdk_xray.types.resource_policy
+
+        out["ResourcePolicy"] = aws_sdk_xray.types.resource_policy.serialize_json(
+            value["resource_policy"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PutResourcePolicyResult:
+    out: PutResourcePolicyResult = {}  # type: ignore[typeddict-item]
+    if "ResourcePolicy" in data:
+        import aws_sdk_xray.types.resource_policy
+
+        out["resource_policy"] = aws_sdk_xray.types.resource_policy.deserialize_json(
+            data["ResourcePolicy"]
+        )
+    return out

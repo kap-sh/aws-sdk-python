@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.synthetics#RetryConfigInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_synthetics.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_synthetics.types.max_retries
+
+
+class RetryConfigInput(TypedDict):
+    max_retries: "aws_sdk_synthetics.types.max_retries.MaxRetries"
+    """<p>The maximum number of retries. The value must be less than or equal to 2.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RetryConfigInput) -> dict:
+    out: dict = {}
+    out["MaxRetries"] = value["max_retries"]
+    return out
+
+
+def deserialize_json(data: dict) -> RetryConfigInput:
+    out: RetryConfigInput = {}  # type: ignore[typeddict-item]
+    if "MaxRetries" in data:
+        out["max_retries"] = data["MaxRetries"]
+    else:
+        raise DeserializationError("RetryConfigInput.max_retries required")
+    return out

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#PutRetentionConfigurationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_config_service.types.retention_configuration
+
+
+class PutRetentionConfigurationResponse(TypedDict):
+    retention_configuration: NotRequired[
+        "aws_sdk_config_service.types.retention_configuration.RetentionConfiguration"
+    ]
+    """<p>Returns a retention configuration object.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutRetentionConfigurationResponse) -> dict:
+    out: dict = {}
+    if "retention_configuration" in value:
+        import aws_sdk_config_service.types.retention_configuration
+
+        out["RetentionConfiguration"] = (
+            aws_sdk_config_service.types.retention_configuration.serialize_aws_json_1_1(
+                value["retention_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutRetentionConfigurationResponse:
+    out: PutRetentionConfigurationResponse = {}  # type: ignore[typeddict-item]
+    if "RetentionConfiguration" in data:
+        import aws_sdk_config_service.types.retention_configuration
+
+        out["retention_configuration"] = (
+            aws_sdk_config_service.types.retention_configuration.deserialize_aws_json_1_1(
+                data["RetentionConfiguration"]
+            )
+        )
+    return out

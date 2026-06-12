@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.controltower#ResetEnabledControlInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_controltower.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_controltower.types.arn
+
+
+class ResetEnabledControlInput(TypedDict):
+    enabled_control_identifier: "aws_sdk_controltower.types.arn.Arn"
+    """<p>The ARN of the enabled control to be reset.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ResetEnabledControlInput) -> dict:
+    out: dict = {}
+    out["enabledControlIdentifier"] = value["enabled_control_identifier"]
+    return out
+
+
+def deserialize_json(data: dict) -> ResetEnabledControlInput:
+    out: ResetEnabledControlInput = {}  # type: ignore[typeddict-item]
+    if "enabledControlIdentifier" in data:
+        out["enabled_control_identifier"] = data["enabledControlIdentifier"]
+    else:
+        raise DeserializationError(
+            "ResetEnabledControlInput.enabled_control_identifier required"
+        )
+    return out

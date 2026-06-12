@@ -1,0 +1,71 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#PutApprovalResultInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codepipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.action_name
+    import aws_sdk_codepipeline.types.approval_result
+    import aws_sdk_codepipeline.types.approval_token
+    import aws_sdk_codepipeline.types.pipeline_name
+    import aws_sdk_codepipeline.types.stage_name
+
+
+class PutApprovalResultInput(TypedDict):
+    pipeline_name: "aws_sdk_codepipeline.types.pipeline_name.PipelineName"
+    """<p>The name of the pipeline that contains the action. </p>"""
+    stage_name: "aws_sdk_codepipeline.types.stage_name.StageName"
+    """<p>The name of the stage that contains the action.</p>"""
+    action_name: "aws_sdk_codepipeline.types.action_name.ActionName"
+    """<p>The name of the action for which approval is requested.</p>"""
+    result: "aws_sdk_codepipeline.types.approval_result.ApprovalResult"
+    """<p>Represents information about the result of the approval request.</p>"""
+    token: "aws_sdk_codepipeline.types.approval_token.ApprovalToken"
+    """<p>The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the <a>GetPipelineState</a> action. It is used to validate that the approval request corresponding to this token is still valid.</p> <important> <p>For a pipeline where the execution mode is set to PARALLEL, the token required to approve/reject an approval request as detailed above is not available. Instead, use the <code>externalExecutionId</code> in the response output from the <a>ListActionExecutions</a> action as the token in the approval request.</p> </important>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutApprovalResultInput) -> dict:
+    out: dict = {}
+    out["pipelineName"] = value["pipeline_name"]
+    out["stageName"] = value["stage_name"]
+    out["actionName"] = value["action_name"]
+    import aws_sdk_codepipeline.types.approval_result
+
+    out["result"] = aws_sdk_codepipeline.types.approval_result.serialize_aws_json_1_1(
+        value["result"]
+    )
+    out["token"] = value["token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutApprovalResultInput:
+    out: PutApprovalResultInput = {}  # type: ignore[typeddict-item]
+    if "pipelineName" in data:
+        out["pipeline_name"] = data["pipelineName"]
+    else:
+        raise DeserializationError("PutApprovalResultInput.pipeline_name required")
+    if "stageName" in data:
+        out["stage_name"] = data["stageName"]
+    else:
+        raise DeserializationError("PutApprovalResultInput.stage_name required")
+    if "actionName" in data:
+        out["action_name"] = data["actionName"]
+    else:
+        raise DeserializationError("PutApprovalResultInput.action_name required")
+    if "result" in data:
+        import aws_sdk_codepipeline.types.approval_result
+
+        out["result"] = (
+            aws_sdk_codepipeline.types.approval_result.deserialize_aws_json_1_1(
+                data["result"]
+            )
+        )
+    else:
+        raise DeserializationError("PutApprovalResultInput.result required")
+    if "token" in data:
+        out["token"] = data["token"]
+    else:
+        raise DeserializationError("PutApprovalResultInput.token required")
+    return out

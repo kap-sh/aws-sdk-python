@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#CreateImportJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sesv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sesv2.types.import_data_source
+    import aws_sdk_sesv2.types.import_destination
+
+
+class CreateImportJobRequest(TypedDict):
+    import_destination: "aws_sdk_sesv2.types.import_destination.ImportDestination"
+    """<p>The destination for the import job.</p>"""
+    import_data_source: "aws_sdk_sesv2.types.import_data_source.ImportDataSource"
+    """<p>The data source for the import job.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateImportJobRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_sesv2.types.import_destination
+
+    out["ImportDestination"] = aws_sdk_sesv2.types.import_destination.serialize_json(
+        value["import_destination"]
+    )
+    import aws_sdk_sesv2.types.import_data_source
+
+    out["ImportDataSource"] = aws_sdk_sesv2.types.import_data_source.serialize_json(
+        value["import_data_source"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateImportJobRequest:
+    out: CreateImportJobRequest = {}  # type: ignore[typeddict-item]
+    if "ImportDestination" in data:
+        import aws_sdk_sesv2.types.import_destination
+
+        out["import_destination"] = (
+            aws_sdk_sesv2.types.import_destination.deserialize_json(
+                data["ImportDestination"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateImportJobRequest.import_destination required")
+    if "ImportDataSource" in data:
+        import aws_sdk_sesv2.types.import_data_source
+
+        out["import_data_source"] = (
+            aws_sdk_sesv2.types.import_data_source.deserialize_json(
+                data["ImportDataSource"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateImportJobRequest.import_data_source required")
+    return out

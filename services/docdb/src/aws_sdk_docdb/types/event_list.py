@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.docdb#EventList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from aws_sdk_docdb._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_docdb.types.event
+
+EventList: TypeAlias = list["aws_sdk_docdb.types.event.Event"]
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: EventList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    import aws_sdk_docdb.types.event
+
+    for n, item in enumerate(value, 1):
+        aws_sdk_docdb.types.event.serialize_query(item, pairs, f"{prefix}.Event.{n}")
+
+
+def deserialize_query(el: Element) -> EventList:
+    import aws_sdk_docdb.types.event
+
+    out: EventList = []
+    for child in el.findall("Event"):
+        out.append(aws_sdk_docdb.types.event.deserialize_query(child))
+    return out
+
+
+def serialize_query_flat(
+    value: EventList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    import aws_sdk_docdb.types.event
+
+    for n, item in enumerate(value, 1):
+        aws_sdk_docdb.types.event.serialize_query(item, pairs, f"{prefix}.{n}")
+
+
+def deserialize_query_flat(parent: Element, tag: str) -> EventList:
+    import aws_sdk_docdb.types.event
+
+    out: EventList = []
+    for child in parent.findall(tag):
+        out.append(aws_sdk_docdb.types.event.deserialize_query(child))
+    return out

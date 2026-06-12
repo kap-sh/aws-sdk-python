@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplacediscovery#AmazonMachineImageOperatingSystem``."""
+
+from typing import TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_marketplace_discovery.errors import DeserializationError
+
+class AmazonMachineImageOperatingSystem(TypedDict):
+    operating_system_family_name: "str"
+    """<p>The operating system family, such as Linux or Windows.</p>"""
+    operating_system_name: "str"
+    """<p>The specific operating system name, such as Amazon Linux 2 or Windows Server 2022.</p>"""
+    operating_system_version: NotRequired["str"]
+    """<p>The version of the operating system.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AmazonMachineImageOperatingSystem) -> dict:
+    out: dict = {}
+    out["operatingSystemFamilyName"] = value["operating_system_family_name"]
+    out["operatingSystemName"] = value["operating_system_name"]
+    if "operating_system_version" in value:
+        out["operatingSystemVersion"] = value["operating_system_version"]
+    return out
+
+
+def deserialize_json(data: dict) -> AmazonMachineImageOperatingSystem:
+    out: AmazonMachineImageOperatingSystem = {}  # type: ignore[typeddict-item]
+    if "operatingSystemFamilyName" in data:
+        out["operating_system_family_name"] = data["operatingSystemFamilyName"]
+    else:
+        raise DeserializationError("AmazonMachineImageOperatingSystem.operating_system_family_name required")
+    if "operatingSystemName" in data:
+        out["operating_system_name"] = data["operatingSystemName"]
+    else:
+        raise DeserializationError("AmazonMachineImageOperatingSystem.operating_system_name required")
+    if "operatingSystemVersion" in data:
+        out["operating_system_version"] = data["operatingSystemVersion"]
+    return out

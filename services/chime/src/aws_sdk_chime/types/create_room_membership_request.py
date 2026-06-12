@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.chime#CreateRoomMembershipRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_chime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime.types.non_empty_string
+    import aws_sdk_chime.types.room_membership_role
+
+
+class CreateRoomMembershipRequest(TypedDict):
+    account_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
+    """<p>The Amazon Chime account ID.</p>"""
+    room_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
+    """<p>The room ID.</p>"""
+    member_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
+    """<p>The Amazon Chime member ID (user ID or bot ID).</p>"""
+    role: NotRequired["aws_sdk_chime.types.room_membership_role.RoomMembershipRole"]
+    """<p>The role of the member.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateRoomMembershipRequest) -> dict:
+    out: dict = {}
+    out["MemberId"] = value["member_id"]
+    if "role" in value:
+        import aws_sdk_chime.types.room_membership_role
+
+        out["Role"] = aws_sdk_chime.types.room_membership_role.serialize_json(
+            value["role"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateRoomMembershipRequest:
+    out: CreateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
+    if "MemberId" in data:
+        out["member_id"] = data["MemberId"]
+    else:
+        raise DeserializationError("CreateRoomMembershipRequest.member_id required")
+    if "Role" in data:
+        import aws_sdk_chime.types.room_membership_role
+
+        out["role"] = aws_sdk_chime.types.room_membership_role.deserialize_json(
+            data["Role"]
+        )
+    return out

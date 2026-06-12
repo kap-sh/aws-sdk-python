@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.personalize#DeleteMetricAttributionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_personalize.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_personalize.types.arn
+
+
+class DeleteMetricAttributionRequest(TypedDict):
+    metric_attribution_arn: "aws_sdk_personalize.types.arn.Arn"
+    """<p>The metric attribution's Amazon Resource Name (ARN).</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteMetricAttributionRequest) -> dict:
+    out: dict = {}
+    out["metricAttributionArn"] = value["metric_attribution_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteMetricAttributionRequest:
+    out: DeleteMetricAttributionRequest = {}  # type: ignore[typeddict-item]
+    if "metricAttributionArn" in data:
+        out["metric_attribution_arn"] = data["metricAttributionArn"]
+    else:
+        raise DeserializationError(
+            "DeleteMetricAttributionRequest.metric_attribution_arn required"
+        )
+    return out

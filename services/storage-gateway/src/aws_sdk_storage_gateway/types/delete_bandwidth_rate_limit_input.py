@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#DeleteBandwidthRateLimitInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_storage_gateway.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_storage_gateway.types.bandwidth_type
+    import aws_sdk_storage_gateway.types.gateway_arn
+
+
+class DeleteBandwidthRateLimitInput(TypedDict):
+    gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
+    bandwidth_type: "aws_sdk_storage_gateway.types.bandwidth_type.BandwidthType"
+    """<p>One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.</p> <p>Valid Values: <code>UPLOAD</code> | <code>DOWNLOAD</code> | <code>ALL</code> </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteBandwidthRateLimitInput) -> dict:
+    out: dict = {}
+    out["GatewayARN"] = value["gateway_arn"]
+    out["BandwidthType"] = value["bandwidth_type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteBandwidthRateLimitInput:
+    out: DeleteBandwidthRateLimitInput = {}  # type: ignore[typeddict-item]
+    if "GatewayARN" in data:
+        out["gateway_arn"] = data["GatewayARN"]
+    else:
+        raise DeserializationError("DeleteBandwidthRateLimitInput.gateway_arn required")
+    if "BandwidthType" in data:
+        out["bandwidth_type"] = data["BandwidthType"]
+    else:
+        raise DeserializationError(
+            "DeleteBandwidthRateLimitInput.bandwidth_type required"
+        )
+    return out

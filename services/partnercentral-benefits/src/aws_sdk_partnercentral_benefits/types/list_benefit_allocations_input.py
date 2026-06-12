@@ -1,0 +1,127 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#ListBenefitAllocationsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_partnercentral_benefits.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_benefits.types.benefit_allocation_status_list
+    import aws_sdk_partnercentral_benefits.types.benefit_application_identifier_list
+    import aws_sdk_partnercentral_benefits.types.benefit_identifiers
+    import aws_sdk_partnercentral_benefits.types.catalog_name
+    import aws_sdk_partnercentral_benefits.types.fulfillment_types
+
+
+class ListBenefitAllocationsInput(TypedDict):
+    catalog: "aws_sdk_partnercentral_benefits.types.catalog_name.CatalogName"
+    """<p>The catalog identifier to filter benefit allocations by catalog.</p>"""
+    fulfillment_types: NotRequired[
+        "aws_sdk_partnercentral_benefits.types.fulfillment_types.FulfillmentTypes"
+    ]
+    """<p>Filter benefit allocations by specific fulfillment types.</p>"""
+    benefit_identifiers: NotRequired[
+        "aws_sdk_partnercentral_benefits.types.benefit_identifiers.BenefitIdentifiers"
+    ]
+    """<p>Filter benefit allocations by specific benefit identifiers.</p>"""
+    benefit_application_identifiers: NotRequired[
+        "aws_sdk_partnercentral_benefits.types.benefit_application_identifier_list.BenefitApplicationIdentifierList"
+    ]
+    """<p>Filter benefit allocations by specific benefit application identifiers.</p>"""
+    status: NotRequired[
+        "aws_sdk_partnercentral_benefits.types.benefit_allocation_status_list.BenefitAllocationStatusList"
+    ]
+    """<p>Filter benefit allocations by their current status.</p>"""
+    max_results: NotRequired["int"]
+    """<p>The maximum number of benefit allocations to return in a single response.</p>"""
+    next_token: NotRequired["str"]
+    """<p>A pagination token to retrieve the next set of results from a previous request.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListBenefitAllocationsInput) -> dict:
+    out: dict = {}
+    out["Catalog"] = value["catalog"]
+    if "fulfillment_types" in value:
+        import aws_sdk_partnercentral_benefits.types.fulfillment_types
+
+        out["FulfillmentTypes"] = (
+            aws_sdk_partnercentral_benefits.types.fulfillment_types.serialize_aws_json_1_0(
+                value["fulfillment_types"]
+            )
+        )
+    if "benefit_identifiers" in value:
+        import aws_sdk_partnercentral_benefits.types.benefit_identifiers
+
+        out["BenefitIdentifiers"] = (
+            aws_sdk_partnercentral_benefits.types.benefit_identifiers.serialize_aws_json_1_0(
+                value["benefit_identifiers"]
+            )
+        )
+    if "benefit_application_identifiers" in value:
+        import aws_sdk_partnercentral_benefits.types.benefit_application_identifier_list
+
+        out["BenefitApplicationIdentifiers"] = (
+            aws_sdk_partnercentral_benefits.types.benefit_application_identifier_list.serialize_aws_json_1_0(
+                value["benefit_application_identifiers"]
+            )
+        )
+    if "status" in value:
+        import aws_sdk_partnercentral_benefits.types.benefit_allocation_status_list
+
+        out["Status"] = (
+            aws_sdk_partnercentral_benefits.types.benefit_allocation_status_list.serialize_aws_json_1_0(
+                value["status"]
+            )
+        )
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListBenefitAllocationsInput:
+    out: ListBenefitAllocationsInput = {}  # type: ignore[typeddict-item]
+    if "Catalog" in data:
+        out["catalog"] = data["Catalog"]
+    else:
+        raise DeserializationError("ListBenefitAllocationsInput.catalog required")
+    if "FulfillmentTypes" in data:
+        import aws_sdk_partnercentral_benefits.types.fulfillment_types
+
+        out["fulfillment_types"] = (
+            aws_sdk_partnercentral_benefits.types.fulfillment_types.deserialize_aws_json_1_0(
+                data["FulfillmentTypes"]
+            )
+        )
+    if "BenefitIdentifiers" in data:
+        import aws_sdk_partnercentral_benefits.types.benefit_identifiers
+
+        out["benefit_identifiers"] = (
+            aws_sdk_partnercentral_benefits.types.benefit_identifiers.deserialize_aws_json_1_0(
+                data["BenefitIdentifiers"]
+            )
+        )
+    if "BenefitApplicationIdentifiers" in data:
+        import aws_sdk_partnercentral_benefits.types.benefit_application_identifier_list
+
+        out["benefit_application_identifiers"] = (
+            aws_sdk_partnercentral_benefits.types.benefit_application_identifier_list.deserialize_aws_json_1_0(
+                data["BenefitApplicationIdentifiers"]
+            )
+        )
+    if "Status" in data:
+        import aws_sdk_partnercentral_benefits.types.benefit_allocation_status_list
+
+        out["status"] = (
+            aws_sdk_partnercentral_benefits.types.benefit_allocation_status_list.deserialize_aws_json_1_0(
+                data["Status"]
+            )
+        )
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

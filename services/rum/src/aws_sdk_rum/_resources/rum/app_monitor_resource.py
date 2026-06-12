@@ -1,0 +1,854 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_rum._services.async_rum import ensure_async_iterator
+from aws_sdk_rum._services.rum import ensure_sync_iterator
+from aws_sdk_rum._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+import aws_sdk_rum._auth._signers
+import aws_sdk_rum._auth._sigv4
+if TYPE_CHECKING:
+    from aws_sdk_rum._services.rum import RUMClient, RUMClientConfig
+    from aws_sdk_rum._services.async_rum import AsyncRUMClient, AsyncRUMClientConfig
+    import aws_sdk_rum.types.app_monitor_configuration
+    import aws_sdk_rum.types.app_monitor_domain
+    import aws_sdk_rum.types.app_monitor_domain_list
+    import aws_sdk_rum.types.app_monitor_name
+    import aws_sdk_rum.types.app_monitor_platform
+    import aws_sdk_rum.types.app_monitor_summary
+    import aws_sdk_rum.types.batch_create_rum_metric_definitions_request
+    import aws_sdk_rum.types.batch_create_rum_metric_definitions_response
+    import aws_sdk_rum.types.batch_delete_rum_metric_definitions_request
+    import aws_sdk_rum.types.batch_delete_rum_metric_definitions_response
+    import aws_sdk_rum.types.batch_get_rum_metric_definitions_request
+    import aws_sdk_rum.types.batch_get_rum_metric_definitions_response
+    import aws_sdk_rum.types.create_app_monitor_request
+    import aws_sdk_rum.types.create_app_monitor_response
+    import aws_sdk_rum.types.custom_events
+    import aws_sdk_rum.types.delete_app_monitor_request
+    import aws_sdk_rum.types.delete_app_monitor_response
+    import aws_sdk_rum.types.delete_resource_policy_request
+    import aws_sdk_rum.types.delete_resource_policy_response
+    import aws_sdk_rum.types.delete_rum_metrics_destination_request
+    import aws_sdk_rum.types.delete_rum_metrics_destination_response
+    import aws_sdk_rum.types.deobfuscation_configuration
+    import aws_sdk_rum.types.destination_arn
+    import aws_sdk_rum.types.event_data
+    import aws_sdk_rum.types.get_app_monitor_data_request
+    import aws_sdk_rum.types.get_app_monitor_data_response
+    import aws_sdk_rum.types.get_app_monitor_request
+    import aws_sdk_rum.types.get_app_monitor_response
+    import aws_sdk_rum.types.get_resource_policy_request
+    import aws_sdk_rum.types.get_resource_policy_response
+    import aws_sdk_rum.types.iam_role_arn
+    import aws_sdk_rum.types.list_app_monitors_request
+    import aws_sdk_rum.types.list_app_monitors_response
+    import aws_sdk_rum.types.list_rum_metrics_destinations_request
+    import aws_sdk_rum.types.list_rum_metrics_destinations_response
+    import aws_sdk_rum.types.max_query_results
+    import aws_sdk_rum.types.max_results_integer
+    import aws_sdk_rum.types.metric_definition
+    import aws_sdk_rum.types.metric_definition_id
+    import aws_sdk_rum.types.metric_definition_ids
+    import aws_sdk_rum.types.metric_definition_request
+    import aws_sdk_rum.types.metric_definitions_request
+    import aws_sdk_rum.types.metric_destination
+    import aws_sdk_rum.types.metric_destination_summary
+    import aws_sdk_rum.types.policy_revision_id
+    import aws_sdk_rum.types.put_resource_policy_request
+    import aws_sdk_rum.types.put_resource_policy_response
+    import aws_sdk_rum.types.put_rum_metrics_destination_request
+    import aws_sdk_rum.types.put_rum_metrics_destination_response
+    import aws_sdk_rum.types.query_filters
+    import aws_sdk_rum.types.tag_map
+    import aws_sdk_rum.types.time_range
+    import aws_sdk_rum.types.token
+    import aws_sdk_rum.types.update_app_monitor_request
+    import aws_sdk_rum.types.update_app_monitor_response
+    import aws_sdk_rum.types.update_rum_metric_definition_request
+    import aws_sdk_rum.types.update_rum_metric_definition_response
+
+class AppMonitorResource:
+    def __init__(self, service: RUMClient) -> None:
+        self._service = service
+    def read(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None) -> "aws_sdk_rum.types.get_app_monitor_response.GetAppMonitorResponse":
+        """<p>Retrieves the complete configuration information for one app monitor.</p>
+
+        Args:
+            name: <p>The app monitor to retrieve information for.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest]') -> OperationResponse["aws_sdk_rum.types.get_app_monitor_response.GetAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.get_app_monitor
+            output, http_response = aws_sdk_rum._operations.rum.get_app_monitor.get_app_monitor(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def update(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None, domain: Optional["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"] = None, domain_list: Optional["aws_sdk_rum.types.app_monitor_domain_list.AppMonitorDomainList"] = None, app_monitor_configuration: Optional["aws_sdk_rum.types.app_monitor_configuration.AppMonitorConfiguration"] = None, cw_log_enabled: Optional[bool] = None, custom_events: Optional["aws_sdk_rum.types.custom_events.CustomEvents"] = None, deobfuscation_configuration: Optional["aws_sdk_rum.types.deobfuscation_configuration.DeobfuscationConfiguration"] = None) -> "aws_sdk_rum.types.update_app_monitor_response.UpdateAppMonitorResponse":
+        """<p>Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor configuration that you specify in this operation are changed. For any parameters that you omit, the existing values are kept.</p> <p>You can't use this operation to change the tags of an existing app monitor. To change the tags of an existing app monitor, use <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_TagResource.html\">TagResource</a>.</p> <p>To create a new app monitor, use <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html\">CreateAppMonitor</a>.</p> <p>After you update an app monitor, sign in to the CloudWatch RUM console to get the updated JavaScript code snippet to add to your web application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html\">How do I find a code snippet that I've already generated?</a> </p>
+
+        Args:
+            name: <p>The name of the app monitor to update.</p>
+            domain: <p>The top-level internet domain name for which your application has administrative authority.</p>
+            domain_list: <p> List the domain names for which your application has administrative authority. The <code>UpdateAppMonitor</code> allows either the domain or the domain list. </p>
+            app_monitor_configuration: <p>A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own authorization method. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html\">Authorize your application to send data to Amazon Web Services</a>.</p>
+            cw_log_enabled: <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.</p>
+            custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
+            deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest]') -> OperationResponse["aws_sdk_rum.types.update_app_monitor_response.UpdateAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.update_app_monitor
+            output, http_response = aws_sdk_rum._operations.rum.update_app_monitor.update_app_monitor(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if domain is not None:
+            input["domain"] = domain
+        if domain_list is not None:
+            input["domain_list"] = domain_list
+        if app_monitor_configuration is not None:
+            input["app_monitor_configuration"] = app_monitor_configuration
+        if cw_log_enabled is not None:
+            input["cw_log_enabled"] = cw_log_enabled
+        if custom_events is not None:
+            input["custom_events"] = custom_events
+        if deobfuscation_configuration is not None:
+            input["deobfuscation_configuration"] = deobfuscation_configuration
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None) -> "aws_sdk_rum.types.delete_app_monitor_response.DeleteAppMonitorResponse":
+        """<p>Deletes an existing app monitor. This immediately stops the collection of data.</p>
+
+        Args:
+            name: <p>The name of the app monitor to delete.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest]') -> OperationResponse["aws_sdk_rum.types.delete_app_monitor_response.DeleteAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.delete_app_monitor
+            output, http_response = aws_sdk_rum._operations.rum.delete_app_monitor.delete_app_monitor(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list(self, *, config_overrides: Optional[RUMClientConfig] = None, max_results: Optional["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"] = None, next_token: Optional[str] = None) -> "aws_sdk_rum.types.list_app_monitors_response.ListAppMonitorsResponse":
+        """<p>Returns a list of the Amazon CloudWatch RUM app monitors in the account.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest]') -> OperationResponse["aws_sdk_rum.types.list_app_monitors_response.ListAppMonitorsResponse"]:
+            import aws_sdk_rum._operations.rum.list_app_monitors
+            output, http_response = aws_sdk_rum._operations.rum.list_app_monitors.list_app_monitors(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def batch_create_rum_metric_definitions(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", metric_definitions: "aws_sdk_rum.types.metric_definitions_request.MetricDefinitionsRequest", *, config_overrides: Optional[RUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.batch_create_rum_metric_definitions_response.BatchCreateRumMetricDefinitionsResponse":
+        """<p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid destinations include CloudWatch and Evidently.</p> <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics are listed in <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html\">CloudWatch metrics that you can collect with CloudWatch RUM</a>.</p> <p>In addition to these default metrics, you can choose to send extended metrics, custom metrics, or both.</p> <ul> <li> <p>Extended metrics let you send metrics with additional dimensions that aren't included in the default metrics. You can also send extended metrics to both Evidently and CloudWatch. The valid dimension names for the additional dimensions for extended metrics are <code>BrowserName</code>, <code>CountryCode</code>, <code>DeviceType</code>, <code>FileType</code>, <code>OSName</code>, and <code>PageId</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html\"> Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p> </li> <li> <p>Custom metrics are metrics that you define. You can send custom metrics to CloudWatch. CloudWatch Evidently, or both. With custom metrics, you can use any metric name and namespace. To derive the metrics, you can use any custom events, built-in events, custom attributes, or default attributes. </p> <p>You can't send custom metrics to the <code>AWS/RUM</code> namespace. You must send custom metrics to a custom namespace that you define. The namespace that you use can't start with <code>AWS/</code>. CloudWatch RUM prepends <code>RUM/CustomMetrics/</code> to the custom namespace that you define, so the final namespace for your metrics in CloudWatch is <code>RUM/CustomMetrics/<i>your-custom-namespace</i> </code>.</p> </li> </ul> <p>The maximum number of metric definitions that you can specify in one <code>BatchCreateRumMetricDefinitions</code> operation is 200.</p> <p>The maximum number of metric definitions that one destination can contain is 2000.</p> <p>Extended metrics sent to CloudWatch and RUM custom metrics are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension value counts as a custom metric. For more information, see <a href=\"https://aws.amazon.com/cloudwatch/pricing/\">Amazon CloudWatch Pricing</a>.</p> <p>You must have already created a destination for the metrics before you send them. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p> <p>If some metric definitions specified in a <code>BatchCreateRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definitions in the same operation still succeed.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that is to send the metrics.</p>
+            destination: <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the Amazon Resource Name (ARN) of the CloudWatchEvidently experiment that will receive the metrics and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
+            metric_definitions: <p>An array of structures which define the metrics that you want to send.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest]') -> OperationResponse["aws_sdk_rum.types.batch_create_rum_metric_definitions_response.BatchCreateRumMetricDefinitionsResponse"]:
+            import aws_sdk_rum._operations.rum.batch_create_rum_metric_definitions
+            output, http_response = aws_sdk_rum._operations.rum.batch_create_rum_metric_definitions.batch_create_rum_metric_definitions(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        input["metric_definitions"] = metric_definitions
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def batch_delete_rum_metric_definitions(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", metric_definition_ids: "aws_sdk_rum.types.metric_definition_ids.MetricDefinitionIds", *, config_overrides: Optional[RUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.batch_delete_rum_metric_definitions_response.BatchDeleteRumMetricDefinitionsResponse":
+        """<p>Removes the specified metrics from being sent to an extended metrics destination.</p> <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still deleted.</p> <p>The maximum number of metric definitions that you can specify in one <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that is sending these metrics.</p>
+            destination: <p>Defines the destination where you want to stop sending the specified metrics. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. </p> <p>This parameter specifies the ARN of the Evidently experiment that was receiving the metrics that are being deleted.</p>
+            metric_definition_ids: <p>An array of structures which define the metrics that you want to stop sending.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest]') -> OperationResponse["aws_sdk_rum.types.batch_delete_rum_metric_definitions_response.BatchDeleteRumMetricDefinitionsResponse"]:
+            import aws_sdk_rum._operations.rum.batch_delete_rum_metric_definitions
+            output, http_response = aws_sdk_rum._operations.rum.batch_delete_rum_metric_definitions.batch_delete_rum_metric_definitions(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        input["metric_definition_ids"] = metric_definition_ids
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def batch_get_rum_metric_definitions(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", *, config_overrides: Optional[RUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None, max_results: Optional["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"] = None, next_token: Optional[str] = None) -> "aws_sdk_rum.types.batch_get_rum_metric_definitions_response.BatchGetRumMetricDefinitionsResponse":
+        """<p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that is sending the metrics.</p>
+            destination: <p>The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that corresponds to the destination.</p>
+            max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest]') -> OperationResponse["aws_sdk_rum.types.batch_get_rum_metric_definitions_response.BatchGetRumMetricDefinitionsResponse"]:
+            import aws_sdk_rum._operations.rum.batch_get_rum_metric_definitions
+            output, http_response = aws_sdk_rum._operations.rum.batch_get_rum_metric_definitions.batch_get_rum_metric_definitions(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def create_app_monitor(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None, domain: Optional["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"] = None, domain_list: Optional["aws_sdk_rum.types.app_monitor_domain_list.AppMonitorDomainList"] = None, tags: Optional["aws_sdk_rum.types.tag_map.TagMap"] = None, app_monitor_configuration: Optional["aws_sdk_rum.types.app_monitor_configuration.AppMonitorConfiguration"] = None, cw_log_enabled: Optional[bool] = None, custom_events: Optional["aws_sdk_rum.types.custom_events.CustomEvents"] = None, deobfuscation_configuration: Optional["aws_sdk_rum.types.deobfuscation_configuration.DeobfuscationConfiguration"] = None, platform: Optional["aws_sdk_rum.types.app_monitor_platform.AppMonitorPlatform"] = None) -> "aws_sdk_rum.types.create_app_monitor_response.CreateAppMonitorResponse":
+        """<p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that data to RUM. The data includes performance and reliability information such as page load time, client-side errors, and user behavior.</p> <p>You use this operation only to create a new app monitor. To update an existing app monitor, use <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html\">UpdateAppMonitor</a> instead.</p> <p>After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html\">How do I find a code snippet that I've already generated?</a> </p>
+
+        Args:
+            name: <p>A name for the app monitor.</p>
+            domain: <p>The top-level internet domain name for which your application has administrative authority.</p>
+            domain_list: <p> List the domain names for which your application has administrative authority. The <code>CreateAppMonitor</code> requires either the domain or the domain list. </p>
+            tags: <p>Assigns one or more tags (key-value pairs) to the app monitor.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can associate as many as 50 tags with an app monitor.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>
+            app_monitor_configuration: <p>A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own authorization method. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html\">Authorize your application to send data to Amazon Web Services</a>.</p> <p>If you omit this argument, the sample rate used for RUM is set to 10% of the user sessions.</p>
+            cw_log_enabled: <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.</p> <p>If you omit this parameter, the default is <code>false</code>.</p>
+            custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
+            deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
+            platform: <p>The platform type for the app monitor. Valid values are <code>Web</code> for web applications, <code>Android</code> for Android applications, and <code>iOS</code> for IOS applications. If you omit this parameter, the default is <code>Web</code>.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest]') -> OperationResponse["aws_sdk_rum.types.create_app_monitor_response.CreateAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.create_app_monitor
+            output, http_response = aws_sdk_rum._operations.rum.create_app_monitor.create_app_monitor(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if domain is not None:
+            input["domain"] = domain
+        if domain_list is not None:
+            input["domain_list"] = domain_list
+        if tags is not None:
+            input["tags"] = tags
+        if app_monitor_configuration is not None:
+            input["app_monitor_configuration"] = app_monitor_configuration
+        if cw_log_enabled is not None:
+            input["cw_log_enabled"] = cw_log_enabled
+        if custom_events is not None:
+            input["custom_events"] = custom_events
+        if deobfuscation_configuration is not None:
+            input["deobfuscation_configuration"] = deobfuscation_configuration
+        if platform is not None:
+            input["platform"] = platform
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete_resource_policy(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None, policy_revision_id: Optional["aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"] = None) -> "aws_sdk_rum.types.delete_resource_policy_response.DeleteResourcePolicyResponse":
+        """<p>Removes the association of a resource-based policy from an app monitor.</p>
+
+        Args:
+            name: <p>The app monitor that you want to remove the resource policy from.</p>
+            policy_revision_id: <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an <code>InvalidPolicyRevisionIdException</code> error.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest]') -> OperationResponse["aws_sdk_rum.types.delete_resource_policy_response.DeleteResourcePolicyResponse"]:
+            import aws_sdk_rum._operations.rum.delete_resource_policy
+            output, http_response = aws_sdk_rum._operations.rum.delete_resource_policy.delete_resource_policy(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if policy_revision_id is not None:
+            input["policy_revision_id"] = policy_revision_id
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete_rum_metrics_destination(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", *, config_overrides: Optional[RUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.delete_rum_metrics_destination_response.DeleteRumMetricsDestinationResponse":
+        """<p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops sending extended metrics to that destination.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the app monitor that is sending metrics to the destination that you want to delete.</p>
+            destination: <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. This parameter specifies the ARN of the Evidently experiment that corresponds to the destination to delete.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest]') -> OperationResponse["aws_sdk_rum.types.delete_rum_metrics_destination_response.DeleteRumMetricsDestinationResponse"]:
+            import aws_sdk_rum._operations.rum.delete_rum_metrics_destination
+            output, http_response = aws_sdk_rum._operations.rum.delete_rum_metrics_destination.delete_rum_metrics_destination(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def get_app_monitor_data(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", time_range: "aws_sdk_rum.types.time_range.TimeRange", *, config_overrides: Optional[RUMClientConfig] = None, filters: Optional["aws_sdk_rum.types.query_filters.QueryFilters"] = None, max_results: Optional["aws_sdk_rum.types.max_query_results.MaxQueryResults"] = None, next_token: Optional["aws_sdk_rum.types.token.Token"] = None) -> "aws_sdk_rum.types.get_app_monitor_data_response.GetAppMonitorDataResponse":
+        """<p>Retrieves the raw performance events that RUM has collected from your web application, so that you can do your own processing or analysis of this data.</p>
+
+        Args:
+            name: <p>The name of the app monitor that collected the data that you want to retrieve.</p>
+            time_range: <p>A structure that defines the time range that you want to retrieve results from.</p>
+            filters: <p>An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify.</p>
+            max_results: <p>The maximum number of results to return in one operation. </p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest]') -> OperationResponse["aws_sdk_rum.types.get_app_monitor_data_response.GetAppMonitorDataResponse"]:
+            import aws_sdk_rum._operations.rum.get_app_monitor_data
+            output, http_response = aws_sdk_rum._operations.rum.get_app_monitor_data.get_app_monitor_data(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["time_range"] = time_range
+        if filters is not None:
+            input["filters"] = filters
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def get_resource_policy(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None) -> "aws_sdk_rum.types.get_resource_policy_response.GetResourcePolicyResponse":
+        """<p>Use this operation to retrieve information about a resource-based policy that is attached to an app monitor.</p>
+
+        Args:
+            name: <p>The name of the app monitor that is associated with the resource-based policy that you want to view.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest]') -> OperationResponse["aws_sdk_rum.types.get_resource_policy_response.GetResourcePolicyResponse"]:
+            import aws_sdk_rum._operations.rum.get_resource_policy
+            output, http_response = aws_sdk_rum._operations.rum.get_resource_policy.get_resource_policy(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list_rum_metrics_destinations(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[RUMClientConfig] = None, max_results: Optional["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"] = None, next_token: Optional[str] = None) -> "aws_sdk_rum.types.list_rum_metrics_destinations_response.ListRumMetricsDestinationsResponse":
+        """<p>Returns a list of destinations that you have created to receive RUM extended metrics, for the specified app monitor.</p> <p>For more information about extended metrics, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html\">AddRumMetrics</a>.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
+            max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest]') -> OperationResponse["aws_sdk_rum.types.list_rum_metrics_destinations_response.ListRumMetricsDestinationsResponse"]:
+            import aws_sdk_rum._operations.rum.list_rum_metrics_destinations
+            output, http_response = aws_sdk_rum._operations.rum.list_rum_metrics_destinations.list_rum_metrics_destinations(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def put_resource_policy(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", policy_document: str, *, config_overrides: Optional[RUMClientConfig] = None, policy_revision_id: Optional["aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"] = None) -> "aws_sdk_rum.types.put_resource_policy_response.PutResourcePolicyResponse":
+        """<p>Use this operation to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
+
+        Args:
+            name: <p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>
+            policy_document: <p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
+            policy_revision_id: <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p> <p>When you assign a policy revision ID, then later requests about that policy will be rejected with an <code>InvalidPolicyRevisionIdException</code> error if they don't provide the correct current revision ID.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest]') -> OperationResponse["aws_sdk_rum.types.put_resource_policy_response.PutResourcePolicyResponse"]:
+            import aws_sdk_rum._operations.rum.put_resource_policy
+            output, http_response = aws_sdk_rum._operations.rum.put_resource_policy.put_resource_policy(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["policy_document"] = policy_document
+        if policy_revision_id is not None:
+            input["policy_revision_id"] = policy_revision_id
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def put_rum_metrics_destination(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", *, config_overrides: Optional[RUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None, iam_role_arn: Optional["aws_sdk_rum.types.iam_role_arn.IamRoleArn"] = None) -> "aws_sdk_rum.types.put_rum_metrics_destination_response.PutRumMetricsDestinationResponse":
+        """<p>Creates or updates a destination to receive extended metrics from CloudWatch RUM. You can send extended metrics to CloudWatch or to a CloudWatch Evidently experiment.</p> <p>For more information about extended metrics, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html\">BatchCreateRumMetricDefinitions</a>.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that will send the metrics.</p>
+            destination: <p>Defines the destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.</p>
+            iam_role_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, don't use this parameter.</p> <p>This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.</p> <p>If you specify this parameter, you must be signed on to a role that has <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">PassRole</a> permissions attached to it, to allow the role to be passed. The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html#managed-policies-cloudwatch-RUM\"> CloudWatchAmazonCloudWatchRUMFullAccess</a> policy doesn't include <code>PassRole</code> permissions.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest]') -> OperationResponse["aws_sdk_rum.types.put_rum_metrics_destination_response.PutRumMetricsDestinationResponse"]:
+            import aws_sdk_rum._operations.rum.put_rum_metrics_destination
+            output, http_response = aws_sdk_rum._operations.rum.put_rum_metrics_destination.put_rum_metrics_destination(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        if iam_role_arn is not None:
+            input["iam_role_arn"] = iam_role_arn
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def update_rum_metric_definition(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", metric_definition: "aws_sdk_rum.types.metric_definition_request.MetricDefinitionRequest", metric_definition_id: "aws_sdk_rum.types.metric_definition_id.MetricDefinitionId", *, config_overrides: Optional[RUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.update_rum_metric_definition_response.UpdateRumMetricDefinitionResponse":
+        """<p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For more information about extended metrics, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html\">BatchCreateRumMetricsDefinitions</a>.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that sends these metrics.</p>
+            destination: <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that will receive the metrics and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
+            metric_definition: <p>A structure that contains the new definition that you want to use for this metric.</p>
+            metric_definition_id: <p>The ID of the metric definition to update.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest]') -> OperationResponse["aws_sdk_rum.types.update_rum_metric_definition_response.UpdateRumMetricDefinitionResponse"]:
+            import aws_sdk_rum._operations.rum.update_rum_metric_definition
+            output, http_response = aws_sdk_rum._operations.rum.update_rum_metric_definition.update_rum_metric_definition(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        input["metric_definition"] = metric_definition
+        input["metric_definition_id"] = metric_definition_id
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+
+class AsyncAppMonitorResource:
+    def __init__(self, service: AsyncRUMClient) -> None:
+        self._service = service
+    async def read(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None) -> "aws_sdk_rum.types.get_app_monitor_response.GetAppMonitorResponse":
+        """<p>Retrieves the complete configuration information for one app monitor.</p>
+
+        Args:
+            name: <p>The app monitor to retrieve information for.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.get_app_monitor_response.GetAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.get_app_monitor
+            output, http_response = await aws_sdk_rum._operations.rum.get_app_monitor.async_get_app_monitor(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None, domain: Optional["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"] = None, domain_list: Optional["aws_sdk_rum.types.app_monitor_domain_list.AppMonitorDomainList"] = None, app_monitor_configuration: Optional["aws_sdk_rum.types.app_monitor_configuration.AppMonitorConfiguration"] = None, cw_log_enabled: Optional[bool] = None, custom_events: Optional["aws_sdk_rum.types.custom_events.CustomEvents"] = None, deobfuscation_configuration: Optional["aws_sdk_rum.types.deobfuscation_configuration.DeobfuscationConfiguration"] = None) -> "aws_sdk_rum.types.update_app_monitor_response.UpdateAppMonitorResponse":
+        """<p>Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor configuration that you specify in this operation are changed. For any parameters that you omit, the existing values are kept.</p> <p>You can't use this operation to change the tags of an existing app monitor. To change the tags of an existing app monitor, use <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_TagResource.html\">TagResource</a>.</p> <p>To create a new app monitor, use <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html\">CreateAppMonitor</a>.</p> <p>After you update an app monitor, sign in to the CloudWatch RUM console to get the updated JavaScript code snippet to add to your web application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html\">How do I find a code snippet that I've already generated?</a> </p>
+
+        Args:
+            name: <p>The name of the app monitor to update.</p>
+            domain: <p>The top-level internet domain name for which your application has administrative authority.</p>
+            domain_list: <p> List the domain names for which your application has administrative authority. The <code>UpdateAppMonitor</code> allows either the domain or the domain list. </p>
+            app_monitor_configuration: <p>A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own authorization method. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html\">Authorize your application to send data to Amazon Web Services</a>.</p>
+            cw_log_enabled: <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.</p>
+            custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
+            deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.update_app_monitor_response.UpdateAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.update_app_monitor
+            output, http_response = await aws_sdk_rum._operations.rum.update_app_monitor.async_update_app_monitor(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if domain is not None:
+            input["domain"] = domain
+        if domain_list is not None:
+            input["domain_list"] = domain_list
+        if app_monitor_configuration is not None:
+            input["app_monitor_configuration"] = app_monitor_configuration
+        if cw_log_enabled is not None:
+            input["cw_log_enabled"] = cw_log_enabled
+        if custom_events is not None:
+            input["custom_events"] = custom_events
+        if deobfuscation_configuration is not None:
+            input["deobfuscation_configuration"] = deobfuscation_configuration
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None) -> "aws_sdk_rum.types.delete_app_monitor_response.DeleteAppMonitorResponse":
+        """<p>Deletes an existing app monitor. This immediately stops the collection of data.</p>
+
+        Args:
+            name: <p>The name of the app monitor to delete.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.delete_app_monitor_response.DeleteAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.delete_app_monitor
+            output, http_response = await aws_sdk_rum._operations.rum.delete_app_monitor.async_delete_app_monitor(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list(self, *, config_overrides: Optional[AsyncRUMClientConfig] = None, max_results: Optional["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"] = None, next_token: Optional[str] = None) -> "aws_sdk_rum.types.list_app_monitors_response.ListAppMonitorsResponse":
+        """<p>Returns a list of the Amazon CloudWatch RUM app monitors in the account.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.list_app_monitors_response.ListAppMonitorsResponse"]:
+            import aws_sdk_rum._operations.rum.list_app_monitors
+            output, http_response = await aws_sdk_rum._operations.rum.list_app_monitors.async_list_app_monitors(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def batch_create_rum_metric_definitions(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", metric_definitions: "aws_sdk_rum.types.metric_definitions_request.MetricDefinitionsRequest", *, config_overrides: Optional[AsyncRUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.batch_create_rum_metric_definitions_response.BatchCreateRumMetricDefinitionsResponse":
+        """<p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid destinations include CloudWatch and Evidently.</p> <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics are listed in <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html\">CloudWatch metrics that you can collect with CloudWatch RUM</a>.</p> <p>In addition to these default metrics, you can choose to send extended metrics, custom metrics, or both.</p> <ul> <li> <p>Extended metrics let you send metrics with additional dimensions that aren't included in the default metrics. You can also send extended metrics to both Evidently and CloudWatch. The valid dimension names for the additional dimensions for extended metrics are <code>BrowserName</code>, <code>CountryCode</code>, <code>DeviceType</code>, <code>FileType</code>, <code>OSName</code>, and <code>PageId</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html\"> Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p> </li> <li> <p>Custom metrics are metrics that you define. You can send custom metrics to CloudWatch. CloudWatch Evidently, or both. With custom metrics, you can use any metric name and namespace. To derive the metrics, you can use any custom events, built-in events, custom attributes, or default attributes. </p> <p>You can't send custom metrics to the <code>AWS/RUM</code> namespace. You must send custom metrics to a custom namespace that you define. The namespace that you use can't start with <code>AWS/</code>. CloudWatch RUM prepends <code>RUM/CustomMetrics/</code> to the custom namespace that you define, so the final namespace for your metrics in CloudWatch is <code>RUM/CustomMetrics/<i>your-custom-namespace</i> </code>.</p> </li> </ul> <p>The maximum number of metric definitions that you can specify in one <code>BatchCreateRumMetricDefinitions</code> operation is 200.</p> <p>The maximum number of metric definitions that one destination can contain is 2000.</p> <p>Extended metrics sent to CloudWatch and RUM custom metrics are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension value counts as a custom metric. For more information, see <a href=\"https://aws.amazon.com/cloudwatch/pricing/\">Amazon CloudWatch Pricing</a>.</p> <p>You must have already created a destination for the metrics before you send them. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p> <p>If some metric definitions specified in a <code>BatchCreateRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definitions in the same operation still succeed.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that is to send the metrics.</p>
+            destination: <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the Amazon Resource Name (ARN) of the CloudWatchEvidently experiment that will receive the metrics and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
+            metric_definitions: <p>An array of structures which define the metrics that you want to send.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.batch_create_rum_metric_definitions_response.BatchCreateRumMetricDefinitionsResponse"]:
+            import aws_sdk_rum._operations.rum.batch_create_rum_metric_definitions
+            output, http_response = await aws_sdk_rum._operations.rum.batch_create_rum_metric_definitions.async_batch_create_rum_metric_definitions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        input["metric_definitions"] = metric_definitions
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def batch_delete_rum_metric_definitions(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", metric_definition_ids: "aws_sdk_rum.types.metric_definition_ids.MetricDefinitionIds", *, config_overrides: Optional[AsyncRUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.batch_delete_rum_metric_definitions_response.BatchDeleteRumMetricDefinitionsResponse":
+        """<p>Removes the specified metrics from being sent to an extended metrics destination.</p> <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still deleted.</p> <p>The maximum number of metric definitions that you can specify in one <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that is sending these metrics.</p>
+            destination: <p>Defines the destination where you want to stop sending the specified metrics. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. </p> <p>This parameter specifies the ARN of the Evidently experiment that was receiving the metrics that are being deleted.</p>
+            metric_definition_ids: <p>An array of structures which define the metrics that you want to stop sending.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.batch_delete_rum_metric_definitions_response.BatchDeleteRumMetricDefinitionsResponse"]:
+            import aws_sdk_rum._operations.rum.batch_delete_rum_metric_definitions
+            output, http_response = await aws_sdk_rum._operations.rum.batch_delete_rum_metric_definitions.async_batch_delete_rum_metric_definitions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        input["metric_definition_ids"] = metric_definition_ids
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def batch_get_rum_metric_definitions(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", *, config_overrides: Optional[AsyncRUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None, max_results: Optional["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"] = None, next_token: Optional[str] = None) -> "aws_sdk_rum.types.batch_get_rum_metric_definitions_response.BatchGetRumMetricDefinitionsResponse":
+        """<p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that is sending the metrics.</p>
+            destination: <p>The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that corresponds to the destination.</p>
+            max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.batch_get_rum_metric_definitions_response.BatchGetRumMetricDefinitionsResponse"]:
+            import aws_sdk_rum._operations.rum.batch_get_rum_metric_definitions
+            output, http_response = await aws_sdk_rum._operations.rum.batch_get_rum_metric_definitions.async_batch_get_rum_metric_definitions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_app_monitor(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None, domain: Optional["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"] = None, domain_list: Optional["aws_sdk_rum.types.app_monitor_domain_list.AppMonitorDomainList"] = None, tags: Optional["aws_sdk_rum.types.tag_map.TagMap"] = None, app_monitor_configuration: Optional["aws_sdk_rum.types.app_monitor_configuration.AppMonitorConfiguration"] = None, cw_log_enabled: Optional[bool] = None, custom_events: Optional["aws_sdk_rum.types.custom_events.CustomEvents"] = None, deobfuscation_configuration: Optional["aws_sdk_rum.types.deobfuscation_configuration.DeobfuscationConfiguration"] = None, platform: Optional["aws_sdk_rum.types.app_monitor_platform.AppMonitorPlatform"] = None) -> "aws_sdk_rum.types.create_app_monitor_response.CreateAppMonitorResponse":
+        """<p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that data to RUM. The data includes performance and reliability information such as page load time, client-side errors, and user behavior.</p> <p>You use this operation only to create a new app monitor. To update an existing app monitor, use <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html\">UpdateAppMonitor</a> instead.</p> <p>After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html\">How do I find a code snippet that I've already generated?</a> </p>
+
+        Args:
+            name: <p>A name for the app monitor.</p>
+            domain: <p>The top-level internet domain name for which your application has administrative authority.</p>
+            domain_list: <p> List the domain names for which your application has administrative authority. The <code>CreateAppMonitor</code> requires either the domain or the domain list. </p>
+            tags: <p>Assigns one or more tags (key-value pairs) to the app monitor.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can associate as many as 50 tags with an app monitor.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>
+            app_monitor_configuration: <p>A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own authorization method. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html\">Authorize your application to send data to Amazon Web Services</a>.</p> <p>If you omit this argument, the sample rate used for RUM is set to 10% of the user sessions.</p>
+            cw_log_enabled: <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.</p> <p>If you omit this parameter, the default is <code>false</code>.</p>
+            custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
+            deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
+            platform: <p>The platform type for the app monitor. Valid values are <code>Web</code> for web applications, <code>Android</code> for Android applications, and <code>iOS</code> for IOS applications. If you omit this parameter, the default is <code>Web</code>.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.create_app_monitor_response.CreateAppMonitorResponse"]:
+            import aws_sdk_rum._operations.rum.create_app_monitor
+            output, http_response = await aws_sdk_rum._operations.rum.create_app_monitor.async_create_app_monitor(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if domain is not None:
+            input["domain"] = domain
+        if domain_list is not None:
+            input["domain_list"] = domain_list
+        if tags is not None:
+            input["tags"] = tags
+        if app_monitor_configuration is not None:
+            input["app_monitor_configuration"] = app_monitor_configuration
+        if cw_log_enabled is not None:
+            input["cw_log_enabled"] = cw_log_enabled
+        if custom_events is not None:
+            input["custom_events"] = custom_events
+        if deobfuscation_configuration is not None:
+            input["deobfuscation_configuration"] = deobfuscation_configuration
+        if platform is not None:
+            input["platform"] = platform
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_resource_policy(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None, policy_revision_id: Optional["aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"] = None) -> "aws_sdk_rum.types.delete_resource_policy_response.DeleteResourcePolicyResponse":
+        """<p>Removes the association of a resource-based policy from an app monitor.</p>
+
+        Args:
+            name: <p>The app monitor that you want to remove the resource policy from.</p>
+            policy_revision_id: <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an <code>InvalidPolicyRevisionIdException</code> error.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.delete_resource_policy_response.DeleteResourcePolicyResponse"]:
+            import aws_sdk_rum._operations.rum.delete_resource_policy
+            output, http_response = await aws_sdk_rum._operations.rum.delete_resource_policy.async_delete_resource_policy(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if policy_revision_id is not None:
+            input["policy_revision_id"] = policy_revision_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_rum_metrics_destination(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", *, config_overrides: Optional[AsyncRUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.delete_rum_metrics_destination_response.DeleteRumMetricsDestinationResponse":
+        """<p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops sending extended metrics to that destination.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the app monitor that is sending metrics to the destination that you want to delete.</p>
+            destination: <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. This parameter specifies the ARN of the Evidently experiment that corresponds to the destination to delete.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.delete_rum_metrics_destination_response.DeleteRumMetricsDestinationResponse"]:
+            import aws_sdk_rum._operations.rum.delete_rum_metrics_destination
+            output, http_response = await aws_sdk_rum._operations.rum.delete_rum_metrics_destination.async_delete_rum_metrics_destination(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def get_app_monitor_data(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", time_range: "aws_sdk_rum.types.time_range.TimeRange", *, config_overrides: Optional[AsyncRUMClientConfig] = None, filters: Optional["aws_sdk_rum.types.query_filters.QueryFilters"] = None, max_results: Optional["aws_sdk_rum.types.max_query_results.MaxQueryResults"] = None, next_token: Optional["aws_sdk_rum.types.token.Token"] = None) -> "aws_sdk_rum.types.get_app_monitor_data_response.GetAppMonitorDataResponse":
+        """<p>Retrieves the raw performance events that RUM has collected from your web application, so that you can do your own processing or analysis of this data.</p>
+
+        Args:
+            name: <p>The name of the app monitor that collected the data that you want to retrieve.</p>
+            time_range: <p>A structure that defines the time range that you want to retrieve results from.</p>
+            filters: <p>An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify.</p>
+            max_results: <p>The maximum number of results to return in one operation. </p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.get_app_monitor_data_response.GetAppMonitorDataResponse"]:
+            import aws_sdk_rum._operations.rum.get_app_monitor_data
+            output, http_response = await aws_sdk_rum._operations.rum.get_app_monitor_data.async_get_app_monitor_data(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["time_range"] = time_range
+        if filters is not None:
+            input["filters"] = filters
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def get_resource_policy(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None) -> "aws_sdk_rum.types.get_resource_policy_response.GetResourcePolicyResponse":
+        """<p>Use this operation to retrieve information about a resource-based policy that is attached to an app monitor.</p>
+
+        Args:
+            name: <p>The name of the app monitor that is associated with the resource-based policy that you want to view.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.get_resource_policy_response.GetResourcePolicyResponse"]:
+            import aws_sdk_rum._operations.rum.get_resource_policy
+            output, http_response = await aws_sdk_rum._operations.rum.get_resource_policy.async_get_resource_policy(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list_rum_metrics_destinations(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", *, config_overrides: Optional[AsyncRUMClientConfig] = None, max_results: Optional["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"] = None, next_token: Optional[str] = None) -> "aws_sdk_rum.types.list_rum_metrics_destinations_response.ListRumMetricsDestinationsResponse":
+        """<p>Returns a list of destinations that you have created to receive RUM extended metrics, for the specified app monitor.</p> <p>For more information about extended metrics, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html\">AddRumMetrics</a>.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
+            max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
+            next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.list_rum_metrics_destinations_response.ListRumMetricsDestinationsResponse"]:
+            import aws_sdk_rum._operations.rum.list_rum_metrics_destinations
+            output, http_response = await aws_sdk_rum._operations.rum.list_rum_metrics_destinations.async_list_rum_metrics_destinations(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def put_resource_policy(self, name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", policy_document: str, *, config_overrides: Optional[AsyncRUMClientConfig] = None, policy_revision_id: Optional["aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"] = None) -> "aws_sdk_rum.types.put_resource_policy_response.PutResourcePolicyResponse":
+        """<p>Use this operation to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
+
+        Args:
+            name: <p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>
+            policy_document: <p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
+            policy_revision_id: <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p> <p>When you assign a policy revision ID, then later requests about that policy will be rejected with an <code>InvalidPolicyRevisionIdException</code> error if they don't provide the correct current revision ID.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.put_resource_policy_response.PutResourcePolicyResponse"]:
+            import aws_sdk_rum._operations.rum.put_resource_policy
+            output, http_response = await aws_sdk_rum._operations.rum.put_resource_policy.async_put_resource_policy(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["policy_document"] = policy_document
+        if policy_revision_id is not None:
+            input["policy_revision_id"] = policy_revision_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def put_rum_metrics_destination(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", *, config_overrides: Optional[AsyncRUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None, iam_role_arn: Optional["aws_sdk_rum.types.iam_role_arn.IamRoleArn"] = None) -> "aws_sdk_rum.types.put_rum_metrics_destination_response.PutRumMetricsDestinationResponse":
+        """<p>Creates or updates a destination to receive extended metrics from CloudWatch RUM. You can send extended metrics to CloudWatch or to a CloudWatch Evidently experiment.</p> <p>For more information about extended metrics, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html\">BatchCreateRumMetricDefinitions</a>.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that will send the metrics.</p>
+            destination: <p>Defines the destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.</p>
+            iam_role_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, don't use this parameter.</p> <p>This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.</p> <p>If you specify this parameter, you must be signed on to a role that has <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">PassRole</a> permissions attached to it, to allow the role to be passed. The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html#managed-policies-cloudwatch-RUM\"> CloudWatchAmazonCloudWatchRUMFullAccess</a> policy doesn't include <code>PassRole</code> permissions.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.put_rum_metrics_destination_response.PutRumMetricsDestinationResponse"]:
+            import aws_sdk_rum._operations.rum.put_rum_metrics_destination
+            output, http_response = await aws_sdk_rum._operations.rum.put_rum_metrics_destination.async_put_rum_metrics_destination(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        if iam_role_arn is not None:
+            input["iam_role_arn"] = iam_role_arn
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_rum_metric_definition(self, app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName", destination: "aws_sdk_rum.types.metric_destination.MetricDestination", metric_definition: "aws_sdk_rum.types.metric_definition_request.MetricDefinitionRequest", metric_definition_id: "aws_sdk_rum.types.metric_definition_id.MetricDefinitionId", *, config_overrides: Optional[AsyncRUMClientConfig] = None, destination_arn: Optional["aws_sdk_rum.types.destination_arn.DestinationArn"] = None) -> "aws_sdk_rum.types.update_rum_metric_definition_response.UpdateRumMetricDefinitionResponse":
+        """<p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For more information about extended metrics, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html\">BatchCreateRumMetricsDefinitions</a>.</p>
+
+        Args:
+            app_monitor_name: <p>The name of the CloudWatch RUM app monitor that sends these metrics.</p>
+            destination: <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that will receive the metrics and an IAM role that has permission to write to the experiment.</p>
+            destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
+            metric_definition: <p>A structure that contains the new definition that you want to use for this metric.</p>
+            metric_definition_id: <p>The ID of the metric definition to update.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest]') -> AsyncOperationResponse["aws_sdk_rum.types.update_rum_metric_definition_response.UpdateRumMetricDefinitionResponse"]:
+            import aws_sdk_rum._operations.rum.update_rum_metric_definition
+            output, http_response = await aws_sdk_rum._operations.rum.update_rum_metric_definition.async_update_rum_metric_definition(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input["app_monitor_name"] = app_monitor_name
+        input["destination"] = destination
+        if destination_arn is not None:
+            input["destination_arn"] = destination_arn
+        input["metric_definition"] = metric_definition
+        input["metric_definition_id"] = metric_definition_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output

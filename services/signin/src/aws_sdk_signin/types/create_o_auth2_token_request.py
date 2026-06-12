@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.signin#CreateOAuth2TokenRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_signin.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_signin.types.create_o_auth2_token_request_body
+
+
+class CreateOAuth2TokenRequest(TypedDict):
+    token_input: "aws_sdk_signin.types.create_o_auth2_token_request_body.CreateOAuth2TokenRequestBody"
+    """Flattened token operation inputs The specific operation is determined by grant_type in the request body"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateOAuth2TokenRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_signin.types.create_o_auth2_token_request_body
+
+    out["tokenInput"] = (
+        aws_sdk_signin.types.create_o_auth2_token_request_body.serialize_json(
+            value["token_input"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateOAuth2TokenRequest:
+    out: CreateOAuth2TokenRequest = {}  # type: ignore[typeddict-item]
+    if "tokenInput" in data:
+        import aws_sdk_signin.types.create_o_auth2_token_request_body
+
+        out["token_input"] = (
+            aws_sdk_signin.types.create_o_auth2_token_request_body.deserialize_json(
+                data["tokenInput"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateOAuth2TokenRequest.token_input required")
+    return out

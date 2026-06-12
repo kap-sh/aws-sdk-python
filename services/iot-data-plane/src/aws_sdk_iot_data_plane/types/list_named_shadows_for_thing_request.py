@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.iotdataplane#ListNamedShadowsForThingRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_data_plane.types.next_token
+    import aws_sdk_iot_data_plane.types.page_size
+    import aws_sdk_iot_data_plane.types.thing_name
+
+
+class ListNamedShadowsForThingRequest(TypedDict):
+    thing_name: "aws_sdk_iot_data_plane.types.thing_name.ThingName"
+    """<p>The name of the thing.</p>"""
+    next_token: NotRequired["aws_sdk_iot_data_plane.types.next_token.NextToken"]
+    """<p>The token to retrieve the next set of results.</p>"""
+    page_size: NotRequired["aws_sdk_iot_data_plane.types.page_size.PageSize"]
+    """<p>The result page size.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListNamedShadowsForThingRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListNamedShadowsForThingRequest:
+    out: ListNamedShadowsForThingRequest = {}  # type: ignore[typeddict-item]
+    return out

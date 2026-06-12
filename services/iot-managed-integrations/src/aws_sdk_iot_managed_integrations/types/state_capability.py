@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#StateCapability``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_iot_managed_integrations.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_managed_integrations.types.capability_name
+    import aws_sdk_iot_managed_integrations.types.capability_properties
+    import aws_sdk_iot_managed_integrations.types.capability_version
+    import aws_sdk_iot_managed_integrations.types.schema_versioned_id
+
+
+class StateCapability(TypedDict):
+    id: "aws_sdk_iot_managed_integrations.types.schema_versioned_id.SchemaVersionedId"
+    """<p>The id of the managed thing in the capability report.</p>"""
+    name: "aws_sdk_iot_managed_integrations.types.capability_name.CapabilityName"
+    """<p>Name for the Amazon Web Services capability.</p>"""
+    version: (
+        "aws_sdk_iot_managed_integrations.types.capability_version.CapabilityVersion"
+    )
+    """<p>Version for the Amazon Web Services capability.</p>"""
+    properties: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.capability_properties.CapabilityProperties"
+    ]
+    """<p>Describe the command capability with the properties it supports.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StateCapability) -> dict:
+    out: dict = {}
+    out["id"] = value["id"]
+    out["name"] = value["name"]
+    out["version"] = value["version"]
+    if "properties" in value:
+        out["properties"] = value["properties"]
+    return out
+
+
+def deserialize_json(data: dict) -> StateCapability:
+    out: StateCapability = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("StateCapability.id required")
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("StateCapability.name required")
+    if "version" in data:
+        out["version"] = data["version"]
+    else:
+        raise DeserializationError("StateCapability.version required")
+    if "properties" in data:
+        out["properties"] = data["properties"]
+    return out

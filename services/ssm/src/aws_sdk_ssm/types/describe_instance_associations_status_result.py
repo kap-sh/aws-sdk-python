@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstanceAssociationsStatusResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.instance_association_status_infos
+    import aws_sdk_ssm.types.next_token
+
+
+class DescribeInstanceAssociationsStatusResult(TypedDict):
+    instance_association_status_infos: NotRequired[
+        "aws_sdk_ssm.types.instance_association_status_infos.InstanceAssociationStatusInfos"
+    ]
+    """<p>Status information about the association.</p>"""
+    next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]
+    """<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeInstanceAssociationsStatusResult) -> dict:
+    out: dict = {}
+    if "instance_association_status_infos" in value:
+        import aws_sdk_ssm.types.instance_association_status_infos
+
+        out["InstanceAssociationStatusInfos"] = (
+            aws_sdk_ssm.types.instance_association_status_infos.serialize_aws_json_1_1(
+                value["instance_association_status_infos"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeInstanceAssociationsStatusResult:
+    out: DescribeInstanceAssociationsStatusResult = {}  # type: ignore[typeddict-item]
+    if "InstanceAssociationStatusInfos" in data:
+        import aws_sdk_ssm.types.instance_association_status_infos
+
+        out["instance_association_status_infos"] = (
+            aws_sdk_ssm.types.instance_association_status_infos.deserialize_aws_json_1_1(
+                data["InstanceAssociationStatusInfos"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

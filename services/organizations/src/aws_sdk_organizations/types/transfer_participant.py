@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.organizations#TransferParticipant``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_organizations.types.account_id
+    import aws_sdk_organizations.types.email
+
+
+class TransferParticipant(TypedDict):
+    management_account_id: NotRequired[
+        "aws_sdk_organizations.types.account_id.AccountId"
+    ]
+    """<p>ID for the management account.</p>"""
+    management_account_email: NotRequired["aws_sdk_organizations.types.email.Email"]
+    """<p>Email address for the management account.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TransferParticipant) -> dict:
+    out: dict = {}
+    if "management_account_id" in value:
+        out["ManagementAccountId"] = value["management_account_id"]
+    if "management_account_email" in value:
+        out["ManagementAccountEmail"] = value["management_account_email"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TransferParticipant:
+    out: TransferParticipant = {}  # type: ignore[typeddict-item]
+    if "ManagementAccountId" in data:
+        out["management_account_id"] = data["ManagementAccountId"]
+    if "ManagementAccountEmail" in data:
+        out["management_account_email"] = data["ManagementAccountEmail"]
+    return out

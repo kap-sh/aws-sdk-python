@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.detective#ListInvitationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_detective.types.member_detail_list
+    import aws_sdk_detective.types.pagination_token
+
+
+class ListInvitationsResponse(TypedDict):
+    invitations: NotRequired[
+        "aws_sdk_detective.types.member_detail_list.MemberDetailList"
+    ]
+    """<p>The list of behavior graphs for which the member account has open or accepted invitations.</p>"""
+    next_token: NotRequired["aws_sdk_detective.types.pagination_token.PaginationToken"]
+    """<p>If there are more behavior graphs remaining in the results, then this is the pagination token to use to request the next page of behavior graphs.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListInvitationsResponse) -> dict:
+    out: dict = {}
+    if "invitations" in value:
+        import aws_sdk_detective.types.member_detail_list
+
+        out["Invitations"] = aws_sdk_detective.types.member_detail_list.serialize_json(
+            value["invitations"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListInvitationsResponse:
+    out: ListInvitationsResponse = {}  # type: ignore[typeddict-item]
+    if "Invitations" in data:
+        import aws_sdk_detective.types.member_detail_list
+
+        out["invitations"] = (
+            aws_sdk_detective.types.member_detail_list.deserialize_json(
+                data["Invitations"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

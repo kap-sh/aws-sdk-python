@@ -1,0 +1,79 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#UpdateMaintenanceWindowTargetResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.maintenance_window_description
+    import aws_sdk_ssm.types.maintenance_window_id
+    import aws_sdk_ssm.types.maintenance_window_name
+    import aws_sdk_ssm.types.maintenance_window_target_id
+    import aws_sdk_ssm.types.owner_information
+    import aws_sdk_ssm.types.targets
+
+
+class UpdateMaintenanceWindowTargetResult(TypedDict):
+    window_id: NotRequired[
+        "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
+    ]
+    """<p>The maintenance window ID specified in the update request.</p>"""
+    window_target_id: NotRequired[
+        "aws_sdk_ssm.types.maintenance_window_target_id.MaintenanceWindowTargetId"
+    ]
+    """<p>The target ID specified in the update request.</p>"""
+    targets: NotRequired["aws_sdk_ssm.types.targets.Targets"]
+    """<p>The updated targets.</p>"""
+    owner_information: NotRequired[
+        "aws_sdk_ssm.types.owner_information.OwnerInformation"
+    ]
+    """<p>The updated owner.</p>"""
+    name: NotRequired["aws_sdk_ssm.types.maintenance_window_name.MaintenanceWindowName"]
+    """<p>The updated name.</p>"""
+    description: NotRequired[
+        "aws_sdk_ssm.types.maintenance_window_description.MaintenanceWindowDescription"
+    ]
+    """<p>The updated description.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateMaintenanceWindowTargetResult) -> dict:
+    out: dict = {}
+    if "window_id" in value:
+        out["WindowId"] = value["window_id"]
+    if "window_target_id" in value:
+        out["WindowTargetId"] = value["window_target_id"]
+    if "targets" in value:
+        import aws_sdk_ssm.types.targets
+
+        out["Targets"] = aws_sdk_ssm.types.targets.serialize_aws_json_1_1(
+            value["targets"]
+        )
+    if "owner_information" in value:
+        out["OwnerInformation"] = value["owner_information"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateMaintenanceWindowTargetResult:
+    out: UpdateMaintenanceWindowTargetResult = {}  # type: ignore[typeddict-item]
+    if "WindowId" in data:
+        out["window_id"] = data["WindowId"]
+    if "WindowTargetId" in data:
+        out["window_target_id"] = data["WindowTargetId"]
+    if "Targets" in data:
+        import aws_sdk_ssm.types.targets
+
+        out["targets"] = aws_sdk_ssm.types.targets.deserialize_aws_json_1_1(
+            data["Targets"]
+        )
+    if "OwnerInformation" in data:
+        out["owner_information"] = data["OwnerInformation"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    return out

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptography#GetAliasOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_payment_cryptography.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography.types.alias
+
+
+class GetAliasOutput(TypedDict):
+    alias: "aws_sdk_payment_cryptography.types.alias.Alias"
+    """<p>The alias of the Amazon Web Services Payment Cryptography key.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetAliasOutput) -> dict:
+    out: dict = {}
+    import aws_sdk_payment_cryptography.types.alias
+
+    out["Alias"] = aws_sdk_payment_cryptography.types.alias.serialize_aws_json_1_0(
+        value["alias"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetAliasOutput:
+    out: GetAliasOutput = {}  # type: ignore[typeddict-item]
+    if "Alias" in data:
+        import aws_sdk_payment_cryptography.types.alias
+
+        out["alias"] = (
+            aws_sdk_payment_cryptography.types.alias.deserialize_aws_json_1_0(
+                data["Alias"]
+            )
+        )
+    else:
+        raise DeserializationError("GetAliasOutput.alias required")
+    return out

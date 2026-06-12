@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#MalformedConditionExpressionFlowValidationDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.error_message
+    import aws_sdk_bedrock_agent.types.flow_condition_name
+    import aws_sdk_bedrock_agent.types.flow_node_name
+
+
+class MalformedConditionExpressionFlowValidationDetails(TypedDict):
+    node: "aws_sdk_bedrock_agent.types.flow_node_name.FlowNodeName"
+    """<p>The name of the node containing the malformed condition expression.</p>"""
+    condition: "aws_sdk_bedrock_agent.types.flow_condition_name.FlowConditionName"
+    """<p>The name of the malformed condition.</p>"""
+    cause: "aws_sdk_bedrock_agent.types.error_message.ErrorMessage"
+    """<p>The error message describing why the condition expression is malformed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MalformedConditionExpressionFlowValidationDetails) -> dict:
+    out: dict = {}
+    out["node"] = value["node"]
+    out["condition"] = value["condition"]
+    out["cause"] = value["cause"]
+    return out
+
+
+def deserialize_json(data: dict) -> MalformedConditionExpressionFlowValidationDetails:
+    out: MalformedConditionExpressionFlowValidationDetails = {}  # type: ignore[typeddict-item]
+    if "node" in data:
+        out["node"] = data["node"]
+    else:
+        raise DeserializationError(
+            "MalformedConditionExpressionFlowValidationDetails.node required"
+        )
+    if "condition" in data:
+        out["condition"] = data["condition"]
+    else:
+        raise DeserializationError(
+            "MalformedConditionExpressionFlowValidationDetails.condition required"
+        )
+    if "cause" in data:
+        out["cause"] = data["cause"]
+    else:
+        raise DeserializationError(
+            "MalformedConditionExpressionFlowValidationDetails.cause required"
+        )
+    return out

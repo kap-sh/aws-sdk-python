@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyDataMigrationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_database_migration_service.types.data_migration
+
+
+class ModifyDataMigrationResponse(TypedDict):
+    data_migration: NotRequired[
+        "aws_sdk_database_migration_service.types.data_migration.DataMigration"
+    ]
+    """<p>Information about the modified data migration.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ModifyDataMigrationResponse) -> dict:
+    out: dict = {}
+    if "data_migration" in value:
+        import aws_sdk_database_migration_service.types.data_migration
+
+        out["DataMigration"] = (
+            aws_sdk_database_migration_service.types.data_migration.serialize_aws_json_1_1(
+                value["data_migration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ModifyDataMigrationResponse:
+    out: ModifyDataMigrationResponse = {}  # type: ignore[typeddict-item]
+    if "DataMigration" in data:
+        import aws_sdk_database_migration_service.types.data_migration
+
+        out["data_migration"] = (
+            aws_sdk_database_migration_service.types.data_migration.deserialize_aws_json_1_1(
+                data["DataMigration"]
+            )
+        )
+    return out

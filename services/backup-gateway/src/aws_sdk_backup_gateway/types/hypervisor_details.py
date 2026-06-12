@@ -1,0 +1,106 @@
+"""Generated from Smithy shape ``com.amazonaws.backupgateway#HypervisorDetails``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_backup_gateway.types.host
+    import aws_sdk_backup_gateway.types.hypervisor_state
+    import aws_sdk_backup_gateway.types.kms_key_arn
+    import aws_sdk_backup_gateway.types.log_group_arn
+    import aws_sdk_backup_gateway.types.name
+    import aws_sdk_backup_gateway.types.server_arn
+    import aws_sdk_backup_gateway.types.string
+    import aws_sdk_backup_gateway.types.sync_metadata_status
+    import aws_sdk_backup_gateway.types.time
+
+
+class HypervisorDetails(TypedDict):
+    host: NotRequired["aws_sdk_backup_gateway.types.host.Host"]
+    """<p>The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).</p>"""
+    hypervisor_arn: NotRequired["aws_sdk_backup_gateway.types.server_arn.ServerArn"]
+    """<p>The Amazon Resource Name (ARN) of the hypervisor.</p>"""
+    kms_key_arn: NotRequired["aws_sdk_backup_gateway.types.kms_key_arn.KmsKeyArn"]
+    """<p>The Amazon Resource Name (ARN) of the KMS used to encrypt the hypervisor.</p>"""
+    name: NotRequired["aws_sdk_backup_gateway.types.name.Name"]
+    """<p>This is the name of the specified hypervisor.</p>"""
+    log_group_arn: NotRequired["aws_sdk_backup_gateway.types.log_group_arn.LogGroupArn"]
+    """<p>The Amazon Resource Name (ARN) of the group of gateways within the requested log.</p>"""
+    state: NotRequired["aws_sdk_backup_gateway.types.hypervisor_state.HypervisorState"]
+    """<p>This is the current state of the specified hypervisor.</p> <p>The possible states are <code>PENDING</code>, <code>ONLINE</code>, <code>OFFLINE</code>, or <code>ERROR</code>.</p>"""
+    last_successful_metadata_sync_time: NotRequired[
+        "aws_sdk_backup_gateway.types.time.Time"
+    ]
+    """<p>This is the time when the most recent successful sync of metadata occurred.</p>"""
+    latest_metadata_sync_status_message: NotRequired[
+        "aws_sdk_backup_gateway.types.string.string"
+    ]
+    """<p>This is the most recent status for the indicated metadata sync.</p>"""
+    latest_metadata_sync_status: NotRequired[
+        "aws_sdk_backup_gateway.types.sync_metadata_status.SyncMetadataStatus"
+    ]
+    """<p>This is the most recent status for the indicated metadata sync.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: HypervisorDetails) -> dict:
+    out: dict = {}
+    if "host" in value:
+        out["Host"] = value["host"]
+    if "hypervisor_arn" in value:
+        out["HypervisorArn"] = value["hypervisor_arn"]
+    if "kms_key_arn" in value:
+        out["KmsKeyArn"] = value["kms_key_arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "log_group_arn" in value:
+        out["LogGroupArn"] = value["log_group_arn"]
+    if "state" in value:
+        out["State"] = value["state"]
+    if "last_successful_metadata_sync_time" in value:
+        import aws_sdk_backup_gateway.types.time
+
+        out["LastSuccessfulMetadataSyncTime"] = (
+            aws_sdk_backup_gateway.types.time.serialize_aws_json_1_0(
+                value["last_successful_metadata_sync_time"]
+            )
+        )
+    if "latest_metadata_sync_status_message" in value:
+        out["LatestMetadataSyncStatusMessage"] = value[
+            "latest_metadata_sync_status_message"
+        ]
+    if "latest_metadata_sync_status" in value:
+        out["LatestMetadataSyncStatus"] = value["latest_metadata_sync_status"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> HypervisorDetails:
+    out: HypervisorDetails = {}  # type: ignore[typeddict-item]
+    if "Host" in data:
+        out["host"] = data["Host"]
+    if "HypervisorArn" in data:
+        out["hypervisor_arn"] = data["HypervisorArn"]
+    if "KmsKeyArn" in data:
+        out["kms_key_arn"] = data["KmsKeyArn"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "LogGroupArn" in data:
+        out["log_group_arn"] = data["LogGroupArn"]
+    if "State" in data:
+        out["state"] = data["State"]
+    if "LastSuccessfulMetadataSyncTime" in data:
+        import aws_sdk_backup_gateway.types.time
+
+        out["last_successful_metadata_sync_time"] = (
+            aws_sdk_backup_gateway.types.time.deserialize_aws_json_1_0(
+                data["LastSuccessfulMetadataSyncTime"]
+            )
+        )
+    if "LatestMetadataSyncStatusMessage" in data:
+        out["latest_metadata_sync_status_message"] = data[
+            "LatestMetadataSyncStatusMessage"
+        ]
+    if "LatestMetadataSyncStatus" in data:
+        out["latest_metadata_sync_status"] = data["LatestMetadataSyncStatus"]
+    return out

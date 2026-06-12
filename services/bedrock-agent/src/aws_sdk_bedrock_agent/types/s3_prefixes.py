@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#S3Prefixes``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.s3_prefix
+
+S3Prefixes: TypeAlias = list["aws_sdk_bedrock_agent.types.s3_prefix.S3Prefix"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: S3Prefixes) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> S3Prefixes:
+    return list(data)

@@ -1,0 +1,83 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#VpcOriginList``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudfront._protocol.xml import Element, SubElement
+from aws_sdk_cloudfront.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudfront.types.boolean
+    import aws_sdk_cloudfront.types.integer
+    import aws_sdk_cloudfront.types.string
+    import aws_sdk_cloudfront.types.vpc_origin_summary_list
+
+
+class VpcOriginList(TypedDict):
+    marker: "aws_sdk_cloudfront.types.string.string"
+    """<p>The marker associated with the VPC origins list.</p>"""
+    next_marker: NotRequired["aws_sdk_cloudfront.types.string.string"]
+    """<p>The next marker associated with the VPC origins list.</p>"""
+    max_items: "aws_sdk_cloudfront.types.integer.integer"
+    """<p>The maximum number of items included in the list.</p>"""
+    is_truncated: "aws_sdk_cloudfront.types.boolean.boolean"
+    """<p>A flag that indicates whether more VPC origins remain to be listed. If your results were truncated, you can make a follow-up pagination request using the <code>Marker</code> request parameter to retrieve more VPC origins in the list.</p>"""
+    quantity: "aws_sdk_cloudfront.types.integer.integer"
+    """<p>The number of VPC origins in the list.</p>"""
+    items: NotRequired[
+        "aws_sdk_cloudfront.types.vpc_origin_summary_list.VpcOriginSummaryList"
+    ]
+    """<p>The items of the VPC origins list.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: VpcOriginList, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "Marker").text = str(value["marker"])
+    if "next_marker" in value:
+        SubElement(el, "NextMarker").text = str(value["next_marker"])
+    SubElement(el, "MaxItems").text = str(value["max_items"])
+    SubElement(el, "IsTruncated").text = "true" if value["is_truncated"] else "false"
+    SubElement(el, "Quantity").text = str(value["quantity"])
+    if "items" in value:
+        import aws_sdk_cloudfront.types.vpc_origin_summary_list
+
+        aws_sdk_cloudfront.types.vpc_origin_summary_list.serialize_xml(
+            value["items"], el, "Items"
+        )
+
+
+def deserialize_xml(el: Element) -> VpcOriginList:
+    out: VpcOriginList = {}  # type: ignore[typeddict-item]
+    child_marker = el.find("Marker")
+    if child_marker is not None:
+        out["marker"] = str(child_marker.text or "")
+    else:
+        raise DeserializationError("VpcOriginList.marker required")
+    child_next_marker = el.find("NextMarker")
+    if child_next_marker is not None:
+        out["next_marker"] = str(child_next_marker.text or "")
+    child_max_items = el.find("MaxItems")
+    if child_max_items is not None:
+        out["max_items"] = int(child_max_items.text or "")
+    else:
+        raise DeserializationError("VpcOriginList.max_items required")
+    child_is_truncated = el.find("IsTruncated")
+    if child_is_truncated is not None:
+        out["is_truncated"] = (child_is_truncated.text or "").lower() == "true"
+    else:
+        raise DeserializationError("VpcOriginList.is_truncated required")
+    child_quantity = el.find("Quantity")
+    if child_quantity is not None:
+        out["quantity"] = int(child_quantity.text or "")
+    else:
+        raise DeserializationError("VpcOriginList.quantity required")
+    child_items = el.find("Items")
+    if child_items is not None:
+        import aws_sdk_cloudfront.types.vpc_origin_summary_list
+
+        out["items"] = aws_sdk_cloudfront.types.vpc_origin_summary_list.deserialize_xml(
+            child_items
+        )
+    return out

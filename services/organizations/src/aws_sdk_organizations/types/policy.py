@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.organizations#Policy``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_organizations.types.policy_content
+    import aws_sdk_organizations.types.policy_summary
+
+
+class Policy(TypedDict):
+    policy_summary: NotRequired[
+        "aws_sdk_organizations.types.policy_summary.PolicySummary"
+    ]
+    """<p>A structure that contains additional details about the policy.</p>"""
+    content: NotRequired["aws_sdk_organizations.types.policy_content.PolicyContent"]
+    """<p>The text content of the policy.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Policy) -> dict:
+    out: dict = {}
+    if "policy_summary" in value:
+        import aws_sdk_organizations.types.policy_summary
+
+        out["PolicySummary"] = (
+            aws_sdk_organizations.types.policy_summary.serialize_aws_json_1_1(
+                value["policy_summary"]
+            )
+        )
+    if "content" in value:
+        out["Content"] = value["content"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Policy:
+    out: Policy = {}  # type: ignore[typeddict-item]
+    if "PolicySummary" in data:
+        import aws_sdk_organizations.types.policy_summary
+
+        out["policy_summary"] = (
+            aws_sdk_organizations.types.policy_summary.deserialize_aws_json_1_1(
+                data["PolicySummary"]
+            )
+        )
+    if "Content" in data:
+        out["content"] = data["Content"]
+    return out

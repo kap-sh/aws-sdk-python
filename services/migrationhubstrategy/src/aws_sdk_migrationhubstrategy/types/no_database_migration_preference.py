@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#NoDatabaseMigrationPreference``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_migrationhubstrategy.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_migrationhubstrategy.types.target_database_engines
+
+
+class NoDatabaseMigrationPreference(TypedDict):
+    target_database_engine: "aws_sdk_migrationhubstrategy.types.target_database_engines.TargetDatabaseEngines"
+    """<p> The target database engine for database migration preference that you specify. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: NoDatabaseMigrationPreference) -> dict:
+    out: dict = {}
+    import aws_sdk_migrationhubstrategy.types.target_database_engines
+
+    out["targetDatabaseEngine"] = (
+        aws_sdk_migrationhubstrategy.types.target_database_engines.serialize_json(
+            value["target_database_engine"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> NoDatabaseMigrationPreference:
+    out: NoDatabaseMigrationPreference = {}  # type: ignore[typeddict-item]
+    if "targetDatabaseEngine" in data:
+        import aws_sdk_migrationhubstrategy.types.target_database_engines
+
+        out["target_database_engine"] = (
+            aws_sdk_migrationhubstrategy.types.target_database_engines.deserialize_json(
+                data["targetDatabaseEngine"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "NoDatabaseMigrationPreference.target_database_engine required"
+        )
+    return out

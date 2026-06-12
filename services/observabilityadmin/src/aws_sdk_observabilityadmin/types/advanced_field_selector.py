@@ -1,0 +1,133 @@
+"""Generated from Smithy shape ``com.amazonaws.observabilityadmin#AdvancedFieldSelector``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_observabilityadmin.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_observabilityadmin.types.string_list
+
+
+class AdvancedFieldSelector(TypedDict):
+    field: "str"
+    """<p> The name of the field to use for selection. </p>"""
+    equals: NotRequired["aws_sdk_observabilityadmin.types.string_list.StringList"]
+    """<p> Matches if the field value equals the specified value. </p>"""
+    starts_with: NotRequired["aws_sdk_observabilityadmin.types.string_list.StringList"]
+    """<p> Matches if the field value starts with the specified value. </p>"""
+    ends_with: NotRequired["aws_sdk_observabilityadmin.types.string_list.StringList"]
+    """<p> Matches if the field value ends with the specified value. </p>"""
+    not_equals: NotRequired["aws_sdk_observabilityadmin.types.string_list.StringList"]
+    """<p> Matches if the field value does not equal the specified value. </p>"""
+    not_starts_with: NotRequired[
+        "aws_sdk_observabilityadmin.types.string_list.StringList"
+    ]
+    """<p> Matches if the field value does not start with the specified value. </p>"""
+    not_ends_with: NotRequired[
+        "aws_sdk_observabilityadmin.types.string_list.StringList"
+    ]
+    """<p> Matches if the field value does not end with the specified value. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AdvancedFieldSelector) -> dict:
+    out: dict = {}
+    out["Field"] = value["field"]
+    if "equals" in value:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["Equals"] = aws_sdk_observabilityadmin.types.string_list.serialize_json(
+            value["equals"]
+        )
+    if "starts_with" in value:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["StartsWith"] = aws_sdk_observabilityadmin.types.string_list.serialize_json(
+            value["starts_with"]
+        )
+    if "ends_with" in value:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["EndsWith"] = aws_sdk_observabilityadmin.types.string_list.serialize_json(
+            value["ends_with"]
+        )
+    if "not_equals" in value:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["NotEquals"] = aws_sdk_observabilityadmin.types.string_list.serialize_json(
+            value["not_equals"]
+        )
+    if "not_starts_with" in value:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["NotStartsWith"] = (
+            aws_sdk_observabilityadmin.types.string_list.serialize_json(
+                value["not_starts_with"]
+            )
+        )
+    if "not_ends_with" in value:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["NotEndsWith"] = (
+            aws_sdk_observabilityadmin.types.string_list.serialize_json(
+                value["not_ends_with"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AdvancedFieldSelector:
+    out: AdvancedFieldSelector = {}  # type: ignore[typeddict-item]
+    if "Field" in data:
+        out["field"] = data["Field"]
+    else:
+        raise DeserializationError("AdvancedFieldSelector.field required")
+    if "Equals" in data:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["equals"] = aws_sdk_observabilityadmin.types.string_list.deserialize_json(
+            data["Equals"]
+        )
+    if "StartsWith" in data:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["starts_with"] = (
+            aws_sdk_observabilityadmin.types.string_list.deserialize_json(
+                data["StartsWith"]
+            )
+        )
+    if "EndsWith" in data:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["ends_with"] = (
+            aws_sdk_observabilityadmin.types.string_list.deserialize_json(
+                data["EndsWith"]
+            )
+        )
+    if "NotEquals" in data:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["not_equals"] = (
+            aws_sdk_observabilityadmin.types.string_list.deserialize_json(
+                data["NotEquals"]
+            )
+        )
+    if "NotStartsWith" in data:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["not_starts_with"] = (
+            aws_sdk_observabilityadmin.types.string_list.deserialize_json(
+                data["NotStartsWith"]
+            )
+        )
+    if "NotEndsWith" in data:
+        import aws_sdk_observabilityadmin.types.string_list
+
+        out["not_ends_with"] = (
+            aws_sdk_observabilityadmin.types.string_list.deserialize_json(
+                data["NotEndsWith"]
+            )
+        )
+    return out

@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinProfileQueryOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+if TYPE_CHECKING:
+    import aws_sdk_neptunedata.types.report_as_text
+
+class ExecuteGremlinProfileQueryOutput(TypedDict):
+    output: NotRequired["aws_sdk_neptunedata.types.report_as_text.ReportAsText"]
+    """<p>A text blob containing the Gremlin Profile result. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for details.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ExecuteGremlinProfileQueryOutput) -> dict:
+    out: dict = {}
+    if "output" in value:
+        import aws_sdk_neptunedata.types.report_as_text
+        out["output"] = aws_sdk_neptunedata.types.report_as_text.serialize_json(value["output"])
+    return out
+
+
+def deserialize_json(data: dict) -> ExecuteGremlinProfileQueryOutput:
+    out: ExecuteGremlinProfileQueryOutput = {}  # type: ignore[typeddict-item]
+    if "output" in data:
+        import aws_sdk_neptunedata.types.report_as_text
+        out["output"] = aws_sdk_neptunedata.types.report_as_text.deserialize_json(data["output"])
+    return out

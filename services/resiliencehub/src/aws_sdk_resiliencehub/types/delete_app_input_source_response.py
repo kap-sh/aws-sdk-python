@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehub#DeleteAppInputSourceResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_resiliencehub.types.app_input_source
+    import aws_sdk_resiliencehub.types.arn
+
+
+class DeleteAppInputSourceResponse(TypedDict):
+    app_arn: NotRequired["aws_sdk_resiliencehub.types.arn.Arn"]
+    """<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>"""
+    app_input_source: NotRequired[
+        "aws_sdk_resiliencehub.types.app_input_source.AppInputSource"
+    ]
+    """<p>Name of the input source from where the application resource is imported from.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteAppInputSourceResponse) -> dict:
+    out: dict = {}
+    if "app_arn" in value:
+        out["appArn"] = value["app_arn"]
+    if "app_input_source" in value:
+        import aws_sdk_resiliencehub.types.app_input_source
+
+        out["appInputSource"] = (
+            aws_sdk_resiliencehub.types.app_input_source.serialize_json(
+                value["app_input_source"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteAppInputSourceResponse:
+    out: DeleteAppInputSourceResponse = {}  # type: ignore[typeddict-item]
+    if "appArn" in data:
+        out["app_arn"] = data["appArn"]
+    if "appInputSource" in data:
+        import aws_sdk_resiliencehub.types.app_input_source
+
+        out["app_input_source"] = (
+            aws_sdk_resiliencehub.types.app_input_source.deserialize_json(
+                data["appInputSource"]
+            )
+        )
+    return out

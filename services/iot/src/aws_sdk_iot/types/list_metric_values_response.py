@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#ListMetricValuesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.metric_datum_list
+    import aws_sdk_iot.types.next_token
+
+
+class ListMetricValuesResponse(TypedDict):
+    metric_datum_list: NotRequired[
+        "aws_sdk_iot.types.metric_datum_list.MetricDatumList"
+    ]
+    """<p>The data the thing reports for the metric during the specified time period.</p>"""
+    next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]
+    """<p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListMetricValuesResponse) -> dict:
+    out: dict = {}
+    if "metric_datum_list" in value:
+        import aws_sdk_iot.types.metric_datum_list
+
+        out["metricDatumList"] = aws_sdk_iot.types.metric_datum_list.serialize_json(
+            value["metric_datum_list"]
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListMetricValuesResponse:
+    out: ListMetricValuesResponse = {}  # type: ignore[typeddict-item]
+    if "metricDatumList" in data:
+        import aws_sdk_iot.types.metric_datum_list
+
+        out["metric_datum_list"] = aws_sdk_iot.types.metric_datum_list.deserialize_json(
+            data["metricDatumList"]
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

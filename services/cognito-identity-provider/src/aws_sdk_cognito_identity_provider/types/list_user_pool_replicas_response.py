@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListUserPoolReplicasResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.pagination_key_type
+    import aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type
+
+
+class ListUserPoolReplicasResponse(TypedDict):
+    user_pool_replicas: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type.UserPoolReplicaListType"
+    ]
+    """<p>A list of user pool replicas, including information about their status, role, and Region.</p>"""
+    next_token: NotRequired[
+        "aws_sdk_cognito_identity_provider.types.pagination_key_type.PaginationKeyType"
+    ]
+    """<p>A pagination token for retrieving the next page of results. If this value is null, there are no more results to retrieve.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListUserPoolReplicasResponse) -> dict:
+    out: dict = {}
+    if "user_pool_replicas" in value:
+        import aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type
+
+        out["UserPoolReplicas"] = (
+            aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type.serialize_aws_json_1_1(
+                value["user_pool_replicas"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListUserPoolReplicasResponse:
+    out: ListUserPoolReplicasResponse = {}  # type: ignore[typeddict-item]
+    if "UserPoolReplicas" in data:
+        import aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type
+
+        out["user_pool_replicas"] = (
+            aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type.deserialize_aws_json_1_1(
+                data["UserPoolReplicas"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#Scte35SpliceInsert``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__integer_min_negative1000_max1000
+    import aws_sdk_medialive.types.scte35_splice_insert_no_regional_blackout_behavior
+    import aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior
+
+
+class Scte35SpliceInsert(TypedDict):
+    ad_avail_offset: NotRequired[
+        "aws_sdk_medialive.types.__integer_min_negative1000_max1000.__integerMinNegative1000Max1000"
+    ]
+    """When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages."""
+    no_regional_blackout_flag: NotRequired[
+        "aws_sdk_medialive.types.scte35_splice_insert_no_regional_blackout_behavior.Scte35SpliceInsertNoRegionalBlackoutBehavior"
+    ]
+    """When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates"""
+    web_delivery_allowed_flag: NotRequired[
+        "aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior.Scte35SpliceInsertWebDeliveryAllowedBehavior"
+    ]
+    """When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Scte35SpliceInsert) -> dict:
+    out: dict = {}
+    if "ad_avail_offset" in value:
+        out["adAvailOffset"] = value["ad_avail_offset"]
+    if "no_regional_blackout_flag" in value:
+        import aws_sdk_medialive.types.scte35_splice_insert_no_regional_blackout_behavior
+
+        out["noRegionalBlackoutFlag"] = (
+            aws_sdk_medialive.types.scte35_splice_insert_no_regional_blackout_behavior.serialize_json(
+                value["no_regional_blackout_flag"]
+            )
+        )
+    if "web_delivery_allowed_flag" in value:
+        import aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior
+
+        out["webDeliveryAllowedFlag"] = (
+            aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior.serialize_json(
+                value["web_delivery_allowed_flag"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> Scte35SpliceInsert:
+    out: Scte35SpliceInsert = {}  # type: ignore[typeddict-item]
+    if "adAvailOffset" in data:
+        out["ad_avail_offset"] = data["adAvailOffset"]
+    if "noRegionalBlackoutFlag" in data:
+        import aws_sdk_medialive.types.scte35_splice_insert_no_regional_blackout_behavior
+
+        out["no_regional_blackout_flag"] = (
+            aws_sdk_medialive.types.scte35_splice_insert_no_regional_blackout_behavior.deserialize_json(
+                data["noRegionalBlackoutFlag"]
+            )
+        )
+    if "webDeliveryAllowedFlag" in data:
+        import aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior
+
+        out["web_delivery_allowed_flag"] = (
+            aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior.deserialize_json(
+                data["webDeliveryAllowedFlag"]
+            )
+        )
+    return out

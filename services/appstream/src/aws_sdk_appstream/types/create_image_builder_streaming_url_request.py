@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#CreateImageBuilderStreamingURLRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appstream.types.long
+    import aws_sdk_appstream.types.string
+
+
+class CreateImageBuilderStreamingURLRequest(TypedDict):
+    name: NotRequired["aws_sdk_appstream.types.string.String"]
+    """<p>The name of the image builder.</p>"""
+    validity: NotRequired["aws_sdk_appstream.types.long.Long"]
+    """<p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateImageBuilderStreamingURLRequest) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "validity" in value:
+        out["Validity"] = value["validity"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateImageBuilderStreamingURLRequest:
+    out: CreateImageBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Validity" in data:
+        out["validity"] = data["Validity"]
+    return out

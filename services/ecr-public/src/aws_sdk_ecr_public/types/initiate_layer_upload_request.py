@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.ecrpublic#InitiateLayerUploadRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ecr_public.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ecr_public.types.registry_id_or_alias
+    import aws_sdk_ecr_public.types.repository_name
+
+
+class InitiateLayerUploadRequest(TypedDict):
+    registry_id: NotRequired[
+        "aws_sdk_ecr_public.types.registry_id_or_alias.RegistryIdOrAlias"
+    ]
+    """<p>The Amazon Web Services account ID, or registry alias, that's associated with the registry to which you intend to upload layers. If you do not specify a registry, the default public registry is assumed.</p>"""
+    repository_name: "aws_sdk_ecr_public.types.repository_name.RepositoryName"
+    """<p>The name of the repository that you want to upload layers to.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InitiateLayerUploadRequest) -> dict:
+    out: dict = {}
+    if "registry_id" in value:
+        out["registryId"] = value["registry_id"]
+    out["repositoryName"] = value["repository_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InitiateLayerUploadRequest:
+    out: InitiateLayerUploadRequest = {}  # type: ignore[typeddict-item]
+    if "registryId" in data:
+        out["registry_id"] = data["registryId"]
+    if "repositoryName" in data:
+        out["repository_name"] = data["repositoryName"]
+    else:
+        raise DeserializationError(
+            "InitiateLayerUploadRequest.repository_name required"
+        )
+    return out

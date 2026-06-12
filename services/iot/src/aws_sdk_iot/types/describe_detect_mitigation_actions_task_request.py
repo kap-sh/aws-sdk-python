@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#DescribeDetectMitigationActionsTaskRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.mitigation_actions_task_id
+
+
+class DescribeDetectMitigationActionsTaskRequest(TypedDict):
+    task_id: "aws_sdk_iot.types.mitigation_actions_task_id.MitigationActionsTaskId"
+    """<p> The unique identifier of the task. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeDetectMitigationActionsTaskRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeDetectMitigationActionsTaskRequest:
+    out: DescribeDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+    return out

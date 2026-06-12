@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#CompliantSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.compliance_summary_count
+    import aws_sdk_ssm.types.severity_summary
+
+
+class CompliantSummary(TypedDict):
+    compliant_count: "aws_sdk_ssm.types.compliance_summary_count.ComplianceSummaryCount"
+    """<p>The total number of resources that are compliant.</p>"""
+    severity_summary: NotRequired["aws_sdk_ssm.types.severity_summary.SeveritySummary"]
+    """<p>A summary of the compliance severity by compliance type.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CompliantSummary) -> dict:
+    out: dict = {}
+    out["CompliantCount"] = value.get("compliant_count", 0)
+    if "severity_summary" in value:
+        import aws_sdk_ssm.types.severity_summary
+
+        out["SeveritySummary"] = (
+            aws_sdk_ssm.types.severity_summary.serialize_aws_json_1_1(
+                value["severity_summary"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CompliantSummary:
+    out: CompliantSummary = {}  # type: ignore[typeddict-item]
+    if "CompliantCount" in data:
+        out["compliant_count"] = data["CompliantCount"]
+    else:
+        out["compliant_count"] = 0
+    if "SeveritySummary" in data:
+        import aws_sdk_ssm.types.severity_summary
+
+        out["severity_summary"] = (
+            aws_sdk_ssm.types.severity_summary.deserialize_aws_json_1_1(
+                data["SeveritySummary"]
+            )
+        )
+    return out

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#ListAssociationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.association_summaries
+    import aws_sdk_sagemaker.types.next_token
+
+
+class ListAssociationsResponse(TypedDict):
+    association_summaries: NotRequired[
+        "aws_sdk_sagemaker.types.association_summaries.AssociationSummaries"
+    ]
+    """<p>A list of associations and their properties.</p>"""
+    next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
+    """<p>A token for getting the next set of associations, if there are any.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListAssociationsResponse) -> dict:
+    out: dict = {}
+    if "association_summaries" in value:
+        import aws_sdk_sagemaker.types.association_summaries
+
+        out["AssociationSummaries"] = (
+            aws_sdk_sagemaker.types.association_summaries.serialize_aws_json_1_1(
+                value["association_summaries"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListAssociationsResponse:
+    out: ListAssociationsResponse = {}  # type: ignore[typeddict-item]
+    if "AssociationSummaries" in data:
+        import aws_sdk_sagemaker.types.association_summaries
+
+        out["association_summaries"] = (
+            aws_sdk_sagemaker.types.association_summaries.deserialize_aws_json_1_1(
+                data["AssociationSummaries"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

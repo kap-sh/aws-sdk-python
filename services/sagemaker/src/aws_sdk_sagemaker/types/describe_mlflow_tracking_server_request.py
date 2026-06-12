@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeMlflowTrackingServerRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.tracking_server_name
+
+
+class DescribeMlflowTrackingServerRequest(TypedDict):
+    tracking_server_name: NotRequired[
+        "aws_sdk_sagemaker.types.tracking_server_name.TrackingServerName"
+    ]
+    """<p>The name of the MLflow Tracking Server to describe.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeMlflowTrackingServerRequest) -> dict:
+    out: dict = {}
+    if "tracking_server_name" in value:
+        out["TrackingServerName"] = value["tracking_server_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeMlflowTrackingServerRequest:
+    out: DescribeMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+    if "TrackingServerName" in data:
+        out["tracking_server_name"] = data["TrackingServerName"]
+    return out

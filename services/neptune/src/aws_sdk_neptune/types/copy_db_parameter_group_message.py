@@ -1,0 +1,92 @@
+"""Generated from Smithy shape ``com.amazonaws.neptune#CopyDBParameterGroupMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_neptune._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_neptune.types.string
+    import aws_sdk_neptune.types.tag_list
+
+
+class CopyDBParameterGroupMessage(TypedDict):
+    source_db_parameter_group_identifier: NotRequired[
+        "aws_sdk_neptune.types.string.String"
+    ]
+    """<p>The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must specify a valid DB parameter group identifier, for example <code>my-db-param-group</code>, or a valid ARN.</p> </li> <li> <p>The source DB parameter group must be in the same Amazon Region as the copy. Neptune does not support cross-Region copying of parameter groups.</p> </li> </ul>"""
+    target_db_parameter_group_identifier: NotRequired[
+        "aws_sdk_neptune.types.string.String"
+    ]
+    """<p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank.</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>"""
+    target_db_parameter_group_description: NotRequired[
+        "aws_sdk_neptune.types.string.String"
+    ]
+    """<p>A description for the copied DB parameter group.</p>"""
+    tags: NotRequired["aws_sdk_neptune.types.tag_list.TagList"]
+    """<p>The tags to be assigned to the copied DB parameter group.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: CopyDBParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "source_db_parameter_group_identifier" in value:
+        pairs.append(
+            (
+                f"{prefix}.SourceDBParameterGroupIdentifier",
+                str(value["source_db_parameter_group_identifier"]),
+            )
+        )
+    if "target_db_parameter_group_identifier" in value:
+        pairs.append(
+            (
+                f"{prefix}.TargetDBParameterGroupIdentifier",
+                str(value["target_db_parameter_group_identifier"]),
+            )
+        )
+    if "target_db_parameter_group_description" in value:
+        pairs.append(
+            (
+                f"{prefix}.TargetDBParameterGroupDescription",
+                str(value["target_db_parameter_group_description"]),
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_neptune.types.tag_list
+
+        aws_sdk_neptune.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{prefix}.Tags"
+        )
+
+
+def deserialize_query(el: Element) -> CopyDBParameterGroupMessage:
+    out: CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+    child_source_db_parameter_group_identifier = el.find(
+        "SourceDBParameterGroupIdentifier"
+    )
+    if child_source_db_parameter_group_identifier is not None:
+        out["source_db_parameter_group_identifier"] = str(
+            child_source_db_parameter_group_identifier.text or ""
+        )
+    child_target_db_parameter_group_identifier = el.find(
+        "TargetDBParameterGroupIdentifier"
+    )
+    if child_target_db_parameter_group_identifier is not None:
+        out["target_db_parameter_group_identifier"] = str(
+            child_target_db_parameter_group_identifier.text or ""
+        )
+    child_target_db_parameter_group_description = el.find(
+        "TargetDBParameterGroupDescription"
+    )
+    if child_target_db_parameter_group_description is not None:
+        out["target_db_parameter_group_description"] = str(
+            child_target_db_parameter_group_description.text or ""
+        )
+    child_tags = el.find("Tags")
+    if child_tags is not None:
+        import aws_sdk_neptune.types.tag_list
+
+        out["tags"] = aws_sdk_neptune.types.tag_list.deserialize_query(child_tags)
+    return out

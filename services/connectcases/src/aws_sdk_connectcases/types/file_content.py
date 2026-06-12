@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcases#FileContent``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_connectcases.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_connectcases.types.file_arn
+
+
+class FileContent(TypedDict):
+    file_arn: "aws_sdk_connectcases.types.file_arn.FileArn"
+    """<p>The Amazon Resource Name (ARN) of a File in Amazon Connect.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FileContent) -> dict:
+    out: dict = {}
+    out["fileArn"] = value["file_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> FileContent:
+    out: FileContent = {}  # type: ignore[typeddict-item]
+    if "fileArn" in data:
+        out["file_arn"] = data["fileArn"]
+    else:
+        raise DeserializationError("FileContent.file_arn required")
+    return out

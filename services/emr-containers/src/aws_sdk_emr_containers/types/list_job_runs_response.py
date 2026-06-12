@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.emrcontainers#ListJobRunsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_emr_containers.types.job_runs
+    import aws_sdk_emr_containers.types.next_token
+
+
+class ListJobRunsResponse(TypedDict):
+    job_runs: NotRequired["aws_sdk_emr_containers.types.job_runs.JobRuns"]
+    """<p>This output lists information about the specified job runs.</p>"""
+    next_token: NotRequired["aws_sdk_emr_containers.types.next_token.NextToken"]
+    """<p>This output displays the token for the next set of job runs.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListJobRunsResponse) -> dict:
+    out: dict = {}
+    if "job_runs" in value:
+        import aws_sdk_emr_containers.types.job_runs
+
+        out["jobRuns"] = aws_sdk_emr_containers.types.job_runs.serialize_json(
+            value["job_runs"]
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListJobRunsResponse:
+    out: ListJobRunsResponse = {}  # type: ignore[typeddict-item]
+    if "jobRuns" in data:
+        import aws_sdk_emr_containers.types.job_runs
+
+        out["job_runs"] = aws_sdk_emr_containers.types.job_runs.deserialize_json(
+            data["jobRuns"]
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

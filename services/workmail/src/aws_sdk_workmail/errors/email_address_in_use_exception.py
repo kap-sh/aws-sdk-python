@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.workmail#EmailAddressInUseException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_workmail.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_workmail.types.string
+
+
+class EmailAddressInUseException_(TypedDict):
+    message: NotRequired["aws_sdk_workmail.types.string.String"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EmailAddressInUseException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EmailAddressInUseException_:
+    out: EmailAddressInUseException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class EmailAddressInUseException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.workmail#EmailAddressInUseException``."""
+
+    code: str | None = "EmailAddressInUseException"
+
+    def __init__(self, data: EmailAddressInUseException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="EmailAddressInUseException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "EmailAddressInUseException":
+        return cls(deserialize_aws_json_1_1(data))

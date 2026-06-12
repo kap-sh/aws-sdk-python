@@ -1,0 +1,82 @@
+"""Generated from Smithy shape ``com.amazonaws.dax#UpdateClusterRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_dax.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_dax.types.security_group_identifier_list
+    import aws_sdk_dax.types.string
+
+
+class UpdateClusterRequest(TypedDict):
+    cluster_name: "aws_sdk_dax.types.string.String"
+    """<p>The name of the DAX cluster to be modified.</p>"""
+    description: NotRequired["aws_sdk_dax.types.string.String"]
+    """<p>A description of the changes being made to the cluster.</p>"""
+    preferred_maintenance_window: NotRequired["aws_sdk_dax.types.string.String"]
+    """<p>A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.</p>"""
+    notification_topic_arn: NotRequired["aws_sdk_dax.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) that identifies the topic.</p>"""
+    notification_topic_status: NotRequired["aws_sdk_dax.types.string.String"]
+    """<p>The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.</p>"""
+    parameter_group_name: NotRequired["aws_sdk_dax.types.string.String"]
+    """<p>The name of a parameter group for this cluster.</p>"""
+    security_group_ids: NotRequired[
+        "aws_sdk_dax.types.security_group_identifier_list.SecurityGroupIdentifierList"
+    ]
+    """<p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateClusterRequest) -> dict:
+    out: dict = {}
+    out["ClusterName"] = value["cluster_name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "preferred_maintenance_window" in value:
+        out["PreferredMaintenanceWindow"] = value["preferred_maintenance_window"]
+    if "notification_topic_arn" in value:
+        out["NotificationTopicArn"] = value["notification_topic_arn"]
+    if "notification_topic_status" in value:
+        out["NotificationTopicStatus"] = value["notification_topic_status"]
+    if "parameter_group_name" in value:
+        out["ParameterGroupName"] = value["parameter_group_name"]
+    if "security_group_ids" in value:
+        import aws_sdk_dax.types.security_group_identifier_list
+
+        out["SecurityGroupIds"] = (
+            aws_sdk_dax.types.security_group_identifier_list.serialize_aws_json_1_1(
+                value["security_group_ids"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateClusterRequest:
+    out: UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+    if "ClusterName" in data:
+        out["cluster_name"] = data["ClusterName"]
+    else:
+        raise DeserializationError("UpdateClusterRequest.cluster_name required")
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "PreferredMaintenanceWindow" in data:
+        out["preferred_maintenance_window"] = data["PreferredMaintenanceWindow"]
+    if "NotificationTopicArn" in data:
+        out["notification_topic_arn"] = data["NotificationTopicArn"]
+    if "NotificationTopicStatus" in data:
+        out["notification_topic_status"] = data["NotificationTopicStatus"]
+    if "ParameterGroupName" in data:
+        out["parameter_group_name"] = data["ParameterGroupName"]
+    if "SecurityGroupIds" in data:
+        import aws_sdk_dax.types.security_group_identifier_list
+
+        out["security_group_ids"] = (
+            aws_sdk_dax.types.security_group_identifier_list.deserialize_aws_json_1_1(
+                data["SecurityGroupIds"]
+            )
+        )
+    return out

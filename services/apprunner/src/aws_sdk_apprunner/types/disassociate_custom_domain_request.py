@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.apprunner#DisassociateCustomDomainRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_apprunner.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_apprunner.types.app_runner_resource_arn
+    import aws_sdk_apprunner.types.domain_name
+
+
+class DisassociateCustomDomainRequest(TypedDict):
+    service_arn: "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
+    """<p>The Amazon Resource Name (ARN) of the App Runner service that you want to disassociate a custom domain name from.</p>"""
+    domain_name: "aws_sdk_apprunner.types.domain_name.DomainName"
+    """<p>The domain name that you want to disassociate from the App Runner service.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DisassociateCustomDomainRequest) -> dict:
+    out: dict = {}
+    out["ServiceArn"] = value["service_arn"]
+    out["DomainName"] = value["domain_name"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DisassociateCustomDomainRequest:
+    out: DisassociateCustomDomainRequest = {}  # type: ignore[typeddict-item]
+    if "ServiceArn" in data:
+        out["service_arn"] = data["ServiceArn"]
+    else:
+        raise DeserializationError(
+            "DisassociateCustomDomainRequest.service_arn required"
+        )
+    if "DomainName" in data:
+        out["domain_name"] = data["DomainName"]
+    else:
+        raise DeserializationError(
+            "DisassociateCustomDomainRequest.domain_name required"
+        )
+    return out

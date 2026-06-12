@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.databrew#UpdateRecipeJobResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_databrew.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_databrew.types.job_name
+
+
+class UpdateRecipeJobResponse(TypedDict):
+    name: "aws_sdk_databrew.types.job_name.JobName"
+    """<p>The name of the job that you updated.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateRecipeJobResponse) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateRecipeJobResponse:
+    out: UpdateRecipeJobResponse = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("UpdateRecipeJobResponse.name required")
+    return out

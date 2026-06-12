@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#VideoSelectorSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.video_selector_pid
+    import aws_sdk_medialive.types.video_selector_program_id
+
+
+class VideoSelectorSettings(TypedDict):
+    video_selector_pid: NotRequired[
+        "aws_sdk_medialive.types.video_selector_pid.VideoSelectorPid"
+    ]
+    video_selector_program_id: NotRequired[
+        "aws_sdk_medialive.types.video_selector_program_id.VideoSelectorProgramId"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: VideoSelectorSettings) -> dict:
+    out: dict = {}
+    if "video_selector_pid" in value:
+        import aws_sdk_medialive.types.video_selector_pid
+
+        out["videoSelectorPid"] = (
+            aws_sdk_medialive.types.video_selector_pid.serialize_json(
+                value["video_selector_pid"]
+            )
+        )
+    if "video_selector_program_id" in value:
+        import aws_sdk_medialive.types.video_selector_program_id
+
+        out["videoSelectorProgramId"] = (
+            aws_sdk_medialive.types.video_selector_program_id.serialize_json(
+                value["video_selector_program_id"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> VideoSelectorSettings:
+    out: VideoSelectorSettings = {}  # type: ignore[typeddict-item]
+    if "videoSelectorPid" in data:
+        import aws_sdk_medialive.types.video_selector_pid
+
+        out["video_selector_pid"] = (
+            aws_sdk_medialive.types.video_selector_pid.deserialize_json(
+                data["videoSelectorPid"]
+            )
+        )
+    if "videoSelectorProgramId" in data:
+        import aws_sdk_medialive.types.video_selector_program_id
+
+        out["video_selector_program_id"] = (
+            aws_sdk_medialive.types.video_selector_program_id.deserialize_json(
+                data["videoSelectorProgramId"]
+            )
+        )
+    return out

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.lexruntimeservice#SentimentResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lex_runtime_service.types.sentiment_label
+    import aws_sdk_lex_runtime_service.types.sentiment_score
+
+
+class SentimentResponse(TypedDict):
+    sentiment_label: NotRequired[
+        "aws_sdk_lex_runtime_service.types.sentiment_label.SentimentLabel"
+    ]
+    """<p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>"""
+    sentiment_score: NotRequired[
+        "aws_sdk_lex_runtime_service.types.sentiment_score.SentimentScore"
+    ]
+    """<p>The likelihood that the sentiment was correctly inferred.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SentimentResponse) -> dict:
+    out: dict = {}
+    if "sentiment_label" in value:
+        out["sentimentLabel"] = value["sentiment_label"]
+    if "sentiment_score" in value:
+        out["sentimentScore"] = value["sentiment_score"]
+    return out
+
+
+def deserialize_json(data: dict) -> SentimentResponse:
+    out: SentimentResponse = {}  # type: ignore[typeddict-item]
+    if "sentimentLabel" in data:
+        out["sentiment_label"] = data["sentimentLabel"]
+    if "sentimentScore" in data:
+        out["sentiment_score"] = data["sentimentScore"]
+    return out

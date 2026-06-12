@@ -1,0 +1,176 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypeDeclaration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codepipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.action_type_artifact_details
+    import aws_sdk_codepipeline.types.action_type_description
+    import aws_sdk_codepipeline.types.action_type_executor
+    import aws_sdk_codepipeline.types.action_type_identifier
+    import aws_sdk_codepipeline.types.action_type_permissions
+    import aws_sdk_codepipeline.types.action_type_properties
+    import aws_sdk_codepipeline.types.action_type_urls
+
+
+class ActionTypeDeclaration(TypedDict):
+    description: NotRequired[
+        "aws_sdk_codepipeline.types.action_type_description.ActionTypeDescription"
+    ]
+    """<p>The description for the action type to be updated.</p>"""
+    executor: "aws_sdk_codepipeline.types.action_type_executor.ActionTypeExecutor"
+    """<p>Information about the executor for an action type that was created with any supported integration model.</p>"""
+    id: "aws_sdk_codepipeline.types.action_type_identifier.ActionTypeIdentifier"
+    """<p>The action category, owner, provider, and version of the action type to be updated.</p>"""
+    input_artifact_details: "aws_sdk_codepipeline.types.action_type_artifact_details.ActionTypeArtifactDetails"
+    """<p>Details for the artifacts, such as application files, to be worked on by the action. For example, the minimum and maximum number of input artifacts allowed.</p>"""
+    output_artifact_details: "aws_sdk_codepipeline.types.action_type_artifact_details.ActionTypeArtifactDetails"
+    """<p>Details for the output artifacts, such as a built application, that are the result of the action. For example, the minimum and maximum number of output artifacts allowed.</p>"""
+    permissions: NotRequired[
+        "aws_sdk_codepipeline.types.action_type_permissions.ActionTypePermissions"
+    ]
+    """<p>Details identifying the accounts with permissions to use the action type.</p>"""
+    properties: NotRequired[
+        "aws_sdk_codepipeline.types.action_type_properties.ActionTypeProperties"
+    ]
+    """<p>The properties of the action type to be updated.</p>"""
+    urls: NotRequired["aws_sdk_codepipeline.types.action_type_urls.ActionTypeUrls"]
+    """<p>The links associated with the action type to be updated.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ActionTypeDeclaration) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["description"] = value["description"]
+    import aws_sdk_codepipeline.types.action_type_executor
+
+    out["executor"] = (
+        aws_sdk_codepipeline.types.action_type_executor.serialize_aws_json_1_1(
+            value["executor"]
+        )
+    )
+    import aws_sdk_codepipeline.types.action_type_identifier
+
+    out["id"] = (
+        aws_sdk_codepipeline.types.action_type_identifier.serialize_aws_json_1_1(
+            value["id"]
+        )
+    )
+    import aws_sdk_codepipeline.types.action_type_artifact_details
+
+    out["inputArtifactDetails"] = (
+        aws_sdk_codepipeline.types.action_type_artifact_details.serialize_aws_json_1_1(
+            value["input_artifact_details"]
+        )
+    )
+    import aws_sdk_codepipeline.types.action_type_artifact_details
+
+    out["outputArtifactDetails"] = (
+        aws_sdk_codepipeline.types.action_type_artifact_details.serialize_aws_json_1_1(
+            value["output_artifact_details"]
+        )
+    )
+    if "permissions" in value:
+        import aws_sdk_codepipeline.types.action_type_permissions
+
+        out["permissions"] = (
+            aws_sdk_codepipeline.types.action_type_permissions.serialize_aws_json_1_1(
+                value["permissions"]
+            )
+        )
+    if "properties" in value:
+        import aws_sdk_codepipeline.types.action_type_properties
+
+        out["properties"] = (
+            aws_sdk_codepipeline.types.action_type_properties.serialize_aws_json_1_1(
+                value["properties"]
+            )
+        )
+    if "urls" in value:
+        import aws_sdk_codepipeline.types.action_type_urls
+
+        out["urls"] = (
+            aws_sdk_codepipeline.types.action_type_urls.serialize_aws_json_1_1(
+                value["urls"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ActionTypeDeclaration:
+    out: ActionTypeDeclaration = {}  # type: ignore[typeddict-item]
+    if "description" in data:
+        out["description"] = data["description"]
+    if "executor" in data:
+        import aws_sdk_codepipeline.types.action_type_executor
+
+        out["executor"] = (
+            aws_sdk_codepipeline.types.action_type_executor.deserialize_aws_json_1_1(
+                data["executor"]
+            )
+        )
+    else:
+        raise DeserializationError("ActionTypeDeclaration.executor required")
+    if "id" in data:
+        import aws_sdk_codepipeline.types.action_type_identifier
+
+        out["id"] = (
+            aws_sdk_codepipeline.types.action_type_identifier.deserialize_aws_json_1_1(
+                data["id"]
+            )
+        )
+    else:
+        raise DeserializationError("ActionTypeDeclaration.id required")
+    if "inputArtifactDetails" in data:
+        import aws_sdk_codepipeline.types.action_type_artifact_details
+
+        out["input_artifact_details"] = (
+            aws_sdk_codepipeline.types.action_type_artifact_details.deserialize_aws_json_1_1(
+                data["inputArtifactDetails"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ActionTypeDeclaration.input_artifact_details required"
+        )
+    if "outputArtifactDetails" in data:
+        import aws_sdk_codepipeline.types.action_type_artifact_details
+
+        out["output_artifact_details"] = (
+            aws_sdk_codepipeline.types.action_type_artifact_details.deserialize_aws_json_1_1(
+                data["outputArtifactDetails"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ActionTypeDeclaration.output_artifact_details required"
+        )
+    if "permissions" in data:
+        import aws_sdk_codepipeline.types.action_type_permissions
+
+        out["permissions"] = (
+            aws_sdk_codepipeline.types.action_type_permissions.deserialize_aws_json_1_1(
+                data["permissions"]
+            )
+        )
+    if "properties" in data:
+        import aws_sdk_codepipeline.types.action_type_properties
+
+        out["properties"] = (
+            aws_sdk_codepipeline.types.action_type_properties.deserialize_aws_json_1_1(
+                data["properties"]
+            )
+        )
+    if "urls" in data:
+        import aws_sdk_codepipeline.types.action_type_urls
+
+        out["urls"] = (
+            aws_sdk_codepipeline.types.action_type_urls.deserialize_aws_json_1_1(
+                data["urls"]
+            )
+        )
+    return out

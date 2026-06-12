@@ -1,0 +1,104 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#GetSchemaVersionsDiffInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.schema_diff_type
+    import aws_sdk_glue.types.schema_id
+    import aws_sdk_glue.types.schema_version_number
+
+
+class GetSchemaVersionsDiffInput(TypedDict):
+    schema_id: "aws_sdk_glue.types.schema_id.SchemaId"
+    """<p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> </ul>"""
+    first_schema_version_number: (
+        "aws_sdk_glue.types.schema_version_number.SchemaVersionNumber"
+    )
+    """<p>The first of the two schema versions to be compared.</p>"""
+    second_schema_version_number: (
+        "aws_sdk_glue.types.schema_version_number.SchemaVersionNumber"
+    )
+    """<p>The second of the two schema versions to be compared.</p>"""
+    schema_diff_type: "aws_sdk_glue.types.schema_diff_type.SchemaDiffType"
+    """<p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetSchemaVersionsDiffInput) -> dict:
+    out: dict = {}
+    import aws_sdk_glue.types.schema_id
+
+    out["SchemaId"] = aws_sdk_glue.types.schema_id.serialize_aws_json_1_1(
+        value["schema_id"]
+    )
+    import aws_sdk_glue.types.schema_version_number
+
+    out["FirstSchemaVersionNumber"] = (
+        aws_sdk_glue.types.schema_version_number.serialize_aws_json_1_1(
+            value["first_schema_version_number"]
+        )
+    )
+    import aws_sdk_glue.types.schema_version_number
+
+    out["SecondSchemaVersionNumber"] = (
+        aws_sdk_glue.types.schema_version_number.serialize_aws_json_1_1(
+            value["second_schema_version_number"]
+        )
+    )
+    import aws_sdk_glue.types.schema_diff_type
+
+    out["SchemaDiffType"] = aws_sdk_glue.types.schema_diff_type.serialize_aws_json_1_1(
+        value["schema_diff_type"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetSchemaVersionsDiffInput:
+    out: GetSchemaVersionsDiffInput = {}  # type: ignore[typeddict-item]
+    if "SchemaId" in data:
+        import aws_sdk_glue.types.schema_id
+
+        out["schema_id"] = aws_sdk_glue.types.schema_id.deserialize_aws_json_1_1(
+            data["SchemaId"]
+        )
+    else:
+        raise DeserializationError("GetSchemaVersionsDiffInput.schema_id required")
+    if "FirstSchemaVersionNumber" in data:
+        import aws_sdk_glue.types.schema_version_number
+
+        out["first_schema_version_number"] = (
+            aws_sdk_glue.types.schema_version_number.deserialize_aws_json_1_1(
+                data["FirstSchemaVersionNumber"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetSchemaVersionsDiffInput.first_schema_version_number required"
+        )
+    if "SecondSchemaVersionNumber" in data:
+        import aws_sdk_glue.types.schema_version_number
+
+        out["second_schema_version_number"] = (
+            aws_sdk_glue.types.schema_version_number.deserialize_aws_json_1_1(
+                data["SecondSchemaVersionNumber"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetSchemaVersionsDiffInput.second_schema_version_number required"
+        )
+    if "SchemaDiffType" in data:
+        import aws_sdk_glue.types.schema_diff_type
+
+        out["schema_diff_type"] = (
+            aws_sdk_glue.types.schema_diff_type.deserialize_aws_json_1_1(
+                data["SchemaDiffType"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetSchemaVersionsDiffInput.schema_diff_type required"
+        )
+    return out

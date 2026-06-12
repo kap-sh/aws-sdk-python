@@ -1,0 +1,149 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#DescribeFleetMetricResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.aggregation_field
+    import aws_sdk_iot.types.aggregation_type
+    import aws_sdk_iot.types.creation_date
+    import aws_sdk_iot.types.fleet_metric_arn
+    import aws_sdk_iot.types.fleet_metric_description
+    import aws_sdk_iot.types.fleet_metric_name
+    import aws_sdk_iot.types.fleet_metric_period
+    import aws_sdk_iot.types.fleet_metric_unit
+    import aws_sdk_iot.types.index_name
+    import aws_sdk_iot.types.last_modified_date
+    import aws_sdk_iot.types.query_string
+    import aws_sdk_iot.types.query_version
+    import aws_sdk_iot.types.version
+
+
+class DescribeFleetMetricResponse(TypedDict):
+    metric_name: NotRequired["aws_sdk_iot.types.fleet_metric_name.FleetMetricName"]
+    """<p>The name of the fleet metric to describe.</p>"""
+    query_string: NotRequired["aws_sdk_iot.types.query_string.QueryString"]
+    """<p>The search query string.</p>"""
+    aggregation_type: NotRequired["aws_sdk_iot.types.aggregation_type.AggregationType"]
+    """<p>The type of the aggregation query.</p>"""
+    period: NotRequired["aws_sdk_iot.types.fleet_metric_period.FleetMetricPeriod"]
+    """<p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>"""
+    aggregation_field: NotRequired[
+        "aws_sdk_iot.types.aggregation_field.AggregationField"
+    ]
+    """<p>The field to aggregate.</p>"""
+    description: NotRequired[
+        "aws_sdk_iot.types.fleet_metric_description.FleetMetricDescription"
+    ]
+    """<p>The fleet metric description.</p>"""
+    query_version: NotRequired["aws_sdk_iot.types.query_version.QueryVersion"]
+    """<p>The query version.</p>"""
+    index_name: NotRequired["aws_sdk_iot.types.index_name.IndexName"]
+    """<p>The name of the index to search.</p>"""
+    creation_date: NotRequired["aws_sdk_iot.types.creation_date.CreationDate"]
+    """<p>The date when the fleet metric is created.</p>"""
+    last_modified_date: NotRequired[
+        "aws_sdk_iot.types.last_modified_date.LastModifiedDate"
+    ]
+    """<p>The date when the fleet metric is last modified.</p>"""
+    unit: NotRequired["aws_sdk_iot.types.fleet_metric_unit.FleetMetricUnit"]
+    """<p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>.</p>"""
+    version: "aws_sdk_iot.types.version.Version"
+    """<p>The version of the fleet metric.</p>"""
+    metric_arn: NotRequired["aws_sdk_iot.types.fleet_metric_arn.FleetMetricArn"]
+    """<p>The ARN of the fleet metric to describe.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeFleetMetricResponse) -> dict:
+    out: dict = {}
+    if "metric_name" in value:
+        out["metricName"] = value["metric_name"]
+    if "query_string" in value:
+        out["queryString"] = value["query_string"]
+    if "aggregation_type" in value:
+        import aws_sdk_iot.types.aggregation_type
+
+        out["aggregationType"] = aws_sdk_iot.types.aggregation_type.serialize_json(
+            value["aggregation_type"]
+        )
+    if "period" in value:
+        out["period"] = value["period"]
+    if "aggregation_field" in value:
+        out["aggregationField"] = value["aggregation_field"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "query_version" in value:
+        out["queryVersion"] = value["query_version"]
+    if "index_name" in value:
+        out["indexName"] = value["index_name"]
+    if "creation_date" in value:
+        import aws_sdk_iot.types.creation_date
+
+        out["creationDate"] = aws_sdk_iot.types.creation_date.serialize_json(
+            value["creation_date"]
+        )
+    if "last_modified_date" in value:
+        import aws_sdk_iot.types.last_modified_date
+
+        out["lastModifiedDate"] = aws_sdk_iot.types.last_modified_date.serialize_json(
+            value["last_modified_date"]
+        )
+    if "unit" in value:
+        import aws_sdk_iot.types.fleet_metric_unit
+
+        out["unit"] = aws_sdk_iot.types.fleet_metric_unit.serialize_json(value["unit"])
+    out["version"] = value.get("version", 0)
+    if "metric_arn" in value:
+        out["metricArn"] = value["metric_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeFleetMetricResponse:
+    out: DescribeFleetMetricResponse = {}  # type: ignore[typeddict-item]
+    if "metricName" in data:
+        out["metric_name"] = data["metricName"]
+    if "queryString" in data:
+        out["query_string"] = data["queryString"]
+    if "aggregationType" in data:
+        import aws_sdk_iot.types.aggregation_type
+
+        out["aggregation_type"] = aws_sdk_iot.types.aggregation_type.deserialize_json(
+            data["aggregationType"]
+        )
+    if "period" in data:
+        out["period"] = data["period"]
+    if "aggregationField" in data:
+        out["aggregation_field"] = data["aggregationField"]
+    if "description" in data:
+        out["description"] = data["description"]
+    if "queryVersion" in data:
+        out["query_version"] = data["queryVersion"]
+    if "indexName" in data:
+        out["index_name"] = data["indexName"]
+    if "creationDate" in data:
+        import aws_sdk_iot.types.creation_date
+
+        out["creation_date"] = aws_sdk_iot.types.creation_date.deserialize_json(
+            data["creationDate"]
+        )
+    if "lastModifiedDate" in data:
+        import aws_sdk_iot.types.last_modified_date
+
+        out["last_modified_date"] = (
+            aws_sdk_iot.types.last_modified_date.deserialize_json(
+                data["lastModifiedDate"]
+            )
+        )
+    if "unit" in data:
+        import aws_sdk_iot.types.fleet_metric_unit
+
+        out["unit"] = aws_sdk_iot.types.fleet_metric_unit.deserialize_json(data["unit"])
+    if "version" in data:
+        out["version"] = data["version"]
+    else:
+        out["version"] = 0
+    if "metricArn" in data:
+        out["metric_arn"] = data["metricArn"]
+    return out

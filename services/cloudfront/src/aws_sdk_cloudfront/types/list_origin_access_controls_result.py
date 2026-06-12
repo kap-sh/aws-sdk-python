@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#ListOriginAccessControlsResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudfront.types.origin_access_control_list
+
+
+class ListOriginAccessControlsResult(TypedDict):
+    origin_access_control_list: NotRequired[
+        "aws_sdk_cloudfront.types.origin_access_control_list.OriginAccessControlList"
+    ]
+    """<p>A list of origin access controls.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: ListOriginAccessControlsResult, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    if "origin_access_control_list" in value:
+        import aws_sdk_cloudfront.types.origin_access_control_list
+
+        aws_sdk_cloudfront.types.origin_access_control_list.serialize_xml(
+            value["origin_access_control_list"], el, "OriginAccessControlList"
+        )
+
+
+def deserialize_xml(el: Element) -> ListOriginAccessControlsResult:
+    out: ListOriginAccessControlsResult = {}  # type: ignore[typeddict-item]
+    child_origin_access_control_list = el.find("OriginAccessControlList")
+    if child_origin_access_control_list is not None:
+        import aws_sdk_cloudfront.types.origin_access_control_list
+
+        out["origin_access_control_list"] = (
+            aws_sdk_cloudfront.types.origin_access_control_list.deserialize_xml(
+                child_origin_access_control_list
+            )
+        )
+    return out

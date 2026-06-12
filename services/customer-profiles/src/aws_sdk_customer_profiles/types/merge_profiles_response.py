@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#MergeProfilesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_customer_profiles.types.message
+
+
+class MergeProfilesResponse(TypedDict):
+    message: NotRequired["aws_sdk_customer_profiles.types.message.message"]
+    """<p>A message that indicates the merge request is complete.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MergeProfilesResponse) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> MergeProfilesResponse:
+    out: MergeProfilesResponse = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out

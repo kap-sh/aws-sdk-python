@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#OperatingSystem``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_gamelift.errors import DeserializationError
+
+OperatingSystem: TypeAlias = Literal[
+    "WINDOWS_2012",
+    "AMAZON_LINUX",
+    "AMAZON_LINUX_2",
+    "WINDOWS_2016",
+    "AMAZON_LINUX_2023",
+    "WINDOWS_2022",
+]
+
+
+# --- awsJson1_1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "WINDOWS_2012",
+        "AMAZON_LINUX",
+        "AMAZON_LINUX_2",
+        "WINDOWS_2016",
+        "AMAZON_LINUX_2023",
+        "WINDOWS_2022",
+    )
+)
+
+
+def serialize_aws_json_1_1(value: OperatingSystem) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> OperatingSystem:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown OperatingSystem value: {data!r}")
+    return cast(OperatingSystem, data)

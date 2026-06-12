@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeOrganizationResourceCollectionHealthResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_devops_guru.types.account_healths
+    import aws_sdk_devops_guru.types.cloud_formation_healths
+    import aws_sdk_devops_guru.types.service_healths
+    import aws_sdk_devops_guru.types.tag_healths
+    import aws_sdk_devops_guru.types.uuid_next_token
+
+
+class DescribeOrganizationResourceCollectionHealthResponse(TypedDict):
+    cloud_formation: NotRequired[
+        "aws_sdk_devops_guru.types.cloud_formation_healths.CloudFormationHealths"
+    ]
+    """<p>The returned <code>CloudFormationHealthOverview</code> object that contains an <code>InsightHealthOverview</code> object with the requested system health information.</p>"""
+    service: NotRequired["aws_sdk_devops_guru.types.service_healths.ServiceHealths"]
+    """<p>An array of <code>ServiceHealth</code> objects that describes the health of the Amazon Web Services services associated with the resources in the collection.</p>"""
+    account: NotRequired["aws_sdk_devops_guru.types.account_healths.AccountHealths"]
+    """<p>The name of the organization's account.</p>"""
+    next_token: NotRequired["aws_sdk_devops_guru.types.uuid_next_token.UuidNextToken"]
+    """<p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>"""
+    tags: NotRequired["aws_sdk_devops_guru.types.tag_healths.TagHealths"]
+    """<p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an Lambda function. For more information about using tags, see the <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html\">Tagging best practices</a> whitepaper. </p> <p>Each Amazon Web Services tag has two parts. </p> <ul> <li> <p>A tag <i>key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag <i>keys</i> are case-sensitive.</p> </li> <li> <p>An optional field known as a tag <i>value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag <i>value</i> is the same as using an empty string. Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.</p> </li> </ul> <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p> <important> <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the prefix <code>Devops-guru-</code>. The tag <i>key</i> might be <code>DevOps-Guru-deployment-application</code> or <code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive. For example, DevOps Guru works with a <i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named <code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your application might be <code>Devops-Guru-production-application/RDS</code> or <code>Devops-Guru-production-application/containers</code>.</p> </important>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeOrganizationResourceCollectionHealthResponse) -> dict:
+    out: dict = {}
+    if "cloud_formation" in value:
+        import aws_sdk_devops_guru.types.cloud_formation_healths
+
+        out["CloudFormation"] = (
+            aws_sdk_devops_guru.types.cloud_formation_healths.serialize_json(
+                value["cloud_formation"]
+            )
+        )
+    if "service" in value:
+        import aws_sdk_devops_guru.types.service_healths
+
+        out["Service"] = aws_sdk_devops_guru.types.service_healths.serialize_json(
+            value["service"]
+        )
+    if "account" in value:
+        import aws_sdk_devops_guru.types.account_healths
+
+        out["Account"] = aws_sdk_devops_guru.types.account_healths.serialize_json(
+            value["account"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "tags" in value:
+        import aws_sdk_devops_guru.types.tag_healths
+
+        out["Tags"] = aws_sdk_devops_guru.types.tag_healths.serialize_json(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_json(
+    data: dict,
+) -> DescribeOrganizationResourceCollectionHealthResponse:
+    out: DescribeOrganizationResourceCollectionHealthResponse = {}  # type: ignore[typeddict-item]
+    if "CloudFormation" in data:
+        import aws_sdk_devops_guru.types.cloud_formation_healths
+
+        out["cloud_formation"] = (
+            aws_sdk_devops_guru.types.cloud_formation_healths.deserialize_json(
+                data["CloudFormation"]
+            )
+        )
+    if "Service" in data:
+        import aws_sdk_devops_guru.types.service_healths
+
+        out["service"] = aws_sdk_devops_guru.types.service_healths.deserialize_json(
+            data["Service"]
+        )
+    if "Account" in data:
+        import aws_sdk_devops_guru.types.account_healths
+
+        out["account"] = aws_sdk_devops_guru.types.account_healths.deserialize_json(
+            data["Account"]
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Tags" in data:
+        import aws_sdk_devops_guru.types.tag_healths
+
+        out["tags"] = aws_sdk_devops_guru.types.tag_healths.deserialize_json(
+            data["Tags"]
+        )
+    return out

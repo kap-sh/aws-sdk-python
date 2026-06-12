@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#PatchFilterGroup``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.patch_filter_list
+
+
+class PatchFilterGroup(TypedDict):
+    patch_filters: "aws_sdk_ssm.types.patch_filter_list.PatchFilterList"
+    """<p>The set of patch filters that make up the group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PatchFilterGroup) -> dict:
+    out: dict = {}
+    import aws_sdk_ssm.types.patch_filter_list
+
+    out["PatchFilters"] = aws_sdk_ssm.types.patch_filter_list.serialize_aws_json_1_1(
+        value["patch_filters"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PatchFilterGroup:
+    out: PatchFilterGroup = {}  # type: ignore[typeddict-item]
+    if "PatchFilters" in data:
+        import aws_sdk_ssm.types.patch_filter_list
+
+        out["patch_filters"] = (
+            aws_sdk_ssm.types.patch_filter_list.deserialize_aws_json_1_1(
+                data["PatchFilters"]
+            )
+        )
+    else:
+        raise DeserializationError("PatchFilterGroup.patch_filters required")
+    return out

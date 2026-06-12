@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudformation#StackDriftStatus``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_cloudformation._protocol.xml import Element
+from aws_sdk_cloudformation.errors import DeserializationError
+
+StackDriftStatus: TypeAlias = Literal[
+    "DRIFTED",
+    "IN_SYNC",
+    "UNKNOWN",
+    "NOT_CHECKED",
+]
+
+
+# --- awsQuery ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "DRIFTED",
+        "IN_SYNC",
+        "UNKNOWN",
+        "NOT_CHECKED",
+    )
+)
+
+
+def to_query_text(value: StackDriftStatus) -> str:
+    return value
+
+
+def from_query_text(text: str) -> StackDriftStatus:
+    if text not in _VALUES:
+        raise DeserializationError(f"unknown StackDriftStatus value: {text!r}")
+    return cast(StackDriftStatus, text)
+
+
+def serialize_query(
+    value: StackDriftStatus, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> StackDriftStatus:
+    return from_query_text(el.text or "")

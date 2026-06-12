@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.dataexchange#SendDataSetNotificationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_dataexchange.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_dataexchange.types.__string_min0_max4096
+    import aws_sdk_dataexchange.types.client_token
+    import aws_sdk_dataexchange.types.id
+    import aws_sdk_dataexchange.types.notification_details
+    import aws_sdk_dataexchange.types.notification_type
+    import aws_sdk_dataexchange.types.scope_details
+
+
+class SendDataSetNotificationRequest(TypedDict):
+    scope: NotRequired["aws_sdk_dataexchange.types.scope_details.ScopeDetails"]
+    """<p>Affected scope of this notification such as the underlying resources affected by the notification event.</p>"""
+    client_token: NotRequired["aws_sdk_dataexchange.types.client_token.ClientToken"]
+    """<p>Idempotency key for the notification, this key allows us to deduplicate notifications that are sent in quick succession erroneously.</p>"""
+    comment: NotRequired[
+        "aws_sdk_dataexchange.types.__string_min0_max4096.__stringMin0Max4096"
+    ]
+    """<p>Free-form text field for providers to add information about their notifications.</p>"""
+    data_set_id: "aws_sdk_dataexchange.types.id.Id"
+    """<p>Affected data set of the notification.</p>"""
+    details: NotRequired[
+        "aws_sdk_dataexchange.types.notification_details.NotificationDetails"
+    ]
+    """<p>Extra details specific to this notification type.</p>"""
+    type: "aws_sdk_dataexchange.types.notification_type.NotificationType"
+    """<p>The type of the notification. Describing the kind of event the notification is alerting you to.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SendDataSetNotificationRequest) -> dict:
+    out: dict = {}
+    if "scope" in value:
+        import aws_sdk_dataexchange.types.scope_details
+
+        out["Scope"] = aws_sdk_dataexchange.types.scope_details.serialize_json(
+            value["scope"]
+        )
+    if "client_token" in value:
+        out["ClientToken"] = value["client_token"]
+    if "comment" in value:
+        out["Comment"] = value["comment"]
+    if "details" in value:
+        import aws_sdk_dataexchange.types.notification_details
+
+        out["Details"] = aws_sdk_dataexchange.types.notification_details.serialize_json(
+            value["details"]
+        )
+    out["Type"] = value["type"]
+    return out
+
+
+def deserialize_json(data: dict) -> SendDataSetNotificationRequest:
+    out: SendDataSetNotificationRequest = {}  # type: ignore[typeddict-item]
+    if "Scope" in data:
+        import aws_sdk_dataexchange.types.scope_details
+
+        out["scope"] = aws_sdk_dataexchange.types.scope_details.deserialize_json(
+            data["Scope"]
+        )
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    if "Comment" in data:
+        out["comment"] = data["Comment"]
+    if "Details" in data:
+        import aws_sdk_dataexchange.types.notification_details
+
+        out["details"] = (
+            aws_sdk_dataexchange.types.notification_details.deserialize_json(
+                data["Details"]
+            )
+        )
+    if "Type" in data:
+        out["type"] = data["Type"]
+    else:
+        raise DeserializationError("SendDataSetNotificationRequest.type required")
+    return out

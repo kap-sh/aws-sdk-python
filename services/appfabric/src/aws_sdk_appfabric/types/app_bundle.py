@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.appfabric#AppBundle``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_appfabric.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_appfabric.types.arn
+
+
+class AppBundle(TypedDict):
+    arn: "aws_sdk_appfabric.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the app bundle.</p>"""
+    customer_managed_key_arn: NotRequired["aws_sdk_appfabric.types.arn.Arn"]
+    """<p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the application data.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AppBundle) -> dict:
+    out: dict = {}
+    out["arn"] = value["arn"]
+    if "customer_managed_key_arn" in value:
+        out["customerManagedKeyArn"] = value["customer_managed_key_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> AppBundle:
+    out: AppBundle = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("AppBundle.arn required")
+    if "customerManagedKeyArn" in data:
+        out["customer_managed_key_arn"] = data["customerManagedKeyArn"]
+    return out

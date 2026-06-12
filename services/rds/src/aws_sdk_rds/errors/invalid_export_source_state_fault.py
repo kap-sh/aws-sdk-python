@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.rds#InvalidExportSourceStateFault``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_rds._protocol.xml import Element
+from aws_sdk_rds.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_rds.types.exception_message
+
+
+class InvalidExportSourceStateFault_(TypedDict):
+    message: NotRequired["aws_sdk_rds.types.exception_message.ExceptionMessage"]
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: InvalidExportSourceStateFault_, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "message" in value:
+        pairs.append((f"{prefix}.message", str(value["message"])))
+
+
+def deserialize_query(el: Element) -> InvalidExportSourceStateFault_:
+    out: InvalidExportSourceStateFault_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class InvalidExportSourceStateFault(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.rds#InvalidExportSourceStateFault``."""
+
+    code: str | None = "InvalidExportSourceStateFault"
+
+    def __init__(self, data: InvalidExportSourceStateFault_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidExportSourceStateFault",
+        )
+        self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "InvalidExportSourceStateFault":
+        return cls(deserialize_query(el))

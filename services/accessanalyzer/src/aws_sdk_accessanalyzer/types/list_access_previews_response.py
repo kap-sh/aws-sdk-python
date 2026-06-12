@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListAccessPreviewsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_accessanalyzer.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_accessanalyzer.types.access_previews_list
+    import aws_sdk_accessanalyzer.types.token
+
+
+class ListAccessPreviewsResponse(TypedDict):
+    access_previews: (
+        "aws_sdk_accessanalyzer.types.access_previews_list.AccessPreviewsList"
+    )
+    """<p>A list of access previews retrieved for the analyzer.</p>"""
+    next_token: NotRequired["aws_sdk_accessanalyzer.types.token.Token"]
+    """<p>A token used for pagination of results returned.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAccessPreviewsResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_accessanalyzer.types.access_previews_list
+
+    out["accessPreviews"] = (
+        aws_sdk_accessanalyzer.types.access_previews_list.serialize_json(
+            value["access_previews"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListAccessPreviewsResponse:
+    out: ListAccessPreviewsResponse = {}  # type: ignore[typeddict-item]
+    if "accessPreviews" in data:
+        import aws_sdk_accessanalyzer.types.access_previews_list
+
+        out["access_previews"] = (
+            aws_sdk_accessanalyzer.types.access_previews_list.deserialize_json(
+                data["accessPreviews"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListAccessPreviewsResponse.access_previews required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

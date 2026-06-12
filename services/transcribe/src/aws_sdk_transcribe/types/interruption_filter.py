@@ -1,0 +1,100 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#InterruptionFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_transcribe.types.absolute_time_range
+    import aws_sdk_transcribe.types.boolean
+    import aws_sdk_transcribe.types.participant_role
+    import aws_sdk_transcribe.types.relative_time_range
+    import aws_sdk_transcribe.types.timestamp_milliseconds
+
+
+class InterruptionFilter(TypedDict):
+    threshold: NotRequired[
+        "aws_sdk_transcribe.types.timestamp_milliseconds.TimestampMilliseconds"
+    ]
+    """<p>Specify the duration of the interruptions in milliseconds. For example, you can flag speech that contains more than 10,000 milliseconds of interruptions.</p>"""
+    participant_role: NotRequired[
+        "aws_sdk_transcribe.types.participant_role.ParticipantRole"
+    ]
+    """<p>Specify the interrupter that you want to flag. Omitting this parameter is equivalent to specifying both participants.</p>"""
+    absolute_time_range: NotRequired[
+        "aws_sdk_transcribe.types.absolute_time_range.AbsoluteTimeRange"
+    ]
+    """<p>Makes it possible to specify a time range (in milliseconds) in your audio, during which you want to search for an interruption. See for more detail.</p>"""
+    relative_time_range: NotRequired[
+        "aws_sdk_transcribe.types.relative_time_range.RelativeTimeRange"
+    ]
+    """<p>Makes it possible to specify a time range (in percentage) in your media file, during which you want to search for an interruption. See for more detail.</p>"""
+    negate: NotRequired["aws_sdk_transcribe.types.boolean.Boolean"]
+    """<p>Set to <code>TRUE</code> to flag speech that does not contain interruptions. Set to <code>FALSE</code> to flag speech that contains interruptions.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InterruptionFilter) -> dict:
+    out: dict = {}
+    if "threshold" in value:
+        out["Threshold"] = value["threshold"]
+    if "participant_role" in value:
+        import aws_sdk_transcribe.types.participant_role
+
+        out["ParticipantRole"] = (
+            aws_sdk_transcribe.types.participant_role.serialize_aws_json_1_1(
+                value["participant_role"]
+            )
+        )
+    if "absolute_time_range" in value:
+        import aws_sdk_transcribe.types.absolute_time_range
+
+        out["AbsoluteTimeRange"] = (
+            aws_sdk_transcribe.types.absolute_time_range.serialize_aws_json_1_1(
+                value["absolute_time_range"]
+            )
+        )
+    if "relative_time_range" in value:
+        import aws_sdk_transcribe.types.relative_time_range
+
+        out["RelativeTimeRange"] = (
+            aws_sdk_transcribe.types.relative_time_range.serialize_aws_json_1_1(
+                value["relative_time_range"]
+            )
+        )
+    if "negate" in value:
+        out["Negate"] = value["negate"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InterruptionFilter:
+    out: InterruptionFilter = {}  # type: ignore[typeddict-item]
+    if "Threshold" in data:
+        out["threshold"] = data["Threshold"]
+    if "ParticipantRole" in data:
+        import aws_sdk_transcribe.types.participant_role
+
+        out["participant_role"] = (
+            aws_sdk_transcribe.types.participant_role.deserialize_aws_json_1_1(
+                data["ParticipantRole"]
+            )
+        )
+    if "AbsoluteTimeRange" in data:
+        import aws_sdk_transcribe.types.absolute_time_range
+
+        out["absolute_time_range"] = (
+            aws_sdk_transcribe.types.absolute_time_range.deserialize_aws_json_1_1(
+                data["AbsoluteTimeRange"]
+            )
+        )
+    if "RelativeTimeRange" in data:
+        import aws_sdk_transcribe.types.relative_time_range
+
+        out["relative_time_range"] = (
+            aws_sdk_transcribe.types.relative_time_range.deserialize_aws_json_1_1(
+                data["RelativeTimeRange"]
+            )
+        )
+    if "Negate" in data:
+        out["negate"] = data["Negate"]
+    return out

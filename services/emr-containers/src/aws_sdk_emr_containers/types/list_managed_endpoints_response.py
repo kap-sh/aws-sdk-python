@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.emrcontainers#ListManagedEndpointsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_emr_containers.types.endpoints
+    import aws_sdk_emr_containers.types.next_token
+
+
+class ListManagedEndpointsResponse(TypedDict):
+    endpoints: NotRequired["aws_sdk_emr_containers.types.endpoints.Endpoints"]
+    """<p>The managed endpoints to be listed.</p>"""
+    next_token: NotRequired["aws_sdk_emr_containers.types.next_token.NextToken"]
+    """<p> The token for the next set of endpoints to return. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListManagedEndpointsResponse) -> dict:
+    out: dict = {}
+    if "endpoints" in value:
+        import aws_sdk_emr_containers.types.endpoints
+
+        out["endpoints"] = aws_sdk_emr_containers.types.endpoints.serialize_json(
+            value["endpoints"]
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListManagedEndpointsResponse:
+    out: ListManagedEndpointsResponse = {}  # type: ignore[typeddict-item]
+    if "endpoints" in data:
+        import aws_sdk_emr_containers.types.endpoints
+
+        out["endpoints"] = aws_sdk_emr_containers.types.endpoints.deserialize_json(
+            data["endpoints"]
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

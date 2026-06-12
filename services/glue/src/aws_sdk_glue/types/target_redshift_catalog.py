@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#TargetRedshiftCatalog``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.resource_arn_string
+
+
+class TargetRedshiftCatalog(TypedDict):
+    catalog_arn: "aws_sdk_glue.types.resource_arn_string.ResourceArnString"
+    """<p>The Amazon Resource Name (ARN) of the catalog resource.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TargetRedshiftCatalog) -> dict:
+    out: dict = {}
+    out["CatalogArn"] = value["catalog_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TargetRedshiftCatalog:
+    out: TargetRedshiftCatalog = {}  # type: ignore[typeddict-item]
+    if "CatalogArn" in data:
+        out["catalog_arn"] = data["CatalogArn"]
+    else:
+        raise DeserializationError("TargetRedshiftCatalog.catalog_arn required")
+    return out

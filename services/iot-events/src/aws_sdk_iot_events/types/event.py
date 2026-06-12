@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.iotevents#Event``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_iot_events.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_events.types.actions
+    import aws_sdk_iot_events.types.condition
+    import aws_sdk_iot_events.types.event_name
+
+
+class Event(TypedDict):
+    event_name: "aws_sdk_iot_events.types.event_name.EventName"
+    """<p>The name of the event.</p>"""
+    condition: NotRequired["aws_sdk_iot_events.types.condition.Condition"]
+    """<p>Optional. The Boolean expression that, when TRUE, causes the <code>actions</code> to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).</p>"""
+    actions: NotRequired["aws_sdk_iot_events.types.actions.Actions"]
+    """<p>The actions to be performed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Event) -> dict:
+    out: dict = {}
+    out["eventName"] = value["event_name"]
+    if "condition" in value:
+        out["condition"] = value["condition"]
+    if "actions" in value:
+        import aws_sdk_iot_events.types.actions
+
+        out["actions"] = aws_sdk_iot_events.types.actions.serialize_json(
+            value["actions"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> Event:
+    out: Event = {}  # type: ignore[typeddict-item]
+    if "eventName" in data:
+        out["event_name"] = data["eventName"]
+    else:
+        raise DeserializationError("Event.event_name required")
+    if "condition" in data:
+        out["condition"] = data["condition"]
+    if "actions" in data:
+        import aws_sdk_iot_events.types.actions
+
+        out["actions"] = aws_sdk_iot_events.types.actions.deserialize_json(
+            data["actions"]
+        )
+    return out

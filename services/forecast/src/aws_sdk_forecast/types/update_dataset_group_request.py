@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.forecast#UpdateDatasetGroupRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_forecast.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_forecast.types.arn
+    import aws_sdk_forecast.types.arn_list
+
+
+class UpdateDatasetGroupRequest(TypedDict):
+    dataset_group_arn: "aws_sdk_forecast.types.arn.Arn"
+    """<p>The ARN of the dataset group.</p>"""
+    dataset_arns: "aws_sdk_forecast.types.arn_list.ArnList"
+    """<p>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateDatasetGroupRequest) -> dict:
+    out: dict = {}
+    out["DatasetGroupArn"] = value["dataset_group_arn"]
+    import aws_sdk_forecast.types.arn_list
+
+    out["DatasetArns"] = aws_sdk_forecast.types.arn_list.serialize_aws_json_1_1(
+        value["dataset_arns"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateDatasetGroupRequest:
+    out: UpdateDatasetGroupRequest = {}  # type: ignore[typeddict-item]
+    if "DatasetGroupArn" in data:
+        out["dataset_group_arn"] = data["DatasetGroupArn"]
+    else:
+        raise DeserializationError(
+            "UpdateDatasetGroupRequest.dataset_group_arn required"
+        )
+    if "DatasetArns" in data:
+        import aws_sdk_forecast.types.arn_list
+
+        out["dataset_arns"] = aws_sdk_forecast.types.arn_list.deserialize_aws_json_1_1(
+            data["DatasetArns"]
+        )
+    else:
+        raise DeserializationError("UpdateDatasetGroupRequest.dataset_arns required")
+    return out

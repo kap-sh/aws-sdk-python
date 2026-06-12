@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.rds#TenantDatabasesMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_rds._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_rds.types.string
+    import aws_sdk_rds.types.tenant_databases_list
+
+
+class TenantDatabasesMessage(TypedDict):
+    marker: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>An optional pagination token provided by a previous <code>DescribeTenantDatabases</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"""
+    tenant_databases: NotRequired[
+        "aws_sdk_rds.types.tenant_databases_list.TenantDatabasesList"
+    ]
+    """<p>An array of the tenant databases requested by the <code>DescribeTenantDatabases</code> operation.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: TenantDatabasesMessage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "marker" in value:
+        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+    if "tenant_databases" in value:
+        import aws_sdk_rds.types.tenant_databases_list
+
+        aws_sdk_rds.types.tenant_databases_list.serialize_query(
+            value["tenant_databases"], pairs, f"{prefix}.TenantDatabases"
+        )
+
+
+def deserialize_query(el: Element) -> TenantDatabasesMessage:
+    out: TenantDatabasesMessage = {}  # type: ignore[typeddict-item]
+    child_marker = el.find("Marker")
+    if child_marker is not None:
+        out["marker"] = str(child_marker.text or "")
+    child_tenant_databases = el.find("TenantDatabases")
+    if child_tenant_databases is not None:
+        import aws_sdk_rds.types.tenant_databases_list
+
+        out["tenant_databases"] = (
+            aws_sdk_rds.types.tenant_databases_list.deserialize_query(
+                child_tenant_databases
+            )
+        )
+    return out

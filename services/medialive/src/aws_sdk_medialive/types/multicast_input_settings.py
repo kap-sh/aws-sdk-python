@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#MulticastInputSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__string
+
+
+class MulticastInputSettings(TypedDict):
+    source_ip_address: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """Optionally, a source ip address to filter by for Source-specific Multicast (SSM)"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MulticastInputSettings) -> dict:
+    out: dict = {}
+    if "source_ip_address" in value:
+        out["sourceIpAddress"] = value["source_ip_address"]
+    return out
+
+
+def deserialize_json(data: dict) -> MulticastInputSettings:
+    out: MulticastInputSettings = {}  # type: ignore[typeddict-item]
+    if "sourceIpAddress" in data:
+        out["source_ip_address"] = data["sourceIpAddress"]
+    return out

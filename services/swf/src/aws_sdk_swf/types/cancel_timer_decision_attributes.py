@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.swf#CancelTimerDecisionAttributes``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_swf.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_swf.types.timer_id
+
+
+class CancelTimerDecisionAttributes(TypedDict):
+    timer_id: "aws_sdk_swf.types.timer_id.TimerId"
+    """<p> The unique ID of the timer to cancel.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CancelTimerDecisionAttributes) -> dict:
+    out: dict = {}
+    out["timerId"] = value["timer_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CancelTimerDecisionAttributes:
+    out: CancelTimerDecisionAttributes = {}  # type: ignore[typeddict-item]
+    if "timerId" in data:
+        out["timer_id"] = data["timerId"]
+    else:
+        raise DeserializationError("CancelTimerDecisionAttributes.timer_id required")
+    return out

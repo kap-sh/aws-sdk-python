@@ -1,0 +1,196 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#TranslatePinDataInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_payment_cryptography_data.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography_data.types.as2805_pek_derivation_attributes
+    import aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes
+    import aws_sdk_payment_cryptography_data.types.hex_even_length_between16_and32
+    import aws_sdk_payment_cryptography_data.types.key_arn_or_key_alias_type
+    import aws_sdk_payment_cryptography_data.types.translation_iso_formats
+    import aws_sdk_payment_cryptography_data.types.wrapped_key
+
+
+class TranslatePinDataInput(TypedDict):
+    incoming_key_identifier: "aws_sdk_payment_cryptography_data.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
+    """<p>The <code>keyARN</code> of the encryption key under which incoming PIN block data is encrypted. This key type can be PEK or BDK.</p> <p>For dynamic keys, it is the <code>keyARN</code> of KEK of the TR-31 wrapped PEK. For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>"""
+    outgoing_key_identifier: "aws_sdk_payment_cryptography_data.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
+    """<p>The <code>keyARN</code> of the encryption key for encrypting outgoing PIN block data. This key type can be PEK or BDK.</p> <p>For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>"""
+    incoming_translation_attributes: "aws_sdk_payment_cryptography_data.types.translation_iso_formats.TranslationIsoFormats"
+    """<p>The format of the incoming PIN block data for translation within Amazon Web Services Payment Cryptography.</p>"""
+    outgoing_translation_attributes: "aws_sdk_payment_cryptography_data.types.translation_iso_formats.TranslationIsoFormats"
+    """<p>The format of the outgoing PIN block data after translation by Amazon Web Services Payment Cryptography.</p>"""
+    encrypted_pin_block: "aws_sdk_payment_cryptography_data.types.hex_even_length_between16_and32.HexEvenLengthBetween16And32"
+    """<p>The encrypted PIN block data that Amazon Web Services Payment Cryptography translates.</p>"""
+    incoming_dukpt_attributes: NotRequired[
+        "aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes.DukptDerivationAttributes"
+    ]
+    """<p>The attributes and values to use for incoming DUKPT encryption key for PIN block translation.</p>"""
+    outgoing_dukpt_attributes: NotRequired[
+        "aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes.DukptDerivationAttributes"
+    ]
+    """<p>The attributes and values to use for outgoing DUKPT encryption key after PIN block translation.</p>"""
+    incoming_wrapped_key: NotRequired[
+        "aws_sdk_payment_cryptography_data.types.wrapped_key.WrappedKey"
+    ]
+    """<p>The WrappedKeyBlock containing the encryption key under which incoming PIN block data is encrypted.</p>"""
+    outgoing_wrapped_key: NotRequired[
+        "aws_sdk_payment_cryptography_data.types.wrapped_key.WrappedKey"
+    ]
+    """<p>The WrappedKeyBlock containing the encryption key for encrypting outgoing PIN block data.</p>"""
+    incoming_as2805_attributes: NotRequired[
+        "aws_sdk_payment_cryptography_data.types.as2805_pek_derivation_attributes.As2805PekDerivationAttributes"
+    ]
+    """<p>The attributes and values to use for incoming AS2805 encryption key for PIN block translation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TranslatePinDataInput) -> dict:
+    out: dict = {}
+    out["IncomingKeyIdentifier"] = value["incoming_key_identifier"]
+    out["OutgoingKeyIdentifier"] = value["outgoing_key_identifier"]
+    import aws_sdk_payment_cryptography_data.types.translation_iso_formats
+
+    out["IncomingTranslationAttributes"] = (
+        aws_sdk_payment_cryptography_data.types.translation_iso_formats.serialize_json(
+            value["incoming_translation_attributes"]
+        )
+    )
+    import aws_sdk_payment_cryptography_data.types.translation_iso_formats
+
+    out["OutgoingTranslationAttributes"] = (
+        aws_sdk_payment_cryptography_data.types.translation_iso_formats.serialize_json(
+            value["outgoing_translation_attributes"]
+        )
+    )
+    out["EncryptedPinBlock"] = value["encrypted_pin_block"]
+    if "incoming_dukpt_attributes" in value:
+        import aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes
+
+        out["IncomingDukptAttributes"] = (
+            aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes.serialize_json(
+                value["incoming_dukpt_attributes"]
+            )
+        )
+    if "outgoing_dukpt_attributes" in value:
+        import aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes
+
+        out["OutgoingDukptAttributes"] = (
+            aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes.serialize_json(
+                value["outgoing_dukpt_attributes"]
+            )
+        )
+    if "incoming_wrapped_key" in value:
+        import aws_sdk_payment_cryptography_data.types.wrapped_key
+
+        out["IncomingWrappedKey"] = (
+            aws_sdk_payment_cryptography_data.types.wrapped_key.serialize_json(
+                value["incoming_wrapped_key"]
+            )
+        )
+    if "outgoing_wrapped_key" in value:
+        import aws_sdk_payment_cryptography_data.types.wrapped_key
+
+        out["OutgoingWrappedKey"] = (
+            aws_sdk_payment_cryptography_data.types.wrapped_key.serialize_json(
+                value["outgoing_wrapped_key"]
+            )
+        )
+    if "incoming_as2805_attributes" in value:
+        import aws_sdk_payment_cryptography_data.types.as2805_pek_derivation_attributes
+
+        out["IncomingAs2805Attributes"] = (
+            aws_sdk_payment_cryptography_data.types.as2805_pek_derivation_attributes.serialize_json(
+                value["incoming_as2805_attributes"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TranslatePinDataInput:
+    out: TranslatePinDataInput = {}  # type: ignore[typeddict-item]
+    if "IncomingKeyIdentifier" in data:
+        out["incoming_key_identifier"] = data["IncomingKeyIdentifier"]
+    else:
+        raise DeserializationError(
+            "TranslatePinDataInput.incoming_key_identifier required"
+        )
+    if "OutgoingKeyIdentifier" in data:
+        out["outgoing_key_identifier"] = data["OutgoingKeyIdentifier"]
+    else:
+        raise DeserializationError(
+            "TranslatePinDataInput.outgoing_key_identifier required"
+        )
+    if "IncomingTranslationAttributes" in data:
+        import aws_sdk_payment_cryptography_data.types.translation_iso_formats
+
+        out["incoming_translation_attributes"] = (
+            aws_sdk_payment_cryptography_data.types.translation_iso_formats.deserialize_json(
+                data["IncomingTranslationAttributes"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "TranslatePinDataInput.incoming_translation_attributes required"
+        )
+    if "OutgoingTranslationAttributes" in data:
+        import aws_sdk_payment_cryptography_data.types.translation_iso_formats
+
+        out["outgoing_translation_attributes"] = (
+            aws_sdk_payment_cryptography_data.types.translation_iso_formats.deserialize_json(
+                data["OutgoingTranslationAttributes"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "TranslatePinDataInput.outgoing_translation_attributes required"
+        )
+    if "EncryptedPinBlock" in data:
+        out["encrypted_pin_block"] = data["EncryptedPinBlock"]
+    else:
+        raise DeserializationError("TranslatePinDataInput.encrypted_pin_block required")
+    if "IncomingDukptAttributes" in data:
+        import aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes
+
+        out["incoming_dukpt_attributes"] = (
+            aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes.deserialize_json(
+                data["IncomingDukptAttributes"]
+            )
+        )
+    if "OutgoingDukptAttributes" in data:
+        import aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes
+
+        out["outgoing_dukpt_attributes"] = (
+            aws_sdk_payment_cryptography_data.types.dukpt_derivation_attributes.deserialize_json(
+                data["OutgoingDukptAttributes"]
+            )
+        )
+    if "IncomingWrappedKey" in data:
+        import aws_sdk_payment_cryptography_data.types.wrapped_key
+
+        out["incoming_wrapped_key"] = (
+            aws_sdk_payment_cryptography_data.types.wrapped_key.deserialize_json(
+                data["IncomingWrappedKey"]
+            )
+        )
+    if "OutgoingWrappedKey" in data:
+        import aws_sdk_payment_cryptography_data.types.wrapped_key
+
+        out["outgoing_wrapped_key"] = (
+            aws_sdk_payment_cryptography_data.types.wrapped_key.deserialize_json(
+                data["OutgoingWrappedKey"]
+            )
+        )
+    if "IncomingAs2805Attributes" in data:
+        import aws_sdk_payment_cryptography_data.types.as2805_pek_derivation_attributes
+
+        out["incoming_as2805_attributes"] = (
+            aws_sdk_payment_cryptography_data.types.as2805_pek_derivation_attributes.deserialize_json(
+                data["IncomingAs2805Attributes"]
+            )
+        )
+    return out

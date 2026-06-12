@@ -1,0 +1,65 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#ProviderConfiguration``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_securityhub.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.jira_cloud_provider_configuration
+    import aws_sdk_securityhub.types.service_now_provider_configuration
+
+
+class _ProviderConfiguration_JiraCloud(TypedDict):
+    JiraCloud: "aws_sdk_securityhub.types.jira_cloud_provider_configuration.JiraCloudProviderConfiguration"
+
+
+class _ProviderConfiguration_ServiceNow(TypedDict):
+    ServiceNow: "aws_sdk_securityhub.types.service_now_provider_configuration.ServiceNowProviderConfiguration"
+
+
+ProviderConfiguration: TypeAlias = (
+    _ProviderConfiguration_JiraCloud | _ProviderConfiguration_ServiceNow
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ProviderConfiguration) -> dict:
+    if "JiraCloud" in value:
+        import aws_sdk_securityhub.types.jira_cloud_provider_configuration
+
+        return {
+            "JiraCloud": aws_sdk_securityhub.types.jira_cloud_provider_configuration.serialize_json(
+                value["JiraCloud"]
+            )
+        }
+    elif "ServiceNow" in value:
+        import aws_sdk_securityhub.types.service_now_provider_configuration
+
+        return {
+            "ServiceNow": aws_sdk_securityhub.types.service_now_provider_configuration.serialize_json(
+                value["ServiceNow"]
+            )
+        }
+    else:
+        raise SerializationError("ProviderConfiguration: no variant present")
+
+
+def deserialize_json(data: dict) -> ProviderConfiguration:
+    if "JiraCloud" in data:
+        import aws_sdk_securityhub.types.jira_cloud_provider_configuration
+
+        return {
+            "JiraCloud": aws_sdk_securityhub.types.jira_cloud_provider_configuration.deserialize_json(
+                data["JiraCloud"]
+            )
+        }
+    elif "ServiceNow" in data:
+        import aws_sdk_securityhub.types.service_now_provider_configuration
+
+        return {
+            "ServiceNow": aws_sdk_securityhub.types.service_now_provider_configuration.deserialize_json(
+                data["ServiceNow"]
+            )
+        }
+    else:
+        raise DeserializationError("ProviderConfiguration: no recognized variant key")

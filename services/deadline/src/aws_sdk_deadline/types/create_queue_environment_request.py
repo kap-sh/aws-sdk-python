@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#CreateQueueEnvironmentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.client_token
+    import aws_sdk_deadline.types.environment_template
+    import aws_sdk_deadline.types.environment_template_type
+    import aws_sdk_deadline.types.farm_id
+    import aws_sdk_deadline.types.priority
+    import aws_sdk_deadline.types.queue_id
+
+
+class CreateQueueEnvironmentRequest(TypedDict):
+    farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
+    """<p>The farm ID of the farm to connect to the environment.</p>"""
+    queue_id: "aws_sdk_deadline.types.queue_id.QueueId"
+    """<p>The queue ID to connect the queue and environment.</p>"""
+    client_token: NotRequired["aws_sdk_deadline.types.client_token.ClientToken"]
+    """<p>The unique token which the server uses to recognize retries of the same request.</p>"""
+    priority: "aws_sdk_deadline.types.priority.Priority"
+    """<p>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated last). If two environments share the same priority value, the environment created first takes higher priority.</p>"""
+    template_type: (
+        "aws_sdk_deadline.types.environment_template_type.EnvironmentTemplateType"
+    )
+    """<p>The template's file type, <code>JSON</code> or <code>YAML</code>.</p>"""
+    template: "aws_sdk_deadline.types.environment_template.EnvironmentTemplate"
+    """<p>The environment template to use in the queue.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateQueueEnvironmentRequest) -> dict:
+    out: dict = {}
+    out["priority"] = value["priority"]
+    import aws_sdk_deadline.types.environment_template_type
+
+    out["templateType"] = (
+        aws_sdk_deadline.types.environment_template_type.serialize_json(
+            value["template_type"]
+        )
+    )
+    out["template"] = value["template"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateQueueEnvironmentRequest:
+    out: CreateQueueEnvironmentRequest = {}  # type: ignore[typeddict-item]
+    if "priority" in data:
+        out["priority"] = data["priority"]
+    else:
+        raise DeserializationError("CreateQueueEnvironmentRequest.priority required")
+    if "templateType" in data:
+        import aws_sdk_deadline.types.environment_template_type
+
+        out["template_type"] = (
+            aws_sdk_deadline.types.environment_template_type.deserialize_json(
+                data["templateType"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateQueueEnvironmentRequest.template_type required"
+        )
+    if "template" in data:
+        out["template"] = data["template"]
+    else:
+        raise DeserializationError("CreateQueueEnvironmentRequest.template required")
+    return out

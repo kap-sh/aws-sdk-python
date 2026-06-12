@@ -1,0 +1,65 @@
+"""Generated from Smithy shape ``com.amazonaws.bcmdashboards#UpdateDashboardRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bcm_dashboards.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bcm_dashboards.types.dashboard_arn
+    import aws_sdk_bcm_dashboards.types.dashboard_name
+    import aws_sdk_bcm_dashboards.types.description
+    import aws_sdk_bcm_dashboards.types.widget_list
+
+
+class UpdateDashboardRequest(TypedDict):
+    arn: "aws_sdk_bcm_dashboards.types.dashboard_arn.DashboardArn"
+    """<p>The ARN of the dashboard to update.</p>"""
+    name: "aws_sdk_bcm_dashboards.types.dashboard_name.DashboardName"
+    """<p>The new name for the dashboard.</p>"""
+    description: NotRequired["aws_sdk_bcm_dashboards.types.description.Description"]
+    """<p>The new description for the dashboard.</p>"""
+    widgets: NotRequired["aws_sdk_bcm_dashboards.types.widget_list.WidgetList"]
+    """<p>The updated array of widget configurations for the dashboard. Replaces all existing widgets.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateDashboardRequest) -> dict:
+    out: dict = {}
+    out["arn"] = value["arn"]
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "widgets" in value:
+        import aws_sdk_bcm_dashboards.types.widget_list
+
+        out["widgets"] = (
+            aws_sdk_bcm_dashboards.types.widget_list.serialize_aws_json_1_0(
+                value["widgets"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateDashboardRequest:
+    out: UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("UpdateDashboardRequest.arn required")
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("UpdateDashboardRequest.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "widgets" in data:
+        import aws_sdk_bcm_dashboards.types.widget_list
+
+        out["widgets"] = (
+            aws_sdk_bcm_dashboards.types.widget_list.deserialize_aws_json_1_0(
+                data["widgets"]
+            )
+        )
+    return out

@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#ListAutomatedReasoningPoliciesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.automated_reasoning_policy_summaries
+    import aws_sdk_bedrock.types.pagination_token
+
+
+class ListAutomatedReasoningPoliciesResponse(TypedDict):
+    automated_reasoning_policy_summaries: "aws_sdk_bedrock.types.automated_reasoning_policy_summaries.AutomatedReasoningPolicySummaries"
+    """<p>A list of Automated Reasoning policy summaries.</p>"""
+    next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
+    """<p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAutomatedReasoningPoliciesResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock.types.automated_reasoning_policy_summaries
+
+    out["automatedReasoningPolicySummaries"] = (
+        aws_sdk_bedrock.types.automated_reasoning_policy_summaries.serialize_json(
+            value["automated_reasoning_policy_summaries"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListAutomatedReasoningPoliciesResponse:
+    out: ListAutomatedReasoningPoliciesResponse = {}  # type: ignore[typeddict-item]
+    if "automatedReasoningPolicySummaries" in data:
+        import aws_sdk_bedrock.types.automated_reasoning_policy_summaries
+
+        out["automated_reasoning_policy_summaries"] = (
+            aws_sdk_bedrock.types.automated_reasoning_policy_summaries.deserialize_json(
+                data["automatedReasoningPolicySummaries"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListAutomatedReasoningPoliciesResponse.automated_reasoning_policy_summaries required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

@@ -1,0 +1,108 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#Task``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_customer_profiles.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_customer_profiles.types.connector_operator
+    import aws_sdk_customer_profiles.types.destination_field
+    import aws_sdk_customer_profiles.types.source_fields
+    import aws_sdk_customer_profiles.types.task_properties_map
+    import aws_sdk_customer_profiles.types.task_type
+
+
+class Task(TypedDict):
+    connector_operator: NotRequired[
+        "aws_sdk_customer_profiles.types.connector_operator.ConnectorOperator"
+    ]
+    """<p>The operation to be performed on the provided source fields.</p>"""
+    destination_field: NotRequired[
+        "aws_sdk_customer_profiles.types.destination_field.DestinationField"
+    ]
+    """<p>A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.</p>"""
+    source_fields: "aws_sdk_customer_profiles.types.source_fields.SourceFields"
+    """<p>The source fields to which a particular task is applied.</p>"""
+    task_properties: NotRequired[
+        "aws_sdk_customer_profiles.types.task_properties_map.TaskPropertiesMap"
+    ]
+    """<p>A map used to store task-related information. The service looks for particular information based on the TaskType.</p>"""
+    task_type: "aws_sdk_customer_profiles.types.task_type.TaskType"
+    """<p>Specifies the particular task implementation that Amazon AppFlow performs.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Task) -> dict:
+    out: dict = {}
+    if "connector_operator" in value:
+        import aws_sdk_customer_profiles.types.connector_operator
+
+        out["ConnectorOperator"] = (
+            aws_sdk_customer_profiles.types.connector_operator.serialize_json(
+                value["connector_operator"]
+            )
+        )
+    if "destination_field" in value:
+        out["DestinationField"] = value["destination_field"]
+    import aws_sdk_customer_profiles.types.source_fields
+
+    out["SourceFields"] = aws_sdk_customer_profiles.types.source_fields.serialize_json(
+        value["source_fields"]
+    )
+    if "task_properties" in value:
+        import aws_sdk_customer_profiles.types.task_properties_map
+
+        out["TaskProperties"] = (
+            aws_sdk_customer_profiles.types.task_properties_map.serialize_json(
+                value["task_properties"]
+            )
+        )
+    import aws_sdk_customer_profiles.types.task_type
+
+    out["TaskType"] = aws_sdk_customer_profiles.types.task_type.serialize_json(
+        value["task_type"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> Task:
+    out: Task = {}  # type: ignore[typeddict-item]
+    if "ConnectorOperator" in data:
+        import aws_sdk_customer_profiles.types.connector_operator
+
+        out["connector_operator"] = (
+            aws_sdk_customer_profiles.types.connector_operator.deserialize_json(
+                data["ConnectorOperator"]
+            )
+        )
+    if "DestinationField" in data:
+        out["destination_field"] = data["DestinationField"]
+    if "SourceFields" in data:
+        import aws_sdk_customer_profiles.types.source_fields
+
+        out["source_fields"] = (
+            aws_sdk_customer_profiles.types.source_fields.deserialize_json(
+                data["SourceFields"]
+            )
+        )
+    else:
+        raise DeserializationError("Task.source_fields required")
+    if "TaskProperties" in data:
+        import aws_sdk_customer_profiles.types.task_properties_map
+
+        out["task_properties"] = (
+            aws_sdk_customer_profiles.types.task_properties_map.deserialize_json(
+                data["TaskProperties"]
+            )
+        )
+    if "TaskType" in data:
+        import aws_sdk_customer_profiles.types.task_type
+
+        out["task_type"] = aws_sdk_customer_profiles.types.task_type.deserialize_json(
+            data["TaskType"]
+        )
+    else:
+        raise DeserializationError("Task.task_type required")
+    return out

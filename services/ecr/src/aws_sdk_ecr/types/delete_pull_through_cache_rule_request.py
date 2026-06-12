@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.ecr#DeletePullThroughCacheRuleRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ecr.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ecr.types.pull_through_cache_rule_repository_prefix
+    import aws_sdk_ecr.types.registry_id
+
+
+class DeletePullThroughCacheRuleRequest(TypedDict):
+    ecr_repository_prefix: "aws_sdk_ecr.types.pull_through_cache_rule_repository_prefix.PullThroughCacheRuleRepositoryPrefix"
+    """<p>The Amazon ECR repository prefix associated with the pull through cache rule to delete.</p>"""
+    registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
+    """<p>The Amazon Web Services account ID associated with the registry that contains the pull through cache rule. If you do not specify a registry, the default registry is assumed.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeletePullThroughCacheRuleRequest) -> dict:
+    out: dict = {}
+    out["ecrRepositoryPrefix"] = value["ecr_repository_prefix"]
+    if "registry_id" in value:
+        out["registryId"] = value["registry_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeletePullThroughCacheRuleRequest:
+    out: DeletePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
+    if "ecrRepositoryPrefix" in data:
+        out["ecr_repository_prefix"] = data["ecrRepositoryPrefix"]
+    else:
+        raise DeserializationError(
+            "DeletePullThroughCacheRuleRequest.ecr_repository_prefix required"
+        )
+    if "registryId" in data:
+        out["registry_id"] = data["registryId"]
+    return out

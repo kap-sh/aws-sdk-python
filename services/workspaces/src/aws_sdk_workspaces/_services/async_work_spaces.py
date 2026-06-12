@@ -1,0 +1,2405 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#WorkspacesService``."""
+
+from aws_sdk_workspaces._auth._signers import SigV4Signer
+from aws_sdk_workspaces._auth._sigv4 import presign_sigv4
+from collections.abc import AsyncIterator
+from aws_sdk_workspaces._pagination import resolve_path as _resolve_path
+from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
+from typing_extensions import Self
+from typing import Optional
+from zapros import URL, AsyncBaseHandler, AsyncClient
+from aws_sdk_workspaces._auth._zapros_handler import AuthMiddleware
+from aws_sdk_workspaces._services._pipeline import AsyncInterceptor, AsyncOperationOptions, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline, aretry
+from aws_sdk_workspaces._async import anysleep
+import time
+from aws_sdk_workspaces.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
+import warnings
+from aws_sdk_workspaces._auth._identity import Credentials
+from aws_sdk_workspaces._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+if TYPE_CHECKING:
+    import aws_sdk_workspaces.types.accept_account_link_invitation_request
+    import aws_sdk_workspaces.types.accept_account_link_invitation_result
+    import aws_sdk_workspaces.types.account_link
+    import aws_sdk_workspaces.types.active_directory_config
+    import aws_sdk_workspaces.types.add_in_name
+    import aws_sdk_workspaces.types.add_in_url
+    import aws_sdk_workspaces.types.amazon_uuid
+    import aws_sdk_workspaces.types.application_associated_resource_type_list
+    import aws_sdk_workspaces.types.application_list
+    import aws_sdk_workspaces.types.application_settings_request
+    import aws_sdk_workspaces.types.arn
+    import aws_sdk_workspaces.types.associate_connection_alias_request
+    import aws_sdk_workspaces.types.associate_connection_alias_result
+    import aws_sdk_workspaces.types.associate_ip_groups_request
+    import aws_sdk_workspaces.types.associate_ip_groups_result
+    import aws_sdk_workspaces.types.associate_workspace_application_request
+    import aws_sdk_workspaces.types.associate_workspace_application_result
+    import aws_sdk_workspaces.types.authorize_ip_rules_request
+    import aws_sdk_workspaces.types.authorize_ip_rules_result
+    import aws_sdk_workspaces.types.aws_account
+    import aws_sdk_workspaces.types.boolean_object
+    import aws_sdk_workspaces.types.bundle_associated_resource_type_list
+    import aws_sdk_workspaces.types.bundle_id
+    import aws_sdk_workspaces.types.bundle_id_list
+    import aws_sdk_workspaces.types.bundle_owner
+    import aws_sdk_workspaces.types.capacity
+    import aws_sdk_workspaces.types.certificate_based_auth_properties
+    import aws_sdk_workspaces.types.client_device_type_list
+    import aws_sdk_workspaces.types.client_properties
+    import aws_sdk_workspaces.types.client_token
+    import aws_sdk_workspaces.types.compute_list
+    import aws_sdk_workspaces.types.compute_type
+    import aws_sdk_workspaces.types.connection_alias_id
+    import aws_sdk_workspaces.types.connection_alias_id_list
+    import aws_sdk_workspaces.types.connection_alias_permission
+    import aws_sdk_workspaces.types.connection_string
+    import aws_sdk_workspaces.types.copy_workspace_image_request
+    import aws_sdk_workspaces.types.copy_workspace_image_result
+    import aws_sdk_workspaces.types.create_account_link_invitation_request
+    import aws_sdk_workspaces.types.create_account_link_invitation_result
+    import aws_sdk_workspaces.types.create_connect_client_add_in_request
+    import aws_sdk_workspaces.types.create_connect_client_add_in_result
+    import aws_sdk_workspaces.types.create_connection_alias_request
+    import aws_sdk_workspaces.types.create_connection_alias_result
+    import aws_sdk_workspaces.types.create_ip_group_request
+    import aws_sdk_workspaces.types.create_ip_group_result
+    import aws_sdk_workspaces.types.create_standby_workspaces_request
+    import aws_sdk_workspaces.types.create_standby_workspaces_result
+    import aws_sdk_workspaces.types.create_tags_request
+    import aws_sdk_workspaces.types.create_tags_result
+    import aws_sdk_workspaces.types.create_updated_workspace_image_request
+    import aws_sdk_workspaces.types.create_updated_workspace_image_result
+    import aws_sdk_workspaces.types.create_workspace_bundle_request
+    import aws_sdk_workspaces.types.create_workspace_bundle_result
+    import aws_sdk_workspaces.types.create_workspace_image_request
+    import aws_sdk_workspaces.types.create_workspace_image_result
+    import aws_sdk_workspaces.types.create_workspaces_pool_request
+    import aws_sdk_workspaces.types.create_workspaces_pool_result
+    import aws_sdk_workspaces.types.create_workspaces_request
+    import aws_sdk_workspaces.types.create_workspaces_result
+    import aws_sdk_workspaces.types.custom_image_protocol
+    import aws_sdk_workspaces.types.data_replication
+    import aws_sdk_workspaces.types.dedicated_tenancy_management_cidr_range
+    import aws_sdk_workspaces.types.dedicated_tenancy_support_enum
+    import aws_sdk_workspaces.types.default_import_client_branding_attributes
+    import aws_sdk_workspaces.types.deletable_certificate_based_auth_properties_list
+    import aws_sdk_workspaces.types.deletable_saml_properties_list
+    import aws_sdk_workspaces.types.delete_account_link_invitation_request
+    import aws_sdk_workspaces.types.delete_account_link_invitation_result
+    import aws_sdk_workspaces.types.delete_client_branding_request
+    import aws_sdk_workspaces.types.delete_client_branding_result
+    import aws_sdk_workspaces.types.delete_connect_client_add_in_request
+    import aws_sdk_workspaces.types.delete_connect_client_add_in_result
+    import aws_sdk_workspaces.types.delete_connection_alias_request
+    import aws_sdk_workspaces.types.delete_connection_alias_result
+    import aws_sdk_workspaces.types.delete_ip_group_request
+    import aws_sdk_workspaces.types.delete_ip_group_result
+    import aws_sdk_workspaces.types.delete_tags_request
+    import aws_sdk_workspaces.types.delete_tags_result
+    import aws_sdk_workspaces.types.delete_workspace_bundle_request
+    import aws_sdk_workspaces.types.delete_workspace_bundle_result
+    import aws_sdk_workspaces.types.delete_workspace_image_request
+    import aws_sdk_workspaces.types.delete_workspace_image_result
+    import aws_sdk_workspaces.types.deploy_workspace_applications_request
+    import aws_sdk_workspaces.types.deploy_workspace_applications_result
+    import aws_sdk_workspaces.types.deregister_workspace_directory_request
+    import aws_sdk_workspaces.types.deregister_workspace_directory_result
+    import aws_sdk_workspaces.types.describe_account_modifications_request
+    import aws_sdk_workspaces.types.describe_account_modifications_result
+    import aws_sdk_workspaces.types.describe_account_request
+    import aws_sdk_workspaces.types.describe_account_result
+    import aws_sdk_workspaces.types.describe_application_associations_request
+    import aws_sdk_workspaces.types.describe_application_associations_result
+    import aws_sdk_workspaces.types.describe_applications_request
+    import aws_sdk_workspaces.types.describe_applications_result
+    import aws_sdk_workspaces.types.describe_bundle_associations_request
+    import aws_sdk_workspaces.types.describe_bundle_associations_result
+    import aws_sdk_workspaces.types.describe_client_branding_request
+    import aws_sdk_workspaces.types.describe_client_branding_result
+    import aws_sdk_workspaces.types.describe_client_properties_request
+    import aws_sdk_workspaces.types.describe_client_properties_result
+    import aws_sdk_workspaces.types.describe_connect_client_add_ins_request
+    import aws_sdk_workspaces.types.describe_connect_client_add_ins_result
+    import aws_sdk_workspaces.types.describe_connection_alias_permissions_request
+    import aws_sdk_workspaces.types.describe_connection_alias_permissions_result
+    import aws_sdk_workspaces.types.describe_connection_aliases_request
+    import aws_sdk_workspaces.types.describe_connection_aliases_result
+    import aws_sdk_workspaces.types.describe_custom_workspace_image_import_request
+    import aws_sdk_workspaces.types.describe_custom_workspace_image_import_result
+    import aws_sdk_workspaces.types.describe_image_associations_request
+    import aws_sdk_workspaces.types.describe_image_associations_result
+    import aws_sdk_workspaces.types.describe_ip_groups_request
+    import aws_sdk_workspaces.types.describe_ip_groups_result
+    import aws_sdk_workspaces.types.describe_tags_request
+    import aws_sdk_workspaces.types.describe_tags_result
+    import aws_sdk_workspaces.types.describe_workspace_associations_request
+    import aws_sdk_workspaces.types.describe_workspace_associations_result
+    import aws_sdk_workspaces.types.describe_workspace_bundles_request
+    import aws_sdk_workspaces.types.describe_workspace_bundles_result
+    import aws_sdk_workspaces.types.describe_workspace_directories_filter_list
+    import aws_sdk_workspaces.types.describe_workspace_directories_request
+    import aws_sdk_workspaces.types.describe_workspace_directories_result
+    import aws_sdk_workspaces.types.describe_workspace_image_permissions_request
+    import aws_sdk_workspaces.types.describe_workspace_image_permissions_result
+    import aws_sdk_workspaces.types.describe_workspace_images_request
+    import aws_sdk_workspaces.types.describe_workspace_images_result
+    import aws_sdk_workspaces.types.describe_workspace_snapshots_request
+    import aws_sdk_workspaces.types.describe_workspace_snapshots_result
+    import aws_sdk_workspaces.types.describe_workspaces_connection_status_request
+    import aws_sdk_workspaces.types.describe_workspaces_connection_status_result
+    import aws_sdk_workspaces.types.describe_workspaces_pool_sessions_request
+    import aws_sdk_workspaces.types.describe_workspaces_pool_sessions_result
+    import aws_sdk_workspaces.types.describe_workspaces_pools_filters
+    import aws_sdk_workspaces.types.describe_workspaces_pools_request
+    import aws_sdk_workspaces.types.describe_workspaces_pools_result
+    import aws_sdk_workspaces.types.describe_workspaces_request
+    import aws_sdk_workspaces.types.describe_workspaces_result
+    import aws_sdk_workspaces.types.directory_id
+    import aws_sdk_workspaces.types.directory_id_list
+    import aws_sdk_workspaces.types.disassociate_connection_alias_request
+    import aws_sdk_workspaces.types.disassociate_connection_alias_result
+    import aws_sdk_workspaces.types.disassociate_ip_groups_request
+    import aws_sdk_workspaces.types.disassociate_ip_groups_result
+    import aws_sdk_workspaces.types.disassociate_workspace_application_request
+    import aws_sdk_workspaces.types.disassociate_workspace_application_result
+    import aws_sdk_workspaces.types.ec2_image_id
+    import aws_sdk_workspaces.types.endpoint_encryption_mode
+    import aws_sdk_workspaces.types.get_account_link_request
+    import aws_sdk_workspaces.types.get_account_link_result
+    import aws_sdk_workspaces.types.image_associated_resource_type_list
+    import aws_sdk_workspaces.types.image_compute_type
+    import aws_sdk_workspaces.types.image_source_identifier
+    import aws_sdk_workspaces.types.image_type
+    import aws_sdk_workspaces.types.import_client_branding_request
+    import aws_sdk_workspaces.types.import_client_branding_result
+    import aws_sdk_workspaces.types.import_custom_workspace_image_request
+    import aws_sdk_workspaces.types.import_custom_workspace_image_result
+    import aws_sdk_workspaces.types.import_workspace_image_request
+    import aws_sdk_workspaces.types.import_workspace_image_result
+    import aws_sdk_workspaces.types.infrastructure_configuration_arn
+    import aws_sdk_workspaces.types.ios_import_client_branding_attributes
+    import aws_sdk_workspaces.types.ip_group_desc
+    import aws_sdk_workspaces.types.ip_group_id
+    import aws_sdk_workspaces.types.ip_group_id_list
+    import aws_sdk_workspaces.types.ip_group_name
+    import aws_sdk_workspaces.types.ip_revoked_rule_list
+    import aws_sdk_workspaces.types.ip_rule_list
+    import aws_sdk_workspaces.types.limit
+    import aws_sdk_workspaces.types.limit50
+    import aws_sdk_workspaces.types.link_id
+    import aws_sdk_workspaces.types.link_status_filter_list
+    import aws_sdk_workspaces.types.list_account_links_request
+    import aws_sdk_workspaces.types.list_account_links_result
+    import aws_sdk_workspaces.types.list_available_management_cidr_ranges_request
+    import aws_sdk_workspaces.types.list_available_management_cidr_ranges_result
+    import aws_sdk_workspaces.types.management_cidr_range_constraint
+    import aws_sdk_workspaces.types.management_cidr_range_max_results
+    import aws_sdk_workspaces.types.microsoft_entra_config
+    import aws_sdk_workspaces.types.migrate_workspace_request
+    import aws_sdk_workspaces.types.migrate_workspace_result
+    import aws_sdk_workspaces.types.modify_account_request
+    import aws_sdk_workspaces.types.modify_account_result
+    import aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request
+    import aws_sdk_workspaces.types.modify_certificate_based_auth_properties_result
+    import aws_sdk_workspaces.types.modify_client_properties_request
+    import aws_sdk_workspaces.types.modify_client_properties_result
+    import aws_sdk_workspaces.types.modify_endpoint_encryption_mode_request
+    import aws_sdk_workspaces.types.modify_endpoint_encryption_mode_response
+    import aws_sdk_workspaces.types.modify_saml_properties_request
+    import aws_sdk_workspaces.types.modify_saml_properties_result
+    import aws_sdk_workspaces.types.modify_selfservice_permissions_request
+    import aws_sdk_workspaces.types.modify_selfservice_permissions_result
+    import aws_sdk_workspaces.types.modify_streaming_properties_request
+    import aws_sdk_workspaces.types.modify_streaming_properties_result
+    import aws_sdk_workspaces.types.modify_workspace_access_properties_request
+    import aws_sdk_workspaces.types.modify_workspace_access_properties_result
+    import aws_sdk_workspaces.types.modify_workspace_creation_properties_request
+    import aws_sdk_workspaces.types.modify_workspace_creation_properties_result
+    import aws_sdk_workspaces.types.modify_workspace_properties_request
+    import aws_sdk_workspaces.types.modify_workspace_properties_result
+    import aws_sdk_workspaces.types.modify_workspace_state_request
+    import aws_sdk_workspaces.types.modify_workspace_state_result
+    import aws_sdk_workspaces.types.non_empty_string
+    import aws_sdk_workspaces.types.operating_system_name_list
+    import aws_sdk_workspaces.types.os_version
+    import aws_sdk_workspaces.types.pagination_token
+    import aws_sdk_workspaces.types.platform
+    import aws_sdk_workspaces.types.pools_running_mode
+    import aws_sdk_workspaces.types.reboot_workspace_requests
+    import aws_sdk_workspaces.types.reboot_workspaces_request
+    import aws_sdk_workspaces.types.reboot_workspaces_result
+    import aws_sdk_workspaces.types.rebuild_workspace_requests
+    import aws_sdk_workspaces.types.rebuild_workspaces_request
+    import aws_sdk_workspaces.types.rebuild_workspaces_result
+    import aws_sdk_workspaces.types.region
+    import aws_sdk_workspaces.types.register_workspace_directory_request
+    import aws_sdk_workspaces.types.register_workspace_directory_result
+    import aws_sdk_workspaces.types.reject_account_link_invitation_request
+    import aws_sdk_workspaces.types.reject_account_link_invitation_result
+    import aws_sdk_workspaces.types.resource_id_list
+    import aws_sdk_workspaces.types.restore_workspace_request
+    import aws_sdk_workspaces.types.restore_workspace_result
+    import aws_sdk_workspaces.types.revoke_ip_rules_request
+    import aws_sdk_workspaces.types.revoke_ip_rules_result
+    import aws_sdk_workspaces.types.root_storage
+    import aws_sdk_workspaces.types.saml_properties
+    import aws_sdk_workspaces.types.selfservice_permissions
+    import aws_sdk_workspaces.types.standby_workspaces_list
+    import aws_sdk_workspaces.types.start_workspace_requests
+    import aws_sdk_workspaces.types.start_workspaces_pool_request
+    import aws_sdk_workspaces.types.start_workspaces_pool_result
+    import aws_sdk_workspaces.types.start_workspaces_request
+    import aws_sdk_workspaces.types.start_workspaces_result
+    import aws_sdk_workspaces.types.stop_workspace_requests
+    import aws_sdk_workspaces.types.stop_workspaces_pool_request
+    import aws_sdk_workspaces.types.stop_workspaces_pool_result
+    import aws_sdk_workspaces.types.stop_workspaces_request
+    import aws_sdk_workspaces.types.stop_workspaces_result
+    import aws_sdk_workspaces.types.streaming_properties
+    import aws_sdk_workspaces.types.subnet_ids
+    import aws_sdk_workspaces.types.tag_key_list
+    import aws_sdk_workspaces.types.tag_list
+    import aws_sdk_workspaces.types.target_workspace_state
+    import aws_sdk_workspaces.types.tenancy
+    import aws_sdk_workspaces.types.terminate_workspace_requests
+    import aws_sdk_workspaces.types.terminate_workspaces_pool_request
+    import aws_sdk_workspaces.types.terminate_workspaces_pool_result
+    import aws_sdk_workspaces.types.terminate_workspaces_pool_session_request
+    import aws_sdk_workspaces.types.terminate_workspaces_pool_session_result
+    import aws_sdk_workspaces.types.terminate_workspaces_request
+    import aws_sdk_workspaces.types.terminate_workspaces_result
+    import aws_sdk_workspaces.types.timeout_settings
+    import aws_sdk_workspaces.types.update_connect_client_add_in_request
+    import aws_sdk_workspaces.types.update_connect_client_add_in_result
+    import aws_sdk_workspaces.types.update_connection_alias_permission_request
+    import aws_sdk_workspaces.types.update_connection_alias_permission_result
+    import aws_sdk_workspaces.types.update_description
+    import aws_sdk_workspaces.types.update_rules_of_ip_group_request
+    import aws_sdk_workspaces.types.update_rules_of_ip_group_result
+    import aws_sdk_workspaces.types.update_workspace_bundle_request
+    import aws_sdk_workspaces.types.update_workspace_bundle_result
+    import aws_sdk_workspaces.types.update_workspace_image_permission_request
+    import aws_sdk_workspaces.types.update_workspace_image_permission_result
+    import aws_sdk_workspaces.types.update_workspaces_pool_request
+    import aws_sdk_workspaces.types.update_workspaces_pool_result
+    import aws_sdk_workspaces.types.user_identity_type
+    import aws_sdk_workspaces.types.user_name
+    import aws_sdk_workspaces.types.user_storage
+    import aws_sdk_workspaces.types.work_space_application_id
+    import aws_sdk_workspaces.types.work_space_application_id_list
+    import aws_sdk_workspaces.types.work_space_application_license_type
+    import aws_sdk_workspaces.types.work_space_application_owner
+    import aws_sdk_workspaces.types.work_space_associated_resource_type_list
+    import aws_sdk_workspaces.types.workspace
+    import aws_sdk_workspaces.types.workspace_access_properties
+    import aws_sdk_workspaces.types.workspace_bundle
+    import aws_sdk_workspaces.types.workspace_bundle_description
+    import aws_sdk_workspaces.types.workspace_bundle_name
+    import aws_sdk_workspaces.types.workspace_creation_properties
+    import aws_sdk_workspaces.types.workspace_directory
+    import aws_sdk_workspaces.types.workspace_directory_description
+    import aws_sdk_workspaces.types.workspace_directory_name
+    import aws_sdk_workspaces.types.workspace_directory_name_list
+    import aws_sdk_workspaces.types.workspace_id
+    import aws_sdk_workspaces.types.workspace_id_list
+    import aws_sdk_workspaces.types.workspace_image_description
+    import aws_sdk_workspaces.types.workspace_image_id
+    import aws_sdk_workspaces.types.workspace_image_id_list
+    import aws_sdk_workspaces.types.workspace_image_ingestion_process
+    import aws_sdk_workspaces.types.workspace_image_name
+    import aws_sdk_workspaces.types.workspace_name
+    import aws_sdk_workspaces.types.workspace_properties
+    import aws_sdk_workspaces.types.workspace_request_list
+    import aws_sdk_workspaces.types.workspace_type
+    import aws_sdk_workspaces.types.workspaces_pool_id
+    import aws_sdk_workspaces.types.workspaces_pool_ids
+    import aws_sdk_workspaces.types.workspaces_pool_name
+    import aws_sdk_workspaces.types.workspaces_pool_user_id
+
+class AsyncWorkSpacesClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+async def ensure_async_iterator(it: AsyncIterator[bytes] | bytes) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+class AsyncWorkSpacesClient:
+    """A client for the ``WorkSpaces`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+    def __init__(self, http_handler: AsyncBaseHandler | None = None, operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncWorkSpacesClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
+    def operation_options(self, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncWorkSpacesClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), aretry()]
+        options_: AsyncOperationOptions = AsyncOperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        return interceptors_, options_
+    async def accept_account_link_invitation(self, link_id: "aws_sdk_workspaces.types.link_id.LinkId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.accept_account_link_invitation_result.AcceptAccountLinkInvitationResult":
+        """<p>Accepts the account link invitation.</p> <important> <p>There's currently no unlinking capability after you accept the account linking invitation.</p> </important>
+
+        Args:
+            link_id: <p>The identifier of the account link.</p>
+            client_token: <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.accept_account_link_invitation_request.AcceptAccountLinkInvitationRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.accept_account_link_invitation_result.AcceptAccountLinkInvitationResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.accept_account_link_invitation
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.accept_account_link_invitation.async_accept_account_link_invitation(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.accept_account_link_invitation_request.AcceptAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["link_id"] = link_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def associate_connection_alias(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.associate_connection_alias_result.AssociateConnectionAliasResult":
+        """<p>Associates the specified connection alias with the specified directory to enable cross-Region redirection. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <note> <p>Before performing this operation, call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html\"> DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p> </note>
+
+        Args:
+            alias_id: <p>The identifier of the connection alias.</p>
+            resource_id: <p>The identifier of the directory to associate the connection alias with.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.associate_connection_alias_request.AssociateConnectionAliasRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.associate_connection_alias_result.AssociateConnectionAliasResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.associate_connection_alias
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.associate_connection_alias.async_associate_connection_alias(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.associate_connection_alias_request.AssociateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input["alias_id"] = alias_id
+        input["resource_id"] = resource_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def associate_ip_groups(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", group_ids: "aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.associate_ip_groups_result.AssociateIpGroupsResult":
+        """<p>Associates the specified IP access control group with the specified directory.</p>
+
+        Args:
+            directory_id: <p>The identifier of the directory.</p>
+            group_ids: <p>The identifiers of one or more IP access control groups.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.associate_ip_groups_request.AssociateIpGroupsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.associate_ip_groups_result.AssociateIpGroupsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.associate_ip_groups
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.associate_ip_groups.async_associate_ip_groups(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.associate_ip_groups_request.AssociateIpGroupsRequest = {}  # type: ignore[typeddict-item]
+        input["directory_id"] = directory_id
+        input["group_ids"] = group_ids
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def associate_workspace_application(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", application_id: "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.associate_workspace_application_result.AssociateWorkspaceApplicationResult":
+        """<p>Associates the specified application to the specified WorkSpace.</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+            application_id: <p>The identifier of the application.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.associate_workspace_application_request.AssociateWorkspaceApplicationRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.associate_workspace_application_result.AssociateWorkspaceApplicationResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.associate_workspace_application
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.associate_workspace_application.async_associate_workspace_application(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.associate_workspace_application_request.AssociateWorkspaceApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+        input["application_id"] = application_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def authorize_ip_rules(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", user_rules: "aws_sdk_workspaces.types.ip_rule_list.IpRuleList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.authorize_ip_rules_result.AuthorizeIpRulesResult":
+        """<p>Adds one or more rules to the specified IP access control group.</p> <p>This action gives users permission to access their WorkSpaces from the CIDR address ranges specified in the rules.</p>
+
+        Args:
+            group_id: <p>The identifier of the group.</p>
+            user_rules: <p>The rules to add to the group.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.authorize_ip_rules_request.AuthorizeIpRulesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.authorize_ip_rules_result.AuthorizeIpRulesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.authorize_ip_rules
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.authorize_ip_rules.async_authorize_ip_rules(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.authorize_ip_rules_request.AuthorizeIpRulesRequest = {}  # type: ignore[typeddict-item]
+        input["group_id"] = group_id
+        input["user_rules"] = user_rules
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def copy_workspace_image(self, name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", source_image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", source_region: "aws_sdk_workspaces.types.region.Region", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, description: Optional["aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.copy_workspace_image_result.CopyWorkspaceImageResult":
+        """<p>Copies the specified image from the specified Region to the current Region. For more information about copying images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html\"> Copy a Custom WorkSpaces Image</a>.</p> <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p> <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p> <important> <p>Before copying a shared image, be sure to verify that it has been shared from the correct Amazon Web Services account. To determine if an image has been shared and to see the ID of the Amazon Web Services account that owns an image, use the <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\">DescribeWorkSpaceImages</a> and <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html\">DescribeWorkspaceImagePermissions</a> API operations. </p> </important>
+
+        Args:
+            name: <p>The name of the image.</p>
+            description: <p>A description of the image.</p>
+            source_image_id: <p>The identifier of the source image.</p>
+            source_region: <p>The identifier of the source Region.</p>
+            tags: <p>The tags for the image.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.copy_workspace_image_request.CopyWorkspaceImageRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.copy_workspace_image_result.CopyWorkspaceImageResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.copy_workspace_image
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.copy_workspace_image.async_copy_workspace_image(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.copy_workspace_image_request.CopyWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["source_image_id"] = source_image_id
+        input["source_region"] = source_region
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_account_link_invitation(self, target_account_id: "aws_sdk_workspaces.types.aws_account.AwsAccount", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.create_account_link_invitation_result.CreateAccountLinkInvitationResult":
+        """<p>Creates the account link invitation.</p>
+
+        Args:
+            target_account_id: <p>The identifier of the target account.</p>
+            client_token: <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_account_link_invitation_request.CreateAccountLinkInvitationRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_account_link_invitation_result.CreateAccountLinkInvitationResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_account_link_invitation
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_account_link_invitation.async_create_account_link_invitation(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_account_link_invitation_request.CreateAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["target_account_id"] = target_account_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_connect_client_add_in(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", name: "aws_sdk_workspaces.types.add_in_name.AddInName", url: "aws_sdk_workspaces.types.add_in_url.AddInUrl", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_connect_client_add_in_result.CreateConnectClientAddInResult":
+        """<p>Creates a client-add-in for Connect Customer within a directory. You can create only one Connect Customer client add-in within a directory.</p> <p>This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer.</p>
+
+        Args:
+            resource_id: <p>The directory identifier for which to configure the client add-in.</p>
+            name: <p>The name of the client add-in.</p>
+            url: <p>The endpoint URL of the Connect Customer client add-in.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_connect_client_add_in_request.CreateConnectClientAddInRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_connect_client_add_in_result.CreateConnectClientAddInResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_connect_client_add_in
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_connect_client_add_in.async_create_connect_client_add_in(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_connect_client_add_in_request.CreateConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["name"] = name
+        input["url"] = url
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_connection_alias(self, connection_string: "aws_sdk_workspaces.types.connection_string.ConnectionString", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_connection_alias_result.CreateConnectionAliasResult":
+        """<p>Creates the specified connection alias for use with cross-Region redirection. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+
+        Args:
+            connection_string: <p>A connection string in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p> <important> <p>After you create a connection string, it is always associated to your Amazon Web Services account. You cannot recreate the same connection string with a different account, even if you delete all instances of it from the original account. The connection string is globally reserved for your account.</p> </important>
+            tags: <p>The tags to associate with the connection alias.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_connection_alias_request.CreateConnectionAliasRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_connection_alias_result.CreateConnectionAliasResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_connection_alias
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_connection_alias.async_create_connection_alias(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_connection_alias_request.CreateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input["connection_string"] = connection_string
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_ip_group(self, group_name: "aws_sdk_workspaces.types.ip_group_name.IpGroupName", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, group_desc: Optional["aws_sdk_workspaces.types.ip_group_desc.IpGroupDesc"] = None, user_rules: Optional["aws_sdk_workspaces.types.ip_rule_list.IpRuleList"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_ip_group_result.CreateIpGroupResult":
+        """<p>Creates an IP access control group.</p> <p>An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p> <p>There is a default IP access control group associated with your directory. If you don't associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.</p>
+
+        Args:
+            group_name: <p>The name of the group.</p>
+            group_desc: <p>The description of the group.</p>
+            user_rules: <p>The rules to add to the group.</p>
+            tags: <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_ip_group_request.CreateIpGroupRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_ip_group_result.CreateIpGroupResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_ip_group
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_ip_group.async_create_ip_group(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_ip_group_request.CreateIpGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_name"] = group_name
+        if group_desc is not None:
+            input["group_desc"] = group_desc
+        if user_rules is not None:
+            input["user_rules"] = user_rules
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_standby_workspaces(self, primary_region: "aws_sdk_workspaces.types.region.Region", standby_workspaces: "aws_sdk_workspaces.types.standby_workspaces_list.StandbyWorkspacesList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_standby_workspaces_result.CreateStandbyWorkspacesResult":
+        """<p>Creates a standby WorkSpace in a secondary Region.</p>
+
+        Args:
+            primary_region: <p>The Region of the primary WorkSpace.</p>
+            standby_workspaces: <p>Information about the standby WorkSpace to be created.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_standby_workspaces_request.CreateStandbyWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_standby_workspaces_result.CreateStandbyWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_standby_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_standby_workspaces.async_create_standby_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_standby_workspaces_request.CreateStandbyWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["primary_region"] = primary_region
+        input["standby_workspaces"] = standby_workspaces
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_tags(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", tags: "aws_sdk_workspaces.types.tag_list.TagList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_tags_result.CreateTagsResult":
+        """<p>Creates the specified tags for the specified WorkSpaces resource.</p>
+
+        Args:
+            resource_id: <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
+            tags: <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_tags_request.CreateTagsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_tags_result.CreateTagsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_tags
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_tags.async_create_tags(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_updated_workspace_image(self, name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", source_image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_updated_workspace_image_result.CreateUpdatedWorkspaceImageResult":
+        """<p>Creates a new updated WorkSpace image based on the specified source image. The new updated WorkSpace image has the latest drivers and other updates required by the Amazon WorkSpaces components.</p> <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces requirements, use <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\"> DescribeWorkspaceImages</a>.</p> <note> <ul> <li> <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images can be programmatically updated at this time.</p> </li> <li> <p>Microsoft Windows updates and other application updates are not included in the update process.</p> </li> <li> <p>The source WorkSpace image is not deleted. You can delete the source image after you've verified your new updated image and created a new bundle. </p> </li> </ul> </note>
+
+        Args:
+            name: <p>The name of the new updated WorkSpace image.</p>
+            description: <p>A description of whether updates for the WorkSpace image are available.</p>
+            source_image_id: <p>The identifier of the source WorkSpace image.</p>
+            tags: <p>The tags that you want to add to the new updated WorkSpace image.</p> <note> <p>To add tags at the same time when you're creating the updated image, you must create an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p> </note>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_updated_workspace_image_request.CreateUpdatedWorkspaceImageRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_updated_workspace_image_result.CreateUpdatedWorkspaceImageResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_updated_workspace_image
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_updated_workspace_image.async_create_updated_workspace_image(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_updated_workspace_image_request.CreateUpdatedWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["description"] = description
+        input["source_image_id"] = source_image_id
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_workspace_bundle(self, bundle_name: "aws_sdk_workspaces.types.workspace_bundle_name.WorkspaceBundleName", bundle_description: "aws_sdk_workspaces.types.workspace_bundle_description.WorkspaceBundleDescription", image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", compute_type: "aws_sdk_workspaces.types.compute_type.ComputeType", user_storage: "aws_sdk_workspaces.types.user_storage.UserStorage", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, root_storage: Optional["aws_sdk_workspaces.types.root_storage.RootStorage"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_workspace_bundle_result.CreateWorkspaceBundleResult":
+        """<p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html\"> Create a Custom WorkSpaces Image and Bundle</a>.</p>
+
+        Args:
+            bundle_name: <p>The name of the bundle.</p>
+            bundle_description: <p>The description of the bundle.</p>
+            image_id: <p>The identifier of the image that is used to create the bundle.</p>
+            tags: <p>The tags associated with the bundle.</p> <note> <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p> </note>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_workspace_bundle_request.CreateWorkspaceBundleRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_workspace_bundle_result.CreateWorkspaceBundleResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_workspace_bundle
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_workspace_bundle.async_create_workspace_bundle(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_workspace_bundle_request.CreateWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
+        input["bundle_name"] = bundle_name
+        input["bundle_description"] = bundle_description
+        input["image_id"] = image_id
+        input["compute_type"] = compute_type
+        input["user_storage"] = user_storage
+        if root_storage is not None:
+            input["root_storage"] = root_storage
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_workspace_image(self, name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_workspace_image_result.CreateWorkspaceImageResult":
+        """<p>Creates a new WorkSpace image from an existing WorkSpace.</p>
+
+        Args:
+            name: <p>The name of the new WorkSpace image.</p>
+            description: <p>The description of the new WorkSpace image.</p>
+            workspace_id: <p>The identifier of the source WorkSpace</p>
+            tags: <p>The tags that you want to add to the new WorkSpace image. To add tags when you're creating the image, you must create an IAM policy that grants your IAM user permission to use <code>workspaces:CreateTags</code>.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_workspace_image_request.CreateWorkspaceImageRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_workspace_image_result.CreateWorkspaceImageResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_workspace_image
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_workspace_image.async_create_workspace_image(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_workspace_image_request.CreateWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["description"] = description
+        input["workspace_id"] = workspace_id
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_workspaces(self, workspaces: "aws_sdk_workspaces.types.workspace_request_list.WorkspaceRequestList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_workspaces_result.CreateWorkspacesResult":
+        """<p>Creates one or more WorkSpaces.</p> <p>This operation is asynchronous and returns before the WorkSpaces are created.</p> <note> <ul> <li> <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use this value. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p> </li> <li> <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p> </li> <li> <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.</p> </li> <li> <p>Review your running mode to ensure you are using one that is optimal for your needs and budget. For more information on switching running modes, see <a href=\"http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F\"> Can I switch between hourly and monthly billing?</a> </p> </li> </ul> </note>
+
+        Args:
+            workspaces: <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_workspaces_request.CreateWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_workspaces_result.CreateWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_workspaces.async_create_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_workspaces_request.CreateWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["workspaces"] = workspaces
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def create_workspaces_pool(self, pool_name: "aws_sdk_workspaces.types.workspaces_pool_name.WorkspacesPoolName", description: "aws_sdk_workspaces.types.update_description.UpdateDescription", bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId", directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", capacity: "aws_sdk_workspaces.types.capacity.Capacity", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None, application_settings: Optional["aws_sdk_workspaces.types.application_settings_request.ApplicationSettingsRequest"] = None, timeout_settings: Optional["aws_sdk_workspaces.types.timeout_settings.TimeoutSettings"] = None, running_mode: Optional["aws_sdk_workspaces.types.pools_running_mode.PoolsRunningMode"] = None) -> "aws_sdk_workspaces.types.create_workspaces_pool_result.CreateWorkspacesPoolResult":
+        """<p>Creates a pool of WorkSpaces.</p>
+
+        Args:
+            pool_name: <p>The name of the pool.</p>
+            description: <p>The pool description.</p>
+            bundle_id: <p>The identifier of the bundle for the pool.</p>
+            directory_id: <p>The identifier of the directory for the pool.</p>
+            capacity: <p>The user capacity of the pool.</p>
+            tags: <p>The tags for the pool.</p>
+            application_settings: <p>Indicates the application settings of the pool.</p>
+            timeout_settings: <p>Indicates the timeout settings of the pool.</p>
+            running_mode: <p>The running mode for the pool.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.create_workspaces_pool_request.CreateWorkspacesPoolRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.create_workspaces_pool_result.CreateWorkspacesPoolResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.create_workspaces_pool
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.create_workspaces_pool.async_create_workspaces_pool(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.create_workspaces_pool_request.CreateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input["pool_name"] = pool_name
+        input["description"] = description
+        input["bundle_id"] = bundle_id
+        input["directory_id"] = directory_id
+        input["capacity"] = capacity
+        if tags is not None:
+            input["tags"] = tags
+        if application_settings is not None:
+            input["application_settings"] = application_settings
+        if timeout_settings is not None:
+            input["timeout_settings"] = timeout_settings
+        if running_mode is not None:
+            input["running_mode"] = running_mode
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_account_link_invitation(self, link_id: "aws_sdk_workspaces.types.link_id.LinkId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.delete_account_link_invitation_result.DeleteAccountLinkInvitationResult":
+        """<p>Deletes the account link invitation.</p>
+
+        Args:
+            link_id: <p>The identifier of the account link.</p>
+            client_token: <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_account_link_invitation_request.DeleteAccountLinkInvitationRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_account_link_invitation_result.DeleteAccountLinkInvitationResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_account_link_invitation
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_account_link_invitation.async_delete_account_link_invitation(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_account_link_invitation_request.DeleteAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["link_id"] = link_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_client_branding(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", platforms: "aws_sdk_workspaces.types.client_device_type_list.ClientDeviceTypeList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_client_branding_result.DeleteClientBrandingResult":
+        """<p>Deletes customized client branding. Client branding allows you to customize your WorkSpace's client login portal. You can tailor your login portal company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.</p> <p>After you delete your customized client branding, your login portal reverts to the default client branding.</p>
+
+        Args:
+            resource_id: <p>The directory identifier of the WorkSpace for which you want to delete client branding.</p>
+            platforms: <p>The device type for which you want to delete client branding.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_client_branding_request.DeleteClientBrandingRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_client_branding_result.DeleteClientBrandingResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_client_branding
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_client_branding.async_delete_client_branding(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_client_branding_request.DeleteClientBrandingRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["platforms"] = platforms
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_connect_client_add_in(self, add_in_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid", resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_connect_client_add_in_result.DeleteConnectClientAddInResult":
+        """<p>Deletes a client-add-in for Connect Customer that is configured within a directory.</p>
+
+        Args:
+            add_in_id: <p>The identifier of the client add-in to delete.</p>
+            resource_id: <p>The directory identifier for which the client add-in is configured.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_connect_client_add_in_request.DeleteConnectClientAddInRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_connect_client_add_in_result.DeleteConnectClientAddInResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_connect_client_add_in
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_connect_client_add_in.async_delete_connect_client_add_in(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_connect_client_add_in_request.DeleteConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
+        input["add_in_id"] = add_in_id
+        input["resource_id"] = resource_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_connection_alias(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_connection_alias_result.DeleteConnectionAliasResult":
+        """<p>Deletes the specified connection alias. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <important> <p> <b>If you will no longer be using a fully qualified domain name (FQDN) as the registration code for your WorkSpaces users, you must take certain precautions to prevent potential security issues.</b> For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations\"> Security Considerations if You Stop Using Cross-Region Redirection</a>.</p> </important> <note> <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias from any directories it has been associated with. Then you must unshare the connection alias from the account it has been shared with. You can delete a connection alias only after it is no longer shared with any accounts or associated with any directories.</p> </note>
+
+        Args:
+            alias_id: <p>The identifier of the connection alias to delete.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_connection_alias_request.DeleteConnectionAliasRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_connection_alias_result.DeleteConnectionAliasResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_connection_alias
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_connection_alias.async_delete_connection_alias(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_connection_alias_request.DeleteConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input["alias_id"] = alias_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_ip_group(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_ip_group_result.DeleteIpGroupResult":
+        """<p>Deletes the specified IP access control group.</p> <p>You cannot delete an IP access control group that is associated with a directory.</p>
+
+        Args:
+            group_id: <p>The identifier of the IP access control group.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_ip_group_request.DeleteIpGroupRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_ip_group_result.DeleteIpGroupResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_ip_group
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_ip_group.async_delete_ip_group(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_ip_group_request.DeleteIpGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_id"] = group_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_tags(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", tag_keys: "aws_sdk_workspaces.types.tag_key_list.TagKeyList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_tags_result.DeleteTagsResult":
+        """<p>Deletes the specified tags from the specified WorkSpaces resource.</p>
+
+        Args:
+            resource_id: <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
+            tag_keys: <p>The tag keys.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_tags_request.DeleteTagsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_tags_result.DeleteTagsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_tags
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_tags.async_delete_tags(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_workspace_bundle(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None) -> "aws_sdk_workspaces.types.delete_workspace_bundle_result.DeleteWorkspaceBundleResult":
+        """<p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html\"> Delete a Custom WorkSpaces Bundle or Image</a>.</p>
+
+        Args:
+            bundle_id: <p>The identifier of the bundle.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_workspace_bundle_request.DeleteWorkspaceBundleRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_workspace_bundle_result.DeleteWorkspaceBundleResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_workspace_bundle
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_workspace_bundle.async_delete_workspace_bundle(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_workspace_bundle_request.DeleteWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
+        if bundle_id is not None:
+            input["bundle_id"] = bundle_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_workspace_image(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_workspace_image_result.DeleteWorkspaceImageResult":
+        """<p>Deletes the specified image from your account. To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts. </p>
+
+        Args:
+            image_id: <p>The identifier of the image.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.delete_workspace_image_request.DeleteWorkspaceImageRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.delete_workspace_image_result.DeleteWorkspaceImageResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.delete_workspace_image
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.delete_workspace_image.async_delete_workspace_image(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.delete_workspace_image_request.DeleteWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input["image_id"] = image_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def deploy_workspace_applications(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, force: Optional["aws_sdk_workspaces.types.boolean_object.BooleanObject"] = None) -> "aws_sdk_workspaces.types.deploy_workspace_applications_result.DeployWorkspaceApplicationsResult":
+        """<p>Deploys associated applications to the specified WorkSpace</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+            force: <p>Indicates whether the force flag is applied for the specified WorkSpace. When the force flag is enabled, it allows previously failed deployments to be retried.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.deploy_workspace_applications_request.DeployWorkspaceApplicationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.deploy_workspace_applications_result.DeployWorkspaceApplicationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.deploy_workspace_applications
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.deploy_workspace_applications.async_deploy_workspace_applications(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.deploy_workspace_applications_request.DeployWorkspaceApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+        if force is not None:
+            input["force"] = force
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def deregister_workspace_directory(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.deregister_workspace_directory_result.DeregisterWorkspaceDirectoryResult":
+        """<p>Deregisters the specified directory. This operation is asynchronous and returns before the WorkSpace directory is deregistered. If any WorkSpaces are registered to this directory, you must remove them before you can deregister the directory.</p> <note> <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href=\"http://aws.amazon.com/directoryservice/pricing/\">Directory Service pricing terms</a>.</p> <p>To delete empty directories, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html\"> Delete the Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector directory, you can always create a new one when you want to start using WorkSpaces again.</p> </note>
+
+        Args:
+            directory_id: <p>The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.deregister_workspace_directory_request.DeregisterWorkspaceDirectoryRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.deregister_workspace_directory_result.DeregisterWorkspaceDirectoryResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.deregister_workspace_directory
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.deregister_workspace_directory.async_deregister_workspace_directory(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.deregister_workspace_directory_request.DeregisterWorkspaceDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input["directory_id"] = directory_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_account(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_account_result.DescribeAccountResult":
+        """<p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for the specified account.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_account_request.DescribeAccountRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_account_result.DescribeAccountResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_account
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_account.async_describe_account(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_account_request.DescribeAccountRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_account_modifications(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_account_modifications_result.DescribeAccountModificationsResult":
+        """<p>Retrieves a list that describes modifications to the configuration of Bring Your Own License (BYOL) for the specified account.</p>
+
+        Args:
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_account_modifications_request.DescribeAccountModificationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_account_modifications_result.DescribeAccountModificationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_account_modifications
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_account_modifications.async_describe_account_modifications(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_account_modifications_request.DescribeAccountModificationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_application_associations(self, application_id: "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId", associated_resource_types: "aws_sdk_workspaces.types.application_associated_resource_type_list.ApplicationAssociatedResourceTypeList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_application_associations_result.DescribeApplicationAssociationsResult":
+        """<p>Describes the associations between the application and the specified associated resources.</p>
+
+        Args:
+            max_results: <p>The maximum number of associations to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            application_id: <p>The identifier of the specified application.</p>
+            associated_resource_types: <p>The resource type of the associated resources.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_application_associations_request.DescribeApplicationAssociationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_application_associations_result.DescribeApplicationAssociationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_application_associations
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_application_associations.async_describe_application_associations(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_application_associations_request.DescribeApplicationAssociationsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["application_id"] = application_id
+        input["associated_resource_types"] = associated_resource_types
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_applications(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, application_ids: Optional["aws_sdk_workspaces.types.work_space_application_id_list.WorkSpaceApplicationIdList"] = None, compute_type_names: Optional["aws_sdk_workspaces.types.compute_list.ComputeList"] = None, license_type: Optional["aws_sdk_workspaces.types.work_space_application_license_type.WorkSpaceApplicationLicenseType"] = None, operating_system_names: Optional["aws_sdk_workspaces.types.operating_system_name_list.OperatingSystemNameList"] = None, owner: Optional["aws_sdk_workspaces.types.work_space_application_owner.WorkSpaceApplicationOwner"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_applications_result.DescribeApplicationsResult":
+        """<p>Describes the specified applications by filtering based on their compute types, license availability, operating systems, and owners.</p>
+
+        Args:
+            application_ids: <p>The identifiers of one or more applications.</p>
+            compute_type_names: <p>The compute types supported by the applications.</p>
+            license_type: <p>The license availability for the applications.</p>
+            operating_system_names: <p>The operating systems supported by the applications.</p>
+            owner: <p>The owner of the applications.</p>
+            max_results: <p>The maximum number of applications to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_applications_request.DescribeApplicationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_applications_result.DescribeApplicationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_applications
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_applications.async_describe_applications(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_applications_request.DescribeApplicationsRequest = {}  # type: ignore[typeddict-item]
+        if application_ids is not None:
+            input["application_ids"] = application_ids
+        if compute_type_names is not None:
+            input["compute_type_names"] = compute_type_names
+        if license_type is not None:
+            input["license_type"] = license_type
+        if operating_system_names is not None:
+            input["operating_system_names"] = operating_system_names
+        if owner is not None:
+            input["owner"] = owner
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_bundle_associations(self, bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId", associated_resource_types: "aws_sdk_workspaces.types.bundle_associated_resource_type_list.BundleAssociatedResourceTypeList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_bundle_associations_result.DescribeBundleAssociationsResult":
+        """<p>Describes the associations between the applications and the specified bundle.</p>
+
+        Args:
+            bundle_id: <p>The identifier of the bundle.</p>
+            associated_resource_types: <p>The resource types of the associated resource.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_bundle_associations_request.DescribeBundleAssociationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_bundle_associations_result.DescribeBundleAssociationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_bundle_associations
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_bundle_associations.async_describe_bundle_associations(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_bundle_associations_request.DescribeBundleAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input["bundle_id"] = bundle_id
+        input["associated_resource_types"] = associated_resource_types
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_client_branding(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_client_branding_result.DescribeClientBrandingResult":
+        """<p>Describes the specified client branding. Client branding allows you to customize the log in page of various device types for your users. You can add your company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.</p> <note> <p>Only device types that have branding information configured will be shown in the response.</p> </note>
+
+        Args:
+            resource_id: <p>The directory identifier of the WorkSpace for which you want to view client branding information.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_client_branding_request.DescribeClientBrandingRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_client_branding_result.DescribeClientBrandingResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_client_branding
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_client_branding.async_describe_client_branding(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_client_branding_request.DescribeClientBrandingRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_client_properties(self, resource_ids: "aws_sdk_workspaces.types.resource_id_list.ResourceIdList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_client_properties_result.DescribeClientPropertiesResult":
+        """<p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
+
+        Args:
+            resource_ids: <p>The resource identifier, in the form of directory IDs.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_client_properties_request.DescribeClientPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_client_properties_result.DescribeClientPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_client_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_client_properties.async_describe_client_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_client_properties_request.DescribeClientPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_ids"] = resource_ids
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_connect_client_add_ins(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_connect_client_add_ins_result.DescribeConnectClientAddInsResult":
+        """<p>Retrieves a list of Connect Customer client add-ins that have been created.</p>
+
+        Args:
+            resource_id: <p>The directory identifier for which the client add-in is configured.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            max_results: <p>The maximum number of items to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_connect_client_add_ins_request.DescribeConnectClientAddInsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_connect_client_add_ins_result.DescribeConnectClientAddInsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_connect_client_add_ins
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_connect_client_add_ins.async_describe_connect_client_add_ins(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_connect_client_add_ins_request.DescribeConnectClientAddInsRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_connection_aliases(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, alias_ids: Optional["aws_sdk_workspaces.types.connection_alias_id_list.ConnectionAliasIdList"] = None, resource_id: Optional["aws_sdk_workspaces.types.non_empty_string.NonEmptyString"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_connection_aliases_result.DescribeConnectionAliasesResult":
+        """<p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+
+        Args:
+            alias_ids: <p>The identifiers of the connection aliases to describe.</p>
+            resource_id: <p>The identifier of the directory associated with the connection alias.</p>
+            limit: <p>The maximum number of connection aliases to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results. </p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_connection_aliases_request.DescribeConnectionAliasesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_connection_aliases_result.DescribeConnectionAliasesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_connection_aliases
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_connection_aliases.async_describe_connection_aliases(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_connection_aliases_request.DescribeConnectionAliasesRequest = {}  # type: ignore[typeddict-item]
+        if alias_ids is not None:
+            input["alias_ids"] = alias_ids
+        if resource_id is not None:
+            input["resource_id"] = resource_id
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_connection_alias_permissions(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_connection_alias_permissions_result.DescribeConnectionAliasPermissionsResult":
+        """<p>Describes the permissions that the owner of a connection alias has granted to another Amazon Web Services account for the specified connection alias. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+
+        Args:
+            alias_id: <p>The identifier of the connection alias.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results. </p>
+            max_results: <p>The maximum number of results to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_connection_alias_permissions_request.DescribeConnectionAliasPermissionsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_connection_alias_permissions_result.DescribeConnectionAliasPermissionsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_connection_alias_permissions
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_connection_alias_permissions.async_describe_connection_alias_permissions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_connection_alias_permissions_request.DescribeConnectionAliasPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input["alias_id"] = alias_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_custom_workspace_image_import(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_custom_workspace_image_import_result.DescribeCustomWorkspaceImageImportResult":
+        """<p>Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.</p>
+
+        Args:
+            image_id: <p>The identifier of the WorkSpace image.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_custom_workspace_image_import_request.DescribeCustomWorkspaceImageImportRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_custom_workspace_image_import_result.DescribeCustomWorkspaceImageImportResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_custom_workspace_image_import
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_custom_workspace_image_import.async_describe_custom_workspace_image_import(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_custom_workspace_image_import_request.DescribeCustomWorkspaceImageImportRequest = {}  # type: ignore[typeddict-item]
+        input["image_id"] = image_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_image_associations(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", associated_resource_types: "aws_sdk_workspaces.types.image_associated_resource_type_list.ImageAssociatedResourceTypeList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_image_associations_result.DescribeImageAssociationsResult":
+        """<p>Describes the associations between the applications and the specified image.</p>
+
+        Args:
+            image_id: <p>The identifier of the image.</p>
+            associated_resource_types: <p>The resource types of the associated resource.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_image_associations_request.DescribeImageAssociationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_image_associations_result.DescribeImageAssociationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_image_associations
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_image_associations.async_describe_image_associations(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_image_associations_request.DescribeImageAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input["image_id"] = image_id
+        input["associated_resource_types"] = associated_resource_types
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_ip_groups(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, group_ids: Optional["aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_ip_groups_result.DescribeIpGroupsResult":
+        """<p>Describes one or more of your IP access control groups.</p>
+
+        Args:
+            group_ids: <p>The identifiers of one or more IP access control groups.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            max_results: <p>The maximum number of items to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_ip_groups_request.DescribeIpGroupsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_ip_groups_result.DescribeIpGroupsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_ip_groups
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_ip_groups.async_describe_ip_groups(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_ip_groups_request.DescribeIpGroupsRequest = {}  # type: ignore[typeddict-item]
+        if group_ids is not None:
+            input["group_ids"] = group_ids
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_tags(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_tags_result.DescribeTagsResult":
+        """<p>Describes the specified tags for the specified WorkSpaces resource.</p>
+
+        Args:
+            resource_id: <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_tags_request.DescribeTagsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_tags_result.DescribeTagsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_tags
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_tags.async_describe_tags(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspace_associations(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", associated_resource_types: "aws_sdk_workspaces.types.work_space_associated_resource_type_list.WorkSpaceAssociatedResourceTypeList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_workspace_associations_result.DescribeWorkspaceAssociationsResult":
+        """<p>Describes the associations betweens applications and the specified WorkSpace.</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+            associated_resource_types: <p>The resource types of the associated resources.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspace_associations_request.DescribeWorkspaceAssociationsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspace_associations_result.DescribeWorkspaceAssociationsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspace_associations
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspace_associations.async_describe_workspace_associations(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspace_associations_request.DescribeWorkspaceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+        input["associated_resource_types"] = associated_resource_types
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspace_bundles(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, bundle_ids: Optional["aws_sdk_workspaces.types.bundle_id_list.BundleIdList"] = None, owner: Optional["aws_sdk_workspaces.types.bundle_owner.BundleOwner"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspace_bundles_result.DescribeWorkspaceBundlesResult":
+        """<p>Retrieves a list that describes the available WorkSpace bundles.</p> <p>You can filter the results using either bundle ID or owner, but not both.</p>
+
+        Args:
+            bundle_ids: <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
+            owner: <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p> <p>To describe the bundles provided by Amazon Web Services, specify <code>AMAZON</code>. To describe the bundles that belong to your account, don't specify a value.</p>
+            next_token: <p>The token for the next set of results. (You received this token from a previous call.)</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspace_bundles_request.DescribeWorkspaceBundlesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspace_bundles_result.DescribeWorkspaceBundlesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspace_bundles
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspace_bundles.async_describe_workspace_bundles(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspace_bundles_request.DescribeWorkspaceBundlesRequest = {}  # type: ignore[typeddict-item]
+        if bundle_ids is not None:
+            input["bundle_ids"] = bundle_ids
+        if owner is not None:
+            input["owner"] = owner
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def iter_describe_workspace_bundles(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, bundle_ids: Optional["aws_sdk_workspaces.types.bundle_id_list.BundleIdList"] = None, owner: Optional["aws_sdk_workspaces.types.bundle_owner.BundleOwner"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "AsyncIterator[aws_sdk_workspaces.types.workspace_bundle.WorkspaceBundle]":
+        _token = next_token
+        while True:
+            _response = await self.describe_workspace_bundles(
+                config_overrides=config_overrides,
+                bundle_ids=bundle_ids,
+                owner=owner,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ('bundles',))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ('next_token',))
+            if not _token:
+                break
+    async def describe_workspace_directories(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, directory_ids: Optional["aws_sdk_workspaces.types.directory_id_list.DirectoryIdList"] = None, workspace_directory_names: Optional["aws_sdk_workspaces.types.workspace_directory_name_list.WorkspaceDirectoryNameList"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, filters: Optional["aws_sdk_workspaces.types.describe_workspace_directories_filter_list.DescribeWorkspaceDirectoriesFilterList"] = None) -> "aws_sdk_workspaces.types.describe_workspace_directories_result.DescribeWorkspaceDirectoriesResult":
+        """<p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
+
+        Args:
+            directory_ids: <p>The identifiers of the directories. If the value is null, all directories are retrieved.</p>
+            workspace_directory_names: <p>The names of the WorkSpace directories.</p>
+            limit: <p>The maximum number of directories to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            filters: <p>The filter condition for the WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspace_directories_request.DescribeWorkspaceDirectoriesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspace_directories_result.DescribeWorkspaceDirectoriesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspace_directories
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspace_directories.async_describe_workspace_directories(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspace_directories_request.DescribeWorkspaceDirectoriesRequest = {}  # type: ignore[typeddict-item]
+        if directory_ids is not None:
+            input["directory_ids"] = directory_ids
+        if workspace_directory_names is not None:
+            input["workspace_directory_names"] = workspace_directory_names
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+        if filters is not None:
+            input["filters"] = filters
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def iter_describe_workspace_directories(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, directory_ids: Optional["aws_sdk_workspaces.types.directory_id_list.DirectoryIdList"] = None, workspace_directory_names: Optional["aws_sdk_workspaces.types.workspace_directory_name_list.WorkspaceDirectoryNameList"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, filters: Optional["aws_sdk_workspaces.types.describe_workspace_directories_filter_list.DescribeWorkspaceDirectoriesFilterList"] = None) -> "AsyncIterator[aws_sdk_workspaces.types.workspace_directory.WorkspaceDirectory]":
+        _token = next_token
+        while True:
+            _response = await self.describe_workspace_directories(
+                config_overrides=config_overrides,
+                directory_ids=directory_ids,
+                workspace_directory_names=workspace_directory_names,
+                limit=limit,
+                next_token=_token,
+                filters=filters,
+            )
+            _page = _resolve_path(_response, ('directories',))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ('next_token',))
+            if not _token:
+                break
+    async def describe_workspace_image_permissions(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_workspace_image_permissions_result.DescribeWorkspaceImagePermissionsResult":
+        """<p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
+
+        Args:
+            image_id: <p>The identifier of the image.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            max_results: <p>The maximum number of items to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspace_image_permissions_request.DescribeWorkspaceImagePermissionsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspace_image_permissions_result.DescribeWorkspaceImagePermissionsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspace_image_permissions
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspace_image_permissions.async_describe_workspace_image_permissions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspace_image_permissions_request.DescribeWorkspaceImagePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input["image_id"] = image_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspace_images(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, image_ids: Optional["aws_sdk_workspaces.types.workspace_image_id_list.WorkspaceImageIdList"] = None, image_type: Optional["aws_sdk_workspaces.types.image_type.ImageType"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_workspace_images_result.DescribeWorkspaceImagesResult":
+        """<p>Retrieves a list that describes one or more specified images, if the image identifiers are provided. Otherwise, all images in the account are described. </p>
+
+        Args:
+            image_ids: <p>The identifier of the image.</p>
+            image_type: <p>The type (owned or shared) of the image.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            max_results: <p>The maximum number of items to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspace_images_request.DescribeWorkspaceImagesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspace_images_result.DescribeWorkspaceImagesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspace_images
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspace_images.async_describe_workspace_images(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspace_images_request.DescribeWorkspaceImagesRequest = {}  # type: ignore[typeddict-item]
+        if image_ids is not None:
+            input["image_ids"] = image_ids
+        if image_type is not None:
+            input["image_type"] = image_type
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspaces(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, workspace_ids: Optional["aws_sdk_workspaces.types.workspace_id_list.WorkspaceIdList"] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, user_name: Optional["aws_sdk_workspaces.types.user_name.UserName"] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, workspace_name: Optional["aws_sdk_workspaces.types.workspace_name.WorkspaceName"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_result.DescribeWorkspacesResult":
+        """<p>Describes the specified WorkSpaces.</p> <p>You can filter the results by using the bundle identifier, directory identifier, or owner, but you can specify only one filter at a time.</p>
+
+        Args:
+            workspace_ids: <p>The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.</p> <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>
+            directory_id: <p>The identifier of the directory. In addition, you can optionally specify a specific directory user (see <code>UserName</code>). You cannot combine this parameter with any other filter.</p>
+            user_name: <p>The name of the directory user. You must specify this parameter with <code>DirectoryId</code>.</p>
+            bundle_id: <p>The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.</p>
+            limit: <p>The maximum number of items to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+            workspace_name: <p>The name of the user-decoupled WorkSpace.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspaces_request.DescribeWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspaces_result.DescribeWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspaces.async_describe_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspaces_request.DescribeWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        if workspace_ids is not None:
+            input["workspace_ids"] = workspace_ids
+        if directory_id is not None:
+            input["directory_id"] = directory_id
+        if user_name is not None:
+            input["user_name"] = user_name
+        if bundle_id is not None:
+            input["bundle_id"] = bundle_id
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+        if workspace_name is not None:
+            input["workspace_name"] = workspace_name
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def iter_describe_workspaces(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, workspace_ids: Optional["aws_sdk_workspaces.types.workspace_id_list.WorkspaceIdList"] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, user_name: Optional["aws_sdk_workspaces.types.user_name.UserName"] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, workspace_name: Optional["aws_sdk_workspaces.types.workspace_name.WorkspaceName"] = None) -> "AsyncIterator[aws_sdk_workspaces.types.workspace.Workspace]":
+        _token = next_token
+        while True:
+            _response = await self.describe_workspaces(
+                config_overrides=config_overrides,
+                workspace_ids=workspace_ids,
+                directory_id=directory_id,
+                user_name=user_name,
+                bundle_id=bundle_id,
+                limit=limit,
+                next_token=_token,
+                workspace_name=workspace_name,
+            )
+            _page = _resolve_path(_response, ('workspaces',))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ('next_token',))
+            if not _token:
+                break
+    async def describe_workspaces_connection_status(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, workspace_ids: Optional["aws_sdk_workspaces.types.workspace_id_list.WorkspaceIdList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_connection_status_result.DescribeWorkspacesConnectionStatusResult":
+        """<p>Describes the connection status of the specified WorkSpaces.</p>
+
+        Args:
+            workspace_ids: <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspaces_connection_status_request.DescribeWorkspacesConnectionStatusRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspaces_connection_status_result.DescribeWorkspacesConnectionStatusResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspaces_connection_status
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspaces_connection_status.async_describe_workspaces_connection_status(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspaces_connection_status_request.DescribeWorkspacesConnectionStatusRequest = {}  # type: ignore[typeddict-item]
+        if workspace_ids is not None:
+            input["workspace_ids"] = workspace_ids
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspace_snapshots(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_workspace_snapshots_result.DescribeWorkspaceSnapshotsResult":
+        """<p>Describes the snapshots for the specified WorkSpace.</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspace_snapshots_request.DescribeWorkspaceSnapshotsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspace_snapshots_result.DescribeWorkspaceSnapshotsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspace_snapshots
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspace_snapshots.async_describe_workspace_snapshots(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspace_snapshots_request.DescribeWorkspaceSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspaces_pools(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, pool_ids: Optional["aws_sdk_workspaces.types.workspaces_pool_ids.WorkspacesPoolIds"] = None, filters: Optional["aws_sdk_workspaces.types.describe_workspaces_pools_filters.DescribeWorkspacesPoolsFilters"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_pools_result.DescribeWorkspacesPoolsResult":
+        """<p>Describes the specified WorkSpaces Pools.</p>
+
+        Args:
+            pool_ids: <p>The identifier of the WorkSpaces Pools.</p>
+            filters: <p>The filter conditions for the WorkSpaces Pool to return.</p>
+            limit: <p>The maximum number of items to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspaces_pools_request.DescribeWorkspacesPoolsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspaces_pools_result.DescribeWorkspacesPoolsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspaces_pools
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspaces_pools.async_describe_workspaces_pools(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspaces_pools_request.DescribeWorkspacesPoolsRequest = {}  # type: ignore[typeddict-item]
+        if pool_ids is not None:
+            input["pool_ids"] = pool_ids
+        if filters is not None:
+            input["filters"] = filters
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def describe_workspaces_pool_sessions(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, user_id: Optional["aws_sdk_workspaces.types.workspaces_pool_user_id.WorkspacesPoolUserId"] = None, limit: Optional["aws_sdk_workspaces.types.limit50.Limit50"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_pool_sessions_result.DescribeWorkspacesPoolSessionsResult":
+        """<p>Retrieves a list that describes the streaming sessions for a specified pool.</p>
+
+        Args:
+            pool_id: <p>The identifier of the pool.</p>
+            user_id: <p>The identifier of the user.</p>
+            limit: <p>The maximum size of each page of results. The default value is 20 and the maximum value is 50.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.describe_workspaces_pool_sessions_request.DescribeWorkspacesPoolSessionsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.describe_workspaces_pool_sessions_result.DescribeWorkspacesPoolSessionsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.describe_workspaces_pool_sessions
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.describe_workspaces_pool_sessions.async_describe_workspaces_pool_sessions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.describe_workspaces_pool_sessions_request.DescribeWorkspacesPoolSessionsRequest = {}  # type: ignore[typeddict-item]
+        input["pool_id"] = pool_id
+        if user_id is not None:
+            input["user_id"] = user_id
+        if limit is not None:
+            input["limit"] = limit
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def disassociate_connection_alias(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.disassociate_connection_alias_result.DisassociateConnectionAliasResult":
+        """<p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region redirection between two directories in different Regions. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <note> <p>Before performing this operation, call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html\"> DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p> </note>
+
+        Args:
+            alias_id: <p>The identifier of the connection alias to disassociate.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.disassociate_connection_alias_request.DisassociateConnectionAliasRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.disassociate_connection_alias_result.DisassociateConnectionAliasResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.disassociate_connection_alias
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.disassociate_connection_alias.async_disassociate_connection_alias(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.disassociate_connection_alias_request.DisassociateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input["alias_id"] = alias_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def disassociate_ip_groups(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", group_ids: "aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.disassociate_ip_groups_result.DisassociateIpGroupsResult":
+        """<p>Disassociates the specified IP access control group from the specified directory.</p>
+
+        Args:
+            directory_id: <p>The identifier of the directory.</p>
+            group_ids: <p>The identifiers of one or more IP access control groups.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.disassociate_ip_groups_request.DisassociateIpGroupsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.disassociate_ip_groups_result.DisassociateIpGroupsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.disassociate_ip_groups
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.disassociate_ip_groups.async_disassociate_ip_groups(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.disassociate_ip_groups_request.DisassociateIpGroupsRequest = {}  # type: ignore[typeddict-item]
+        input["directory_id"] = directory_id
+        input["group_ids"] = group_ids
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def disassociate_workspace_application(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", application_id: "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.disassociate_workspace_application_result.DisassociateWorkspaceApplicationResult":
+        """<p>Disassociates the specified application from a WorkSpace.</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+            application_id: <p>The identifier of the application.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.disassociate_workspace_application_request.DisassociateWorkspaceApplicationRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.disassociate_workspace_application_result.DisassociateWorkspaceApplicationResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.disassociate_workspace_application
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.disassociate_workspace_application.async_disassociate_workspace_application(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.disassociate_workspace_application_request.DisassociateWorkspaceApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+        input["application_id"] = application_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def get_account_link(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, link_id: Optional["aws_sdk_workspaces.types.link_id.LinkId"] = None, linked_account_id: Optional["aws_sdk_workspaces.types.aws_account.AwsAccount"] = None) -> "aws_sdk_workspaces.types.get_account_link_result.GetAccountLinkResult":
+        """<p>Retrieves account link information.</p>
+
+        Args:
+            link_id: <p>The identifier of the account to link.</p>
+            linked_account_id: <p>The identifier of the account link</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.get_account_link_request.GetAccountLinkRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.get_account_link_result.GetAccountLinkResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.get_account_link
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.get_account_link.async_get_account_link(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.get_account_link_request.GetAccountLinkRequest = {}  # type: ignore[typeddict-item]
+        if link_id is not None:
+            input["link_id"] = link_id
+        if linked_account_id is not None:
+            input["linked_account_id"] = linked_account_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def import_client_branding(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, device_type_windows: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_osx: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_android: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_ios: Optional["aws_sdk_workspaces.types.ios_import_client_branding_attributes.IosImportClientBrandingAttributes"] = None, device_type_linux: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_web: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None) -> "aws_sdk_workspaces.types.import_client_branding_result.ImportClientBrandingResult":
+        """<p>Imports client branding. Client branding allows you to customize your WorkSpace's client login portal. You can tailor your login portal company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.</p> <p>After you import client branding, the default branding experience for the specified platform type is replaced with the imported experience</p> <note> <ul> <li> <p>You must specify at least one platform type when importing client branding.</p> </li> <li> <p>You can import up to 6 MB of data with each request. If your request exceeds this limit, you can import client branding for different platform types using separate requests.</p> </li> <li> <p>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code> parameters are mutually exclusive. You can specify only one parameter for each platform type, but not both.</p> </li> <li> <p>Imported data can take up to a minute to appear in the WorkSpaces client.</p> </li> </ul> </note>
+
+        Args:
+            resource_id: <p>The directory identifier of the WorkSpace for which you want to import client branding.</p>
+            device_type_windows: <p>The branding information to import for Windows devices.</p>
+            device_type_osx: <p>The branding information to import for macOS devices.</p>
+            device_type_android: <p>The branding information to import for Android devices.</p>
+            device_type_ios: <p>The branding information to import for iOS devices.</p>
+            device_type_linux: <p>The branding information to import for Linux devices.</p>
+            device_type_web: <p>The branding information to import for web access.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.import_client_branding_request.ImportClientBrandingRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.import_client_branding_result.ImportClientBrandingResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.import_client_branding
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.import_client_branding.async_import_client_branding(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.import_client_branding_request.ImportClientBrandingRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        if device_type_windows is not None:
+            input["device_type_windows"] = device_type_windows
+        if device_type_osx is not None:
+            input["device_type_osx"] = device_type_osx
+        if device_type_android is not None:
+            input["device_type_android"] = device_type_android
+        if device_type_ios is not None:
+            input["device_type_ios"] = device_type_ios
+        if device_type_linux is not None:
+            input["device_type_linux"] = device_type_linux
+        if device_type_web is not None:
+            input["device_type_web"] = device_type_web
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def import_custom_workspace_image(self, image_name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", image_description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", compute_type: "aws_sdk_workspaces.types.image_compute_type.ImageComputeType", protocol: "aws_sdk_workspaces.types.custom_image_protocol.CustomImageProtocol", image_source: "aws_sdk_workspaces.types.image_source_identifier.ImageSourceIdentifier", infrastructure_configuration_arn: "aws_sdk_workspaces.types.infrastructure_configuration_arn.InfrastructureConfigurationArn", platform: "aws_sdk_workspaces.types.platform.Platform", os_version: "aws_sdk_workspaces.types.os_version.OSVersion", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.import_custom_workspace_image_result.ImportCustomWorkspaceImageResult":
+        """<p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces using EC2 Image Builder. The image must be an already licensed image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows Desktop Licenses</a>. </p>
+
+        Args:
+            image_name: <p>The name of the WorkSpace image.</p>
+            image_description: <p>The description of the WorkSpace image.</p>
+            compute_type: <p>The supported compute type for the WorkSpace image.</p>
+            protocol: <p>The supported protocol for the WorkSpace image. Windows 11 does not support PCOIP protocol.</p>
+            image_source: <p>The options for image import source.</p>
+            infrastructure_configuration_arn: <p>The infrastructure configuration ARN that specifies how the WorkSpace image is built.</p>
+            platform: <p>The platform for the WorkSpace image source.</p>
+            os_version: <p>The OS version for the WorkSpace image source.</p>
+            tags: <p>The resource tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.import_custom_workspace_image_request.ImportCustomWorkspaceImageRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.import_custom_workspace_image_result.ImportCustomWorkspaceImageResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.import_custom_workspace_image
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.import_custom_workspace_image.async_import_custom_workspace_image(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.import_custom_workspace_image_request.ImportCustomWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input["image_name"] = image_name
+        input["image_description"] = image_description
+        input["compute_type"] = compute_type
+        input["protocol"] = protocol
+        input["image_source"] = image_source
+        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        input["platform"] = platform
+        input["os_version"] = os_version
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def import_workspace_image(self, ec2_image_id: "aws_sdk_workspaces.types.ec2_image_id.Ec2ImageId", ingestion_process: "aws_sdk_workspaces.types.workspace_image_ingestion_process.WorkspaceImageIngestionProcess", image_name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", image_description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None, applications: Optional["aws_sdk_workspaces.types.application_list.ApplicationList"] = None) -> "aws_sdk_workspaces.types.import_workspace_image_result.ImportWorkspaceImageResult":
+        """<p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows Desktop Licenses</a>.</p>
+
+        Args:
+            ec2_image_id: <p>The identifier of the EC2 image.</p>
+            ingestion_process: <p>The ingestion process to be used when importing the image, depending on which protocol you want to use for your BYOL Workspace image, either PCoIP, WSP, or bring your own protocol (BYOP). To use DCV, specify a value that ends in <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>. To use BYOP, specify a value that ends in <code>_BYOP</code>.</p> <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>, depending on the protocol.</p> <note> <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values are only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use these values. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p> </note>
+            image_name: <p>The name of the WorkSpace image.</p>
+            image_description: <p>The description of the WorkSpace image.</p>
+            tags: <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+            applications: <p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 and 11 BYOL images. For more information about subscribing to Office for BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows Desktop Licenses</a>.</p> <note> <ul> <li> <p>Although this parameter is an array, only one item is allowed at this time.</p> </li> <li> <p>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows 11 support only <code>Microsoft_Office_2019</code>. GPU DCV (formerly WSP) WorkSpaces with Windows 11 do not support Office installation.</p> </li> </ul> </note>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.import_workspace_image_request.ImportWorkspaceImageRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.import_workspace_image_result.ImportWorkspaceImageResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.import_workspace_image
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.import_workspace_image.async_import_workspace_image(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.import_workspace_image_request.ImportWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input["ec2_image_id"] = ec2_image_id
+        input["ingestion_process"] = ingestion_process
+        input["image_name"] = image_name
+        input["image_description"] = image_description
+        if tags is not None:
+            input["tags"] = tags
+        if applications is not None:
+            input["applications"] = applications
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list_account_links(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, link_status_filter: Optional["aws_sdk_workspaces.types.link_status_filter_list.LinkStatusFilterList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.list_account_links_result.ListAccountLinksResult":
+        """<p>Lists all account links.</p>
+
+        Args:
+            link_status_filter: <p>Filters the account based on their link status.</p>
+            next_token: <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+            max_results: <p>The maximum number of accounts to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.list_account_links_request.ListAccountLinksRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.list_account_links_result.ListAccountLinksResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.list_account_links
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.list_account_links.async_list_account_links(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.list_account_links_request.ListAccountLinksRequest = {}  # type: ignore[typeddict-item]
+        if link_status_filter is not None:
+            input["link_status_filter"] = link_status_filter
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def iter_list_account_links(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, link_status_filter: Optional["aws_sdk_workspaces.types.link_status_filter_list.LinkStatusFilterList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "AsyncIterator[aws_sdk_workspaces.types.account_link.AccountLink]":
+        _token = next_token
+        while True:
+            _response = await self.list_account_links(
+                config_overrides=config_overrides,
+                link_status_filter=link_status_filter,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ('account_links',))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ('next_token',))
+            if not _token:
+                break
+    async def list_available_management_cidr_ranges(self, management_cidr_range_constraint: "aws_sdk_workspaces.types.management_cidr_range_constraint.ManagementCidrRangeConstraint", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, max_results: Optional["aws_sdk_workspaces.types.management_cidr_range_max_results.ManagementCidrRangeMaxResults"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.list_available_management_cidr_ranges_result.ListAvailableManagementCidrRangesResult":
+        """<p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use for the network management interface when you enable Bring Your Own License (BYOL). </p> <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL. If your account isn't enabled for BYOL, you'll receive an <code>AccessDeniedException</code> error.</p> <p>The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
+
+        Args:
+            management_cidr_range_constraint: <p>The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).</p>
+            max_results: <p>The maximum number of items to return.</p>
+            next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.list_available_management_cidr_ranges_request.ListAvailableManagementCidrRangesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.list_available_management_cidr_ranges_result.ListAvailableManagementCidrRangesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.list_available_management_cidr_ranges
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.list_available_management_cidr_ranges.async_list_available_management_cidr_ranges(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.list_available_management_cidr_ranges_request.ListAvailableManagementCidrRangesRequest = {}  # type: ignore[typeddict-item]
+        input["management_cidr_range_constraint"] = management_cidr_range_constraint
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def migrate_workspace(self, source_workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.migrate_workspace_result.MigrateWorkspaceResult":
+        """<p>Migrates a WorkSpace from one operating system or bundle type to another, while retaining the data on the user volume.</p> <p>The migration process recreates the WorkSpace by using a new root volume from the target bundle image and the user volume from the last available snapshot of the original WorkSpace. During migration, the original <code>D:\Users\%USERNAME%</code> user profile folder is renamed to <code>D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated</code>. A new <code>D:\Users\%USERNAME%\</code> folder is generated by the new OS. Certain files in the old user profile are moved to the new user profile.</p> <p>For available migration scenarios, details about what happens during migration, and best practices, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html\">Migrate a WorkSpace</a>.</p>
+
+        Args:
+            source_workspace_id: <p>The identifier of the WorkSpace to migrate from.</p>
+            bundle_id: <p>The identifier of the target bundle type to migrate the WorkSpace to.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.migrate_workspace_request.MigrateWorkspaceRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.migrate_workspace_result.MigrateWorkspaceResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.migrate_workspace
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.migrate_workspace.async_migrate_workspace(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.migrate_workspace_request.MigrateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input["source_workspace_id"] = source_workspace_id
+        input["bundle_id"] = bundle_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_account(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, dedicated_tenancy_support: Optional["aws_sdk_workspaces.types.dedicated_tenancy_support_enum.DedicatedTenancySupportEnum"] = None, dedicated_tenancy_management_cidr_range: Optional["aws_sdk_workspaces.types.dedicated_tenancy_management_cidr_range.DedicatedTenancyManagementCidrRange"] = None) -> "aws_sdk_workspaces.types.modify_account_result.ModifyAccountResult":
+        """<p>Modifies the configuration of Bring Your Own License (BYOL) for the specified account.</p>
+
+        Args:
+            dedicated_tenancy_support: <p>The status of BYOL.</p>
+            dedicated_tenancy_management_cidr_range: <p>The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the <code>ListAvailableManagementCidrRanges</code> operation.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_account_request.ModifyAccountRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_account_result.ModifyAccountResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_account
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_account.async_modify_account(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_account_request.ModifyAccountRequest = {}  # type: ignore[typeddict-item]
+        if dedicated_tenancy_support is not None:
+            input["dedicated_tenancy_support"] = dedicated_tenancy_support
+        if dedicated_tenancy_management_cidr_range is not None:
+            input["dedicated_tenancy_management_cidr_range"] = dedicated_tenancy_management_cidr_range
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_certificate_based_auth_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, certificate_based_auth_properties: Optional["aws_sdk_workspaces.types.certificate_based_auth_properties.CertificateBasedAuthProperties"] = None, properties_to_delete: Optional["aws_sdk_workspaces.types.deletable_certificate_based_auth_properties_list.DeletableCertificateBasedAuthPropertiesList"] = None) -> "aws_sdk_workspaces.types.modify_certificate_based_auth_properties_result.ModifyCertificateBasedAuthPropertiesResult":
+        """<p>Modifies the properties of the certificate-based authentication you want to use with your WorkSpaces.</p>
+
+        Args:
+            resource_id: <p>The resource identifiers, in the form of directory IDs.</p>
+            certificate_based_auth_properties: <p>The properties of the certificate-based authentication.</p>
+            properties_to_delete: <p>The properties of the certificate-based authentication you want to delete.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request.ModifyCertificateBasedAuthPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_certificate_based_auth_properties_result.ModifyCertificateBasedAuthPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_certificate_based_auth_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_certificate_based_auth_properties.async_modify_certificate_based_auth_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request.ModifyCertificateBasedAuthPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        if certificate_based_auth_properties is not None:
+            input["certificate_based_auth_properties"] = certificate_based_auth_properties
+        if properties_to_delete is not None:
+            input["properties_to_delete"] = properties_to_delete
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_client_properties(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", client_properties: "aws_sdk_workspaces.types.client_properties.ClientProperties", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_client_properties_result.ModifyClientPropertiesResult":
+        """<p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
+
+        Args:
+            resource_id: <p>The resource identifiers, in the form of directory IDs.</p>
+            client_properties: <p>Information about the Amazon WorkSpaces client.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_client_properties_request.ModifyClientPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_client_properties_result.ModifyClientPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_client_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_client_properties.async_modify_client_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_client_properties_request.ModifyClientPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["client_properties"] = client_properties
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_endpoint_encryption_mode(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", endpoint_encryption_mode: "aws_sdk_workspaces.types.endpoint_encryption_mode.EndpointEncryptionMode", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_endpoint_encryption_mode_response.ModifyEndpointEncryptionModeResponse":
+        """<p>Modifies the endpoint encryption mode that allows you to configure the specified directory between Standard TLS and FIPS 140-2 validated mode. </p>
+
+        Args:
+            directory_id: <p> The identifier of the directory.</p>
+            endpoint_encryption_mode: <p>The encryption mode used for endpoint connections when streaming to WorkSpaces Personal or WorkSpace Pools.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_endpoint_encryption_mode_request.ModifyEndpointEncryptionModeRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_endpoint_encryption_mode_response.ModifyEndpointEncryptionModeResponse"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_endpoint_encryption_mode
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_endpoint_encryption_mode.async_modify_endpoint_encryption_mode(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_endpoint_encryption_mode_request.ModifyEndpointEncryptionModeRequest = {}  # type: ignore[typeddict-item]
+        input["directory_id"] = directory_id
+        input["endpoint_encryption_mode"] = endpoint_encryption_mode
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_saml_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, saml_properties: Optional["aws_sdk_workspaces.types.saml_properties.SamlProperties"] = None, properties_to_delete: Optional["aws_sdk_workspaces.types.deletable_saml_properties_list.DeletableSamlPropertiesList"] = None) -> "aws_sdk_workspaces.types.modify_saml_properties_result.ModifySamlPropertiesResult":
+        """<p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.</p>
+
+        Args:
+            resource_id: <p>The directory identifier for which you want to configure SAML properties.</p>
+            saml_properties: <p>The properties for configuring SAML 2.0 authentication.</p>
+            properties_to_delete: <p>The SAML properties to delete as part of your request.</p> <p>Specify one of the following options:</p> <ul> <li> <p> <code>SAML_PROPERTIES_USER_ACCESS_URL</code> to delete the user access URL.</p> </li> <li> <p> <code>SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME</code> to delete the relay state parameter name.</p> </li> </ul>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_saml_properties_request.ModifySamlPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_saml_properties_result.ModifySamlPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_saml_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_saml_properties.async_modify_saml_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_saml_properties_request.ModifySamlPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        if saml_properties is not None:
+            input["saml_properties"] = saml_properties
+        if properties_to_delete is not None:
+            input["properties_to_delete"] = properties_to_delete
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_selfservice_permissions(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", selfservice_permissions: "aws_sdk_workspaces.types.selfservice_permissions.SelfservicePermissions", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_selfservice_permissions_result.ModifySelfservicePermissionsResult":
+        """<p>Modifies the self-service WorkSpace management capabilities for your users. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html\">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
+
+        Args:
+            resource_id: <p>The identifier of the directory.</p>
+            selfservice_permissions: <p>The permissions to enable or disable self-service capabilities.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_selfservice_permissions_request.ModifySelfservicePermissionsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_selfservice_permissions_result.ModifySelfservicePermissionsResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_selfservice_permissions
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_selfservice_permissions.async_modify_selfservice_permissions(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_selfservice_permissions_request.ModifySelfservicePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["selfservice_permissions"] = selfservice_permissions
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_streaming_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, streaming_properties: Optional["aws_sdk_workspaces.types.streaming_properties.StreamingProperties"] = None) -> "aws_sdk_workspaces.types.modify_streaming_properties_result.ModifyStreamingPropertiesResult":
+        """<p>Modifies the specified streaming properties.</p>
+
+        Args:
+            resource_id: <p>The identifier of the resource.</p>
+            streaming_properties: <p>The streaming properties to configure.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_streaming_properties_request.ModifyStreamingPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_streaming_properties_result.ModifyStreamingPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_streaming_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_streaming_properties.async_modify_streaming_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_streaming_properties_request.ModifyStreamingPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        if streaming_properties is not None:
+            input["streaming_properties"] = streaming_properties
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_workspace_access_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", workspace_access_properties: "aws_sdk_workspaces.types.workspace_access_properties.WorkspaceAccessProperties", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_workspace_access_properties_result.ModifyWorkspaceAccessPropertiesResult":
+        """<p>Specifies which devices and operating systems users can use to access their WorkSpaces. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access\"> Control Device Access</a>.</p>
+
+        Args:
+            resource_id: <p>The identifier of the directory.</p>
+            workspace_access_properties: <p>The device types and operating systems to enable or disable for access.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_workspace_access_properties_request.ModifyWorkspaceAccessPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_workspace_access_properties_result.ModifyWorkspaceAccessPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_workspace_access_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_workspace_access_properties.async_modify_workspace_access_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_workspace_access_properties_request.ModifyWorkspaceAccessPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["workspace_access_properties"] = workspace_access_properties
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_workspace_creation_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", workspace_creation_properties: "aws_sdk_workspaces.types.workspace_creation_properties.WorkspaceCreationProperties", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_workspace_creation_properties_result.ModifyWorkspaceCreationPropertiesResult":
+        """<p>Modify the default properties used to create WorkSpaces.</p>
+
+        Args:
+            resource_id: <p>The identifier of the directory.</p>
+            workspace_creation_properties: <p>The default properties for creating WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_workspace_creation_properties_request.ModifyWorkspaceCreationPropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_workspace_creation_properties_result.ModifyWorkspaceCreationPropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_workspace_creation_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_workspace_creation_properties.async_modify_workspace_creation_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_workspace_creation_properties_request.ModifyWorkspaceCreationPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["workspace_creation_properties"] = workspace_creation_properties
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_workspace_properties(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, workspace_properties: Optional["aws_sdk_workspaces.types.workspace_properties.WorkspaceProperties"] = None, data_replication: Optional["aws_sdk_workspaces.types.data_replication.DataReplication"] = None) -> "aws_sdk_workspaces.types.modify_workspace_properties_result.ModifyWorkspacePropertiesResult":
+        """<p>Modifies the specified WorkSpace properties. For important information about how to modify the size of the root and user volumes, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\"> Modify a WorkSpace</a>. </p> <note> <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use this value. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p> </note>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+            workspace_properties: <p>The properties of the WorkSpace.</p>
+            data_replication: <p>Indicates the data replication status.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_workspace_properties_request.ModifyWorkspacePropertiesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_workspace_properties_result.ModifyWorkspacePropertiesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_workspace_properties
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_workspace_properties.async_modify_workspace_properties(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_workspace_properties_request.ModifyWorkspacePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+        if workspace_properties is not None:
+            input["workspace_properties"] = workspace_properties
+        if data_replication is not None:
+            input["data_replication"] = data_replication
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def modify_workspace_state(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", workspace_state: "aws_sdk_workspaces.types.target_workspace_state.TargetWorkspaceState", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_workspace_state_result.ModifyWorkspaceStateResult":
+        """<p>Sets the state of the specified WorkSpace.</p> <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code> state.</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+            workspace_state: <p>The WorkSpace state.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.modify_workspace_state_request.ModifyWorkspaceStateRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.modify_workspace_state_result.ModifyWorkspaceStateResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.modify_workspace_state
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.modify_workspace_state.async_modify_workspace_state(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.modify_workspace_state_request.ModifyWorkspaceStateRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+        input["workspace_state"] = workspace_state
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def reboot_workspaces(self, reboot_workspace_requests: "aws_sdk_workspaces.types.reboot_workspace_requests.RebootWorkspaceRequests", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.reboot_workspaces_result.RebootWorkspacesResult":
+        """<p>Reboots the specified WorkSpaces.</p> <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code>, <code>UNHEALTHY</code>, or <code>REBOOTING</code>. Reboot a WorkSpace in the <code>REBOOTING</code> state only if your WorkSpace has been stuck in the <code>REBOOTING</code> state for over 20 minutes.</p> <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>
+
+        Args:
+            reboot_workspace_requests: <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.reboot_workspaces_request.RebootWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.reboot_workspaces_result.RebootWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.reboot_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.reboot_workspaces.async_reboot_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.reboot_workspaces_request.RebootWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["reboot_workspace_requests"] = reboot_workspace_requests
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def rebuild_workspaces(self, rebuild_workspace_requests: "aws_sdk_workspaces.types.rebuild_workspace_requests.RebuildWorkspaceRequests", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.rebuild_workspaces_result.RebuildWorkspacesResult":
+        """<p>Rebuilds the specified WorkSpace.</p> <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>, <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or <code>REBOOTING</code>.</p> <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.</p>
+
+        Args:
+            rebuild_workspace_requests: <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.rebuild_workspaces_request.RebuildWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.rebuild_workspaces_result.RebuildWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.rebuild_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.rebuild_workspaces.async_rebuild_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.rebuild_workspaces_request.RebuildWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["rebuild_workspace_requests"] = rebuild_workspace_requests
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def register_workspace_directory(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, subnet_ids: Optional["aws_sdk_workspaces.types.subnet_ids.SubnetIds"] = None, enable_self_service: Optional["aws_sdk_workspaces.types.boolean_object.BooleanObject"] = None, tenancy: Optional["aws_sdk_workspaces.types.tenancy.Tenancy"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None, workspace_directory_name: Optional["aws_sdk_workspaces.types.workspace_directory_name.WorkspaceDirectoryName"] = None, workspace_directory_description: Optional["aws_sdk_workspaces.types.workspace_directory_description.WorkspaceDirectoryDescription"] = None, user_identity_type: Optional["aws_sdk_workspaces.types.user_identity_type.UserIdentityType"] = None, idc_instance_arn: Optional["aws_sdk_workspaces.types.arn.ARN"] = None, microsoft_entra_config: Optional["aws_sdk_workspaces.types.microsoft_entra_config.MicrosoftEntraConfig"] = None, workspace_type: Optional["aws_sdk_workspaces.types.workspace_type.WorkspaceType"] = None, active_directory_config: Optional["aws_sdk_workspaces.types.active_directory_config.ActiveDirectoryConfig"] = None) -> "aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult":
+        """<p>Registers the specified directory. This operation is asynchronous and returns before the WorkSpace directory is registered. If this is the first time you are registering a directory, you will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role\"> Creating the workspaces_DefaultRole Role</a>.</p>
+
+        Args:
+            directory_id: <p>The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.</p>
+            subnet_ids: <p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException error.</p>
+            enable_self_service: <p>Indicates whether self-service capabilities are enabled or disabled.</p>
+            tenancy: <p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to <code>DEDICATED</code> and your Amazon Web Services account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\">Bring Your Own Windows Desktop Images</a>.</p>
+            tags: <p>The tags associated with the directory.</p>
+            workspace_directory_name: <p>The name of the directory to register.</p>
+            workspace_directory_description: <p>Description of the directory to register.</p>
+            user_identity_type: <p>The type of identity management the user is using.</p>
+            idc_instance_arn: <p>The Amazon Resource Name (ARN) of the identity center instance.</p>
+            microsoft_entra_config: <p>The details about Microsoft Entra config.</p>
+            workspace_type: <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
+            active_directory_config: <p>The active directory config of the directory.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.register_workspace_directory_request.RegisterWorkspaceDirectoryRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.register_workspace_directory
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.register_workspace_directory.async_register_workspace_directory(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.register_workspace_directory_request.RegisterWorkspaceDirectoryRequest = {}  # type: ignore[typeddict-item]
+        if directory_id is not None:
+            input["directory_id"] = directory_id
+        if subnet_ids is not None:
+            input["subnet_ids"] = subnet_ids
+        if enable_self_service is not None:
+            input["enable_self_service"] = enable_self_service
+        if tenancy is not None:
+            input["tenancy"] = tenancy
+        if tags is not None:
+            input["tags"] = tags
+        if workspace_directory_name is not None:
+            input["workspace_directory_name"] = workspace_directory_name
+        if workspace_directory_description is not None:
+            input["workspace_directory_description"] = workspace_directory_description
+        if user_identity_type is not None:
+            input["user_identity_type"] = user_identity_type
+        if idc_instance_arn is not None:
+            input["idc_instance_arn"] = idc_instance_arn
+        if microsoft_entra_config is not None:
+            input["microsoft_entra_config"] = microsoft_entra_config
+        if workspace_type is not None:
+            input["workspace_type"] = workspace_type
+        if active_directory_config is not None:
+            input["active_directory_config"] = active_directory_config
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def reject_account_link_invitation(self, link_id: "aws_sdk_workspaces.types.link_id.LinkId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.reject_account_link_invitation_result.RejectAccountLinkInvitationResult":
+        """<p>Rejects the account link invitation.</p>
+
+        Args:
+            link_id: <p>The identifier of the account link</p>
+            client_token: <p>The client token of the account link invitation to reject.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.reject_account_link_invitation_request.RejectAccountLinkInvitationRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.reject_account_link_invitation_result.RejectAccountLinkInvitationResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.reject_account_link_invitation
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.reject_account_link_invitation.async_reject_account_link_invitation(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.reject_account_link_invitation_request.RejectAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["link_id"] = link_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def restore_workspace(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.restore_workspace_result.RestoreWorkspaceResult":
+        """<p>Restores the specified WorkSpace to its last known healthy state.</p> <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>, <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p> <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html\">Restore a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpace is completely restored.</p>
+
+        Args:
+            workspace_id: <p>The identifier of the WorkSpace.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.restore_workspace_request.RestoreWorkspaceRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.restore_workspace_result.RestoreWorkspaceResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.restore_workspace
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.restore_workspace.async_restore_workspace(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.restore_workspace_request.RestoreWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input["workspace_id"] = workspace_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def revoke_ip_rules(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", user_rules: "aws_sdk_workspaces.types.ip_revoked_rule_list.IpRevokedRuleList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.revoke_ip_rules_result.RevokeIpRulesResult":
+        """<p>Removes one or more rules from the specified IP access control group.</p>
+
+        Args:
+            group_id: <p>The identifier of the group.</p>
+            user_rules: <p>The rules to remove from the group.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.revoke_ip_rules_request.RevokeIpRulesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.revoke_ip_rules_result.RevokeIpRulesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.revoke_ip_rules
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.revoke_ip_rules.async_revoke_ip_rules(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.revoke_ip_rules_request.RevokeIpRulesRequest = {}  # type: ignore[typeddict-item]
+        input["group_id"] = group_id
+        input["user_rules"] = user_rules
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def start_workspaces(self, start_workspace_requests: "aws_sdk_workspaces.types.start_workspace_requests.StartWorkspaceRequests", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.start_workspaces_result.StartWorkspacesResult":
+        """<p>Starts the specified WorkSpaces.</p> <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> or <code>Manual</code> and a state of <code>STOPPED</code>.</p>
+
+        Args:
+            start_workspace_requests: <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.start_workspaces_request.StartWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.start_workspaces_result.StartWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.start_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.start_workspaces.async_start_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.start_workspaces_request.StartWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["start_workspace_requests"] = start_workspace_requests
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def start_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.start_workspaces_pool_result.StartWorkspacesPoolResult":
+        """<p>Starts the specified pool.</p> <p>You cannot start a pool unless it has a running mode of <code>AutoStop</code> and a state of <code>STOPPED</code>.</p>
+
+        Args:
+            pool_id: <p>The identifier of the pool.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.start_workspaces_pool_request.StartWorkspacesPoolRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.start_workspaces_pool_result.StartWorkspacesPoolResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.start_workspaces_pool
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.start_workspaces_pool.async_start_workspaces_pool(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.start_workspaces_pool_request.StartWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input["pool_id"] = pool_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def stop_workspaces(self, stop_workspace_requests: "aws_sdk_workspaces.types.stop_workspace_requests.StopWorkspaceRequests", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.stop_workspaces_result.StopWorkspacesResult":
+        """<p>Stops the specified WorkSpaces.</p> <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> or <code>Manual</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
+
+        Args:
+            stop_workspace_requests: <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.stop_workspaces_request.StopWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.stop_workspaces_result.StopWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.stop_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.stop_workspaces.async_stop_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.stop_workspaces_request.StopWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["stop_workspace_requests"] = stop_workspace_requests
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def stop_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.stop_workspaces_pool_result.StopWorkspacesPoolResult":
+        """<p>Stops the specified pool.</p> <p>You cannot stop a WorkSpace pool unless it has a running mode of <code>AutoStop</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
+
+        Args:
+            pool_id: <p>The identifier of the pool.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.stop_workspaces_pool_request.StopWorkspacesPoolRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.stop_workspaces_pool_result.StopWorkspacesPoolResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.stop_workspaces_pool
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.stop_workspaces_pool.async_stop_workspaces_pool(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.stop_workspaces_pool_request.StopWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input["pool_id"] = pool_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def terminate_workspaces(self, terminate_workspace_requests: "aws_sdk_workspaces.types.terminate_workspace_requests.TerminateWorkspaceRequests", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.terminate_workspaces_result.TerminateWorkspacesResult":
+        """<p>Terminates the specified WorkSpaces.</p> <important> <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is destroyed. If you need to archive any user data, contact Amazon Web Services Support before terminating the WorkSpace.</p> </important> <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely terminated. After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> <note> <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href=\"http://aws.amazon.com/directoryservice/pricing/\">Directory Service pricing terms</a>.</p> <p>To delete empty directories, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html\"> Delete the Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector directory, you can always create a new one when you want to start using WorkSpaces again.</p> </note>
+
+        Args:
+            terminate_workspace_requests: <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.terminate_workspaces_request.TerminateWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.terminate_workspaces_result.TerminateWorkspacesResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.terminate_workspaces
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.terminate_workspaces.async_terminate_workspaces(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.terminate_workspaces_request.TerminateWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input["terminate_workspace_requests"] = terminate_workspace_requests
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def terminate_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.terminate_workspaces_pool_result.TerminateWorkspacesPoolResult":
+        """<p>Terminates the specified pool.</p>
+
+        Args:
+            pool_id: <p>The identifier of the pool.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.terminate_workspaces_pool_request.TerminateWorkspacesPoolRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.terminate_workspaces_pool_result.TerminateWorkspacesPoolResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.terminate_workspaces_pool
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.terminate_workspaces_pool.async_terminate_workspaces_pool(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.terminate_workspaces_pool_request.TerminateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input["pool_id"] = pool_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def terminate_workspaces_pool_session(self, session_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.terminate_workspaces_pool_session_result.TerminateWorkspacesPoolSessionResult":
+        """<p>Terminates the pool session.</p>
+
+        Args:
+            session_id: <p>The identifier of the pool session.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.terminate_workspaces_pool_session_request.TerminateWorkspacesPoolSessionRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.terminate_workspaces_pool_session_result.TerminateWorkspacesPoolSessionResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.terminate_workspaces_pool_session
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.terminate_workspaces_pool_session.async_terminate_workspaces_pool_session(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.terminate_workspaces_pool_session_request.TerminateWorkspacesPoolSessionRequest = {}  # type: ignore[typeddict-item]
+        input["session_id"] = session_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_connect_client_add_in(self, add_in_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid", resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, name: Optional["aws_sdk_workspaces.types.add_in_name.AddInName"] = None, url: Optional["aws_sdk_workspaces.types.add_in_url.AddInUrl"] = None) -> "aws_sdk_workspaces.types.update_connect_client_add_in_result.UpdateConnectClientAddInResult":
+        """<p>Updates a Connect Customer client add-in. Use this action to update the name and endpoint URL of a Connect Customer client add-in.</p>
+
+        Args:
+            add_in_id: <p>The identifier of the client add-in to update.</p>
+            resource_id: <p>The directory identifier for which the client add-in is configured.</p>
+            name: <p>The name of the client add-in.</p>
+            url: <p>The endpoint URL of the Connect Customer client add-in.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.update_connect_client_add_in_request.UpdateConnectClientAddInRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.update_connect_client_add_in_result.UpdateConnectClientAddInResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.update_connect_client_add_in
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.update_connect_client_add_in.async_update_connect_client_add_in(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.update_connect_client_add_in_request.UpdateConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
+        input["add_in_id"] = add_in_id
+        input["resource_id"] = resource_id
+        if name is not None:
+            input["name"] = name
+        if url is not None:
+            input["url"] = url
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_connection_alias_permission(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", connection_alias_permission: "aws_sdk_workspaces.types.connection_alias_permission.ConnectionAliasPermission", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.update_connection_alias_permission_result.UpdateConnectionAliasPermissionResult":
+        """<p>Shares or unshares a connection alias with one account by specifying whether that account has permission to associate the connection alias with a directory. If the association permission is granted, the connection alias is shared with that account. If the association permission is revoked, the connection alias is unshared with the account. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <note> <ul> <li> <p>Before performing this operation, call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html\"> DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p> </li> <li> <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias from any directories it has been associated with. Then you must unshare the connection alias from the account it has been shared with. You can delete a connection alias only after it is no longer shared with any accounts or associated with any directories.</p> </li> </ul> </note>
+
+        Args:
+            alias_id: <p>The identifier of the connection alias that you want to update permissions for.</p>
+            connection_alias_permission: <p>Indicates whether to share or unshare the connection alias with the specified Amazon Web Services account.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.update_connection_alias_permission_request.UpdateConnectionAliasPermissionRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.update_connection_alias_permission_result.UpdateConnectionAliasPermissionResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.update_connection_alias_permission
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.update_connection_alias_permission.async_update_connection_alias_permission(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.update_connection_alias_permission_request.UpdateConnectionAliasPermissionRequest = {}  # type: ignore[typeddict-item]
+        input["alias_id"] = alias_id
+        input["connection_alias_permission"] = connection_alias_permission
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_rules_of_ip_group(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", user_rules: "aws_sdk_workspaces.types.ip_rule_list.IpRuleList", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.update_rules_of_ip_group_result.UpdateRulesOfIpGroupResult":
+        """<p>Replaces the current rules of the specified IP access control group with the specified rules.</p>
+
+        Args:
+            group_id: <p>The identifier of the group.</p>
+            user_rules: <p>One or more rules.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.update_rules_of_ip_group_request.UpdateRulesOfIpGroupRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.update_rules_of_ip_group_result.UpdateRulesOfIpGroupResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.update_rules_of_ip_group
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.update_rules_of_ip_group.async_update_rules_of_ip_group(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.update_rules_of_ip_group_request.UpdateRulesOfIpGroupRequest = {}  # type: ignore[typeddict-item]
+        input["group_id"] = group_id
+        input["user_rules"] = user_rules
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_workspace_bundle(self, *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, image_id: Optional["aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId"] = None) -> "aws_sdk_workspaces.types.update_workspace_bundle_result.UpdateWorkspaceBundleResult":
+        """<p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html\"> Update a Custom WorkSpaces Bundle</a>.</p> <important> <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're based on. To update existing WorkSpaces that are based on a bundle that you've updated, you must either rebuild the WorkSpaces or delete and recreate them.</p> </important>
+
+        Args:
+            bundle_id: <p>The identifier of the bundle.</p>
+            image_id: <p>The identifier of the image.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.update_workspace_bundle_request.UpdateWorkspaceBundleRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.update_workspace_bundle_result.UpdateWorkspaceBundleResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.update_workspace_bundle
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.update_workspace_bundle.async_update_workspace_bundle(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.update_workspace_bundle_request.UpdateWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
+        if bundle_id is not None:
+            input["bundle_id"] = bundle_id
+        if image_id is not None:
+            input["image_id"] = image_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_workspace_image_permission(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", allow_copy_image: "aws_sdk_workspaces.types.boolean_object.BooleanObject", shared_account_id: "aws_sdk_workspaces.types.aws_account.AwsAccount", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.update_workspace_image_permission_result.UpdateWorkspaceImagePermissionResult":
+        """<p>Shares or unshares an image with one account in the same Amazon Web Services Region by specifying whether that account has permission to copy the image. If the copy image permission is granted, the image is shared with that account. If the copy image permission is revoked, the image is unshared with the account.</p> <p>After an image has been shared, the recipient account can copy the image to other Regions as needed.</p> <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p> <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p> <p>For more information about sharing images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html\"> Share or Unshare a Custom WorkSpaces Image</a>.</p> <note> <ul> <li> <p>To delete an image that has been shared, you must unshare the image before you delete it.</p> </li> <li> <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p> </li> </ul> </note>
+
+        Args:
+            image_id: <p>The identifier of the image.</p>
+            allow_copy_image: <p>The permission to copy the image. This permission can be revoked only after an image has been shared.</p>
+            shared_account_id: <p>The identifier of the Amazon Web Services account to share or unshare the image with.</p> <important> <p>Before sharing the image, confirm that you are sharing to the correct Amazon Web Services account ID.</p> </important>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.update_workspace_image_permission_request.UpdateWorkspaceImagePermissionRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.update_workspace_image_permission_result.UpdateWorkspaceImagePermissionResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.update_workspace_image_permission
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.update_workspace_image_permission.async_update_workspace_image_permission(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.update_workspace_image_permission_request.UpdateWorkspaceImagePermissionRequest = {}  # type: ignore[typeddict-item]
+        input["image_id"] = image_id
+        input["allow_copy_image"] = allow_copy_image
+        input["shared_account_id"] = shared_account_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[AsyncWorkSpacesClientConfig] = None, description: Optional["aws_sdk_workspaces.types.update_description.UpdateDescription"] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, capacity: Optional["aws_sdk_workspaces.types.capacity.Capacity"] = None, application_settings: Optional["aws_sdk_workspaces.types.application_settings_request.ApplicationSettingsRequest"] = None, timeout_settings: Optional["aws_sdk_workspaces.types.timeout_settings.TimeoutSettings"] = None, running_mode: Optional["aws_sdk_workspaces.types.pools_running_mode.PoolsRunningMode"] = None) -> "aws_sdk_workspaces.types.update_workspaces_pool_result.UpdateWorkspacesPoolResult":
+        """<p>Updates the specified pool.</p>
+
+        Args:
+            pool_id: <p>The identifier of the specified pool to update.</p>
+            description: <p>Describes the specified pool to update.</p>
+            bundle_id: <p>The identifier of the bundle.</p>
+            directory_id: <p>The identifier of the directory.</p>
+            capacity: <p>The desired capacity for the pool.</p>
+            application_settings: <p>The persistent application settings for users in the pool.</p>
+            timeout_settings: <p>Indicates the timeout settings of the specified pool.</p>
+            running_mode: <p>The desired running mode for the pool. The running mode can only be updated when the pool is in a stopped state.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces.types.update_workspaces_pool_request.UpdateWorkspacesPoolRequest]') -> AsyncOperationResponse["aws_sdk_workspaces.types.update_workspaces_pool_result.UpdateWorkspacesPoolResult"]:
+            import aws_sdk_workspaces._operations.workspaces_service.update_workspaces_pool
+            output, http_response = await aws_sdk_workspaces._operations.workspaces_service.update_workspaces_pool.async_update_workspaces_pool(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_workspaces.types.update_workspaces_pool_request.UpdateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input["pool_id"] = pool_id
+        if description is not None:
+            input["description"] = description
+        if bundle_id is not None:
+            input["bundle_id"] = bundle_id
+        if directory_id is not None:
+            input["directory_id"] = directory_id
+        if capacity is not None:
+            input["capacity"] = capacity
+        if application_settings is not None:
+            input["application_settings"] = application_settings
+        if timeout_settings is not None:
+            input["timeout_settings"] = timeout_settings
+        if running_mode is not None:
+            input["running_mode"] = running_mode
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def __aenter__(self) -> Self:
+        return self
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.ecr#ImageScanFinding``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ecr.types.attribute_list
+    import aws_sdk_ecr.types.finding_description
+    import aws_sdk_ecr.types.finding_name
+    import aws_sdk_ecr.types.finding_severity
+    import aws_sdk_ecr.types.url
+
+
+class ImageScanFinding(TypedDict):
+    name: NotRequired["aws_sdk_ecr.types.finding_name.FindingName"]
+    """<p>The name associated with the finding, usually a CVE number.</p>"""
+    description: NotRequired["aws_sdk_ecr.types.finding_description.FindingDescription"]
+    """<p>The description of the finding.</p>"""
+    uri: NotRequired["aws_sdk_ecr.types.url.Url"]
+    """<p>A link containing additional details about the security vulnerability.</p>"""
+    severity: NotRequired["aws_sdk_ecr.types.finding_severity.FindingSeverity"]
+    """<p>The finding severity.</p>"""
+    attributes: NotRequired["aws_sdk_ecr.types.attribute_list.AttributeList"]
+    """<p>A collection of attributes of the host from which the finding is generated.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ImageScanFinding) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "uri" in value:
+        out["uri"] = value["uri"]
+    if "severity" in value:
+        import aws_sdk_ecr.types.finding_severity
+
+        out["severity"] = aws_sdk_ecr.types.finding_severity.serialize_aws_json_1_1(
+            value["severity"]
+        )
+    if "attributes" in value:
+        import aws_sdk_ecr.types.attribute_list
+
+        out["attributes"] = aws_sdk_ecr.types.attribute_list.serialize_aws_json_1_1(
+            value["attributes"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ImageScanFinding:
+    out: ImageScanFinding = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "description" in data:
+        out["description"] = data["description"]
+    if "uri" in data:
+        out["uri"] = data["uri"]
+    if "severity" in data:
+        import aws_sdk_ecr.types.finding_severity
+
+        out["severity"] = aws_sdk_ecr.types.finding_severity.deserialize_aws_json_1_1(
+            data["severity"]
+        )
+    if "attributes" in data:
+        import aws_sdk_ecr.types.attribute_list
+
+        out["attributes"] = aws_sdk_ecr.types.attribute_list.deserialize_aws_json_1_1(
+            data["attributes"]
+        )
+    return out

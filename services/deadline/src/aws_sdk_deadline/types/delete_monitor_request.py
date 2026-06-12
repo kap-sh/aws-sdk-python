@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#DeleteMonitorRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.monitor_id
+
+
+class DeleteMonitorRequest(TypedDict):
+    monitor_id: "aws_sdk_deadline.types.monitor_id.MonitorId"
+    """<p>The unique identifier of the monitor to delete. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteMonitorRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteMonitorRequest:
+    out: DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
+    return out

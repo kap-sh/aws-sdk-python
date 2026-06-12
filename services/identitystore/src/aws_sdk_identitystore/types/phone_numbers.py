@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.identitystore#PhoneNumbers``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_identitystore.types.phone_number
+
+PhoneNumbers: TypeAlias = list["aws_sdk_identitystore.types.phone_number.PhoneNumber"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PhoneNumbers) -> list:
+    import aws_sdk_identitystore.types.phone_number
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_identitystore.types.phone_number.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> PhoneNumbers:
+    import aws_sdk_identitystore.types.phone_number
+
+    out: PhoneNumbers = []
+    for item in data:
+        out.append(
+            aws_sdk_identitystore.types.phone_number.deserialize_aws_json_1_1(item)
+        )
+    return out

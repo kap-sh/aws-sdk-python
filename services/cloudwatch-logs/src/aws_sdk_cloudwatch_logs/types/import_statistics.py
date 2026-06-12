@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ImportStatistics``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_logs.types.stored_bytes
+
+
+class ImportStatistics(TypedDict):
+    bytes_imported: NotRequired[
+        "aws_sdk_cloudwatch_logs.types.stored_bytes.StoredBytes"
+    ]
+    """<p>The total number of bytes that have been imported to the managed log group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ImportStatistics) -> dict:
+    out: dict = {}
+    if "bytes_imported" in value:
+        out["bytesImported"] = value["bytes_imported"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ImportStatistics:
+    out: ImportStatistics = {}  # type: ignore[typeddict-item]
+    if "bytesImported" in data:
+        out["bytes_imported"] = data["bytesImported"]
+    return out

@@ -1,0 +1,129 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#AssessmentSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.assessment_id
+    import aws_sdk_directory_service.types.assessment_report_type
+    import aws_sdk_directory_service.types.assessment_start_time
+    import aws_sdk_directory_service.types.assessment_status
+    import aws_sdk_directory_service.types.customer_dns_ips
+    import aws_sdk_directory_service.types.directory_id
+    import aws_sdk_directory_service.types.directory_name
+    import aws_sdk_directory_service.types.last_update_date_time
+
+
+class AssessmentSummary(TypedDict):
+    assessment_id: NotRequired[
+        "aws_sdk_directory_service.types.assessment_id.AssessmentId"
+    ]
+    """<p>The unique identifier of the directory assessment.</p>"""
+    directory_id: NotRequired[
+        "aws_sdk_directory_service.types.directory_id.DirectoryId"
+    ]
+    """<p>The identifier of the directory associated with this assessment.</p>"""
+    dns_name: NotRequired[
+        "aws_sdk_directory_service.types.directory_name.DirectoryName"
+    ]
+    """<p>The fully qualified domain name (FQDN) of the Active Directory domain being assessed.</p>"""
+    start_time: NotRequired[
+        "aws_sdk_directory_service.types.assessment_start_time.AssessmentStartTime"
+    ]
+    """<p>The date and time when the assessment was initiated.</p>"""
+    last_update_date_time: NotRequired[
+        "aws_sdk_directory_service.types.last_update_date_time.LastUpdateDateTime"
+    ]
+    """<p>The date and time when the assessment status was last updated.</p>"""
+    status: NotRequired[
+        "aws_sdk_directory_service.types.assessment_status.AssessmentStatus"
+    ]
+    """<p>The current status of the assessment. Valid values include <code>SUCCESS</code>, <code>FAILED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>"""
+    customer_dns_ips: NotRequired[
+        "aws_sdk_directory_service.types.customer_dns_ips.CustomerDnsIps"
+    ]
+    """<p>The IP addresses of the DNS servers or domain controllers in your self-managed AD environment.</p>"""
+    report_type: NotRequired[
+        "aws_sdk_directory_service.types.assessment_report_type.AssessmentReportType"
+    ]
+    """<p>The type of assessment report generated. Valid values include <code>CUSTOMER</code> and <code>SYSTEM</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AssessmentSummary) -> dict:
+    out: dict = {}
+    if "assessment_id" in value:
+        out["AssessmentId"] = value["assessment_id"]
+    if "directory_id" in value:
+        out["DirectoryId"] = value["directory_id"]
+    if "dns_name" in value:
+        out["DnsName"] = value["dns_name"]
+    if "start_time" in value:
+        import aws_sdk_directory_service.types.assessment_start_time
+
+        out["StartTime"] = (
+            aws_sdk_directory_service.types.assessment_start_time.serialize_aws_json_1_1(
+                value["start_time"]
+            )
+        )
+    if "last_update_date_time" in value:
+        import aws_sdk_directory_service.types.last_update_date_time
+
+        out["LastUpdateDateTime"] = (
+            aws_sdk_directory_service.types.last_update_date_time.serialize_aws_json_1_1(
+                value["last_update_date_time"]
+            )
+        )
+    if "status" in value:
+        out["Status"] = value["status"]
+    if "customer_dns_ips" in value:
+        import aws_sdk_directory_service.types.customer_dns_ips
+
+        out["CustomerDnsIps"] = (
+            aws_sdk_directory_service.types.customer_dns_ips.serialize_aws_json_1_1(
+                value["customer_dns_ips"]
+            )
+        )
+    if "report_type" in value:
+        out["ReportType"] = value["report_type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AssessmentSummary:
+    out: AssessmentSummary = {}  # type: ignore[typeddict-item]
+    if "AssessmentId" in data:
+        out["assessment_id"] = data["AssessmentId"]
+    if "DirectoryId" in data:
+        out["directory_id"] = data["DirectoryId"]
+    if "DnsName" in data:
+        out["dns_name"] = data["DnsName"]
+    if "StartTime" in data:
+        import aws_sdk_directory_service.types.assessment_start_time
+
+        out["start_time"] = (
+            aws_sdk_directory_service.types.assessment_start_time.deserialize_aws_json_1_1(
+                data["StartTime"]
+            )
+        )
+    if "LastUpdateDateTime" in data:
+        import aws_sdk_directory_service.types.last_update_date_time
+
+        out["last_update_date_time"] = (
+            aws_sdk_directory_service.types.last_update_date_time.deserialize_aws_json_1_1(
+                data["LastUpdateDateTime"]
+            )
+        )
+    if "Status" in data:
+        out["status"] = data["Status"]
+    if "CustomerDnsIps" in data:
+        import aws_sdk_directory_service.types.customer_dns_ips
+
+        out["customer_dns_ips"] = (
+            aws_sdk_directory_service.types.customer_dns_ips.deserialize_aws_json_1_1(
+                data["CustomerDnsIps"]
+            )
+        )
+    if "ReportType" in data:
+        out["report_type"] = data["ReportType"]
+    return out

@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListIngestConfigurationsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ivs_realtime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs_realtime.types.ingest_configuration_list
+    import aws_sdk_ivs_realtime.types.pagination_token
+
+
+class ListIngestConfigurationsResponse(TypedDict):
+    ingest_configurations: (
+        "aws_sdk_ivs_realtime.types.ingest_configuration_list.IngestConfigurationList"
+    )
+    """<p>List of the matching ingest configurations (summary information only).</p>"""
+    next_token: NotRequired[
+        "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
+    ]
+    """<p>If there are more IngestConfigurations than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListIngestConfigurationsResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_ivs_realtime.types.ingest_configuration_list
+
+    out["ingestConfigurations"] = (
+        aws_sdk_ivs_realtime.types.ingest_configuration_list.serialize_json(
+            value["ingest_configurations"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListIngestConfigurationsResponse:
+    out: ListIngestConfigurationsResponse = {}  # type: ignore[typeddict-item]
+    if "ingestConfigurations" in data:
+        import aws_sdk_ivs_realtime.types.ingest_configuration_list
+
+        out["ingest_configurations"] = (
+            aws_sdk_ivs_realtime.types.ingest_configuration_list.deserialize_json(
+                data["ingestConfigurations"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListIngestConfigurationsResponse.ingest_configurations required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

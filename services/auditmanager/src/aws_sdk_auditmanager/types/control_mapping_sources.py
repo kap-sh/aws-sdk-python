@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.auditmanager#ControlMappingSources``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_auditmanager.types.control_mapping_source
+
+ControlMappingSources: TypeAlias = list[
+    "aws_sdk_auditmanager.types.control_mapping_source.ControlMappingSource"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ControlMappingSources) -> list:
+    import aws_sdk_auditmanager.types.control_mapping_source
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_auditmanager.types.control_mapping_source.serialize_json(item)
+        )
+    return out
+
+
+def deserialize_json(data: list) -> ControlMappingSources:
+    import aws_sdk_auditmanager.types.control_mapping_source
+
+    out: ControlMappingSources = []
+    for item in data:
+        out.append(
+            aws_sdk_auditmanager.types.control_mapping_source.deserialize_json(item)
+        )
+    return out

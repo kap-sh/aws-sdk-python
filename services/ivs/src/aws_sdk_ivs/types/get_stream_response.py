@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.ivs#GetStreamResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs.types.stream
+
+
+class GetStreamResponse(TypedDict):
+    stream: NotRequired["aws_sdk_ivs.types.stream.Stream"]
+    """<p/>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetStreamResponse) -> dict:
+    out: dict = {}
+    if "stream" in value:
+        import aws_sdk_ivs.types.stream
+
+        out["stream"] = aws_sdk_ivs.types.stream.serialize_json(value["stream"])
+    return out
+
+
+def deserialize_json(data: dict) -> GetStreamResponse:
+    out: GetStreamResponse = {}  # type: ignore[typeddict-item]
+    if "stream" in data:
+        import aws_sdk_ivs.types.stream
+
+        out["stream"] = aws_sdk_ivs.types.stream.deserialize_json(data["stream"])
+    return out

@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.devicefarm#TestGridSessionArtifact``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_device_farm.types.sensitive_string
+    import aws_sdk_device_farm.types.string
+    import aws_sdk_device_farm.types.test_grid_session_artifact_type
+
+
+class TestGridSessionArtifact(TypedDict):
+    filename: NotRequired["aws_sdk_device_farm.types.string.String"]
+    """<p>The file name of the artifact.</p>"""
+    type: NotRequired[
+        "aws_sdk_device_farm.types.test_grid_session_artifact_type.TestGridSessionArtifactType"
+    ]
+    """<p>The kind of artifact.</p>"""
+    url: NotRequired["aws_sdk_device_farm.types.sensitive_string.SensitiveString"]
+    """<p>A semi-stable URL to the content of the object.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TestGridSessionArtifact) -> dict:
+    out: dict = {}
+    if "filename" in value:
+        out["filename"] = value["filename"]
+    if "type" in value:
+        import aws_sdk_device_farm.types.test_grid_session_artifact_type
+
+        out["type"] = (
+            aws_sdk_device_farm.types.test_grid_session_artifact_type.serialize_aws_json_1_1(
+                value["type"]
+            )
+        )
+    if "url" in value:
+        out["url"] = value["url"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TestGridSessionArtifact:
+    out: TestGridSessionArtifact = {}  # type: ignore[typeddict-item]
+    if "filename" in data:
+        out["filename"] = data["filename"]
+    if "type" in data:
+        import aws_sdk_device_farm.types.test_grid_session_artifact_type
+
+        out["type"] = (
+            aws_sdk_device_farm.types.test_grid_session_artifact_type.deserialize_aws_json_1_1(
+                data["type"]
+            )
+        )
+    if "url" in data:
+        out["url"] = data["url"]
+    return out

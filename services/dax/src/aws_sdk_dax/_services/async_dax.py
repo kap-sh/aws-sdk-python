@@ -1,0 +1,1238 @@
+"""Generated from Smithy shape ``com.amazonaws.dax#AmazonDAXV3``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+from aws_sdk_dax._auth._identity import Credentials
+from aws_sdk_dax._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_dax._auth._zapros_handler import AuthMiddleware
+from aws_sdk_dax._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_dax.types.availability_zone_list
+    import aws_sdk_dax.types.cluster_endpoint_encryption_type
+    import aws_sdk_dax.types.cluster_name_list
+    import aws_sdk_dax.types.create_cluster_request
+    import aws_sdk_dax.types.create_cluster_response
+    import aws_sdk_dax.types.create_parameter_group_request
+    import aws_sdk_dax.types.create_parameter_group_response
+    import aws_sdk_dax.types.create_subnet_group_request
+    import aws_sdk_dax.types.create_subnet_group_response
+    import aws_sdk_dax.types.decrease_replication_factor_request
+    import aws_sdk_dax.types.decrease_replication_factor_response
+    import aws_sdk_dax.types.delete_cluster_request
+    import aws_sdk_dax.types.delete_cluster_response
+    import aws_sdk_dax.types.delete_parameter_group_request
+    import aws_sdk_dax.types.delete_parameter_group_response
+    import aws_sdk_dax.types.delete_subnet_group_request
+    import aws_sdk_dax.types.delete_subnet_group_response
+    import aws_sdk_dax.types.describe_clusters_request
+    import aws_sdk_dax.types.describe_clusters_response
+    import aws_sdk_dax.types.describe_default_parameters_request
+    import aws_sdk_dax.types.describe_default_parameters_response
+    import aws_sdk_dax.types.describe_events_request
+    import aws_sdk_dax.types.describe_events_response
+    import aws_sdk_dax.types.describe_parameter_groups_request
+    import aws_sdk_dax.types.describe_parameter_groups_response
+    import aws_sdk_dax.types.describe_parameters_request
+    import aws_sdk_dax.types.describe_parameters_response
+    import aws_sdk_dax.types.describe_subnet_groups_request
+    import aws_sdk_dax.types.describe_subnet_groups_response
+    import aws_sdk_dax.types.increase_replication_factor_request
+    import aws_sdk_dax.types.increase_replication_factor_response
+    import aws_sdk_dax.types.integer
+    import aws_sdk_dax.types.integer_optional
+    import aws_sdk_dax.types.key_list
+    import aws_sdk_dax.types.list_tags_request
+    import aws_sdk_dax.types.list_tags_response
+    import aws_sdk_dax.types.network_type
+    import aws_sdk_dax.types.node_identifier_list
+    import aws_sdk_dax.types.parameter_group_name_list
+    import aws_sdk_dax.types.parameter_name_value_list
+    import aws_sdk_dax.types.reboot_node_request
+    import aws_sdk_dax.types.reboot_node_response
+    import aws_sdk_dax.types.security_group_identifier_list
+    import aws_sdk_dax.types.source_type
+    import aws_sdk_dax.types.sse_specification
+    import aws_sdk_dax.types.string
+    import aws_sdk_dax.types.subnet_group_name_list
+    import aws_sdk_dax.types.subnet_identifier_list
+    import aws_sdk_dax.types.t_stamp
+    import aws_sdk_dax.types.tag_list
+    import aws_sdk_dax.types.tag_resource_request
+    import aws_sdk_dax.types.tag_resource_response
+    import aws_sdk_dax.types.untag_resource_request
+    import aws_sdk_dax.types.untag_resource_response
+    import aws_sdk_dax.types.update_cluster_request
+    import aws_sdk_dax.types.update_cluster_response
+    import aws_sdk_dax.types.update_parameter_group_request
+    import aws_sdk_dax.types.update_parameter_group_response
+    import aws_sdk_dax.types.update_subnet_group_request
+    import aws_sdk_dax.types.update_subnet_group_response
+
+
+class AsyncDAXClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncDAXClient:
+    """A client for the ``DAX`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncDAXClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncDAXClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncDAXClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def create_cluster(
+        self,
+        cluster_name: "aws_sdk_dax.types.string.String",
+        node_type: "aws_sdk_dax.types.string.String",
+        replication_factor: "aws_sdk_dax.types.integer.Integer",
+        iam_role_arn: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        description: Optional["aws_sdk_dax.types.string.String"] = None,
+        availability_zones: Optional[
+            "aws_sdk_dax.types.availability_zone_list.AvailabilityZoneList"
+        ] = None,
+        subnet_group_name: Optional["aws_sdk_dax.types.string.String"] = None,
+        security_group_ids: Optional[
+            "aws_sdk_dax.types.security_group_identifier_list.SecurityGroupIdentifierList"
+        ] = None,
+        preferred_maintenance_window: Optional[
+            "aws_sdk_dax.types.string.String"
+        ] = None,
+        notification_topic_arn: Optional["aws_sdk_dax.types.string.String"] = None,
+        parameter_group_name: Optional["aws_sdk_dax.types.string.String"] = None,
+        tags: Optional["aws_sdk_dax.types.tag_list.TagList"] = None,
+        sse_specification: Optional[
+            "aws_sdk_dax.types.sse_specification.SSESpecification"
+        ] = None,
+        cluster_endpoint_encryption_type: Optional[
+            "aws_sdk_dax.types.cluster_endpoint_encryption_type.ClusterEndpointEncryptionType"
+        ] = None,
+        network_type: Optional["aws_sdk_dax.types.network_type.NetworkType"] = None,
+    ) -> "aws_sdk_dax.types.create_cluster_response.CreateClusterResponse":
+        """<p>Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.</p>
+
+        Args:
+            cluster_name: <p>The cluster identifier. This parameter is stored as a lowercase string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1 to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
+            node_type: <p>The compute and memory capacity of the nodes in the cluster.</p>
+            description: <p>A description of the cluster.</p>
+            replication_factor: <p>The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set <code>ReplicationFactor</code> to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). <code>If the AvailabilityZones</code> parameter is provided, its length must equal the <code>ReplicationFactor</code>.</p> <note> <p>Amazon Web Services recommends that you have at least two read replicas per cluster.</p> </note>
+            availability_zones: <p>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>
+            subnet_group_name: <p>The name of the subnet group to be used for the replication group.</p> <important> <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.</p> </important>
+            security_group_ids: <p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)</p> <p>If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>
+            preferred_maintenance_window: <p>Specifies the weekly time range during which maintenance on the DAX cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code> are:</p> <ul> <li> <p> <code>sun</code> </p> </li> <li> <p> <code>mon</code> </p> </li> <li> <p> <code>tue</code> </p> </li> <li> <p> <code>wed</code> </p> </li> <li> <p> <code>thu</code> </p> </li> <li> <p> <code>fri</code> </p> </li> <li> <p> <code>sat</code> </p> </li> </ul> <p>Example: <code>sun:05:00-sun:09:00</code> </p> <note> <p>If you don't specify a preferred maintenance window when you create or modify a cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of the week.</p> </note>
+            notification_topic_arn: <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.</p> <note> <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p> </note>
+            iam_role_arn: <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.</p>
+            parameter_group_name: <p>The parameter group to be associated with the DAX cluster.</p>
+            tags: <p>A set of tags to associate with the DAX cluster. </p>
+            sse_specification: <p>Represents the settings used to enable server-side encryption on the cluster.</p>
+            cluster_endpoint_encryption_type: <p>The type of encryption the cluster's endpoint should support. Values are:</p> <ul> <li> <p> <code>NONE</code> for no encryption</p> </li> <li> <p> <code>TLS</code> for Transport Layer Security</p> </li> </ul>
+            network_type: <p>Specifies the IP protocol(s) the cluster uses for network communications. Values are:</p> <ul> <li> <p> <code>ipv4</code> - The cluster is accessible only through IPv4 addresses</p> </li> <li> <p> <code>ipv6</code> - The cluster is accessible only through IPv6 addresses</p> </li> <li> <p> <code>dual_stack</code> - The cluster is accessible through both IPv4 and IPv6 addresses.</p> </li> </ul> <note> <p>If no explicit <code>NetworkType</code> is provided, the network type is derived based on the subnet group's configuration.</p> </note>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.create_cluster_request.CreateClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.create_cluster_response.CreateClusterResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.create_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.create_cluster.async_create_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_name"] = cluster_name
+        input["node_type"] = node_type
+        if description is not None:
+            input["description"] = description
+        input["replication_factor"] = replication_factor
+        if availability_zones is not None:
+            input["availability_zones"] = availability_zones
+        if subnet_group_name is not None:
+            input["subnet_group_name"] = subnet_group_name
+        if security_group_ids is not None:
+            input["security_group_ids"] = security_group_ids
+        if preferred_maintenance_window is not None:
+            input["preferred_maintenance_window"] = preferred_maintenance_window
+        if notification_topic_arn is not None:
+            input["notification_topic_arn"] = notification_topic_arn
+        input["iam_role_arn"] = iam_role_arn
+        if parameter_group_name is not None:
+            input["parameter_group_name"] = parameter_group_name
+        if tags is not None:
+            input["tags"] = tags
+        if sse_specification is not None:
+            input["sse_specification"] = sse_specification
+        if cluster_endpoint_encryption_type is not None:
+            input["cluster_endpoint_encryption_type"] = cluster_endpoint_encryption_type
+        if network_type is not None:
+            input["network_type"] = network_type
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_parameter_group(
+        self,
+        parameter_group_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        description: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> (
+        "aws_sdk_dax.types.create_parameter_group_response.CreateParameterGroupResponse"
+    ):
+        """<p>Creates a new parameter group. A parameter group is a collection of parameters that you apply to all of the nodes in a DAX cluster.</p>
+
+        Args:
+            parameter_group_name: <p>The name of the parameter group to apply to all of the clusters in this replication group.</p>
+            description: <p>A description of the parameter group.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.create_parameter_group_request.CreateParameterGroupRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.create_parameter_group_response.CreateParameterGroupResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.create_parameter_group
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.create_parameter_group.async_create_parameter_group(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.create_parameter_group_request.CreateParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input["parameter_group_name"] = parameter_group_name
+        if description is not None:
+            input["description"] = description
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_subnet_group(
+        self,
+        subnet_group_name: "aws_sdk_dax.types.string.String",
+        subnet_ids: "aws_sdk_dax.types.subnet_identifier_list.SubnetIdentifierList",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        description: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.create_subnet_group_response.CreateSubnetGroupResponse":
+        """<p>Creates a new subnet group.</p>
+
+        Args:
+            subnet_group_name: <p>A name for the subnet group. This value is stored as a lowercase string. </p>
+            description: <p>A description for the subnet group</p>
+            subnet_ids: <p>A list of VPC subnet IDs for the subnet group.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.create_subnet_group_request.CreateSubnetGroupRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.create_subnet_group_response.CreateSubnetGroupResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.create_subnet_group
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.create_subnet_group.async_create_subnet_group(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.create_subnet_group_request.CreateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input["subnet_group_name"] = subnet_group_name
+        if description is not None:
+            input["description"] = description
+        input["subnet_ids"] = subnet_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def decrease_replication_factor(
+        self,
+        cluster_name: "aws_sdk_dax.types.string.String",
+        new_replication_factor: "aws_sdk_dax.types.integer.Integer",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        availability_zones: Optional[
+            "aws_sdk_dax.types.availability_zone_list.AvailabilityZoneList"
+        ] = None,
+        node_ids_to_remove: Optional[
+            "aws_sdk_dax.types.node_identifier_list.NodeIdentifierList"
+        ] = None,
+    ) -> "aws_sdk_dax.types.decrease_replication_factor_response.DecreaseReplicationFactorResponse":
+        """<p>Removes one or more nodes from a DAX cluster.</p> <note> <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p> </note>
+
+        Args:
+            cluster_name: <p>The name of the DAX cluster from which you want to remove nodes.</p>
+            new_replication_factor: <p>The new number of nodes for the DAX cluster.</p>
+            availability_zones: <p>The Availability Zone(s) from which to remove nodes.</p>
+            node_ids_to_remove: <p>The unique identifiers of the nodes to be removed from the cluster.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.decrease_replication_factor_request.DecreaseReplicationFactorRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.decrease_replication_factor_response.DecreaseReplicationFactorResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.decrease_replication_factor
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.decrease_replication_factor.async_decrease_replication_factor(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.decrease_replication_factor_request.DecreaseReplicationFactorRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_name"] = cluster_name
+        input["new_replication_factor"] = new_replication_factor
+        if availability_zones is not None:
+            input["availability_zones"] = availability_zones
+        if node_ids_to_remove is not None:
+            input["node_ids_to_remove"] = node_ids_to_remove
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_cluster(
+        self,
+        cluster_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> "aws_sdk_dax.types.delete_cluster_response.DeleteClusterResponse":
+        """<p>Deletes a previously provisioned DAX cluster. <i>DeleteCluster</i> deletes all associated nodes, node endpoints and the DAX cluster itself. When you receive a successful response from this action, DAX immediately begins deleting the cluster; you cannot cancel or revert this action.</p>
+
+        Args:
+            cluster_name: <p>The name of the cluster to be deleted.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.delete_cluster_request.DeleteClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.delete_cluster_response.DeleteClusterResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.delete_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.delete_cluster.async_delete_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_name"] = cluster_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_parameter_group(
+        self,
+        parameter_group_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> (
+        "aws_sdk_dax.types.delete_parameter_group_response.DeleteParameterGroupResponse"
+    ):
+        """<p>Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any DAX clusters.</p>
+
+        Args:
+            parameter_group_name: <p>The name of the parameter group to delete.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.delete_parameter_group_request.DeleteParameterGroupRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.delete_parameter_group_response.DeleteParameterGroupResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.delete_parameter_group
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.delete_parameter_group.async_delete_parameter_group(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.delete_parameter_group_request.DeleteParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input["parameter_group_name"] = parameter_group_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_subnet_group(
+        self,
+        subnet_group_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> "aws_sdk_dax.types.delete_subnet_group_response.DeleteSubnetGroupResponse":
+        """<p>Deletes a subnet group.</p> <note> <p>You cannot delete a subnet group if it is associated with any DAX clusters.</p> </note>
+
+        Args:
+            subnet_group_name: <p>The name of the subnet group to delete.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.delete_subnet_group_request.DeleteSubnetGroupRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.delete_subnet_group_response.DeleteSubnetGroupResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.delete_subnet_group
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.delete_subnet_group.async_delete_subnet_group(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.delete_subnet_group_request.DeleteSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input["subnet_group_name"] = subnet_group_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_clusters(
+        self,
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        cluster_names: Optional[
+            "aws_sdk_dax.types.cluster_name_list.ClusterNameList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_dax.types.integer_optional.IntegerOptional"
+        ] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.describe_clusters_response.DescribeClustersResponse":
+        """<p>Returns information about all provisioned DAX clusters if no cluster identifier is specified, or about a specific DAX cluster if a cluster identifier is supplied.</p> <p>If the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.</p> <p>If the cluster is in the DELETING state, only cluster level information will be displayed.</p> <p>If nodes are currently being added to the DAX cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the DAX cluster state is <i>available</i>, the cluster is ready for use.</p> <p>If nodes are currently being removed from the DAX cluster, no endpoint information for the removed nodes is displayed.</p>
+
+        Args:
+            cluster_names: <p>The names of the DAX clusters being described.</p>
+            max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.describe_clusters_request.DescribeClustersRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.describe_clusters_response.DescribeClustersResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.describe_clusters
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.describe_clusters.async_describe_clusters(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
+        if cluster_names is not None:
+            input["cluster_names"] = cluster_names
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_default_parameters(
+        self,
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_dax.types.integer_optional.IntegerOptional"
+        ] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.describe_default_parameters_response.DescribeDefaultParametersResponse":
+        """<p>Returns the default system parameter information for the DAX caching software.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.describe_default_parameters_request.DescribeDefaultParametersRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.describe_default_parameters_response.DescribeDefaultParametersResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.describe_default_parameters
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.describe_default_parameters.async_describe_default_parameters(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.describe_default_parameters_request.DescribeDefaultParametersRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_events(
+        self,
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        source_name: Optional["aws_sdk_dax.types.string.String"] = None,
+        source_type: Optional["aws_sdk_dax.types.source_type.SourceType"] = None,
+        start_time: Optional["aws_sdk_dax.types.t_stamp.TStamp"] = None,
+        end_time: Optional["aws_sdk_dax.types.t_stamp.TStamp"] = None,
+        duration: Optional["aws_sdk_dax.types.integer_optional.IntegerOptional"] = None,
+        max_results: Optional[
+            "aws_sdk_dax.types.integer_optional.IntegerOptional"
+        ] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.describe_events_response.DescribeEventsResponse":
+        """<p>Returns events related to DAX clusters and parameter groups. You can obtain events specific to a particular DAX cluster or parameter group by providing the name as a parameter.</p> <p>By default, only the events occurring within the last 24 hours are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>
+
+        Args:
+            source_name: <p>The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.</p>
+            source_type: <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
+            start_time: <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</p>
+            end_time: <p>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</p>
+            duration: <p>The number of minutes' worth of events to retrieve.</p>
+            max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.describe_events_request.DescribeEventsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.describe_events_response.DescribeEventsResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.describe_events
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.describe_events.async_describe_events(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
+        if source_name is not None:
+            input["source_name"] = source_name
+        if source_type is not None:
+            input["source_type"] = source_type
+        if start_time is not None:
+            input["start_time"] = start_time
+        if end_time is not None:
+            input["end_time"] = end_time
+        if duration is not None:
+            input["duration"] = duration
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_parameter_groups(
+        self,
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        parameter_group_names: Optional[
+            "aws_sdk_dax.types.parameter_group_name_list.ParameterGroupNameList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_dax.types.integer_optional.IntegerOptional"
+        ] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.describe_parameter_groups_response.DescribeParameterGroupsResponse":
+        """<p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list will contain only the descriptions for that group.</p>
+
+        Args:
+            parameter_group_names: <p>The names of the parameter groups.</p>
+            max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.describe_parameter_groups_request.DescribeParameterGroupsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.describe_parameter_groups_response.DescribeParameterGroupsResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.describe_parameter_groups
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.describe_parameter_groups.async_describe_parameter_groups(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.describe_parameter_groups_request.DescribeParameterGroupsRequest = {}  # type: ignore[typeddict-item]
+        if parameter_group_names is not None:
+            input["parameter_group_names"] = parameter_group_names
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_parameters(
+        self,
+        parameter_group_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        source: Optional["aws_sdk_dax.types.string.String"] = None,
+        max_results: Optional[
+            "aws_sdk_dax.types.integer_optional.IntegerOptional"
+        ] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.describe_parameters_response.DescribeParametersResponse":
+        """<p>Returns the detailed parameter list for a particular parameter group.</p>
+
+        Args:
+            parameter_group_name: <p>The name of the parameter group.</p>
+            source: <p>How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter.</p>
+            max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.describe_parameters_request.DescribeParametersRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.describe_parameters_response.DescribeParametersResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.describe_parameters
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.describe_parameters.async_describe_parameters(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
+        input["parameter_group_name"] = parameter_group_name
+        if source is not None:
+            input["source"] = source
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_subnet_groups(
+        self,
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        subnet_group_names: Optional[
+            "aws_sdk_dax.types.subnet_group_name_list.SubnetGroupNameList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_dax.types.integer_optional.IntegerOptional"
+        ] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> (
+        "aws_sdk_dax.types.describe_subnet_groups_response.DescribeSubnetGroupsResponse"
+    ):
+        """<p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.</p>
+
+        Args:
+            subnet_group_names: <p>The name of the subnet group.</p>
+            max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.describe_subnet_groups_request.DescribeSubnetGroupsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.describe_subnet_groups_response.DescribeSubnetGroupsResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.describe_subnet_groups
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.describe_subnet_groups.async_describe_subnet_groups(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.describe_subnet_groups_request.DescribeSubnetGroupsRequest = {}  # type: ignore[typeddict-item]
+        if subnet_group_names is not None:
+            input["subnet_group_names"] = subnet_group_names
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def increase_replication_factor(
+        self,
+        cluster_name: "aws_sdk_dax.types.string.String",
+        new_replication_factor: "aws_sdk_dax.types.integer.Integer",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        availability_zones: Optional[
+            "aws_sdk_dax.types.availability_zone_list.AvailabilityZoneList"
+        ] = None,
+    ) -> "aws_sdk_dax.types.increase_replication_factor_response.IncreaseReplicationFactorResponse":
+        """<p>Adds one or more nodes to a DAX cluster.</p>
+
+        Args:
+            cluster_name: <p>The name of the DAX cluster that will receive additional nodes.</p>
+            new_replication_factor: <p>The new number of nodes for the DAX cluster.</p>
+            availability_zones: <p>The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.increase_replication_factor_request.IncreaseReplicationFactorRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.increase_replication_factor_response.IncreaseReplicationFactorResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.increase_replication_factor
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.increase_replication_factor.async_increase_replication_factor(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.increase_replication_factor_request.IncreaseReplicationFactorRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_name"] = cluster_name
+        input["new_replication_factor"] = new_replication_factor
+        if availability_zones is not None:
+            input["availability_zones"] = availability_zones
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_tags(
+        self,
+        resource_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        next_token: Optional["aws_sdk_dax.types.string.String"] = None,
+    ) -> "aws_sdk_dax.types.list_tags_response.ListTagsResponse":
+        """<p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to 10 times per second, per account.</p>
+
+        Args:
+            resource_name: <p>The name of the DAX resource to which the tags belong.</p>
+            next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.list_tags_request.ListTagsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.list_tags_response.ListTagsResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.list_tags
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.list_tags.async_list_tags(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input["resource_name"] = resource_name
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def reboot_node(
+        self,
+        cluster_name: "aws_sdk_dax.types.string.String",
+        node_id: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> "aws_sdk_dax.types.reboot_node_response.RebootNodeResponse":
+        """<p>Reboots a single node of a DAX cluster. The reboot action takes place as soon as possible. During the reboot, the node status is set to REBOOTING.</p> <note> <p> <code>RebootNode</code> restarts the DAX engine process and does not remove the contents of the cache.</p> </note>
+
+        Args:
+            cluster_name: <p>The name of the DAX cluster containing the node to be rebooted.</p>
+            node_id: <p>The system-assigned ID of the node to be rebooted.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.reboot_node_request.RebootNodeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.reboot_node_response.RebootNodeResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.reboot_node
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.reboot_node.async_reboot_node(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.reboot_node_request.RebootNodeRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_name"] = cluster_name
+        input["node_id"] = node_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        resource_name: "aws_sdk_dax.types.string.String",
+        tags: "aws_sdk_dax.types.tag_list.TagList",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> "aws_sdk_dax.types.tag_resource_response.TagResourceResponse":
+        """<p>Associates a set of tags with a DAX resource. You can call <code>TagResource</code> up to 5 times per second, per account. </p>
+
+        Args:
+            resource_name: <p>The name of the DAX resource to which tags should be added.</p>
+            tags: <p>The tags to be assigned to the DAX resource. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_name"] = resource_name
+        input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        resource_name: "aws_sdk_dax.types.string.String",
+        tag_keys: "aws_sdk_dax.types.key_list.KeyList",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> "aws_sdk_dax.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes the association of tags from a DAX resource. You can call <code>UntagResource</code> up to 5 times per second, per account. </p>
+
+        Args:
+            resource_name: <p>The name of the DAX resource from which the tags should be removed.</p>
+            tag_keys: <p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_name"] = resource_name
+        input["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_cluster(
+        self,
+        cluster_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        description: Optional["aws_sdk_dax.types.string.String"] = None,
+        preferred_maintenance_window: Optional[
+            "aws_sdk_dax.types.string.String"
+        ] = None,
+        notification_topic_arn: Optional["aws_sdk_dax.types.string.String"] = None,
+        notification_topic_status: Optional["aws_sdk_dax.types.string.String"] = None,
+        parameter_group_name: Optional["aws_sdk_dax.types.string.String"] = None,
+        security_group_ids: Optional[
+            "aws_sdk_dax.types.security_group_identifier_list.SecurityGroupIdentifierList"
+        ] = None,
+    ) -> "aws_sdk_dax.types.update_cluster_response.UpdateClusterResponse":
+        """<p>Modifies the settings for a DAX cluster. You can use this action to change one or more cluster configuration parameters by specifying the parameters and the new values.</p>
+
+        Args:
+            cluster_name: <p>The name of the DAX cluster to be modified.</p>
+            description: <p>A description of the changes being made to the cluster.</p>
+            preferred_maintenance_window: <p>A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.</p>
+            notification_topic_arn: <p>The Amazon Resource Name (ARN) that identifies the topic.</p>
+            notification_topic_status: <p>The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.</p>
+            parameter_group_name: <p>The name of a parameter group for this cluster.</p>
+            security_group_ids: <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.update_cluster_request.UpdateClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.update_cluster_response.UpdateClusterResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.update_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.update_cluster.async_update_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_name"] = cluster_name
+        if description is not None:
+            input["description"] = description
+        if preferred_maintenance_window is not None:
+            input["preferred_maintenance_window"] = preferred_maintenance_window
+        if notification_topic_arn is not None:
+            input["notification_topic_arn"] = notification_topic_arn
+        if notification_topic_status is not None:
+            input["notification_topic_status"] = notification_topic_status
+        if parameter_group_name is not None:
+            input["parameter_group_name"] = parameter_group_name
+        if security_group_ids is not None:
+            input["security_group_ids"] = security_group_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_parameter_group(
+        self,
+        parameter_group_name: "aws_sdk_dax.types.string.String",
+        parameter_name_values: "aws_sdk_dax.types.parameter_name_value_list.ParameterNameValueList",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+    ) -> (
+        "aws_sdk_dax.types.update_parameter_group_response.UpdateParameterGroupResponse"
+    ):
+        """<p>Modifies the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.</p>
+
+        Args:
+            parameter_group_name: <p>The name of the parameter group.</p>
+            parameter_name_values: <p>An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.</p> <note> <p> <code>record-ttl-millis</code> and <code>query-ttl-millis</code> are the only supported parameter names. For more details, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl\">Configuring TTL Settings</a>.</p> </note>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.update_parameter_group_request.UpdateParameterGroupRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.update_parameter_group_response.UpdateParameterGroupResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.update_parameter_group
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.update_parameter_group.async_update_parameter_group(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.update_parameter_group_request.UpdateParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input["parameter_group_name"] = parameter_group_name
+        input["parameter_name_values"] = parameter_name_values
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_subnet_group(
+        self,
+        subnet_group_name: "aws_sdk_dax.types.string.String",
+        *,
+        config_overrides: Optional[AsyncDAXClientConfig] = None,
+        description: Optional["aws_sdk_dax.types.string.String"] = None,
+        subnet_ids: Optional[
+            "aws_sdk_dax.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
+    ) -> "aws_sdk_dax.types.update_subnet_group_response.UpdateSubnetGroupResponse":
+        """<p>Modifies an existing subnet group.</p>
+
+        Args:
+            subnet_group_name: <p>The name of the subnet group.</p>
+            description: <p>A description of the subnet group.</p>
+            subnet_ids: <p>A list of subnet IDs in the subnet group.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dax.types.update_subnet_group_request.UpdateSubnetGroupRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dax.types.update_subnet_group_response.UpdateSubnetGroupResponse"
+        ]:
+            import aws_sdk_dax._operations.amazon_daxv3.update_subnet_group
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dax._operations.amazon_daxv3.update_subnet_group.async_update_subnet_group(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_dax.types.update_subnet_group_request.UpdateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input["subnet_group_name"] = subnet_group_name
+        if description is not None:
+            input["description"] = description
+        if subnet_ids is not None:
+            input["subnet_ids"] = subnet_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

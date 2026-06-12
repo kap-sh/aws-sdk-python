@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeChapCredentialsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_storage_gateway.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_storage_gateway.types.target_arn
+
+
+class DescribeChapCredentialsInput(TypedDict):
+    target_arn: "aws_sdk_storage_gateway.types.target_arn.TargetARN"
+    """<p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeChapCredentialsInput) -> dict:
+    out: dict = {}
+    out["TargetARN"] = value["target_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeChapCredentialsInput:
+    out: DescribeChapCredentialsInput = {}  # type: ignore[typeddict-item]
+    if "TargetARN" in data:
+        out["target_arn"] = data["TargetARN"]
+    else:
+        raise DeserializationError("DescribeChapCredentialsInput.target_arn required")
+    return out

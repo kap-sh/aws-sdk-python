@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#StartChannelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__string
+
+
+class StartChannelRequest(TypedDict):
+    channel_id: "aws_sdk_medialive.types.__string.__string"
+    """A request to start a channel"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartChannelRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> StartChannelRequest:
+    out: StartChannelRequest = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.firehose#CreateDeliveryStreamOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_firehose.types.delivery_stream_arn
+
+
+class CreateDeliveryStreamOutput(TypedDict):
+    delivery_stream_arn: NotRequired[
+        "aws_sdk_firehose.types.delivery_stream_arn.DeliveryStreamARN"
+    ]
+    """<p>The ARN of the Firehose stream.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateDeliveryStreamOutput) -> dict:
+    out: dict = {}
+    if "delivery_stream_arn" in value:
+        out["DeliveryStreamARN"] = value["delivery_stream_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateDeliveryStreamOutput:
+    out: CreateDeliveryStreamOutput = {}  # type: ignore[typeddict-item]
+    if "DeliveryStreamARN" in data:
+        out["delivery_stream_arn"] = data["DeliveryStreamARN"]
+    return out

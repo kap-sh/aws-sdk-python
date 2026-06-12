@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.sqs#QueueAttributeMap``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_sqs.types.queue_attribute_name
+    import aws_sdk_sqs.types.string
+
+QueueAttributeMap: TypeAlias = dict[
+    "aws_sdk_sqs.types.queue_attribute_name.QueueAttributeName",
+    "aws_sdk_sqs.types.string.String",
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(input_to_serialize: QueueAttributeMap) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        import aws_sdk_sqs.types.queue_attribute_name
+
+        out[aws_sdk_sqs.types.queue_attribute_name.serialize_aws_json_1_0(key)] = value
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> QueueAttributeMap:
+    out: QueueAttributeMap = {}
+    for key, value in data.items():
+        import aws_sdk_sqs.types.queue_attribute_name
+
+        out[aws_sdk_sqs.types.queue_attribute_name.deserialize_aws_json_1_0(key)] = (
+            value
+        )
+    return out

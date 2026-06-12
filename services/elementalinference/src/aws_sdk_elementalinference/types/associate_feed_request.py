@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.elementalinference#AssociateFeedRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_elementalinference.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_elementalinference.types.associated_resource_name
+    import aws_sdk_elementalinference.types.create_output_list
+    import aws_sdk_elementalinference.types.feed_id
+
+
+class AssociateFeedRequest(TypedDict):
+    id: "aws_sdk_elementalinference.types.feed_id.FeedId"
+    """<p>The ID of the feed.</p>"""
+    associated_resource_name: "aws_sdk_elementalinference.types.associated_resource_name.AssociatedResourceName"
+    """<p>An identifier for the resource. This name must not resemble an ARN.</p> <p>The resource is the source media that the feed will process. The name you assign should help you to later identify the source media that belongs to the feed. In this way, you will know which source media to push to the feed (using PutMedia). </p>"""
+    outputs: "aws_sdk_elementalinference.types.create_output_list.CreateOutputList"
+    """<p>An array of one or more outputs that you want to add to this feed now, to supplement any outputs that you specified when you created or updated the feed. </p>"""
+    dry_run: "bool"
+    """<p>Set to true if you want to do a dry run of the associate action.</p> <p>Elemental Inference will validate that the real request would succeed without actually making any changes. A dry run catches errors such as missing IAM permissions, quota limits exceeded, conflicting outputs, and so on. If the dry run fails, the action returns a 4xx error code. After you've fixed the errors, resubmit the request. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AssociateFeedRequest) -> dict:
+    out: dict = {}
+    out["associatedResourceName"] = value["associated_resource_name"]
+    import aws_sdk_elementalinference.types.create_output_list
+
+    out["outputs"] = aws_sdk_elementalinference.types.create_output_list.serialize_json(
+        value["outputs"]
+    )
+    out["dryRun"] = value.get("dry_run", False)
+    return out
+
+
+def deserialize_json(data: dict) -> AssociateFeedRequest:
+    out: AssociateFeedRequest = {}  # type: ignore[typeddict-item]
+    if "associatedResourceName" in data:
+        out["associated_resource_name"] = data["associatedResourceName"]
+    else:
+        raise DeserializationError(
+            "AssociateFeedRequest.associated_resource_name required"
+        )
+    if "outputs" in data:
+        import aws_sdk_elementalinference.types.create_output_list
+
+        out["outputs"] = (
+            aws_sdk_elementalinference.types.create_output_list.deserialize_json(
+                data["outputs"]
+            )
+        )
+    else:
+        raise DeserializationError("AssociateFeedRequest.outputs required")
+    if "dryRun" in data:
+        out["dry_run"] = data["dryRun"]
+    else:
+        out["dry_run"] = False
+    return out

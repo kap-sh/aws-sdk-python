@@ -1,0 +1,176 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#JobData``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.action_configuration
+    import aws_sdk_codepipeline.types.action_type_id
+    import aws_sdk_codepipeline.types.artifact_list
+    import aws_sdk_codepipeline.types.aws_session_credentials
+    import aws_sdk_codepipeline.types.continuation_token
+    import aws_sdk_codepipeline.types.encryption_key
+    import aws_sdk_codepipeline.types.pipeline_context
+
+
+class JobData(TypedDict):
+    action_type_id: NotRequired[
+        "aws_sdk_codepipeline.types.action_type_id.ActionTypeId"
+    ]
+    """<p>Represents information about an action type.</p>"""
+    action_configuration: NotRequired[
+        "aws_sdk_codepipeline.types.action_configuration.ActionConfiguration"
+    ]
+    """<p>Represents information about an action configuration.</p>"""
+    pipeline_context: NotRequired[
+        "aws_sdk_codepipeline.types.pipeline_context.PipelineContext"
+    ]
+    """<p>Represents information about a pipeline to a job worker.</p> <note> <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for custom jobs.</p> </note>"""
+    input_artifacts: NotRequired[
+        "aws_sdk_codepipeline.types.artifact_list.ArtifactList"
+    ]
+    """<p>The artifact supplied to the job.</p>"""
+    output_artifacts: NotRequired[
+        "aws_sdk_codepipeline.types.artifact_list.ArtifactList"
+    ]
+    """<p>The output of the job.</p>"""
+    artifact_credentials: NotRequired[
+        "aws_sdk_codepipeline.types.aws_session_credentials.AWSSessionCredentials"
+    ]
+    """<p>Represents an Amazon Web Services session credentials object. These credentials are temporary credentials that are issued by Amazon Web Services Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifacts for the pipeline in CodePipeline.</p>"""
+    continuation_token: NotRequired[
+        "aws_sdk_codepipeline.types.continuation_token.ContinuationToken"
+    ]
+    """<p>A system-generated token, such as a deployment ID, required by a job to continue the job asynchronously.</p>"""
+    encryption_key: NotRequired[
+        "aws_sdk_codepipeline.types.encryption_key.EncryptionKey"
+    ]
+    """<p>Represents information about the key used to encrypt data in the artifact store, such as an KMS key. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: JobData) -> dict:
+    out: dict = {}
+    if "action_type_id" in value:
+        import aws_sdk_codepipeline.types.action_type_id
+
+        out["actionTypeId"] = (
+            aws_sdk_codepipeline.types.action_type_id.serialize_aws_json_1_1(
+                value["action_type_id"]
+            )
+        )
+    if "action_configuration" in value:
+        import aws_sdk_codepipeline.types.action_configuration
+
+        out["actionConfiguration"] = (
+            aws_sdk_codepipeline.types.action_configuration.serialize_aws_json_1_1(
+                value["action_configuration"]
+            )
+        )
+    if "pipeline_context" in value:
+        import aws_sdk_codepipeline.types.pipeline_context
+
+        out["pipelineContext"] = (
+            aws_sdk_codepipeline.types.pipeline_context.serialize_aws_json_1_1(
+                value["pipeline_context"]
+            )
+        )
+    if "input_artifacts" in value:
+        import aws_sdk_codepipeline.types.artifact_list
+
+        out["inputArtifacts"] = (
+            aws_sdk_codepipeline.types.artifact_list.serialize_aws_json_1_1(
+                value["input_artifacts"]
+            )
+        )
+    if "output_artifacts" in value:
+        import aws_sdk_codepipeline.types.artifact_list
+
+        out["outputArtifacts"] = (
+            aws_sdk_codepipeline.types.artifact_list.serialize_aws_json_1_1(
+                value["output_artifacts"]
+            )
+        )
+    if "artifact_credentials" in value:
+        import aws_sdk_codepipeline.types.aws_session_credentials
+
+        out["artifactCredentials"] = (
+            aws_sdk_codepipeline.types.aws_session_credentials.serialize_aws_json_1_1(
+                value["artifact_credentials"]
+            )
+        )
+    if "continuation_token" in value:
+        out["continuationToken"] = value["continuation_token"]
+    if "encryption_key" in value:
+        import aws_sdk_codepipeline.types.encryption_key
+
+        out["encryptionKey"] = (
+            aws_sdk_codepipeline.types.encryption_key.serialize_aws_json_1_1(
+                value["encryption_key"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> JobData:
+    out: JobData = {}  # type: ignore[typeddict-item]
+    if "actionTypeId" in data:
+        import aws_sdk_codepipeline.types.action_type_id
+
+        out["action_type_id"] = (
+            aws_sdk_codepipeline.types.action_type_id.deserialize_aws_json_1_1(
+                data["actionTypeId"]
+            )
+        )
+    if "actionConfiguration" in data:
+        import aws_sdk_codepipeline.types.action_configuration
+
+        out["action_configuration"] = (
+            aws_sdk_codepipeline.types.action_configuration.deserialize_aws_json_1_1(
+                data["actionConfiguration"]
+            )
+        )
+    if "pipelineContext" in data:
+        import aws_sdk_codepipeline.types.pipeline_context
+
+        out["pipeline_context"] = (
+            aws_sdk_codepipeline.types.pipeline_context.deserialize_aws_json_1_1(
+                data["pipelineContext"]
+            )
+        )
+    if "inputArtifacts" in data:
+        import aws_sdk_codepipeline.types.artifact_list
+
+        out["input_artifacts"] = (
+            aws_sdk_codepipeline.types.artifact_list.deserialize_aws_json_1_1(
+                data["inputArtifacts"]
+            )
+        )
+    if "outputArtifacts" in data:
+        import aws_sdk_codepipeline.types.artifact_list
+
+        out["output_artifacts"] = (
+            aws_sdk_codepipeline.types.artifact_list.deserialize_aws_json_1_1(
+                data["outputArtifacts"]
+            )
+        )
+    if "artifactCredentials" in data:
+        import aws_sdk_codepipeline.types.aws_session_credentials
+
+        out["artifact_credentials"] = (
+            aws_sdk_codepipeline.types.aws_session_credentials.deserialize_aws_json_1_1(
+                data["artifactCredentials"]
+            )
+        )
+    if "continuationToken" in data:
+        out["continuation_token"] = data["continuationToken"]
+    if "encryptionKey" in data:
+        import aws_sdk_codepipeline.types.encryption_key
+
+        out["encryption_key"] = (
+            aws_sdk_codepipeline.types.encryption_key.deserialize_aws_json_1_1(
+                data["encryptionKey"]
+            )
+        )
+    return out

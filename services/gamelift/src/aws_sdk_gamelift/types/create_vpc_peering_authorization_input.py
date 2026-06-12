@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#CreateVpcPeeringAuthorizationInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.non_zero_and_max_string
+
+
+class CreateVpcPeeringAuthorizationInput(TypedDict):
+    game_lift_aws_account_id: NotRequired[
+        "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+    ]
+    """<p>A unique identifier for the Amazon Web Services account that you use to manage your Amazon GameLift Servers fleet. You can find your Account ID in the Amazon Web Services Management Console under account settings.</p>"""
+    peer_vpc_id: NotRequired[
+        "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+    ]
+    """<p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift Servers fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href=\"https://console.aws.amazon.com/vpc/\">VPC Dashboard</a> in the Amazon Web Services Management Console. Learn more about VPC peering in <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html\">VPC Peering with Amazon GameLift Servers Fleets</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateVpcPeeringAuthorizationInput) -> dict:
+    out: dict = {}
+    if "game_lift_aws_account_id" in value:
+        out["GameLiftAwsAccountId"] = value["game_lift_aws_account_id"]
+    if "peer_vpc_id" in value:
+        out["PeerVpcId"] = value["peer_vpc_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateVpcPeeringAuthorizationInput:
+    out: CreateVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
+    if "GameLiftAwsAccountId" in data:
+        out["game_lift_aws_account_id"] = data["GameLiftAwsAccountId"]
+    if "PeerVpcId" in data:
+        out["peer_vpc_id"] = data["PeerVpcId"]
+    return out

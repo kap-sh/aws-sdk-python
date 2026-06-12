@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#BackupPlanInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_backup.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_backup.types.advanced_backup_settings
+    import aws_sdk_backup.types.backup_plan_name
+    import aws_sdk_backup.types.backup_rules_input
+    import aws_sdk_backup.types.scan_settings
+
+class BackupPlanInput(TypedDict):
+    backup_plan_name: "aws_sdk_backup.types.backup_plan_name.BackupPlanName"
+    """<p>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
+    rules: "aws_sdk_backup.types.backup_rules_input.BackupRulesInput"
+    """<p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.</p>"""
+    advanced_backup_settings: NotRequired["aws_sdk_backup.types.advanced_backup_settings.AdvancedBackupSettings"]
+    """<p>Specifies a list of <code>BackupOptions</code> for each resource type. These settings are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p>"""
+    scan_settings: NotRequired["aws_sdk_backup.types.scan_settings.ScanSettings"]
+    """<p>Contains your scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BackupPlanInput) -> dict:
+    out: dict = {}
+    out["BackupPlanName"] = value["backup_plan_name"]
+    import aws_sdk_backup.types.backup_rules_input
+    out["Rules"] = aws_sdk_backup.types.backup_rules_input.serialize_json(value["rules"])
+    if "advanced_backup_settings" in value:
+        import aws_sdk_backup.types.advanced_backup_settings
+        out["AdvancedBackupSettings"] = aws_sdk_backup.types.advanced_backup_settings.serialize_json(value["advanced_backup_settings"])
+    if "scan_settings" in value:
+        import aws_sdk_backup.types.scan_settings
+        out["ScanSettings"] = aws_sdk_backup.types.scan_settings.serialize_json(value["scan_settings"])
+    return out
+
+
+def deserialize_json(data: dict) -> BackupPlanInput:
+    out: BackupPlanInput = {}  # type: ignore[typeddict-item]
+    if "BackupPlanName" in data:
+        out["backup_plan_name"] = data["BackupPlanName"]
+    else:
+        raise DeserializationError("BackupPlanInput.backup_plan_name required")
+    if "Rules" in data:
+        import aws_sdk_backup.types.backup_rules_input
+        out["rules"] = aws_sdk_backup.types.backup_rules_input.deserialize_json(data["Rules"])
+    else:
+        raise DeserializationError("BackupPlanInput.rules required")
+    if "AdvancedBackupSettings" in data:
+        import aws_sdk_backup.types.advanced_backup_settings
+        out["advanced_backup_settings"] = aws_sdk_backup.types.advanced_backup_settings.deserialize_json(data["AdvancedBackupSettings"])
+    if "ScanSettings" in data:
+        import aws_sdk_backup.types.scan_settings
+        out["scan_settings"] = aws_sdk_backup.types.scan_settings.deserialize_json(data["ScanSettings"])
+    return out

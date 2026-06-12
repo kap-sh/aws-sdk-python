@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ExplicitAuthFlowsType``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_cognito_identity_provider.errors import DeserializationError
+
+ExplicitAuthFlowsType: TypeAlias = Literal[
+    "ADMIN_NO_SRP_AUTH",
+    "CUSTOM_AUTH_FLOW_ONLY",
+    "USER_PASSWORD_AUTH",
+    "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+    "ALLOW_CUSTOM_AUTH",
+    "ALLOW_USER_PASSWORD_AUTH",
+    "ALLOW_USER_SRP_AUTH",
+    "ALLOW_REFRESH_TOKEN_AUTH",
+    "ALLOW_USER_AUTH",
+]
+
+
+# --- awsJson1_1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ADMIN_NO_SRP_AUTH",
+        "CUSTOM_AUTH_FLOW_ONLY",
+        "USER_PASSWORD_AUTH",
+        "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+        "ALLOW_CUSTOM_AUTH",
+        "ALLOW_USER_PASSWORD_AUTH",
+        "ALLOW_USER_SRP_AUTH",
+        "ALLOW_REFRESH_TOKEN_AUTH",
+        "ALLOW_USER_AUTH",
+    )
+)
+
+
+def serialize_aws_json_1_1(value: ExplicitAuthFlowsType) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> ExplicitAuthFlowsType:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown ExplicitAuthFlowsType value: {data!r}")
+    return cast(ExplicitAuthFlowsType, data)

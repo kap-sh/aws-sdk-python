@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#SearchProfilesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_customer_profiles.types.profile_list
+    import aws_sdk_customer_profiles.types.token
+
+
+class SearchProfilesResponse(TypedDict):
+    items: NotRequired["aws_sdk_customer_profiles.types.profile_list.ProfileList"]
+    """<p>The list of Profiles matching the search criteria.</p>"""
+    next_token: NotRequired["aws_sdk_customer_profiles.types.token.token"]
+    """<p>The pagination token from the previous SearchProfiles API call.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SearchProfilesResponse) -> dict:
+    out: dict = {}
+    if "items" in value:
+        import aws_sdk_customer_profiles.types.profile_list
+
+        out["Items"] = aws_sdk_customer_profiles.types.profile_list.serialize_json(
+            value["items"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> SearchProfilesResponse:
+    out: SearchProfilesResponse = {}  # type: ignore[typeddict-item]
+    if "Items" in data:
+        import aws_sdk_customer_profiles.types.profile_list
+
+        out["items"] = aws_sdk_customer_profiles.types.profile_list.deserialize_json(
+            data["Items"]
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

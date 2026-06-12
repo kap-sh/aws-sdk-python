@@ -1,0 +1,81 @@
+"""Generated from Smithy shape ``com.amazonaws.apprunner#CodeRepository``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_apprunner.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_apprunner.types.code_configuration
+    import aws_sdk_apprunner.types.source_code_version
+    import aws_sdk_apprunner.types.source_directory
+    import aws_sdk_apprunner.types.string
+
+
+class CodeRepository(TypedDict):
+    repository_url: "aws_sdk_apprunner.types.string.String"
+    """<p>The location of the repository that contains the source code.</p>"""
+    source_code_version: "aws_sdk_apprunner.types.source_code_version.SourceCodeVersion"
+    """<p>The version that should be used within the source code repository.</p>"""
+    code_configuration: NotRequired[
+        "aws_sdk_apprunner.types.code_configuration.CodeConfiguration"
+    ]
+    """<p>Configuration for building and running the service from a source code repository.</p> <note> <p> <code>CodeConfiguration</code> is required only for <code>CreateService</code> request.</p> </note>"""
+    source_directory: NotRequired[
+        "aws_sdk_apprunner.types.source_directory.SourceDirectory"
+    ]
+    """<p>The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CodeRepository) -> dict:
+    out: dict = {}
+    out["RepositoryUrl"] = value["repository_url"]
+    import aws_sdk_apprunner.types.source_code_version
+
+    out["SourceCodeVersion"] = (
+        aws_sdk_apprunner.types.source_code_version.serialize_aws_json_1_0(
+            value["source_code_version"]
+        )
+    )
+    if "code_configuration" in value:
+        import aws_sdk_apprunner.types.code_configuration
+
+        out["CodeConfiguration"] = (
+            aws_sdk_apprunner.types.code_configuration.serialize_aws_json_1_0(
+                value["code_configuration"]
+            )
+        )
+    if "source_directory" in value:
+        out["SourceDirectory"] = value["source_directory"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CodeRepository:
+    out: CodeRepository = {}  # type: ignore[typeddict-item]
+    if "RepositoryUrl" in data:
+        out["repository_url"] = data["RepositoryUrl"]
+    else:
+        raise DeserializationError("CodeRepository.repository_url required")
+    if "SourceCodeVersion" in data:
+        import aws_sdk_apprunner.types.source_code_version
+
+        out["source_code_version"] = (
+            aws_sdk_apprunner.types.source_code_version.deserialize_aws_json_1_0(
+                data["SourceCodeVersion"]
+            )
+        )
+    else:
+        raise DeserializationError("CodeRepository.source_code_version required")
+    if "CodeConfiguration" in data:
+        import aws_sdk_apprunner.types.code_configuration
+
+        out["code_configuration"] = (
+            aws_sdk_apprunner.types.code_configuration.deserialize_aws_json_1_0(
+                data["CodeConfiguration"]
+            )
+        )
+    if "SourceDirectory" in data:
+        out["source_directory"] = data["SourceDirectory"]
+    return out

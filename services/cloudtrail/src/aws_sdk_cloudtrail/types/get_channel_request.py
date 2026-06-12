@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudtrail#GetChannelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cloudtrail.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudtrail.types.channel_arn
+
+
+class GetChannelRequest(TypedDict):
+    channel: "aws_sdk_cloudtrail.types.channel_arn.ChannelArn"
+    """<p>The ARN or <code>UUID</code> of a channel.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetChannelRequest) -> dict:
+    out: dict = {}
+    out["Channel"] = value["channel"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetChannelRequest:
+    out: GetChannelRequest = {}  # type: ignore[typeddict-item]
+    if "Channel" in data:
+        out["channel"] = data["Channel"]
+    else:
+        raise DeserializationError("GetChannelRequest.channel required")
+    return out

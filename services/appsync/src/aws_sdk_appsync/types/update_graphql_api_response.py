@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.appsync#UpdateGraphqlApiResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appsync.types.graphql_api
+
+
+class UpdateGraphqlApiResponse(TypedDict):
+    graphql_api: NotRequired["aws_sdk_appsync.types.graphql_api.GraphqlApi"]
+    """<p>The updated <code>GraphqlApi</code> object.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateGraphqlApiResponse) -> dict:
+    out: dict = {}
+    if "graphql_api" in value:
+        import aws_sdk_appsync.types.graphql_api
+
+        out["graphqlApi"] = aws_sdk_appsync.types.graphql_api.serialize_json(
+            value["graphql_api"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateGraphqlApiResponse:
+    out: UpdateGraphqlApiResponse = {}  # type: ignore[typeddict-item]
+    if "graphqlApi" in data:
+        import aws_sdk_appsync.types.graphql_api
+
+        out["graphql_api"] = aws_sdk_appsync.types.graphql_api.deserialize_json(
+            data["graphqlApi"]
+        )
+    return out

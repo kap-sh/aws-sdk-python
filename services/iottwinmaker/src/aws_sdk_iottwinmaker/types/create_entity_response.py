@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#CreateEntityResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iottwinmaker.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iottwinmaker.types.entity_id
+    import aws_sdk_iottwinmaker.types.state
+    import aws_sdk_iottwinmaker.types.timestamp
+    import aws_sdk_iottwinmaker.types.twin_maker_arn
+
+
+class CreateEntityResponse(TypedDict):
+    entity_id: "aws_sdk_iottwinmaker.types.entity_id.EntityId"
+    """<p>The ID of the entity.</p>"""
+    arn: "aws_sdk_iottwinmaker.types.twin_maker_arn.TwinMakerArn"
+    """<p>The ARN of the entity.</p>"""
+    creation_date_time: "aws_sdk_iottwinmaker.types.timestamp.Timestamp"
+    """<p>The date and time when the entity was created.</p>"""
+    state: "aws_sdk_iottwinmaker.types.state.State"
+    """<p>The current state of the entity.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateEntityResponse) -> dict:
+    out: dict = {}
+    out["entityId"] = value["entity_id"]
+    out["arn"] = value["arn"]
+    import aws_sdk_iottwinmaker.types.timestamp
+
+    out["creationDateTime"] = aws_sdk_iottwinmaker.types.timestamp.serialize_json(
+        value["creation_date_time"]
+    )
+    out["state"] = value["state"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateEntityResponse:
+    out: CreateEntityResponse = {}  # type: ignore[typeddict-item]
+    if "entityId" in data:
+        out["entity_id"] = data["entityId"]
+    else:
+        raise DeserializationError("CreateEntityResponse.entity_id required")
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("CreateEntityResponse.arn required")
+    if "creationDateTime" in data:
+        import aws_sdk_iottwinmaker.types.timestamp
+
+        out["creation_date_time"] = (
+            aws_sdk_iottwinmaker.types.timestamp.deserialize_json(
+                data["creationDateTime"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateEntityResponse.creation_date_time required")
+    if "state" in data:
+        out["state"] = data["state"]
+    else:
+        raise DeserializationError("CreateEntityResponse.state required")
+    return out

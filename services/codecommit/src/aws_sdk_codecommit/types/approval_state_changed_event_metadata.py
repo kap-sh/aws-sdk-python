@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#ApprovalStateChangedEventMetadata``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.approval_state
+    import aws_sdk_codecommit.types.revision_id
+
+
+class ApprovalStateChangedEventMetadata(TypedDict):
+    revision_id: NotRequired["aws_sdk_codecommit.types.revision_id.RevisionId"]
+    """<p>The revision ID of the pull request when the approval state changed.</p>"""
+    approval_status: NotRequired[
+        "aws_sdk_codecommit.types.approval_state.ApprovalState"
+    ]
+    """<p>The approval status for the pull request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ApprovalStateChangedEventMetadata) -> dict:
+    out: dict = {}
+    if "revision_id" in value:
+        out["revisionId"] = value["revision_id"]
+    if "approval_status" in value:
+        import aws_sdk_codecommit.types.approval_state
+
+        out["approvalStatus"] = (
+            aws_sdk_codecommit.types.approval_state.serialize_aws_json_1_1(
+                value["approval_status"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ApprovalStateChangedEventMetadata:
+    out: ApprovalStateChangedEventMetadata = {}  # type: ignore[typeddict-item]
+    if "revisionId" in data:
+        out["revision_id"] = data["revisionId"]
+    if "approvalStatus" in data:
+        import aws_sdk_codecommit.types.approval_state
+
+        out["approval_status"] = (
+            aws_sdk_codecommit.types.approval_state.deserialize_aws_json_1_1(
+                data["approvalStatus"]
+            )
+        )
+    return out

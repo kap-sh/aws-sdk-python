@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#ListOfKeyPhrases``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.key_phrase
+
+ListOfKeyPhrases: TypeAlias = list["aws_sdk_comprehend.types.key_phrase.KeyPhrase"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListOfKeyPhrases) -> list:
+    import aws_sdk_comprehend.types.key_phrase
+
+    out: list = []
+    for item in value:
+        out.append(aws_sdk_comprehend.types.key_phrase.serialize_aws_json_1_1(item))
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> ListOfKeyPhrases:
+    import aws_sdk_comprehend.types.key_phrase
+
+    out: ListOfKeyPhrases = []
+    for item in data:
+        out.append(aws_sdk_comprehend.types.key_phrase.deserialize_aws_json_1_1(item))
+    return out

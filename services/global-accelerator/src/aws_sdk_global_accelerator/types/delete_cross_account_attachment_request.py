@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.globalaccelerator#DeleteCrossAccountAttachmentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_global_accelerator.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_global_accelerator.types.generic_string
+
+
+class DeleteCrossAccountAttachmentRequest(TypedDict):
+    attachment_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"
+    """<p>The Amazon Resource Name (ARN) for the cross-account attachment to delete.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteCrossAccountAttachmentRequest) -> dict:
+    out: dict = {}
+    out["AttachmentArn"] = value["attachment_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteCrossAccountAttachmentRequest:
+    out: DeleteCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
+    if "AttachmentArn" in data:
+        out["attachment_arn"] = data["AttachmentArn"]
+    else:
+        raise DeserializationError(
+            "DeleteCrossAccountAttachmentRequest.attachment_arn required"
+        )
+    return out

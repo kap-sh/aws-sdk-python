@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#ContainerPortMapping``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.ip_protocol
+    import aws_sdk_gamelift.types.port_number
+
+
+class ContainerPortMapping(TypedDict):
+    container_port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]
+    """<p>The port number on the container. This port is defined in the container group definition. Container port numbers must be unique within a container group definition.</p>"""
+    connection_port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]
+    """<p>The port number on the fleet instance that maps to the container port. Connection ports are assigned by Amazon GameLift Servers when the container group is deployed to an instance.</p>"""
+    protocol: NotRequired["aws_sdk_gamelift.types.ip_protocol.IpProtocol"]
+    """<p>The network protocol for the port mapping. Valid values are <code>TCP</code> or <code>UDP</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ContainerPortMapping) -> dict:
+    out: dict = {}
+    if "container_port" in value:
+        out["ContainerPort"] = value["container_port"]
+    if "connection_port" in value:
+        out["ConnectionPort"] = value["connection_port"]
+    if "protocol" in value:
+        import aws_sdk_gamelift.types.ip_protocol
+
+        out["Protocol"] = aws_sdk_gamelift.types.ip_protocol.serialize_aws_json_1_1(
+            value["protocol"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ContainerPortMapping:
+    out: ContainerPortMapping = {}  # type: ignore[typeddict-item]
+    if "ContainerPort" in data:
+        out["container_port"] = data["ContainerPort"]
+    if "ConnectionPort" in data:
+        out["connection_port"] = data["ConnectionPort"]
+    if "Protocol" in data:
+        import aws_sdk_gamelift.types.ip_protocol
+
+        out["protocol"] = aws_sdk_gamelift.types.ip_protocol.deserialize_aws_json_1_1(
+            data["Protocol"]
+        )
+    return out

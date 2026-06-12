@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.codeguruprofiler#AddNotificationChannelsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codeguruprofiler.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codeguruprofiler.types.channels
+    import aws_sdk_codeguruprofiler.types.profiling_group_name
+
+
+class AddNotificationChannelsRequest(TypedDict):
+    profiling_group_name: (
+        "aws_sdk_codeguruprofiler.types.profiling_group_name.ProfilingGroupName"
+    )
+    """<p>The name of the profiling group that we are setting up notifications for.</p>"""
+    channels: "aws_sdk_codeguruprofiler.types.channels.Channels"
+    """<p>One or 2 channels to report to when anomalies are detected.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AddNotificationChannelsRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_codeguruprofiler.types.channels
+
+    out["channels"] = aws_sdk_codeguruprofiler.types.channels.serialize_json(
+        value["channels"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AddNotificationChannelsRequest:
+    out: AddNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
+    if "channels" in data:
+        import aws_sdk_codeguruprofiler.types.channels
+
+        out["channels"] = aws_sdk_codeguruprofiler.types.channels.deserialize_json(
+            data["channels"]
+        )
+    else:
+        raise DeserializationError("AddNotificationChannelsRequest.channels required")
+    return out

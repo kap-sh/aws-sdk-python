@@ -1,0 +1,545 @@
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_b2bi._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_b2bi.types.capability_configuration
+    import aws_sdk_b2bi.types.capability_id
+    import aws_sdk_b2bi.types.capability_name
+    import aws_sdk_b2bi.types.capability_summary
+    import aws_sdk_b2bi.types.capability_type
+    import aws_sdk_b2bi.types.create_capability_request
+    import aws_sdk_b2bi.types.create_capability_response
+    import aws_sdk_b2bi.types.delete_capability_request
+    import aws_sdk_b2bi.types.get_capability_request
+    import aws_sdk_b2bi.types.get_capability_response
+    import aws_sdk_b2bi.types.instructions_documents
+    import aws_sdk_b2bi.types.list_capabilities_request
+    import aws_sdk_b2bi.types.list_capabilities_response
+    import aws_sdk_b2bi.types.max_results
+    import aws_sdk_b2bi.types.page_token
+    import aws_sdk_b2bi.types.tag_list
+    import aws_sdk_b2bi.types.update_capability_request
+    import aws_sdk_b2bi.types.update_capability_response
+    from aws_sdk_b2bi._services.async_b2bi import Asyncb2biClient, Asyncb2biClientConfig
+    from aws_sdk_b2bi._services.b2bi import b2biClient, b2biClientConfig
+
+
+class Capability:
+    def __init__(self, service: b2biClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        name: "aws_sdk_b2bi.types.capability_name.CapabilityName",
+        type: "aws_sdk_b2bi.types.capability_type.CapabilityType",
+        configuration: "aws_sdk_b2bi.types.capability_configuration.CapabilityConfiguration",
+        *,
+        config_overrides: Optional[b2biClientConfig] = None,
+        instructions_documents: Optional[
+            "aws_sdk_b2bi.types.instructions_documents.InstructionsDocuments"
+        ] = None,
+        client_token: Optional[str] = None,
+        tags: Optional["aws_sdk_b2bi.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_b2bi.types.create_capability_response.CreateCapabilityResponse":
+        """<p>Instantiates a capability based on the specified parameters. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            name: <p>Specifies the name of the capability, used to identify it.</p>
+            type: <p>Specifies the type of the capability. Currently, only <code>edi</code> is supported.</p>
+            configuration: <p>Specifies a structure that contains the details for a capability.</p>
+            instructions_documents: <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+            client_token: <p>Reserved for future use.</p>
+            tags: <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+
+        Examples:
+            Sample CreateCapability call
+
+            >>> client.create(name='b2biexample', type='edi', configuration={'edi': {'type': {'x12Details': {'transactionSet': 'X12_110', 'version': 'VERSION_4010'}}, 'inputLocation': {'bucketName': 'test-bucket', 'key': 'input/'}, 'outputLocation': {'bucketName': 'test-bucket', 'key': 'output/'}, 'transformerId': 'tr-9a893cf536df4658b'}}, instructions_documents=[{'bucketName': 'test-bucket', 'key': 'instructiondoc.txt'}], client_token='foo', tags=[{'Key': 'capabilityKey1', 'Value': 'capabilityValue1'}])
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_b2bi.types.create_capability_response.CreateCapabilityResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.create_capability
+
+            output, http_response = (
+                aws_sdk_b2bi._operations.b2_bi.create_capability.create_capability(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["type"] = type
+        input["configuration"] = configuration
+        if instructions_documents is not None:
+            input["instructions_documents"] = instructions_documents
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId",
+        *,
+        config_overrides: Optional[b2biClientConfig] = None,
+    ) -> "aws_sdk_b2bi.types.get_capability_response.GetCapabilityResponse":
+        """<p>Retrieves the details for the specified capability. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            capability_id: <p>Specifies a system-assigned unique identifier for the capability.</p>
+
+        Examples:
+            Sample GetCapabilty call
+
+            >>> client.read(capability_id='ca-963a8121e4fc4e348')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_b2bi.types.get_capability_response.GetCapabilityResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.get_capability
+
+            output, http_response = (
+                aws_sdk_b2bi._operations.b2_bi.get_capability.get_capability(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["capability_id"] = capability_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update(
+        self,
+        capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId",
+        *,
+        config_overrides: Optional[b2biClientConfig] = None,
+        name: Optional["aws_sdk_b2bi.types.capability_name.CapabilityName"] = None,
+        configuration: Optional[
+            "aws_sdk_b2bi.types.capability_configuration.CapabilityConfiguration"
+        ] = None,
+        instructions_documents: Optional[
+            "aws_sdk_b2bi.types.instructions_documents.InstructionsDocuments"
+        ] = None,
+    ) -> "aws_sdk_b2bi.types.update_capability_response.UpdateCapabilityResponse":
+        """<p>Updates some of the parameters for a capability, based on the specified parameters. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            capability_id: <p>Specifies a system-assigned unique identifier for the capability.</p>
+            name: <p>Specifies a new name for the capability, to replace the existing name.</p>
+            configuration: <p>Specifies a structure that contains the details for a capability.</p>
+            instructions_documents: <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+
+        Examples:
+            Sample UpdateCapability call
+
+            >>> client.update(capability_id='ca-963a8121e4fc4e348', name='b2biexample', instructions_documents=[{'bucketName': 'test-bucket', 'key': 'instructiondoc.txt'}], configuration={'edi': {'type': {'x12Details': {'transactionSet': 'X12_110', 'version': 'VERSION_4010'}}, 'inputLocation': {'bucketName': 'test-bucket', 'key': 'input/'}, 'outputLocation': {'bucketName': 'test-bucket', 'key': 'output/'}, 'transformerId': 'tr-9a893cf536df4658b'}})
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_b2bi.types.update_capability_response.UpdateCapabilityResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.update_capability
+
+            output, http_response = (
+                aws_sdk_b2bi._operations.b2_bi.update_capability.update_capability(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["capability_id"] = capability_id
+        if name is not None:
+            input["name"] = name
+        if configuration is not None:
+            input["configuration"] = configuration
+        if instructions_documents is not None:
+            input["instructions_documents"] = instructions_documents
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId",
+        *,
+        config_overrides: Optional[b2biClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the specified capability. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            capability_id: <p>Specifies a system-assigned unique identifier for the capability.</p>
+
+        Examples:
+            Sample DeleteCapabilty call
+
+            >>> client.delete(capability_id='ca-963a8121e4fc4e348')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_b2bi._operations.b2_bi.delete_capability
+
+            output, http_response = (
+                aws_sdk_b2bi._operations.b2_bi.delete_capability.delete_capability(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["capability_id"] = capability_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[b2biClientConfig] = None,
+        next_token: Optional["aws_sdk_b2bi.types.page_token.PageToken"] = None,
+        max_results: Optional["aws_sdk_b2bi.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_b2bi.types.list_capabilities_response.ListCapabilitiesResponse":
+        """<p>Lists the capabilities associated with your Amazon Web Services account for your current or specified region. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            next_token: <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+            max_results: <p>Specifies the maximum number of capabilities to return.</p>
+
+        Examples:
+            Sample ListCapabilities call
+
+            >>> client.list(max_results=50, next_token='foo')
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_b2bi.types.list_capabilities_response.ListCapabilitiesResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.list_capabilities
+
+            output, http_response = (
+                aws_sdk_b2bi._operations.b2_bi.list_capabilities.list_capabilities(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncCapability:
+    def __init__(self, service: Asyncb2biClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        name: "aws_sdk_b2bi.types.capability_name.CapabilityName",
+        type: "aws_sdk_b2bi.types.capability_type.CapabilityType",
+        configuration: "aws_sdk_b2bi.types.capability_configuration.CapabilityConfiguration",
+        *,
+        config_overrides: Optional[Asyncb2biClientConfig] = None,
+        instructions_documents: Optional[
+            "aws_sdk_b2bi.types.instructions_documents.InstructionsDocuments"
+        ] = None,
+        client_token: Optional[str] = None,
+        tags: Optional["aws_sdk_b2bi.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_b2bi.types.create_capability_response.CreateCapabilityResponse":
+        """<p>Instantiates a capability based on the specified parameters. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            name: <p>Specifies the name of the capability, used to identify it.</p>
+            type: <p>Specifies the type of the capability. Currently, only <code>edi</code> is supported.</p>
+            configuration: <p>Specifies a structure that contains the details for a capability.</p>
+            instructions_documents: <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+            client_token: <p>Reserved for future use.</p>
+            tags: <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+
+        Examples:
+            Sample CreateCapability call
+
+            >>> await client.create(name='b2biexample', type='edi', configuration={'edi': {'type': {'x12Details': {'transactionSet': 'X12_110', 'version': 'VERSION_4010'}}, 'inputLocation': {'bucketName': 'test-bucket', 'key': 'input/'}, 'outputLocation': {'bucketName': 'test-bucket', 'key': 'output/'}, 'transformerId': 'tr-9a893cf536df4658b'}}, instructions_documents=[{'bucketName': 'test-bucket', 'key': 'instructiondoc.txt'}], client_token='foo', tags=[{'Key': 'capabilityKey1', 'Value': 'capabilityValue1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_b2bi.types.create_capability_response.CreateCapabilityResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.create_capability
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_b2bi._operations.b2_bi.create_capability.async_create_capability(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["type"] = type
+        input["configuration"] = configuration
+        if instructions_documents is not None:
+            input["instructions_documents"] = instructions_documents
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId",
+        *,
+        config_overrides: Optional[Asyncb2biClientConfig] = None,
+    ) -> "aws_sdk_b2bi.types.get_capability_response.GetCapabilityResponse":
+        """<p>Retrieves the details for the specified capability. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            capability_id: <p>Specifies a system-assigned unique identifier for the capability.</p>
+
+        Examples:
+            Sample GetCapabilty call
+
+            >>> await client.read(capability_id='ca-963a8121e4fc4e348')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_b2bi.types.get_capability_response.GetCapabilityResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.get_capability
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_b2bi._operations.b2_bi.get_capability.async_get_capability(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["capability_id"] = capability_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update(
+        self,
+        capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId",
+        *,
+        config_overrides: Optional[Asyncb2biClientConfig] = None,
+        name: Optional["aws_sdk_b2bi.types.capability_name.CapabilityName"] = None,
+        configuration: Optional[
+            "aws_sdk_b2bi.types.capability_configuration.CapabilityConfiguration"
+        ] = None,
+        instructions_documents: Optional[
+            "aws_sdk_b2bi.types.instructions_documents.InstructionsDocuments"
+        ] = None,
+    ) -> "aws_sdk_b2bi.types.update_capability_response.UpdateCapabilityResponse":
+        """<p>Updates some of the parameters for a capability, based on the specified parameters. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            capability_id: <p>Specifies a system-assigned unique identifier for the capability.</p>
+            name: <p>Specifies a new name for the capability, to replace the existing name.</p>
+            configuration: <p>Specifies a structure that contains the details for a capability.</p>
+            instructions_documents: <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+
+        Examples:
+            Sample UpdateCapability call
+
+            >>> await client.update(capability_id='ca-963a8121e4fc4e348', name='b2biexample', instructions_documents=[{'bucketName': 'test-bucket', 'key': 'instructiondoc.txt'}], configuration={'edi': {'type': {'x12Details': {'transactionSet': 'X12_110', 'version': 'VERSION_4010'}}, 'inputLocation': {'bucketName': 'test-bucket', 'key': 'input/'}, 'outputLocation': {'bucketName': 'test-bucket', 'key': 'output/'}, 'transformerId': 'tr-9a893cf536df4658b'}})
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_b2bi.types.update_capability_response.UpdateCapabilityResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.update_capability
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_b2bi._operations.b2_bi.update_capability.async_update_capability(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["capability_id"] = capability_id
+        if name is not None:
+            input["name"] = name
+        if configuration is not None:
+            input["configuration"] = configuration
+        if instructions_documents is not None:
+            input["instructions_documents"] = instructions_documents
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId",
+        *,
+        config_overrides: Optional[Asyncb2biClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the specified capability. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            capability_id: <p>Specifies a system-assigned unique identifier for the capability.</p>
+
+        Examples:
+            Sample DeleteCapabilty call
+
+            >>> await client.delete(capability_id='ca-963a8121e4fc4e348')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_b2bi._operations.b2_bi.delete_capability
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_b2bi._operations.b2_bi.delete_capability.async_delete_capability(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input["capability_id"] = capability_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[Asyncb2biClientConfig] = None,
+        next_token: Optional["aws_sdk_b2bi.types.page_token.PageToken"] = None,
+        max_results: Optional["aws_sdk_b2bi.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_b2bi.types.list_capabilities_response.ListCapabilitiesResponse":
+        """<p>Lists the capabilities associated with your Amazon Web Services account for your current or specified region. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+
+        Args:
+            next_token: <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+            max_results: <p>Specifies the maximum number of capabilities to return.</p>
+
+        Examples:
+            Sample ListCapabilities call
+
+            >>> await client.list(max_results=50, next_token='foo')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_b2bi.types.list_capabilities_response.ListCapabilitiesResponse"
+        ]:
+            import aws_sdk_b2bi._operations.b2_bi.list_capabilities
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_b2bi._operations.b2_bi.list_capabilities.async_list_capabilities(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

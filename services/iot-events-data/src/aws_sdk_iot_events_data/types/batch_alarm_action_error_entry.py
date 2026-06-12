@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchAlarmActionErrorEntry``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_events_data.types.error_code
+    import aws_sdk_iot_events_data.types.error_message
+    import aws_sdk_iot_events_data.types.request_id
+
+
+class BatchAlarmActionErrorEntry(TypedDict):
+    request_id: NotRequired["aws_sdk_iot_events_data.types.request_id.RequestId"]
+    """<p>The request ID. Each ID must be unique within each batch.</p>"""
+    error_code: NotRequired["aws_sdk_iot_events_data.types.error_code.ErrorCode"]
+    """<p>The error code.</p>"""
+    error_message: NotRequired[
+        "aws_sdk_iot_events_data.types.error_message.ErrorMessage"
+    ]
+    """<p>A message that describes the error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchAlarmActionErrorEntry) -> dict:
+    out: dict = {}
+    if "request_id" in value:
+        out["requestId"] = value["request_id"]
+    if "error_code" in value:
+        import aws_sdk_iot_events_data.types.error_code
+
+        out["errorCode"] = aws_sdk_iot_events_data.types.error_code.serialize_json(
+            value["error_code"]
+        )
+    if "error_message" in value:
+        out["errorMessage"] = value["error_message"]
+    return out
+
+
+def deserialize_json(data: dict) -> BatchAlarmActionErrorEntry:
+    out: BatchAlarmActionErrorEntry = {}  # type: ignore[typeddict-item]
+    if "requestId" in data:
+        out["request_id"] = data["requestId"]
+    if "errorCode" in data:
+        import aws_sdk_iot_events_data.types.error_code
+
+        out["error_code"] = aws_sdk_iot_events_data.types.error_code.deserialize_json(
+            data["errorCode"]
+        )
+    if "errorMessage" in data:
+        out["error_message"] = data["errorMessage"]
+    return out

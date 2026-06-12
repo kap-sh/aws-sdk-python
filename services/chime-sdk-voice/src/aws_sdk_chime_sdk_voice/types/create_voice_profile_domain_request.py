@@ -1,0 +1,88 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreateVoiceProfileDomainRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_chime_sdk_voice.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_voice.types.client_request_id
+    import aws_sdk_chime_sdk_voice.types.server_side_encryption_configuration
+    import aws_sdk_chime_sdk_voice.types.tag_list
+    import aws_sdk_chime_sdk_voice.types.voice_profile_domain_description
+    import aws_sdk_chime_sdk_voice.types.voice_profile_domain_name
+
+
+class CreateVoiceProfileDomainRequest(TypedDict):
+    name: (
+        "aws_sdk_chime_sdk_voice.types.voice_profile_domain_name.VoiceProfileDomainName"
+    )
+    """<p>The name of the voice profile domain.</p>"""
+    description: NotRequired[
+        "aws_sdk_chime_sdk_voice.types.voice_profile_domain_description.VoiceProfileDomainDescription"
+    ]
+    """<p>A description of the voice profile domain.</p>"""
+    server_side_encryption_configuration: "aws_sdk_chime_sdk_voice.types.server_side_encryption_configuration.ServerSideEncryptionConfiguration"
+    """<p>The server-side encryption configuration for the request.</p>"""
+    client_request_token: NotRequired[
+        "aws_sdk_chime_sdk_voice.types.client_request_id.ClientRequestId"
+    ]
+    """<p>The unique identifier for the client request. Use a different token for different domain creation requests.</p>"""
+    tags: NotRequired["aws_sdk_chime_sdk_voice.types.tag_list.TagList"]
+    """<p>The tags assigned to the domain.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateVoiceProfileDomainRequest) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    import aws_sdk_chime_sdk_voice.types.server_side_encryption_configuration
+
+    out["ServerSideEncryptionConfiguration"] = (
+        aws_sdk_chime_sdk_voice.types.server_side_encryption_configuration.serialize_json(
+            value["server_side_encryption_configuration"]
+        )
+    )
+    if "client_request_token" in value:
+        out["ClientRequestToken"] = value["client_request_token"]
+    if "tags" in value:
+        import aws_sdk_chime_sdk_voice.types.tag_list
+
+        out["Tags"] = aws_sdk_chime_sdk_voice.types.tag_list.serialize_json(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateVoiceProfileDomainRequest:
+    out: CreateVoiceProfileDomainRequest = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("CreateVoiceProfileDomainRequest.name required")
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "ServerSideEncryptionConfiguration" in data:
+        import aws_sdk_chime_sdk_voice.types.server_side_encryption_configuration
+
+        out["server_side_encryption_configuration"] = (
+            aws_sdk_chime_sdk_voice.types.server_side_encryption_configuration.deserialize_json(
+                data["ServerSideEncryptionConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateVoiceProfileDomainRequest.server_side_encryption_configuration required"
+        )
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    if "Tags" in data:
+        import aws_sdk_chime_sdk_voice.types.tag_list
+
+        out["tags"] = aws_sdk_chime_sdk_voice.types.tag_list.deserialize_json(
+            data["Tags"]
+        )
+    return out

@@ -1,0 +1,17 @@
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from aws_sdk_artifact._services.artifact import ArtifactClient
+    from aws_sdk_artifact._services.async_artifact import (
+        AsyncArtifactClient,
+    )
+
+
+class TermResource:
+    def __init__(self, service: ArtifactClient) -> None:
+        self._service = service
+
+
+class AsyncTermResource:
+    def __init__(self, service: AsyncArtifactClient) -> None:
+        self._service = service

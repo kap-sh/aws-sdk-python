@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#StartFlywheelIterationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_comprehend.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.client_request_token_string
+    import aws_sdk_comprehend.types.comprehend_flywheel_arn
+
+
+class StartFlywheelIterationRequest(TypedDict):
+    flywheel_arn: (
+        "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
+    )
+    """<p>The ARN of the flywheel.</p>"""
+    client_request_token: NotRequired[
+        "aws_sdk_comprehend.types.client_request_token_string.ClientRequestTokenString"
+    ]
+    """<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: StartFlywheelIterationRequest) -> dict:
+    out: dict = {}
+    out["FlywheelArn"] = value["flywheel_arn"]
+    if "client_request_token" in value:
+        out["ClientRequestToken"] = value["client_request_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> StartFlywheelIterationRequest:
+    out: StartFlywheelIterationRequest = {}  # type: ignore[typeddict-item]
+    if "FlywheelArn" in data:
+        out["flywheel_arn"] = data["FlywheelArn"]
+    else:
+        raise DeserializationError(
+            "StartFlywheelIterationRequest.flywheel_arn required"
+        )
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    return out

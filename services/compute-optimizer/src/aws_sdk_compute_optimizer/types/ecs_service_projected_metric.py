@@ -1,0 +1,102 @@
+"""Generated from Smithy shape ``com.amazonaws.computeoptimizer#ECSServiceProjectedMetric``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_compute_optimizer.types.ecs_service_metric_name
+    import aws_sdk_compute_optimizer.types.metric_values
+    import aws_sdk_compute_optimizer.types.timestamps
+
+
+class ECSServiceProjectedMetric(TypedDict):
+    name: NotRequired[
+        "aws_sdk_compute_optimizer.types.ecs_service_metric_name.ECSServiceMetricName"
+    ]
+    """<p> The name of the projected metric. </p> <p>The following metrics are available:</p> <ul> <li> <p> <code>Cpu</code> — The percentage of allocated compute units that are currently in use on the service tasks.</p> </li> <li> <p> <code>Memory</code> — The percentage of memory that's currently in use on the service tasks.</p> </li> </ul>"""
+    timestamps: NotRequired["aws_sdk_compute_optimizer.types.timestamps.Timestamps"]
+    """<p> The timestamps of the projected metric. </p>"""
+    upper_bound_values: NotRequired[
+        "aws_sdk_compute_optimizer.types.metric_values.MetricValues"
+    ]
+    """<p> The upper bound values for the projected metric. </p>"""
+    lower_bound_values: NotRequired[
+        "aws_sdk_compute_optimizer.types.metric_values.MetricValues"
+    ]
+    """<p> The lower bound values for the projected metric. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ECSServiceProjectedMetric) -> dict:
+    out: dict = {}
+    if "name" in value:
+        import aws_sdk_compute_optimizer.types.ecs_service_metric_name
+
+        out["name"] = (
+            aws_sdk_compute_optimizer.types.ecs_service_metric_name.serialize_aws_json_1_0(
+                value["name"]
+            )
+        )
+    if "timestamps" in value:
+        import aws_sdk_compute_optimizer.types.timestamps
+
+        out["timestamps"] = (
+            aws_sdk_compute_optimizer.types.timestamps.serialize_aws_json_1_0(
+                value["timestamps"]
+            )
+        )
+    if "upper_bound_values" in value:
+        import aws_sdk_compute_optimizer.types.metric_values
+
+        out["upperBoundValues"] = (
+            aws_sdk_compute_optimizer.types.metric_values.serialize_aws_json_1_0(
+                value["upper_bound_values"]
+            )
+        )
+    if "lower_bound_values" in value:
+        import aws_sdk_compute_optimizer.types.metric_values
+
+        out["lowerBoundValues"] = (
+            aws_sdk_compute_optimizer.types.metric_values.serialize_aws_json_1_0(
+                value["lower_bound_values"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ECSServiceProjectedMetric:
+    out: ECSServiceProjectedMetric = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        import aws_sdk_compute_optimizer.types.ecs_service_metric_name
+
+        out["name"] = (
+            aws_sdk_compute_optimizer.types.ecs_service_metric_name.deserialize_aws_json_1_0(
+                data["name"]
+            )
+        )
+    if "timestamps" in data:
+        import aws_sdk_compute_optimizer.types.timestamps
+
+        out["timestamps"] = (
+            aws_sdk_compute_optimizer.types.timestamps.deserialize_aws_json_1_0(
+                data["timestamps"]
+            )
+        )
+    if "upperBoundValues" in data:
+        import aws_sdk_compute_optimizer.types.metric_values
+
+        out["upper_bound_values"] = (
+            aws_sdk_compute_optimizer.types.metric_values.deserialize_aws_json_1_0(
+                data["upperBoundValues"]
+            )
+        )
+    if "lowerBoundValues" in data:
+        import aws_sdk_compute_optimizer.types.metric_values
+
+        out["lower_bound_values"] = (
+            aws_sdk_compute_optimizer.types.metric_values.deserialize_aws_json_1_0(
+                data["lowerBoundValues"]
+            )
+        )
+    return out

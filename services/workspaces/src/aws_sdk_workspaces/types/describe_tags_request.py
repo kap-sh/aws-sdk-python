@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#DescribeTagsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_workspaces.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_workspaces.types.non_empty_string
+
+
+class DescribeTagsRequest(TypedDict):
+    resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString"
+    """<p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeTagsRequest) -> dict:
+    out: dict = {}
+    out["ResourceId"] = value["resource_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeTagsRequest:
+    out: DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceId" in data:
+        out["resource_id"] = data["ResourceId"]
+    else:
+        raise DeserializationError("DescribeTagsRequest.resource_id required")
+    return out

@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.detective#ListDatasourcePackagesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_detective.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_detective.types.graph_arn
+    import aws_sdk_detective.types.member_results_limit
+    import aws_sdk_detective.types.pagination_token
+
+
+class ListDatasourcePackagesRequest(TypedDict):
+    graph_arn: "aws_sdk_detective.types.graph_arn.GraphArn"
+    """<p>The ARN of the behavior graph.</p>"""
+    next_token: NotRequired["aws_sdk_detective.types.pagination_token.PaginationToken"]
+    """<p>For requests to get the next page of results, the pagination token that was returned with the previous set of results. The initial request does not include a pagination token.</p>"""
+    max_results: NotRequired[
+        "aws_sdk_detective.types.member_results_limit.MemberResultsLimit"
+    ]
+    """<p>The maximum number of results to return.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListDatasourcePackagesRequest) -> dict:
+    out: dict = {}
+    out["GraphArn"] = value["graph_arn"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListDatasourcePackagesRequest:
+    out: ListDatasourcePackagesRequest = {}  # type: ignore[typeddict-item]
+    if "GraphArn" in data:
+        out["graph_arn"] = data["GraphArn"]
+    else:
+        raise DeserializationError("ListDatasourcePackagesRequest.graph_arn required")
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

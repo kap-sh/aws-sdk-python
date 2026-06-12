@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#ListProvisionedModelThroughputsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.pagination_token
+    import aws_sdk_bedrock.types.provisioned_model_summaries
+
+
+class ListProvisionedModelThroughputsResponse(TypedDict):
+    next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
+    """<p>If there are more results than the number you specified in the <code>maxResults</code> field, this value is returned. To see the next batch of results, include this value in the <code>nextToken</code> field in another list request.</p>"""
+    provisioned_model_summaries: NotRequired[
+        "aws_sdk_bedrock.types.provisioned_model_summaries.ProvisionedModelSummaries"
+    ]
+    """<p>A list of summaries, one for each Provisioned Throughput in the response.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListProvisionedModelThroughputsResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "provisioned_model_summaries" in value:
+        import aws_sdk_bedrock.types.provisioned_model_summaries
+
+        out["provisionedModelSummaries"] = (
+            aws_sdk_bedrock.types.provisioned_model_summaries.serialize_json(
+                value["provisioned_model_summaries"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListProvisionedModelThroughputsResponse:
+    out: ListProvisionedModelThroughputsResponse = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "provisionedModelSummaries" in data:
+        import aws_sdk_bedrock.types.provisioned_model_summaries
+
+        out["provisioned_model_summaries"] = (
+            aws_sdk_bedrock.types.provisioned_model_summaries.deserialize_json(
+                data["provisionedModelSummaries"]
+            )
+        )
+    return out

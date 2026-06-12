@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBuiltinIntentResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lex_model_building_service.types.builtin_intent_signature
+    import aws_sdk_lex_model_building_service.types.builtin_intent_slot_list
+    import aws_sdk_lex_model_building_service.types.locale_list
+
+
+class GetBuiltinIntentResponse(TypedDict):
+    signature: NotRequired[
+        "aws_sdk_lex_model_building_service.types.builtin_intent_signature.BuiltinIntentSignature"
+    ]
+    """<p>The unique identifier for a built-in intent.</p>"""
+    supported_locales: NotRequired[
+        "aws_sdk_lex_model_building_service.types.locale_list.LocaleList"
+    ]
+    """<p>A list of locales that the intent supports.</p>"""
+    slots: NotRequired[
+        "aws_sdk_lex_model_building_service.types.builtin_intent_slot_list.BuiltinIntentSlotList"
+    ]
+    """<p>An array of <code>BuiltinIntentSlot</code> objects, one entry for each slot type in the intent.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetBuiltinIntentResponse) -> dict:
+    out: dict = {}
+    if "signature" in value:
+        out["signature"] = value["signature"]
+    if "supported_locales" in value:
+        import aws_sdk_lex_model_building_service.types.locale_list
+
+        out["supportedLocales"] = (
+            aws_sdk_lex_model_building_service.types.locale_list.serialize_json(
+                value["supported_locales"]
+            )
+        )
+    if "slots" in value:
+        import aws_sdk_lex_model_building_service.types.builtin_intent_slot_list
+
+        out["slots"] = (
+            aws_sdk_lex_model_building_service.types.builtin_intent_slot_list.serialize_json(
+                value["slots"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetBuiltinIntentResponse:
+    out: GetBuiltinIntentResponse = {}  # type: ignore[typeddict-item]
+    if "signature" in data:
+        out["signature"] = data["signature"]
+    if "supportedLocales" in data:
+        import aws_sdk_lex_model_building_service.types.locale_list
+
+        out["supported_locales"] = (
+            aws_sdk_lex_model_building_service.types.locale_list.deserialize_json(
+                data["supportedLocales"]
+            )
+        )
+    if "slots" in data:
+        import aws_sdk_lex_model_building_service.types.builtin_intent_slot_list
+
+        out["slots"] = (
+            aws_sdk_lex_model_building_service.types.builtin_intent_slot_list.deserialize_json(
+                data["slots"]
+            )
+        )
+    return out

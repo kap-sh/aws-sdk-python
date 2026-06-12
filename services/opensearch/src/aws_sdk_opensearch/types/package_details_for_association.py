@@ -1,0 +1,73 @@
+"""Generated from Smithy shape ``com.amazonaws.opensearch#PackageDetailsForAssociation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_opensearch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_opensearch.types.package_association_configuration
+    import aws_sdk_opensearch.types.package_id
+    import aws_sdk_opensearch.types.package_id_list
+
+
+class PackageDetailsForAssociation(TypedDict):
+    package_id: "aws_sdk_opensearch.types.package_id.PackageID"
+    """<p>Internal ID of the package that you want to associate with a domain.</p>"""
+    prerequisite_package_id_list: NotRequired[
+        "aws_sdk_opensearch.types.package_id_list.PackageIDList"
+    ]
+    """<p>List of package IDs that must be linked to the domain before or simultaneously with the package association.</p>"""
+    association_configuration: NotRequired[
+        "aws_sdk_opensearch.types.package_association_configuration.PackageAssociationConfiguration"
+    ]
+    """<p>The configuration parameters for associating the package with a domain.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PackageDetailsForAssociation) -> dict:
+    out: dict = {}
+    out["PackageID"] = value["package_id"]
+    if "prerequisite_package_id_list" in value:
+        import aws_sdk_opensearch.types.package_id_list
+
+        out["PrerequisitePackageIDList"] = (
+            aws_sdk_opensearch.types.package_id_list.serialize_json(
+                value["prerequisite_package_id_list"]
+            )
+        )
+    if "association_configuration" in value:
+        import aws_sdk_opensearch.types.package_association_configuration
+
+        out["AssociationConfiguration"] = (
+            aws_sdk_opensearch.types.package_association_configuration.serialize_json(
+                value["association_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PackageDetailsForAssociation:
+    out: PackageDetailsForAssociation = {}  # type: ignore[typeddict-item]
+    if "PackageID" in data:
+        out["package_id"] = data["PackageID"]
+    else:
+        raise DeserializationError("PackageDetailsForAssociation.package_id required")
+    if "PrerequisitePackageIDList" in data:
+        import aws_sdk_opensearch.types.package_id_list
+
+        out["prerequisite_package_id_list"] = (
+            aws_sdk_opensearch.types.package_id_list.deserialize_json(
+                data["PrerequisitePackageIDList"]
+            )
+        )
+    if "AssociationConfiguration" in data:
+        import aws_sdk_opensearch.types.package_association_configuration
+
+        out["association_configuration"] = (
+            aws_sdk_opensearch.types.package_association_configuration.deserialize_json(
+                data["AssociationConfiguration"]
+            )
+        )
+    return out

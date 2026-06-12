@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.timestreamquery#DescribeEndpointsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_timestream_query.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_timestream_query.types.endpoints
+
+
+class DescribeEndpointsResponse(TypedDict):
+    endpoints: "aws_sdk_timestream_query.types.endpoints.Endpoints"
+    """<p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code> request is made.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DescribeEndpointsResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_timestream_query.types.endpoints
+
+    out["Endpoints"] = aws_sdk_timestream_query.types.endpoints.serialize_aws_json_1_0(
+        value["endpoints"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DescribeEndpointsResponse:
+    out: DescribeEndpointsResponse = {}  # type: ignore[typeddict-item]
+    if "Endpoints" in data:
+        import aws_sdk_timestream_query.types.endpoints
+
+        out["endpoints"] = (
+            aws_sdk_timestream_query.types.endpoints.deserialize_aws_json_1_0(
+                data["Endpoints"]
+            )
+        )
+    else:
+        raise DeserializationError("DescribeEndpointsResponse.endpoints required")
+    return out

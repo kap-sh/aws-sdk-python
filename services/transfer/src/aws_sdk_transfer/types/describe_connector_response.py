@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.transfer#DescribeConnectorResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_transfer.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_transfer.types.described_connector
+
+
+class DescribeConnectorResponse(TypedDict):
+    connector: "aws_sdk_transfer.types.described_connector.DescribedConnector"
+    """<p>The structure that contains the details of the connector.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeConnectorResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_transfer.types.described_connector
+
+    out["Connector"] = (
+        aws_sdk_transfer.types.described_connector.serialize_aws_json_1_1(
+            value["connector"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeConnectorResponse:
+    out: DescribeConnectorResponse = {}  # type: ignore[typeddict-item]
+    if "Connector" in data:
+        import aws_sdk_transfer.types.described_connector
+
+        out["connector"] = (
+            aws_sdk_transfer.types.described_connector.deserialize_aws_json_1_1(
+                data["Connector"]
+            )
+        )
+    else:
+        raise DeserializationError("DescribeConnectorResponse.connector required")
+    return out

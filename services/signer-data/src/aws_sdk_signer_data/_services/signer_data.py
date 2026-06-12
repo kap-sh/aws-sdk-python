@@ -1,0 +1,104 @@
+"""Generated from Smithy shape ``com.amazonaws.signerdata#SignerDataPlane``."""
+
+from aws_sdk_signer_data._auth._signers import SigV4Signer
+from aws_sdk_signer_data._auth._sigv4 import presign_sigv4
+from collections.abc import Iterator
+from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
+from typing_extensions import Self
+from typing import Optional
+from zapros import URL, BaseHandler, Client
+from aws_sdk_signer_data._auth._zapros_handler import AuthMiddleware
+from aws_sdk_signer_data._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
+import time
+from aws_sdk_signer_data.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
+import warnings
+import aws_sdk_signer_data._auth._signers
+import aws_sdk_signer_data._auth._sigv4
+from aws_sdk_signer_data._auth._identity import Credentials
+from aws_sdk_signer_data._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+if TYPE_CHECKING:
+    import aws_sdk_signer_data.types.arn
+    import aws_sdk_signer_data.types.certificate_hashes
+    import aws_sdk_signer_data.types.get_revocation_status_request
+    import aws_sdk_signer_data.types.get_revocation_status_response
+    import aws_sdk_signer_data.types.platform_id
+
+class SignerDataClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_fips: str | None
+    use_dual_stack: str | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+class SignerDataClient:
+    """A client for the ``SignerData`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_fips: str | None = None, use_dual_stack: str | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
+        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = SignerDataClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_fips": use_fips, "use_dual_stack": use_dual_stack, "endpoint": endpoint, "credentials_provider": credentials_provider})
+    def operation_options(self, config_overrides: Optional[SignerDataClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: SignerDataClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
+        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        return interceptors_, options_
+    def get_revocation_status(self, signature_timestamp: datetime.datetime, platform_id: "aws_sdk_signer_data.types.platform_id.PlatformId", profile_version_arn: "aws_sdk_signer_data.types.arn.Arn", job_arn: "aws_sdk_signer_data.types.arn.Arn", certificate_hashes: "aws_sdk_signer_data.types.certificate_hashes.CertificateHashes", *, config_overrides: Optional[SignerDataClientConfig] = None) -> "aws_sdk_signer_data.types.get_revocation_status_response.GetRevocationStatusResponse":
+        """<p>Retrieves the revocation status for a signed artifact by checking if the signing profile, job, or certificate has been revoked.</p>
+
+        Args:
+            signature_timestamp: <p>The timestamp when the artifact was signed, in ISO 8601 format.</p>
+            platform_id: <p>The platform identifier for the signing platform used.</p>
+            profile_version_arn: <p>The ARN of the signing profile version used to sign the artifact.</p>
+            job_arn: <p>The ARN of the signing job that produced the signature.</p>
+            certificate_hashes: <p>List of certificate hashes to check for revocation.</p>
+
+        Examples:
+            Check revocation status for a signed artifact
+            Checks if a signing profile, job, or certificate has been revoked for a given artifact.
+
+            >>> client.get_revocation_status(signature_timestamp=1700000000, platform_id='Notation-OCI-SHA384-ECDSA', profile_version_arn='arn:aws:signer:us-east-1:123456789012:/signing-profiles/my-profile/v1', job_arn='arn:aws:signer:us-east-1:123456789012:/signing-jobs/my-job-id', certificate_hashes=['e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'])
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_signer_data.types.get_revocation_status_request.GetRevocationStatusRequest]') -> OperationResponse["aws_sdk_signer_data.types.get_revocation_status_response.GetRevocationStatusResponse"]:
+            import aws_sdk_signer_data._operations.signer_data_plane.get_revocation_status
+            output, http_response = aws_sdk_signer_data._operations.signer_data_plane.get_revocation_status.get_revocation_status(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_signer_data.types.get_revocation_status_request.GetRevocationStatusRequest = {}  # type: ignore[typeddict-item]
+        input["signature_timestamp"] = signature_timestamp
+        input["platform_id"] = platform_id
+        input["profile_version_arn"] = profile_version_arn
+        input["job_arn"] = job_arn
+        input["certificate_hashes"] = certificate_hashes
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def __enter__(self) -> Self:
+        return self
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

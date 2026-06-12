@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.appconfig#UpdateEnvironmentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appconfig.types.description
+    import aws_sdk_appconfig.types.id
+    import aws_sdk_appconfig.types.monitor_list
+    import aws_sdk_appconfig.types.name
+
+
+class UpdateEnvironmentRequest(TypedDict):
+    application_id: "aws_sdk_appconfig.types.id.Id"
+    """<p>The application ID.</p>"""
+    environment_id: "aws_sdk_appconfig.types.id.Id"
+    """<p>The environment ID.</p>"""
+    name: NotRequired["aws_sdk_appconfig.types.name.Name"]
+    """<p>The name of the environment.</p>"""
+    description: NotRequired["aws_sdk_appconfig.types.description.Description"]
+    """<p>A description of the environment.</p>"""
+    monitors: NotRequired["aws_sdk_appconfig.types.monitor_list.MonitorList"]
+    """<p>Amazon CloudWatch alarms to monitor during the deployment process.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateEnvironmentRequest) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "monitors" in value:
+        import aws_sdk_appconfig.types.monitor_list
+
+        out["Monitors"] = aws_sdk_appconfig.types.monitor_list.serialize_json(
+            value["monitors"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateEnvironmentRequest:
+    out: UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "Monitors" in data:
+        import aws_sdk_appconfig.types.monitor_list
+
+        out["monitors"] = aws_sdk_appconfig.types.monitor_list.deserialize_json(
+            data["Monitors"]
+        )
+    return out

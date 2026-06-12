@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.codedeploy#InvalidAlarmConfigException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codedeploy.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_codedeploy.types.message
+
+
+class InvalidAlarmConfigException_(TypedDict):
+    message: NotRequired["aws_sdk_codedeploy.types.message.Message"]
+    """<p>The message that corresponds to the exception thrown by CodeDeploy.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InvalidAlarmConfigException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InvalidAlarmConfigException_:
+    out: InvalidAlarmConfigException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+class InvalidAlarmConfigException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.codedeploy#InvalidAlarmConfigException``."""
+
+    code: str | None = "InvalidAlarmConfigException"
+
+    def __init__(self, data: InvalidAlarmConfigException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidAlarmConfigException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "InvalidAlarmConfigException":
+        return cls(deserialize_aws_json_1_1(data))

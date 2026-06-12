@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralchannel#AcceptChannelHandshakeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_partnercentral_channel.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_channel.types.catalog
+    import aws_sdk_partnercentral_channel.types.channel_handshake_identifier
+
+
+class AcceptChannelHandshakeRequest(TypedDict):
+    catalog: "aws_sdk_partnercentral_channel.types.catalog.Catalog"
+    """<p>The catalog identifier for the handshake request.</p>"""
+    identifier: "aws_sdk_partnercentral_channel.types.channel_handshake_identifier.ChannelHandshakeIdentifier"
+    """<p>The unique identifier of the channel handshake to accept.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: AcceptChannelHandshakeRequest) -> dict:
+    out: dict = {}
+    out["catalog"] = value["catalog"]
+    out["identifier"] = value["identifier"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> AcceptChannelHandshakeRequest:
+    out: AcceptChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+    if "catalog" in data:
+        out["catalog"] = data["catalog"]
+    else:
+        raise DeserializationError("AcceptChannelHandshakeRequest.catalog required")
+    if "identifier" in data:
+        out["identifier"] = data["identifier"]
+    else:
+        raise DeserializationError("AcceptChannelHandshakeRequest.identifier required")
+    return out

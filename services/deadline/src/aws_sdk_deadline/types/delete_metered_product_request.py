@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#DeleteMeteredProductRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.license_endpoint_id
+    import aws_sdk_deadline.types.metered_product_id
+
+
+class DeleteMeteredProductRequest(TypedDict):
+    license_endpoint_id: "aws_sdk_deadline.types.license_endpoint_id.LicenseEndpointId"
+    """<p>The ID of the license endpoint from which to remove the metered product.</p>"""
+    product_id: "aws_sdk_deadline.types.metered_product_id.MeteredProductId"
+    """<p>The product ID to remove from the license endpoint.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteMeteredProductRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteMeteredProductRequest:
+    out: DeleteMeteredProductRequest = {}  # type: ignore[typeddict-item]
+    return out

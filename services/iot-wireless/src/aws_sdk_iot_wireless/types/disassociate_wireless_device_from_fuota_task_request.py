@@ -1,0 +1,23 @@
+"""Generated from Smithy shape ``com.amazonaws.iotwireless#DisassociateWirelessDeviceFromFuotaTaskRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_wireless.types.fuota_task_id
+    import aws_sdk_iot_wireless.types.wireless_device_id
+
+
+class DisassociateWirelessDeviceFromFuotaTaskRequest(TypedDict):
+    id: "aws_sdk_iot_wireless.types.fuota_task_id.FuotaTaskId"
+    wireless_device_id: "aws_sdk_iot_wireless.types.wireless_device_id.WirelessDeviceId"
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DisassociateWirelessDeviceFromFuotaTaskRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DisassociateWirelessDeviceFromFuotaTaskRequest:
+    out: DisassociateWirelessDeviceFromFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+    return out

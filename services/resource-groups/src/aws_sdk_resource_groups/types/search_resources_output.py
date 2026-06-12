@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.resourcegroups#SearchResourcesOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_resource_groups.types.next_token
+    import aws_sdk_resource_groups.types.query_error_list
+    import aws_sdk_resource_groups.types.resource_identifier_list
+
+
+class SearchResourcesOutput(TypedDict):
+    resource_identifiers: NotRequired[
+        "aws_sdk_resource_groups.types.resource_identifier_list.ResourceIdentifierList"
+    ]
+    """<p>The ARNs and resource types of resources that are members of the group that you specified.</p>"""
+    next_token: NotRequired["aws_sdk_resource_groups.types.next_token.NextToken"]
+    """<p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"""
+    query_errors: NotRequired[
+        "aws_sdk_resource_groups.types.query_error_list.QueryErrorList"
+    ]
+    """<p>A list of <code>QueryError</code> objects. Each error contains an <code>ErrorCode</code> and <code>Message</code>.</p> <p>Possible values for <code>ErrorCode</code>:</p> <ul> <li> <p> <code>CLOUDFORMATION_STACK_INACTIVE</code> </p> </li> <li> <p> <code>CLOUDFORMATION_STACK_NOT_EXISTING</code> </p> </li> <li> <p> <code>CLOUDFORMATION_STACK_UNASSUMABLE_ROLE </code> </p> </li> </ul>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SearchResourcesOutput) -> dict:
+    out: dict = {}
+    if "resource_identifiers" in value:
+        import aws_sdk_resource_groups.types.resource_identifier_list
+
+        out["ResourceIdentifiers"] = (
+            aws_sdk_resource_groups.types.resource_identifier_list.serialize_json(
+                value["resource_identifiers"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "query_errors" in value:
+        import aws_sdk_resource_groups.types.query_error_list
+
+        out["QueryErrors"] = (
+            aws_sdk_resource_groups.types.query_error_list.serialize_json(
+                value["query_errors"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> SearchResourcesOutput:
+    out: SearchResourcesOutput = {}  # type: ignore[typeddict-item]
+    if "ResourceIdentifiers" in data:
+        import aws_sdk_resource_groups.types.resource_identifier_list
+
+        out["resource_identifiers"] = (
+            aws_sdk_resource_groups.types.resource_identifier_list.deserialize_json(
+                data["ResourceIdentifiers"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "QueryErrors" in data:
+        import aws_sdk_resource_groups.types.query_error_list
+
+        out["query_errors"] = (
+            aws_sdk_resource_groups.types.query_error_list.deserialize_json(
+                data["QueryErrors"]
+            )
+        )
+    return out

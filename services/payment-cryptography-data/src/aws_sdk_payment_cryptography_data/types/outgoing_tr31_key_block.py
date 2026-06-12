@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#OutgoingTr31KeyBlock``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_payment_cryptography_data.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography_data.types.key_arn_or_key_alias_type
+
+
+class OutgoingTr31KeyBlock(TypedDict):
+    wrapping_key_identifier: "aws_sdk_payment_cryptography_data.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
+    """<p>The <code>keyARN</code> of the KEK used to wrap the transaction key.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: OutgoingTr31KeyBlock) -> dict:
+    out: dict = {}
+    out["WrappingKeyIdentifier"] = value["wrapping_key_identifier"]
+    return out
+
+
+def deserialize_json(data: dict) -> OutgoingTr31KeyBlock:
+    out: OutgoingTr31KeyBlock = {}  # type: ignore[typeddict-item]
+    if "WrappingKeyIdentifier" in data:
+        out["wrapping_key_identifier"] = data["WrappingKeyIdentifier"]
+    else:
+        raise DeserializationError(
+            "OutgoingTr31KeyBlock.wrapping_key_identifier required"
+        )
+    return out

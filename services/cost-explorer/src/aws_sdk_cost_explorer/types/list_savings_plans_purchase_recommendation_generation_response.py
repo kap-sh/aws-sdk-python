@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.costexplorer#ListSavingsPlansPurchaseRecommendationGenerationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cost_explorer.types.generation_summary_list
+    import aws_sdk_cost_explorer.types.next_page_token
+
+
+class ListSavingsPlansPurchaseRecommendationGenerationResponse(TypedDict):
+    generation_summary_list: NotRequired[
+        "aws_sdk_cost_explorer.types.generation_summary_list.GenerationSummaryList"
+    ]
+    """<p>The list of historical recommendation generations.</p>"""
+    next_page_token: NotRequired[
+        "aws_sdk_cost_explorer.types.next_page_token.NextPageToken"
+    ]
+    """<p>The token to retrieve the next set of results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: ListSavingsPlansPurchaseRecommendationGenerationResponse,
+) -> dict:
+    out: dict = {}
+    if "generation_summary_list" in value:
+        import aws_sdk_cost_explorer.types.generation_summary_list
+
+        out["GenerationSummaryList"] = (
+            aws_sdk_cost_explorer.types.generation_summary_list.serialize_aws_json_1_1(
+                value["generation_summary_list"]
+            )
+        )
+    if "next_page_token" in value:
+        out["NextPageToken"] = value["next_page_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> ListSavingsPlansPurchaseRecommendationGenerationResponse:
+    out: ListSavingsPlansPurchaseRecommendationGenerationResponse = {}  # type: ignore[typeddict-item]
+    if "GenerationSummaryList" in data:
+        import aws_sdk_cost_explorer.types.generation_summary_list
+
+        out["generation_summary_list"] = (
+            aws_sdk_cost_explorer.types.generation_summary_list.deserialize_aws_json_1_1(
+                data["GenerationSummaryList"]
+            )
+        )
+    if "NextPageToken" in data:
+        out["next_page_token"] = data["NextPageToken"]
+    return out

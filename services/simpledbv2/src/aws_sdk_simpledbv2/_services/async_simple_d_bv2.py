@@ -1,0 +1,347 @@
+"""Generated from Smithy shape ``com.amazonaws.simpledbv2#SimpleDBv2``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+import aws_sdk_simpledbv2._auth._signers
+import aws_sdk_simpledbv2._auth._sigv4
+from aws_sdk_simpledbv2._auth._identity import Credentials
+from aws_sdk_simpledbv2._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_simpledbv2._auth._zapros_handler import AuthMiddleware
+from aws_sdk_simpledbv2._pagination import resolve_path as _resolve_path
+from aws_sdk_simpledbv2._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_simpledbv2.types.aws_account_id
+    import aws_sdk_simpledbv2.types.domain_name
+    import aws_sdk_simpledbv2.types.export_arn
+    import aws_sdk_simpledbv2.types.export_summary
+    import aws_sdk_simpledbv2.types.get_export_request
+    import aws_sdk_simpledbv2.types.get_export_response
+    import aws_sdk_simpledbv2.types.idempotency_token
+    import aws_sdk_simpledbv2.types.list_exports_request
+    import aws_sdk_simpledbv2.types.list_exports_response
+    import aws_sdk_simpledbv2.types.max_results
+    import aws_sdk_simpledbv2.types.next_token
+    import aws_sdk_simpledbv2.types.s3_bucket_name
+    import aws_sdk_simpledbv2.types.s3_key_prefix
+    import aws_sdk_simpledbv2.types.s3_sse_algorithm
+    import aws_sdk_simpledbv2.types.s3_sse_kms_key_id
+    import aws_sdk_simpledbv2.types.start_domain_export_request
+    import aws_sdk_simpledbv2.types.start_domain_export_response
+
+
+class AsyncSimpleDBv2ClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    region: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncSimpleDBv2Client:
+    """A client for the ``SimpleDBv2`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncSimpleDBv2ClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncSimpleDBv2ClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncSimpleDBv2ClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            region=overrides.get("region", self.config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def get_export(
+        self,
+        export_arn: "aws_sdk_simpledbv2.types.export_arn.ExportArn",
+        *,
+        config_overrides: Optional[AsyncSimpleDBv2ClientConfig] = None,
+    ) -> "aws_sdk_simpledbv2.types.get_export_response.GetExportResponse":
+        """Returns information for an existing domain export.
+
+        Args:
+            export_arn: Unique ARN identifier of the export.
+
+        Examples:
+            Get export details
+
+            >>> await client.get_export(export_arn='arn:aws:sdb:us-east-1:123456789012:export/abc123')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simpledbv2.types.get_export_request.GetExportRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simpledbv2.types.get_export_response.GetExportResponse"
+        ]:
+            import aws_sdk_simpledbv2._operations.simple_d_bv2.get_export
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simpledbv2._operations.simple_d_bv2.get_export.async_get_export(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_simpledbv2.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
+        input["export_arn"] = export_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_exports(
+        self,
+        *,
+        config_overrides: Optional[AsyncSimpleDBv2ClientConfig] = None,
+        domain_name: Optional["aws_sdk_simpledbv2.types.domain_name.DomainName"] = None,
+        max_results: Optional["aws_sdk_simpledbv2.types.max_results.MaxResults"] = None,
+        next_token: Optional["aws_sdk_simpledbv2.types.next_token.NextToken"] = None,
+    ) -> "aws_sdk_simpledbv2.types.list_exports_response.ListExportsResponse":
+        """Lists all exports that were created. The results are paginated and can be filtered by domain name.
+
+        Args:
+            domain_name: The name of the domain to filter exports. If not provided, exports for all the domains will be listed.
+            max_results: The maximum number of exports to return in a single response.
+            next_token: A pagination token used to retrieve the next page of results. This token is obtained from the nextToken field in the previous ListExportsResponse. Leave empty for the first request.
+
+        Examples:
+            List all exports
+
+            >>> await client.list_exports()
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simpledbv2.types.list_exports_request.ListExportsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simpledbv2.types.list_exports_response.ListExportsResponse"
+        ]:
+            import aws_sdk_simpledbv2._operations.simple_d_bv2.list_exports
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simpledbv2._operations.simple_d_bv2.list_exports.async_list_exports(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_simpledbv2.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
+        if domain_name is not None:
+            input["domain_name"] = domain_name
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_exports(
+        self,
+        *,
+        config_overrides: Optional[AsyncSimpleDBv2ClientConfig] = None,
+        domain_name: Optional["aws_sdk_simpledbv2.types.domain_name.DomainName"] = None,
+        max_results: Optional["aws_sdk_simpledbv2.types.max_results.MaxResults"] = None,
+        next_token: Optional["aws_sdk_simpledbv2.types.next_token.NextToken"] = None,
+    ) -> "AsyncIterator[aws_sdk_simpledbv2.types.export_summary.ExportSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_exports(
+                config_overrides=config_overrides,
+                domain_name=domain_name,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("export_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def start_domain_export(
+        self,
+        domain_name: "aws_sdk_simpledbv2.types.domain_name.DomainName",
+        s3_bucket: "aws_sdk_simpledbv2.types.s3_bucket_name.S3BucketName",
+        *,
+        config_overrides: Optional[AsyncSimpleDBv2ClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_simpledbv2.types.idempotency_token.IdempotencyToken"
+        ] = None,
+        s3_key_prefix: Optional[
+            "aws_sdk_simpledbv2.types.s3_key_prefix.S3KeyPrefix"
+        ] = None,
+        s3_sse_algorithm: Optional[
+            "aws_sdk_simpledbv2.types.s3_sse_algorithm.S3SseAlgorithm"
+        ] = None,
+        s3_sse_kms_key_id: Optional[
+            "aws_sdk_simpledbv2.types.s3_sse_kms_key_id.S3SseKmsKeyId"
+        ] = None,
+        s3_bucket_owner: Optional[
+            "aws_sdk_simpledbv2.types.aws_account_id.AwsAccountId"
+        ] = None,
+    ) -> "aws_sdk_simpledbv2.types.start_domain_export_response.StartDomainExportResponse":
+        """Initiates the export of a SimpleDB domain to an S3 bucket.
+
+        Args:
+            client_token: Providing a ClientToken makes the call to StartDomainExport API idempotent, meaning that multiple identical calls have the same effect as one single call. A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent. If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, a ConflictException will be returned.
+            domain_name: The name of the domain to export.
+            s3_bucket: The name of the S3 bucket where the domain data will be exported.
+            s3_key_prefix: The prefix string to be used to generate the S3 object keys for export artifacts.
+            s3_sse_algorithm: The server-side encryption algorithm to use for the exported data in S3. Valid values are: AES256 (SSE-S3) and KMS (SSE-KMS). If not specified, bucket's default encryption will apply.
+            s3_sse_kms_key_id: The KMS key ID to use for server-side encryption with AWS KMS-managed keys (SSE-KMS). This parameter is only expected with KMS as the S3 SSE algorithm.
+            s3_bucket_owner: The ID of the AWS account that owns the bucket the export will be stored in.
+
+        Examples:
+            Start a domain export
+
+            >>> await client.start_domain_export(domain_name='my-domain', s3_bucket='my-export-bucket')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_simpledbv2.types.start_domain_export_request.StartDomainExportRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_simpledbv2.types.start_domain_export_response.StartDomainExportResponse"
+        ]:
+            import aws_sdk_simpledbv2._operations.simple_d_bv2.start_domain_export
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_simpledbv2._operations.simple_d_bv2.start_domain_export.async_start_domain_export(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_simpledbv2.types.start_domain_export_request.StartDomainExportRequest = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["domain_name"] = domain_name
+        input["s3_bucket"] = s3_bucket
+        if s3_key_prefix is not None:
+            input["s3_key_prefix"] = s3_key_prefix
+        if s3_sse_algorithm is not None:
+            input["s3_sse_algorithm"] = s3_sse_algorithm
+        if s3_sse_kms_key_id is not None:
+            input["s3_sse_kms_key_id"] = s3_sse_kms_key_id
+        if s3_bucket_owner is not None:
+            input["s3_bucket_owner"] = s3_bucket_owner
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

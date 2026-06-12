@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.wickr#UpdateBotRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_wickr.types.bot_id
+    import aws_sdk_wickr.types.generic_string
+    import aws_sdk_wickr.types.network_id
+    import aws_sdk_wickr.types.sensitive_string
+
+
+class UpdateBotRequest(TypedDict):
+    network_id: "aws_sdk_wickr.types.network_id.NetworkId"
+    """<p>The ID of the Wickr network containing the bot to update.</p>"""
+    bot_id: "aws_sdk_wickr.types.bot_id.BotId"
+    """<p>The unique identifier of the bot to update.</p>"""
+    display_name: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
+    """<p>The new display name for the bot.</p>"""
+    group_id: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
+    """<p>The ID of the new security group to assign the bot to.</p>"""
+    challenge: NotRequired["aws_sdk_wickr.types.sensitive_string.SensitiveString"]
+    """<p>The new password for the bot account.</p>"""
+    suspend: NotRequired["bool"]
+    """<p>Set to true to suspend the bot or false to unsuspend it. Omit this field for standard updates that don't affect suspension status.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateBotRequest) -> dict:
+    out: dict = {}
+    if "display_name" in value:
+        out["displayName"] = value["display_name"]
+    if "group_id" in value:
+        out["groupId"] = value["group_id"]
+    if "challenge" in value:
+        out["challenge"] = value["challenge"]
+    if "suspend" in value:
+        out["suspend"] = value["suspend"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateBotRequest:
+    out: UpdateBotRequest = {}  # type: ignore[typeddict-item]
+    if "displayName" in data:
+        out["display_name"] = data["displayName"]
+    if "groupId" in data:
+        out["group_id"] = data["groupId"]
+    if "challenge" in data:
+        out["challenge"] = data["challenge"]
+    if "suspend" in data:
+        out["suspend"] = data["suspend"]
+    return out

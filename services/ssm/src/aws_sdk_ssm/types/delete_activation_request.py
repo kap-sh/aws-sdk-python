@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#DeleteActivationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.activation_id
+
+
+class DeleteActivationRequest(TypedDict):
+    activation_id: "aws_sdk_ssm.types.activation_id.ActivationId"
+    """<p>The ID of the activation that you want to delete.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteActivationRequest) -> dict:
+    out: dict = {}
+    out["ActivationId"] = value["activation_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteActivationRequest:
+    out: DeleteActivationRequest = {}  # type: ignore[typeddict-item]
+    if "ActivationId" in data:
+        out["activation_id"] = data["ActivationId"]
+    else:
+        raise DeserializationError("DeleteActivationRequest.activation_id required")
+    return out

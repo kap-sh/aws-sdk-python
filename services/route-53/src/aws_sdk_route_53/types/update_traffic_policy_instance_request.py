@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.route53#UpdateTrafficPolicyInstanceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_route_53._protocol.xml import Element, SubElement
+from aws_sdk_route_53.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_route_53.types.traffic_policy_id
+    import aws_sdk_route_53.types.traffic_policy_instance_id
+    import aws_sdk_route_53.types.traffic_policy_version
+    import aws_sdk_route_53.types.ttl
+
+
+class UpdateTrafficPolicyInstanceRequest(TypedDict):
+    id: "aws_sdk_route_53.types.traffic_policy_instance_id.TrafficPolicyInstanceId"
+    """<p>The ID of the traffic policy instance that you want to update.</p>"""
+    ttl: "aws_sdk_route_53.types.ttl.TTL"
+    """<p>The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.</p>"""
+    traffic_policy_id: "aws_sdk_route_53.types.traffic_policy_id.TrafficPolicyId"
+    """<p>The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.</p>"""
+    traffic_policy_version: (
+        "aws_sdk_route_53.types.traffic_policy_version.TrafficPolicyVersion"
+    )
+    """<p>The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: UpdateTrafficPolicyInstanceRequest, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "TTL").text = str(value["ttl"])
+    SubElement(el, "TrafficPolicyId").text = str(value["traffic_policy_id"])
+    SubElement(el, "TrafficPolicyVersion").text = str(value["traffic_policy_version"])
+
+
+def deserialize_xml(el: Element) -> UpdateTrafficPolicyInstanceRequest:
+    out: UpdateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
+    child_ttl = el.find("TTL")
+    if child_ttl is not None:
+        out["ttl"] = int(child_ttl.text or "")
+    else:
+        raise DeserializationError("UpdateTrafficPolicyInstanceRequest.ttl required")
+    child_traffic_policy_id = el.find("TrafficPolicyId")
+    if child_traffic_policy_id is not None:
+        out["traffic_policy_id"] = str(child_traffic_policy_id.text or "")
+    else:
+        raise DeserializationError(
+            "UpdateTrafficPolicyInstanceRequest.traffic_policy_id required"
+        )
+    child_traffic_policy_version = el.find("TrafficPolicyVersion")
+    if child_traffic_policy_version is not None:
+        out["traffic_policy_version"] = int(child_traffic_policy_version.text or "")
+    else:
+        raise DeserializationError(
+            "UpdateTrafficPolicyInstanceRequest.traffic_policy_version required"
+        )
+    return out

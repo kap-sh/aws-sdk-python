@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#MultiplexContainerSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.multiplex_m2ts_settings
+
+
+class MultiplexContainerSettings(TypedDict):
+    multiplex_m2ts_settings: NotRequired[
+        "aws_sdk_medialive.types.multiplex_m2ts_settings.MultiplexM2tsSettings"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MultiplexContainerSettings) -> dict:
+    out: dict = {}
+    if "multiplex_m2ts_settings" in value:
+        import aws_sdk_medialive.types.multiplex_m2ts_settings
+
+        out["multiplexM2tsSettings"] = (
+            aws_sdk_medialive.types.multiplex_m2ts_settings.serialize_json(
+                value["multiplex_m2ts_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> MultiplexContainerSettings:
+    out: MultiplexContainerSettings = {}  # type: ignore[typeddict-item]
+    if "multiplexM2tsSettings" in data:
+        import aws_sdk_medialive.types.multiplex_m2ts_settings
+
+        out["multiplex_m2ts_settings"] = (
+            aws_sdk_medialive.types.multiplex_m2ts_settings.deserialize_json(
+                data["multiplexM2tsSettings"]
+            )
+        )
+    return out

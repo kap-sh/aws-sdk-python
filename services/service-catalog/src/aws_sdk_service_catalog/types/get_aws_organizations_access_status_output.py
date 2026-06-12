@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.servicecatalog#GetAWSOrganizationsAccessStatusOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_service_catalog.types.access_status
+
+
+class GetAWSOrganizationsAccessStatusOutput(TypedDict):
+    access_status: NotRequired[
+        "aws_sdk_service_catalog.types.access_status.AccessStatus"
+    ]
+    """<p>The status of the portfolio share feature.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetAWSOrganizationsAccessStatusOutput) -> dict:
+    out: dict = {}
+    if "access_status" in value:
+        import aws_sdk_service_catalog.types.access_status
+
+        out["AccessStatus"] = (
+            aws_sdk_service_catalog.types.access_status.serialize_aws_json_1_1(
+                value["access_status"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetAWSOrganizationsAccessStatusOutput:
+    out: GetAWSOrganizationsAccessStatusOutput = {}  # type: ignore[typeddict-item]
+    if "AccessStatus" in data:
+        import aws_sdk_service_catalog.types.access_status
+
+        out["access_status"] = (
+            aws_sdk_service_catalog.types.access_status.deserialize_aws_json_1_1(
+                data["AccessStatus"]
+            )
+        )
+    return out

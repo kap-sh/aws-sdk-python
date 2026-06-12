@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.computeoptimizer#InstanceRecommendationFindingReasonCodes``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_compute_optimizer.types.instance_recommendation_finding_reason_code
+
+InstanceRecommendationFindingReasonCodes: TypeAlias = list[
+    "aws_sdk_compute_optimizer.types.instance_recommendation_finding_reason_code.InstanceRecommendationFindingReasonCode"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: InstanceRecommendationFindingReasonCodes) -> list:
+    import aws_sdk_compute_optimizer.types.instance_recommendation_finding_reason_code
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_compute_optimizer.types.instance_recommendation_finding_reason_code.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> InstanceRecommendationFindingReasonCodes:
+    import aws_sdk_compute_optimizer.types.instance_recommendation_finding_reason_code
+
+    out: InstanceRecommendationFindingReasonCodes = []
+    for item in data:
+        out.append(
+            aws_sdk_compute_optimizer.types.instance_recommendation_finding_reason_code.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

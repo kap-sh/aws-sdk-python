@@ -1,0 +1,250 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralselling#GetAwsOpportunitySummaryResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_partnercentral_selling.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_selling.types.aws_opportunity_customer
+    import aws_sdk_partnercentral_selling.types.aws_opportunity_insights
+    import aws_sdk_partnercentral_selling.types.aws_opportunity_life_cycle
+    import aws_sdk_partnercentral_selling.types.aws_opportunity_project
+    import aws_sdk_partnercentral_selling.types.aws_opportunity_related_entities
+    import aws_sdk_partnercentral_selling.types.aws_opportunity_team_members_list
+    import aws_sdk_partnercentral_selling.types.catalog_identifier
+    import aws_sdk_partnercentral_selling.types.involvement_type_change_reason
+    import aws_sdk_partnercentral_selling.types.opportunity_identifier
+    import aws_sdk_partnercentral_selling.types.opportunity_origin
+    import aws_sdk_partnercentral_selling.types.sales_involvement_type
+    import aws_sdk_partnercentral_selling.types.visibility
+
+
+class GetAwsOpportunitySummaryResponse(TypedDict):
+    related_opportunity_id: NotRequired[
+        "aws_sdk_partnercentral_selling.types.opportunity_identifier.OpportunityIdentifier"
+    ]
+    """<p>Provides the unique identifier of the related partner opportunity, allowing partners to link the AWS Opportunity to their corresponding opportunity in their CRM system.</p>"""
+    origin: NotRequired[
+        "aws_sdk_partnercentral_selling.types.opportunity_origin.OpportunityOrigin"
+    ]
+    """<p>Specifies whether the AWS Opportunity originated from AWS or the partner. This helps distinguish between opportunities that were sourced by AWS and those referred by the partner.</p>"""
+    involvement_type: NotRequired[
+        "aws_sdk_partnercentral_selling.types.sales_involvement_type.SalesInvolvementType"
+    ]
+    """<p>Specifies the type of involvement AWS has in the opportunity, such as direct cosell or advisory support. This field helps partners understand the role AWS plays in advancing the opportunity.</p>"""
+    visibility: NotRequired[
+        "aws_sdk_partnercentral_selling.types.visibility.Visibility"
+    ]
+    """<p>Defines the visibility level for the AWS Opportunity. Use <code>Full</code> visibility for most cases, while <code>Limited</code> visibility is reserved for special programs or sensitive opportunities.</p>"""
+    life_cycle: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_opportunity_life_cycle.AwsOpportunityLifeCycle"
+    ]
+    """<p>Contains lifecycle information for the AWS Opportunity, including review status, stage, and target close date. This field is crucial for partners to monitor the progression of the opportunity.</p>"""
+    opportunity_team: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_opportunity_team_members_list.AwsOpportunityTeamMembersList"
+    ]
+    """<p>Details the AWS opportunity team, including members involved. This information helps partners know who from AWS is engaged and what their role is.</p>"""
+    insights: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_opportunity_insights.AwsOpportunityInsights"
+    ]
+    """<p>Provides insights into the AWS Opportunity, including engagement score and recommended actions that AWS suggests for the partner.</p>"""
+    involvement_type_change_reason: NotRequired[
+        "aws_sdk_partnercentral_selling.types.involvement_type_change_reason.InvolvementTypeChangeReason"
+    ]
+    """<p>Provides a reason for any changes in the involvement type of AWS in the opportunity. This field is used to track why the level of AWS engagement has changed from <code>For Visibility Only</code> to <code>Co-sell</code> offering transparency into the partnership dynamics.</p>"""
+    related_entity_ids: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_opportunity_related_entities.AwsOpportunityRelatedEntities"
+    ]
+    """<p>Lists related entity identifiers, such as AWS products or partner solutions, associated with the AWS Opportunity. These identifiers provide additional context and help partners understand which AWS services are involved.</p>"""
+    customer: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_opportunity_customer.AwsOpportunityCustomer"
+    ]
+    """<p>Provides details about the customer associated with the AWS Opportunity, including account information, industry, and other customer data. These details help partners understand the business context of the opportunity.</p>"""
+    project: NotRequired[
+        "aws_sdk_partnercentral_selling.types.aws_opportunity_project.AwsOpportunityProject"
+    ]
+    """<p>Provides details about the project associated with the AWS Opportunity, including the customer’s business problem, expected outcomes, and project scope. This information is crucial for understanding the broader context of the opportunity.</p>"""
+    catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
+    """<p>Specifies the catalog in which the AWS Opportunity exists. This is the environment (e.g., <code>AWS</code> or <code>Sandbox</code>) where the opportunity is being managed.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetAwsOpportunitySummaryResponse) -> dict:
+    out: dict = {}
+    if "related_opportunity_id" in value:
+        out["RelatedOpportunityId"] = value["related_opportunity_id"]
+    if "origin" in value:
+        import aws_sdk_partnercentral_selling.types.opportunity_origin
+
+        out["Origin"] = (
+            aws_sdk_partnercentral_selling.types.opportunity_origin.serialize_aws_json_1_0(
+                value["origin"]
+            )
+        )
+    if "involvement_type" in value:
+        import aws_sdk_partnercentral_selling.types.sales_involvement_type
+
+        out["InvolvementType"] = (
+            aws_sdk_partnercentral_selling.types.sales_involvement_type.serialize_aws_json_1_0(
+                value["involvement_type"]
+            )
+        )
+    if "visibility" in value:
+        import aws_sdk_partnercentral_selling.types.visibility
+
+        out["Visibility"] = (
+            aws_sdk_partnercentral_selling.types.visibility.serialize_aws_json_1_0(
+                value["visibility"]
+            )
+        )
+    if "life_cycle" in value:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_life_cycle
+
+        out["LifeCycle"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_life_cycle.serialize_aws_json_1_0(
+                value["life_cycle"]
+            )
+        )
+    if "opportunity_team" in value:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_team_members_list
+
+        out["OpportunityTeam"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_team_members_list.serialize_aws_json_1_0(
+                value["opportunity_team"]
+            )
+        )
+    if "insights" in value:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_insights
+
+        out["Insights"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_insights.serialize_aws_json_1_0(
+                value["insights"]
+            )
+        )
+    if "involvement_type_change_reason" in value:
+        import aws_sdk_partnercentral_selling.types.involvement_type_change_reason
+
+        out["InvolvementTypeChangeReason"] = (
+            aws_sdk_partnercentral_selling.types.involvement_type_change_reason.serialize_aws_json_1_0(
+                value["involvement_type_change_reason"]
+            )
+        )
+    if "related_entity_ids" in value:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_related_entities
+
+        out["RelatedEntityIds"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_related_entities.serialize_aws_json_1_0(
+                value["related_entity_ids"]
+            )
+        )
+    if "customer" in value:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_customer
+
+        out["Customer"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_customer.serialize_aws_json_1_0(
+                value["customer"]
+            )
+        )
+    if "project" in value:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_project
+
+        out["Project"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_project.serialize_aws_json_1_0(
+                value["project"]
+            )
+        )
+    out["Catalog"] = value["catalog"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetAwsOpportunitySummaryResponse:
+    out: GetAwsOpportunitySummaryResponse = {}  # type: ignore[typeddict-item]
+    if "RelatedOpportunityId" in data:
+        out["related_opportunity_id"] = data["RelatedOpportunityId"]
+    if "Origin" in data:
+        import aws_sdk_partnercentral_selling.types.opportunity_origin
+
+        out["origin"] = (
+            aws_sdk_partnercentral_selling.types.opportunity_origin.deserialize_aws_json_1_0(
+                data["Origin"]
+            )
+        )
+    if "InvolvementType" in data:
+        import aws_sdk_partnercentral_selling.types.sales_involvement_type
+
+        out["involvement_type"] = (
+            aws_sdk_partnercentral_selling.types.sales_involvement_type.deserialize_aws_json_1_0(
+                data["InvolvementType"]
+            )
+        )
+    if "Visibility" in data:
+        import aws_sdk_partnercentral_selling.types.visibility
+
+        out["visibility"] = (
+            aws_sdk_partnercentral_selling.types.visibility.deserialize_aws_json_1_0(
+                data["Visibility"]
+            )
+        )
+    if "LifeCycle" in data:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_life_cycle
+
+        out["life_cycle"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_life_cycle.deserialize_aws_json_1_0(
+                data["LifeCycle"]
+            )
+        )
+    if "OpportunityTeam" in data:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_team_members_list
+
+        out["opportunity_team"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_team_members_list.deserialize_aws_json_1_0(
+                data["OpportunityTeam"]
+            )
+        )
+    if "Insights" in data:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_insights
+
+        out["insights"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_insights.deserialize_aws_json_1_0(
+                data["Insights"]
+            )
+        )
+    if "InvolvementTypeChangeReason" in data:
+        import aws_sdk_partnercentral_selling.types.involvement_type_change_reason
+
+        out["involvement_type_change_reason"] = (
+            aws_sdk_partnercentral_selling.types.involvement_type_change_reason.deserialize_aws_json_1_0(
+                data["InvolvementTypeChangeReason"]
+            )
+        )
+    if "RelatedEntityIds" in data:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_related_entities
+
+        out["related_entity_ids"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_related_entities.deserialize_aws_json_1_0(
+                data["RelatedEntityIds"]
+            )
+        )
+    if "Customer" in data:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_customer
+
+        out["customer"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_customer.deserialize_aws_json_1_0(
+                data["Customer"]
+            )
+        )
+    if "Project" in data:
+        import aws_sdk_partnercentral_selling.types.aws_opportunity_project
+
+        out["project"] = (
+            aws_sdk_partnercentral_selling.types.aws_opportunity_project.deserialize_aws_json_1_0(
+                data["Project"]
+            )
+        )
+    if "Catalog" in data:
+        out["catalog"] = data["Catalog"]
+    else:
+        raise DeserializationError("GetAwsOpportunitySummaryResponse.catalog required")
+    return out

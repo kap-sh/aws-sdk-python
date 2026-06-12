@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.fms#ThirdPartyFirewallFirewallPolicy``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_fms.types.firewall_policy_id
+    import aws_sdk_fms.types.firewall_policy_name
+
+
+class ThirdPartyFirewallFirewallPolicy(TypedDict):
+    firewall_policy_id: NotRequired[
+        "aws_sdk_fms.types.firewall_policy_id.FirewallPolicyId"
+    ]
+    """<p>The ID of the specified firewall policy.</p>"""
+    firewall_policy_name: NotRequired[
+        "aws_sdk_fms.types.firewall_policy_name.FirewallPolicyName"
+    ]
+    """<p>The name of the specified firewall policy.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ThirdPartyFirewallFirewallPolicy) -> dict:
+    out: dict = {}
+    if "firewall_policy_id" in value:
+        out["FirewallPolicyId"] = value["firewall_policy_id"]
+    if "firewall_policy_name" in value:
+        out["FirewallPolicyName"] = value["firewall_policy_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ThirdPartyFirewallFirewallPolicy:
+    out: ThirdPartyFirewallFirewallPolicy = {}  # type: ignore[typeddict-item]
+    if "FirewallPolicyId" in data:
+        out["firewall_policy_id"] = data["FirewallPolicyId"]
+    if "FirewallPolicyName" in data:
+        out["firewall_policy_name"] = data["FirewallPolicyName"]
+    return out

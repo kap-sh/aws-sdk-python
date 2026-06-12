@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.ivsrealtime#S3StorageConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_ivs_realtime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ivs_realtime.types.s3_bucket_name
+
+
+class S3StorageConfiguration(TypedDict):
+    bucket_name: "aws_sdk_ivs_realtime.types.s3_bucket_name.S3BucketName"
+    """<p>Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: S3StorageConfiguration) -> dict:
+    out: dict = {}
+    out["bucketName"] = value["bucket_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> S3StorageConfiguration:
+    out: S3StorageConfiguration = {}  # type: ignore[typeddict-item]
+    if "bucketName" in data:
+        out["bucket_name"] = data["bucketName"]
+    else:
+        raise DeserializationError("S3StorageConfiguration.bucket_name required")
+    return out

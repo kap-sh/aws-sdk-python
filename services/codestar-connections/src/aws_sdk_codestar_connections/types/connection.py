@@ -1,0 +1,97 @@
+"""Generated from Smithy shape ``com.amazonaws.codestarconnections#Connection``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codestar_connections.types.account_id
+    import aws_sdk_codestar_connections.types.connection_arn
+    import aws_sdk_codestar_connections.types.connection_name
+    import aws_sdk_codestar_connections.types.connection_status
+    import aws_sdk_codestar_connections.types.host_arn
+    import aws_sdk_codestar_connections.types.provider_type
+
+
+class Connection(TypedDict):
+    connection_name: NotRequired[
+        "aws_sdk_codestar_connections.types.connection_name.ConnectionName"
+    ]
+    """<p>The name of the connection. Connection names must be unique in an Amazon Web Services account.</p>"""
+    connection_arn: NotRequired[
+        "aws_sdk_codestar_connections.types.connection_arn.ConnectionArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection reference when the connection is shared between Amazon Web Services services.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note>"""
+    provider_type: NotRequired[
+        "aws_sdk_codestar_connections.types.provider_type.ProviderType"
+    ]
+    """<p>The name of the external provider where your third-party code repository is configured.</p>"""
+    owner_account_id: NotRequired[
+        "aws_sdk_codestar_connections.types.account_id.AccountId"
+    ]
+    """<p>The identifier of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.</p>"""
+    connection_status: NotRequired[
+        "aws_sdk_codestar_connections.types.connection_status.ConnectionStatus"
+    ]
+    """<p>The current status of the connection. </p>"""
+    host_arn: NotRequired["aws_sdk_codestar_connections.types.host_arn.HostArn"]
+    """<p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Connection) -> dict:
+    out: dict = {}
+    if "connection_name" in value:
+        out["ConnectionName"] = value["connection_name"]
+    if "connection_arn" in value:
+        out["ConnectionArn"] = value["connection_arn"]
+    if "provider_type" in value:
+        import aws_sdk_codestar_connections.types.provider_type
+
+        out["ProviderType"] = (
+            aws_sdk_codestar_connections.types.provider_type.serialize_aws_json_1_0(
+                value["provider_type"]
+            )
+        )
+    if "owner_account_id" in value:
+        out["OwnerAccountId"] = value["owner_account_id"]
+    if "connection_status" in value:
+        import aws_sdk_codestar_connections.types.connection_status
+
+        out["ConnectionStatus"] = (
+            aws_sdk_codestar_connections.types.connection_status.serialize_aws_json_1_0(
+                value["connection_status"]
+            )
+        )
+    if "host_arn" in value:
+        out["HostArn"] = value["host_arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Connection:
+    out: Connection = {}  # type: ignore[typeddict-item]
+    if "ConnectionName" in data:
+        out["connection_name"] = data["ConnectionName"]
+    if "ConnectionArn" in data:
+        out["connection_arn"] = data["ConnectionArn"]
+    if "ProviderType" in data:
+        import aws_sdk_codestar_connections.types.provider_type
+
+        out["provider_type"] = (
+            aws_sdk_codestar_connections.types.provider_type.deserialize_aws_json_1_0(
+                data["ProviderType"]
+            )
+        )
+    if "OwnerAccountId" in data:
+        out["owner_account_id"] = data["OwnerAccountId"]
+    if "ConnectionStatus" in data:
+        import aws_sdk_codestar_connections.types.connection_status
+
+        out["connection_status"] = (
+            aws_sdk_codestar_connections.types.connection_status.deserialize_aws_json_1_0(
+                data["ConnectionStatus"]
+            )
+        )
+    if "HostArn" in data:
+        out["host_arn"] = data["HostArn"]
+    return out

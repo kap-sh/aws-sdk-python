@@ -1,0 +1,109 @@
+"""Generated from Smithy shape ``com.amazonaws.ssooidc#CreateTokenWithIAMRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_sso_oidc.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sso_oidc.types.assertion
+    import aws_sdk_sso_oidc.types.auth_code
+    import aws_sdk_sso_oidc.types.client_id
+    import aws_sdk_sso_oidc.types.code_verifier
+    import aws_sdk_sso_oidc.types.grant_type
+    import aws_sdk_sso_oidc.types.refresh_token
+    import aws_sdk_sso_oidc.types.scopes
+    import aws_sdk_sso_oidc.types.subject_token
+    import aws_sdk_sso_oidc.types.token_type_uri
+    import aws_sdk_sso_oidc.types.uri
+
+
+class CreateTokenWithIAMRequest(TypedDict):
+    client_id: "aws_sdk_sso_oidc.types.client_id.ClientId"
+    """<p>The unique identifier string for the client or application. This value is an application ARN that has OAuth grants configured.</p>"""
+    grant_type: "aws_sdk_sso_oidc.types.grant_type.GrantType"
+    """<p>Supports the following OAuth grant types: Authorization Code, Refresh Token, JWT Bearer, and Token Exchange. Specify one of the following values, depending on the grant type that you want:</p> <p>* Authorization Code - <code>authorization_code</code> </p> <p>* Refresh Token - <code>refresh_token</code> </p> <p>* JWT Bearer - <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code> </p> <p>* Token Exchange - <code>urn:ietf:params:oauth:grant-type:token-exchange</code> </p>"""
+    code: NotRequired["aws_sdk_sso_oidc.types.auth_code.AuthCode"]
+    """<p>Used only when calling this API for the Authorization Code grant type. This short-lived code is used to identify this authorization request. The code is obtained through a redirect from IAM Identity Center to a redirect URI persisted in the Authorization Code GrantOptions for the application.</p>"""
+    refresh_token: NotRequired["aws_sdk_sso_oidc.types.refresh_token.RefreshToken"]
+    """<p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p> <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html\">IAM Identity Center OIDC API Reference</a>.</p>"""
+    assertion: NotRequired["aws_sdk_sso_oidc.types.assertion.Assertion"]
+    """<p>Used only when calling this API for the JWT Bearer grant type. This value specifies the JSON Web Token (JWT) issued by a trusted token issuer. To authorize a trusted token issuer, configure the JWT Bearer GrantOptions for the application.</p>"""
+    scope: NotRequired["aws_sdk_sso_oidc.types.scopes.Scopes"]
+    """<p>The list of scopes for which authorization is requested. The access token that is issued is limited to the scopes that are granted. If the value is not specified, IAM Identity Center authorizes all scopes configured for the application, including the following default scopes: <code>openid</code>, <code>aws</code>, <code>sts:identity_context</code>.</p>"""
+    redirect_uri: NotRequired["aws_sdk_sso_oidc.types.uri.URI"]
+    """<p>Used only when calling this API for the Authorization Code grant type. This value specifies the location of the client or application that has registered to receive the authorization code. </p>"""
+    subject_token: NotRequired["aws_sdk_sso_oidc.types.subject_token.SubjectToken"]
+    """<p>Used only when calling this API for the Token Exchange grant type. This value specifies the subject of the exchange. The value of the subject token must be an access token issued by IAM Identity Center to a different client or application. The access token must have authorized scopes that indicate the requested application as a target audience.</p>"""
+    subject_token_type: NotRequired[
+        "aws_sdk_sso_oidc.types.token_type_uri.TokenTypeURI"
+    ]
+    """<p>Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that is passed as the subject of the exchange. The following value is supported:</p> <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code> </p>"""
+    requested_token_type: NotRequired[
+        "aws_sdk_sso_oidc.types.token_type_uri.TokenTypeURI"
+    ]
+    """<p>Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that the requester can receive. The following values are supported:</p> <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code> </p> <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code> </p>"""
+    code_verifier: NotRequired["aws_sdk_sso_oidc.types.code_verifier.CodeVerifier"]
+    """<p>Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateTokenWithIAMRequest) -> dict:
+    out: dict = {}
+    out["clientId"] = value["client_id"]
+    out["grantType"] = value["grant_type"]
+    if "code" in value:
+        out["code"] = value["code"]
+    if "refresh_token" in value:
+        out["refreshToken"] = value["refresh_token"]
+    if "assertion" in value:
+        out["assertion"] = value["assertion"]
+    if "scope" in value:
+        import aws_sdk_sso_oidc.types.scopes
+
+        out["scope"] = aws_sdk_sso_oidc.types.scopes.serialize_json(value["scope"])
+    if "redirect_uri" in value:
+        out["redirectUri"] = value["redirect_uri"]
+    if "subject_token" in value:
+        out["subjectToken"] = value["subject_token"]
+    if "subject_token_type" in value:
+        out["subjectTokenType"] = value["subject_token_type"]
+    if "requested_token_type" in value:
+        out["requestedTokenType"] = value["requested_token_type"]
+    if "code_verifier" in value:
+        out["codeVerifier"] = value["code_verifier"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateTokenWithIAMRequest:
+    out: CreateTokenWithIAMRequest = {}  # type: ignore[typeddict-item]
+    if "clientId" in data:
+        out["client_id"] = data["clientId"]
+    else:
+        raise DeserializationError("CreateTokenWithIAMRequest.client_id required")
+    if "grantType" in data:
+        out["grant_type"] = data["grantType"]
+    else:
+        raise DeserializationError("CreateTokenWithIAMRequest.grant_type required")
+    if "code" in data:
+        out["code"] = data["code"]
+    if "refreshToken" in data:
+        out["refresh_token"] = data["refreshToken"]
+    if "assertion" in data:
+        out["assertion"] = data["assertion"]
+    if "scope" in data:
+        import aws_sdk_sso_oidc.types.scopes
+
+        out["scope"] = aws_sdk_sso_oidc.types.scopes.deserialize_json(data["scope"])
+    if "redirectUri" in data:
+        out["redirect_uri"] = data["redirectUri"]
+    if "subjectToken" in data:
+        out["subject_token"] = data["subjectToken"]
+    if "subjectTokenType" in data:
+        out["subject_token_type"] = data["subjectTokenType"]
+    if "requestedTokenType" in data:
+        out["requested_token_type"] = data["requestedTokenType"]
+    if "codeVerifier" in data:
+        out["code_verifier"] = data["codeVerifier"]
+    return out

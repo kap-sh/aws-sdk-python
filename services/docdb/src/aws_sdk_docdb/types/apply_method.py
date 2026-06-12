@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.docdb#ApplyMethod``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_docdb._protocol.xml import Element
+from aws_sdk_docdb.errors import DeserializationError
+
+ApplyMethod: TypeAlias = Literal[
+    "immediate",
+    "pending-reboot",
+]
+
+
+# --- awsQuery ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "immediate",
+        "pending-reboot",
+    )
+)
+
+
+def to_query_text(value: ApplyMethod) -> str:
+    return value
+
+
+def from_query_text(text: str) -> ApplyMethod:
+    if text not in _VALUES:
+        raise DeserializationError(f"unknown ApplyMethod value: {text!r}")
+    return cast(ApplyMethod, text)
+
+
+def serialize_query(
+    value: ApplyMethod, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> ApplyMethod:
+    return from_query_text(el.text or "")

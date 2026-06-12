@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.guardduty#DeleteDetectorRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_guardduty.types.detector_id
+
+
+class DeleteDetectorRequest(TypedDict):
+    detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
+    """<p>The unique ID of the detector that you want to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteDetectorRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteDetectorRequest:
+    out: DeleteDetectorRequest = {}  # type: ignore[typeddict-item]
+    return out

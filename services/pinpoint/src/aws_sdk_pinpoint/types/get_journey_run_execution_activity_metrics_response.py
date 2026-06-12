@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#GetJourneyRunExecutionActivityMetricsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response
+
+
+class GetJourneyRunExecutionActivityMetricsResponse(TypedDict):
+    journey_run_execution_activity_metrics_response: NotRequired[
+        "aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response.JourneyRunExecutionActivityMetricsResponse"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetJourneyRunExecutionActivityMetricsResponse) -> dict:
+    out: dict = {}
+    if "journey_run_execution_activity_metrics_response" in value:
+        import aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response
+
+        out["JourneyRunExecutionActivityMetricsResponse"] = (
+            aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response.serialize_json(
+                value["journey_run_execution_activity_metrics_response"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetJourneyRunExecutionActivityMetricsResponse:
+    out: GetJourneyRunExecutionActivityMetricsResponse = {}  # type: ignore[typeddict-item]
+    if "JourneyRunExecutionActivityMetricsResponse" in data:
+        import aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response
+
+        out["journey_run_execution_activity_metrics_response"] = (
+            aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response.deserialize_json(
+                data["JourneyRunExecutionActivityMetricsResponse"]
+            )
+        )
+    return out

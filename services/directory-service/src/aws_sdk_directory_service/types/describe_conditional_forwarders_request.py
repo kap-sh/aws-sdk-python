@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeConditionalForwardersRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_directory_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.directory_id
+    import aws_sdk_directory_service.types.remote_domain_names
+
+
+class DescribeConditionalForwardersRequest(TypedDict):
+    directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
+    """<p>The directory ID for which to get the list of associated conditional forwarders.</p>"""
+    remote_domain_names: NotRequired[
+        "aws_sdk_directory_service.types.remote_domain_names.RemoteDomainNames"
+    ]
+    """<p>The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeConditionalForwardersRequest) -> dict:
+    out: dict = {}
+    out["DirectoryId"] = value["directory_id"]
+    if "remote_domain_names" in value:
+        import aws_sdk_directory_service.types.remote_domain_names
+
+        out["RemoteDomainNames"] = (
+            aws_sdk_directory_service.types.remote_domain_names.serialize_aws_json_1_1(
+                value["remote_domain_names"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeConditionalForwardersRequest:
+    out: DescribeConditionalForwardersRequest = {}  # type: ignore[typeddict-item]
+    if "DirectoryId" in data:
+        out["directory_id"] = data["DirectoryId"]
+    else:
+        raise DeserializationError(
+            "DescribeConditionalForwardersRequest.directory_id required"
+        )
+    if "RemoteDomainNames" in data:
+        import aws_sdk_directory_service.types.remote_domain_names
+
+        out["remote_domain_names"] = (
+            aws_sdk_directory_service.types.remote_domain_names.deserialize_aws_json_1_1(
+                data["RemoteDomainNames"]
+            )
+        )
+    return out

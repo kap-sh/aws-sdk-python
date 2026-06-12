@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#GlobalAcceleratorForWorkSpace``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_workspaces.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_workspaces.types.aga_mode_for_work_space_enum
+    import aws_sdk_workspaces.types.aga_preferred_protocol_for_work_space
+
+
+class GlobalAcceleratorForWorkSpace(TypedDict):
+    mode: (
+        "aws_sdk_workspaces.types.aga_mode_for_work_space_enum.AGAModeForWorkSpaceEnum"
+    )
+    """<p>Indicates if Global Accelerator for WorkSpaces is enabled, disabled, or the same mode as the associated directory.</p>"""
+    preferred_protocol: NotRequired[
+        "aws_sdk_workspaces.types.aga_preferred_protocol_for_work_space.AGAPreferredProtocolForWorkSpace"
+    ]
+    """<p>Indicates the preferred protocol for Global Accelerator.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GlobalAcceleratorForWorkSpace) -> dict:
+    out: dict = {}
+    import aws_sdk_workspaces.types.aga_mode_for_work_space_enum
+
+    out["Mode"] = (
+        aws_sdk_workspaces.types.aga_mode_for_work_space_enum.serialize_aws_json_1_1(
+            value["mode"]
+        )
+    )
+    if "preferred_protocol" in value:
+        import aws_sdk_workspaces.types.aga_preferred_protocol_for_work_space
+
+        out["PreferredProtocol"] = (
+            aws_sdk_workspaces.types.aga_preferred_protocol_for_work_space.serialize_aws_json_1_1(
+                value["preferred_protocol"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GlobalAcceleratorForWorkSpace:
+    out: GlobalAcceleratorForWorkSpace = {}  # type: ignore[typeddict-item]
+    if "Mode" in data:
+        import aws_sdk_workspaces.types.aga_mode_for_work_space_enum
+
+        out["mode"] = (
+            aws_sdk_workspaces.types.aga_mode_for_work_space_enum.deserialize_aws_json_1_1(
+                data["Mode"]
+            )
+        )
+    else:
+        raise DeserializationError("GlobalAcceleratorForWorkSpace.mode required")
+    if "PreferredProtocol" in data:
+        import aws_sdk_workspaces.types.aga_preferred_protocol_for_work_space
+
+        out["preferred_protocol"] = (
+            aws_sdk_workspaces.types.aga_preferred_protocol_for_work_space.deserialize_aws_json_1_1(
+                data["PreferredProtocol"]
+            )
+        )
+    return out

@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.pi#DeletePerformanceAnalysisReportResponse``."""
+
+from typing import TypedDict
+
+
+class DeletePerformanceAnalysisReportResponse(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeletePerformanceAnalysisReportResponse) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeletePerformanceAnalysisReportResponse:
+    out: DeletePerformanceAnalysisReportResponse = {}  # type: ignore[typeddict-item]
+    return out

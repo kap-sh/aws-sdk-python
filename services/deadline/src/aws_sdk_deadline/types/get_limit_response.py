@@ -1,0 +1,126 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#GetLimitResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.amount_requirement_name
+    import aws_sdk_deadline.types.created_at
+    import aws_sdk_deadline.types.created_by
+    import aws_sdk_deadline.types.description
+    import aws_sdk_deadline.types.farm_id
+    import aws_sdk_deadline.types.limit_id
+    import aws_sdk_deadline.types.max_count
+    import aws_sdk_deadline.types.min_zero_max_integer
+    import aws_sdk_deadline.types.resource_name
+    import aws_sdk_deadline.types.updated_at
+    import aws_sdk_deadline.types.updated_by
+
+
+class GetLimitResponse(TypedDict):
+    farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
+    """<p>The unique identifier of the farm that contains the limit.</p>"""
+    limit_id: "aws_sdk_deadline.types.limit_id.LimitId"
+    """<p>The unique identifier of the limit.</p>"""
+    current_count: "aws_sdk_deadline.types.min_zero_max_integer.MinZeroMaxInteger"
+    """<p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>"""
+    created_at: "aws_sdk_deadline.types.created_at.CreatedAt"
+    """<p>The Unix timestamp of the date and time that the limit was created.</p>"""
+    created_by: "aws_sdk_deadline.types.created_by.CreatedBy"
+    """<p>The user identifier of the person that created the limit.</p>"""
+    updated_at: NotRequired["aws_sdk_deadline.types.updated_at.UpdatedAt"]
+    """<p>The Unix timestamp of the date and time that the limit was last updated.</p>"""
+    updated_by: NotRequired["aws_sdk_deadline.types.updated_by.UpdatedBy"]
+    """<p>The user identifier of the person that last updated the limit.</p>"""
+    display_name: "aws_sdk_deadline.types.resource_name.ResourceName"
+    """<p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>"""
+    amount_requirement_name: (
+        "aws_sdk_deadline.types.amount_requirement_name.AmountRequirementName"
+    )
+    """<p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>"""
+    max_count: "aws_sdk_deadline.types.max_count.MaxCount"
+    """<p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>"""
+    description: NotRequired["aws_sdk_deadline.types.description.Description"]
+    """<p>The description of the limit that helps identify what the limit is used for.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetLimitResponse) -> dict:
+    out: dict = {}
+    out["farmId"] = value["farm_id"]
+    out["limitId"] = value["limit_id"]
+    out["currentCount"] = value["current_count"]
+    import aws_sdk_deadline.types.created_at
+
+    out["createdAt"] = aws_sdk_deadline.types.created_at.serialize_json(
+        value["created_at"]
+    )
+    out["createdBy"] = value["created_by"]
+    if "updated_at" in value:
+        import aws_sdk_deadline.types.updated_at
+
+        out["updatedAt"] = aws_sdk_deadline.types.updated_at.serialize_json(
+            value["updated_at"]
+        )
+    if "updated_by" in value:
+        out["updatedBy"] = value["updated_by"]
+    out["displayName"] = value["display_name"]
+    out["amountRequirementName"] = value["amount_requirement_name"]
+    out["maxCount"] = value["max_count"]
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetLimitResponse:
+    out: GetLimitResponse = {}  # type: ignore[typeddict-item]
+    if "farmId" in data:
+        out["farm_id"] = data["farmId"]
+    else:
+        raise DeserializationError("GetLimitResponse.farm_id required")
+    if "limitId" in data:
+        out["limit_id"] = data["limitId"]
+    else:
+        raise DeserializationError("GetLimitResponse.limit_id required")
+    if "currentCount" in data:
+        out["current_count"] = data["currentCount"]
+    else:
+        raise DeserializationError("GetLimitResponse.current_count required")
+    if "createdAt" in data:
+        import aws_sdk_deadline.types.created_at
+
+        out["created_at"] = aws_sdk_deadline.types.created_at.deserialize_json(
+            data["createdAt"]
+        )
+    else:
+        raise DeserializationError("GetLimitResponse.created_at required")
+    if "createdBy" in data:
+        out["created_by"] = data["createdBy"]
+    else:
+        raise DeserializationError("GetLimitResponse.created_by required")
+    if "updatedAt" in data:
+        import aws_sdk_deadline.types.updated_at
+
+        out["updated_at"] = aws_sdk_deadline.types.updated_at.deserialize_json(
+            data["updatedAt"]
+        )
+    if "updatedBy" in data:
+        out["updated_by"] = data["updatedBy"]
+    if "displayName" in data:
+        out["display_name"] = data["displayName"]
+    else:
+        raise DeserializationError("GetLimitResponse.display_name required")
+    if "amountRequirementName" in data:
+        out["amount_requirement_name"] = data["amountRequirementName"]
+    else:
+        raise DeserializationError("GetLimitResponse.amount_requirement_name required")
+    if "maxCount" in data:
+        out["max_count"] = data["maxCount"]
+    else:
+        raise DeserializationError("GetLimitResponse.max_count required")
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.outposts#StartOutpostDecommissionOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_outposts.types.blocking_resource_type_list
+    import aws_sdk_outposts.types.decommission_request_status
+
+
+class StartOutpostDecommissionOutput(TypedDict):
+    status: NotRequired[
+        "aws_sdk_outposts.types.decommission_request_status.DecommissionRequestStatus"
+    ]
+    """<p>The status of the decommission request.</p>"""
+    blocking_resource_types: NotRequired[
+        "aws_sdk_outposts.types.blocking_resource_type_list.BlockingResourceTypeList"
+    ]
+    """<p>The resources still associated with the Outpost that you are decommissioning.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartOutpostDecommissionOutput) -> dict:
+    out: dict = {}
+    if "status" in value:
+        import aws_sdk_outposts.types.decommission_request_status
+
+        out["Status"] = (
+            aws_sdk_outposts.types.decommission_request_status.serialize_json(
+                value["status"]
+            )
+        )
+    if "blocking_resource_types" in value:
+        import aws_sdk_outposts.types.blocking_resource_type_list
+
+        out["BlockingResourceTypes"] = (
+            aws_sdk_outposts.types.blocking_resource_type_list.serialize_json(
+                value["blocking_resource_types"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> StartOutpostDecommissionOutput:
+    out: StartOutpostDecommissionOutput = {}  # type: ignore[typeddict-item]
+    if "Status" in data:
+        import aws_sdk_outposts.types.decommission_request_status
+
+        out["status"] = (
+            aws_sdk_outposts.types.decommission_request_status.deserialize_json(
+                data["Status"]
+            )
+        )
+    if "BlockingResourceTypes" in data:
+        import aws_sdk_outposts.types.blocking_resource_type_list
+
+        out["blocking_resource_types"] = (
+            aws_sdk_outposts.types.blocking_resource_type_list.deserialize_json(
+                data["BlockingResourceTypes"]
+            )
+        )
+    return out

@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.networkmanager#DisassociateConnectPeerRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_networkmanager.types.connect_peer_id
+    import aws_sdk_networkmanager.types.global_network_id
+
+
+class DisassociateConnectPeerRequest(TypedDict):
+    global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
+    """<p>The ID of the global network.</p>"""
+    connect_peer_id: "aws_sdk_networkmanager.types.connect_peer_id.ConnectPeerId"
+    """<p>The ID of the Connect peer to disassociate from a device.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DisassociateConnectPeerRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DisassociateConnectPeerRequest:
+    out: DisassociateConnectPeerRequest = {}  # type: ignore[typeddict-item]
+    return out

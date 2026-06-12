@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#JourneyEmailMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.__string
+
+
+class JourneyEmailMessage(TypedDict):
+    from_address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: JourneyEmailMessage) -> dict:
+    out: dict = {}
+    if "from_address" in value:
+        out["FromAddress"] = value["from_address"]
+    return out
+
+
+def deserialize_json(data: dict) -> JourneyEmailMessage:
+    out: JourneyEmailMessage = {}  # type: ignore[typeddict-item]
+    if "FromAddress" in data:
+        out["from_address"] = data["FromAddress"]
+    return out

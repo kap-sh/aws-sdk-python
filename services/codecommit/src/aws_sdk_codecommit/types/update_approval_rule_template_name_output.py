@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#UpdateApprovalRuleTemplateNameOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codecommit.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.approval_rule_template
+
+
+class UpdateApprovalRuleTemplateNameOutput(TypedDict):
+    approval_rule_template: (
+        "aws_sdk_codecommit.types.approval_rule_template.ApprovalRuleTemplate"
+    )
+    """<p>The structure and content of the updated approval rule template.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateApprovalRuleTemplateNameOutput) -> dict:
+    out: dict = {}
+    import aws_sdk_codecommit.types.approval_rule_template
+
+    out["approvalRuleTemplate"] = (
+        aws_sdk_codecommit.types.approval_rule_template.serialize_aws_json_1_1(
+            value["approval_rule_template"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateApprovalRuleTemplateNameOutput:
+    out: UpdateApprovalRuleTemplateNameOutput = {}  # type: ignore[typeddict-item]
+    if "approvalRuleTemplate" in data:
+        import aws_sdk_codecommit.types.approval_rule_template
+
+        out["approval_rule_template"] = (
+            aws_sdk_codecommit.types.approval_rule_template.deserialize_aws_json_1_1(
+                data["approvalRuleTemplate"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdateApprovalRuleTemplateNameOutput.approval_rule_template required"
+        )
+    return out

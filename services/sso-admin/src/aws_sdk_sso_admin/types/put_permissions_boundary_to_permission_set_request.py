@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.ssoadmin#PutPermissionsBoundaryToPermissionSetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sso_admin.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sso_admin.types.instance_arn
+    import aws_sdk_sso_admin.types.permission_set_arn
+    import aws_sdk_sso_admin.types.permissions_boundary
+
+
+class PutPermissionsBoundaryToPermissionSetRequest(TypedDict):
+    instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
+    """<p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>"""
+    permission_set_arn: "aws_sdk_sso_admin.types.permission_set_arn.PermissionSetArn"
+    """<p>The ARN of the <code>PermissionSet</code>.</p>"""
+    permissions_boundary: (
+        "aws_sdk_sso_admin.types.permissions_boundary.PermissionsBoundary"
+    )
+    """<p>The permissions boundary that you want to attach to a <code>PermissionSet</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutPermissionsBoundaryToPermissionSetRequest) -> dict:
+    out: dict = {}
+    out["InstanceArn"] = value["instance_arn"]
+    out["PermissionSetArn"] = value["permission_set_arn"]
+    import aws_sdk_sso_admin.types.permissions_boundary
+
+    out["PermissionsBoundary"] = (
+        aws_sdk_sso_admin.types.permissions_boundary.serialize_aws_json_1_1(
+            value["permissions_boundary"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> PutPermissionsBoundaryToPermissionSetRequest:
+    out: PutPermissionsBoundaryToPermissionSetRequest = {}  # type: ignore[typeddict-item]
+    if "InstanceArn" in data:
+        out["instance_arn"] = data["InstanceArn"]
+    else:
+        raise DeserializationError(
+            "PutPermissionsBoundaryToPermissionSetRequest.instance_arn required"
+        )
+    if "PermissionSetArn" in data:
+        out["permission_set_arn"] = data["PermissionSetArn"]
+    else:
+        raise DeserializationError(
+            "PutPermissionsBoundaryToPermissionSetRequest.permission_set_arn required"
+        )
+    if "PermissionsBoundary" in data:
+        import aws_sdk_sso_admin.types.permissions_boundary
+
+        out["permissions_boundary"] = (
+            aws_sdk_sso_admin.types.permissions_boundary.deserialize_aws_json_1_1(
+                data["PermissionsBoundary"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "PutPermissionsBoundaryToPermissionSetRequest.permissions_boundary required"
+        )
+    return out

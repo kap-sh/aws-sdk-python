@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemFilterList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_connectcases.types.related_item_type_filter
+
+RelatedItemFilterList: TypeAlias = list[
+    "aws_sdk_connectcases.types.related_item_type_filter.RelatedItemTypeFilter"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RelatedItemFilterList) -> list:
+    import aws_sdk_connectcases.types.related_item_type_filter
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_connectcases.types.related_item_type_filter.serialize_json(item)
+        )
+    return out
+
+
+def deserialize_json(data: list) -> RelatedItemFilterList:
+    import aws_sdk_connectcases.types.related_item_type_filter
+
+    out: RelatedItemFilterList = []
+    for item in data:
+        out.append(
+            aws_sdk_connectcases.types.related_item_type_filter.deserialize_json(item)
+        )
+    return out

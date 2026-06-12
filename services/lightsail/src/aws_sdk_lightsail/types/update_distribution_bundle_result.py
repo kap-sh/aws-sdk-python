@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.lightsail#UpdateDistributionBundleResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lightsail.types.operation
+
+
+class UpdateDistributionBundleResult(TypedDict):
+    operation: NotRequired["aws_sdk_lightsail.types.operation.Operation"]
+    """<p>An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateDistributionBundleResult) -> dict:
+    out: dict = {}
+    if "operation" in value:
+        import aws_sdk_lightsail.types.operation
+
+        out["operation"] = aws_sdk_lightsail.types.operation.serialize_aws_json_1_1(
+            value["operation"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateDistributionBundleResult:
+    out: UpdateDistributionBundleResult = {}  # type: ignore[typeddict-item]
+    if "operation" in data:
+        import aws_sdk_lightsail.types.operation
+
+        out["operation"] = aws_sdk_lightsail.types.operation.deserialize_aws_json_1_1(
+            data["operation"]
+        )
+    return out

@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#ListRepositoriesForApprovalRuleTemplateInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codecommit.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.approval_rule_template_name
+    import aws_sdk_codecommit.types.max_results
+    import aws_sdk_codecommit.types.next_token
+
+
+class ListRepositoriesForApprovalRuleTemplateInput(TypedDict):
+    approval_rule_template_name: (
+        "aws_sdk_codecommit.types.approval_rule_template_name.ApprovalRuleTemplateName"
+    )
+    """<p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>"""
+    next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]
+    """<p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>"""
+    max_results: NotRequired["aws_sdk_codecommit.types.max_results.MaxResults"]
+    """<p>A non-zero, non-negative integer used to limit the number of returned results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListRepositoriesForApprovalRuleTemplateInput) -> dict:
+    out: dict = {}
+    out["approvalRuleTemplateName"] = value["approval_rule_template_name"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> ListRepositoriesForApprovalRuleTemplateInput:
+    out: ListRepositoriesForApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
+    if "approvalRuleTemplateName" in data:
+        out["approval_rule_template_name"] = data["approvalRuleTemplateName"]
+    else:
+        raise DeserializationError(
+            "ListRepositoriesForApprovalRuleTemplateInput.approval_rule_template_name required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    return out

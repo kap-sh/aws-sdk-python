@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#Tool``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.cache_point_block
+    import aws_sdk_bedrock_agent.types.tool_specification
+
+
+class _Tool_toolSpec(TypedDict):
+    toolSpec: "aws_sdk_bedrock_agent.types.tool_specification.ToolSpecification"
+
+
+class _Tool_cachePoint(TypedDict):
+    cachePoint: "aws_sdk_bedrock_agent.types.cache_point_block.CachePointBlock"
+
+
+Tool: TypeAlias = _Tool_toolSpec | _Tool_cachePoint
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Tool) -> dict:
+    if "toolSpec" in value:
+        import aws_sdk_bedrock_agent.types.tool_specification
+
+        return {
+            "toolSpec": aws_sdk_bedrock_agent.types.tool_specification.serialize_json(
+                value["toolSpec"]
+            )
+        }
+    elif "cachePoint" in value:
+        import aws_sdk_bedrock_agent.types.cache_point_block
+
+        return {
+            "cachePoint": aws_sdk_bedrock_agent.types.cache_point_block.serialize_json(
+                value["cachePoint"]
+            )
+        }
+    else:
+        raise SerializationError("Tool: no variant present")
+
+
+def deserialize_json(data: dict) -> Tool:
+    if "toolSpec" in data:
+        import aws_sdk_bedrock_agent.types.tool_specification
+
+        return {
+            "toolSpec": aws_sdk_bedrock_agent.types.tool_specification.deserialize_json(
+                data["toolSpec"]
+            )
+        }
+    elif "cachePoint" in data:
+        import aws_sdk_bedrock_agent.types.cache_point_block
+
+        return {
+            "cachePoint": aws_sdk_bedrock_agent.types.cache_point_block.deserialize_json(
+                data["cachePoint"]
+            )
+        }
+    else:
+        raise DeserializationError("Tool: no recognized variant key")

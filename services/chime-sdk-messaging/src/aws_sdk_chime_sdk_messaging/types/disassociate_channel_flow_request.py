@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#DisassociateChannelFlowRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_messaging.types.chime_arn
+
+
+class DisassociateChannelFlowRequest(TypedDict):
+    channel_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The ARN of the channel.</p>"""
+    channel_flow_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The ARN of the channel flow.</p>"""
+    chime_bearer: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DisassociateChannelFlowRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DisassociateChannelFlowRequest:
+    out: DisassociateChannelFlowRequest = {}  # type: ignore[typeddict-item]
+    return out

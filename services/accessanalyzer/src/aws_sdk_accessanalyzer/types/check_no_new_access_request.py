@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.accessanalyzer#CheckNoNewAccessRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_accessanalyzer.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_accessanalyzer.types.access_check_policy_document
+    import aws_sdk_accessanalyzer.types.access_check_policy_type
+
+
+class CheckNoNewAccessRequest(TypedDict):
+    new_policy_document: "aws_sdk_accessanalyzer.types.access_check_policy_document.AccessCheckPolicyDocument"
+    """<p>The JSON policy document to use as the content for the updated policy.</p>"""
+    existing_policy_document: "aws_sdk_accessanalyzer.types.access_check_policy_document.AccessCheckPolicyDocument"
+    """<p>The JSON policy document to use as the content for the existing policy.</p>"""
+    policy_type: (
+        "aws_sdk_accessanalyzer.types.access_check_policy_type.AccessCheckPolicyType"
+    )
+    """<p>The type of policy to compare. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic input such as identity policy or resource policy or a specific input such as managed policy or Amazon S3 bucket policy.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CheckNoNewAccessRequest) -> dict:
+    out: dict = {}
+    out["newPolicyDocument"] = value["new_policy_document"]
+    out["existingPolicyDocument"] = value["existing_policy_document"]
+    out["policyType"] = value["policy_type"]
+    return out
+
+
+def deserialize_json(data: dict) -> CheckNoNewAccessRequest:
+    out: CheckNoNewAccessRequest = {}  # type: ignore[typeddict-item]
+    if "newPolicyDocument" in data:
+        out["new_policy_document"] = data["newPolicyDocument"]
+    else:
+        raise DeserializationError(
+            "CheckNoNewAccessRequest.new_policy_document required"
+        )
+    if "existingPolicyDocument" in data:
+        out["existing_policy_document"] = data["existingPolicyDocument"]
+    else:
+        raise DeserializationError(
+            "CheckNoNewAccessRequest.existing_policy_document required"
+        )
+    if "policyType" in data:
+        out["policy_type"] = data["policyType"]
+    else:
+        raise DeserializationError("CheckNoNewAccessRequest.policy_type required")
+    return out

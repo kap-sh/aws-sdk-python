@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#GetMultiRegionEndpointRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_sesv2.types.endpoint_name
+
+
+class GetMultiRegionEndpointRequest(TypedDict):
+    endpoint_name: "aws_sdk_sesv2.types.endpoint_name.EndpointName"
+    """<p>The name of the multi-region endpoint (global-endpoint).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMultiRegionEndpointRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetMultiRegionEndpointRequest:
+    out: GetMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
+    return out

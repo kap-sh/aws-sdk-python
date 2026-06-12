@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.finspace#ListKxScalingGroupsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_finspace.types.kx_environment_id
+    import aws_sdk_finspace.types.max_results
+    import aws_sdk_finspace.types.pagination_token
+
+
+class ListKxScalingGroupsRequest(TypedDict):
+    environment_id: "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
+    """<p>A unique identifier for the kdb environment, for which you want to retrieve a list of scaling groups.</p>"""
+    max_results: "aws_sdk_finspace.types.max_results.MaxResults"
+    """<p>The maximum number of results to return in this request.</p>"""
+    next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]
+    """<p> A token that indicates where a results page should begin. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListKxScalingGroupsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListKxScalingGroupsRequest:
+    out: ListKxScalingGroupsRequest = {}  # type: ignore[typeddict-item]
+    return out

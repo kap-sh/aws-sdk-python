@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#ResumeGameServerGroupOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.game_server_group
+
+
+class ResumeGameServerGroupOutput(TypedDict):
+    game_server_group: NotRequired[
+        "aws_sdk_gamelift.types.game_server_group.GameServerGroup"
+    ]
+    """<p>An object that describes the game server group resource, with the <code>SuspendedActions</code> property updated to reflect the resumed activity.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ResumeGameServerGroupOutput) -> dict:
+    out: dict = {}
+    if "game_server_group" in value:
+        import aws_sdk_gamelift.types.game_server_group
+
+        out["GameServerGroup"] = (
+            aws_sdk_gamelift.types.game_server_group.serialize_aws_json_1_1(
+                value["game_server_group"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ResumeGameServerGroupOutput:
+    out: ResumeGameServerGroupOutput = {}  # type: ignore[typeddict-item]
+    if "GameServerGroup" in data:
+        import aws_sdk_gamelift.types.game_server_group
+
+        out["game_server_group"] = (
+            aws_sdk_gamelift.types.game_server_group.deserialize_aws_json_1_1(
+                data["GameServerGroup"]
+            )
+        )
+    return out

@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CarrierStatusInformation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint_sms_voice_v2.types.carrier_status
+
+class CarrierStatusInformation(TypedDict):
+    carrier_name: "str"
+    """<p>The name of the carrier.</p>"""
+    status: "aws_sdk_pinpoint_sms_voice_v2.types.carrier_status.CarrierStatus"
+    """<p>The launch status for this carrier.</p>"""
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CarrierStatusInformation) -> dict:
+    out: dict = {}
+    out["CarrierName"] = value["carrier_name"]
+    out["Status"] = value["status"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CarrierStatusInformation:
+    out: CarrierStatusInformation = {}  # type: ignore[typeddict-item]
+    if "CarrierName" in data:
+        out["carrier_name"] = data["CarrierName"]
+    else:
+        raise DeserializationError("CarrierStatusInformation.carrier_name required")
+    if "Status" in data:
+        out["status"] = data["Status"]
+    else:
+        raise DeserializationError("CarrierStatusInformation.status required")
+    return out

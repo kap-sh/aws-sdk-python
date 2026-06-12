@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.medicalimaging#DICOMUpdates``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medical_imaging.types.dicom_attribute
+
+
+class DICOMUpdates(TypedDict):
+    removable_attributes: NotRequired[
+        "aws_sdk_medical_imaging.types.dicom_attribute.DICOMAttribute"
+    ]
+    """<p>The DICOM tags to be removed from <code>ImageSetMetadata</code>.</p>"""
+    updatable_attributes: NotRequired[
+        "aws_sdk_medical_imaging.types.dicom_attribute.DICOMAttribute"
+    ]
+    """<p>The DICOM tags that need to be updated in <code>ImageSetMetadata</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DICOMUpdates) -> dict:
+    out: dict = {}
+    if "removable_attributes" in value:
+        import aws_sdk_medical_imaging.types.dicom_attribute
+
+        out["removableAttributes"] = (
+            aws_sdk_medical_imaging.types.dicom_attribute.serialize_json(
+                value["removable_attributes"]
+            )
+        )
+    if "updatable_attributes" in value:
+        import aws_sdk_medical_imaging.types.dicom_attribute
+
+        out["updatableAttributes"] = (
+            aws_sdk_medical_imaging.types.dicom_attribute.serialize_json(
+                value["updatable_attributes"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DICOMUpdates:
+    out: DICOMUpdates = {}  # type: ignore[typeddict-item]
+    if "removableAttributes" in data:
+        import aws_sdk_medical_imaging.types.dicom_attribute
+
+        out["removable_attributes"] = (
+            aws_sdk_medical_imaging.types.dicom_attribute.deserialize_json(
+                data["removableAttributes"]
+            )
+        )
+    if "updatableAttributes" in data:
+        import aws_sdk_medical_imaging.types.dicom_attribute
+
+        out["updatable_attributes"] = (
+            aws_sdk_medical_imaging.types.dicom_attribute.deserialize_json(
+                data["updatableAttributes"]
+            )
+        )
+    return out

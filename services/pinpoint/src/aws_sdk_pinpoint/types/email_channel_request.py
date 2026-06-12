@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#EmailChannelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.__boolean
+    import aws_sdk_pinpoint.types.__string
+
+
+class EmailChannelRequest(TypedDict):
+    configuration_set: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The <a href=\"https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html\">Amazon SES configuration set</a> that you want to apply to messages that you send through the channel.</p>"""
+    enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
+    """<p>Specifies whether to enable the email channel for the application.</p>"""
+    from_address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The verified email address that you want to send email from when you send email through the channel.</p>"""
+    identity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.</p>"""
+    role_arn: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>"""
+    orchestration_sending_role_arn: NotRequired[
+        "aws_sdk_pinpoint.types.__string.__string"
+    ]
+    """<p>The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EmailChannelRequest) -> dict:
+    out: dict = {}
+    if "configuration_set" in value:
+        out["ConfigurationSet"] = value["configuration_set"]
+    if "enabled" in value:
+        out["Enabled"] = value["enabled"]
+    if "from_address" in value:
+        out["FromAddress"] = value["from_address"]
+    if "identity" in value:
+        out["Identity"] = value["identity"]
+    if "role_arn" in value:
+        out["RoleArn"] = value["role_arn"]
+    if "orchestration_sending_role_arn" in value:
+        out["OrchestrationSendingRoleArn"] = value["orchestration_sending_role_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> EmailChannelRequest:
+    out: EmailChannelRequest = {}  # type: ignore[typeddict-item]
+    if "ConfigurationSet" in data:
+        out["configuration_set"] = data["ConfigurationSet"]
+    if "Enabled" in data:
+        out["enabled"] = data["Enabled"]
+    if "FromAddress" in data:
+        out["from_address"] = data["FromAddress"]
+    if "Identity" in data:
+        out["identity"] = data["Identity"]
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    if "OrchestrationSendingRoleArn" in data:
+        out["orchestration_sending_role_arn"] = data["OrchestrationSendingRoleArn"]
+    return out

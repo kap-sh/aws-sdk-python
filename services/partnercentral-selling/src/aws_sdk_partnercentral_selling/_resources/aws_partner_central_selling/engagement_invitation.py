@@ -1,0 +1,553 @@
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_partnercentral_selling._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request
+    import aws_sdk_partnercentral_selling.types.aws_account_id_or_alias_list
+    import aws_sdk_partnercentral_selling.types.catalog_identifier
+    import aws_sdk_partnercentral_selling.types.client_token
+    import aws_sdk_partnercentral_selling.types.create_engagement_invitation_request
+    import aws_sdk_partnercentral_selling.types.create_engagement_invitation_response
+    import aws_sdk_partnercentral_selling.types.engagement_identifier
+    import aws_sdk_partnercentral_selling.types.engagement_identifiers
+    import aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier
+    import aws_sdk_partnercentral_selling.types.engagement_invitation_summary
+    import aws_sdk_partnercentral_selling.types.engagement_invitations_payload_type
+    import aws_sdk_partnercentral_selling.types.get_engagement_invitation_request
+    import aws_sdk_partnercentral_selling.types.get_engagement_invitation_response
+    import aws_sdk_partnercentral_selling.types.invitation
+    import aws_sdk_partnercentral_selling.types.invitation_status_list
+    import aws_sdk_partnercentral_selling.types.list_engagement_invitations_request
+    import aws_sdk_partnercentral_selling.types.list_engagement_invitations_response
+    import aws_sdk_partnercentral_selling.types.opportunity_engagement_invitation_sort
+    import aws_sdk_partnercentral_selling.types.page_size
+    import aws_sdk_partnercentral_selling.types.participant_type
+    import aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request
+    import aws_sdk_partnercentral_selling.types.rejection_reason_string
+    from aws_sdk_partnercentral_selling._services.async_partner_central_selling import (
+        AsyncPartnerCentralSellingClient,
+        AsyncPartnerCentralSellingClientConfig,
+    )
+    from aws_sdk_partnercentral_selling._services.partner_central_selling import (
+        PartnerCentralSellingClient,
+        PartnerCentralSellingClientConfig,
+    )
+
+
+class EngagementInvitation:
+    def __init__(self, service: PartnerCentralSellingClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        client_token: "aws_sdk_partnercentral_selling.types.client_token.ClientToken",
+        engagement_identifier: "aws_sdk_partnercentral_selling.types.engagement_identifier.EngagementIdentifier",
+        invitation: "aws_sdk_partnercentral_selling.types.invitation.Invitation",
+        *,
+        config_overrides: Optional[PartnerCentralSellingClientConfig] = None,
+    ) -> "aws_sdk_partnercentral_selling.types.create_engagement_invitation_response.CreateEngagementInvitationResponse":
+        """<p> This action creates an invitation from a sender to a single receiver to join an engagement. </p>
+
+        Args:
+            catalog: <p> Specifies the catalog related to the engagement. Accepted values are <code>AWS</code> and <code>Sandbox</code>, which determine the environment in which the engagement is managed. </p>
+            client_token: <p> Specifies a unique, client-generated UUID to ensure that the request is handled exactly once. This token helps prevent duplicate invitation creations. </p>
+            engagement_identifier: <p> The unique identifier of the <code>Engagement</code> associated with the invitation. This parameter ensures the invitation is created within the correct <code>Engagement</code> context. </p>
+            invitation: <p> The <code>Invitation</code> object all information necessary to initiate an engagement invitation to a partner. It contains a personalized message from the sender, the invitation's receiver, and a payload. The <code>Payload</code> can be the <code>OpportunityInvitation</code>, which includes detailed structures for sender contacts, partner responsibilities, customer information, and project details, or <code>LeadInvitation</code>, which includes structures for customer information and interaction details. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_partnercentral_selling.types.create_engagement_invitation_response.CreateEngagementInvitationResponse"
+        ]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.create_engagement_invitation
+
+            output, http_response = (
+                aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.create_engagement_invitation.create_engagement_invitation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["client_token"] = client_token
+        input["engagement_identifier"] = engagement_identifier
+        input["invitation"] = invitation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        identifier: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier.EngagementInvitationArnOrIdentifier",
+        *,
+        config_overrides: Optional[PartnerCentralSellingClientConfig] = None,
+    ) -> "aws_sdk_partnercentral_selling.types.get_engagement_invitation_response.GetEngagementInvitationResponse":
+        """<p>Retrieves the details of an engagement invitation shared by AWS with a partner. The information includes aspects such as customer, project details, and lifecycle information. To connect an engagement invitation with an opportunity, match the invitation’s <code>Payload.Project.Title</code> with opportunity <code>Project.Title</code>.</p>
+
+        Args:
+            catalog: <p>Specifies the catalog associated with the request. The field accepts values from the predefined set: <code>AWS</code> for live operations or <code>Sandbox</code> for testing environments.</p>
+            identifier: <p>Specifies the unique identifier for the retrieved engagement invitation.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_partnercentral_selling.types.get_engagement_invitation_response.GetEngagementInvitationResponse"
+        ]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.get_engagement_invitation
+
+            output, http_response = (
+                aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.get_engagement_invitation.get_engagement_invitation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        participant_type: "aws_sdk_partnercentral_selling.types.participant_type.ParticipantType",
+        *,
+        config_overrides: Optional[PartnerCentralSellingClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_partnercentral_selling.types.page_size.PageSize"
+        ] = None,
+        next_token: Optional[str] = None,
+        sort: Optional[
+            "aws_sdk_partnercentral_selling.types.opportunity_engagement_invitation_sort.OpportunityEngagementInvitationSort"
+        ] = None,
+        payload_type: Optional[
+            "aws_sdk_partnercentral_selling.types.engagement_invitations_payload_type.EngagementInvitationsPayloadType"
+        ] = None,
+        status: Optional[
+            "aws_sdk_partnercentral_selling.types.invitation_status_list.InvitationStatusList"
+        ] = None,
+        engagement_identifier: Optional[
+            "aws_sdk_partnercentral_selling.types.engagement_identifiers.EngagementIdentifiers"
+        ] = None,
+        sender_aws_account_id: Optional[
+            "aws_sdk_partnercentral_selling.types.aws_account_id_or_alias_list.AwsAccountIdOrAliasList"
+        ] = None,
+    ) -> "aws_sdk_partnercentral_selling.types.list_engagement_invitations_response.ListEngagementInvitationsResponse":
+        """<p>Retrieves a list of engagement invitations sent to the partner. This allows partners to view all pending or past engagement invitations, helping them track opportunities shared by AWS.</p>
+
+        Args:
+            catalog: <p>Specifies the catalog from which to list the engagement invitations. Use <code>AWS</code> for production invitations or <code>Sandbox</code> for testing environments.</p>
+            max_results: <p>Specifies the maximum number of engagement invitations to return in the response. If more results are available, a pagination token will be provided.</p>
+            next_token: <p>A pagination token used to retrieve additional pages of results when the response to a previous request was truncated. Pass this token to continue listing invitations from where the previous call left off.</p>
+            sort: <p>Specifies the sorting options for listing engagement invitations. Invitations can be sorted by fields such as <code>InvitationDate</code> or <code>Status</code> to help partners view results in their preferred order.</p>
+            payload_type: <p>Defines the type of payload associated with the engagement invitations to be listed. The attributes in this payload help decide on acceptance or rejection of the invitation.</p>
+            participant_type: <p>Specifies the type of participant for which to list engagement invitations. Identifies the role of the participant.</p>
+            status: <p> Status values to filter the invitations. </p>
+            engagement_identifier: <p> Retrieves a list of engagement invitation summaries based on specified filters. The ListEngagementInvitations operation allows you to view all invitations that you have sent or received. You must specify the ParticipantType to filter invitations where you are either the SENDER or the RECEIVER. Invitations will automatically expire if not accepted within 15 days. </p>
+            sender_aws_account_id: <p> List of sender AWS account IDs to filter the invitations. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_partnercentral_selling.types.list_engagement_invitations_response.ListEngagementInvitationsResponse"
+        ]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.list_engagement_invitations
+
+            output, http_response = (
+                aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.list_engagement_invitations.list_engagement_invitations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if sort is not None:
+            input["sort"] = sort
+        if payload_type is not None:
+            input["payload_type"] = payload_type
+        input["participant_type"] = participant_type
+        if status is not None:
+            input["status"] = status
+        if engagement_identifier is not None:
+            input["engagement_identifier"] = engagement_identifier
+        if sender_aws_account_id is not None:
+            input["sender_aws_account_id"] = sender_aws_account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def accept_engagement_invitation(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        identifier: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier.EngagementInvitationArnOrIdentifier",
+        *,
+        config_overrides: Optional[PartnerCentralSellingClientConfig] = None,
+    ) -> None:
+        """<p>Use the <code>AcceptEngagementInvitation</code> action to accept an engagement invitation shared by AWS. Accepting the invitation indicates your willingness to participate in the engagement, granting you access to all engagement-related data.</p>
+
+        Args:
+            catalog: <p>The <code>CatalogType</code> parameter specifies the catalog associated with the engagement invitation. Accepted values are <code>AWS</code> and <code>Sandbox</code>, which determine the environment in which the engagement invitation is managed.</p>
+            identifier: <p> The <code>Identifier</code> parameter in the <code>AcceptEngagementInvitationRequest</code> specifies the unique identifier of the <code>EngagementInvitation</code> to be accepted. Providing the correct identifier ensures that the intended invitation is accepted. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.accept_engagement_invitation
+
+            output, http_response = (
+                aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.accept_engagement_invitation.accept_engagement_invitation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def reject_engagement_invitation(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        identifier: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier.EngagementInvitationArnOrIdentifier",
+        *,
+        config_overrides: Optional[PartnerCentralSellingClientConfig] = None,
+        rejection_reason: Optional[
+            "aws_sdk_partnercentral_selling.types.rejection_reason_string.RejectionReasonString"
+        ] = None,
+    ) -> None:
+        """<p>This action rejects an <code>EngagementInvitation</code> that AWS shared. Rejecting an invitation indicates that the partner doesn't want to pursue the opportunity, and all related data will become inaccessible thereafter.</p>
+
+        Args:
+            catalog: <p>This is the catalog that's associated with the engagement invitation. Acceptable values are <code>AWS</code> or <code>Sandbox</code>, and these values determine the environment in which the opportunity is managed.</p>
+            identifier: <p>This is the unique identifier of the rejected <code>EngagementInvitation</code>. Providing the correct identifier helps to ensure that the intended invitation is rejected.</p>
+            rejection_reason: <p>This describes the reason for rejecting the engagement invitation, which helps AWS track usage patterns. Acceptable values include the following:</p> <ul> <li> <p> <i>Customer problem unclear:</i> The customer's problem isn't understood.</p> </li> <li> <p> <i>Next steps unclear:</i> The next steps required to proceed aren't understood.</p> </li> <li> <p> <i>Unable to support:</i> The partner is unable to provide support due to resource or capability constraints.</p> </li> <li> <p> <i>Duplicate of partner referral:</i> The opportunity is a duplicate of an existing referral.</p> </li> <li> <p> <i>Other:</i> Any reason not covered by other values.</p> </li> </ul>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.reject_engagement_invitation
+
+            output, http_response = (
+                aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.reject_engagement_invitation.reject_engagement_invitation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["identifier"] = identifier
+        if rejection_reason is not None:
+            input["rejection_reason"] = rejection_reason
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncEngagementInvitation:
+    def __init__(self, service: AsyncPartnerCentralSellingClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        client_token: "aws_sdk_partnercentral_selling.types.client_token.ClientToken",
+        engagement_identifier: "aws_sdk_partnercentral_selling.types.engagement_identifier.EngagementIdentifier",
+        invitation: "aws_sdk_partnercentral_selling.types.invitation.Invitation",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralSellingClientConfig] = None,
+    ) -> "aws_sdk_partnercentral_selling.types.create_engagement_invitation_response.CreateEngagementInvitationResponse":
+        """<p> This action creates an invitation from a sender to a single receiver to join an engagement. </p>
+
+        Args:
+            catalog: <p> Specifies the catalog related to the engagement. Accepted values are <code>AWS</code> and <code>Sandbox</code>, which determine the environment in which the engagement is managed. </p>
+            client_token: <p> Specifies a unique, client-generated UUID to ensure that the request is handled exactly once. This token helps prevent duplicate invitation creations. </p>
+            engagement_identifier: <p> The unique identifier of the <code>Engagement</code> associated with the invitation. This parameter ensures the invitation is created within the correct <code>Engagement</code> context. </p>
+            invitation: <p> The <code>Invitation</code> object all information necessary to initiate an engagement invitation to a partner. It contains a personalized message from the sender, the invitation's receiver, and a payload. The <code>Payload</code> can be the <code>OpportunityInvitation</code>, which includes detailed structures for sender contacts, partner responsibilities, customer information, and project details, or <code>LeadInvitation</code>, which includes structures for customer information and interaction details. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_partnercentral_selling.types.create_engagement_invitation_response.CreateEngagementInvitationResponse"
+        ]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.create_engagement_invitation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.create_engagement_invitation.async_create_engagement_invitation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["client_token"] = client_token
+        input["engagement_identifier"] = engagement_identifier
+        input["invitation"] = invitation
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        identifier: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier.EngagementInvitationArnOrIdentifier",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralSellingClientConfig] = None,
+    ) -> "aws_sdk_partnercentral_selling.types.get_engagement_invitation_response.GetEngagementInvitationResponse":
+        """<p>Retrieves the details of an engagement invitation shared by AWS with a partner. The information includes aspects such as customer, project details, and lifecycle information. To connect an engagement invitation with an opportunity, match the invitation’s <code>Payload.Project.Title</code> with opportunity <code>Project.Title</code>.</p>
+
+        Args:
+            catalog: <p>Specifies the catalog associated with the request. The field accepts values from the predefined set: <code>AWS</code> for live operations or <code>Sandbox</code> for testing environments.</p>
+            identifier: <p>Specifies the unique identifier for the retrieved engagement invitation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_partnercentral_selling.types.get_engagement_invitation_response.GetEngagementInvitationResponse"
+        ]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.get_engagement_invitation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.get_engagement_invitation.async_get_engagement_invitation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["identifier"] = identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        participant_type: "aws_sdk_partnercentral_selling.types.participant_type.ParticipantType",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralSellingClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_partnercentral_selling.types.page_size.PageSize"
+        ] = None,
+        next_token: Optional[str] = None,
+        sort: Optional[
+            "aws_sdk_partnercentral_selling.types.opportunity_engagement_invitation_sort.OpportunityEngagementInvitationSort"
+        ] = None,
+        payload_type: Optional[
+            "aws_sdk_partnercentral_selling.types.engagement_invitations_payload_type.EngagementInvitationsPayloadType"
+        ] = None,
+        status: Optional[
+            "aws_sdk_partnercentral_selling.types.invitation_status_list.InvitationStatusList"
+        ] = None,
+        engagement_identifier: Optional[
+            "aws_sdk_partnercentral_selling.types.engagement_identifiers.EngagementIdentifiers"
+        ] = None,
+        sender_aws_account_id: Optional[
+            "aws_sdk_partnercentral_selling.types.aws_account_id_or_alias_list.AwsAccountIdOrAliasList"
+        ] = None,
+    ) -> "aws_sdk_partnercentral_selling.types.list_engagement_invitations_response.ListEngagementInvitationsResponse":
+        """<p>Retrieves a list of engagement invitations sent to the partner. This allows partners to view all pending or past engagement invitations, helping them track opportunities shared by AWS.</p>
+
+        Args:
+            catalog: <p>Specifies the catalog from which to list the engagement invitations. Use <code>AWS</code> for production invitations or <code>Sandbox</code> for testing environments.</p>
+            max_results: <p>Specifies the maximum number of engagement invitations to return in the response. If more results are available, a pagination token will be provided.</p>
+            next_token: <p>A pagination token used to retrieve additional pages of results when the response to a previous request was truncated. Pass this token to continue listing invitations from where the previous call left off.</p>
+            sort: <p>Specifies the sorting options for listing engagement invitations. Invitations can be sorted by fields such as <code>InvitationDate</code> or <code>Status</code> to help partners view results in their preferred order.</p>
+            payload_type: <p>Defines the type of payload associated with the engagement invitations to be listed. The attributes in this payload help decide on acceptance or rejection of the invitation.</p>
+            participant_type: <p>Specifies the type of participant for which to list engagement invitations. Identifies the role of the participant.</p>
+            status: <p> Status values to filter the invitations. </p>
+            engagement_identifier: <p> Retrieves a list of engagement invitation summaries based on specified filters. The ListEngagementInvitations operation allows you to view all invitations that you have sent or received. You must specify the ParticipantType to filter invitations where you are either the SENDER or the RECEIVER. Invitations will automatically expire if not accepted within 15 days. </p>
+            sender_aws_account_id: <p> List of sender AWS account IDs to filter the invitations. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_partnercentral_selling.types.list_engagement_invitations_response.ListEngagementInvitationsResponse"
+        ]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.list_engagement_invitations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.list_engagement_invitations.async_list_engagement_invitations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if sort is not None:
+            input["sort"] = sort
+        if payload_type is not None:
+            input["payload_type"] = payload_type
+        input["participant_type"] = participant_type
+        if status is not None:
+            input["status"] = status
+        if engagement_identifier is not None:
+            input["engagement_identifier"] = engagement_identifier
+        if sender_aws_account_id is not None:
+            input["sender_aws_account_id"] = sender_aws_account_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def accept_engagement_invitation(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        identifier: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier.EngagementInvitationArnOrIdentifier",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralSellingClientConfig] = None,
+    ) -> None:
+        """<p>Use the <code>AcceptEngagementInvitation</code> action to accept an engagement invitation shared by AWS. Accepting the invitation indicates your willingness to participate in the engagement, granting you access to all engagement-related data.</p>
+
+        Args:
+            catalog: <p>The <code>CatalogType</code> parameter specifies the catalog associated with the engagement invitation. Accepted values are <code>AWS</code> and <code>Sandbox</code>, which determine the environment in which the engagement invitation is managed.</p>
+            identifier: <p> The <code>Identifier</code> parameter in the <code>AcceptEngagementInvitationRequest</code> specifies the unique identifier of the <code>EngagementInvitation</code> to be accepted. Providing the correct identifier ensures that the intended invitation is accepted. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.accept_engagement_invitation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.accept_engagement_invitation.async_accept_engagement_invitation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["identifier"] = identifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def reject_engagement_invitation(
+        self,
+        catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier",
+        identifier: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn_or_identifier.EngagementInvitationArnOrIdentifier",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralSellingClientConfig] = None,
+        rejection_reason: Optional[
+            "aws_sdk_partnercentral_selling.types.rejection_reason_string.RejectionReasonString"
+        ] = None,
+    ) -> None:
+        """<p>This action rejects an <code>EngagementInvitation</code> that AWS shared. Rejecting an invitation indicates that the partner doesn't want to pursue the opportunity, and all related data will become inaccessible thereafter.</p>
+
+        Args:
+            catalog: <p>This is the catalog that's associated with the engagement invitation. Acceptable values are <code>AWS</code> or <code>Sandbox</code>, and these values determine the environment in which the opportunity is managed.</p>
+            identifier: <p>This is the unique identifier of the rejected <code>EngagementInvitation</code>. Providing the correct identifier helps to ensure that the intended invitation is rejected.</p>
+            rejection_reason: <p>This describes the reason for rejecting the engagement invitation, which helps AWS track usage patterns. Acceptable values include the following:</p> <ul> <li> <p> <i>Customer problem unclear:</i> The customer's problem isn't understood.</p> </li> <li> <p> <i>Next steps unclear:</i> The next steps required to proceed aren't understood.</p> </li> <li> <p> <i>Unable to support:</i> The partner is unable to provide support due to resource or capability constraints.</p> </li> <li> <p> <i>Duplicate of partner referral:</i> The opportunity is a duplicate of an existing referral.</p> </li> <li> <p> <i>Other:</i> Any reason not covered by other values.</p> </li> </ul>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.reject_engagement_invitation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_partnercentral_selling._operations.aws_partner_central_selling.reject_engagement_invitation.async_reject_engagement_invitation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input["catalog"] = catalog
+        input["identifier"] = identifier
+        if rejection_reason is not None:
+            input["rejection_reason"] = rejection_reason
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

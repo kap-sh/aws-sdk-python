@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.iotfleetwise#DisassociateVehicleFleetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iotfleetwise.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iotfleetwise.types.fleet_id
+    import aws_sdk_iotfleetwise.types.vehicle_name
+
+
+class DisassociateVehicleFleetRequest(TypedDict):
+    vehicle_name: "aws_sdk_iotfleetwise.types.vehicle_name.vehicleName"
+    """<p> The unique ID of the vehicle to disassociate from the fleet.</p>"""
+    fleet_id: "aws_sdk_iotfleetwise.types.fleet_id.fleetId"
+    """<p> The unique ID of a fleet. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DisassociateVehicleFleetRequest) -> dict:
+    out: dict = {}
+    out["fleetId"] = value["fleet_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DisassociateVehicleFleetRequest:
+    out: DisassociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
+    if "fleetId" in data:
+        out["fleet_id"] = data["fleetId"]
+    else:
+        raise DeserializationError("DisassociateVehicleFleetRequest.fleet_id required")
+    return out

@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#LambdaEndpointInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_migration_hub_refactor_spaces.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_migration_hub_refactor_spaces.types.lambda_arn
+
+
+class LambdaEndpointInput(TypedDict):
+    arn: "aws_sdk_migration_hub_refactor_spaces.types.lambda_arn.LambdaArn"
+    """<p>The Amazon Resource Name (ARN) of the Lambda function or alias.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: LambdaEndpointInput) -> dict:
+    out: dict = {}
+    out["Arn"] = value["arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> LambdaEndpointInput:
+    out: LambdaEndpointInput = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    else:
+        raise DeserializationError("LambdaEndpointInput.arn required")
+    return out

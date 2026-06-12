@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptAgentResource``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.agent_alias_arn
+
+
+class PromptAgentResource(TypedDict):
+    agent_identifier: "aws_sdk_bedrock_agent.types.agent_alias_arn.AgentAliasArn"
+    """<p>The ARN of the agent with which to use the prompt.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PromptAgentResource) -> dict:
+    out: dict = {}
+    out["agentIdentifier"] = value["agent_identifier"]
+    return out
+
+
+def deserialize_json(data: dict) -> PromptAgentResource:
+    out: PromptAgentResource = {}  # type: ignore[typeddict-item]
+    if "agentIdentifier" in data:
+        out["agent_identifier"] = data["agentIdentifier"]
+    else:
+        raise DeserializationError("PromptAgentResource.agent_identifier required")
+    return out

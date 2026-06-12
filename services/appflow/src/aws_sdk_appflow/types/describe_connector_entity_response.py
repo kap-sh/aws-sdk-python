@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.appflow#DescribeConnectorEntityResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_appflow.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_appflow.types.connector_entity_field_list
+
+
+class DescribeConnectorEntityResponse(TypedDict):
+    connector_entity_fields: (
+        "aws_sdk_appflow.types.connector_entity_field_list.ConnectorEntityFieldList"
+    )
+    """<p> Describes the fields for that connector entity. For example, for an <i>account</i> entity, the fields would be <i>account name</i>, <i>account ID</i>, and so on. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeConnectorEntityResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_appflow.types.connector_entity_field_list
+
+    out["connectorEntityFields"] = (
+        aws_sdk_appflow.types.connector_entity_field_list.serialize_json(
+            value["connector_entity_fields"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeConnectorEntityResponse:
+    out: DescribeConnectorEntityResponse = {}  # type: ignore[typeddict-item]
+    if "connectorEntityFields" in data:
+        import aws_sdk_appflow.types.connector_entity_field_list
+
+        out["connector_entity_fields"] = (
+            aws_sdk_appflow.types.connector_entity_field_list.deserialize_json(
+                data["connectorEntityFields"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DescribeConnectorEntityResponse.connector_entity_fields required"
+        )
+    return out

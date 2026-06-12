@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#IdempotencyException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_s3_control._protocol.xml import Element, SubElement
+from aws_sdk_s3_control.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_s3_control.types.exception_message
+
+
+class IdempotencyException_(TypedDict):
+    message: NotRequired["aws_sdk_s3_control.types.exception_message.ExceptionMessage"]
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: IdempotencyException_, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    if "message" in value:
+        SubElement(el, "Message").text = str(value["message"])
+
+
+def deserialize_xml(el: Element) -> IdempotencyException_:
+    out: IdempotencyException_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("Message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class IdempotencyException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.s3control#IdempotencyException``."""
+
+    code: str | None = "IdempotencyException"
+
+    def __init__(self, data: IdempotencyException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="IdempotencyException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_xml(cls, el: Element) -> "IdempotencyException":
+        return cls(deserialize_xml(el))

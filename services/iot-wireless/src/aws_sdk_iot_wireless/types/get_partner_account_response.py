@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.iotwireless#GetPartnerAccountResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_wireless.types.account_linked
+    import aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint
+
+
+class GetPartnerAccountResponse(TypedDict):
+    sidewalk: NotRequired[
+        "aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint.SidewalkAccountInfoWithFingerprint"
+    ]
+    """<p>The Sidewalk account credentials.</p>"""
+    account_linked: "aws_sdk_iot_wireless.types.account_linked.AccountLinked"
+    """<p>Whether the partner account is linked to the AWS account.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetPartnerAccountResponse) -> dict:
+    out: dict = {}
+    if "sidewalk" in value:
+        import aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint
+
+        out["Sidewalk"] = (
+            aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint.serialize_json(
+                value["sidewalk"]
+            )
+        )
+    out["AccountLinked"] = value.get("account_linked", False)
+    return out
+
+
+def deserialize_json(data: dict) -> GetPartnerAccountResponse:
+    out: GetPartnerAccountResponse = {}  # type: ignore[typeddict-item]
+    if "Sidewalk" in data:
+        import aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint
+
+        out["sidewalk"] = (
+            aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint.deserialize_json(
+                data["Sidewalk"]
+            )
+        )
+    if "AccountLinked" in data:
+        out["account_linked"] = data["AccountLinked"]
+    else:
+        out["account_linked"] = False
+    return out

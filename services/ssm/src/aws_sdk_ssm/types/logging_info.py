@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#LoggingInfo``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.s3_bucket_name
+    import aws_sdk_ssm.types.s3_key_prefix
+    import aws_sdk_ssm.types.s3_region
+
+
+class LoggingInfo(TypedDict):
+    s3_bucket_name: "aws_sdk_ssm.types.s3_bucket_name.S3BucketName"
+    """<p>The name of an S3 bucket where execution logs are stored.</p>"""
+    s3_key_prefix: NotRequired["aws_sdk_ssm.types.s3_key_prefix.S3KeyPrefix"]
+    """<p>(Optional) The S3 bucket subfolder. </p>"""
+    s3_region: "aws_sdk_ssm.types.s3_region.S3Region"
+    """<p>The Amazon Web Services Region where the S3 bucket is located.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: LoggingInfo) -> dict:
+    out: dict = {}
+    out["S3BucketName"] = value["s3_bucket_name"]
+    if "s3_key_prefix" in value:
+        out["S3KeyPrefix"] = value["s3_key_prefix"]
+    out["S3Region"] = value["s3_region"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> LoggingInfo:
+    out: LoggingInfo = {}  # type: ignore[typeddict-item]
+    if "S3BucketName" in data:
+        out["s3_bucket_name"] = data["S3BucketName"]
+    else:
+        raise DeserializationError("LoggingInfo.s3_bucket_name required")
+    if "S3KeyPrefix" in data:
+        out["s3_key_prefix"] = data["S3KeyPrefix"]
+    if "S3Region" in data:
+        out["s3_region"] = data["S3Region"]
+    else:
+        raise DeserializationError("LoggingInfo.s3_region required")
+    return out

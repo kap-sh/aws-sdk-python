@@ -1,0 +1,257 @@
+"""Generated from Smithy shape ``com.amazonaws.athena#QueryExecution``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_athena.types.engine_version
+    import aws_sdk_athena.types.execution_parameters
+    import aws_sdk_athena.types.managed_query_results_configuration
+    import aws_sdk_athena.types.query_execution_context
+    import aws_sdk_athena.types.query_execution_id
+    import aws_sdk_athena.types.query_execution_statistics
+    import aws_sdk_athena.types.query_execution_status
+    import aws_sdk_athena.types.query_results_s3_access_grants_configuration
+    import aws_sdk_athena.types.query_string
+    import aws_sdk_athena.types.result_configuration
+    import aws_sdk_athena.types.result_reuse_configuration
+    import aws_sdk_athena.types.statement_type
+    import aws_sdk_athena.types.string
+    import aws_sdk_athena.types.work_group_name
+
+
+class QueryExecution(TypedDict):
+    query_execution_id: NotRequired[
+        "aws_sdk_athena.types.query_execution_id.QueryExecutionId"
+    ]
+    """<p>The unique identifier for each query execution.</p>"""
+    query: NotRequired["aws_sdk_athena.types.query_string.QueryString"]
+    """<p>The SQL query statements which the query execution ran.</p>"""
+    statement_type: NotRequired["aws_sdk_athena.types.statement_type.StatementType"]
+    """<p>The type of query statement that was run. <code>DDL</code> indicates DDL query statements. <code>DML</code> indicates DML (Data Manipulation Language) query statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, <code>EXPLAIN</code>, <code>DESCRIBE</code>, or <code>SHOW TABLES</code>.</p>"""
+    managed_query_results_configuration: NotRequired[
+        "aws_sdk_athena.types.managed_query_results_configuration.ManagedQueryResultsConfiguration"
+    ]
+    """<p> The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results. </p>"""
+    result_configuration: NotRequired[
+        "aws_sdk_athena.types.result_configuration.ResultConfiguration"
+    ]
+    """<p>The location in Amazon S3 where query and calculation results are stored and the encryption option, if any, used for query results. These are known as \"client-side settings\". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.</p>"""
+    result_reuse_configuration: NotRequired[
+        "aws_sdk_athena.types.result_reuse_configuration.ResultReuseConfiguration"
+    ]
+    """<p>Specifies the query result reuse behavior that was used for the query.</p>"""
+    query_execution_context: NotRequired[
+        "aws_sdk_athena.types.query_execution_context.QueryExecutionContext"
+    ]
+    """<p>The database in which the query execution occurred.</p>"""
+    status: NotRequired[
+        "aws_sdk_athena.types.query_execution_status.QueryExecutionStatus"
+    ]
+    """<p>The completion date, current state, submission time, and state change reason (if applicable) for the query execution.</p>"""
+    statistics: NotRequired[
+        "aws_sdk_athena.types.query_execution_statistics.QueryExecutionStatistics"
+    ]
+    """<p>Query execution statistics, such as the amount of data scanned, the amount of time that the query took to process, and the type of statement that was run.</p>"""
+    work_group: NotRequired["aws_sdk_athena.types.work_group_name.WorkGroupName"]
+    """<p>The name of the workgroup in which the query ran.</p>"""
+    engine_version: NotRequired["aws_sdk_athena.types.engine_version.EngineVersion"]
+    """<p>The engine version that executed the query.</p>"""
+    execution_parameters: NotRequired[
+        "aws_sdk_athena.types.execution_parameters.ExecutionParameters"
+    ]
+    """<p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur. The list of parameters is not returned in the response.</p>"""
+    substatement_type: NotRequired["aws_sdk_athena.types.string.String"]
+    """<p>The kind of query statement that was run.</p>"""
+    query_results_s3_access_grants_configuration: NotRequired[
+        "aws_sdk_athena.types.query_results_s3_access_grants_configuration.QueryResultsS3AccessGrantsConfiguration"
+    ]
+    """<p>Specifies whether Amazon S3 access grants are enabled for query results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: QueryExecution) -> dict:
+    out: dict = {}
+    if "query_execution_id" in value:
+        out["QueryExecutionId"] = value["query_execution_id"]
+    if "query" in value:
+        out["Query"] = value["query"]
+    if "statement_type" in value:
+        import aws_sdk_athena.types.statement_type
+
+        out["StatementType"] = (
+            aws_sdk_athena.types.statement_type.serialize_aws_json_1_1(
+                value["statement_type"]
+            )
+        )
+    if "managed_query_results_configuration" in value:
+        import aws_sdk_athena.types.managed_query_results_configuration
+
+        out["ManagedQueryResultsConfiguration"] = (
+            aws_sdk_athena.types.managed_query_results_configuration.serialize_aws_json_1_1(
+                value["managed_query_results_configuration"]
+            )
+        )
+    if "result_configuration" in value:
+        import aws_sdk_athena.types.result_configuration
+
+        out["ResultConfiguration"] = (
+            aws_sdk_athena.types.result_configuration.serialize_aws_json_1_1(
+                value["result_configuration"]
+            )
+        )
+    if "result_reuse_configuration" in value:
+        import aws_sdk_athena.types.result_reuse_configuration
+
+        out["ResultReuseConfiguration"] = (
+            aws_sdk_athena.types.result_reuse_configuration.serialize_aws_json_1_1(
+                value["result_reuse_configuration"]
+            )
+        )
+    if "query_execution_context" in value:
+        import aws_sdk_athena.types.query_execution_context
+
+        out["QueryExecutionContext"] = (
+            aws_sdk_athena.types.query_execution_context.serialize_aws_json_1_1(
+                value["query_execution_context"]
+            )
+        )
+    if "status" in value:
+        import aws_sdk_athena.types.query_execution_status
+
+        out["Status"] = (
+            aws_sdk_athena.types.query_execution_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "statistics" in value:
+        import aws_sdk_athena.types.query_execution_statistics
+
+        out["Statistics"] = (
+            aws_sdk_athena.types.query_execution_statistics.serialize_aws_json_1_1(
+                value["statistics"]
+            )
+        )
+    if "work_group" in value:
+        out["WorkGroup"] = value["work_group"]
+    if "engine_version" in value:
+        import aws_sdk_athena.types.engine_version
+
+        out["EngineVersion"] = (
+            aws_sdk_athena.types.engine_version.serialize_aws_json_1_1(
+                value["engine_version"]
+            )
+        )
+    if "execution_parameters" in value:
+        import aws_sdk_athena.types.execution_parameters
+
+        out["ExecutionParameters"] = (
+            aws_sdk_athena.types.execution_parameters.serialize_aws_json_1_1(
+                value["execution_parameters"]
+            )
+        )
+    if "substatement_type" in value:
+        out["SubstatementType"] = value["substatement_type"]
+    if "query_results_s3_access_grants_configuration" in value:
+        import aws_sdk_athena.types.query_results_s3_access_grants_configuration
+
+        out["QueryResultsS3AccessGrantsConfiguration"] = (
+            aws_sdk_athena.types.query_results_s3_access_grants_configuration.serialize_aws_json_1_1(
+                value["query_results_s3_access_grants_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> QueryExecution:
+    out: QueryExecution = {}  # type: ignore[typeddict-item]
+    if "QueryExecutionId" in data:
+        out["query_execution_id"] = data["QueryExecutionId"]
+    if "Query" in data:
+        out["query"] = data["Query"]
+    if "StatementType" in data:
+        import aws_sdk_athena.types.statement_type
+
+        out["statement_type"] = (
+            aws_sdk_athena.types.statement_type.deserialize_aws_json_1_1(
+                data["StatementType"]
+            )
+        )
+    if "ManagedQueryResultsConfiguration" in data:
+        import aws_sdk_athena.types.managed_query_results_configuration
+
+        out["managed_query_results_configuration"] = (
+            aws_sdk_athena.types.managed_query_results_configuration.deserialize_aws_json_1_1(
+                data["ManagedQueryResultsConfiguration"]
+            )
+        )
+    if "ResultConfiguration" in data:
+        import aws_sdk_athena.types.result_configuration
+
+        out["result_configuration"] = (
+            aws_sdk_athena.types.result_configuration.deserialize_aws_json_1_1(
+                data["ResultConfiguration"]
+            )
+        )
+    if "ResultReuseConfiguration" in data:
+        import aws_sdk_athena.types.result_reuse_configuration
+
+        out["result_reuse_configuration"] = (
+            aws_sdk_athena.types.result_reuse_configuration.deserialize_aws_json_1_1(
+                data["ResultReuseConfiguration"]
+            )
+        )
+    if "QueryExecutionContext" in data:
+        import aws_sdk_athena.types.query_execution_context
+
+        out["query_execution_context"] = (
+            aws_sdk_athena.types.query_execution_context.deserialize_aws_json_1_1(
+                data["QueryExecutionContext"]
+            )
+        )
+    if "Status" in data:
+        import aws_sdk_athena.types.query_execution_status
+
+        out["status"] = (
+            aws_sdk_athena.types.query_execution_status.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    if "Statistics" in data:
+        import aws_sdk_athena.types.query_execution_statistics
+
+        out["statistics"] = (
+            aws_sdk_athena.types.query_execution_statistics.deserialize_aws_json_1_1(
+                data["Statistics"]
+            )
+        )
+    if "WorkGroup" in data:
+        out["work_group"] = data["WorkGroup"]
+    if "EngineVersion" in data:
+        import aws_sdk_athena.types.engine_version
+
+        out["engine_version"] = (
+            aws_sdk_athena.types.engine_version.deserialize_aws_json_1_1(
+                data["EngineVersion"]
+            )
+        )
+    if "ExecutionParameters" in data:
+        import aws_sdk_athena.types.execution_parameters
+
+        out["execution_parameters"] = (
+            aws_sdk_athena.types.execution_parameters.deserialize_aws_json_1_1(
+                data["ExecutionParameters"]
+            )
+        )
+    if "SubstatementType" in data:
+        out["substatement_type"] = data["SubstatementType"]
+    if "QueryResultsS3AccessGrantsConfiguration" in data:
+        import aws_sdk_athena.types.query_results_s3_access_grants_configuration
+
+        out["query_results_s3_access_grants_configuration"] = (
+            aws_sdk_athena.types.query_results_s3_access_grants_configuration.deserialize_aws_json_1_1(
+                data["QueryResultsS3AccessGrantsConfiguration"]
+            )
+        )
+    return out

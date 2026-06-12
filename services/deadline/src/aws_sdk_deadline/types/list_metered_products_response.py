@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#ListMeteredProductsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.metered_product_summary_list
+    import aws_sdk_deadline.types.next_token
+
+
+class ListMeteredProductsResponse(TypedDict):
+    metered_products: (
+        "aws_sdk_deadline.types.metered_product_summary_list.MeteredProductSummaryList"
+    )
+    """<p>The metered products to list.</p>"""
+    next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]
+    """<p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListMeteredProductsResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_deadline.types.metered_product_summary_list
+
+    out["meteredProducts"] = (
+        aws_sdk_deadline.types.metered_product_summary_list.serialize_json(
+            value["metered_products"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListMeteredProductsResponse:
+    out: ListMeteredProductsResponse = {}  # type: ignore[typeddict-item]
+    if "meteredProducts" in data:
+        import aws_sdk_deadline.types.metered_product_summary_list
+
+        out["metered_products"] = (
+            aws_sdk_deadline.types.metered_product_summary_list.deserialize_json(
+                data["meteredProducts"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListMeteredProductsResponse.metered_products required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

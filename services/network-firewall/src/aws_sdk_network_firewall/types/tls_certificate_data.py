@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#TlsCertificateData``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_network_firewall.types.collection_member_string
+    import aws_sdk_network_firewall.types.resource_arn
+    import aws_sdk_network_firewall.types.status_reason
+
+
+class TlsCertificateData(TypedDict):
+    certificate_arn: NotRequired[
+        "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the certificate.</p>"""
+    certificate_serial: NotRequired[
+        "aws_sdk_network_firewall.types.collection_member_string.CollectionMember_String"
+    ]
+    """<p>The serial number of the certificate.</p>"""
+    status: NotRequired[
+        "aws_sdk_network_firewall.types.collection_member_string.CollectionMember_String"
+    ]
+    """<p>The status of the certificate.</p>"""
+    status_message: NotRequired[
+        "aws_sdk_network_firewall.types.status_reason.StatusReason"
+    ]
+    """<p>Contains details about the certificate status, including information about certificate errors.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: TlsCertificateData) -> dict:
+    out: dict = {}
+    if "certificate_arn" in value:
+        out["CertificateArn"] = value["certificate_arn"]
+    if "certificate_serial" in value:
+        out["CertificateSerial"] = value["certificate_serial"]
+    if "status" in value:
+        out["Status"] = value["status"]
+    if "status_message" in value:
+        out["StatusMessage"] = value["status_message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> TlsCertificateData:
+    out: TlsCertificateData = {}  # type: ignore[typeddict-item]
+    if "CertificateArn" in data:
+        out["certificate_arn"] = data["CertificateArn"]
+    if "CertificateSerial" in data:
+        out["certificate_serial"] = data["CertificateSerial"]
+    if "Status" in data:
+        out["status"] = data["Status"]
+    if "StatusMessage" in data:
+        out["status_message"] = data["StatusMessage"]
+    return out

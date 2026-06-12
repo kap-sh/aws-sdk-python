@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetRelationshipSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_iotsitewise.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iotsitewise.types.asset_hierarchy_info
+    import aws_sdk_iotsitewise.types.asset_relationship_type
+
+
+class AssetRelationshipSummary(TypedDict):
+    hierarchy_info: NotRequired[
+        "aws_sdk_iotsitewise.types.asset_hierarchy_info.AssetHierarchyInfo"
+    ]
+    """<p>The assets that are related through an asset hierarchy.</p> <p>This object is present if the <code>relationshipType</code> is <code>HIERARCHY</code>.</p>"""
+    relationship_type: (
+        "aws_sdk_iotsitewise.types.asset_relationship_type.AssetRelationshipType"
+    )
+    """<p>The relationship type of the assets in this relationship. This value is one of the following:</p> <ul> <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li> </ul>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AssetRelationshipSummary) -> dict:
+    out: dict = {}
+    if "hierarchy_info" in value:
+        import aws_sdk_iotsitewise.types.asset_hierarchy_info
+
+        out["hierarchyInfo"] = (
+            aws_sdk_iotsitewise.types.asset_hierarchy_info.serialize_json(
+                value["hierarchy_info"]
+            )
+        )
+    import aws_sdk_iotsitewise.types.asset_relationship_type
+
+    out["relationshipType"] = (
+        aws_sdk_iotsitewise.types.asset_relationship_type.serialize_json(
+            value["relationship_type"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AssetRelationshipSummary:
+    out: AssetRelationshipSummary = {}  # type: ignore[typeddict-item]
+    if "hierarchyInfo" in data:
+        import aws_sdk_iotsitewise.types.asset_hierarchy_info
+
+        out["hierarchy_info"] = (
+            aws_sdk_iotsitewise.types.asset_hierarchy_info.deserialize_json(
+                data["hierarchyInfo"]
+            )
+        )
+    if "relationshipType" in data:
+        import aws_sdk_iotsitewise.types.asset_relationship_type
+
+        out["relationship_type"] = (
+            aws_sdk_iotsitewise.types.asset_relationship_type.deserialize_json(
+                data["relationshipType"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "AssetRelationshipSummary.relationship_type required"
+        )
+    return out

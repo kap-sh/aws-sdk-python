@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.lightsail#TestAlarmRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_lightsail.types.alarm_state
+    import aws_sdk_lightsail.types.resource_name
+
+
+class TestAlarmRequest(TypedDict):
+    alarm_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
+    """<p>The name of the alarm to test.</p>"""
+    state: "aws_sdk_lightsail.types.alarm_state.AlarmState"
+    """<p>The alarm state to test.</p> <p>An alarm has the following possible states that can be tested:</p> <ul> <li> <p> <code>ALARM</code> - The metric is outside of the defined threshold.</p> </li> <li> <p> <code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.</p> </li> <li> <p> <code>OK</code> - The metric is within the defined threshold.</p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TestAlarmRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TestAlarmRequest:
+    out: TestAlarmRequest = {}  # type: ignore[typeddict-item]
+    return out

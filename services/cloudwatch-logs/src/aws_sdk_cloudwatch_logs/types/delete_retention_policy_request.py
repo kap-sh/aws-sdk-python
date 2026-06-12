@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteRetentionPolicyRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_cloudwatch_logs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_logs.types.log_group_name
+
+
+class DeleteRetentionPolicyRequest(TypedDict):
+    log_group_name: "aws_sdk_cloudwatch_logs.types.log_group_name.LogGroupName"
+    """<p>The name of the log group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteRetentionPolicyRequest) -> dict:
+    out: dict = {}
+    out["logGroupName"] = value["log_group_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteRetentionPolicyRequest:
+    out: DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
+    if "logGroupName" in data:
+        out["log_group_name"] = data["logGroupName"]
+    else:
+        raise DeserializationError(
+            "DeleteRetentionPolicyRequest.log_group_name required"
+        )
+    return out

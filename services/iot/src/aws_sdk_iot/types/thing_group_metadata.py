@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#ThingGroupMetadata``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.creation_date
+    import aws_sdk_iot.types.thing_group_name
+    import aws_sdk_iot.types.thing_group_name_and_arn_list
+
+
+class ThingGroupMetadata(TypedDict):
+    parent_group_name: NotRequired["aws_sdk_iot.types.thing_group_name.ThingGroupName"]
+    """<p>The parent thing group name.</p>"""
+    root_to_parent_thing_groups: NotRequired[
+        "aws_sdk_iot.types.thing_group_name_and_arn_list.ThingGroupNameAndArnList"
+    ]
+    """<p>The root parent thing group.</p>"""
+    creation_date: NotRequired["aws_sdk_iot.types.creation_date.CreationDate"]
+    """<p>The UNIX timestamp of when the thing group was created.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ThingGroupMetadata) -> dict:
+    out: dict = {}
+    if "parent_group_name" in value:
+        out["parentGroupName"] = value["parent_group_name"]
+    if "root_to_parent_thing_groups" in value:
+        import aws_sdk_iot.types.thing_group_name_and_arn_list
+
+        out["rootToParentThingGroups"] = (
+            aws_sdk_iot.types.thing_group_name_and_arn_list.serialize_json(
+                value["root_to_parent_thing_groups"]
+            )
+        )
+    if "creation_date" in value:
+        import aws_sdk_iot.types.creation_date
+
+        out["creationDate"] = aws_sdk_iot.types.creation_date.serialize_json(
+            value["creation_date"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ThingGroupMetadata:
+    out: ThingGroupMetadata = {}  # type: ignore[typeddict-item]
+    if "parentGroupName" in data:
+        out["parent_group_name"] = data["parentGroupName"]
+    if "rootToParentThingGroups" in data:
+        import aws_sdk_iot.types.thing_group_name_and_arn_list
+
+        out["root_to_parent_thing_groups"] = (
+            aws_sdk_iot.types.thing_group_name_and_arn_list.deserialize_json(
+                data["rootToParentThingGroups"]
+            )
+        )
+    if "creationDate" in data:
+        import aws_sdk_iot.types.creation_date
+
+        out["creation_date"] = aws_sdk_iot.types.creation_date.deserialize_json(
+            data["creationDate"]
+        )
+    return out

@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#PutHubConfigurationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iot_managed_integrations.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_managed_integrations.types.hub_token_timer_expiry_setting_in_seconds
+
+
+class PutHubConfigurationRequest(TypedDict):
+    hub_token_timer_expiry_setting_in_seconds: "aws_sdk_iot_managed_integrations.types.hub_token_timer_expiry_setting_in_seconds.HubTokenTimerExpirySettingInSeconds"
+    """<p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutHubConfigurationRequest) -> dict:
+    out: dict = {}
+    out["HubTokenTimerExpirySettingInSeconds"] = value[
+        "hub_token_timer_expiry_setting_in_seconds"
+    ]
+    return out
+
+
+def deserialize_json(data: dict) -> PutHubConfigurationRequest:
+    out: PutHubConfigurationRequest = {}  # type: ignore[typeddict-item]
+    if "HubTokenTimerExpirySettingInSeconds" in data:
+        out["hub_token_timer_expiry_setting_in_seconds"] = data[
+            "HubTokenTimerExpirySettingInSeconds"
+        ]
+    else:
+        raise DeserializationError(
+            "PutHubConfigurationRequest.hub_token_timer_expiry_setting_in_seconds required"
+        )
+    return out

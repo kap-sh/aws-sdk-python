@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#ListVocabulariesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_transcribe.types.max_results
+    import aws_sdk_transcribe.types.next_token
+    import aws_sdk_transcribe.types.vocabulary_name
+    import aws_sdk_transcribe.types.vocabulary_state
+
+
+class ListVocabulariesRequest(TypedDict):
+    next_token: NotRequired["aws_sdk_transcribe.types.next_token.NextToken"]
+    """<p>If your <code>ListVocabularies</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>"""
+    max_results: NotRequired["aws_sdk_transcribe.types.max_results.MaxResults"]
+    """<p>The maximum number of custom vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>"""
+    state_equals: NotRequired[
+        "aws_sdk_transcribe.types.vocabulary_state.VocabularyState"
+    ]
+    """<p>Returns only custom vocabularies with the specified state. Vocabularies are ordered by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>"""
+    name_contains: NotRequired[
+        "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
+    ]
+    """<p>Returns only the custom vocabularies that contain the specified string. The search is not case sensitive.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListVocabulariesRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListVocabulariesRequest:
+    out: ListVocabulariesRequest = {}  # type: ignore[typeddict-item]
+    return out

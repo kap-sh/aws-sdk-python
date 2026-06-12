@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.apigatewayv2#ACMManaged``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_apigatewayv2.types.__string_min10_max2048
+    import aws_sdk_apigatewayv2.types.__string_min3_max256
+
+
+class ACMManaged(TypedDict):
+    certificate_arn: NotRequired[
+        "aws_sdk_apigatewayv2.types.__string_min10_max2048.__stringMin10Max2048"
+    ]
+    """<p>The certificate ARN.</p>"""
+    domain_name: NotRequired[
+        "aws_sdk_apigatewayv2.types.__string_min3_max256.__stringMin3Max256"
+    ]
+    """<p>The domain name.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ACMManaged) -> dict:
+    out: dict = {}
+    if "certificate_arn" in value:
+        out["certificateArn"] = value["certificate_arn"]
+    if "domain_name" in value:
+        out["domainName"] = value["domain_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> ACMManaged:
+    out: ACMManaged = {}  # type: ignore[typeddict-item]
+    if "certificateArn" in data:
+        out["certificate_arn"] = data["certificateArn"]
+    if "domainName" in data:
+        out["domain_name"] = data["domainName"]
+    return out

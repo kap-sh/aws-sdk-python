@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.iotevents#DeleteInputRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_events.types.input_name
+
+
+class DeleteInputRequest(TypedDict):
+    input_name: "aws_sdk_iot_events.types.input_name.InputName"
+    """<p>The name of the input to delete.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteInputRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteInputRequest:
+    out: DeleteInputRequest = {}  # type: ignore[typeddict-item]
+    return out

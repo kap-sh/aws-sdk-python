@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.acm#CertificateSearchResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_acm.types.arn
+    import aws_sdk_acm.types.certificate_metadata
+    import aws_sdk_acm.types.x509_attributes
+
+
+class CertificateSearchResult(TypedDict):
+    certificate_arn: NotRequired["aws_sdk_acm.types.arn.Arn"]
+    """<p>The Amazon Resource Name (ARN) of the certificate.</p>"""
+    x509_attributes: NotRequired["aws_sdk_acm.types.x509_attributes.X509Attributes"]
+    """<p>X.509 certificate attributes such as subject, issuer, and validity period.</p>"""
+    certificate_metadata: NotRequired[
+        "aws_sdk_acm.types.certificate_metadata.CertificateMetadata"
+    ]
+    """<p>ACM-specific metadata about the certificate.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CertificateSearchResult) -> dict:
+    out: dict = {}
+    if "certificate_arn" in value:
+        out["CertificateArn"] = value["certificate_arn"]
+    if "x509_attributes" in value:
+        import aws_sdk_acm.types.x509_attributes
+
+        out["X509Attributes"] = (
+            aws_sdk_acm.types.x509_attributes.serialize_aws_json_1_1(
+                value["x509_attributes"]
+            )
+        )
+    if "certificate_metadata" in value:
+        import aws_sdk_acm.types.certificate_metadata
+
+        out["CertificateMetadata"] = (
+            aws_sdk_acm.types.certificate_metadata.serialize_aws_json_1_1(
+                value["certificate_metadata"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CertificateSearchResult:
+    out: CertificateSearchResult = {}  # type: ignore[typeddict-item]
+    if "CertificateArn" in data:
+        out["certificate_arn"] = data["CertificateArn"]
+    if "X509Attributes" in data:
+        import aws_sdk_acm.types.x509_attributes
+
+        out["x509_attributes"] = (
+            aws_sdk_acm.types.x509_attributes.deserialize_aws_json_1_1(
+                data["X509Attributes"]
+            )
+        )
+    if "CertificateMetadata" in data:
+        import aws_sdk_acm.types.certificate_metadata
+
+        out["certificate_metadata"] = (
+            aws_sdk_acm.types.certificate_metadata.deserialize_aws_json_1_1(
+                data["CertificateMetadata"]
+            )
+        )
+    return out

@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#GetWorkflowRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_customer_profiles.types.name
+    import aws_sdk_customer_profiles.types.uuid
+
+
+class GetWorkflowRequest(TypedDict):
+    domain_name: "aws_sdk_customer_profiles.types.name.name"
+    """<p>The unique name of the domain.</p>"""
+    workflow_id: "aws_sdk_customer_profiles.types.uuid.uuid"
+    """<p>Unique identifier for the workflow.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetWorkflowRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetWorkflowRequest:
+    out: GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+    return out

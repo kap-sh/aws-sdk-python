@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#InvalidGameSessionStatusException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_gamelift.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.non_empty_string
+
+
+class InvalidGameSessionStatusException_(TypedDict):
+    message: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InvalidGameSessionStatusException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InvalidGameSessionStatusException_:
+    out: InvalidGameSessionStatusException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class InvalidGameSessionStatusException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.gamelift#InvalidGameSessionStatusException``."""
+
+    code: str | None = "InvalidGameSessionStatusException"
+
+    def __init__(self, data: InvalidGameSessionStatusException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidGameSessionStatusException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "InvalidGameSessionStatusException":
+        return cls(deserialize_aws_json_1_1(data))

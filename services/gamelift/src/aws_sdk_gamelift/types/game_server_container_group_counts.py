@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#GameServerContainerGroupCounts``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.whole_number
+
+
+class GameServerContainerGroupCounts(TypedDict):
+    pending: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
+    """<p> The number of container groups that are starting up but haven't yet registered. </p>"""
+    active: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
+    """<p> The number of container groups that have active game sessions. </p>"""
+    idle: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
+    """<p> The number of container groups that have no active game sessions. </p>"""
+    terminating: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
+    """<p> The number of container groups that are in the process of shutting down. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GameServerContainerGroupCounts) -> dict:
+    out: dict = {}
+    if "pending" in value:
+        out["PENDING"] = value["pending"]
+    if "active" in value:
+        out["ACTIVE"] = value["active"]
+    if "idle" in value:
+        out["IDLE"] = value["idle"]
+    if "terminating" in value:
+        out["TERMINATING"] = value["terminating"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GameServerContainerGroupCounts:
+    out: GameServerContainerGroupCounts = {}  # type: ignore[typeddict-item]
+    if "PENDING" in data:
+        out["pending"] = data["PENDING"]
+    if "ACTIVE" in data:
+        out["active"] = data["ACTIVE"]
+    if "IDLE" in data:
+        out["idle"] = data["IDLE"]
+    if "TERMINATING" in data:
+        out["terminating"] = data["TERMINATING"]
+    return out

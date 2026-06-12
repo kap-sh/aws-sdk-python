@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#CertificatesInfo``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.certificate_info
+
+CertificatesInfo: TypeAlias = list[
+    "aws_sdk_directory_service.types.certificate_info.CertificateInfo"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CertificatesInfo) -> list:
+    import aws_sdk_directory_service.types.certificate_info
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_directory_service.types.certificate_info.serialize_aws_json_1_1(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> CertificatesInfo:
+    import aws_sdk_directory_service.types.certificate_info
+
+    out: CertificatesInfo = []
+    for item in data:
+        out.append(
+            aws_sdk_directory_service.types.certificate_info.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

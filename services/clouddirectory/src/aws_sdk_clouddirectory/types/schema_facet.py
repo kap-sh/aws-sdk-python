@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.clouddirectory#SchemaFacet``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_clouddirectory.types.arn
+    import aws_sdk_clouddirectory.types.facet_name
+
+
+class SchemaFacet(TypedDict):
+    schema_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
+    """<p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html\">In-Place Schema Upgrade</a> for a description of when to provide minor versions. If this value is set, FacetName must also be set.</p>"""
+    facet_name: NotRequired["aws_sdk_clouddirectory.types.facet_name.FacetName"]
+    """<p>The name of the facet. If this value is set, SchemaArn must also be set.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SchemaFacet) -> dict:
+    out: dict = {}
+    if "schema_arn" in value:
+        out["SchemaArn"] = value["schema_arn"]
+    if "facet_name" in value:
+        out["FacetName"] = value["facet_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> SchemaFacet:
+    out: SchemaFacet = {}  # type: ignore[typeddict-item]
+    if "SchemaArn" in data:
+        out["schema_arn"] = data["SchemaArn"]
+    if "FacetName" in data:
+        out["facet_name"] = data["FacetName"]
+    return out

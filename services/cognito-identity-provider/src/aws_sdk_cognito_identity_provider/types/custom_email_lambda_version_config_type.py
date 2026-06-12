@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CustomEmailLambdaVersionConfigType``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cognito_identity_provider.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.arn_type
+    import aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type
+
+
+class CustomEmailLambdaVersionConfigType(TypedDict):
+    lambda_version: "aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type.CustomEmailSenderLambdaVersionType"
+    """<p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p> <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>"""
+    lambda_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
+    """<p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CustomEmailLambdaVersionConfigType) -> dict:
+    out: dict = {}
+    import aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type
+
+    out["LambdaVersion"] = (
+        aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type.serialize_aws_json_1_1(
+            value["lambda_version"]
+        )
+    )
+    out["LambdaArn"] = value["lambda_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CustomEmailLambdaVersionConfigType:
+    out: CustomEmailLambdaVersionConfigType = {}  # type: ignore[typeddict-item]
+    if "LambdaVersion" in data:
+        import aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type
+
+        out["lambda_version"] = (
+            aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type.deserialize_aws_json_1_1(
+                data["LambdaVersion"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CustomEmailLambdaVersionConfigType.lambda_version required"
+        )
+    if "LambdaArn" in data:
+        out["lambda_arn"] = data["LambdaArn"]
+    else:
+        raise DeserializationError(
+            "CustomEmailLambdaVersionConfigType.lambda_arn required"
+        )
+    return out

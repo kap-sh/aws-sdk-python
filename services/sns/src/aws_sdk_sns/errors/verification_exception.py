@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.sns#VerificationException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sns._protocol.xml import Element
+from aws_sdk_sns.errors import DeserializationError, ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_sns.types.string
+
+
+class VerificationException_(TypedDict):
+    message: "aws_sdk_sns.types.string.String"
+    status: "aws_sdk_sns.types.string.String"
+    """<p>The status of the verification error.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: VerificationException_, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.Message", str(value["message"])))
+    pairs.append((f"{prefix}.Status", str(value["status"])))
+
+
+def deserialize_query(el: Element) -> VerificationException_:
+    out: VerificationException_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("Message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    else:
+        raise DeserializationError("VerificationException_.message required")
+    child_status = el.find("Status")
+    if child_status is not None:
+        out["status"] = str(child_status.text or "")
+    else:
+        raise DeserializationError("VerificationException_.status required")
+    return out
+
+
+class VerificationException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.sns#VerificationException``."""
+
+    code: str | None = "VerificationException"
+
+    def __init__(self, data: VerificationException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="VerificationException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_query(cls, el: Element) -> "VerificationException":
+        return cls(deserialize_query(el))

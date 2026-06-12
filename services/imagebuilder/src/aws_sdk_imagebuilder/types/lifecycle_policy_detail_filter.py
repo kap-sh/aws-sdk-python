@@ -1,0 +1,81 @@
+"""Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_imagebuilder.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_retain_at_least
+    import aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type
+    import aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_value
+    import aws_sdk_imagebuilder.types.lifecycle_policy_time_unit
+
+
+class LifecyclePolicyDetailFilter(TypedDict):
+    type: "aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type.LifecyclePolicyDetailFilterType"
+    """<p>Filter resources based on either <code>age</code> or <code>count</code>.</p>"""
+    value: "aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_value.LifecyclePolicyDetailFilterValue"
+    """<p>The number of units for the time period or for the count. For example, a value of <code>6</code> might refer to six months or six AMIs.</p> <note> <p>For count-based filters, this value represents the minimum number of resources to keep on hand. If you have fewer resources than this number, the resource is excluded from lifecycle actions.</p> </note>"""
+    unit: NotRequired[
+        "aws_sdk_imagebuilder.types.lifecycle_policy_time_unit.LifecyclePolicyTimeUnit"
+    ]
+    """<p>Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules.</p>"""
+    retain_at_least: NotRequired[
+        "aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_retain_at_least.LifecyclePolicyDetailFilterRetainAtLeast"
+    ]
+    """<p>For age-based filters, this is the number of resources to keep on hand after the lifecycle <code>DELETE</code> action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: LifecyclePolicyDetailFilter) -> dict:
+    out: dict = {}
+    import aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type
+
+    out["type"] = (
+        aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type.serialize_json(
+            value["type"]
+        )
+    )
+    out["value"] = value["value"]
+    if "unit" in value:
+        import aws_sdk_imagebuilder.types.lifecycle_policy_time_unit
+
+        out["unit"] = (
+            aws_sdk_imagebuilder.types.lifecycle_policy_time_unit.serialize_json(
+                value["unit"]
+            )
+        )
+    if "retain_at_least" in value:
+        out["retainAtLeast"] = value["retain_at_least"]
+    return out
+
+
+def deserialize_json(data: dict) -> LifecyclePolicyDetailFilter:
+    out: LifecyclePolicyDetailFilter = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type
+
+        out["type"] = (
+            aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type.deserialize_json(
+                data["type"]
+            )
+        )
+    else:
+        raise DeserializationError("LifecyclePolicyDetailFilter.type required")
+    if "value" in data:
+        out["value"] = data["value"]
+    else:
+        raise DeserializationError("LifecyclePolicyDetailFilter.value required")
+    if "unit" in data:
+        import aws_sdk_imagebuilder.types.lifecycle_policy_time_unit
+
+        out["unit"] = (
+            aws_sdk_imagebuilder.types.lifecycle_policy_time_unit.deserialize_json(
+                data["unit"]
+            )
+        )
+    if "retainAtLeast" in data:
+        out["retain_at_least"] = data["retainAtLeast"]
+    return out

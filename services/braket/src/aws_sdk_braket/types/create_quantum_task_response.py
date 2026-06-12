@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.braket#CreateQuantumTaskResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_braket.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_braket.types.quantum_task_arn
+
+class CreateQuantumTaskResponse(TypedDict):
+    quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn"
+    """<p>The ARN of the quantum task created by the request.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateQuantumTaskResponse) -> dict:
+    out: dict = {}
+    out["quantumTaskArn"] = value["quantum_task_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateQuantumTaskResponse:
+    out: CreateQuantumTaskResponse = {}  # type: ignore[typeddict-item]
+    if "quantumTaskArn" in data:
+        out["quantum_task_arn"] = data["quantumTaskArn"]
+    else:
+        raise DeserializationError("CreateQuantumTaskResponse.quantum_task_arn required")
+    return out

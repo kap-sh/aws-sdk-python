@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.databrew#DatabaseTableOutputOptions``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_databrew.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_databrew.types.database_table_name
+    import aws_sdk_databrew.types.s3_location
+
+
+class DatabaseTableOutputOptions(TypedDict):
+    temp_directory: NotRequired["aws_sdk_databrew.types.s3_location.S3Location"]
+    """<p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.</p>"""
+    table_name: "aws_sdk_databrew.types.database_table_name.DatabaseTableName"
+    """<p>A prefix for the name of a table DataBrew will create in the database.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DatabaseTableOutputOptions) -> dict:
+    out: dict = {}
+    if "temp_directory" in value:
+        import aws_sdk_databrew.types.s3_location
+
+        out["TempDirectory"] = aws_sdk_databrew.types.s3_location.serialize_json(
+            value["temp_directory"]
+        )
+    out["TableName"] = value["table_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> DatabaseTableOutputOptions:
+    out: DatabaseTableOutputOptions = {}  # type: ignore[typeddict-item]
+    if "TempDirectory" in data:
+        import aws_sdk_databrew.types.s3_location
+
+        out["temp_directory"] = aws_sdk_databrew.types.s3_location.deserialize_json(
+            data["TempDirectory"]
+        )
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("DatabaseTableOutputOptions.table_name required")
+    return out

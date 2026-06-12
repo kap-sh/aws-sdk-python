@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.ecr#PutRegistryScanningConfigurationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ecr.types.registry_scanning_configuration
+
+
+class PutRegistryScanningConfigurationResponse(TypedDict):
+    registry_scanning_configuration: NotRequired[
+        "aws_sdk_ecr.types.registry_scanning_configuration.RegistryScanningConfiguration"
+    ]
+    """<p>The scanning configuration for your registry.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PutRegistryScanningConfigurationResponse) -> dict:
+    out: dict = {}
+    if "registry_scanning_configuration" in value:
+        import aws_sdk_ecr.types.registry_scanning_configuration
+
+        out["registryScanningConfiguration"] = (
+            aws_sdk_ecr.types.registry_scanning_configuration.serialize_aws_json_1_1(
+                value["registry_scanning_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PutRegistryScanningConfigurationResponse:
+    out: PutRegistryScanningConfigurationResponse = {}  # type: ignore[typeddict-item]
+    if "registryScanningConfiguration" in data:
+        import aws_sdk_ecr.types.registry_scanning_configuration
+
+        out["registry_scanning_configuration"] = (
+            aws_sdk_ecr.types.registry_scanning_configuration.deserialize_aws_json_1_1(
+                data["registryScanningConfiguration"]
+            )
+        )
+    return out

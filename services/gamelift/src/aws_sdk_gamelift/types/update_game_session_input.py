@@ -1,0 +1,111 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#UpdateGameSessionInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.arn_string_model
+    import aws_sdk_gamelift.types.game_property_list
+    import aws_sdk_gamelift.types.non_zero_and_max_string
+    import aws_sdk_gamelift.types.player_session_creation_policy
+    import aws_sdk_gamelift.types.protection_policy
+    import aws_sdk_gamelift.types.whole_number
+
+
+class UpdateGameSessionInput(TypedDict):
+    game_session_id: NotRequired[
+        "aws_sdk_gamelift.types.arn_string_model.ArnStringModel"
+    ]
+    """<p>An identifier for the game session that is unique across all regions to update. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>"""
+    maximum_player_session_count: NotRequired[
+        "aws_sdk_gamelift.types.whole_number.WholeNumber"
+    ]
+    """<p>The maximum number of players that can be connected simultaneously to the game session.</p>"""
+    name: NotRequired[
+        "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+    ]
+    """<p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>"""
+    player_session_creation_policy: NotRequired[
+        "aws_sdk_gamelift.types.player_session_creation_policy.PlayerSessionCreationPolicy"
+    ]
+    """<p>A policy that determines whether the game session is accepting new players.</p>"""
+    protection_policy: NotRequired[
+        "aws_sdk_gamelift.types.protection_policy.ProtectionPolicy"
+    ]
+    """<p>Game session protection policy to apply to this game session only.</p> <ul> <li> <p> <code>NoProtection</code> -- The game session can be terminated during a scale-down event.</p> </li> <li> <p> <code>FullProtection</code> -- If the game session is in an <code>ACTIVE</code> status, it cannot be terminated during a scale-down event.</p> </li> </ul>"""
+    game_properties: NotRequired[
+        "aws_sdk_gamelift.types.game_property_list.GamePropertyList"
+    ]
+    """<p>A set of key-value pairs that can store custom data in a game session. For example: <code>{\"Key\": \"difficulty\", \"Value\": \"novice\"}</code>. You can use this parameter to modify game properties in an active game session. This action adds new properties and modifies existing properties. There is no way to delete properties. For an example, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update\">Update the value of a game property</a>. </p> <note> <ul> <li> <p>Avoid using periods (\".\") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p> </li> <li> <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p> </li> </ul> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateGameSessionInput) -> dict:
+    out: dict = {}
+    if "game_session_id" in value:
+        out["GameSessionId"] = value["game_session_id"]
+    if "maximum_player_session_count" in value:
+        out["MaximumPlayerSessionCount"] = value["maximum_player_session_count"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "player_session_creation_policy" in value:
+        import aws_sdk_gamelift.types.player_session_creation_policy
+
+        out["PlayerSessionCreationPolicy"] = (
+            aws_sdk_gamelift.types.player_session_creation_policy.serialize_aws_json_1_1(
+                value["player_session_creation_policy"]
+            )
+        )
+    if "protection_policy" in value:
+        import aws_sdk_gamelift.types.protection_policy
+
+        out["ProtectionPolicy"] = (
+            aws_sdk_gamelift.types.protection_policy.serialize_aws_json_1_1(
+                value["protection_policy"]
+            )
+        )
+    if "game_properties" in value:
+        import aws_sdk_gamelift.types.game_property_list
+
+        out["GameProperties"] = (
+            aws_sdk_gamelift.types.game_property_list.serialize_aws_json_1_1(
+                value["game_properties"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateGameSessionInput:
+    out: UpdateGameSessionInput = {}  # type: ignore[typeddict-item]
+    if "GameSessionId" in data:
+        out["game_session_id"] = data["GameSessionId"]
+    if "MaximumPlayerSessionCount" in data:
+        out["maximum_player_session_count"] = data["MaximumPlayerSessionCount"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "PlayerSessionCreationPolicy" in data:
+        import aws_sdk_gamelift.types.player_session_creation_policy
+
+        out["player_session_creation_policy"] = (
+            aws_sdk_gamelift.types.player_session_creation_policy.deserialize_aws_json_1_1(
+                data["PlayerSessionCreationPolicy"]
+            )
+        )
+    if "ProtectionPolicy" in data:
+        import aws_sdk_gamelift.types.protection_policy
+
+        out["protection_policy"] = (
+            aws_sdk_gamelift.types.protection_policy.deserialize_aws_json_1_1(
+                data["ProtectionPolicy"]
+            )
+        )
+    if "GameProperties" in data:
+        import aws_sdk_gamelift.types.game_property_list
+
+        out["game_properties"] = (
+            aws_sdk_gamelift.types.game_property_list.deserialize_aws_json_1_1(
+                data["GameProperties"]
+            )
+        )
+    return out

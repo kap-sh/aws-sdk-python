@@ -1,0 +1,88 @@
+"""Generated from Smithy shape ``com.amazonaws.geoplaces#Contacts``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_geo_places.types.contact_details_list
+
+
+class Contacts(TypedDict):
+    phones: NotRequired[
+        "aws_sdk_geo_places.types.contact_details_list.ContactDetailsList"
+    ]
+    """<p>List of phone numbers for the results contact. </p>"""
+    faxes: NotRequired[
+        "aws_sdk_geo_places.types.contact_details_list.ContactDetailsList"
+    ]
+    """<p>List of fax addresses for the result contact. </p>"""
+    websites: NotRequired[
+        "aws_sdk_geo_places.types.contact_details_list.ContactDetailsList"
+    ]
+    """<p>List of website URLs that belong to the result. </p>"""
+    emails: NotRequired[
+        "aws_sdk_geo_places.types.contact_details_list.ContactDetailsList"
+    ]
+    """<p>List of emails for contacts of the result. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Contacts) -> dict:
+    out: dict = {}
+    if "phones" in value:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["Phones"] = aws_sdk_geo_places.types.contact_details_list.serialize_json(
+            value["phones"]
+        )
+    if "faxes" in value:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["Faxes"] = aws_sdk_geo_places.types.contact_details_list.serialize_json(
+            value["faxes"]
+        )
+    if "websites" in value:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["Websites"] = aws_sdk_geo_places.types.contact_details_list.serialize_json(
+            value["websites"]
+        )
+    if "emails" in value:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["Emails"] = aws_sdk_geo_places.types.contact_details_list.serialize_json(
+            value["emails"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> Contacts:
+    out: Contacts = {}  # type: ignore[typeddict-item]
+    if "Phones" in data:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["phones"] = aws_sdk_geo_places.types.contact_details_list.deserialize_json(
+            data["Phones"]
+        )
+    if "Faxes" in data:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["faxes"] = aws_sdk_geo_places.types.contact_details_list.deserialize_json(
+            data["Faxes"]
+        )
+    if "Websites" in data:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["websites"] = (
+            aws_sdk_geo_places.types.contact_details_list.deserialize_json(
+                data["Websites"]
+            )
+        )
+    if "Emails" in data:
+        import aws_sdk_geo_places.types.contact_details_list
+
+        out["emails"] = aws_sdk_geo_places.types.contact_details_list.deserialize_json(
+            data["Emails"]
+        )
+    return out

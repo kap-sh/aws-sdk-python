@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#DeleteInputSecurityGroupRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__string
+
+
+class DeleteInputSecurityGroupRequest(TypedDict):
+    input_security_group_id: "aws_sdk_medialive.types.__string.__string"
+    """The Input Security Group to delete"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteInputSecurityGroupRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteInputSecurityGroupRequest:
+    out: DeleteInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+    return out

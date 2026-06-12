@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.accessanalyzer#DeleteArchiveRuleRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_accessanalyzer.types.analyzer_name
+    import aws_sdk_accessanalyzer.types.name
+
+
+class DeleteArchiveRuleRequest(TypedDict):
+    analyzer_name: "aws_sdk_accessanalyzer.types.analyzer_name.AnalyzerName"
+    """<p>The name of the analyzer that associated with the archive rule to delete.</p>"""
+    rule_name: "aws_sdk_accessanalyzer.types.name.Name"
+    """<p>The name of the rule to delete.</p>"""
+    client_token: NotRequired["str"]
+    """<p>A client token.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteArchiveRuleRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteArchiveRuleRequest:
+    out: DeleteArchiveRuleRequest = {}  # type: ignore[typeddict-item]
+    return out

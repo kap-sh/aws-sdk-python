@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#DisassociateDatasetKmsKeyInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.dataset_identifier
+
+
+class DisassociateDatasetKmsKeyInput(TypedDict):
+    dataset_identifier: NotRequired[
+        "aws_sdk_cloudwatch.types.dataset_identifier.DatasetIdentifier"
+    ]
+    """<p>Specifies the identifier of the dataset from which to remove the KMS key association. For the <code>default</code> dataset, you can specify either <code>default</code> or the full dataset Amazon Resource Name (ARN) in the format <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DisassociateDatasetKmsKeyInput) -> dict:
+    out: dict = {}
+    if "dataset_identifier" in value:
+        out["DatasetIdentifier"] = value["dataset_identifier"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DisassociateDatasetKmsKeyInput:
+    out: DisassociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
+    if "DatasetIdentifier" in data:
+        out["dataset_identifier"] = data["DatasetIdentifier"]
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DisassociateDatasetKmsKeyInput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "dataset_identifier" in value:
+        pairs.append((f"{prefix}.DatasetIdentifier", str(value["dataset_identifier"])))
+
+
+def deserialize_query(el: Element) -> DisassociateDatasetKmsKeyInput:
+    out: DisassociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
+    child_dataset_identifier = el.find("DatasetIdentifier")
+    if child_dataset_identifier is not None:
+        out["dataset_identifier"] = str(child_dataset_identifier.text or "")
+    return out

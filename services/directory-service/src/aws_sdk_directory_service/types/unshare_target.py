@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#UnshareTarget``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_directory_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.target_id
+    import aws_sdk_directory_service.types.target_type
+
+
+class UnshareTarget(TypedDict):
+    id: "aws_sdk_directory_service.types.target_id.TargetId"
+    """<p>Identifier of the directory consumer account.</p>"""
+    type: "aws_sdk_directory_service.types.target_type.TargetType"
+    """<p>Type of identifier to be used in the <i>Id</i> field.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UnshareTarget) -> dict:
+    out: dict = {}
+    out["Id"] = value["id"]
+    import aws_sdk_directory_service.types.target_type
+
+    out["Type"] = aws_sdk_directory_service.types.target_type.serialize_aws_json_1_1(
+        value["type"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UnshareTarget:
+    out: UnshareTarget = {}  # type: ignore[typeddict-item]
+    if "Id" in data:
+        out["id"] = data["Id"]
+    else:
+        raise DeserializationError("UnshareTarget.id required")
+    if "Type" in data:
+        import aws_sdk_directory_service.types.target_type
+
+        out["type"] = (
+            aws_sdk_directory_service.types.target_type.deserialize_aws_json_1_1(
+                data["Type"]
+            )
+        )
+    else:
+        raise DeserializationError("UnshareTarget.type required")
+    return out

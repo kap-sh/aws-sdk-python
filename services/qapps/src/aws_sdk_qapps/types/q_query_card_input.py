@@ -1,0 +1,94 @@
+"""Generated from Smithy shape ``com.amazonaws.qapps#QQueryCardInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_qapps.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_qapps.types.attribute_filter
+    import aws_sdk_qapps.types.card_output_source
+    import aws_sdk_qapps.types.card_type
+    import aws_sdk_qapps.types.prompt
+    import aws_sdk_qapps.types.title
+    import aws_sdk_qapps.types.uuid
+
+
+class QQueryCardInput(TypedDict):
+    title: "aws_sdk_qapps.types.title.Title"
+    """<p>The title or label of the query card.</p>"""
+    id: "aws_sdk_qapps.types.uuid.UUID"
+    """<p>The unique identifier of the query card.</p>"""
+    type: "aws_sdk_qapps.types.card_type.CardType"
+    """<p>The type of the card.</p>"""
+    prompt: "aws_sdk_qapps.types.prompt.Prompt"
+    """<p>The prompt or instructions displayed for the query card.</p>"""
+    output_source: "aws_sdk_qapps.types.card_output_source.CardOutputSource"
+    """<p>The source or type of output to generate for the query card.</p>"""
+    attribute_filter: NotRequired[
+        "aws_sdk_qapps.types.attribute_filter.AttributeFilter"
+    ]
+    """<p>Turns on filtering of responses based on document attributes or metadata fields.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: QQueryCardInput) -> dict:
+    out: dict = {}
+    out["title"] = value["title"]
+    out["id"] = value["id"]
+    import aws_sdk_qapps.types.card_type
+
+    out["type"] = aws_sdk_qapps.types.card_type.serialize_json(
+        value.get("type", "q-query")
+    )
+    out["prompt"] = value["prompt"]
+    import aws_sdk_qapps.types.card_output_source
+
+    out["outputSource"] = aws_sdk_qapps.types.card_output_source.serialize_json(
+        value.get("output_source", "approved-sources")
+    )
+    if "attribute_filter" in value:
+        import aws_sdk_qapps.types.attribute_filter
+
+        out["attributeFilter"] = aws_sdk_qapps.types.attribute_filter.serialize_json(
+            value["attribute_filter"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> QQueryCardInput:
+    out: QQueryCardInput = {}  # type: ignore[typeddict-item]
+    if "title" in data:
+        out["title"] = data["title"]
+    else:
+        raise DeserializationError("QQueryCardInput.title required")
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("QQueryCardInput.id required")
+    if "type" in data:
+        import aws_sdk_qapps.types.card_type
+
+        out["type"] = aws_sdk_qapps.types.card_type.deserialize_json(data["type"])
+    else:
+        out["type"] = "q-query"
+    if "prompt" in data:
+        out["prompt"] = data["prompt"]
+    else:
+        raise DeserializationError("QQueryCardInput.prompt required")
+    if "outputSource" in data:
+        import aws_sdk_qapps.types.card_output_source
+
+        out["output_source"] = aws_sdk_qapps.types.card_output_source.deserialize_json(
+            data["outputSource"]
+        )
+    else:
+        out["output_source"] = "approved-sources"
+    if "attributeFilter" in data:
+        import aws_sdk_qapps.types.attribute_filter
+
+        out["attribute_filter"] = aws_sdk_qapps.types.attribute_filter.deserialize_json(
+            data["attributeFilter"]
+        )
+    return out

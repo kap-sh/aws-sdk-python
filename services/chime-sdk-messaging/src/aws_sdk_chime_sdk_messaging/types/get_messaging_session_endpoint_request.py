@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpointRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_messaging.types.network_type
+
+
+class GetMessagingSessionEndpointRequest(TypedDict):
+    network_type: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.network_type.NetworkType"
+    ]
+    """<p>The type of network for the messaging session endpoint. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMessagingSessionEndpointRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetMessagingSessionEndpointRequest:
+    out: GetMessagingSessionEndpointRequest = {}  # type: ignore[typeddict-item]
+    return out

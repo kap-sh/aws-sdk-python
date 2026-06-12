@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.waf#WebACLUpdate``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_waf.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_waf.types.activated_rule
+    import aws_sdk_waf.types.change_action
+
+
+class WebACLUpdate(TypedDict):
+    action: "aws_sdk_waf.types.change_action.ChangeAction"
+    """<p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>"""
+    activated_rule: "aws_sdk_waf.types.activated_rule.ActivatedRule"
+    """<p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: WebACLUpdate) -> dict:
+    out: dict = {}
+    import aws_sdk_waf.types.change_action
+
+    out["Action"] = aws_sdk_waf.types.change_action.serialize_aws_json_1_1(
+        value["action"]
+    )
+    import aws_sdk_waf.types.activated_rule
+
+    out["ActivatedRule"] = aws_sdk_waf.types.activated_rule.serialize_aws_json_1_1(
+        value["activated_rule"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> WebACLUpdate:
+    out: WebACLUpdate = {}  # type: ignore[typeddict-item]
+    if "Action" in data:
+        import aws_sdk_waf.types.change_action
+
+        out["action"] = aws_sdk_waf.types.change_action.deserialize_aws_json_1_1(
+            data["Action"]
+        )
+    else:
+        raise DeserializationError("WebACLUpdate.action required")
+    if "ActivatedRule" in data:
+        import aws_sdk_waf.types.activated_rule
+
+        out["activated_rule"] = (
+            aws_sdk_waf.types.activated_rule.deserialize_aws_json_1_1(
+                data["ActivatedRule"]
+            )
+        )
+    else:
+        raise DeserializationError("WebACLUpdate.activated_rule required")
+    return out

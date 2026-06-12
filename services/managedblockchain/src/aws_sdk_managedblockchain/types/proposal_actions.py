@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.managedblockchain#ProposalActions``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_managedblockchain.types.invite_action_list
+    import aws_sdk_managedblockchain.types.remove_action_list
+
+
+class ProposalActions(TypedDict):
+    invitations: NotRequired[
+        "aws_sdk_managedblockchain.types.invite_action_list.InviteActionList"
+    ]
+    """<p> The actions to perform for an <code>APPROVED</code> proposal to invite an Amazon Web Services account to create a member and join the network. </p>"""
+    removals: NotRequired[
+        "aws_sdk_managedblockchain.types.remove_action_list.RemoveActionList"
+    ]
+    """<p> The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ProposalActions) -> dict:
+    out: dict = {}
+    if "invitations" in value:
+        import aws_sdk_managedblockchain.types.invite_action_list
+
+        out["Invitations"] = (
+            aws_sdk_managedblockchain.types.invite_action_list.serialize_json(
+                value["invitations"]
+            )
+        )
+    if "removals" in value:
+        import aws_sdk_managedblockchain.types.remove_action_list
+
+        out["Removals"] = (
+            aws_sdk_managedblockchain.types.remove_action_list.serialize_json(
+                value["removals"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ProposalActions:
+    out: ProposalActions = {}  # type: ignore[typeddict-item]
+    if "Invitations" in data:
+        import aws_sdk_managedblockchain.types.invite_action_list
+
+        out["invitations"] = (
+            aws_sdk_managedblockchain.types.invite_action_list.deserialize_json(
+                data["Invitations"]
+            )
+        )
+    if "Removals" in data:
+        import aws_sdk_managedblockchain.types.remove_action_list
+
+        out["removals"] = (
+            aws_sdk_managedblockchain.types.remove_action_list.deserialize_json(
+                data["Removals"]
+            )
+        )
+    return out

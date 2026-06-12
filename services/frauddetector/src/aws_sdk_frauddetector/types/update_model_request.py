@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.frauddetector#UpdateModelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_frauddetector.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_frauddetector.types.description
+    import aws_sdk_frauddetector.types.model_identifier
+    import aws_sdk_frauddetector.types.model_type_enum
+
+
+class UpdateModelRequest(TypedDict):
+    model_id: "aws_sdk_frauddetector.types.model_identifier.modelIdentifier"
+    """<p>The model ID.</p>"""
+    model_type: "aws_sdk_frauddetector.types.model_type_enum.ModelTypeEnum"
+    """<p>The model type.</p>"""
+    description: NotRequired["aws_sdk_frauddetector.types.description.description"]
+    """<p>The new model description.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateModelRequest) -> dict:
+    out: dict = {}
+    out["modelId"] = value["model_id"]
+    import aws_sdk_frauddetector.types.model_type_enum
+
+    out["modelType"] = (
+        aws_sdk_frauddetector.types.model_type_enum.serialize_aws_json_1_1(
+            value["model_type"]
+        )
+    )
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateModelRequest:
+    out: UpdateModelRequest = {}  # type: ignore[typeddict-item]
+    if "modelId" in data:
+        out["model_id"] = data["modelId"]
+    else:
+        raise DeserializationError("UpdateModelRequest.model_id required")
+    if "modelType" in data:
+        import aws_sdk_frauddetector.types.model_type_enum
+
+        out["model_type"] = (
+            aws_sdk_frauddetector.types.model_type_enum.deserialize_aws_json_1_1(
+                data["modelType"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateModelRequest.model_type required")
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

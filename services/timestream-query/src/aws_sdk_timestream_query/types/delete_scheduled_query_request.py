@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.timestreamquery#DeleteScheduledQueryRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_timestream_query.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_timestream_query.types.amazon_resource_name
+
+
+class DeleteScheduledQueryRequest(TypedDict):
+    scheduled_query_arn: (
+        "aws_sdk_timestream_query.types.amazon_resource_name.AmazonResourceName"
+    )
+    """<p>The ARN of the scheduled query. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DeleteScheduledQueryRequest) -> dict:
+    out: dict = {}
+    out["ScheduledQueryArn"] = value["scheduled_query_arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DeleteScheduledQueryRequest:
+    out: DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+    if "ScheduledQueryArn" in data:
+        out["scheduled_query_arn"] = data["ScheduledQueryArn"]
+    else:
+        raise DeserializationError(
+            "DeleteScheduledQueryRequest.scheduled_query_arn required"
+        )
+    return out

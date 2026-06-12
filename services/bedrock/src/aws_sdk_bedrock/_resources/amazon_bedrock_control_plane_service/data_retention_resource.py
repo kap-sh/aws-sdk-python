@@ -1,0 +1,169 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_bedrock._services.async_bedrock import ensure_async_iterator
+from aws_sdk_bedrock._services.bedrock import ensure_sync_iterator
+from aws_sdk_bedrock._services._pipeline import (
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+)
+import aws_sdk_bedrock._auth._signers
+import aws_sdk_bedrock._auth._sigv4
+
+if TYPE_CHECKING:
+    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
+    from aws_sdk_bedrock._services.async_bedrock import (
+        AsyncBedrockClient,
+        AsyncBedrockClientConfig,
+    )
+    import aws_sdk_bedrock.types.data_retention_mode
+    import aws_sdk_bedrock.types.get_account_data_retention_request
+    import aws_sdk_bedrock.types.get_account_data_retention_response
+    import aws_sdk_bedrock.types.put_account_data_retention_request
+    import aws_sdk_bedrock.types.put_account_data_retention_response
+
+
+class DataRetentionResource:
+    def __init__(self, service: BedrockClient) -> None:
+        self._service = service
+
+    def get_account_data_retention(
+        self, *, config_overrides: Optional[BedrockClientConfig] = None
+    ) -> "aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse":
+        """<p>Returns the account-wide data retention mode for Amazon Bedrock.</p>"""
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse"
+        ]:
+            import aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.get_account_data_retention
+
+            output, http_response = (
+                aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.get_account_data_retention.get_account_data_retention(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def put_account_data_retention(
+        self,
+        mode: "aws_sdk_bedrock.types.data_retention_mode.DataRetentionMode",
+        *,
+        config_overrides: Optional[BedrockClientConfig] = None,
+    ) -> "aws_sdk_bedrock.types.put_account_data_retention_response.PutAccountDataRetentionResponse":
+        """<p>Sets the account-wide data retention mode for Amazon Bedrock.</p>
+
+        Args:
+            mode: <p>The data retention mode to set for the account.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock.types.put_account_data_retention_response.PutAccountDataRetentionResponse"
+        ]:
+            import aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.put_account_data_retention
+
+            output, http_response = (
+                aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.put_account_data_retention.put_account_data_retention(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input["mode"] = mode
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncDataRetentionResource:
+    def __init__(self, service: AsyncBedrockClient) -> None:
+        self._service = service
+
+    async def get_account_data_retention(
+        self, *, config_overrides: Optional[AsyncBedrockClientConfig] = None
+    ) -> "aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse":
+        """<p>Returns the account-wide data retention mode for Amazon Bedrock.</p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse"
+        ]:
+            import aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.get_account_data_retention
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.get_account_data_retention.async_get_account_data_retention(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def put_account_data_retention(
+        self,
+        mode: "aws_sdk_bedrock.types.data_retention_mode.DataRetentionMode",
+        *,
+        config_overrides: Optional[AsyncBedrockClientConfig] = None,
+    ) -> "aws_sdk_bedrock.types.put_account_data_retention_response.PutAccountDataRetentionResponse":
+        """<p>Sets the account-wide data retention mode for Amazon Bedrock.</p>
+
+        Args:
+            mode: <p>The data retention mode to set for the account.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock.types.put_account_data_retention_response.PutAccountDataRetentionResponse"
+        ]:
+            import aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.put_account_data_retention
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock._operations.amazon_bedrock_control_plane_service.put_account_data_retention.async_put_account_data_retention(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input["mode"] = mode
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

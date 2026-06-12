@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#TooManyTagKeysException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_comprehend.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.string
+
+
+class TooManyTagKeysException_(TypedDict):
+    message: NotRequired["aws_sdk_comprehend.types.string.String"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TooManyTagKeysException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TooManyTagKeysException_:
+    out: TooManyTagKeysException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class TooManyTagKeysException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.comprehend#TooManyTagKeysException``."""
+
+    code: str | None = "TooManyTagKeysException"
+
+    def __init__(self, data: TooManyTagKeysException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="TooManyTagKeysException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "TooManyTagKeysException":
+        return cls(deserialize_aws_json_1_1(data))

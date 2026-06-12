@@ -1,0 +1,71 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#BatchDeleteTableVersionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_glue.types.batch_delete_table_version_list
+    import aws_sdk_glue.types.catalog_id_string
+    import aws_sdk_glue.types.name_string
+
+
+class BatchDeleteTableVersionRequest(TypedDict):
+    catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
+    """<p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>"""
+    database_name: "aws_sdk_glue.types.name_string.NameString"
+    """<p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>"""
+    table_name: "aws_sdk_glue.types.name_string.NameString"
+    """<p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>"""
+    version_ids: (
+        "aws_sdk_glue.types.batch_delete_table_version_list.BatchDeleteTableVersionList"
+    )
+    """<p>A list of the IDs of versions to be deleted. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BatchDeleteTableVersionRequest) -> dict:
+    out: dict = {}
+    if "catalog_id" in value:
+        out["CatalogId"] = value["catalog_id"]
+    out["DatabaseName"] = value["database_name"]
+    out["TableName"] = value["table_name"]
+    import aws_sdk_glue.types.batch_delete_table_version_list
+
+    out["VersionIds"] = (
+        aws_sdk_glue.types.batch_delete_table_version_list.serialize_aws_json_1_1(
+            value["version_ids"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> BatchDeleteTableVersionRequest:
+    out: BatchDeleteTableVersionRequest = {}  # type: ignore[typeddict-item]
+    if "CatalogId" in data:
+        out["catalog_id"] = data["CatalogId"]
+    if "DatabaseName" in data:
+        out["database_name"] = data["DatabaseName"]
+    else:
+        raise DeserializationError(
+            "BatchDeleteTableVersionRequest.database_name required"
+        )
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("BatchDeleteTableVersionRequest.table_name required")
+    if "VersionIds" in data:
+        import aws_sdk_glue.types.batch_delete_table_version_list
+
+        out["version_ids"] = (
+            aws_sdk_glue.types.batch_delete_table_version_list.deserialize_aws_json_1_1(
+                data["VersionIds"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "BatchDeleteTableVersionRequest.version_ids required"
+        )
+    return out

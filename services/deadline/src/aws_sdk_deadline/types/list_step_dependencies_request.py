@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#ListStepDependenciesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.farm_id
+    import aws_sdk_deadline.types.integer
+    import aws_sdk_deadline.types.job_id
+    import aws_sdk_deadline.types.next_token
+    import aws_sdk_deadline.types.queue_id
+    import aws_sdk_deadline.types.step_id
+
+
+class ListStepDependenciesRequest(TypedDict):
+    farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
+    """<p>The farm ID for the step dependencies list.</p>"""
+    queue_id: "aws_sdk_deadline.types.queue_id.QueueId"
+    """<p>The queue ID for the step dependencies list.</p>"""
+    job_id: "aws_sdk_deadline.types.job_id.JobId"
+    """<p>The job ID for the step dependencies list.</p>"""
+    step_id: "aws_sdk_deadline.types.step_id.StepId"
+    """<p>The step ID to include on the list.</p>"""
+    next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]
+    """<p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>"""
+    max_results: "aws_sdk_deadline.types.integer.Integer"
+    """<p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListStepDependenciesRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListStepDependenciesRequest:
+    out: ListStepDependenciesRequest = {}  # type: ignore[typeddict-item]
+    return out

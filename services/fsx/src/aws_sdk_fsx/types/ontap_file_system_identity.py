@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.fsx#OntapFileSystemIdentity``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_fsx.types.ontap_file_system_user_type
+    import aws_sdk_fsx.types.ontap_unix_file_system_user
+    import aws_sdk_fsx.types.ontap_windows_file_system_user
+
+
+class OntapFileSystemIdentity(TypedDict):
+    type: NotRequired[
+        "aws_sdk_fsx.types.ontap_file_system_user_type.OntapFileSystemUserType"
+    ]
+    """<p>Specifies the FSx for ONTAP user identity type. Valid values are <code>UNIX</code> and <code>WINDOWS</code>.</p>"""
+    unix_user: NotRequired[
+        "aws_sdk_fsx.types.ontap_unix_file_system_user.OntapUnixFileSystemUser"
+    ]
+    """<p>Specifies the UNIX user identity for file system operations.</p>"""
+    windows_user: NotRequired[
+        "aws_sdk_fsx.types.ontap_windows_file_system_user.OntapWindowsFileSystemUser"
+    ]
+    """<p>Specifies the Windows user identity for file system operations.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: OntapFileSystemIdentity) -> dict:
+    out: dict = {}
+    if "type" in value:
+        import aws_sdk_fsx.types.ontap_file_system_user_type
+
+        out["Type"] = (
+            aws_sdk_fsx.types.ontap_file_system_user_type.serialize_aws_json_1_1(
+                value["type"]
+            )
+        )
+    if "unix_user" in value:
+        import aws_sdk_fsx.types.ontap_unix_file_system_user
+
+        out["UnixUser"] = (
+            aws_sdk_fsx.types.ontap_unix_file_system_user.serialize_aws_json_1_1(
+                value["unix_user"]
+            )
+        )
+    if "windows_user" in value:
+        import aws_sdk_fsx.types.ontap_windows_file_system_user
+
+        out["WindowsUser"] = (
+            aws_sdk_fsx.types.ontap_windows_file_system_user.serialize_aws_json_1_1(
+                value["windows_user"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> OntapFileSystemIdentity:
+    out: OntapFileSystemIdentity = {}  # type: ignore[typeddict-item]
+    if "Type" in data:
+        import aws_sdk_fsx.types.ontap_file_system_user_type
+
+        out["type"] = (
+            aws_sdk_fsx.types.ontap_file_system_user_type.deserialize_aws_json_1_1(
+                data["Type"]
+            )
+        )
+    if "UnixUser" in data:
+        import aws_sdk_fsx.types.ontap_unix_file_system_user
+
+        out["unix_user"] = (
+            aws_sdk_fsx.types.ontap_unix_file_system_user.deserialize_aws_json_1_1(
+                data["UnixUser"]
+            )
+        )
+    if "WindowsUser" in data:
+        import aws_sdk_fsx.types.ontap_windows_file_system_user
+
+        out["windows_user"] = (
+            aws_sdk_fsx.types.ontap_windows_file_system_user.deserialize_aws_json_1_1(
+                data["WindowsUser"]
+            )
+        )
+    return out

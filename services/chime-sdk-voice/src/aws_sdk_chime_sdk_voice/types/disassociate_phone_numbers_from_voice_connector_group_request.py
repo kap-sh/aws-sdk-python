@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkvoice#DisassociatePhoneNumbersFromVoiceConnectorGroupRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_chime_sdk_voice.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_voice.types.e164_phone_number_list
+    import aws_sdk_chime_sdk_voice.types.non_empty_string
+
+
+class DisassociatePhoneNumbersFromVoiceConnectorGroupRequest(TypedDict):
+    voice_connector_group_id: (
+        "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
+    )
+    """<p>The Voice Connector group ID.</p>"""
+    e164_phone_numbers: (
+        "aws_sdk_chime_sdk_voice.types.e164_phone_number_list.E164PhoneNumberList"
+    )
+    """<p>The list of phone numbers, in E.164 format.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(
+    value: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
+) -> dict:
+    out: dict = {}
+    import aws_sdk_chime_sdk_voice.types.e164_phone_number_list
+
+    out["E164PhoneNumbers"] = (
+        aws_sdk_chime_sdk_voice.types.e164_phone_number_list.serialize_json(
+            value["e164_phone_numbers"]
+        )
+    )
+    return out
+
+
+def deserialize_json(
+    data: dict,
+) -> DisassociatePhoneNumbersFromVoiceConnectorGroupRequest:
+    out: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest = {}  # type: ignore[typeddict-item]
+    if "E164PhoneNumbers" in data:
+        import aws_sdk_chime_sdk_voice.types.e164_phone_number_list
+
+        out["e164_phone_numbers"] = (
+            aws_sdk_chime_sdk_voice.types.e164_phone_number_list.deserialize_json(
+                data["E164PhoneNumbers"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DisassociatePhoneNumbersFromVoiceConnectorGroupRequest.e164_phone_numbers required"
+        )
+    return out

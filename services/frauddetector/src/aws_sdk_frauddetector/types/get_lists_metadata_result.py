@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.frauddetector#GetListsMetadataResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_frauddetector.types.allow_deny_lists
+    import aws_sdk_frauddetector.types.next_token
+
+
+class GetListsMetadataResult(TypedDict):
+    lists: NotRequired["aws_sdk_frauddetector.types.allow_deny_lists.AllowDenyLists"]
+    """<p> The metadata of the specified list or all lists under the account. </p>"""
+    next_token: NotRequired["aws_sdk_frauddetector.types.next_token.nextToken"]
+    """<p> The next page token. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetListsMetadataResult) -> dict:
+    out: dict = {}
+    if "lists" in value:
+        import aws_sdk_frauddetector.types.allow_deny_lists
+
+        out["lists"] = (
+            aws_sdk_frauddetector.types.allow_deny_lists.serialize_aws_json_1_1(
+                value["lists"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetListsMetadataResult:
+    out: GetListsMetadataResult = {}  # type: ignore[typeddict-item]
+    if "lists" in data:
+        import aws_sdk_frauddetector.types.allow_deny_lists
+
+        out["lists"] = (
+            aws_sdk_frauddetector.types.allow_deny_lists.deserialize_aws_json_1_1(
+                data["lists"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

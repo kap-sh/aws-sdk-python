@@ -1,0 +1,106 @@
+"""Generated from Smithy shape ``com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfigurationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_lakeformation.types.catalog_id_string
+    import aws_sdk_lakeformation.types.data_lake_principal_list
+    import aws_sdk_lakeformation.types.external_filtering_configuration
+    import aws_sdk_lakeformation.types.identity_center_instance_arn
+    import aws_sdk_lakeformation.types.service_integration_list
+
+
+class CreateLakeFormationIdentityCenterConfigurationRequest(TypedDict):
+    catalog_id: NotRequired[
+        "aws_sdk_lakeformation.types.catalog_id_string.CatalogIdString"
+    ]
+    """<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment.</p>"""
+    instance_arn: NotRequired[
+        "aws_sdk_lakeformation.types.identity_center_instance_arn.IdentityCenterInstanceArn"
+    ]
+    """<p>The ARN of the IAM Identity Center instance for which the operation will be executed. For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces in the Amazon Web Services General Reference.</p>"""
+    external_filtering: NotRequired[
+        "aws_sdk_lakeformation.types.external_filtering_configuration.ExternalFilteringConfiguration"
+    ]
+    """<p>A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation.</p>"""
+    share_recipients: NotRequired[
+        "aws_sdk_lakeformation.types.data_lake_principal_list.DataLakePrincipalList"
+    ]
+    """<p>A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs that are allowed to access data managed by Lake Formation. </p> <p>If the <code>ShareRecipients</code> list includes valid values, a resource share is created with the principals you want to have access to the resources.</p> <p>If the <code>ShareRecipients</code> value is null or the list is empty, no resource share is created.</p>"""
+    service_integrations: NotRequired[
+        "aws_sdk_lakeformation.types.service_integration_list.ServiceIntegrationList"
+    ]
+    """<p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(
+    value: CreateLakeFormationIdentityCenterConfigurationRequest,
+) -> dict:
+    out: dict = {}
+    if "catalog_id" in value:
+        out["CatalogId"] = value["catalog_id"]
+    if "instance_arn" in value:
+        out["InstanceArn"] = value["instance_arn"]
+    if "external_filtering" in value:
+        import aws_sdk_lakeformation.types.external_filtering_configuration
+
+        out["ExternalFiltering"] = (
+            aws_sdk_lakeformation.types.external_filtering_configuration.serialize_json(
+                value["external_filtering"]
+            )
+        )
+    if "share_recipients" in value:
+        import aws_sdk_lakeformation.types.data_lake_principal_list
+
+        out["ShareRecipients"] = (
+            aws_sdk_lakeformation.types.data_lake_principal_list.serialize_json(
+                value["share_recipients"]
+            )
+        )
+    if "service_integrations" in value:
+        import aws_sdk_lakeformation.types.service_integration_list
+
+        out["ServiceIntegrations"] = (
+            aws_sdk_lakeformation.types.service_integration_list.serialize_json(
+                value["service_integrations"]
+            )
+        )
+    return out
+
+
+def deserialize_json(
+    data: dict,
+) -> CreateLakeFormationIdentityCenterConfigurationRequest:
+    out: CreateLakeFormationIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
+    if "CatalogId" in data:
+        out["catalog_id"] = data["CatalogId"]
+    if "InstanceArn" in data:
+        out["instance_arn"] = data["InstanceArn"]
+    if "ExternalFiltering" in data:
+        import aws_sdk_lakeformation.types.external_filtering_configuration
+
+        out["external_filtering"] = (
+            aws_sdk_lakeformation.types.external_filtering_configuration.deserialize_json(
+                data["ExternalFiltering"]
+            )
+        )
+    if "ShareRecipients" in data:
+        import aws_sdk_lakeformation.types.data_lake_principal_list
+
+        out["share_recipients"] = (
+            aws_sdk_lakeformation.types.data_lake_principal_list.deserialize_json(
+                data["ShareRecipients"]
+            )
+        )
+    if "ServiceIntegrations" in data:
+        import aws_sdk_lakeformation.types.service_integration_list
+
+        out["service_integrations"] = (
+            aws_sdk_lakeformation.types.service_integration_list.deserialize_json(
+                data["ServiceIntegrations"]
+            )
+        )
+    return out

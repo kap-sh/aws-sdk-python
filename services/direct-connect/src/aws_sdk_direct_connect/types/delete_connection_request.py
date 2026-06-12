@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.directconnect#DeleteConnectionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_direct_connect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_direct_connect.types.connection_id
+
+
+class DeleteConnectionRequest(TypedDict):
+    connection_id: "aws_sdk_direct_connect.types.connection_id.ConnectionId"
+    """<p>The ID of the connection.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteConnectionRequest) -> dict:
+    out: dict = {}
+    out["connectionId"] = value["connection_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteConnectionRequest:
+    out: DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+    if "connectionId" in data:
+        out["connection_id"] = data["connectionId"]
+    else:
+        raise DeserializationError("DeleteConnectionRequest.connection_id required")
+    return out

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.memorydb#DescribeReservedNodesOfferingsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_memorydb.types.reserved_nodes_offering_list
+    import aws_sdk_memorydb.types.string
+
+
+class DescribeReservedNodesOfferingsResponse(TypedDict):
+    next_token: NotRequired["aws_sdk_memorydb.types.string.String"]
+    """<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>"""
+    reserved_nodes_offerings: NotRequired[
+        "aws_sdk_memorydb.types.reserved_nodes_offering_list.ReservedNodesOfferingList"
+    ]
+    """<p>Lists available reserved node offerings.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeReservedNodesOfferingsResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "reserved_nodes_offerings" in value:
+        import aws_sdk_memorydb.types.reserved_nodes_offering_list
+
+        out["ReservedNodesOfferings"] = (
+            aws_sdk_memorydb.types.reserved_nodes_offering_list.serialize_aws_json_1_1(
+                value["reserved_nodes_offerings"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeReservedNodesOfferingsResponse:
+    out: DescribeReservedNodesOfferingsResponse = {}  # type: ignore[typeddict-item]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "ReservedNodesOfferings" in data:
+        import aws_sdk_memorydb.types.reserved_nodes_offering_list
+
+        out["reserved_nodes_offerings"] = (
+            aws_sdk_memorydb.types.reserved_nodes_offering_list.deserialize_aws_json_1_1(
+                data["ReservedNodesOfferings"]
+            )
+        )
+    return out

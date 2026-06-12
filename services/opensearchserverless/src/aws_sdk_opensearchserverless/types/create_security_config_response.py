@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.opensearchserverless#CreateSecurityConfigResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_opensearchserverless.types.security_config_detail
+
+
+class CreateSecurityConfigResponse(TypedDict):
+    security_config_detail: NotRequired[
+        "aws_sdk_opensearchserverless.types.security_config_detail.SecurityConfigDetail"
+    ]
+    """<p>Details about the created security configuration.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CreateSecurityConfigResponse) -> dict:
+    out: dict = {}
+    if "security_config_detail" in value:
+        import aws_sdk_opensearchserverless.types.security_config_detail
+
+        out["securityConfigDetail"] = (
+            aws_sdk_opensearchserverless.types.security_config_detail.serialize_aws_json_1_0(
+                value["security_config_detail"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CreateSecurityConfigResponse:
+    out: CreateSecurityConfigResponse = {}  # type: ignore[typeddict-item]
+    if "securityConfigDetail" in data:
+        import aws_sdk_opensearchserverless.types.security_config_detail
+
+        out["security_config_detail"] = (
+            aws_sdk_opensearchserverless.types.security_config_detail.deserialize_aws_json_1_0(
+                data["securityConfigDetail"]
+            )
+        )
+    return out

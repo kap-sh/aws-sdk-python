@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#OriginMtlsConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cloudfront._protocol.xml import Element, SubElement
+from aws_sdk_cloudfront.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudfront.types.string
+
+
+class OriginMtlsConfig(TypedDict):
+    client_certificate_arn: "aws_sdk_cloudfront.types.string.string"
+    """<p>The Amazon Resource Name (ARN) of the client certificate stored in Amazon Web Services Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: OriginMtlsConfig, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "ClientCertificateArn").text = str(value["client_certificate_arn"])
+
+
+def deserialize_xml(el: Element) -> OriginMtlsConfig:
+    out: OriginMtlsConfig = {}  # type: ignore[typeddict-item]
+    child_client_certificate_arn = el.find("ClientCertificateArn")
+    if child_client_certificate_arn is not None:
+        out["client_certificate_arn"] = str(child_client_certificate_arn.text or "")
+    else:
+        raise DeserializationError("OriginMtlsConfig.client_certificate_arn required")
+    return out

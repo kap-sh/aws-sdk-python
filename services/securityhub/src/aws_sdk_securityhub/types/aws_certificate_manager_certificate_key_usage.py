@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#AwsCertificateManagerCertificateKeyUsage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.non_empty_string
+
+
+class AwsCertificateManagerCertificateKeyUsage(TypedDict):
+    name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p>The key usage extension name.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AwsCertificateManagerCertificateKeyUsage) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    return out
+
+
+def deserialize_json(data: dict) -> AwsCertificateManagerCertificateKeyUsage:
+    out: AwsCertificateManagerCertificateKeyUsage = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    return out

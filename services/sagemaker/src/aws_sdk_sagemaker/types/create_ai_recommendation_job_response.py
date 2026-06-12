@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#CreateAIRecommendationJobResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.ai_recommendation_job_arn
+
+
+class CreateAIRecommendationJobResponse(TypedDict):
+    ai_recommendation_job_arn: NotRequired[
+        "aws_sdk_sagemaker.types.ai_recommendation_job_arn.AIRecommendationJobArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the created recommendation job.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateAIRecommendationJobResponse) -> dict:
+    out: dict = {}
+    if "ai_recommendation_job_arn" in value:
+        out["AIRecommendationJobArn"] = value["ai_recommendation_job_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateAIRecommendationJobResponse:
+    out: CreateAIRecommendationJobResponse = {}  # type: ignore[typeddict-item]
+    if "AIRecommendationJobArn" in data:
+        out["ai_recommendation_job_arn"] = data["AIRecommendationJobArn"]
+    return out

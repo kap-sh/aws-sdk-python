@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.appsync#UpdateDomainNameRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appsync.types.description
+    import aws_sdk_appsync.types.domain_name
+
+
+class UpdateDomainNameRequest(TypedDict):
+    domain_name: "aws_sdk_appsync.types.domain_name.DomainName"
+    """<p>The domain name.</p>"""
+    description: NotRequired["aws_sdk_appsync.types.description.Description"]
+    """<p>A description of the <code>DomainName</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateDomainNameRequest) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateDomainNameRequest:
+    out: UpdateDomainNameRequest = {}  # type: ignore[typeddict-item]
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

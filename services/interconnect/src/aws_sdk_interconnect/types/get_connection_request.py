@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.interconnect#GetConnectionRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_interconnect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_interconnect.types.connection_id
+
+
+class GetConnectionRequest(TypedDict):
+    identifier: "aws_sdk_interconnect.types.connection_id.ConnectionId"
+    """<p>The identifier of the requested <a>Connection</a> </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetConnectionRequest) -> dict:
+    out: dict = {}
+    out["identifier"] = value["identifier"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetConnectionRequest:
+    out: GetConnectionRequest = {}  # type: ignore[typeddict-item]
+    if "identifier" in data:
+        out["identifier"] = data["identifier"]
+    else:
+        raise DeserializationError("GetConnectionRequest.identifier required")
+    return out

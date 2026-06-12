@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#DeleteCallAnalyticsJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_transcribe.types.call_analytics_job_name
+
+
+class DeleteCallAnalyticsJobRequest(TypedDict):
+    call_analytics_job_name: (
+        "aws_sdk_transcribe.types.call_analytics_job_name.CallAnalyticsJobName"
+    )
+    """<p>The name of the Call Analytics job you want to delete. Job names are case sensitive.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteCallAnalyticsJobRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteCallAnalyticsJobRequest:
+    out: DeleteCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
+    return out

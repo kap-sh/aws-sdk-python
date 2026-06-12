@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.amplify#CreateWebhookRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_amplify.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_amplify.types.app_id
+    import aws_sdk_amplify.types.branch_name
+    import aws_sdk_amplify.types.description
+
+
+class CreateWebhookRequest(TypedDict):
+    app_id: "aws_sdk_amplify.types.app_id.AppId"
+    """<p>The unique ID for an Amplify app. </p>"""
+    branch_name: "aws_sdk_amplify.types.branch_name.BranchName"
+    """<p>The name for a branch that is part of an Amplify app. </p>"""
+    description: NotRequired["aws_sdk_amplify.types.description.Description"]
+    """<p>The description for a webhook. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateWebhookRequest) -> dict:
+    out: dict = {}
+    out["branchName"] = value["branch_name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateWebhookRequest:
+    out: CreateWebhookRequest = {}  # type: ignore[typeddict-item]
+    if "branchName" in data:
+        out["branch_name"] = data["branchName"]
+    else:
+        raise DeserializationError("CreateWebhookRequest.branch_name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

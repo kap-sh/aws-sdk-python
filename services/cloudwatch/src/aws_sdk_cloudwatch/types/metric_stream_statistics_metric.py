@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#MetricStreamStatisticsMetric``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.metric_name
+    import aws_sdk_cloudwatch.types.namespace
+
+
+class MetricStreamStatisticsMetric(TypedDict):
+    namespace: NotRequired["aws_sdk_cloudwatch.types.namespace.Namespace"]
+    """<p>The namespace of the metric.</p>"""
+    metric_name: NotRequired["aws_sdk_cloudwatch.types.metric_name.MetricName"]
+    """<p>The name of the metric.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: MetricStreamStatisticsMetric) -> dict:
+    out: dict = {}
+    if "namespace" in value:
+        out["Namespace"] = value["namespace"]
+    if "metric_name" in value:
+        out["MetricName"] = value["metric_name"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> MetricStreamStatisticsMetric:
+    out: MetricStreamStatisticsMetric = {}  # type: ignore[typeddict-item]
+    if "Namespace" in data:
+        out["namespace"] = data["Namespace"]
+    if "MetricName" in data:
+        out["metric_name"] = data["MetricName"]
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: MetricStreamStatisticsMetric, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "namespace" in value:
+        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+    if "metric_name" in value:
+        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+
+
+def deserialize_query(el: Element) -> MetricStreamStatisticsMetric:
+    out: MetricStreamStatisticsMetric = {}  # type: ignore[typeddict-item]
+    child_namespace = el.find("Namespace")
+    if child_namespace is not None:
+        out["namespace"] = str(child_namespace.text or "")
+    child_metric_name = el.find("MetricName")
+    if child_metric_name is not None:
+        out["metric_name"] = str(child_metric_name.text or "")
+    return out

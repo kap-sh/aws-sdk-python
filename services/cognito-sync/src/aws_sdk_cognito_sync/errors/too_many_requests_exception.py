@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitosync#TooManyRequestsException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cognito_sync.errors import DeserializationError, ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_sync.types.exception_message
+
+
+class TooManyRequestsException_(TypedDict):
+    message: "aws_sdk_cognito_sync.types.exception_message.ExceptionMessage"
+    """Message returned by a TooManyRequestsException."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TooManyRequestsException_) -> dict:
+    out: dict = {}
+    out["message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> TooManyRequestsException_:
+    out: TooManyRequestsException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    else:
+        raise DeserializationError("TooManyRequestsException_.message required")
+    return out
+
+
+class TooManyRequestsException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.cognitosync#TooManyRequestsException``."""
+
+    code: str | None = "TooManyRequestsException"
+
+    def __init__(self, data: TooManyRequestsException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="TooManyRequestsException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "TooManyRequestsException":
+        return cls(deserialize_json(data))

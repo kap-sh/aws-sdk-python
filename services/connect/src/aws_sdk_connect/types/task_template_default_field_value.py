@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#TaskTemplateDefaultFieldValue``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_connect.types.task_template_field_identifier
+    import aws_sdk_connect.types.task_template_field_value
+
+
+class TaskTemplateDefaultFieldValue(TypedDict):
+    id: NotRequired[
+        "aws_sdk_connect.types.task_template_field_identifier.TaskTemplateFieldIdentifier"
+    ]
+    """<p>Identifier of a field. </p>"""
+    default_value: NotRequired[
+        "aws_sdk_connect.types.task_template_field_value.TaskTemplateFieldValue"
+    ]
+    """<p>Default value for the field.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TaskTemplateDefaultFieldValue) -> dict:
+    out: dict = {}
+    if "id" in value:
+        import aws_sdk_connect.types.task_template_field_identifier
+
+        out["Id"] = aws_sdk_connect.types.task_template_field_identifier.serialize_json(
+            value["id"]
+        )
+    if "default_value" in value:
+        out["DefaultValue"] = value["default_value"]
+    return out
+
+
+def deserialize_json(data: dict) -> TaskTemplateDefaultFieldValue:
+    out: TaskTemplateDefaultFieldValue = {}  # type: ignore[typeddict-item]
+    if "Id" in data:
+        import aws_sdk_connect.types.task_template_field_identifier
+
+        out["id"] = (
+            aws_sdk_connect.types.task_template_field_identifier.deserialize_json(
+                data["Id"]
+            )
+        )
+    if "DefaultValue" in data:
+        out["default_value"] = data["DefaultValue"]
+    return out

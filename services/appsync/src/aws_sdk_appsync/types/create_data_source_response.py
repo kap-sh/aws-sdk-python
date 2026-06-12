@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.appsync#CreateDataSourceResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appsync.types.data_source
+
+
+class CreateDataSourceResponse(TypedDict):
+    data_source: NotRequired["aws_sdk_appsync.types.data_source.DataSource"]
+    """<p>The <code>DataSource</code> object.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateDataSourceResponse) -> dict:
+    out: dict = {}
+    if "data_source" in value:
+        import aws_sdk_appsync.types.data_source
+
+        out["dataSource"] = aws_sdk_appsync.types.data_source.serialize_json(
+            value["data_source"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateDataSourceResponse:
+    out: CreateDataSourceResponse = {}  # type: ignore[typeddict-item]
+    if "dataSource" in data:
+        import aws_sdk_appsync.types.data_source
+
+        out["data_source"] = aws_sdk_appsync.types.data_source.deserialize_json(
+            data["dataSource"]
+        )
+    return out

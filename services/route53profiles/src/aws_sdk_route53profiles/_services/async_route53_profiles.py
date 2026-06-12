@@ -1,0 +1,974 @@
+"""Generated from Smithy shape ``com.amazonaws.route53profiles#Route53Profiles``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+import aws_sdk_route53profiles._auth._signers
+import aws_sdk_route53profiles._auth._sigv4
+from aws_sdk_route53profiles._auth._identity import Credentials
+from aws_sdk_route53profiles._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_route53profiles._auth._zapros_handler import AuthMiddleware
+from aws_sdk_route53profiles._pagination import resolve_path as _resolve_path
+from aws_sdk_route53profiles._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_route53profiles.types.arn
+    import aws_sdk_route53profiles.types.associate_profile_request
+    import aws_sdk_route53profiles.types.associate_profile_response
+    import aws_sdk_route53profiles.types.associate_resource_to_profile_request
+    import aws_sdk_route53profiles.types.associate_resource_to_profile_response
+    import aws_sdk_route53profiles.types.create_profile_request
+    import aws_sdk_route53profiles.types.create_profile_response
+    import aws_sdk_route53profiles.types.creator_request_id
+    import aws_sdk_route53profiles.types.delete_profile_request
+    import aws_sdk_route53profiles.types.delete_profile_response
+    import aws_sdk_route53profiles.types.disassociate_profile_request
+    import aws_sdk_route53profiles.types.disassociate_profile_response
+    import aws_sdk_route53profiles.types.disassociate_resource_from_profile_request
+    import aws_sdk_route53profiles.types.disassociate_resource_from_profile_response
+    import aws_sdk_route53profiles.types.get_profile_association_request
+    import aws_sdk_route53profiles.types.get_profile_association_response
+    import aws_sdk_route53profiles.types.get_profile_request
+    import aws_sdk_route53profiles.types.get_profile_resource_association_request
+    import aws_sdk_route53profiles.types.get_profile_resource_association_response
+    import aws_sdk_route53profiles.types.get_profile_response
+    import aws_sdk_route53profiles.types.list_profile_associations_request
+    import aws_sdk_route53profiles.types.list_profile_associations_response
+    import aws_sdk_route53profiles.types.list_profile_resource_associations_request
+    import aws_sdk_route53profiles.types.list_profile_resource_associations_response
+    import aws_sdk_route53profiles.types.list_profiles_request
+    import aws_sdk_route53profiles.types.list_profiles_response
+    import aws_sdk_route53profiles.types.list_tags_for_resource_request
+    import aws_sdk_route53profiles.types.list_tags_for_resource_response
+    import aws_sdk_route53profiles.types.max_results
+    import aws_sdk_route53profiles.types.name
+    import aws_sdk_route53profiles.types.next_token
+    import aws_sdk_route53profiles.types.profile_association
+    import aws_sdk_route53profiles.types.profile_resource_association
+    import aws_sdk_route53profiles.types.profile_summary
+    import aws_sdk_route53profiles.types.resource_id
+    import aws_sdk_route53profiles.types.resource_properties
+    import aws_sdk_route53profiles.types.string
+    import aws_sdk_route53profiles.types.tag_key_list
+    import aws_sdk_route53profiles.types.tag_list
+    import aws_sdk_route53profiles.types.tag_map
+    import aws_sdk_route53profiles.types.tag_resource_request
+    import aws_sdk_route53profiles.types.tag_resource_response
+    import aws_sdk_route53profiles.types.untag_resource_request
+    import aws_sdk_route53profiles.types.untag_resource_response
+    import aws_sdk_route53profiles.types.update_profile_resource_association_request
+    import aws_sdk_route53profiles.types.update_profile_resource_association_response
+
+
+class AsyncRoute53ProfilesClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncRoute53ProfilesClient:
+    """A client for the ``Route53Profiles`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncRoute53ProfilesClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncRoute53ProfilesClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def associate_profile(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        resource_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        name: "aws_sdk_route53profiles.types.name.Name",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        tags: Optional["aws_sdk_route53profiles.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_route53profiles.types.associate_profile_response.AssociateProfileResponse":
+        """<p> Associates a Route 53 Profiles profile with a VPC. A VPC can have only one Profile associated with it, but a Profile can be associated with 1000 of VPCs (and you can request a higher quota). For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities\">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities</a>. </p>
+
+        Args:
+            profile_id: <p> ID of the Profile. </p>
+            resource_id: <p> The ID of the VPC. </p>
+            name: <p> A name for the association. </p>
+            tags: <p> A list of the tag keys and values that you want to identify the Profile association. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.associate_profile_request.AssociateProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.associate_profile_response.AssociateProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.associate_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.associate_profile.async_associate_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.associate_profile_request.AssociateProfileRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+        input["resource_id"] = resource_id
+        input["name"] = name
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def associate_resource_to_profile(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        resource_arn: "aws_sdk_route53profiles.types.arn.Arn",
+        name: "aws_sdk_route53profiles.types.name.Name",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        resource_properties: Optional[
+            "aws_sdk_route53profiles.types.resource_properties.ResourceProperties"
+        ] = None,
+    ) -> "aws_sdk_route53profiles.types.associate_resource_to_profile_response.AssociateResourceToProfileResponse":
+        """<p> Associates a DNS reource configuration to a Route 53 Profile. </p>
+
+        Args:
+            profile_id: <p> ID of the Profile. </p>
+            resource_arn: <p> Amazon resource number, ARN, of the DNS resource. </p>
+            name: <p> Name for the resource association. </p>
+            resource_properties: <p> If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value. </p> <p>The allowed values for priority are between 100 and 9900.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.associate_resource_to_profile_request.AssociateResourceToProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.associate_resource_to_profile_response.AssociateResourceToProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.associate_resource_to_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.associate_resource_to_profile.async_associate_resource_to_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.associate_resource_to_profile_request.AssociateResourceToProfileRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+        input["resource_arn"] = resource_arn
+        input["name"] = name
+        if resource_properties is not None:
+            input["resource_properties"] = resource_properties
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_profile(
+        self,
+        name: "aws_sdk_route53profiles.types.name.Name",
+        client_token: "aws_sdk_route53profiles.types.creator_request_id.CreatorRequestId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        tags: Optional["aws_sdk_route53profiles.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_route53profiles.types.create_profile_response.CreateProfileResponse":
+        """<p> Creates an empty Route 53 Profile. </p>
+
+        Args:
+            name: <p> A name for the Profile. </p>
+            client_token: <p> <code>ClientToken</code> is an idempotency token that ensures a call to <code>CreateProfile</code> completes only once. You choose the value to pass. For example, an issue might prevent you from getting a response from <code>CreateProfile</code>. In this case, safely retry your call to <code>CreateProfile</code> by using the same <code>CreateProfile</code> parameter value. </p>
+            tags: <p> A list of the tag keys and values that you want to associate with the Route 53 Profile. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.create_profile_request.CreateProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.create_profile_response.CreateProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.create_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.create_profile.async_create_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_profile(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.delete_profile_response.DeleteProfileResponse":
+        """<p> Deletes the specified Route 53 Profile. Before you can delete a profile, you must first disassociate it from all VPCs. </p>
+
+        Args:
+            profile_id: <p> The ID of the Profile that you want to delete. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.delete_profile_request.DeleteProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.delete_profile_response.DeleteProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.delete_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.delete_profile.async_delete_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def disassociate_profile(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        resource_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.disassociate_profile_response.DisassociateProfileResponse":
+        """<p> Dissociates a specified Route 53 Profile from the specified VPC. </p>
+
+        Args:
+            profile_id: <p> ID of the Profile. </p>
+            resource_id: <p> The ID of the VPC. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.disassociate_profile_request.DisassociateProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.disassociate_profile_response.DisassociateProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.disassociate_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.disassociate_profile.async_disassociate_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.disassociate_profile_request.DisassociateProfileRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+        input["resource_id"] = resource_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def disassociate_resource_from_profile(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        resource_arn: "aws_sdk_route53profiles.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.disassociate_resource_from_profile_response.DisassociateResourceFromProfileResponse":
+        """<p> Dissoaciated a specified resource, from the Route 53 Profile. </p>
+
+        Args:
+            profile_id: <p> The ID of the Profile. </p>
+            resource_arn: <p>The Amazon Resource Name (ARN) of the resource. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.disassociate_resource_from_profile_request.DisassociateResourceFromProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.disassociate_resource_from_profile_response.DisassociateResourceFromProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.disassociate_resource_from_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.disassociate_resource_from_profile.async_disassociate_resource_from_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.disassociate_resource_from_profile_request.DisassociateResourceFromProfileRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+        input["resource_arn"] = resource_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_profile(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.get_profile_response.GetProfileResponse":
+        """<p> Returns information about a specified Route 53 Profile, such as whether whether the Profile is shared, and the current status of the Profile. </p>
+
+        Args:
+            profile_id: <p> ID of the Profile. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.get_profile_request.GetProfileRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.get_profile_response.GetProfileResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.get_profile
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.get_profile.async_get_profile(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_profile_association(
+        self,
+        profile_association_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.get_profile_association_response.GetProfileAssociationResponse":
+        """<p> Retrieves a Route 53 Profile association for a VPC. A VPC can have only one Profile association, but a Profile can be associated with up to 5000 VPCs. </p>
+
+        Args:
+            profile_association_id: <p> The identifier of the association you want to get information about. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.get_profile_association_request.GetProfileAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.get_profile_association_response.GetProfileAssociationResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.get_profile_association
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.get_profile_association.async_get_profile_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.get_profile_association_request.GetProfileAssociationRequest = {}  # type: ignore[typeddict-item]
+        input["profile_association_id"] = profile_association_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_profile_resource_association(
+        self,
+        profile_resource_association_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.get_profile_resource_association_response.GetProfileResourceAssociationResponse":
+        """<p> Returns information about a specified Route 53 Profile resource association. </p>
+
+        Args:
+            profile_resource_association_id: <p> The ID of the profile resource association that you want to get information about. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.get_profile_resource_association_request.GetProfileResourceAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.get_profile_resource_association_response.GetProfileResourceAssociationResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.get_profile_resource_association
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.get_profile_resource_association.async_get_profile_resource_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.get_profile_resource_association_request.GetProfileResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input["profile_resource_association_id"] = profile_resource_association_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_profile_associations(
+        self,
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        resource_id: Optional[
+            "aws_sdk_route53profiles.types.resource_id.ResourceId"
+        ] = None,
+        profile_id: Optional[
+            "aws_sdk_route53profiles.types.resource_id.ResourceId"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_route53profiles.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_route53profiles.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_route53profiles.types.list_profile_associations_response.ListProfileAssociationsResponse":
+        """<p> Lists all the VPCs that the specified Route 53 Profile is associated with. </p>
+
+        Args:
+            resource_id: <p> ID of the VPC. </p>
+            profile_id: <p> ID of the Profile. </p>
+            max_results: <p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>
+            next_token: <p> For the first call to this list request, omit this value. </p> <p>When you request a list of objects, at most the number of objects specified by <code>MaxResults</code> is returned. If more objects are available for retrieval, a <code>NextToken</code> value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.list_profile_associations_request.ListProfileAssociationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.list_profile_associations_response.ListProfileAssociationsResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.list_profile_associations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.list_profile_associations.async_list_profile_associations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.list_profile_associations_request.ListProfileAssociationsRequest = {}  # type: ignore[typeddict-item]
+        if resource_id is not None:
+            input["resource_id"] = resource_id
+        if profile_id is not None:
+            input["profile_id"] = profile_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_profile_associations(
+        self,
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        resource_id: Optional[
+            "aws_sdk_route53profiles.types.resource_id.ResourceId"
+        ] = None,
+        profile_id: Optional[
+            "aws_sdk_route53profiles.types.resource_id.ResourceId"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_route53profiles.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_route53profiles.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_route53profiles.types.profile_association.ProfileAssociation]":
+        _token = next_token
+        while True:
+            _response = await self.list_profile_associations(
+                config_overrides=config_overrides,
+                resource_id=resource_id,
+                profile_id=profile_id,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("profile_associations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_profile_resource_associations(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        resource_type: Optional["aws_sdk_route53profiles.types.string.String"] = None,
+        max_results: Optional[
+            "aws_sdk_route53profiles.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_route53profiles.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_route53profiles.types.list_profile_resource_associations_response.ListProfileResourceAssociationsResponse":
+        """<p> Lists all the resource associations for the specified Route 53 Profile. </p>
+
+        Args:
+            profile_id: <p> The ID of the Profile. </p>
+            resource_type: <p> ID of a resource if you want information on only one type. </p>
+            max_results: <p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>
+            next_token: <p> For the first call to this list request, omit this value. </p> <p>When you request a list of objects, at most the number of objects specified by <code>MaxResults</code> is returned. If more objects are available for retrieval, a <code>NextToken</code> value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.list_profile_resource_associations_request.ListProfileResourceAssociationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.list_profile_resource_associations_response.ListProfileResourceAssociationsResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.list_profile_resource_associations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.list_profile_resource_associations.async_list_profile_resource_associations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.list_profile_resource_associations_request.ListProfileResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input["profile_id"] = profile_id
+        if resource_type is not None:
+            input["resource_type"] = resource_type
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_profile_resource_associations(
+        self,
+        profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        resource_type: Optional["aws_sdk_route53profiles.types.string.String"] = None,
+        max_results: Optional[
+            "aws_sdk_route53profiles.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_route53profiles.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_route53profiles.types.profile_resource_association.ProfileResourceAssociation]":
+        _token = next_token
+        while True:
+            _response = await self.list_profile_resource_associations(
+                profile_id,
+                config_overrides=config_overrides,
+                resource_type=resource_type,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("profile_resource_associations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_profiles(
+        self,
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_route53profiles.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_route53profiles.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_route53profiles.types.list_profiles_response.ListProfilesResponse":
+        """<p> Lists all the Route 53 Profiles associated with your Amazon Web Services account. </p>
+
+        Args:
+            max_results: <p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>
+            next_token: <p> For the first call to this list request, omit this value. </p> <p>When you request a list of objects, at most the number of objects specified by <code>MaxResults</code> is returned. If more objects are available for retrieval, a <code>NextToken</code> value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.list_profiles_request.ListProfilesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.list_profiles_response.ListProfilesResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.list_profiles
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.list_profiles.async_list_profiles(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_profiles(
+        self,
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_route53profiles.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_route53profiles.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_route53profiles.types.profile_summary.ProfileSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_profiles(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("profile_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_route53profiles.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p> Lists the tags that you associated with the specified resource. </p>
+
+        Args:
+            resource_arn: <p> The Amazon Resource Name (ARN) for the resource that you want to list the tags for. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        resource_arn: "aws_sdk_route53profiles.types.arn.Arn",
+        tags: "aws_sdk_route53profiles.types.tag_map.TagMap",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.tag_resource_response.TagResourceResponse":
+        """<p> Adds one or more tags to a specified resource. </p>
+
+        Args:
+            resource_arn: <p> The Amazon Resource Name (ARN) for the resource that you want to add tags to. </p>
+            tags: <p> The tags that you want to add to the specified resource. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        resource_arn: "aws_sdk_route53profiles.types.arn.Arn",
+        tag_keys: "aws_sdk_route53profiles.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+    ) -> "aws_sdk_route53profiles.types.untag_resource_response.UntagResourceResponse":
+        """<p> Removes one or more tags from a specified resource. </p>
+
+        Args:
+            resource_arn: <p> The Amazon Resource Name (ARN) for the resource that you want to remove tags from. </p>
+            tag_keys: <p> The tags that you want to remove to the specified resource. </p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_profile_resource_association(
+        self,
+        profile_resource_association_id: "aws_sdk_route53profiles.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
+        name: Optional["aws_sdk_route53profiles.types.name.Name"] = None,
+        resource_properties: Optional[
+            "aws_sdk_route53profiles.types.resource_properties.ResourceProperties"
+        ] = None,
+    ) -> "aws_sdk_route53profiles.types.update_profile_resource_association_response.UpdateProfileResourceAssociationResponse":
+        """<p> Updates the specified Route 53 Profile resourse association. </p>
+
+        Args:
+            profile_resource_association_id: <p> ID of the resource association. </p>
+            name: <p> Name of the resource association. </p>
+            resource_properties: <p> If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value. </p> <p>The allowed values for priority are between 100 and 9900.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_route53profiles.types.update_profile_resource_association_request.UpdateProfileResourceAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_route53profiles.types.update_profile_resource_association_response.UpdateProfileResourceAssociationResponse"
+        ]:
+            import aws_sdk_route53profiles._operations.route53_profiles.update_profile_resource_association
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_route53profiles._operations.route53_profiles.update_profile_resource_association.async_update_profile_resource_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_route53profiles.types.update_profile_resource_association_request.UpdateProfileResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input["profile_resource_association_id"] = profile_resource_association_id
+        if name is not None:
+            input["name"] = name
+        if resource_properties is not None:
+            input["resource_properties"] = resource_properties
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

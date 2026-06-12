@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector#ListAssessmentTargetsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_inspector.types.assessment_target_filter
+    import aws_sdk_inspector.types.list_max_results
+    import aws_sdk_inspector.types.pagination_token
+
+
+class ListAssessmentTargetsRequest(TypedDict):
+    filter: NotRequired[
+        "aws_sdk_inspector.types.assessment_target_filter.AssessmentTargetFilter"
+    ]
+    """<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>"""
+    next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]
+    """<p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentTargets</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data.</p>"""
+    max_results: NotRequired["aws_sdk_inspector.types.list_max_results.ListMaxResults"]
+    """<p>You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListAssessmentTargetsRequest) -> dict:
+    out: dict = {}
+    if "filter" in value:
+        import aws_sdk_inspector.types.assessment_target_filter
+
+        out["filter"] = (
+            aws_sdk_inspector.types.assessment_target_filter.serialize_aws_json_1_1(
+                value["filter"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListAssessmentTargetsRequest:
+    out: ListAssessmentTargetsRequest = {}  # type: ignore[typeddict-item]
+    if "filter" in data:
+        import aws_sdk_inspector.types.assessment_target_filter
+
+        out["filter"] = (
+            aws_sdk_inspector.types.assessment_target_filter.deserialize_aws_json_1_1(
+                data["filter"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    return out

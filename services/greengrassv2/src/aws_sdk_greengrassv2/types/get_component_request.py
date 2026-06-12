@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.greengrassv2#GetComponentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_greengrassv2.types.component_version_arn
+    import aws_sdk_greengrassv2.types.recipe_output_format
+
+
+class GetComponentRequest(TypedDict):
+    recipe_output_format: NotRequired[
+        "aws_sdk_greengrassv2.types.recipe_output_format.RecipeOutputFormat"
+    ]
+    """<p>The format of the recipe.</p>"""
+    arn: "aws_sdk_greengrassv2.types.component_version_arn.ComponentVersionARN"
+    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetComponentRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetComponentRequest:
+    out: GetComponentRequest = {}  # type: ignore[typeddict-item]
+    return out

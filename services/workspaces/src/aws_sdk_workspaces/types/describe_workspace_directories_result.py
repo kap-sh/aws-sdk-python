@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspaceDirectoriesResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_workspaces.types.directory_list
+    import aws_sdk_workspaces.types.pagination_token
+
+
+class DescribeWorkspaceDirectoriesResult(TypedDict):
+    directories: NotRequired["aws_sdk_workspaces.types.directory_list.DirectoryList"]
+    """<p>Information about the directories.</p>"""
+    next_token: NotRequired["aws_sdk_workspaces.types.pagination_token.PaginationToken"]
+    """<p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeWorkspaceDirectoriesResult) -> dict:
+    out: dict = {}
+    if "directories" in value:
+        import aws_sdk_workspaces.types.directory_list
+
+        out["Directories"] = (
+            aws_sdk_workspaces.types.directory_list.serialize_aws_json_1_1(
+                value["directories"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeWorkspaceDirectoriesResult:
+    out: DescribeWorkspaceDirectoriesResult = {}  # type: ignore[typeddict-item]
+    if "Directories" in data:
+        import aws_sdk_workspaces.types.directory_list
+
+        out["directories"] = (
+            aws_sdk_workspaces.types.directory_list.deserialize_aws_json_1_1(
+                data["Directories"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

@@ -1,0 +1,5 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconvert#__stringMin1PatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932``."""
+
+from typing import TypeAlias
+
+__stringMin1PatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932: TypeAlias = str

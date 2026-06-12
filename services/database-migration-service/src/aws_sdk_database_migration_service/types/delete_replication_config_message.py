@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DeleteReplicationConfigMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_database_migration_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_database_migration_service.types.string
+
+
+class DeleteReplicationConfigMessage(TypedDict):
+    replication_config_arn: "aws_sdk_database_migration_service.types.string.String"
+    """<p>The replication config to delete.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteReplicationConfigMessage) -> dict:
+    out: dict = {}
+    out["ReplicationConfigArn"] = value["replication_config_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteReplicationConfigMessage:
+    out: DeleteReplicationConfigMessage = {}  # type: ignore[typeddict-item]
+    if "ReplicationConfigArn" in data:
+        out["replication_config_arn"] = data["ReplicationConfigArn"]
+    else:
+        raise DeserializationError(
+            "DeleteReplicationConfigMessage.replication_config_arn required"
+        )
+    return out

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.acm#DnsNameFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_acm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_acm.types.comparison_operator
+    import aws_sdk_acm.types.filter_string
+
+
+class DnsNameFilter(TypedDict):
+    value: "aws_sdk_acm.types.filter_string.FilterString"
+    """<p>The DNS name value to match against.</p>"""
+    comparison_operator: "aws_sdk_acm.types.comparison_operator.ComparisonOperator"
+    """<p>The comparison operator to use.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DnsNameFilter) -> dict:
+    out: dict = {}
+    out["Value"] = value["value"]
+    import aws_sdk_acm.types.comparison_operator
+
+    out["ComparisonOperator"] = (
+        aws_sdk_acm.types.comparison_operator.serialize_aws_json_1_1(
+            value["comparison_operator"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DnsNameFilter:
+    out: DnsNameFilter = {}  # type: ignore[typeddict-item]
+    if "Value" in data:
+        out["value"] = data["Value"]
+    else:
+        raise DeserializationError("DnsNameFilter.value required")
+    if "ComparisonOperator" in data:
+        import aws_sdk_acm.types.comparison_operator
+
+        out["comparison_operator"] = (
+            aws_sdk_acm.types.comparison_operator.deserialize_aws_json_1_1(
+                data["ComparisonOperator"]
+            )
+        )
+    else:
+        raise DeserializationError("DnsNameFilter.comparison_operator required")
+    return out

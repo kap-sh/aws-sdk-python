@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#DescribeGameServerGroupInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.game_server_group_name_or_arn
+
+
+class DescribeGameServerGroupInput(TypedDict):
+    game_server_group_name: NotRequired[
+        "aws_sdk_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+    ]
+    """<p>A unique identifier for the game server group. Use either the name or ARN value.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeGameServerGroupInput) -> dict:
+    out: dict = {}
+    if "game_server_group_name" in value:
+        out["GameServerGroupName"] = value["game_server_group_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeGameServerGroupInput:
+    out: DescribeGameServerGroupInput = {}  # type: ignore[typeddict-item]
+    if "GameServerGroupName" in data:
+        out["game_server_group_name"] = data["GameServerGroupName"]
+    return out

@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#ListModelInvocationJobsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.model_invocation_job_summaries
+    import aws_sdk_bedrock.types.pagination_token
+
+
+class ListModelInvocationJobsResponse(TypedDict):
+    next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
+    """<p>If there are more results than can fit in the response, a <code>nextToken</code> is returned. Use the <code>nextToken</code> in a request to return the next batch of results.</p>"""
+    invocation_job_summaries: NotRequired[
+        "aws_sdk_bedrock.types.model_invocation_job_summaries.ModelInvocationJobSummaries"
+    ]
+    """<p>A list of items, each of which contains a summary about a batch inference job.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListModelInvocationJobsResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "invocation_job_summaries" in value:
+        import aws_sdk_bedrock.types.model_invocation_job_summaries
+
+        out["invocationJobSummaries"] = (
+            aws_sdk_bedrock.types.model_invocation_job_summaries.serialize_json(
+                value["invocation_job_summaries"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListModelInvocationJobsResponse:
+    out: ListModelInvocationJobsResponse = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "invocationJobSummaries" in data:
+        import aws_sdk_bedrock.types.model_invocation_job_summaries
+
+        out["invocation_job_summaries"] = (
+            aws_sdk_bedrock.types.model_invocation_job_summaries.deserialize_json(
+                data["invocationJobSummaries"]
+            )
+        )
+    return out

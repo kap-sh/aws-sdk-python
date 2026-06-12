@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.wafregional#GetSizeConstraintSetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_waf_regional.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_waf_regional.types.resource_id
+
+
+class GetSizeConstraintSetRequest(TypedDict):
+    size_constraint_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
+    """<p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to get. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetSizeConstraintSetRequest) -> dict:
+    out: dict = {}
+    out["SizeConstraintSetId"] = value["size_constraint_set_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetSizeConstraintSetRequest:
+    out: GetSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
+    if "SizeConstraintSetId" in data:
+        out["size_constraint_set_id"] = data["SizeConstraintSetId"]
+    else:
+        raise DeserializationError(
+            "GetSizeConstraintSetRequest.size_constraint_set_id required"
+        )
+    return out

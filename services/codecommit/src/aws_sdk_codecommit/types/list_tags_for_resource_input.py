@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#ListTagsForResourceInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_codecommit.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.next_token
+    import aws_sdk_codecommit.types.resource_arn
+
+
+class ListTagsForResourceInput(TypedDict):
+    resource_arn: "aws_sdk_codecommit.types.resource_arn.ResourceArn"
+    """<p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>"""
+    next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]
+    """<p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListTagsForResourceInput) -> dict:
+    out: dict = {}
+    out["resourceArn"] = value["resource_arn"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListTagsForResourceInput:
+    out: ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+    if "resourceArn" in data:
+        out["resource_arn"] = data["resourceArn"]
+    else:
+        raise DeserializationError("ListTagsForResourceInput.resource_arn required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

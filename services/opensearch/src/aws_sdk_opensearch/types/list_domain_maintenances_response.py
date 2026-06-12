@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.opensearch#ListDomainMaintenancesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_opensearch.types.domain_maintenance_list
+    import aws_sdk_opensearch.types.next_token
+
+
+class ListDomainMaintenancesResponse(TypedDict):
+    domain_maintenances: NotRequired[
+        "aws_sdk_opensearch.types.domain_maintenance_list.DomainMaintenanceList"
+    ]
+    """<p>A list of the submitted maintenance actions.</p>"""
+    next_token: NotRequired["aws_sdk_opensearch.types.next_token.NextToken"]
+    """<p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListDomainMaintenancesResponse) -> dict:
+    out: dict = {}
+    if "domain_maintenances" in value:
+        import aws_sdk_opensearch.types.domain_maintenance_list
+
+        out["DomainMaintenances"] = (
+            aws_sdk_opensearch.types.domain_maintenance_list.serialize_json(
+                value["domain_maintenances"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListDomainMaintenancesResponse:
+    out: ListDomainMaintenancesResponse = {}  # type: ignore[typeddict-item]
+    if "DomainMaintenances" in data:
+        import aws_sdk_opensearch.types.domain_maintenance_list
+
+        out["domain_maintenances"] = (
+            aws_sdk_opensearch.types.domain_maintenance_list.deserialize_json(
+                data["DomainMaintenances"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

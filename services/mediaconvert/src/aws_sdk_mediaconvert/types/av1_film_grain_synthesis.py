@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconvert#Av1FilmGrainSynthesis``."""
+
+from typing import Literal, TypeAlias, cast
+
+from aws_sdk_mediaconvert.errors import DeserializationError
+
+"""Film grain synthesis replaces film grain present in your content with similar quality synthesized AV1 film grain. We recommend that you choose Enabled to reduce the bandwidth of your QVBR quality level 5, 6, 7, or 8 outputs. For QVBR quality level 9 or 10 outputs we recommend that you keep the default value, Disabled. When you include Film grain synthesis, you cannot include the Noise reducer preprocessor."""
+Av1FilmGrainSynthesis: TypeAlias = Literal[
+    "DISABLED",
+    "ENABLED",
+]
+
+
+# --- restJson1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "DISABLED",
+        "ENABLED",
+    )
+)
+
+
+def serialize_json(value: Av1FilmGrainSynthesis) -> str:
+    return value
+
+
+def deserialize_json(data: str) -> Av1FilmGrainSynthesis:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown Av1FilmGrainSynthesis value: {data!r}")
+    return cast(Av1FilmGrainSynthesis, data)

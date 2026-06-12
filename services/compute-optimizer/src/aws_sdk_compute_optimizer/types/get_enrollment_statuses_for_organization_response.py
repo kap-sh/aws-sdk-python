@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEnrollmentStatusesForOrganizationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_compute_optimizer.types.account_enrollment_statuses
+    import aws_sdk_compute_optimizer.types.next_token
+
+
+class GetEnrollmentStatusesForOrganizationResponse(TypedDict):
+    account_enrollment_statuses: NotRequired[
+        "aws_sdk_compute_optimizer.types.account_enrollment_statuses.AccountEnrollmentStatuses"
+    ]
+    """<p>An array of objects that describe the enrollment statuses of organization member accounts.</p>"""
+    next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]
+    """<p>The token to use to advance to the next page of account enrollment statuses.</p> <p>This value is null when there are no more pages of account enrollment statuses to return.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetEnrollmentStatusesForOrganizationResponse) -> dict:
+    out: dict = {}
+    if "account_enrollment_statuses" in value:
+        import aws_sdk_compute_optimizer.types.account_enrollment_statuses
+
+        out["accountEnrollmentStatuses"] = (
+            aws_sdk_compute_optimizer.types.account_enrollment_statuses.serialize_aws_json_1_0(
+                value["account_enrollment_statuses"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> GetEnrollmentStatusesForOrganizationResponse:
+    out: GetEnrollmentStatusesForOrganizationResponse = {}  # type: ignore[typeddict-item]
+    if "accountEnrollmentStatuses" in data:
+        import aws_sdk_compute_optimizer.types.account_enrollment_statuses
+
+        out["account_enrollment_statuses"] = (
+            aws_sdk_compute_optimizer.types.account_enrollment_statuses.deserialize_aws_json_1_0(
+                data["accountEnrollmentStatuses"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

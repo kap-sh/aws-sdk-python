@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.firehose#AuthenticationConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_firehose.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_firehose.types.connectivity
+    import aws_sdk_firehose.types.role_arn
+
+
+class AuthenticationConfiguration(TypedDict):
+    role_arn: "aws_sdk_firehose.types.role_arn.RoleARN"
+    """<p>The ARN of the role used to access the Amazon MSK cluster.</p>"""
+    connectivity: "aws_sdk_firehose.types.connectivity.Connectivity"
+    """<p>The type of connectivity used to access the Amazon MSK cluster.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AuthenticationConfiguration) -> dict:
+    out: dict = {}
+    out["RoleARN"] = value["role_arn"]
+    import aws_sdk_firehose.types.connectivity
+
+    out["Connectivity"] = aws_sdk_firehose.types.connectivity.serialize_aws_json_1_1(
+        value["connectivity"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AuthenticationConfiguration:
+    out: AuthenticationConfiguration = {}  # type: ignore[typeddict-item]
+    if "RoleARN" in data:
+        out["role_arn"] = data["RoleARN"]
+    else:
+        raise DeserializationError("AuthenticationConfiguration.role_arn required")
+    if "Connectivity" in data:
+        import aws_sdk_firehose.types.connectivity
+
+        out["connectivity"] = (
+            aws_sdk_firehose.types.connectivity.deserialize_aws_json_1_1(
+                data["Connectivity"]
+            )
+        )
+    else:
+        raise DeserializationError("AuthenticationConfiguration.connectivity required")
+    return out

@@ -1,0 +1,124 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#CreateBudgetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.budget_actions_to_add
+    import aws_sdk_deadline.types.budget_schedule
+    import aws_sdk_deadline.types.client_token
+    import aws_sdk_deadline.types.consumed_usage_limit
+    import aws_sdk_deadline.types.description
+    import aws_sdk_deadline.types.farm_id
+    import aws_sdk_deadline.types.resource_name
+    import aws_sdk_deadline.types.tags
+    import aws_sdk_deadline.types.usage_tracking_resource
+
+
+class CreateBudgetRequest(TypedDict):
+    farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
+    """<p>The farm ID to include in this budget.</p>"""
+    display_name: "aws_sdk_deadline.types.resource_name.ResourceName"
+    """<p>The display name of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>"""
+    description: "aws_sdk_deadline.types.description.Description"
+    """<p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>"""
+    client_token: NotRequired["aws_sdk_deadline.types.client_token.ClientToken"]
+    """<p>The unique token which the server uses to recognize retries of the same request.</p>"""
+    usage_tracking_resource: (
+        "aws_sdk_deadline.types.usage_tracking_resource.UsageTrackingResource"
+    )
+    """<p>The queue ID provided to this budget to track usage.</p>"""
+    approximate_dollar_limit: (
+        "aws_sdk_deadline.types.consumed_usage_limit.ConsumedUsageLimit"
+    )
+    """<p>The dollar limit based on consumed usage.</p>"""
+    actions: "aws_sdk_deadline.types.budget_actions_to_add.BudgetActionsToAdd"
+    """<p>The budget actions to specify what happens when the budget runs out.</p>"""
+    schedule: "aws_sdk_deadline.types.budget_schedule.BudgetSchedule"
+    """<p>The schedule to associate with this budget.</p>"""
+    tags: NotRequired["aws_sdk_deadline.types.tags.Tags"]
+    """<p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateBudgetRequest) -> dict:
+    out: dict = {}
+    out["displayName"] = value["display_name"]
+    out["description"] = value.get("description", "")
+    import aws_sdk_deadline.types.usage_tracking_resource
+
+    out["usageTrackingResource"] = (
+        aws_sdk_deadline.types.usage_tracking_resource.serialize_json(
+            value["usage_tracking_resource"]
+        )
+    )
+    out["approximateDollarLimit"] = value["approximate_dollar_limit"]
+    import aws_sdk_deadline.types.budget_actions_to_add
+
+    out["actions"] = aws_sdk_deadline.types.budget_actions_to_add.serialize_json(
+        value["actions"]
+    )
+    import aws_sdk_deadline.types.budget_schedule
+
+    out["schedule"] = aws_sdk_deadline.types.budget_schedule.serialize_json(
+        value["schedule"]
+    )
+    if "tags" in value:
+        import aws_sdk_deadline.types.tags
+
+        out["tags"] = aws_sdk_deadline.types.tags.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> CreateBudgetRequest:
+    out: CreateBudgetRequest = {}  # type: ignore[typeddict-item]
+    if "displayName" in data:
+        out["display_name"] = data["displayName"]
+    else:
+        raise DeserializationError("CreateBudgetRequest.display_name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    else:
+        out["description"] = ""
+    if "usageTrackingResource" in data:
+        import aws_sdk_deadline.types.usage_tracking_resource
+
+        out["usage_tracking_resource"] = (
+            aws_sdk_deadline.types.usage_tracking_resource.deserialize_json(
+                data["usageTrackingResource"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateBudgetRequest.usage_tracking_resource required"
+        )
+    if "approximateDollarLimit" in data:
+        out["approximate_dollar_limit"] = data["approximateDollarLimit"]
+    else:
+        raise DeserializationError(
+            "CreateBudgetRequest.approximate_dollar_limit required"
+        )
+    if "actions" in data:
+        import aws_sdk_deadline.types.budget_actions_to_add
+
+        out["actions"] = aws_sdk_deadline.types.budget_actions_to_add.deserialize_json(
+            data["actions"]
+        )
+    else:
+        raise DeserializationError("CreateBudgetRequest.actions required")
+    if "schedule" in data:
+        import aws_sdk_deadline.types.budget_schedule
+
+        out["schedule"] = aws_sdk_deadline.types.budget_schedule.deserialize_json(
+            data["schedule"]
+        )
+    else:
+        raise DeserializationError("CreateBudgetRequest.schedule required")
+    if "tags" in data:
+        import aws_sdk_deadline.types.tags
+
+        out["tags"] = aws_sdk_deadline.types.tags.deserialize_json(data["tags"])
+    return out

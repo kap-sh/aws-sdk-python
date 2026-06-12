@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#OrganizationAggregationSource``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_config_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_config_service.types.aggregator_region_list
+    import aws_sdk_config_service.types.boolean
+    import aws_sdk_config_service.types.string
+
+
+class OrganizationAggregationSource(TypedDict):
+    role_arn: "aws_sdk_config_service.types.string.String"
+    """<p>ARN of the IAM role used to retrieve Amazon Web Services Organization details associated with the aggregator account.</p>"""
+    aws_regions: NotRequired[
+        "aws_sdk_config_service.types.aggregator_region_list.AggregatorRegionList"
+    ]
+    """<p>The source regions being aggregated.</p>"""
+    all_aws_regions: "aws_sdk_config_service.types.boolean.Boolean"
+    """<p>If true, aggregate existing Config regions and future regions.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: OrganizationAggregationSource) -> dict:
+    out: dict = {}
+    out["RoleArn"] = value["role_arn"]
+    if "aws_regions" in value:
+        import aws_sdk_config_service.types.aggregator_region_list
+
+        out["AwsRegions"] = (
+            aws_sdk_config_service.types.aggregator_region_list.serialize_aws_json_1_1(
+                value["aws_regions"]
+            )
+        )
+    out["AllAwsRegions"] = value.get("all_aws_regions", False)
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> OrganizationAggregationSource:
+    out: OrganizationAggregationSource = {}  # type: ignore[typeddict-item]
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    else:
+        raise DeserializationError("OrganizationAggregationSource.role_arn required")
+    if "AwsRegions" in data:
+        import aws_sdk_config_service.types.aggregator_region_list
+
+        out["aws_regions"] = (
+            aws_sdk_config_service.types.aggregator_region_list.deserialize_aws_json_1_1(
+                data["AwsRegions"]
+            )
+        )
+    if "AllAwsRegions" in data:
+        out["all_aws_regions"] = data["AllAwsRegions"]
+    else:
+        out["all_aws_regions"] = False
+    return out

@@ -1,0 +1,577 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateEndpointMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_database_migration_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_database_migration_service.types.dms_ssl_mode_value
+    import aws_sdk_database_migration_service.types.dms_transfer_settings
+    import aws_sdk_database_migration_service.types.doc_db_settings
+    import aws_sdk_database_migration_service.types.dynamo_db_settings
+    import aws_sdk_database_migration_service.types.elasticsearch_settings
+    import aws_sdk_database_migration_service.types.gcp_my_sql_settings
+    import aws_sdk_database_migration_service.types.ibm_db2_settings
+    import aws_sdk_database_migration_service.types.integer_optional
+    import aws_sdk_database_migration_service.types.kafka_settings
+    import aws_sdk_database_migration_service.types.kinesis_settings
+    import aws_sdk_database_migration_service.types.microsoft_sql_server_settings
+    import aws_sdk_database_migration_service.types.mongo_db_settings
+    import aws_sdk_database_migration_service.types.my_sql_settings
+    import aws_sdk_database_migration_service.types.neptune_settings
+    import aws_sdk_database_migration_service.types.oracle_settings
+    import aws_sdk_database_migration_service.types.postgre_sql_settings
+    import aws_sdk_database_migration_service.types.redis_settings
+    import aws_sdk_database_migration_service.types.redshift_settings
+    import aws_sdk_database_migration_service.types.replication_endpoint_type_value
+    import aws_sdk_database_migration_service.types.s3_settings
+    import aws_sdk_database_migration_service.types.secret_string
+    import aws_sdk_database_migration_service.types.string
+    import aws_sdk_database_migration_service.types.sybase_settings
+    import aws_sdk_database_migration_service.types.tag_list
+    import aws_sdk_database_migration_service.types.timestream_settings
+
+
+class CreateEndpointMessage(TypedDict):
+    endpoint_identifier: "aws_sdk_database_migration_service.types.string.String"
+    """<p>The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.</p>"""
+    endpoint_type: "aws_sdk_database_migration_service.types.replication_endpoint_type_value.ReplicationEndpointTypeValue"
+    """<p>The type of endpoint. Valid values are <code>source</code> and <code>target</code>.</p>"""
+    engine_name: "aws_sdk_database_migration_service.types.string.String"
+    """<p>The type of engine for the endpoint. Valid values, depending on the <code>EndpointType</code> value, include <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>, <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"opensearch\"</code>, <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"db2-zos\"</code>, <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>, <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>, <code>\"docdb\"</code>, <code>\"sqlserver\"</code>, <code>\"neptune\"</code>, <code>\"babelfish\"</code>, <code>redshift-serverless</code>, <code>aurora-serverless</code>, <code>aurora-postgresql-serverless</code>, <code>gcp-mysql</code>, <code>azure-sql-managed-instance</code>, <code>redis</code>, <code>dms-transfer</code>.</p>"""
+    username: NotRequired["aws_sdk_database_migration_service.types.string.String"]
+    """<p>The user name to be used to log in to the endpoint database.</p>"""
+    password: NotRequired[
+        "aws_sdk_database_migration_service.types.secret_string.SecretString"
+    ]
+    """<p>The password to be used to log in to the endpoint database.</p>"""
+    server_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]
+    """<p>The name of the server where the endpoint database resides.</p>"""
+    port: NotRequired[
+        "aws_sdk_database_migration_service.types.integer_optional.IntegerOptional"
+    ]
+    """<p>The port used by the endpoint database.</p>"""
+    database_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]
+    """<p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName. To migrate to a specific database, use this setting and <code>targetDbType</code>.</p>"""
+    extra_connection_attributes: NotRequired[
+        "aws_sdk_database_migration_service.types.string.String"
+    ]
+    """<p>Additional attributes associated with the connection. Each attribute is specified as a name-value pair associated by an equal sign (=). Multiple attributes are separated by a semicolon (;) with no additional white space. For information on the attributes available for connecting your source or target endpoint, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Endpoints.html\">Working with DMS Endpoints</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    kms_key_id: NotRequired["aws_sdk_database_migration_service.types.string.String"]
+    """<p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p> <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p> <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>"""
+    tags: NotRequired["aws_sdk_database_migration_service.types.tag_list.TagList"]
+    """<p>One or more tags to be assigned to the endpoint.</p>"""
+    certificate_arn: NotRequired[
+        "aws_sdk_database_migration_service.types.string.String"
+    ]
+    """<p>The Amazon Resource Name (ARN) for the certificate.</p>"""
+    ssl_mode: NotRequired[
+        "aws_sdk_database_migration_service.types.dms_ssl_mode_value.DmsSslModeValue"
+    ]
+    """<p>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is <code>none</code> </p>"""
+    service_access_role_arn: NotRequired[
+        "aws_sdk_database_migration_service.types.string.String"
+    ]
+    """<p> The Amazon Resource Name (ARN) for the service access role that you want to use to create the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>"""
+    external_table_definition: NotRequired[
+        "aws_sdk_database_migration_service.types.string.String"
+    ]
+    """<p>The external table definition. </p>"""
+    dynamo_db_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.dynamo_db_settings.DynamoDbSettings"
+    ]
+    """<p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping\">Using Object Mapping to Migrate Data to DynamoDB</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    s3_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.s3_settings.S3Settings"
+    ]
+    """<p>Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring\">Extra Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    dms_transfer_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.dms_transfer_settings.DmsTransferSettings"
+    ]
+    """<p>The settings in JSON format for the DMS transfer type of source endpoint. </p> <p>Possible settings include the following:</p> <ul> <li> <p> <code>ServiceAccessRoleArn</code> - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li> <li> <p> <code>BucketName</code> - The name of the S3 bucket to use.</p> </li> </ul> <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string,BucketName=string</code> </p> <p>JSON syntax for these settings is as follows: <code>{ \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", } </code> </p>"""
+    mongo_db_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.mongo_db_settings.MongoDbSettings"
+    ]
+    """<p>Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration\">Endpoint configuration settings when using MongoDB as a source for Database Migration Service</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    kinesis_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.kinesis_settings.KinesisSettings"
+    ]
+    """<p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For more information about the available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping\">Using object mapping to migrate data to a Kinesis data stream</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    kafka_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.kafka_settings.KafkaSettings"
+    ]
+    """<p>Settings in JSON format for the target Apache Kafka endpoint. For more information about the available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping\">Using object mapping to migrate data to a Kafka topic</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    elasticsearch_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.elasticsearch_settings.ElasticsearchSettings"
+    ]
+    """<p>Settings in JSON format for the target OpenSearch endpoint. For more information about the available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration\">Extra Connection Attributes When Using OpenSearch as a Target for DMS</a> in the <i>Database Migration Service User Guide</i>.</p>"""
+    neptune_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.neptune_settings.NeptuneSettings"
+    ]
+    """<p>Settings in JSON format for the target Amazon Neptune endpoint. For more information about the available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings\">Specifying graph-mapping rules using Gremlin and R2RML for Amazon Neptune as a target</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    redshift_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.redshift_settings.RedshiftSettings"
+    ]
+    postgre_sql_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.postgre_sql_settings.PostgreSQLSettings"
+    ]
+    """<p>Settings in JSON format for the source and target PostgreSQL endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib\">Extra connection attributes when using PostgreSQL as a source for DMS</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib\"> Extra connection attributes when using PostgreSQL as a target for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    my_sql_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.my_sql_settings.MySQLSettings"
+    ]
+    """<p>Settings in JSON format for the source and target MySQL endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib\">Extra connection attributes when using MySQL as a source for DMS</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib\">Extra connection attributes when using a MySQL-compatible database as a target for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    oracle_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.oracle_settings.OracleSettings"
+    ]
+    """<p>Settings in JSON format for the source and target Oracle endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib\">Extra connection attributes when using Oracle as a source for DMS</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib\"> Extra connection attributes when using Oracle as a target for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    sybase_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.sybase_settings.SybaseSettings"
+    ]
+    """<p>Settings in JSON format for the source and target SAP ASE endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib\">Extra connection attributes when using SAP ASE as a source for DMS</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib\">Extra connection attributes when using SAP ASE as a target for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    microsoft_sql_server_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.microsoft_sql_server_settings.MicrosoftSQLServerSettings"
+    ]
+    """<p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib\">Extra connection attributes when using SQL Server as a source for DMS</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib\"> Extra connection attributes when using SQL Server as a target for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    ibm_db2_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.ibm_db2_settings.IBMDb2Settings"
+    ]
+    """<p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other available settings, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib\">Extra connection attributes when using Db2 LUW as a source for DMS</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    resource_identifier: NotRequired[
+        "aws_sdk_database_migration_service.types.string.String"
+    ]
+    """<p>A friendly name for the resource identifier at the end of the <code>EndpointArn</code> response parameter that is returned in the created <code>Endpoint</code> object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>. For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>. If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier value for the end of <code>EndpointArn</code>.</p>"""
+    doc_db_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.doc_db_settings.DocDbSettings"
+    ]
+    redis_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.redis_settings.RedisSettings"
+    ]
+    """<p>Settings in JSON format for the target Redis endpoint.</p>"""
+    gcp_my_sql_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.gcp_my_sql_settings.GcpMySQLSettings"
+    ]
+    """<p>Settings in JSON format for the source GCP MySQL endpoint.</p>"""
+    timestream_settings: NotRequired[
+        "aws_sdk_database_migration_service.types.timestream_settings.TimestreamSettings"
+    ]
+    """<p>Settings in JSON format for the target Amazon Timestream endpoint.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateEndpointMessage) -> dict:
+    out: dict = {}
+    out["EndpointIdentifier"] = value["endpoint_identifier"]
+    import aws_sdk_database_migration_service.types.replication_endpoint_type_value
+
+    out["EndpointType"] = (
+        aws_sdk_database_migration_service.types.replication_endpoint_type_value.serialize_aws_json_1_1(
+            value["endpoint_type"]
+        )
+    )
+    out["EngineName"] = value["engine_name"]
+    if "username" in value:
+        out["Username"] = value["username"]
+    if "password" in value:
+        out["Password"] = value["password"]
+    if "server_name" in value:
+        out["ServerName"] = value["server_name"]
+    if "port" in value:
+        out["Port"] = value["port"]
+    if "database_name" in value:
+        out["DatabaseName"] = value["database_name"]
+    if "extra_connection_attributes" in value:
+        out["ExtraConnectionAttributes"] = value["extra_connection_attributes"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    if "tags" in value:
+        import aws_sdk_database_migration_service.types.tag_list
+
+        out["Tags"] = (
+            aws_sdk_database_migration_service.types.tag_list.serialize_aws_json_1_1(
+                value["tags"]
+            )
+        )
+    if "certificate_arn" in value:
+        out["CertificateArn"] = value["certificate_arn"]
+    if "ssl_mode" in value:
+        import aws_sdk_database_migration_service.types.dms_ssl_mode_value
+
+        out["SslMode"] = (
+            aws_sdk_database_migration_service.types.dms_ssl_mode_value.serialize_aws_json_1_1(
+                value["ssl_mode"]
+            )
+        )
+    if "service_access_role_arn" in value:
+        out["ServiceAccessRoleArn"] = value["service_access_role_arn"]
+    if "external_table_definition" in value:
+        out["ExternalTableDefinition"] = value["external_table_definition"]
+    if "dynamo_db_settings" in value:
+        import aws_sdk_database_migration_service.types.dynamo_db_settings
+
+        out["DynamoDbSettings"] = (
+            aws_sdk_database_migration_service.types.dynamo_db_settings.serialize_aws_json_1_1(
+                value["dynamo_db_settings"]
+            )
+        )
+    if "s3_settings" in value:
+        import aws_sdk_database_migration_service.types.s3_settings
+
+        out["S3Settings"] = (
+            aws_sdk_database_migration_service.types.s3_settings.serialize_aws_json_1_1(
+                value["s3_settings"]
+            )
+        )
+    if "dms_transfer_settings" in value:
+        import aws_sdk_database_migration_service.types.dms_transfer_settings
+
+        out["DmsTransferSettings"] = (
+            aws_sdk_database_migration_service.types.dms_transfer_settings.serialize_aws_json_1_1(
+                value["dms_transfer_settings"]
+            )
+        )
+    if "mongo_db_settings" in value:
+        import aws_sdk_database_migration_service.types.mongo_db_settings
+
+        out["MongoDbSettings"] = (
+            aws_sdk_database_migration_service.types.mongo_db_settings.serialize_aws_json_1_1(
+                value["mongo_db_settings"]
+            )
+        )
+    if "kinesis_settings" in value:
+        import aws_sdk_database_migration_service.types.kinesis_settings
+
+        out["KinesisSettings"] = (
+            aws_sdk_database_migration_service.types.kinesis_settings.serialize_aws_json_1_1(
+                value["kinesis_settings"]
+            )
+        )
+    if "kafka_settings" in value:
+        import aws_sdk_database_migration_service.types.kafka_settings
+
+        out["KafkaSettings"] = (
+            aws_sdk_database_migration_service.types.kafka_settings.serialize_aws_json_1_1(
+                value["kafka_settings"]
+            )
+        )
+    if "elasticsearch_settings" in value:
+        import aws_sdk_database_migration_service.types.elasticsearch_settings
+
+        out["ElasticsearchSettings"] = (
+            aws_sdk_database_migration_service.types.elasticsearch_settings.serialize_aws_json_1_1(
+                value["elasticsearch_settings"]
+            )
+        )
+    if "neptune_settings" in value:
+        import aws_sdk_database_migration_service.types.neptune_settings
+
+        out["NeptuneSettings"] = (
+            aws_sdk_database_migration_service.types.neptune_settings.serialize_aws_json_1_1(
+                value["neptune_settings"]
+            )
+        )
+    if "redshift_settings" in value:
+        import aws_sdk_database_migration_service.types.redshift_settings
+
+        out["RedshiftSettings"] = (
+            aws_sdk_database_migration_service.types.redshift_settings.serialize_aws_json_1_1(
+                value["redshift_settings"]
+            )
+        )
+    if "postgre_sql_settings" in value:
+        import aws_sdk_database_migration_service.types.postgre_sql_settings
+
+        out["PostgreSQLSettings"] = (
+            aws_sdk_database_migration_service.types.postgre_sql_settings.serialize_aws_json_1_1(
+                value["postgre_sql_settings"]
+            )
+        )
+    if "my_sql_settings" in value:
+        import aws_sdk_database_migration_service.types.my_sql_settings
+
+        out["MySQLSettings"] = (
+            aws_sdk_database_migration_service.types.my_sql_settings.serialize_aws_json_1_1(
+                value["my_sql_settings"]
+            )
+        )
+    if "oracle_settings" in value:
+        import aws_sdk_database_migration_service.types.oracle_settings
+
+        out["OracleSettings"] = (
+            aws_sdk_database_migration_service.types.oracle_settings.serialize_aws_json_1_1(
+                value["oracle_settings"]
+            )
+        )
+    if "sybase_settings" in value:
+        import aws_sdk_database_migration_service.types.sybase_settings
+
+        out["SybaseSettings"] = (
+            aws_sdk_database_migration_service.types.sybase_settings.serialize_aws_json_1_1(
+                value["sybase_settings"]
+            )
+        )
+    if "microsoft_sql_server_settings" in value:
+        import aws_sdk_database_migration_service.types.microsoft_sql_server_settings
+
+        out["MicrosoftSQLServerSettings"] = (
+            aws_sdk_database_migration_service.types.microsoft_sql_server_settings.serialize_aws_json_1_1(
+                value["microsoft_sql_server_settings"]
+            )
+        )
+    if "ibm_db2_settings" in value:
+        import aws_sdk_database_migration_service.types.ibm_db2_settings
+
+        out["IBMDb2Settings"] = (
+            aws_sdk_database_migration_service.types.ibm_db2_settings.serialize_aws_json_1_1(
+                value["ibm_db2_settings"]
+            )
+        )
+    if "resource_identifier" in value:
+        out["ResourceIdentifier"] = value["resource_identifier"]
+    if "doc_db_settings" in value:
+        import aws_sdk_database_migration_service.types.doc_db_settings
+
+        out["DocDbSettings"] = (
+            aws_sdk_database_migration_service.types.doc_db_settings.serialize_aws_json_1_1(
+                value["doc_db_settings"]
+            )
+        )
+    if "redis_settings" in value:
+        import aws_sdk_database_migration_service.types.redis_settings
+
+        out["RedisSettings"] = (
+            aws_sdk_database_migration_service.types.redis_settings.serialize_aws_json_1_1(
+                value["redis_settings"]
+            )
+        )
+    if "gcp_my_sql_settings" in value:
+        import aws_sdk_database_migration_service.types.gcp_my_sql_settings
+
+        out["GcpMySQLSettings"] = (
+            aws_sdk_database_migration_service.types.gcp_my_sql_settings.serialize_aws_json_1_1(
+                value["gcp_my_sql_settings"]
+            )
+        )
+    if "timestream_settings" in value:
+        import aws_sdk_database_migration_service.types.timestream_settings
+
+        out["TimestreamSettings"] = (
+            aws_sdk_database_migration_service.types.timestream_settings.serialize_aws_json_1_1(
+                value["timestream_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateEndpointMessage:
+    out: CreateEndpointMessage = {}  # type: ignore[typeddict-item]
+    if "EndpointIdentifier" in data:
+        out["endpoint_identifier"] = data["EndpointIdentifier"]
+    else:
+        raise DeserializationError("CreateEndpointMessage.endpoint_identifier required")
+    if "EndpointType" in data:
+        import aws_sdk_database_migration_service.types.replication_endpoint_type_value
+
+        out["endpoint_type"] = (
+            aws_sdk_database_migration_service.types.replication_endpoint_type_value.deserialize_aws_json_1_1(
+                data["EndpointType"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateEndpointMessage.endpoint_type required")
+    if "EngineName" in data:
+        out["engine_name"] = data["EngineName"]
+    else:
+        raise DeserializationError("CreateEndpointMessage.engine_name required")
+    if "Username" in data:
+        out["username"] = data["Username"]
+    if "Password" in data:
+        out["password"] = data["Password"]
+    if "ServerName" in data:
+        out["server_name"] = data["ServerName"]
+    if "Port" in data:
+        out["port"] = data["Port"]
+    if "DatabaseName" in data:
+        out["database_name"] = data["DatabaseName"]
+    if "ExtraConnectionAttributes" in data:
+        out["extra_connection_attributes"] = data["ExtraConnectionAttributes"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    if "Tags" in data:
+        import aws_sdk_database_migration_service.types.tag_list
+
+        out["tags"] = (
+            aws_sdk_database_migration_service.types.tag_list.deserialize_aws_json_1_1(
+                data["Tags"]
+            )
+        )
+    if "CertificateArn" in data:
+        out["certificate_arn"] = data["CertificateArn"]
+    if "SslMode" in data:
+        import aws_sdk_database_migration_service.types.dms_ssl_mode_value
+
+        out["ssl_mode"] = (
+            aws_sdk_database_migration_service.types.dms_ssl_mode_value.deserialize_aws_json_1_1(
+                data["SslMode"]
+            )
+        )
+    if "ServiceAccessRoleArn" in data:
+        out["service_access_role_arn"] = data["ServiceAccessRoleArn"]
+    if "ExternalTableDefinition" in data:
+        out["external_table_definition"] = data["ExternalTableDefinition"]
+    if "DynamoDbSettings" in data:
+        import aws_sdk_database_migration_service.types.dynamo_db_settings
+
+        out["dynamo_db_settings"] = (
+            aws_sdk_database_migration_service.types.dynamo_db_settings.deserialize_aws_json_1_1(
+                data["DynamoDbSettings"]
+            )
+        )
+    if "S3Settings" in data:
+        import aws_sdk_database_migration_service.types.s3_settings
+
+        out["s3_settings"] = (
+            aws_sdk_database_migration_service.types.s3_settings.deserialize_aws_json_1_1(
+                data["S3Settings"]
+            )
+        )
+    if "DmsTransferSettings" in data:
+        import aws_sdk_database_migration_service.types.dms_transfer_settings
+
+        out["dms_transfer_settings"] = (
+            aws_sdk_database_migration_service.types.dms_transfer_settings.deserialize_aws_json_1_1(
+                data["DmsTransferSettings"]
+            )
+        )
+    if "MongoDbSettings" in data:
+        import aws_sdk_database_migration_service.types.mongo_db_settings
+
+        out["mongo_db_settings"] = (
+            aws_sdk_database_migration_service.types.mongo_db_settings.deserialize_aws_json_1_1(
+                data["MongoDbSettings"]
+            )
+        )
+    if "KinesisSettings" in data:
+        import aws_sdk_database_migration_service.types.kinesis_settings
+
+        out["kinesis_settings"] = (
+            aws_sdk_database_migration_service.types.kinesis_settings.deserialize_aws_json_1_1(
+                data["KinesisSettings"]
+            )
+        )
+    if "KafkaSettings" in data:
+        import aws_sdk_database_migration_service.types.kafka_settings
+
+        out["kafka_settings"] = (
+            aws_sdk_database_migration_service.types.kafka_settings.deserialize_aws_json_1_1(
+                data["KafkaSettings"]
+            )
+        )
+    if "ElasticsearchSettings" in data:
+        import aws_sdk_database_migration_service.types.elasticsearch_settings
+
+        out["elasticsearch_settings"] = (
+            aws_sdk_database_migration_service.types.elasticsearch_settings.deserialize_aws_json_1_1(
+                data["ElasticsearchSettings"]
+            )
+        )
+    if "NeptuneSettings" in data:
+        import aws_sdk_database_migration_service.types.neptune_settings
+
+        out["neptune_settings"] = (
+            aws_sdk_database_migration_service.types.neptune_settings.deserialize_aws_json_1_1(
+                data["NeptuneSettings"]
+            )
+        )
+    if "RedshiftSettings" in data:
+        import aws_sdk_database_migration_service.types.redshift_settings
+
+        out["redshift_settings"] = (
+            aws_sdk_database_migration_service.types.redshift_settings.deserialize_aws_json_1_1(
+                data["RedshiftSettings"]
+            )
+        )
+    if "PostgreSQLSettings" in data:
+        import aws_sdk_database_migration_service.types.postgre_sql_settings
+
+        out["postgre_sql_settings"] = (
+            aws_sdk_database_migration_service.types.postgre_sql_settings.deserialize_aws_json_1_1(
+                data["PostgreSQLSettings"]
+            )
+        )
+    if "MySQLSettings" in data:
+        import aws_sdk_database_migration_service.types.my_sql_settings
+
+        out["my_sql_settings"] = (
+            aws_sdk_database_migration_service.types.my_sql_settings.deserialize_aws_json_1_1(
+                data["MySQLSettings"]
+            )
+        )
+    if "OracleSettings" in data:
+        import aws_sdk_database_migration_service.types.oracle_settings
+
+        out["oracle_settings"] = (
+            aws_sdk_database_migration_service.types.oracle_settings.deserialize_aws_json_1_1(
+                data["OracleSettings"]
+            )
+        )
+    if "SybaseSettings" in data:
+        import aws_sdk_database_migration_service.types.sybase_settings
+
+        out["sybase_settings"] = (
+            aws_sdk_database_migration_service.types.sybase_settings.deserialize_aws_json_1_1(
+                data["SybaseSettings"]
+            )
+        )
+    if "MicrosoftSQLServerSettings" in data:
+        import aws_sdk_database_migration_service.types.microsoft_sql_server_settings
+
+        out["microsoft_sql_server_settings"] = (
+            aws_sdk_database_migration_service.types.microsoft_sql_server_settings.deserialize_aws_json_1_1(
+                data["MicrosoftSQLServerSettings"]
+            )
+        )
+    if "IBMDb2Settings" in data:
+        import aws_sdk_database_migration_service.types.ibm_db2_settings
+
+        out["ibm_db2_settings"] = (
+            aws_sdk_database_migration_service.types.ibm_db2_settings.deserialize_aws_json_1_1(
+                data["IBMDb2Settings"]
+            )
+        )
+    if "ResourceIdentifier" in data:
+        out["resource_identifier"] = data["ResourceIdentifier"]
+    if "DocDbSettings" in data:
+        import aws_sdk_database_migration_service.types.doc_db_settings
+
+        out["doc_db_settings"] = (
+            aws_sdk_database_migration_service.types.doc_db_settings.deserialize_aws_json_1_1(
+                data["DocDbSettings"]
+            )
+        )
+    if "RedisSettings" in data:
+        import aws_sdk_database_migration_service.types.redis_settings
+
+        out["redis_settings"] = (
+            aws_sdk_database_migration_service.types.redis_settings.deserialize_aws_json_1_1(
+                data["RedisSettings"]
+            )
+        )
+    if "GcpMySQLSettings" in data:
+        import aws_sdk_database_migration_service.types.gcp_my_sql_settings
+
+        out["gcp_my_sql_settings"] = (
+            aws_sdk_database_migration_service.types.gcp_my_sql_settings.deserialize_aws_json_1_1(
+                data["GcpMySQLSettings"]
+            )
+        )
+    if "TimestreamSettings" in data:
+        import aws_sdk_database_migration_service.types.timestream_settings
+
+        out["timestream_settings"] = (
+            aws_sdk_database_migration_service.types.timestream_settings.deserialize_aws_json_1_1(
+                data["TimestreamSettings"]
+            )
+        )
+    return out

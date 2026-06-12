@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudcontrol#GetResourceOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudcontrol.types.resource_description
+    import aws_sdk_cloudcontrol.types.type_name
+
+
+class GetResourceOutput(TypedDict):
+    type_name: NotRequired["aws_sdk_cloudcontrol.types.type_name.TypeName"]
+    """<p>The name of the resource type.</p>"""
+    resource_description: NotRequired[
+        "aws_sdk_cloudcontrol.types.resource_description.ResourceDescription"
+    ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetResourceOutput) -> dict:
+    out: dict = {}
+    if "type_name" in value:
+        out["TypeName"] = value["type_name"]
+    if "resource_description" in value:
+        import aws_sdk_cloudcontrol.types.resource_description
+
+        out["ResourceDescription"] = (
+            aws_sdk_cloudcontrol.types.resource_description.serialize_aws_json_1_0(
+                value["resource_description"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetResourceOutput:
+    out: GetResourceOutput = {}  # type: ignore[typeddict-item]
+    if "TypeName" in data:
+        out["type_name"] = data["TypeName"]
+    if "ResourceDescription" in data:
+        import aws_sdk_cloudcontrol.types.resource_description
+
+        out["resource_description"] = (
+            aws_sdk_cloudcontrol.types.resource_description.deserialize_aws_json_1_0(
+                data["ResourceDescription"]
+            )
+        )
+    return out

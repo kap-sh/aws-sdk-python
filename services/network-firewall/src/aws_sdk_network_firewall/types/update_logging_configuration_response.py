@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#UpdateLoggingConfigurationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_network_firewall.types.enable_monitoring_dashboard
+    import aws_sdk_network_firewall.types.logging_configuration
+    import aws_sdk_network_firewall.types.resource_arn
+    import aws_sdk_network_firewall.types.resource_name
+
+
+class UpdateLoggingConfigurationResponse(TypedDict):
+    firewall_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
+    """<p>The Amazon Resource Name (ARN) of the firewall.</p>"""
+    firewall_name: NotRequired[
+        "aws_sdk_network_firewall.types.resource_name.ResourceName"
+    ]
+    """<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>"""
+    logging_configuration: NotRequired[
+        "aws_sdk_network_firewall.types.logging_configuration.LoggingConfiguration"
+    ]
+    enable_monitoring_dashboard: NotRequired[
+        "aws_sdk_network_firewall.types.enable_monitoring_dashboard.EnableMonitoringDashboard"
+    ]
+    """<p>A boolean that reflects whether or not the firewall monitoring dashboard is enabled on a firewall.</p> <p> Returns <code>TRUE</code> when the firewall monitoring dashboard is enabled on the firewall. Returns <code>FALSE</code> when the firewall monitoring dashboard is not enabled on the firewall. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateLoggingConfigurationResponse) -> dict:
+    out: dict = {}
+    if "firewall_arn" in value:
+        out["FirewallArn"] = value["firewall_arn"]
+    if "firewall_name" in value:
+        out["FirewallName"] = value["firewall_name"]
+    if "logging_configuration" in value:
+        import aws_sdk_network_firewall.types.logging_configuration
+
+        out["LoggingConfiguration"] = (
+            aws_sdk_network_firewall.types.logging_configuration.serialize_aws_json_1_0(
+                value["logging_configuration"]
+            )
+        )
+    if "enable_monitoring_dashboard" in value:
+        out["EnableMonitoringDashboard"] = value["enable_monitoring_dashboard"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateLoggingConfigurationResponse:
+    out: UpdateLoggingConfigurationResponse = {}  # type: ignore[typeddict-item]
+    if "FirewallArn" in data:
+        out["firewall_arn"] = data["FirewallArn"]
+    if "FirewallName" in data:
+        out["firewall_name"] = data["FirewallName"]
+    if "LoggingConfiguration" in data:
+        import aws_sdk_network_firewall.types.logging_configuration
+
+        out["logging_configuration"] = (
+            aws_sdk_network_firewall.types.logging_configuration.deserialize_aws_json_1_0(
+                data["LoggingConfiguration"]
+            )
+        )
+    if "EnableMonitoringDashboard" in data:
+        out["enable_monitoring_dashboard"] = data["EnableMonitoringDashboard"]
+    return out

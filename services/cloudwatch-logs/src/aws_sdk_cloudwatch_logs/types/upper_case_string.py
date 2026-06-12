@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpperCaseString``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_cloudwatch_logs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys
+
+
+class UpperCaseString(TypedDict):
+    with_keys: "aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys.UpperCaseStringWithKeys"
+    """<p>The array of containing the keys of the field to convert to uppercase.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpperCaseString) -> dict:
+    out: dict = {}
+    import aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys
+
+    out["withKeys"] = (
+        aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys.serialize_aws_json_1_1(
+            value["with_keys"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpperCaseString:
+    out: UpperCaseString = {}  # type: ignore[typeddict-item]
+    if "withKeys" in data:
+        import aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys
+
+        out["with_keys"] = (
+            aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys.deserialize_aws_json_1_1(
+                data["withKeys"]
+            )
+        )
+    else:
+        raise DeserializationError("UpperCaseString.with_keys required")
+    return out

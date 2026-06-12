@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#ExternalIdProperty``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_iottwinmaker.types.string
+
+ExternalIdProperty: TypeAlias = dict[
+    "aws_sdk_iottwinmaker.types.string.String",
+    "aws_sdk_iottwinmaker.types.string.String",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(input_to_serialize: ExternalIdProperty) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        out[key] = value
+    return out
+
+
+def deserialize_json(data: dict) -> ExternalIdProperty:
+    out: ExternalIdProperty = {}
+    for key, value in data.items():
+        out[key] = value
+    return out

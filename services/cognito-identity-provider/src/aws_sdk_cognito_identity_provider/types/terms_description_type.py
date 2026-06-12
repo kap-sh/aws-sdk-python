@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#TermsDescriptionType``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cognito_identity_provider.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.date_type
+    import aws_sdk_cognito_identity_provider.types.terms_enforcement_type
+    import aws_sdk_cognito_identity_provider.types.terms_id_type
+    import aws_sdk_cognito_identity_provider.types.terms_name_type
+
+
+class TermsDescriptionType(TypedDict):
+    terms_id: "aws_sdk_cognito_identity_provider.types.terms_id_type.TermsIdType"
+    """<p>The ID of the requested terms documents.</p>"""
+    terms_name: "aws_sdk_cognito_identity_provider.types.terms_name_type.TermsNameType"
+    """<p>The type and friendly name of the requested terms documents.</p>"""
+    enforcement: "aws_sdk_cognito_identity_provider.types.terms_enforcement_type.TermsEnforcementType"
+    """<p>This parameter is reserved for future use and currently accepts one value.</p>"""
+    creation_date: "aws_sdk_cognito_identity_provider.types.date_type.DateType"
+    """<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>"""
+    last_modified_date: "aws_sdk_cognito_identity_provider.types.date_type.DateType"
+    """<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TermsDescriptionType) -> dict:
+    out: dict = {}
+    out["TermsId"] = value["terms_id"]
+    out["TermsName"] = value["terms_name"]
+    import aws_sdk_cognito_identity_provider.types.terms_enforcement_type
+
+    out["Enforcement"] = (
+        aws_sdk_cognito_identity_provider.types.terms_enforcement_type.serialize_aws_json_1_1(
+            value["enforcement"]
+        )
+    )
+    import aws_sdk_cognito_identity_provider.types.date_type
+
+    out["CreationDate"] = (
+        aws_sdk_cognito_identity_provider.types.date_type.serialize_aws_json_1_1(
+            value["creation_date"]
+        )
+    )
+    import aws_sdk_cognito_identity_provider.types.date_type
+
+    out["LastModifiedDate"] = (
+        aws_sdk_cognito_identity_provider.types.date_type.serialize_aws_json_1_1(
+            value["last_modified_date"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TermsDescriptionType:
+    out: TermsDescriptionType = {}  # type: ignore[typeddict-item]
+    if "TermsId" in data:
+        out["terms_id"] = data["TermsId"]
+    else:
+        raise DeserializationError("TermsDescriptionType.terms_id required")
+    if "TermsName" in data:
+        out["terms_name"] = data["TermsName"]
+    else:
+        raise DeserializationError("TermsDescriptionType.terms_name required")
+    if "Enforcement" in data:
+        import aws_sdk_cognito_identity_provider.types.terms_enforcement_type
+
+        out["enforcement"] = (
+            aws_sdk_cognito_identity_provider.types.terms_enforcement_type.deserialize_aws_json_1_1(
+                data["Enforcement"]
+            )
+        )
+    else:
+        raise DeserializationError("TermsDescriptionType.enforcement required")
+    if "CreationDate" in data:
+        import aws_sdk_cognito_identity_provider.types.date_type
+
+        out["creation_date"] = (
+            aws_sdk_cognito_identity_provider.types.date_type.deserialize_aws_json_1_1(
+                data["CreationDate"]
+            )
+        )
+    else:
+        raise DeserializationError("TermsDescriptionType.creation_date required")
+    if "LastModifiedDate" in data:
+        import aws_sdk_cognito_identity_provider.types.date_type
+
+        out["last_modified_date"] = (
+            aws_sdk_cognito_identity_provider.types.date_type.deserialize_aws_json_1_1(
+                data["LastModifiedDate"]
+            )
+        )
+    else:
+        raise DeserializationError("TermsDescriptionType.last_modified_date required")
+    return out

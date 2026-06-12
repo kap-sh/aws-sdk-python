@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.licensemanager#GetLicenseUsageResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_license_manager.types.license_usage
+
+
+class GetLicenseUsageResponse(TypedDict):
+    license_usage: NotRequired[
+        "aws_sdk_license_manager.types.license_usage.LicenseUsage"
+    ]
+    """<p>License usage details.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetLicenseUsageResponse) -> dict:
+    out: dict = {}
+    if "license_usage" in value:
+        import aws_sdk_license_manager.types.license_usage
+
+        out["LicenseUsage"] = (
+            aws_sdk_license_manager.types.license_usage.serialize_aws_json_1_1(
+                value["license_usage"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetLicenseUsageResponse:
+    out: GetLicenseUsageResponse = {}  # type: ignore[typeddict-item]
+    if "LicenseUsage" in data:
+        import aws_sdk_license_manager.types.license_usage
+
+        out["license_usage"] = (
+            aws_sdk_license_manager.types.license_usage.deserialize_aws_json_1_1(
+                data["LicenseUsage"]
+            )
+        )
+    return out

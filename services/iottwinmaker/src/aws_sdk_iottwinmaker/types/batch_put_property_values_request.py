@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#BatchPutPropertyValuesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iottwinmaker.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iottwinmaker.types.entries
+    import aws_sdk_iottwinmaker.types.id
+
+
+class BatchPutPropertyValuesRequest(TypedDict):
+    workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
+    """<p>The ID of the workspace that contains the properties to set.</p>"""
+    entries: "aws_sdk_iottwinmaker.types.entries.Entries"
+    """<p>An object that maps strings to the property value entries to set. Each string in the mapping must be unique to this object.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchPutPropertyValuesRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_iottwinmaker.types.entries
+
+    out["entries"] = aws_sdk_iottwinmaker.types.entries.serialize_json(value["entries"])
+    return out
+
+
+def deserialize_json(data: dict) -> BatchPutPropertyValuesRequest:
+    out: BatchPutPropertyValuesRequest = {}  # type: ignore[typeddict-item]
+    if "entries" in data:
+        import aws_sdk_iottwinmaker.types.entries
+
+        out["entries"] = aws_sdk_iottwinmaker.types.entries.deserialize_json(
+            data["entries"]
+        )
+    else:
+        raise DeserializationError("BatchPutPropertyValuesRequest.entries required")
+    return out

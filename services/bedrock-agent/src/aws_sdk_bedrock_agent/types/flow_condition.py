@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowCondition``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.flow_condition_expression
+    import aws_sdk_bedrock_agent.types.flow_condition_name
+
+
+class FlowCondition(TypedDict):
+    name: "aws_sdk_bedrock_agent.types.flow_condition_name.FlowConditionName"
+    """<p>A name for the condition that you can reference.</p>"""
+    expression: NotRequired[
+        "aws_sdk_bedrock_agent.types.flow_condition_expression.FlowConditionExpression"
+    ]
+    """<p>Defines the condition. You must refer to at least one of the inputs in the condition. For more information, expand the Condition node section in <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html#flows-nodes\">Node types in prompt flows</a>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FlowCondition) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "expression" in value:
+        out["expression"] = value["expression"]
+    return out
+
+
+def deserialize_json(data: dict) -> FlowCondition:
+    out: FlowCondition = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("FlowCondition.name required")
+    if "expression" in data:
+        out["expression"] = data["expression"]
+    return out

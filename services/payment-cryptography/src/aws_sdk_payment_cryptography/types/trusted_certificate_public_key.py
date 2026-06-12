@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptography#TrustedCertificatePublicKey``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_payment_cryptography.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography.types.certificate_type
+    import aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type
+    import aws_sdk_payment_cryptography.types.key_attributes
+
+
+class TrustedCertificatePublicKey(TypedDict):
+    key_attributes: "aws_sdk_payment_cryptography.types.key_attributes.KeyAttributes"
+    """<p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after a trusted public key is imported.</p>"""
+    public_key_certificate: (
+        "aws_sdk_payment_cryptography.types.certificate_type.CertificateType"
+    )
+    """<p>Parameter information for trusted public key certificate import.</p>"""
+    certificate_authority_public_key_identifier: "aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
+    """<p>The <code>KeyARN</code> of the root public key certificate or certificate chain that signs the trusted public key certificate import.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: TrustedCertificatePublicKey) -> dict:
+    out: dict = {}
+    import aws_sdk_payment_cryptography.types.key_attributes
+
+    out["KeyAttributes"] = (
+        aws_sdk_payment_cryptography.types.key_attributes.serialize_aws_json_1_0(
+            value["key_attributes"]
+        )
+    )
+    out["PublicKeyCertificate"] = value["public_key_certificate"]
+    out["CertificateAuthorityPublicKeyIdentifier"] = value[
+        "certificate_authority_public_key_identifier"
+    ]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> TrustedCertificatePublicKey:
+    out: TrustedCertificatePublicKey = {}  # type: ignore[typeddict-item]
+    if "KeyAttributes" in data:
+        import aws_sdk_payment_cryptography.types.key_attributes
+
+        out["key_attributes"] = (
+            aws_sdk_payment_cryptography.types.key_attributes.deserialize_aws_json_1_0(
+                data["KeyAttributes"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "TrustedCertificatePublicKey.key_attributes required"
+        )
+    if "PublicKeyCertificate" in data:
+        out["public_key_certificate"] = data["PublicKeyCertificate"]
+    else:
+        raise DeserializationError(
+            "TrustedCertificatePublicKey.public_key_certificate required"
+        )
+    if "CertificateAuthorityPublicKeyIdentifier" in data:
+        out["certificate_authority_public_key_identifier"] = data[
+            "CertificateAuthorityPublicKeyIdentifier"
+        ]
+    else:
+        raise DeserializationError(
+            "TrustedCertificatePublicKey.certificate_authority_public_key_identifier required"
+        )
+    return out

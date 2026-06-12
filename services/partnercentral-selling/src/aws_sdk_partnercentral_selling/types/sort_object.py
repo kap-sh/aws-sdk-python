@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralselling#SortObject``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_partnercentral_selling.types.sort_by
+    import aws_sdk_partnercentral_selling.types.sort_order
+
+
+class SortObject(TypedDict):
+    sort_by: NotRequired["aws_sdk_partnercentral_selling.types.sort_by.SortBy"]
+    """<p> Specifies the field by which to sort the resource snapshot jobs. </p>"""
+    sort_order: NotRequired["aws_sdk_partnercentral_selling.types.sort_order.SortOrder"]
+    """<p> Determines the order in which the sorted results are presented. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: SortObject) -> dict:
+    out: dict = {}
+    if "sort_by" in value:
+        import aws_sdk_partnercentral_selling.types.sort_by
+
+        out["SortBy"] = (
+            aws_sdk_partnercentral_selling.types.sort_by.serialize_aws_json_1_0(
+                value["sort_by"]
+            )
+        )
+    if "sort_order" in value:
+        import aws_sdk_partnercentral_selling.types.sort_order
+
+        out["SortOrder"] = (
+            aws_sdk_partnercentral_selling.types.sort_order.serialize_aws_json_1_0(
+                value["sort_order"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> SortObject:
+    out: SortObject = {}  # type: ignore[typeddict-item]
+    if "SortBy" in data:
+        import aws_sdk_partnercentral_selling.types.sort_by
+
+        out["sort_by"] = (
+            aws_sdk_partnercentral_selling.types.sort_by.deserialize_aws_json_1_0(
+                data["SortBy"]
+            )
+        )
+    if "SortOrder" in data:
+        import aws_sdk_partnercentral_selling.types.sort_order
+
+        out["sort_order"] = (
+            aws_sdk_partnercentral_selling.types.sort_order.deserialize_aws_json_1_0(
+                data["SortOrder"]
+            )
+        )
+    return out

@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.iotsitewise#DetailedError``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_iotsitewise.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iotsitewise.types.detailed_error_code
+    import aws_sdk_iotsitewise.types.detailed_error_message
+
+
+class DetailedError(TypedDict):
+    code: "aws_sdk_iotsitewise.types.detailed_error_code.DetailedErrorCode"
+    """<p>The error code. </p>"""
+    message: "aws_sdk_iotsitewise.types.detailed_error_message.DetailedErrorMessage"
+    """<p>The error message. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DetailedError) -> dict:
+    out: dict = {}
+    import aws_sdk_iotsitewise.types.detailed_error_code
+
+    out["code"] = aws_sdk_iotsitewise.types.detailed_error_code.serialize_json(
+        value["code"]
+    )
+    out["message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> DetailedError:
+    out: DetailedError = {}  # type: ignore[typeddict-item]
+    if "code" in data:
+        import aws_sdk_iotsitewise.types.detailed_error_code
+
+        out["code"] = aws_sdk_iotsitewise.types.detailed_error_code.deserialize_json(
+            data["code"]
+        )
+    else:
+        raise DeserializationError("DetailedError.code required")
+    if "message" in data:
+        out["message"] = data["message"]
+    else:
+        raise DeserializationError("DetailedError.message required")
+    return out

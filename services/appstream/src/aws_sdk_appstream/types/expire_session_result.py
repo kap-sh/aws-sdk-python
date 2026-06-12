@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#ExpireSessionResult``."""
+
+from typing import TypedDict
+
+
+class ExpireSessionResult(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExpireSessionResult) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExpireSessionResult:
+    out: ExpireSessionResult = {}  # type: ignore[typeddict-item]
+    return out

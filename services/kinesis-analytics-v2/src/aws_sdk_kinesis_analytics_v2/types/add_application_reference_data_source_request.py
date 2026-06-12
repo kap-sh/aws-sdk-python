@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#AddApplicationReferenceDataSourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis_analytics_v2.types.application_name
+    import aws_sdk_kinesis_analytics_v2.types.application_version_id
+    import aws_sdk_kinesis_analytics_v2.types.reference_data_source
+
+
+class AddApplicationReferenceDataSourceRequest(TypedDict):
+    application_name: (
+        "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName"
+    )
+    """<p>The name of an existing application.</p>"""
+    current_application_version_id: (
+        "aws_sdk_kinesis_analytics_v2.types.application_version_id.ApplicationVersionId"
+    )
+    """<p>The version of the application for which you are adding the reference data source. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>"""
+    reference_data_source: (
+        "aws_sdk_kinesis_analytics_v2.types.reference_data_source.ReferenceDataSource"
+    )
+    """<p>The reference data source can be an object in your Amazon S3 bucket. Kinesis Data Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AddApplicationReferenceDataSourceRequest) -> dict:
+    out: dict = {}
+    out["ApplicationName"] = value["application_name"]
+    out["CurrentApplicationVersionId"] = value["current_application_version_id"]
+    import aws_sdk_kinesis_analytics_v2.types.reference_data_source
+
+    out["ReferenceDataSource"] = (
+        aws_sdk_kinesis_analytics_v2.types.reference_data_source.serialize_aws_json_1_1(
+            value["reference_data_source"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AddApplicationReferenceDataSourceRequest:
+    out: AddApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
+    if "ApplicationName" in data:
+        out["application_name"] = data["ApplicationName"]
+    else:
+        raise DeserializationError(
+            "AddApplicationReferenceDataSourceRequest.application_name required"
+        )
+    if "CurrentApplicationVersionId" in data:
+        out["current_application_version_id"] = data["CurrentApplicationVersionId"]
+    else:
+        raise DeserializationError(
+            "AddApplicationReferenceDataSourceRequest.current_application_version_id required"
+        )
+    if "ReferenceDataSource" in data:
+        import aws_sdk_kinesis_analytics_v2.types.reference_data_source
+
+        out["reference_data_source"] = (
+            aws_sdk_kinesis_analytics_v2.types.reference_data_source.deserialize_aws_json_1_1(
+                data["ReferenceDataSource"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "AddApplicationReferenceDataSourceRequest.reference_data_source required"
+        )
+    return out

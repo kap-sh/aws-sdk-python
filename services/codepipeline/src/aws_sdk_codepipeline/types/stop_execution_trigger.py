@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#StopExecutionTrigger``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codepipeline.types.stop_pipeline_execution_reason
+
+
+class StopExecutionTrigger(TypedDict):
+    reason: NotRequired[
+        "aws_sdk_codepipeline.types.stop_pipeline_execution_reason.StopPipelineExecutionReason"
+    ]
+    """<p>The user-specified reason the pipeline was stopped.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: StopExecutionTrigger) -> dict:
+    out: dict = {}
+    if "reason" in value:
+        out["reason"] = value["reason"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> StopExecutionTrigger:
+    out: StopExecutionTrigger = {}  # type: ignore[typeddict-item]
+    if "reason" in data:
+        out["reason"] = data["reason"]
+    return out

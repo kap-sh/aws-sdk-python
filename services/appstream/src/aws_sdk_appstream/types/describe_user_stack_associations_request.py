@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#DescribeUserStackAssociationsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appstream.types.authentication_type
+    import aws_sdk_appstream.types.max_results
+    import aws_sdk_appstream.types.string
+    import aws_sdk_appstream.types.username
+
+
+class DescribeUserStackAssociationsRequest(TypedDict):
+    stack_name: NotRequired["aws_sdk_appstream.types.string.String"]
+    """<p>The name of the stack that is associated with the user.</p>"""
+    user_name: NotRequired["aws_sdk_appstream.types.username.Username"]
+    """<p>The email address of the user who is associated with the stack.</p> <note> <p>Users' email addresses are case-sensitive.</p> </note>"""
+    authentication_type: NotRequired[
+        "aws_sdk_appstream.types.authentication_type.AuthenticationType"
+    ]
+    """<p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>"""
+    max_results: NotRequired["aws_sdk_appstream.types.max_results.MaxResults"]
+    """<p>The maximum size of each page of results.</p>"""
+    next_token: NotRequired["aws_sdk_appstream.types.string.String"]
+    """<p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeUserStackAssociationsRequest) -> dict:
+    out: dict = {}
+    if "stack_name" in value:
+        out["StackName"] = value["stack_name"]
+    if "user_name" in value:
+        out["UserName"] = value["user_name"]
+    if "authentication_type" in value:
+        import aws_sdk_appstream.types.authentication_type
+
+        out["AuthenticationType"] = (
+            aws_sdk_appstream.types.authentication_type.serialize_aws_json_1_1(
+                value["authentication_type"]
+            )
+        )
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeUserStackAssociationsRequest:
+    out: DescribeUserStackAssociationsRequest = {}  # type: ignore[typeddict-item]
+    if "StackName" in data:
+        out["stack_name"] = data["StackName"]
+    if "UserName" in data:
+        out["user_name"] = data["UserName"]
+    if "AuthenticationType" in data:
+        import aws_sdk_appstream.types.authentication_type
+
+        out["authentication_type"] = (
+            aws_sdk_appstream.types.authentication_type.deserialize_aws_json_1_1(
+                data["AuthenticationType"]
+            )
+        )
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

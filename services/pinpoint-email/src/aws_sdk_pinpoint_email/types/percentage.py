@@ -1,0 +1,6 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointemail#Percentage``."""
+
+from typing import TypeAlias
+
+"""<p>An object that contains information about inbox placement percentages.</p>"""
+Percentage: TypeAlias = float

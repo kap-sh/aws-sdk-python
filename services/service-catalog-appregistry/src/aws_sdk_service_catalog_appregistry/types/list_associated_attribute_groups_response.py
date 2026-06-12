@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#ListAssociatedAttributeGroupsResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_service_catalog_appregistry.types.attribute_group_ids
+    import aws_sdk_service_catalog_appregistry.types.next_token
+
+
+class ListAssociatedAttributeGroupsResponse(TypedDict):
+    attribute_groups: NotRequired[
+        "aws_sdk_service_catalog_appregistry.types.attribute_group_ids.AttributeGroupIds"
+    ]
+    """<p>A list of attribute group IDs.</p>"""
+    next_token: NotRequired[
+        "aws_sdk_service_catalog_appregistry.types.next_token.NextToken"
+    ]
+    """<p>The token to use to get the next page of results after a previous API call. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAssociatedAttributeGroupsResponse) -> dict:
+    out: dict = {}
+    if "attribute_groups" in value:
+        import aws_sdk_service_catalog_appregistry.types.attribute_group_ids
+
+        out["attributeGroups"] = (
+            aws_sdk_service_catalog_appregistry.types.attribute_group_ids.serialize_json(
+                value["attribute_groups"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListAssociatedAttributeGroupsResponse:
+    out: ListAssociatedAttributeGroupsResponse = {}  # type: ignore[typeddict-item]
+    if "attributeGroups" in data:
+        import aws_sdk_service_catalog_appregistry.types.attribute_group_ids
+
+        out["attribute_groups"] = (
+            aws_sdk_service_catalog_appregistry.types.attribute_group_ids.deserialize_json(
+                data["attributeGroups"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#TimedMetadataScheduleActionSettings``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_medialive.types.__string
+
+
+class TimedMetadataScheduleActionSettings(TypedDict):
+    id3: NotRequired["aws_sdk_medialive.types.__string.__string"]
+    """Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TimedMetadataScheduleActionSettings) -> dict:
+    out: dict = {}
+    if "id3" in value:
+        out["id3"] = value["id3"]
+    return out
+
+
+def deserialize_json(data: dict) -> TimedMetadataScheduleActionSettings:
+    out: TimedMetadataScheduleActionSettings = {}  # type: ignore[typeddict-item]
+    if "id3" in data:
+        out["id3"] = data["id3"]
+    return out

@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#DeletableCertificateBasedAuthPropertiesList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_workspaces.types.deletable_certificate_based_auth_property
+
+DeletableCertificateBasedAuthPropertiesList: TypeAlias = list[
+    "aws_sdk_workspaces.types.deletable_certificate_based_auth_property.DeletableCertificateBasedAuthProperty"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeletableCertificateBasedAuthPropertiesList) -> list:
+    import aws_sdk_workspaces.types.deletable_certificate_based_auth_property
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_workspaces.types.deletable_certificate_based_auth_property.serialize_aws_json_1_1(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> DeletableCertificateBasedAuthPropertiesList:
+    import aws_sdk_workspaces.types.deletable_certificate_based_auth_property
+
+    out: DeletableCertificateBasedAuthPropertiesList = []
+    for item in data:
+        out.append(
+            aws_sdk_workspaces.types.deletable_certificate_based_auth_property.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

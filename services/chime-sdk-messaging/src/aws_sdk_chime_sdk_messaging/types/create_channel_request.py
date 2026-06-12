@@ -1,0 +1,202 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#CreateChannelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_chime_sdk_messaging.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_messaging.types.channel_id
+    import aws_sdk_chime_sdk_messaging.types.channel_member_arns
+    import aws_sdk_chime_sdk_messaging.types.channel_mode
+    import aws_sdk_chime_sdk_messaging.types.channel_moderator_arns
+    import aws_sdk_chime_sdk_messaging.types.channel_privacy
+    import aws_sdk_chime_sdk_messaging.types.chime_arn
+    import aws_sdk_chime_sdk_messaging.types.client_request_token
+    import aws_sdk_chime_sdk_messaging.types.elastic_channel_configuration
+    import aws_sdk_chime_sdk_messaging.types.expiration_settings
+    import aws_sdk_chime_sdk_messaging.types.metadata
+    import aws_sdk_chime_sdk_messaging.types.non_empty_resource_name
+    import aws_sdk_chime_sdk_messaging.types.tag_list
+
+
+class CreateChannelRequest(TypedDict):
+    app_instance_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The ARN of the channel request.</p>"""
+    name: (
+        "aws_sdk_chime_sdk_messaging.types.non_empty_resource_name.NonEmptyResourceName"
+    )
+    """<p>The name of the channel.</p>"""
+    mode: NotRequired["aws_sdk_chime_sdk_messaging.types.channel_mode.ChannelMode"]
+    """<p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators, moderators, and channel members can add themselves and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.</p>"""
+    privacy: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.channel_privacy.ChannelPrivacy"
+    ]
+    """<p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private channels aren't discoverable by users outside the channel. Public channels are discoverable by anyone in the <code>AppInstance</code>.</p>"""
+    metadata: NotRequired["aws_sdk_chime_sdk_messaging.types.metadata.Metadata"]
+    """<p>The metadata of the creation request. Limited to 1KB and UTF-8.</p>"""
+    client_request_token: (
+        "aws_sdk_chime_sdk_messaging.types.client_request_token.ClientRequestToken"
+    )
+    """<p>The client token for the request. An <code>Idempotency</code> token.</p>"""
+    tags: NotRequired["aws_sdk_chime_sdk_messaging.types.tag_list.TagList"]
+    """<p>The tags for the creation request.</p>"""
+    chime_bearer: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>"""
+    channel_id: NotRequired["aws_sdk_chime_sdk_messaging.types.channel_id.ChannelId"]
+    """<p>An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel.</p>"""
+    member_arns: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.channel_member_arns.ChannelMemberArns"
+    ]
+    """<p>The ARNs of the channel members in the request.</p>"""
+    moderator_arns: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.channel_moderator_arns.ChannelModeratorArns"
+    ]
+    """<p>The ARNs of the channel moderators in the request.</p>"""
+    elastic_channel_configuration: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.elastic_channel_configuration.ElasticChannelConfiguration"
+    ]
+    """<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>"""
+    expiration_settings: NotRequired[
+        "aws_sdk_chime_sdk_messaging.types.expiration_settings.ExpirationSettings"
+    ]
+    """<p>Settings that control the interval after which the channel is automatically deleted.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateChannelRequest) -> dict:
+    out: dict = {}
+    out["AppInstanceArn"] = value["app_instance_arn"]
+    out["Name"] = value["name"]
+    if "mode" in value:
+        import aws_sdk_chime_sdk_messaging.types.channel_mode
+
+        out["Mode"] = aws_sdk_chime_sdk_messaging.types.channel_mode.serialize_json(
+            value["mode"]
+        )
+    if "privacy" in value:
+        import aws_sdk_chime_sdk_messaging.types.channel_privacy
+
+        out["Privacy"] = (
+            aws_sdk_chime_sdk_messaging.types.channel_privacy.serialize_json(
+                value["privacy"]
+            )
+        )
+    if "metadata" in value:
+        out["Metadata"] = value["metadata"]
+    out["ClientRequestToken"] = value["client_request_token"]
+    if "tags" in value:
+        import aws_sdk_chime_sdk_messaging.types.tag_list
+
+        out["Tags"] = aws_sdk_chime_sdk_messaging.types.tag_list.serialize_json(
+            value["tags"]
+        )
+    if "channel_id" in value:
+        out["ChannelId"] = value["channel_id"]
+    if "member_arns" in value:
+        import aws_sdk_chime_sdk_messaging.types.channel_member_arns
+
+        out["MemberArns"] = (
+            aws_sdk_chime_sdk_messaging.types.channel_member_arns.serialize_json(
+                value["member_arns"]
+            )
+        )
+    if "moderator_arns" in value:
+        import aws_sdk_chime_sdk_messaging.types.channel_moderator_arns
+
+        out["ModeratorArns"] = (
+            aws_sdk_chime_sdk_messaging.types.channel_moderator_arns.serialize_json(
+                value["moderator_arns"]
+            )
+        )
+    if "elastic_channel_configuration" in value:
+        import aws_sdk_chime_sdk_messaging.types.elastic_channel_configuration
+
+        out["ElasticChannelConfiguration"] = (
+            aws_sdk_chime_sdk_messaging.types.elastic_channel_configuration.serialize_json(
+                value["elastic_channel_configuration"]
+            )
+        )
+    if "expiration_settings" in value:
+        import aws_sdk_chime_sdk_messaging.types.expiration_settings
+
+        out["ExpirationSettings"] = (
+            aws_sdk_chime_sdk_messaging.types.expiration_settings.serialize_json(
+                value["expiration_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateChannelRequest:
+    out: CreateChannelRequest = {}  # type: ignore[typeddict-item]
+    if "AppInstanceArn" in data:
+        out["app_instance_arn"] = data["AppInstanceArn"]
+    else:
+        raise DeserializationError("CreateChannelRequest.app_instance_arn required")
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("CreateChannelRequest.name required")
+    if "Mode" in data:
+        import aws_sdk_chime_sdk_messaging.types.channel_mode
+
+        out["mode"] = aws_sdk_chime_sdk_messaging.types.channel_mode.deserialize_json(
+            data["Mode"]
+        )
+    if "Privacy" in data:
+        import aws_sdk_chime_sdk_messaging.types.channel_privacy
+
+        out["privacy"] = (
+            aws_sdk_chime_sdk_messaging.types.channel_privacy.deserialize_json(
+                data["Privacy"]
+            )
+        )
+    if "Metadata" in data:
+        out["metadata"] = data["Metadata"]
+    if "ClientRequestToken" in data:
+        out["client_request_token"] = data["ClientRequestToken"]
+    else:
+        raise DeserializationError("CreateChannelRequest.client_request_token required")
+    if "Tags" in data:
+        import aws_sdk_chime_sdk_messaging.types.tag_list
+
+        out["tags"] = aws_sdk_chime_sdk_messaging.types.tag_list.deserialize_json(
+            data["Tags"]
+        )
+    if "ChannelId" in data:
+        out["channel_id"] = data["ChannelId"]
+    if "MemberArns" in data:
+        import aws_sdk_chime_sdk_messaging.types.channel_member_arns
+
+        out["member_arns"] = (
+            aws_sdk_chime_sdk_messaging.types.channel_member_arns.deserialize_json(
+                data["MemberArns"]
+            )
+        )
+    if "ModeratorArns" in data:
+        import aws_sdk_chime_sdk_messaging.types.channel_moderator_arns
+
+        out["moderator_arns"] = (
+            aws_sdk_chime_sdk_messaging.types.channel_moderator_arns.deserialize_json(
+                data["ModeratorArns"]
+            )
+        )
+    if "ElasticChannelConfiguration" in data:
+        import aws_sdk_chime_sdk_messaging.types.elastic_channel_configuration
+
+        out["elastic_channel_configuration"] = (
+            aws_sdk_chime_sdk_messaging.types.elastic_channel_configuration.deserialize_json(
+                data["ElasticChannelConfiguration"]
+            )
+        )
+    if "ExpirationSettings" in data:
+        import aws_sdk_chime_sdk_messaging.types.expiration_settings
+
+        out["expiration_settings"] = (
+            aws_sdk_chime_sdk_messaging.types.expiration_settings.deserialize_json(
+                data["ExpirationSettings"]
+            )
+        )
+    return out

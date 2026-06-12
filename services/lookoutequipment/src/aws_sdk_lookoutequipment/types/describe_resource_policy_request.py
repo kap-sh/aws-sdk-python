@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeResourcePolicyRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_lookoutequipment.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lookoutequipment.types.resource_arn
+
+
+class DescribeResourcePolicyRequest(TypedDict):
+    resource_arn: "aws_sdk_lookoutequipment.types.resource_arn.ResourceArn"
+    """<p>The Amazon Resource Name (ARN) of the resource that is associated with the resource policy.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DescribeResourcePolicyRequest) -> dict:
+    out: dict = {}
+    out["ResourceArn"] = value["resource_arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DescribeResourcePolicyRequest:
+    out: DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    else:
+        raise DeserializationError(
+            "DescribeResourcePolicyRequest.resource_arn required"
+        )
+    return out

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.codestarnotifications#Target``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codestar_notifications.types.target_address
+    import aws_sdk_codestar_notifications.types.target_type
+
+
+class Target(TypedDict):
+    target_type: NotRequired[
+        "aws_sdk_codestar_notifications.types.target_type.TargetType"
+    ]
+    """<p>The target type. Can be an Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.</p> <ul> <li> <p>Amazon Q Developer in chat applications topics are specified as <code>SNS</code>.</p> </li> <li> <p>Amazon Q Developer in chat applications clients are specified as <code>AWSChatbotSlack</code>.</p> </li> </ul>"""
+    target_address: NotRequired[
+        "aws_sdk_codestar_notifications.types.target_address.TargetAddress"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Target) -> dict:
+    out: dict = {}
+    if "target_type" in value:
+        out["TargetType"] = value["target_type"]
+    if "target_address" in value:
+        out["TargetAddress"] = value["target_address"]
+    return out
+
+
+def deserialize_json(data: dict) -> Target:
+    out: Target = {}  # type: ignore[typeddict-item]
+    if "TargetType" in data:
+        out["target_type"] = data["TargetType"]
+    if "TargetAddress" in data:
+        out["target_address"] = data["TargetAddress"]
+    return out

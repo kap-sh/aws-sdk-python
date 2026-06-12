@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateCodeRepositoryInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.entity_name
+    import aws_sdk_sagemaker.types.git_config_for_update
+
+
+class UpdateCodeRepositoryInput(TypedDict):
+    code_repository_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
+    """<p>The name of the Git repository to update.</p>"""
+    git_config: NotRequired[
+        "aws_sdk_sagemaker.types.git_config_for_update.GitConfigForUpdate"
+    ]
+    """<p>The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>{\"username\": <i>UserName</i>, \"password\": <i>Password</i>}</code> </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateCodeRepositoryInput) -> dict:
+    out: dict = {}
+    if "code_repository_name" in value:
+        out["CodeRepositoryName"] = value["code_repository_name"]
+    if "git_config" in value:
+        import aws_sdk_sagemaker.types.git_config_for_update
+
+        out["GitConfig"] = (
+            aws_sdk_sagemaker.types.git_config_for_update.serialize_aws_json_1_1(
+                value["git_config"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateCodeRepositoryInput:
+    out: UpdateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
+    if "CodeRepositoryName" in data:
+        out["code_repository_name"] = data["CodeRepositoryName"]
+    if "GitConfig" in data:
+        import aws_sdk_sagemaker.types.git_config_for_update
+
+        out["git_config"] = (
+            aws_sdk_sagemaker.types.git_config_for_update.deserialize_aws_json_1_1(
+                data["GitConfig"]
+            )
+        )
+    return out

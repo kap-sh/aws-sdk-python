@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#ReputationEntitiesList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_sesv2.types.reputation_entity
+
+ReputationEntitiesList: TypeAlias = list[
+    "aws_sdk_sesv2.types.reputation_entity.ReputationEntity"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ReputationEntitiesList) -> list:
+    import aws_sdk_sesv2.types.reputation_entity
+
+    out: list = []
+    for item in value:
+        out.append(aws_sdk_sesv2.types.reputation_entity.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> ReputationEntitiesList:
+    import aws_sdk_sesv2.types.reputation_entity
+
+    out: ReputationEntitiesList = []
+    for item in data:
+        out.append(aws_sdk_sesv2.types.reputation_entity.deserialize_json(item))
+    return out

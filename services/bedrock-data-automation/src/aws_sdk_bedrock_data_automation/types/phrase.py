@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#Phrase``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bedrock_data_automation.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_data_automation.types.phrase_display_as_text
+    import aws_sdk_bedrock_data_automation.types.phrase_text
+
+
+class Phrase(TypedDict):
+    text: "aws_sdk_bedrock_data_automation.types.phrase_text.PhraseText"
+    display_as_text: NotRequired[
+        "aws_sdk_bedrock_data_automation.types.phrase_display_as_text.PhraseDisplayAsText"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Phrase) -> dict:
+    out: dict = {}
+    out["text"] = value["text"]
+    if "display_as_text" in value:
+        out["displayAsText"] = value["display_as_text"]
+    return out
+
+
+def deserialize_json(data: dict) -> Phrase:
+    out: Phrase = {}  # type: ignore[typeddict-item]
+    if "text" in data:
+        out["text"] = data["text"]
+    else:
+        raise DeserializationError("Phrase.text required")
+    if "displayAsText" in data:
+        out["display_as_text"] = data["displayAsText"]
+    return out

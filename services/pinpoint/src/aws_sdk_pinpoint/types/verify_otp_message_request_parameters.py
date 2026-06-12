@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#VerifyOTPMessageRequestParameters``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.__string
+
+
+class VerifyOTPMessageRequestParameters(TypedDict):
+    destination_identity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The destination identity to send OTP to.</p>"""
+    otp: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The OTP the end user provided for verification.</p>"""
+    reference_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The reference identifier provided when the OTP was previously sent.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: VerifyOTPMessageRequestParameters) -> dict:
+    out: dict = {}
+    if "destination_identity" in value:
+        out["DestinationIdentity"] = value["destination_identity"]
+    if "otp" in value:
+        out["Otp"] = value["otp"]
+    if "reference_id" in value:
+        out["ReferenceId"] = value["reference_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> VerifyOTPMessageRequestParameters:
+    out: VerifyOTPMessageRequestParameters = {}  # type: ignore[typeddict-item]
+    if "DestinationIdentity" in data:
+        out["destination_identity"] = data["DestinationIdentity"]
+    if "Otp" in data:
+        out["otp"] = data["Otp"]
+    if "ReferenceId" in data:
+        out["reference_id"] = data["ReferenceId"]
+    return out

@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.mturk#CreateWorkerBlockResponse``."""
+
+from typing import TypedDict
+
+
+class CreateWorkerBlockResponse(TypedDict):
+    pass
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateWorkerBlockResponse) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateWorkerBlockResponse:
+    out: CreateWorkerBlockResponse = {}  # type: ignore[typeddict-item]
+    return out

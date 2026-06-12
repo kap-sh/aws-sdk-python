@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.geomaps#DistanceMeters``."""
+
+import datetime
+import decimal
+from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
+from aws_sdk_geo_maps.errors import DeserializationError
+from aws_sdk_geo_maps._protocol.xml import Element, SubElement
+import base64
+from email.utils import format_datetime as _fmt_http
+from email.utils import parsedate_to_datetime as _parse_http
+
+DistanceMeters: TypeAlias = int
+
+DEFAULT_DISTANCE_METERS: DistanceMeters = 0

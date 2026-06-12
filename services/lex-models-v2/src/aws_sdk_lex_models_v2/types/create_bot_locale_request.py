@@ -1,0 +1,181 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateBotLocaleRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_lex_models_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lex_models_v2.types.audio_filler_settings
+    import aws_sdk_lex_models_v2.types.confidence_threshold
+    import aws_sdk_lex_models_v2.types.description
+    import aws_sdk_lex_models_v2.types.draft_bot_version
+    import aws_sdk_lex_models_v2.types.generative_ai_settings
+    import aws_sdk_lex_models_v2.types.id
+    import aws_sdk_lex_models_v2.types.locale_id
+    import aws_sdk_lex_models_v2.types.speech_detection_sensitivity
+    import aws_sdk_lex_models_v2.types.speech_recognition_settings
+    import aws_sdk_lex_models_v2.types.unified_speech_settings
+    import aws_sdk_lex_models_v2.types.voice_settings
+
+
+class CreateBotLocaleRequest(TypedDict):
+    bot_id: "aws_sdk_lex_models_v2.types.id.Id"
+    """<p>The identifier of the bot to create the locale for.</p>"""
+    bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"
+    """<p>The version of the bot to create the locale for. This can only be the draft version of the bot.</p>"""
+    locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
+    """<p>The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]
+    """<p>A description of the bot locale. Use this to help identify the bot locale in lists.</p>"""
+    nlu_intent_confidence_threshold: (
+        "aws_sdk_lex_models_v2.types.confidence_threshold.ConfidenceThreshold"
+    )
+    """<p>Determines the threshold where Amazon Lex will insert the <code>AMAZON.FallbackIntent</code>, <code>AMAZON.KendraSearchIntent</code>, or both when returning alternative intents. <code>AMAZON.FallbackIntent</code> and <code>AMAZON.KendraSearchIntent</code> are only inserted if they are configured for the bot.</p> <p>For example, suppose a bot is configured with the confidence threshold of 0.80 and the <code>AMAZON.FallbackIntent</code>. Amazon Lex returns three alternative intents with the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50). The response from the <code>RecognizeText</code> operation would be:</p> <ul> <li> <p>AMAZON.FallbackIntent</p> </li> <li> <p>IntentA</p> </li> <li> <p>IntentB</p> </li> <li> <p>IntentC</p> </li> </ul>"""
+    voice_settings: NotRequired[
+        "aws_sdk_lex_models_v2.types.voice_settings.VoiceSettings"
+    ]
+    """<p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.</p>"""
+    unified_speech_settings: NotRequired[
+        "aws_sdk_lex_models_v2.types.unified_speech_settings.UnifiedSpeechSettings"
+    ]
+    """<p>Unified speech settings to configure for the new bot locale.</p>"""
+    audio_filler_settings: NotRequired[
+        "aws_sdk_lex_models_v2.types.audio_filler_settings.AudioFillerSettings"
+    ]
+    """<p>Audio filler settings to configure for the new bot locale. When enabled, Amazon Lex plays a brief background audio filler during speech-to-speech interactions to mask processing delays. Requires <code>unifiedSpeechSettings</code> (speech-to-speech) to be configured on the bot locale.</p>"""
+    speech_recognition_settings: NotRequired[
+        "aws_sdk_lex_models_v2.types.speech_recognition_settings.SpeechRecognitionSettings"
+    ]
+    """<p>Speech-to-text settings to configure for the new bot locale.</p>"""
+    generative_ai_settings: NotRequired[
+        "aws_sdk_lex_models_v2.types.generative_ai_settings.GenerativeAISettings"
+    ]
+    speech_detection_sensitivity: NotRequired[
+        "aws_sdk_lex_models_v2.types.speech_detection_sensitivity.SpeechDetectionSensitivity"
+    ]
+    """<p>The sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateBotLocaleRequest) -> dict:
+    out: dict = {}
+    out["localeId"] = value["locale_id"]
+    if "description" in value:
+        out["description"] = value["description"]
+    out["nluIntentConfidenceThreshold"] = value["nlu_intent_confidence_threshold"]
+    if "voice_settings" in value:
+        import aws_sdk_lex_models_v2.types.voice_settings
+
+        out["voiceSettings"] = (
+            aws_sdk_lex_models_v2.types.voice_settings.serialize_json(
+                value["voice_settings"]
+            )
+        )
+    if "unified_speech_settings" in value:
+        import aws_sdk_lex_models_v2.types.unified_speech_settings
+
+        out["unifiedSpeechSettings"] = (
+            aws_sdk_lex_models_v2.types.unified_speech_settings.serialize_json(
+                value["unified_speech_settings"]
+            )
+        )
+    if "audio_filler_settings" in value:
+        import aws_sdk_lex_models_v2.types.audio_filler_settings
+
+        out["audioFillerSettings"] = (
+            aws_sdk_lex_models_v2.types.audio_filler_settings.serialize_json(
+                value["audio_filler_settings"]
+            )
+        )
+    if "speech_recognition_settings" in value:
+        import aws_sdk_lex_models_v2.types.speech_recognition_settings
+
+        out["speechRecognitionSettings"] = (
+            aws_sdk_lex_models_v2.types.speech_recognition_settings.serialize_json(
+                value["speech_recognition_settings"]
+            )
+        )
+    if "generative_ai_settings" in value:
+        import aws_sdk_lex_models_v2.types.generative_ai_settings
+
+        out["generativeAISettings"] = (
+            aws_sdk_lex_models_v2.types.generative_ai_settings.serialize_json(
+                value["generative_ai_settings"]
+            )
+        )
+    if "speech_detection_sensitivity" in value:
+        import aws_sdk_lex_models_v2.types.speech_detection_sensitivity
+
+        out["speechDetectionSensitivity"] = (
+            aws_sdk_lex_models_v2.types.speech_detection_sensitivity.serialize_json(
+                value["speech_detection_sensitivity"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateBotLocaleRequest:
+    out: CreateBotLocaleRequest = {}  # type: ignore[typeddict-item]
+    if "localeId" in data:
+        out["locale_id"] = data["localeId"]
+    else:
+        raise DeserializationError("CreateBotLocaleRequest.locale_id required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "nluIntentConfidenceThreshold" in data:
+        out["nlu_intent_confidence_threshold"] = data["nluIntentConfidenceThreshold"]
+    else:
+        raise DeserializationError(
+            "CreateBotLocaleRequest.nlu_intent_confidence_threshold required"
+        )
+    if "voiceSettings" in data:
+        import aws_sdk_lex_models_v2.types.voice_settings
+
+        out["voice_settings"] = (
+            aws_sdk_lex_models_v2.types.voice_settings.deserialize_json(
+                data["voiceSettings"]
+            )
+        )
+    if "unifiedSpeechSettings" in data:
+        import aws_sdk_lex_models_v2.types.unified_speech_settings
+
+        out["unified_speech_settings"] = (
+            aws_sdk_lex_models_v2.types.unified_speech_settings.deserialize_json(
+                data["unifiedSpeechSettings"]
+            )
+        )
+    if "audioFillerSettings" in data:
+        import aws_sdk_lex_models_v2.types.audio_filler_settings
+
+        out["audio_filler_settings"] = (
+            aws_sdk_lex_models_v2.types.audio_filler_settings.deserialize_json(
+                data["audioFillerSettings"]
+            )
+        )
+    if "speechRecognitionSettings" in data:
+        import aws_sdk_lex_models_v2.types.speech_recognition_settings
+
+        out["speech_recognition_settings"] = (
+            aws_sdk_lex_models_v2.types.speech_recognition_settings.deserialize_json(
+                data["speechRecognitionSettings"]
+            )
+        )
+    if "generativeAISettings" in data:
+        import aws_sdk_lex_models_v2.types.generative_ai_settings
+
+        out["generative_ai_settings"] = (
+            aws_sdk_lex_models_v2.types.generative_ai_settings.deserialize_json(
+                data["generativeAISettings"]
+            )
+        )
+    if "speechDetectionSensitivity" in data:
+        import aws_sdk_lex_models_v2.types.speech_detection_sensitivity
+
+        out["speech_detection_sensitivity"] = (
+            aws_sdk_lex_models_v2.types.speech_detection_sensitivity.deserialize_json(
+                data["speechDetectionSensitivity"]
+            )
+        )
+    return out

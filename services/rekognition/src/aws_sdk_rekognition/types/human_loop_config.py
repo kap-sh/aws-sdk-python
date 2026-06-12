@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.rekognition#HumanLoopConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_rekognition.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_rekognition.types.flow_definition_arn
+    import aws_sdk_rekognition.types.human_loop_data_attributes
+    import aws_sdk_rekognition.types.human_loop_name
+
+
+class HumanLoopConfig(TypedDict):
+    human_loop_name: "aws_sdk_rekognition.types.human_loop_name.HumanLoopName"
+    """<p>The name of the human review used for this image. This should be kept unique within a region.</p>"""
+    flow_definition_arn: (
+        "aws_sdk_rekognition.types.flow_definition_arn.FlowDefinitionArn"
+    )
+    """<p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html\">CreateFlowDefinition</a> Operation. </p>"""
+    data_attributes: NotRequired[
+        "aws_sdk_rekognition.types.human_loop_data_attributes.HumanLoopDataAttributes"
+    ]
+    """<p>Sets attributes of the input data.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: HumanLoopConfig) -> dict:
+    out: dict = {}
+    out["HumanLoopName"] = value["human_loop_name"]
+    out["FlowDefinitionArn"] = value["flow_definition_arn"]
+    if "data_attributes" in value:
+        import aws_sdk_rekognition.types.human_loop_data_attributes
+
+        out["DataAttributes"] = (
+            aws_sdk_rekognition.types.human_loop_data_attributes.serialize_aws_json_1_1(
+                value["data_attributes"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> HumanLoopConfig:
+    out: HumanLoopConfig = {}  # type: ignore[typeddict-item]
+    if "HumanLoopName" in data:
+        out["human_loop_name"] = data["HumanLoopName"]
+    else:
+        raise DeserializationError("HumanLoopConfig.human_loop_name required")
+    if "FlowDefinitionArn" in data:
+        out["flow_definition_arn"] = data["FlowDefinitionArn"]
+    else:
+        raise DeserializationError("HumanLoopConfig.flow_definition_arn required")
+    if "DataAttributes" in data:
+        import aws_sdk_rekognition.types.human_loop_data_attributes
+
+        out["data_attributes"] = (
+            aws_sdk_rekognition.types.human_loop_data_attributes.deserialize_aws_json_1_1(
+                data["DataAttributes"]
+            )
+        )
+    return out

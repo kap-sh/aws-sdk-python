@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalytics#DescribeApplicationRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_kinesis_analytics.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis_analytics.types.application_name
+
+
+class DescribeApplicationRequest(TypedDict):
+    application_name: "aws_sdk_kinesis_analytics.types.application_name.ApplicationName"
+    """<p>Name of the application.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeApplicationRequest) -> dict:
+    out: dict = {}
+    out["ApplicationName"] = value["application_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeApplicationRequest:
+    out: DescribeApplicationRequest = {}  # type: ignore[typeddict-item]
+    if "ApplicationName" in data:
+        out["application_name"] = data["ApplicationName"]
+    else:
+        raise DeserializationError(
+            "DescribeApplicationRequest.application_name required"
+        )
+    return out

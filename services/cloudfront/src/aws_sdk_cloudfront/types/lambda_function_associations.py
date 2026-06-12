@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#LambdaFunctionAssociations``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudfront._protocol.xml import Element, SubElement
+from aws_sdk_cloudfront.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudfront.types.integer
+    import aws_sdk_cloudfront.types.lambda_function_association_list
+
+
+class LambdaFunctionAssociations(TypedDict):
+    quantity: "aws_sdk_cloudfront.types.integer.integer"
+    """<p>The number of Lambda@Edge function associations for this cache behavior.</p>"""
+    items: NotRequired[
+        "aws_sdk_cloudfront.types.lambda_function_association_list.LambdaFunctionAssociationList"
+    ]
+    """<p> <b>Optional</b>: A complex type that contains <code>LambdaFunctionAssociation</code> items for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: LambdaFunctionAssociations, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "Quantity").text = str(value["quantity"])
+    if "items" in value:
+        import aws_sdk_cloudfront.types.lambda_function_association_list
+
+        aws_sdk_cloudfront.types.lambda_function_association_list.serialize_xml(
+            value["items"], el, "Items"
+        )
+
+
+def deserialize_xml(el: Element) -> LambdaFunctionAssociations:
+    out: LambdaFunctionAssociations = {}  # type: ignore[typeddict-item]
+    child_quantity = el.find("Quantity")
+    if child_quantity is not None:
+        out["quantity"] = int(child_quantity.text or "")
+    else:
+        raise DeserializationError("LambdaFunctionAssociations.quantity required")
+    child_items = el.find("Items")
+    if child_items is not None:
+        import aws_sdk_cloudfront.types.lambda_function_association_list
+
+        out["items"] = (
+            aws_sdk_cloudfront.types.lambda_function_association_list.deserialize_xml(
+                child_items
+            )
+        )
+    return out

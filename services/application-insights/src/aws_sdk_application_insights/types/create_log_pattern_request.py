@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationinsights#CreateLogPatternRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_application_insights.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_application_insights.types.log_pattern_name
+    import aws_sdk_application_insights.types.log_pattern_rank
+    import aws_sdk_application_insights.types.log_pattern_regex
+    import aws_sdk_application_insights.types.log_pattern_set_name
+    import aws_sdk_application_insights.types.resource_group_name
+
+
+class CreateLogPatternRequest(TypedDict):
+    resource_group_name: (
+        "aws_sdk_application_insights.types.resource_group_name.ResourceGroupName"
+    )
+    """<p>The name of the resource group.</p>"""
+    pattern_set_name: (
+        "aws_sdk_application_insights.types.log_pattern_set_name.LogPatternSetName"
+    )
+    """<p>The name of the log pattern set.</p>"""
+    pattern_name: "aws_sdk_application_insights.types.log_pattern_name.LogPatternName"
+    """<p>The name of the log pattern.</p>"""
+    pattern: "aws_sdk_application_insights.types.log_pattern_regex.LogPatternRegex"
+    """<p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>"""
+    rank: "aws_sdk_application_insights.types.log_pattern_rank.LogPatternRank"
+    """<p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for Amazon Web Services provided patterns. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateLogPatternRequest) -> dict:
+    out: dict = {}
+    out["ResourceGroupName"] = value["resource_group_name"]
+    out["PatternSetName"] = value["pattern_set_name"]
+    out["PatternName"] = value["pattern_name"]
+    out["Pattern"] = value["pattern"]
+    out["Rank"] = value.get("rank", 0)
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateLogPatternRequest:
+    out: CreateLogPatternRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceGroupName" in data:
+        out["resource_group_name"] = data["ResourceGroupName"]
+    else:
+        raise DeserializationError(
+            "CreateLogPatternRequest.resource_group_name required"
+        )
+    if "PatternSetName" in data:
+        out["pattern_set_name"] = data["PatternSetName"]
+    else:
+        raise DeserializationError("CreateLogPatternRequest.pattern_set_name required")
+    if "PatternName" in data:
+        out["pattern_name"] = data["PatternName"]
+    else:
+        raise DeserializationError("CreateLogPatternRequest.pattern_name required")
+    if "Pattern" in data:
+        out["pattern"] = data["Pattern"]
+    else:
+        raise DeserializationError("CreateLogPatternRequest.pattern required")
+    if "Rank" in data:
+        out["rank"] = data["Rank"]
+    else:
+        out["rank"] = 0
+    return out

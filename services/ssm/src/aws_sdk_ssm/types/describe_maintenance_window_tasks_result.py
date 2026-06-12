@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#DescribeMaintenanceWindowTasksResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.maintenance_window_task_list
+    import aws_sdk_ssm.types.next_token
+
+
+class DescribeMaintenanceWindowTasksResult(TypedDict):
+    tasks: NotRequired[
+        "aws_sdk_ssm.types.maintenance_window_task_list.MaintenanceWindowTaskList"
+    ]
+    """<p>Information about the tasks in the maintenance window.</p>"""
+    next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]
+    """<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeMaintenanceWindowTasksResult) -> dict:
+    out: dict = {}
+    if "tasks" in value:
+        import aws_sdk_ssm.types.maintenance_window_task_list
+
+        out["Tasks"] = (
+            aws_sdk_ssm.types.maintenance_window_task_list.serialize_aws_json_1_1(
+                value["tasks"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowTasksResult:
+    out: DescribeMaintenanceWindowTasksResult = {}  # type: ignore[typeddict-item]
+    if "Tasks" in data:
+        import aws_sdk_ssm.types.maintenance_window_task_list
+
+        out["tasks"] = (
+            aws_sdk_ssm.types.maintenance_window_task_list.deserialize_aws_json_1_1(
+                data["Tasks"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

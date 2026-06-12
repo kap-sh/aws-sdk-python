@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#GetDeliverabilityTestReportRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_sesv2.types.report_id
+
+
+class GetDeliverabilityTestReportRequest(TypedDict):
+    report_id: "aws_sdk_sesv2.types.report_id.ReportId"
+    """<p>A unique string that identifies the predictive inbox placement test.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetDeliverabilityTestReportRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetDeliverabilityTestReportRequest:
+    out: GetDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
+    return out

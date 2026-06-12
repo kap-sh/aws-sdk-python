@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.acm#DescribeCertificateRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_acm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_acm.types.arn
+
+
+class DescribeCertificateRequest(TypedDict):
+    certificate_arn: "aws_sdk_acm.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeCertificateRequest) -> dict:
+    out: dict = {}
+    out["CertificateArn"] = value["certificate_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeCertificateRequest:
+    out: DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
+    if "CertificateArn" in data:
+        out["certificate_arn"] = data["CertificateArn"]
+    else:
+        raise DeserializationError(
+            "DescribeCertificateRequest.certificate_arn required"
+        )
+    return out

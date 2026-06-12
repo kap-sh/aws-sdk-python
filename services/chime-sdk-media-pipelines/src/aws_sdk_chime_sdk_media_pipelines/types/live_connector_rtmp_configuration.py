@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#LiveConnectorRTMPConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_media_pipelines.types.audio_channels_option
+    import aws_sdk_chime_sdk_media_pipelines.types.audio_sample_rate_option
+    import aws_sdk_chime_sdk_media_pipelines.types.sensitive_string
+
+
+class LiveConnectorRTMPConfiguration(TypedDict):
+    url: "aws_sdk_chime_sdk_media_pipelines.types.sensitive_string.SensitiveString"
+    """<p>The URL of the RTMP configuration.</p>"""
+    audio_channels: NotRequired[
+        "aws_sdk_chime_sdk_media_pipelines.types.audio_channels_option.AudioChannelsOption"
+    ]
+    """<p>The audio channels set for the RTMP configuration</p>"""
+    audio_sample_rate: NotRequired[
+        "aws_sdk_chime_sdk_media_pipelines.types.audio_sample_rate_option.AudioSampleRateOption"
+    ]
+    """<p>The audio sample rate set for the RTMP configuration. Default: 48000.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: LiveConnectorRTMPConfiguration) -> dict:
+    out: dict = {}
+    out["Url"] = value["url"]
+    if "audio_channels" in value:
+        import aws_sdk_chime_sdk_media_pipelines.types.audio_channels_option
+
+        out["AudioChannels"] = (
+            aws_sdk_chime_sdk_media_pipelines.types.audio_channels_option.serialize_json(
+                value["audio_channels"]
+            )
+        )
+    if "audio_sample_rate" in value:
+        out["AudioSampleRate"] = value["audio_sample_rate"]
+    return out
+
+
+def deserialize_json(data: dict) -> LiveConnectorRTMPConfiguration:
+    out: LiveConnectorRTMPConfiguration = {}  # type: ignore[typeddict-item]
+    if "Url" in data:
+        out["url"] = data["Url"]
+    else:
+        raise DeserializationError("LiveConnectorRTMPConfiguration.url required")
+    if "AudioChannels" in data:
+        import aws_sdk_chime_sdk_media_pipelines.types.audio_channels_option
+
+        out["audio_channels"] = (
+            aws_sdk_chime_sdk_media_pipelines.types.audio_channels_option.deserialize_json(
+                data["AudioChannels"]
+            )
+        )
+    if "AudioSampleRate" in data:
+        out["audio_sample_rate"] = data["AudioSampleRate"]
+    return out

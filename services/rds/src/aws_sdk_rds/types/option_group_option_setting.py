@@ -1,0 +1,104 @@
+"""Generated from Smithy shape ``com.amazonaws.rds#OptionGroupOptionSetting``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_rds._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_rds.types.boolean
+    import aws_sdk_rds.types.minimum_engine_version_per_allowed_value_list
+    import aws_sdk_rds.types.string
+
+
+class OptionGroupOptionSetting(TypedDict):
+    setting_name: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>The name of the option group option.</p>"""
+    setting_description: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>The description of the option group option.</p>"""
+    default_value: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>The default value for the option group option.</p>"""
+    apply_type: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>The DB engine specific parameter type for the option group option.</p>"""
+    allowed_values: NotRequired["aws_sdk_rds.types.string.String"]
+    """<p>Indicates the acceptable values for the option group option.</p>"""
+    is_modifiable: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
+    """<p>Indicates whether this option group option can be changed from the default value.</p>"""
+    is_required: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
+    """<p>Indicates whether a value must be specified for this option setting of the option group option.</p>"""
+    minimum_engine_version_per_allowed_value: NotRequired[
+        "aws_sdk_rds.types.minimum_engine_version_per_allowed_value_list.MinimumEngineVersionPerAllowedValueList"
+    ]
+    """<p>The minimum DB engine version required for the corresponding allowed value for this option setting.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: OptionGroupOptionSetting, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "setting_name" in value:
+        pairs.append((f"{prefix}.SettingName", str(value["setting_name"])))
+    if "setting_description" in value:
+        pairs.append(
+            (f"{prefix}.SettingDescription", str(value["setting_description"]))
+        )
+    if "default_value" in value:
+        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+    if "apply_type" in value:
+        pairs.append((f"{prefix}.ApplyType", str(value["apply_type"])))
+    if "allowed_values" in value:
+        pairs.append((f"{prefix}.AllowedValues", str(value["allowed_values"])))
+    if "is_modifiable" in value:
+        pairs.append(
+            (f"{prefix}.IsModifiable", "true" if value["is_modifiable"] else "false")
+        )
+    if "is_required" in value:
+        pairs.append(
+            (f"{prefix}.IsRequired", "true" if value["is_required"] else "false")
+        )
+    if "minimum_engine_version_per_allowed_value" in value:
+        import aws_sdk_rds.types.minimum_engine_version_per_allowed_value_list
+
+        aws_sdk_rds.types.minimum_engine_version_per_allowed_value_list.serialize_query(
+            value["minimum_engine_version_per_allowed_value"],
+            pairs,
+            f"{prefix}.MinimumEngineVersionPerAllowedValue",
+        )
+
+
+def deserialize_query(el: Element) -> OptionGroupOptionSetting:
+    out: OptionGroupOptionSetting = {}  # type: ignore[typeddict-item]
+    child_setting_name = el.find("SettingName")
+    if child_setting_name is not None:
+        out["setting_name"] = str(child_setting_name.text or "")
+    child_setting_description = el.find("SettingDescription")
+    if child_setting_description is not None:
+        out["setting_description"] = str(child_setting_description.text or "")
+    child_default_value = el.find("DefaultValue")
+    if child_default_value is not None:
+        out["default_value"] = str(child_default_value.text or "")
+    child_apply_type = el.find("ApplyType")
+    if child_apply_type is not None:
+        out["apply_type"] = str(child_apply_type.text or "")
+    child_allowed_values = el.find("AllowedValues")
+    if child_allowed_values is not None:
+        out["allowed_values"] = str(child_allowed_values.text or "")
+    child_is_modifiable = el.find("IsModifiable")
+    if child_is_modifiable is not None:
+        out["is_modifiable"] = (child_is_modifiable.text or "").lower() == "true"
+    child_is_required = el.find("IsRequired")
+    if child_is_required is not None:
+        out["is_required"] = (child_is_required.text or "").lower() == "true"
+    child_minimum_engine_version_per_allowed_value = el.find(
+        "MinimumEngineVersionPerAllowedValue"
+    )
+    if child_minimum_engine_version_per_allowed_value is not None:
+        import aws_sdk_rds.types.minimum_engine_version_per_allowed_value_list
+
+        out["minimum_engine_version_per_allowed_value"] = (
+            aws_sdk_rds.types.minimum_engine_version_per_allowed_value_list.deserialize_query(
+                child_minimum_engine_version_per_allowed_value
+            )
+        )
+    return out

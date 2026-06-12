@@ -1,0 +1,103 @@
+"""Generated from Smithy shape ``com.amazonaws.eventbridge#StartReplayRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_eventbridge.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_eventbridge.types.archive_arn
+    import aws_sdk_eventbridge.types.replay_description
+    import aws_sdk_eventbridge.types.replay_destination
+    import aws_sdk_eventbridge.types.replay_name
+    import aws_sdk_eventbridge.types.timestamp
+
+
+class StartReplayRequest(TypedDict):
+    replay_name: "aws_sdk_eventbridge.types.replay_name.ReplayName"
+    """<p>The name of the replay to start.</p>"""
+    description: NotRequired[
+        "aws_sdk_eventbridge.types.replay_description.ReplayDescription"
+    ]
+    """<p>A description for the replay to start.</p>"""
+    event_source_arn: "aws_sdk_eventbridge.types.archive_arn.ArchiveArn"
+    """<p>The ARN of the archive to replay events from.</p>"""
+    event_start_time: "aws_sdk_eventbridge.types.timestamp.Timestamp"
+    """<p>A time stamp for the time to start replaying events. Only events that occurred between the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>"""
+    event_end_time: "aws_sdk_eventbridge.types.timestamp.Timestamp"
+    """<p>A time stamp for the time to stop replaying events. Only events that occurred between the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>"""
+    destination: "aws_sdk_eventbridge.types.replay_destination.ReplayDestination"
+    """<p>A <code>ReplayDestination</code> object that includes details about the destination for the replay.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: StartReplayRequest) -> dict:
+    out: dict = {}
+    out["ReplayName"] = value["replay_name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    out["EventSourceArn"] = value["event_source_arn"]
+    import aws_sdk_eventbridge.types.timestamp
+
+    out["EventStartTime"] = aws_sdk_eventbridge.types.timestamp.serialize_aws_json_1_1(
+        value["event_start_time"]
+    )
+    import aws_sdk_eventbridge.types.timestamp
+
+    out["EventEndTime"] = aws_sdk_eventbridge.types.timestamp.serialize_aws_json_1_1(
+        value["event_end_time"]
+    )
+    import aws_sdk_eventbridge.types.replay_destination
+
+    out["Destination"] = (
+        aws_sdk_eventbridge.types.replay_destination.serialize_aws_json_1_1(
+            value["destination"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> StartReplayRequest:
+    out: StartReplayRequest = {}  # type: ignore[typeddict-item]
+    if "ReplayName" in data:
+        out["replay_name"] = data["ReplayName"]
+    else:
+        raise DeserializationError("StartReplayRequest.replay_name required")
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "EventSourceArn" in data:
+        out["event_source_arn"] = data["EventSourceArn"]
+    else:
+        raise DeserializationError("StartReplayRequest.event_source_arn required")
+    if "EventStartTime" in data:
+        import aws_sdk_eventbridge.types.timestamp
+
+        out["event_start_time"] = (
+            aws_sdk_eventbridge.types.timestamp.deserialize_aws_json_1_1(
+                data["EventStartTime"]
+            )
+        )
+    else:
+        raise DeserializationError("StartReplayRequest.event_start_time required")
+    if "EventEndTime" in data:
+        import aws_sdk_eventbridge.types.timestamp
+
+        out["event_end_time"] = (
+            aws_sdk_eventbridge.types.timestamp.deserialize_aws_json_1_1(
+                data["EventEndTime"]
+            )
+        )
+    else:
+        raise DeserializationError("StartReplayRequest.event_end_time required")
+    if "Destination" in data:
+        import aws_sdk_eventbridge.types.replay_destination
+
+        out["destination"] = (
+            aws_sdk_eventbridge.types.replay_destination.deserialize_aws_json_1_1(
+                data["Destination"]
+            )
+        )
+    else:
+        raise DeserializationError("StartReplayRequest.destination required")
+    return out

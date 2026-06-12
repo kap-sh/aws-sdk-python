@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeModelPackageGroupInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.arn_or_name
+
+
+class DescribeModelPackageGroupInput(TypedDict):
+    model_package_group_name: NotRequired[
+        "aws_sdk_sagemaker.types.arn_or_name.ArnOrName"
+    ]
+    """<p>The name of the model group to describe.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeModelPackageGroupInput) -> dict:
+    out: dict = {}
+    if "model_package_group_name" in value:
+        out["ModelPackageGroupName"] = value["model_package_group_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeModelPackageGroupInput:
+    out: DescribeModelPackageGroupInput = {}  # type: ignore[typeddict-item]
+    if "ModelPackageGroupName" in data:
+        out["model_package_group_name"] = data["ModelPackageGroupName"]
+    return out

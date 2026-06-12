@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#Dimension``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cloudwatch._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch.types.dimension_name
+    import aws_sdk_cloudwatch.types.dimension_value
+
+
+class Dimension(TypedDict):
+    name: NotRequired["aws_sdk_cloudwatch.types.dimension_name.DimensionName"]
+    """<p>The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (<code>:</code>). ASCII control characters are not supported as part of dimension names.</p>"""
+    value: NotRequired["aws_sdk_cloudwatch.types.dimension_value.DimensionValue"]
+    """<p>The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Dimension) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "value" in value:
+        out["Value"] = value["value"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Dimension:
+    out: Dimension = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Value" in data:
+        out["value"] = data["Value"]
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: Dimension, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "name" in value:
+        pairs.append((f"{prefix}.Name", str(value["name"])))
+    if "value" in value:
+        pairs.append((f"{prefix}.Value", str(value["value"])))
+
+
+def deserialize_query(el: Element) -> Dimension:
+    out: Dimension = {}  # type: ignore[typeddict-item]
+    child_name = el.find("Name")
+    if child_name is not None:
+        out["name"] = str(child_name.text or "")
+    child_value = el.find("Value")
+    if child_value is not None:
+        out["value"] = str(child_value.text or "")
+    return out

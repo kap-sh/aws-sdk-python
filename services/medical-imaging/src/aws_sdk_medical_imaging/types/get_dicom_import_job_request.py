@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.medicalimaging#GetDICOMImportJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_medical_imaging.types.datastore_id
+    import aws_sdk_medical_imaging.types.job_id
+
+
+class GetDICOMImportJobRequest(TypedDict):
+    datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
+    """<p>The data store identifier.</p>"""
+    job_id: "aws_sdk_medical_imaging.types.job_id.JobId"
+    """<p>The import job identifier.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetDICOMImportJobRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetDICOMImportJobRequest:
+    out: GetDICOMImportJobRequest = {}  # type: ignore[typeddict-item]
+    return out

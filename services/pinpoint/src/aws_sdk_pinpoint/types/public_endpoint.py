@@ -1,0 +1,150 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#PublicEndpoint``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint.types.__string
+    import aws_sdk_pinpoint.types.channel_type
+    import aws_sdk_pinpoint.types.endpoint_demographic
+    import aws_sdk_pinpoint.types.endpoint_location
+    import aws_sdk_pinpoint.types.endpoint_user
+    import aws_sdk_pinpoint.types.map_of__double
+    import aws_sdk_pinpoint.types.map_of_list_of__string
+
+
+class PublicEndpoint(TypedDict):
+    address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The unique identifier for the recipient, such as a device token, email address, or mobile phone number.</p>"""
+    attributes: NotRequired[
+        "aws_sdk_pinpoint.types.map_of_list_of__string.MapOfListOf__string"
+    ]
+    """<p>One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.</p>"""
+    channel_type: NotRequired["aws_sdk_pinpoint.types.channel_type.ChannelType"]
+    """<p>The channel that's used when sending messages or push notifications to the endpoint.</p>"""
+    demographic: NotRequired[
+        "aws_sdk_pinpoint.types.endpoint_demographic.EndpointDemographic"
+    ]
+    """<p>The demographic information for the endpoint, such as the time zone and platform.</p>"""
+    effective_date: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>The date and time, in ISO 8601 format, when the endpoint was last updated.</p>"""
+    endpoint_status: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>"""
+    location: NotRequired["aws_sdk_pinpoint.types.endpoint_location.EndpointLocation"]
+    """<p>The geographic information for the endpoint.</p>"""
+    metrics: NotRequired["aws_sdk_pinpoint.types.map_of__double.MapOf__double"]
+    """<p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>"""
+    opt_out: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>"""
+    request_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
+    """<p>A unique identifier that's generated each time the endpoint is updated.</p>"""
+    user: NotRequired["aws_sdk_pinpoint.types.endpoint_user.EndpointUser"]
+    """<p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PublicEndpoint) -> dict:
+    out: dict = {}
+    if "address" in value:
+        out["Address"] = value["address"]
+    if "attributes" in value:
+        import aws_sdk_pinpoint.types.map_of_list_of__string
+
+        out["Attributes"] = (
+            aws_sdk_pinpoint.types.map_of_list_of__string.serialize_json(
+                value["attributes"]
+            )
+        )
+    if "channel_type" in value:
+        import aws_sdk_pinpoint.types.channel_type
+
+        out["ChannelType"] = aws_sdk_pinpoint.types.channel_type.serialize_json(
+            value["channel_type"]
+        )
+    if "demographic" in value:
+        import aws_sdk_pinpoint.types.endpoint_demographic
+
+        out["Demographic"] = aws_sdk_pinpoint.types.endpoint_demographic.serialize_json(
+            value["demographic"]
+        )
+    if "effective_date" in value:
+        out["EffectiveDate"] = value["effective_date"]
+    if "endpoint_status" in value:
+        out["EndpointStatus"] = value["endpoint_status"]
+    if "location" in value:
+        import aws_sdk_pinpoint.types.endpoint_location
+
+        out["Location"] = aws_sdk_pinpoint.types.endpoint_location.serialize_json(
+            value["location"]
+        )
+    if "metrics" in value:
+        import aws_sdk_pinpoint.types.map_of__double
+
+        out["Metrics"] = aws_sdk_pinpoint.types.map_of__double.serialize_json(
+            value["metrics"]
+        )
+    if "opt_out" in value:
+        out["OptOut"] = value["opt_out"]
+    if "request_id" in value:
+        out["RequestId"] = value["request_id"]
+    if "user" in value:
+        import aws_sdk_pinpoint.types.endpoint_user
+
+        out["User"] = aws_sdk_pinpoint.types.endpoint_user.serialize_json(value["user"])
+    return out
+
+
+def deserialize_json(data: dict) -> PublicEndpoint:
+    out: PublicEndpoint = {}  # type: ignore[typeddict-item]
+    if "Address" in data:
+        out["address"] = data["Address"]
+    if "Attributes" in data:
+        import aws_sdk_pinpoint.types.map_of_list_of__string
+
+        out["attributes"] = (
+            aws_sdk_pinpoint.types.map_of_list_of__string.deserialize_json(
+                data["Attributes"]
+            )
+        )
+    if "ChannelType" in data:
+        import aws_sdk_pinpoint.types.channel_type
+
+        out["channel_type"] = aws_sdk_pinpoint.types.channel_type.deserialize_json(
+            data["ChannelType"]
+        )
+    if "Demographic" in data:
+        import aws_sdk_pinpoint.types.endpoint_demographic
+
+        out["demographic"] = (
+            aws_sdk_pinpoint.types.endpoint_demographic.deserialize_json(
+                data["Demographic"]
+            )
+        )
+    if "EffectiveDate" in data:
+        out["effective_date"] = data["EffectiveDate"]
+    if "EndpointStatus" in data:
+        out["endpoint_status"] = data["EndpointStatus"]
+    if "Location" in data:
+        import aws_sdk_pinpoint.types.endpoint_location
+
+        out["location"] = aws_sdk_pinpoint.types.endpoint_location.deserialize_json(
+            data["Location"]
+        )
+    if "Metrics" in data:
+        import aws_sdk_pinpoint.types.map_of__double
+
+        out["metrics"] = aws_sdk_pinpoint.types.map_of__double.deserialize_json(
+            data["Metrics"]
+        )
+    if "OptOut" in data:
+        out["opt_out"] = data["OptOut"]
+    if "RequestId" in data:
+        out["request_id"] = data["RequestId"]
+    if "User" in data:
+        import aws_sdk_pinpoint.types.endpoint_user
+
+        out["user"] = aws_sdk_pinpoint.types.endpoint_user.deserialize_json(
+            data["User"]
+        )
+    return out

@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.elastictranscoder#ListJobsByPipelineResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_elastic_transcoder.types.id
+    import aws_sdk_elastic_transcoder.types.jobs
+
+
+class ListJobsByPipelineResponse(TypedDict):
+    jobs: NotRequired["aws_sdk_elastic_transcoder.types.jobs.Jobs"]
+    """<p>An array of <code>Job</code> objects that are in the specified pipeline.</p>"""
+    next_page_token: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]
+    """<p> A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListJobsByPipelineResponse) -> dict:
+    out: dict = {}
+    if "jobs" in value:
+        import aws_sdk_elastic_transcoder.types.jobs
+
+        out["Jobs"] = aws_sdk_elastic_transcoder.types.jobs.serialize_json(
+            value["jobs"]
+        )
+    if "next_page_token" in value:
+        out["NextPageToken"] = value["next_page_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListJobsByPipelineResponse:
+    out: ListJobsByPipelineResponse = {}  # type: ignore[typeddict-item]
+    if "Jobs" in data:
+        import aws_sdk_elastic_transcoder.types.jobs
+
+        out["jobs"] = aws_sdk_elastic_transcoder.types.jobs.deserialize_json(
+            data["Jobs"]
+        )
+    if "NextPageToken" in data:
+        out["next_page_token"] = data["NextPageToken"]
+    return out

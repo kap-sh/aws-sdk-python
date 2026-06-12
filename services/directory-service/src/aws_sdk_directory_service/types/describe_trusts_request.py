@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeTrustsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_directory_service.types.directory_id
+    import aws_sdk_directory_service.types.limit
+    import aws_sdk_directory_service.types.next_token
+    import aws_sdk_directory_service.types.trust_ids
+
+
+class DescribeTrustsRequest(TypedDict):
+    directory_id: NotRequired[
+        "aws_sdk_directory_service.types.directory_id.DirectoryId"
+    ]
+    """<p>The Directory ID of the Amazon Web Services directory that is a part of the requested trust relationship.</p>"""
+    trust_ids: NotRequired["aws_sdk_directory_service.types.trust_ids.TrustIds"]
+    """<p>A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.</p> <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"""
+    next_token: NotRequired["aws_sdk_directory_service.types.next_token.NextToken"]
+    """<p>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to <a>DescribeTrusts</a>. Pass null if this is the first call.</p>"""
+    limit: NotRequired["aws_sdk_directory_service.types.limit.Limit"]
+    """<p>The maximum number of objects to return.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeTrustsRequest) -> dict:
+    out: dict = {}
+    if "directory_id" in value:
+        out["DirectoryId"] = value["directory_id"]
+    if "trust_ids" in value:
+        import aws_sdk_directory_service.types.trust_ids
+
+        out["TrustIds"] = (
+            aws_sdk_directory_service.types.trust_ids.serialize_aws_json_1_1(
+                value["trust_ids"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "limit" in value:
+        out["Limit"] = value["limit"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeTrustsRequest:
+    out: DescribeTrustsRequest = {}  # type: ignore[typeddict-item]
+    if "DirectoryId" in data:
+        out["directory_id"] = data["DirectoryId"]
+    if "TrustIds" in data:
+        import aws_sdk_directory_service.types.trust_ids
+
+        out["trust_ids"] = (
+            aws_sdk_directory_service.types.trust_ids.deserialize_aws_json_1_1(
+                data["TrustIds"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Limit" in data:
+        out["limit"] = data["Limit"]
+    return out

@@ -1,0 +1,79 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#RetrieveAndGenerateConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.external_sources_retrieve_and_generate_configuration
+    import aws_sdk_bedrock.types.knowledge_base_retrieve_and_generate_configuration
+    import aws_sdk_bedrock.types.retrieve_and_generate_type
+
+
+class RetrieveAndGenerateConfiguration(TypedDict):
+    type: "aws_sdk_bedrock.types.retrieve_and_generate_type.RetrieveAndGenerateType"
+    """<p>The type of resource that contains your data for retrieving information and generating responses.</p> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>"""
+    knowledge_base_configuration: NotRequired[
+        "aws_sdk_bedrock.types.knowledge_base_retrieve_and_generate_configuration.KnowledgeBaseRetrieveAndGenerateConfiguration"
+    ]
+    """<p>Contains configuration details for the knowledge base retrieval and response generation.</p>"""
+    external_sources_configuration: NotRequired[
+        "aws_sdk_bedrock.types.external_sources_retrieve_and_generate_configuration.ExternalSourcesRetrieveAndGenerateConfiguration"
+    ]
+    """<p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RetrieveAndGenerateConfiguration) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock.types.retrieve_and_generate_type
+
+    out["type"] = aws_sdk_bedrock.types.retrieve_and_generate_type.serialize_json(
+        value["type"]
+    )
+    if "knowledge_base_configuration" in value:
+        import aws_sdk_bedrock.types.knowledge_base_retrieve_and_generate_configuration
+
+        out["knowledgeBaseConfiguration"] = (
+            aws_sdk_bedrock.types.knowledge_base_retrieve_and_generate_configuration.serialize_json(
+                value["knowledge_base_configuration"]
+            )
+        )
+    if "external_sources_configuration" in value:
+        import aws_sdk_bedrock.types.external_sources_retrieve_and_generate_configuration
+
+        out["externalSourcesConfiguration"] = (
+            aws_sdk_bedrock.types.external_sources_retrieve_and_generate_configuration.serialize_json(
+                value["external_sources_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> RetrieveAndGenerateConfiguration:
+    out: RetrieveAndGenerateConfiguration = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_bedrock.types.retrieve_and_generate_type
+
+        out["type"] = aws_sdk_bedrock.types.retrieve_and_generate_type.deserialize_json(
+            data["type"]
+        )
+    else:
+        raise DeserializationError("RetrieveAndGenerateConfiguration.type required")
+    if "knowledgeBaseConfiguration" in data:
+        import aws_sdk_bedrock.types.knowledge_base_retrieve_and_generate_configuration
+
+        out["knowledge_base_configuration"] = (
+            aws_sdk_bedrock.types.knowledge_base_retrieve_and_generate_configuration.deserialize_json(
+                data["knowledgeBaseConfiguration"]
+            )
+        )
+    if "externalSourcesConfiguration" in data:
+        import aws_sdk_bedrock.types.external_sources_retrieve_and_generate_configuration
+
+        out["external_sources_configuration"] = (
+            aws_sdk_bedrock.types.external_sources_retrieve_and_generate_configuration.deserialize_json(
+                data["externalSourcesConfiguration"]
+            )
+        )
+    return out

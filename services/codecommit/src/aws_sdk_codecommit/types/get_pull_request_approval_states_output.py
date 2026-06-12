@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.codecommit#GetPullRequestApprovalStatesOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codecommit.types.approval_list
+
+
+class GetPullRequestApprovalStatesOutput(TypedDict):
+    approvals: NotRequired["aws_sdk_codecommit.types.approval_list.ApprovalList"]
+    """<p>Information about users who have approved the pull request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetPullRequestApprovalStatesOutput) -> dict:
+    out: dict = {}
+    if "approvals" in value:
+        import aws_sdk_codecommit.types.approval_list
+
+        out["approvals"] = (
+            aws_sdk_codecommit.types.approval_list.serialize_aws_json_1_1(
+                value["approvals"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetPullRequestApprovalStatesOutput:
+    out: GetPullRequestApprovalStatesOutput = {}  # type: ignore[typeddict-item]
+    if "approvals" in data:
+        import aws_sdk_codecommit.types.approval_list
+
+        out["approvals"] = (
+            aws_sdk_codecommit.types.approval_list.deserialize_aws_json_1_1(
+                data["approvals"]
+            )
+        )
+    return out

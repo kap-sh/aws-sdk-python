@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.mturk#NotifyWorkersRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_mturk.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mturk.types.customer_id_list
+    import aws_sdk_mturk.types.string
+
+
+class NotifyWorkersRequest(TypedDict):
+    subject: "aws_sdk_mturk.types.string.String"
+    """<p>The subject line of the email message to send. Can include up to 200 characters.</p>"""
+    message_text: "aws_sdk_mturk.types.string.String"
+    """<p>The text of the email message to send. Can include up to 4,096 characters</p>"""
+    worker_ids: "aws_sdk_mturk.types.customer_id_list.CustomerIdList"
+    """<p>A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: NotifyWorkersRequest) -> dict:
+    out: dict = {}
+    out["Subject"] = value["subject"]
+    out["MessageText"] = value["message_text"]
+    import aws_sdk_mturk.types.customer_id_list
+
+    out["WorkerIds"] = aws_sdk_mturk.types.customer_id_list.serialize_aws_json_1_1(
+        value["worker_ids"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> NotifyWorkersRequest:
+    out: NotifyWorkersRequest = {}  # type: ignore[typeddict-item]
+    if "Subject" in data:
+        out["subject"] = data["Subject"]
+    else:
+        raise DeserializationError("NotifyWorkersRequest.subject required")
+    if "MessageText" in data:
+        out["message_text"] = data["MessageText"]
+    else:
+        raise DeserializationError("NotifyWorkersRequest.message_text required")
+    if "WorkerIds" in data:
+        import aws_sdk_mturk.types.customer_id_list
+
+        out["worker_ids"] = (
+            aws_sdk_mturk.types.customer_id_list.deserialize_aws_json_1_1(
+                data["WorkerIds"]
+            )
+        )
+    else:
+        raise DeserializationError("NotifyWorkersRequest.worker_ids required")
+    return out

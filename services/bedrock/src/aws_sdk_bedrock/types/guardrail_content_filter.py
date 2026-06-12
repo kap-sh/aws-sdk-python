@@ -1,0 +1,178 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailContentFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.guardrail_content_filter_action
+    import aws_sdk_bedrock.types.guardrail_content_filter_type
+    import aws_sdk_bedrock.types.guardrail_filter_strength
+    import aws_sdk_bedrock.types.guardrail_modalities
+
+
+class GuardrailContentFilter(TypedDict):
+    type: (
+        "aws_sdk_bedrock.types.guardrail_content_filter_type.GuardrailContentFilterType"
+    )
+    """<p>The harmful category that the content filter is applied to.</p>"""
+    input_strength: (
+        "aws_sdk_bedrock.types.guardrail_filter_strength.GuardrailFilterStrength"
+    )
+    """<p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>"""
+    output_strength: (
+        "aws_sdk_bedrock.types.guardrail_filter_strength.GuardrailFilterStrength"
+    )
+    """<p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>"""
+    input_modalities: NotRequired[
+        "aws_sdk_bedrock.types.guardrail_modalities.GuardrailModalities"
+    ]
+    """<p>The input modalities selected for the guardrail content filter.</p>"""
+    output_modalities: NotRequired[
+        "aws_sdk_bedrock.types.guardrail_modalities.GuardrailModalities"
+    ]
+    """<p>The output modalities selected for the guardrail content filter.</p>"""
+    input_action: NotRequired[
+        "aws_sdk_bedrock.types.guardrail_content_filter_action.GuardrailContentFilterAction"
+    ]
+    """<p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>"""
+    output_action: NotRequired[
+        "aws_sdk_bedrock.types.guardrail_content_filter_action.GuardrailContentFilterAction"
+    ]
+    """<p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>"""
+    input_enabled: NotRequired["bool"]
+    """<p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>"""
+    output_enabled: NotRequired["bool"]
+    """<p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GuardrailContentFilter) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock.types.guardrail_content_filter_type
+
+    out["type"] = aws_sdk_bedrock.types.guardrail_content_filter_type.serialize_json(
+        value["type"]
+    )
+    import aws_sdk_bedrock.types.guardrail_filter_strength
+
+    out["inputStrength"] = (
+        aws_sdk_bedrock.types.guardrail_filter_strength.serialize_json(
+            value["input_strength"]
+        )
+    )
+    import aws_sdk_bedrock.types.guardrail_filter_strength
+
+    out["outputStrength"] = (
+        aws_sdk_bedrock.types.guardrail_filter_strength.serialize_json(
+            value["output_strength"]
+        )
+    )
+    if "input_modalities" in value:
+        import aws_sdk_bedrock.types.guardrail_modalities
+
+        out["inputModalities"] = (
+            aws_sdk_bedrock.types.guardrail_modalities.serialize_json(
+                value["input_modalities"]
+            )
+        )
+    if "output_modalities" in value:
+        import aws_sdk_bedrock.types.guardrail_modalities
+
+        out["outputModalities"] = (
+            aws_sdk_bedrock.types.guardrail_modalities.serialize_json(
+                value["output_modalities"]
+            )
+        )
+    if "input_action" in value:
+        import aws_sdk_bedrock.types.guardrail_content_filter_action
+
+        out["inputAction"] = (
+            aws_sdk_bedrock.types.guardrail_content_filter_action.serialize_json(
+                value["input_action"]
+            )
+        )
+    if "output_action" in value:
+        import aws_sdk_bedrock.types.guardrail_content_filter_action
+
+        out["outputAction"] = (
+            aws_sdk_bedrock.types.guardrail_content_filter_action.serialize_json(
+                value["output_action"]
+            )
+        )
+    if "input_enabled" in value:
+        out["inputEnabled"] = value["input_enabled"]
+    if "output_enabled" in value:
+        out["outputEnabled"] = value["output_enabled"]
+    return out
+
+
+def deserialize_json(data: dict) -> GuardrailContentFilter:
+    out: GuardrailContentFilter = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_bedrock.types.guardrail_content_filter_type
+
+        out["type"] = (
+            aws_sdk_bedrock.types.guardrail_content_filter_type.deserialize_json(
+                data["type"]
+            )
+        )
+    else:
+        raise DeserializationError("GuardrailContentFilter.type required")
+    if "inputStrength" in data:
+        import aws_sdk_bedrock.types.guardrail_filter_strength
+
+        out["input_strength"] = (
+            aws_sdk_bedrock.types.guardrail_filter_strength.deserialize_json(
+                data["inputStrength"]
+            )
+        )
+    else:
+        raise DeserializationError("GuardrailContentFilter.input_strength required")
+    if "outputStrength" in data:
+        import aws_sdk_bedrock.types.guardrail_filter_strength
+
+        out["output_strength"] = (
+            aws_sdk_bedrock.types.guardrail_filter_strength.deserialize_json(
+                data["outputStrength"]
+            )
+        )
+    else:
+        raise DeserializationError("GuardrailContentFilter.output_strength required")
+    if "inputModalities" in data:
+        import aws_sdk_bedrock.types.guardrail_modalities
+
+        out["input_modalities"] = (
+            aws_sdk_bedrock.types.guardrail_modalities.deserialize_json(
+                data["inputModalities"]
+            )
+        )
+    if "outputModalities" in data:
+        import aws_sdk_bedrock.types.guardrail_modalities
+
+        out["output_modalities"] = (
+            aws_sdk_bedrock.types.guardrail_modalities.deserialize_json(
+                data["outputModalities"]
+            )
+        )
+    if "inputAction" in data:
+        import aws_sdk_bedrock.types.guardrail_content_filter_action
+
+        out["input_action"] = (
+            aws_sdk_bedrock.types.guardrail_content_filter_action.deserialize_json(
+                data["inputAction"]
+            )
+        )
+    if "outputAction" in data:
+        import aws_sdk_bedrock.types.guardrail_content_filter_action
+
+        out["output_action"] = (
+            aws_sdk_bedrock.types.guardrail_content_filter_action.deserialize_json(
+                data["outputAction"]
+            )
+        )
+    if "inputEnabled" in data:
+        out["input_enabled"] = data["inputEnabled"]
+    if "outputEnabled" in data:
+        out["output_enabled"] = data["outputEnabled"]
+    return out

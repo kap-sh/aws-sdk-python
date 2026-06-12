@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.mturk#CreateAdditionalAssignmentsForHITRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_mturk.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mturk.types.entity_id
+    import aws_sdk_mturk.types.idempotency_token
+    import aws_sdk_mturk.types.integer
+
+
+class CreateAdditionalAssignmentsForHITRequest(TypedDict):
+    hit_id: "aws_sdk_mturk.types.entity_id.EntityId"
+    """<p>The ID of the HIT to extend.</p>"""
+    number_of_additional_assignments: "aws_sdk_mturk.types.integer.Integer"
+    """<p>The number of additional assignments to request for this HIT.</p>"""
+    unique_request_token: NotRequired[
+        "aws_sdk_mturk.types.idempotency_token.IdempotencyToken"
+    ]
+    """<p> A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same <code>UniqueRequestToken</code>, subsequent calls will return an error with a message containing the request ID. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateAdditionalAssignmentsForHITRequest) -> dict:
+    out: dict = {}
+    out["HITId"] = value["hit_id"]
+    out["NumberOfAdditionalAssignments"] = value["number_of_additional_assignments"]
+    if "unique_request_token" in value:
+        out["UniqueRequestToken"] = value["unique_request_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateAdditionalAssignmentsForHITRequest:
+    out: CreateAdditionalAssignmentsForHITRequest = {}  # type: ignore[typeddict-item]
+    if "HITId" in data:
+        out["hit_id"] = data["HITId"]
+    else:
+        raise DeserializationError(
+            "CreateAdditionalAssignmentsForHITRequest.hit_id required"
+        )
+    if "NumberOfAdditionalAssignments" in data:
+        out["number_of_additional_assignments"] = data["NumberOfAdditionalAssignments"]
+    else:
+        raise DeserializationError(
+            "CreateAdditionalAssignmentsForHITRequest.number_of_additional_assignments required"
+        )
+    if "UniqueRequestToken" in data:
+        out["unique_request_token"] = data["UniqueRequestToken"]
+    return out

@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#GetMedicalTranscriptionJobRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_transcribe.types.transcription_job_name
+
+
+class GetMedicalTranscriptionJobRequest(TypedDict):
+    medical_transcription_job_name: (
+        "aws_sdk_transcribe.types.transcription_job_name.TranscriptionJobName"
+    )
+    """<p>The name of the medical transcription job you want information about. Job names are case sensitive.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetMedicalTranscriptionJobRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetMedicalTranscriptionJobRequest:
+    out: GetMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+    return out

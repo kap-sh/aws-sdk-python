@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.transfer#CustomHttpHeaders``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_transfer.types.custom_http_header
+
+CustomHttpHeaders: TypeAlias = list[
+    "aws_sdk_transfer.types.custom_http_header.CustomHttpHeader"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CustomHttpHeaders) -> list:
+    import aws_sdk_transfer.types.custom_http_header
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_transfer.types.custom_http_header.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> CustomHttpHeaders:
+    import aws_sdk_transfer.types.custom_http_header
+
+    out: CustomHttpHeaders = []
+    for item in data:
+        out.append(
+            aws_sdk_transfer.types.custom_http_header.deserialize_aws_json_1_1(item)
+        )
+    return out

@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.ses#SendCustomVerificationEmailRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_ses._protocol.xml import Element
+from aws_sdk_ses.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ses.types.address
+    import aws_sdk_ses.types.configuration_set_name
+    import aws_sdk_ses.types.template_name
+
+
+class SendCustomVerificationEmailRequest(TypedDict):
+    email_address: "aws_sdk_ses.types.address.Address"
+    """<p>The email address to verify.</p>"""
+    template_name: "aws_sdk_ses.types.template_name.TemplateName"
+    """<p>The name of the custom verification email template to use when sending the verification email.</p>"""
+    configuration_set_name: NotRequired[
+        "aws_sdk_ses.types.configuration_set_name.ConfigurationSetName"
+    ]
+    """<p>Name of a configuration set to use when sending the verification email.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: SendCustomVerificationEmailRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.EmailAddress", str(value["email_address"])))
+    pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+    if "configuration_set_name" in value:
+        pairs.append(
+            (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+        )
+
+
+def deserialize_query(el: Element) -> SendCustomVerificationEmailRequest:
+    out: SendCustomVerificationEmailRequest = {}  # type: ignore[typeddict-item]
+    child_email_address = el.find("EmailAddress")
+    if child_email_address is not None:
+        out["email_address"] = str(child_email_address.text or "")
+    else:
+        raise DeserializationError(
+            "SendCustomVerificationEmailRequest.email_address required"
+        )
+    child_template_name = el.find("TemplateName")
+    if child_template_name is not None:
+        out["template_name"] = str(child_template_name.text or "")
+    else:
+        raise DeserializationError(
+            "SendCustomVerificationEmailRequest.template_name required"
+        )
+    child_configuration_set_name = el.find("ConfigurationSetName")
+    if child_configuration_set_name is not None:
+        out["configuration_set_name"] = str(child_configuration_set_name.text or "")
+    return out

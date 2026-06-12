@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.observabilityadmin#GetTelemetryRuleInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_observabilityadmin.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_observabilityadmin.types.rule_identifier
+
+
+class GetTelemetryRuleInput(TypedDict):
+    rule_identifier: "aws_sdk_observabilityadmin.types.rule_identifier.RuleIdentifier"
+    """<p> The identifier (name or ARN) of the telemetry rule to retrieve. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetTelemetryRuleInput) -> dict:
+    out: dict = {}
+    out["RuleIdentifier"] = value["rule_identifier"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetTelemetryRuleInput:
+    out: GetTelemetryRuleInput = {}  # type: ignore[typeddict-item]
+    if "RuleIdentifier" in data:
+        out["rule_identifier"] = data["RuleIdentifier"]
+    else:
+        raise DeserializationError("GetTelemetryRuleInput.rule_identifier required")
+    return out

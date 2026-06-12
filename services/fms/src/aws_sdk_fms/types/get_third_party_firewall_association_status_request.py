@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.fms#GetThirdPartyFirewallAssociationStatusRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_fms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_fms.types.third_party_firewall
+
+
+class GetThirdPartyFirewallAssociationStatusRequest(TypedDict):
+    third_party_firewall: "aws_sdk_fms.types.third_party_firewall.ThirdPartyFirewall"
+    """<p>The name of the third-party firewall vendor.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: GetThirdPartyFirewallAssociationStatusRequest,
+) -> dict:
+    out: dict = {}
+    import aws_sdk_fms.types.third_party_firewall
+
+    out["ThirdPartyFirewall"] = (
+        aws_sdk_fms.types.third_party_firewall.serialize_aws_json_1_1(
+            value["third_party_firewall"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> GetThirdPartyFirewallAssociationStatusRequest:
+    out: GetThirdPartyFirewallAssociationStatusRequest = {}  # type: ignore[typeddict-item]
+    if "ThirdPartyFirewall" in data:
+        import aws_sdk_fms.types.third_party_firewall
+
+        out["third_party_firewall"] = (
+            aws_sdk_fms.types.third_party_firewall.deserialize_aws_json_1_1(
+                data["ThirdPartyFirewall"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetThirdPartyFirewallAssociationStatusRequest.third_party_firewall required"
+        )
+    return out

@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.mq#DeleteUserResponse``."""
+
+from typing import TypedDict
+
+
+class DeleteUserResponse(TypedDict):
+    pass
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteUserResponse) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteUserResponse:
+    out: DeleteUserResponse = {}  # type: ignore[typeddict-item]
+    return out

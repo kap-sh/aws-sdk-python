@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector#GetExclusionsPreviewRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_inspector.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_inspector.types.arn
+    import aws_sdk_inspector.types.list_max_results
+    import aws_sdk_inspector.types.locale
+    import aws_sdk_inspector.types.pagination_token
+    import aws_sdk_inspector.types.uuid
+
+
+class GetExclusionsPreviewRequest(TypedDict):
+    assessment_template_arn: "aws_sdk_inspector.types.arn.Arn"
+    """<p>The ARN that specifies the assessment template for which the exclusions preview was requested.</p>"""
+    preview_token: "aws_sdk_inspector.types.uuid.UUID"
+    """<p>The unique identifier associated of the exclusions preview.</p>"""
+    next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]
+    """<p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.</p>"""
+    max_results: NotRequired["aws_sdk_inspector.types.list_max_results.ListMaxResults"]
+    """<p>You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.</p>"""
+    locale: NotRequired["aws_sdk_inspector.types.locale.Locale"]
+    """<p>The locale into which you want to translate the exclusion's title, description, and recommendation.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetExclusionsPreviewRequest) -> dict:
+    out: dict = {}
+    out["assessmentTemplateArn"] = value["assessment_template_arn"]
+    out["previewToken"] = value["preview_token"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "locale" in value:
+        import aws_sdk_inspector.types.locale
+
+        out["locale"] = aws_sdk_inspector.types.locale.serialize_aws_json_1_1(
+            value["locale"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetExclusionsPreviewRequest:
+    out: GetExclusionsPreviewRequest = {}  # type: ignore[typeddict-item]
+    if "assessmentTemplateArn" in data:
+        out["assessment_template_arn"] = data["assessmentTemplateArn"]
+    else:
+        raise DeserializationError(
+            "GetExclusionsPreviewRequest.assessment_template_arn required"
+        )
+    if "previewToken" in data:
+        out["preview_token"] = data["previewToken"]
+    else:
+        raise DeserializationError("GetExclusionsPreviewRequest.preview_token required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "locale" in data:
+        import aws_sdk_inspector.types.locale
+
+        out["locale"] = aws_sdk_inspector.types.locale.deserialize_aws_json_1_1(
+            data["locale"]
+        )
+    return out

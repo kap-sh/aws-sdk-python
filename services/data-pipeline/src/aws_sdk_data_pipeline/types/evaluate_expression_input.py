@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.datapipeline#EvaluateExpressionInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_data_pipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_data_pipeline.types.id
+    import aws_sdk_data_pipeline.types.long_string
+
+
+class EvaluateExpressionInput(TypedDict):
+    pipeline_id: "aws_sdk_data_pipeline.types.id.id"
+    """<p>The ID of the pipeline.</p>"""
+    object_id: "aws_sdk_data_pipeline.types.id.id"
+    """<p>The ID of the object.</p>"""
+    expression: "aws_sdk_data_pipeline.types.long_string.longString"
+    """<p>The expression to evaluate.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EvaluateExpressionInput) -> dict:
+    out: dict = {}
+    out["pipelineId"] = value["pipeline_id"]
+    out["objectId"] = value["object_id"]
+    out["expression"] = value["expression"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EvaluateExpressionInput:
+    out: EvaluateExpressionInput = {}  # type: ignore[typeddict-item]
+    if "pipelineId" in data:
+        out["pipeline_id"] = data["pipelineId"]
+    else:
+        raise DeserializationError("EvaluateExpressionInput.pipeline_id required")
+    if "objectId" in data:
+        out["object_id"] = data["objectId"]
+    else:
+        raise DeserializationError("EvaluateExpressionInput.object_id required")
+    if "expression" in data:
+        out["expression"] = data["expression"]
+    else:
+        raise DeserializationError("EvaluateExpressionInput.expression required")
+    return out

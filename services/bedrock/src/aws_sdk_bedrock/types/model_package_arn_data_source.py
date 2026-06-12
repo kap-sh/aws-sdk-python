@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#ModelPackageArnDataSource``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock.types.model_package_arn
+
+
+class ModelPackageArnDataSource(TypedDict):
+    model_package_arn: "aws_sdk_bedrock.types.model_package_arn.ModelPackageArn"
+    """<p>The Amazon Resource Name (ARN) of the SageMaker AI model package. The ARN must be for a model package of <code>restricted</code> type.</p> <p>To use a model package ARN, you must have the <code>sagemaker:DescribeModelPackage</code> and <code>sagemaker:AccessModelPackageData</code> permissions on the model package resource.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ModelPackageArnDataSource) -> dict:
+    out: dict = {}
+    out["modelPackageArn"] = value["model_package_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> ModelPackageArnDataSource:
+    out: ModelPackageArnDataSource = {}  # type: ignore[typeddict-item]
+    if "modelPackageArn" in data:
+        out["model_package_arn"] = data["modelPackageArn"]
+    else:
+        raise DeserializationError(
+            "ModelPackageArnDataSource.model_package_arn required"
+        )
+    return out

@@ -1,0 +1,65 @@
+"""Generated from Smithy shape ``com.amazonaws.databrew#DatabaseInputDefinition``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_databrew.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_databrew.types.database_table_name
+    import aws_sdk_databrew.types.glue_connection_name
+    import aws_sdk_databrew.types.query_string
+    import aws_sdk_databrew.types.s3_location
+
+
+class DatabaseInputDefinition(TypedDict):
+    glue_connection_name: (
+        "aws_sdk_databrew.types.glue_connection_name.GlueConnectionName"
+    )
+    """<p>The Glue Connection that stores the connection information for the target database.</p>"""
+    database_table_name: NotRequired[
+        "aws_sdk_databrew.types.database_table_name.DatabaseTableName"
+    ]
+    """<p>The table within the target database.</p>"""
+    temp_directory: NotRequired["aws_sdk_databrew.types.s3_location.S3Location"]
+    query_string: NotRequired["aws_sdk_databrew.types.query_string.QueryString"]
+    """<p>Custom SQL to run against the provided Glue connection. This SQL will be used as the input for DataBrew projects and jobs.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DatabaseInputDefinition) -> dict:
+    out: dict = {}
+    out["GlueConnectionName"] = value["glue_connection_name"]
+    if "database_table_name" in value:
+        out["DatabaseTableName"] = value["database_table_name"]
+    if "temp_directory" in value:
+        import aws_sdk_databrew.types.s3_location
+
+        out["TempDirectory"] = aws_sdk_databrew.types.s3_location.serialize_json(
+            value["temp_directory"]
+        )
+    if "query_string" in value:
+        out["QueryString"] = value["query_string"]
+    return out
+
+
+def deserialize_json(data: dict) -> DatabaseInputDefinition:
+    out: DatabaseInputDefinition = {}  # type: ignore[typeddict-item]
+    if "GlueConnectionName" in data:
+        out["glue_connection_name"] = data["GlueConnectionName"]
+    else:
+        raise DeserializationError(
+            "DatabaseInputDefinition.glue_connection_name required"
+        )
+    if "DatabaseTableName" in data:
+        out["database_table_name"] = data["DatabaseTableName"]
+    if "TempDirectory" in data:
+        import aws_sdk_databrew.types.s3_location
+
+        out["temp_directory"] = aws_sdk_databrew.types.s3_location.deserialize_json(
+            data["TempDirectory"]
+        )
+    if "QueryString" in data:
+        out["query_string"] = data["QueryString"]
+    return out

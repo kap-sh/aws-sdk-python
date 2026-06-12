@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.route53profiles#AssociateResourceToProfileRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_route53profiles.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_route53profiles.types.arn
+    import aws_sdk_route53profiles.types.name
+    import aws_sdk_route53profiles.types.resource_id
+    import aws_sdk_route53profiles.types.resource_properties
+
+
+class AssociateResourceToProfileRequest(TypedDict):
+    profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId"
+    """<p> ID of the Profile. </p>"""
+    resource_arn: "aws_sdk_route53profiles.types.arn.Arn"
+    """<p> Amazon resource number, ARN, of the DNS resource. </p>"""
+    name: "aws_sdk_route53profiles.types.name.Name"
+    """<p> Name for the resource association. </p>"""
+    resource_properties: NotRequired[
+        "aws_sdk_route53profiles.types.resource_properties.ResourceProperties"
+    ]
+    """<p> If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value. </p> <p>The allowed values for priority are between 100 and 9900.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AssociateResourceToProfileRequest) -> dict:
+    out: dict = {}
+    out["ProfileId"] = value["profile_id"]
+    out["ResourceArn"] = value["resource_arn"]
+    out["Name"] = value["name"]
+    if "resource_properties" in value:
+        out["ResourceProperties"] = value["resource_properties"]
+    return out
+
+
+def deserialize_json(data: dict) -> AssociateResourceToProfileRequest:
+    out: AssociateResourceToProfileRequest = {}  # type: ignore[typeddict-item]
+    if "ProfileId" in data:
+        out["profile_id"] = data["ProfileId"]
+    else:
+        raise DeserializationError(
+            "AssociateResourceToProfileRequest.profile_id required"
+        )
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    else:
+        raise DeserializationError(
+            "AssociateResourceToProfileRequest.resource_arn required"
+        )
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("AssociateResourceToProfileRequest.name required")
+    if "ResourceProperties" in data:
+        out["resource_properties"] = data["ResourceProperties"]
+    return out

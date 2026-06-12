@@ -1,0 +1,304 @@
+from typing import TYPE_CHECKING, Optional
+
+import aws_sdk_account._auth._signers
+import aws_sdk_account._auth._sigv4
+from aws_sdk_account._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_account.types.account_id
+    import aws_sdk_account.types.alternate_contact_type
+    import aws_sdk_account.types.delete_alternate_contact_request
+    import aws_sdk_account.types.email_address
+    import aws_sdk_account.types.get_alternate_contact_request
+    import aws_sdk_account.types.get_alternate_contact_response
+    import aws_sdk_account.types.name
+    import aws_sdk_account.types.phone_number
+    import aws_sdk_account.types.put_alternate_contact_request
+    import aws_sdk_account.types.title
+    from aws_sdk_account._services.account import AccountClient, AccountClientConfig
+    from aws_sdk_account._services.async_account import (
+        AsyncAccountClient,
+        AsyncAccountClientConfig,
+    )
+
+
+class AlternateContactResource:
+    def __init__(self, service: AccountClient) -> None:
+        self._service = service
+
+    def put(
+        self,
+        name: "aws_sdk_account.types.name.Name",
+        title: "aws_sdk_account.types.title.Title",
+        email_address: "aws_sdk_account.types.email_address.EmailAddress",
+        phone_number: "aws_sdk_account.types.phone_number.PhoneNumber",
+        alternate_contact_type: "aws_sdk_account.types.alternate_contact_type.AlternateContactType",
+        *,
+        config_overrides: Optional[AccountClientConfig] = None,
+        account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
+    ) -> None:
+        """<p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+
+        Args:
+            name: <p>Specifies a name for the alternate contact.</p>
+            title: <p>Specifies a title for the alternate contact.</p>
+            email_address: <p>Specifies an email address for the alternate contact. </p>
+            phone_number: <p>Specifies a phone number for the alternate contact.</p>
+            alternate_contact_type: <p>Specifies which alternate contact you want to create or update.</p>
+            account_id: <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_account._operations.account.put_alternate_contact
+
+            output, http_response = (
+                aws_sdk_account._operations.account.put_alternate_contact.put_alternate_contact(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["title"] = title
+        input["email_address"] = email_address
+        input["phone_number"] = phone_number
+        input["alternate_contact_type"] = alternate_contact_type
+        if account_id is not None:
+            input["account_id"] = account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        alternate_contact_type: "aws_sdk_account.types.alternate_contact_type.AlternateContactType",
+        *,
+        config_overrides: Optional[AccountClientConfig] = None,
+        account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
+    ) -> "aws_sdk_account.types.get_alternate_contact_response.GetAlternateContactResponse":
+        """<p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+
+        Args:
+            alternate_contact_type: <p>Specifies which alternate contact you want to retrieve.</p>
+            account_id: <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_account.types.get_alternate_contact_response.GetAlternateContactResponse"
+        ]:
+            import aws_sdk_account._operations.account.get_alternate_contact
+
+            output, http_response = (
+                aws_sdk_account._operations.account.get_alternate_contact.get_alternate_contact(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input["alternate_contact_type"] = alternate_contact_type
+        if account_id is not None:
+            input["account_id"] = account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        alternate_contact_type: "aws_sdk_account.types.alternate_contact_type.AlternateContactType",
+        *,
+        config_overrides: Optional[AccountClientConfig] = None,
+        account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
+    ) -> None:
+        """<p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+
+        Args:
+            alternate_contact_type: <p>Specifies which of the alternate contacts to delete. </p>
+            account_id: <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_account._operations.account.delete_alternate_contact
+
+            output, http_response = (
+                aws_sdk_account._operations.account.delete_alternate_contact.delete_alternate_contact(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input["alternate_contact_type"] = alternate_contact_type
+        if account_id is not None:
+            input["account_id"] = account_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncAlternateContactResource:
+    def __init__(self, service: AsyncAccountClient) -> None:
+        self._service = service
+
+    async def put(
+        self,
+        name: "aws_sdk_account.types.name.Name",
+        title: "aws_sdk_account.types.title.Title",
+        email_address: "aws_sdk_account.types.email_address.EmailAddress",
+        phone_number: "aws_sdk_account.types.phone_number.PhoneNumber",
+        alternate_contact_type: "aws_sdk_account.types.alternate_contact_type.AlternateContactType",
+        *,
+        config_overrides: Optional[AsyncAccountClientConfig] = None,
+        account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
+    ) -> None:
+        """<p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+
+        Args:
+            name: <p>Specifies a name for the alternate contact.</p>
+            title: <p>Specifies a title for the alternate contact.</p>
+            email_address: <p>Specifies an email address for the alternate contact. </p>
+            phone_number: <p>Specifies a phone number for the alternate contact.</p>
+            alternate_contact_type: <p>Specifies which alternate contact you want to create or update.</p>
+            account_id: <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_account._operations.account.put_alternate_contact
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_account._operations.account.put_alternate_contact.async_put_alternate_contact(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["title"] = title
+        input["email_address"] = email_address
+        input["phone_number"] = phone_number
+        input["alternate_contact_type"] = alternate_contact_type
+        if account_id is not None:
+            input["account_id"] = account_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        alternate_contact_type: "aws_sdk_account.types.alternate_contact_type.AlternateContactType",
+        *,
+        config_overrides: Optional[AsyncAccountClientConfig] = None,
+        account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
+    ) -> "aws_sdk_account.types.get_alternate_contact_response.GetAlternateContactResponse":
+        """<p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+
+        Args:
+            alternate_contact_type: <p>Specifies which alternate contact you want to retrieve.</p>
+            account_id: <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_account.types.get_alternate_contact_response.GetAlternateContactResponse"
+        ]:
+            import aws_sdk_account._operations.account.get_alternate_contact
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_account._operations.account.get_alternate_contact.async_get_alternate_contact(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input["alternate_contact_type"] = alternate_contact_type
+        if account_id is not None:
+            input["account_id"] = account_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        alternate_contact_type: "aws_sdk_account.types.alternate_contact_type.AlternateContactType",
+        *,
+        config_overrides: Optional[AsyncAccountClientConfig] = None,
+        account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
+    ) -> None:
+        """<p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+
+        Args:
+            alternate_contact_type: <p>Specifies which of the alternate contacts to delete. </p>
+            account_id: <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_account._operations.account.delete_alternate_contact
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_account._operations.account.delete_alternate_contact.async_delete_alternate_contact(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input["alternate_contact_type"] = alternate_contact_type
+        if account_id is not None:
+            input["account_id"] = account_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

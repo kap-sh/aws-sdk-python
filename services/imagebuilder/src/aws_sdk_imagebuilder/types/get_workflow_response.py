@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.imagebuilder#GetWorkflowResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_imagebuilder.types.latest_version_references
+    import aws_sdk_imagebuilder.types.workflow
+
+
+class GetWorkflowResponse(TypedDict):
+    workflow: NotRequired["aws_sdk_imagebuilder.types.workflow.Workflow"]
+    """<p>The workflow resource specified in the request.</p>"""
+    latest_version_references: NotRequired[
+        "aws_sdk_imagebuilder.types.latest_version_references.LatestVersionReferences"
+    ]
+    """<p>The resource ARNs with different wildcard variations of semantic versioning.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetWorkflowResponse) -> dict:
+    out: dict = {}
+    if "workflow" in value:
+        import aws_sdk_imagebuilder.types.workflow
+
+        out["workflow"] = aws_sdk_imagebuilder.types.workflow.serialize_json(
+            value["workflow"]
+        )
+    if "latest_version_references" in value:
+        import aws_sdk_imagebuilder.types.latest_version_references
+
+        out["latestVersionReferences"] = (
+            aws_sdk_imagebuilder.types.latest_version_references.serialize_json(
+                value["latest_version_references"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetWorkflowResponse:
+    out: GetWorkflowResponse = {}  # type: ignore[typeddict-item]
+    if "workflow" in data:
+        import aws_sdk_imagebuilder.types.workflow
+
+        out["workflow"] = aws_sdk_imagebuilder.types.workflow.deserialize_json(
+            data["workflow"]
+        )
+    if "latestVersionReferences" in data:
+        import aws_sdk_imagebuilder.types.latest_version_references
+
+        out["latest_version_references"] = (
+            aws_sdk_imagebuilder.types.latest_version_references.deserialize_json(
+                data["latestVersionReferences"]
+            )
+        )
+    return out

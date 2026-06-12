@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#DeleteParametersRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm.types.parameter_name_list
+
+
+class DeleteParametersRequest(TypedDict):
+    names: "aws_sdk_ssm.types.parameter_name_list.ParameterNameList"
+    """<p>The names of the parameters to delete. After deleting a parameter, wait for at least 30 seconds to create a parameter with the same name.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteParametersRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_ssm.types.parameter_name_list
+
+    out["Names"] = aws_sdk_ssm.types.parameter_name_list.serialize_aws_json_1_1(
+        value["names"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteParametersRequest:
+    out: DeleteParametersRequest = {}  # type: ignore[typeddict-item]
+    if "Names" in data:
+        import aws_sdk_ssm.types.parameter_name_list
+
+        out["names"] = aws_sdk_ssm.types.parameter_name_list.deserialize_aws_json_1_1(
+            data["Names"]
+        )
+    else:
+        raise DeserializationError("DeleteParametersRequest.names required")
+    return out

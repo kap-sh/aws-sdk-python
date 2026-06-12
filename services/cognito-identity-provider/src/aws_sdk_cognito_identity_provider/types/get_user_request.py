@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GetUserRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cognito_identity_provider.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cognito_identity_provider.types.token_model_type
+
+
+class GetUserRequest(TypedDict):
+    access_token: (
+        "aws_sdk_cognito_identity_provider.types.token_model_type.TokenModelType"
+    )
+    """<p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetUserRequest) -> dict:
+    out: dict = {}
+    out["AccessToken"] = value["access_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetUserRequest:
+    out: GetUserRequest = {}  # type: ignore[typeddict-item]
+    if "AccessToken" in data:
+        out["access_token"] = data["AccessToken"]
+    else:
+        raise DeserializationError("GetUserRequest.access_token required")
+    return out

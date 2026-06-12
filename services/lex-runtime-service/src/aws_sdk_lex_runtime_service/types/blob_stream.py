@@ -1,0 +1,11 @@
+"""Generated from Smithy shape ``com.amazonaws.lexruntimeservice#BlobStream``."""
+
+from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+
+T = TypeVar("T")
+
+
+class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
+
+
+BlobStream: TypeAlias = AnyIterator[bytes] | bytes

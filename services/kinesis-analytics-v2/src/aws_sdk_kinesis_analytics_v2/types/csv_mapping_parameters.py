@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#CSVMappingParameters``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kinesis_analytics_v2.types.record_column_delimiter
+    import aws_sdk_kinesis_analytics_v2.types.record_row_delimiter
+
+
+class CSVMappingParameters(TypedDict):
+    record_row_delimiter: (
+        "aws_sdk_kinesis_analytics_v2.types.record_row_delimiter.RecordRowDelimiter"
+    )
+    """<p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>"""
+    record_column_delimiter: "aws_sdk_kinesis_analytics_v2.types.record_column_delimiter.RecordColumnDelimiter"
+    """<p>The column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CSVMappingParameters) -> dict:
+    out: dict = {}
+    out["RecordRowDelimiter"] = value["record_row_delimiter"]
+    out["RecordColumnDelimiter"] = value["record_column_delimiter"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CSVMappingParameters:
+    out: CSVMappingParameters = {}  # type: ignore[typeddict-item]
+    if "RecordRowDelimiter" in data:
+        out["record_row_delimiter"] = data["RecordRowDelimiter"]
+    else:
+        raise DeserializationError("CSVMappingParameters.record_row_delimiter required")
+    if "RecordColumnDelimiter" in data:
+        out["record_column_delimiter"] = data["RecordColumnDelimiter"]
+    else:
+        raise DeserializationError(
+            "CSVMappingParameters.record_column_delimiter required"
+        )
+    return out

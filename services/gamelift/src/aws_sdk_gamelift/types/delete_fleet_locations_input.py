@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#DeleteFleetLocationsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.fleet_id_or_arn
+    import aws_sdk_gamelift.types.location_list
+
+
+class DeleteFleetLocationsInput(TypedDict):
+    fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
+    """<p>A unique identifier for the fleet to delete locations for. You can use either the fleet ID or ARN value.</p>"""
+    locations: NotRequired["aws_sdk_gamelift.types.location_list.LocationList"]
+    """<p>The list of fleet locations to delete. Specify locations in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteFleetLocationsInput) -> dict:
+    out: dict = {}
+    if "fleet_id" in value:
+        out["FleetId"] = value["fleet_id"]
+    if "locations" in value:
+        import aws_sdk_gamelift.types.location_list
+
+        out["Locations"] = aws_sdk_gamelift.types.location_list.serialize_aws_json_1_1(
+            value["locations"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteFleetLocationsInput:
+    out: DeleteFleetLocationsInput = {}  # type: ignore[typeddict-item]
+    if "FleetId" in data:
+        out["fleet_id"] = data["FleetId"]
+    if "Locations" in data:
+        import aws_sdk_gamelift.types.location_list
+
+        out["locations"] = (
+            aws_sdk_gamelift.types.location_list.deserialize_aws_json_1_1(
+                data["Locations"]
+            )
+        )
+    return out

@@ -1,0 +1,85 @@
+"""Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#GeneratePinDataOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_payment_cryptography_data.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_payment_cryptography_data.types.encrypted_pin_block_type
+    import aws_sdk_payment_cryptography_data.types.key_arn
+    import aws_sdk_payment_cryptography_data.types.key_check_value
+    import aws_sdk_payment_cryptography_data.types.pin_data
+
+
+class GeneratePinDataOutput(TypedDict):
+    generation_key_arn: "aws_sdk_payment_cryptography_data.types.key_arn.KeyArn"
+    """<p>The <code>keyARN</code> of the pin data generation key that Amazon Web Services Payment Cryptography uses for PIN, PVV or PIN Offset generation.</p>"""
+    generation_key_check_value: (
+        "aws_sdk_payment_cryptography_data.types.key_check_value.KeyCheckValue"
+    )
+    """<p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p> <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>"""
+    encryption_key_arn: "aws_sdk_payment_cryptography_data.types.key_arn.KeyArn"
+    """<p>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses for encrypted pin block generation. For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>"""
+    encryption_key_check_value: (
+        "aws_sdk_payment_cryptography_data.types.key_check_value.KeyCheckValue"
+    )
+    """<p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p> <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>"""
+    encrypted_pin_block: "aws_sdk_payment_cryptography_data.types.encrypted_pin_block_type.EncryptedPinBlockType"
+    """<p>The PIN block encrypted under PEK from Amazon Web Services Payment Cryptography. The encrypted PIN block is a composite of PAN (Primary Account Number) and PIN (Personal Identification Number), generated in accordance with ISO 9564 standard.</p>"""
+    pin_data: "aws_sdk_payment_cryptography_data.types.pin_data.PinData"
+    """<p>The attributes and values Amazon Web Services Payment Cryptography uses for pin data generation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GeneratePinDataOutput) -> dict:
+    out: dict = {}
+    out["GenerationKeyArn"] = value["generation_key_arn"]
+    out["GenerationKeyCheckValue"] = value["generation_key_check_value"]
+    out["EncryptionKeyArn"] = value["encryption_key_arn"]
+    out["EncryptionKeyCheckValue"] = value["encryption_key_check_value"]
+    out["EncryptedPinBlock"] = value["encrypted_pin_block"]
+    import aws_sdk_payment_cryptography_data.types.pin_data
+
+    out["PinData"] = aws_sdk_payment_cryptography_data.types.pin_data.serialize_json(
+        value["pin_data"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> GeneratePinDataOutput:
+    out: GeneratePinDataOutput = {}  # type: ignore[typeddict-item]
+    if "GenerationKeyArn" in data:
+        out["generation_key_arn"] = data["GenerationKeyArn"]
+    else:
+        raise DeserializationError("GeneratePinDataOutput.generation_key_arn required")
+    if "GenerationKeyCheckValue" in data:
+        out["generation_key_check_value"] = data["GenerationKeyCheckValue"]
+    else:
+        raise DeserializationError(
+            "GeneratePinDataOutput.generation_key_check_value required"
+        )
+    if "EncryptionKeyArn" in data:
+        out["encryption_key_arn"] = data["EncryptionKeyArn"]
+    else:
+        raise DeserializationError("GeneratePinDataOutput.encryption_key_arn required")
+    if "EncryptionKeyCheckValue" in data:
+        out["encryption_key_check_value"] = data["EncryptionKeyCheckValue"]
+    else:
+        raise DeserializationError(
+            "GeneratePinDataOutput.encryption_key_check_value required"
+        )
+    if "EncryptedPinBlock" in data:
+        out["encrypted_pin_block"] = data["EncryptedPinBlock"]
+    else:
+        raise DeserializationError("GeneratePinDataOutput.encrypted_pin_block required")
+    if "PinData" in data:
+        import aws_sdk_payment_cryptography_data.types.pin_data
+
+        out["pin_data"] = (
+            aws_sdk_payment_cryptography_data.types.pin_data.deserialize_json(
+                data["PinData"]
+            )
+        )
+    else:
+        raise DeserializationError("GeneratePinDataOutput.pin_data required")
+    return out

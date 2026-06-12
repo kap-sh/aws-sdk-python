@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#CreateProjectInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.create_template_provider_list
+    import aws_sdk_sagemaker.types.entity_description
+    import aws_sdk_sagemaker.types.project_entity_name
+    import aws_sdk_sagemaker.types.service_catalog_provisioning_details
+    import aws_sdk_sagemaker.types.tag_list
+
+
+class CreateProjectInput(TypedDict):
+    project_name: NotRequired[
+        "aws_sdk_sagemaker.types.project_entity_name.ProjectEntityName"
+    ]
+    """<p>The name of the project.</p>"""
+    project_description: NotRequired[
+        "aws_sdk_sagemaker.types.entity_description.EntityDescription"
+    ]
+    """<p>A description for the project.</p>"""
+    service_catalog_provisioning_details: NotRequired[
+        "aws_sdk_sagemaker.types.service_catalog_provisioning_details.ServiceCatalogProvisioningDetails"
+    ]
+    """<p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning artifact ID will default to the latest provisioning artifact ID of the product, if you don't provide the provisioning artifact ID. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html\">What is Amazon Web Services Service Catalog</a>.</p>"""
+    tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
+    """<p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services resource costs. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
+    template_providers: NotRequired[
+        "aws_sdk_sagemaker.types.create_template_provider_list.CreateTemplateProviderList"
+    ]
+    """<p> An array of template provider configurations for creating infrastructure resources for the project. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateProjectInput) -> dict:
+    out: dict = {}
+    if "project_name" in value:
+        out["ProjectName"] = value["project_name"]
+    if "project_description" in value:
+        out["ProjectDescription"] = value["project_description"]
+    if "service_catalog_provisioning_details" in value:
+        import aws_sdk_sagemaker.types.service_catalog_provisioning_details
+
+        out["ServiceCatalogProvisioningDetails"] = (
+            aws_sdk_sagemaker.types.service_catalog_provisioning_details.serialize_aws_json_1_1(
+                value["service_catalog_provisioning_details"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_sagemaker.types.tag_list
+
+        out["Tags"] = aws_sdk_sagemaker.types.tag_list.serialize_aws_json_1_1(
+            value["tags"]
+        )
+    if "template_providers" in value:
+        import aws_sdk_sagemaker.types.create_template_provider_list
+
+        out["TemplateProviders"] = (
+            aws_sdk_sagemaker.types.create_template_provider_list.serialize_aws_json_1_1(
+                value["template_providers"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateProjectInput:
+    out: CreateProjectInput = {}  # type: ignore[typeddict-item]
+    if "ProjectName" in data:
+        out["project_name"] = data["ProjectName"]
+    if "ProjectDescription" in data:
+        out["project_description"] = data["ProjectDescription"]
+    if "ServiceCatalogProvisioningDetails" in data:
+        import aws_sdk_sagemaker.types.service_catalog_provisioning_details
+
+        out["service_catalog_provisioning_details"] = (
+            aws_sdk_sagemaker.types.service_catalog_provisioning_details.deserialize_aws_json_1_1(
+                data["ServiceCatalogProvisioningDetails"]
+            )
+        )
+    if "Tags" in data:
+        import aws_sdk_sagemaker.types.tag_list
+
+        out["tags"] = aws_sdk_sagemaker.types.tag_list.deserialize_aws_json_1_1(
+            data["Tags"]
+        )
+    if "TemplateProviders" in data:
+        import aws_sdk_sagemaker.types.create_template_provider_list
+
+        out["template_providers"] = (
+            aws_sdk_sagemaker.types.create_template_provider_list.deserialize_aws_json_1_1(
+                data["TemplateProviders"]
+            )
+        )
+    return out

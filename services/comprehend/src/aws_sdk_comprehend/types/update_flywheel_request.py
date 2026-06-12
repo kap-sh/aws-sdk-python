@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#UpdateFlywheelRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_comprehend.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_comprehend.types.comprehend_flywheel_arn
+    import aws_sdk_comprehend.types.comprehend_model_arn
+    import aws_sdk_comprehend.types.iam_role_arn
+    import aws_sdk_comprehend.types.update_data_security_config
+
+
+class UpdateFlywheelRequest(TypedDict):
+    flywheel_arn: (
+        "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
+    )
+    """<p>The Amazon Resource Number (ARN) of the flywheel to update.</p>"""
+    active_model_arn: NotRequired[
+        "aws_sdk_comprehend.types.comprehend_model_arn.ComprehendModelArn"
+    ]
+    """<p>The Amazon Resource Number (ARN) of the active model version.</p>"""
+    data_access_role_arn: NotRequired[
+        "aws_sdk_comprehend.types.iam_role_arn.IamRoleArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.</p>"""
+    data_security_config: NotRequired[
+        "aws_sdk_comprehend.types.update_data_security_config.UpdateDataSecurityConfig"
+    ]
+    """<p>Flywheel data security configuration.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateFlywheelRequest) -> dict:
+    out: dict = {}
+    out["FlywheelArn"] = value["flywheel_arn"]
+    if "active_model_arn" in value:
+        out["ActiveModelArn"] = value["active_model_arn"]
+    if "data_access_role_arn" in value:
+        out["DataAccessRoleArn"] = value["data_access_role_arn"]
+    if "data_security_config" in value:
+        import aws_sdk_comprehend.types.update_data_security_config
+
+        out["DataSecurityConfig"] = (
+            aws_sdk_comprehend.types.update_data_security_config.serialize_aws_json_1_1(
+                value["data_security_config"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateFlywheelRequest:
+    out: UpdateFlywheelRequest = {}  # type: ignore[typeddict-item]
+    if "FlywheelArn" in data:
+        out["flywheel_arn"] = data["FlywheelArn"]
+    else:
+        raise DeserializationError("UpdateFlywheelRequest.flywheel_arn required")
+    if "ActiveModelArn" in data:
+        out["active_model_arn"] = data["ActiveModelArn"]
+    if "DataAccessRoleArn" in data:
+        out["data_access_role_arn"] = data["DataAccessRoleArn"]
+    if "DataSecurityConfig" in data:
+        import aws_sdk_comprehend.types.update_data_security_config
+
+        out["data_security_config"] = (
+            aws_sdk_comprehend.types.update_data_security_config.deserialize_aws_json_1_1(
+                data["DataSecurityConfig"]
+            )
+        )
+    return out

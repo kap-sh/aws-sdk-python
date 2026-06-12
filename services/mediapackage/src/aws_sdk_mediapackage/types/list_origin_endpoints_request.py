@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.mediapackage#ListOriginEndpointsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_mediapackage.types.__string
+    import aws_sdk_mediapackage.types.max_results
+
+
+class ListOriginEndpointsRequest(TypedDict):
+    channel_id: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
+    """When specified, the request will return only OriginEndpoints associated with the given Channel ID."""
+    max_results: NotRequired["aws_sdk_mediapackage.types.max_results.MaxResults"]
+    """The upper bound on the number of records to return."""
+    next_token: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
+    """A token used to resume pagination from the end of a previous request."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListOriginEndpointsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListOriginEndpointsRequest:
+    out: ListOriginEndpointsRequest = {}  # type: ignore[typeddict-item]
+    return out

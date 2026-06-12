@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.lookoutequipment#ImportDatasetRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_lookoutequipment.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_lookoutequipment.types.dataset_arn
+    import aws_sdk_lookoutequipment.types.dataset_name
+    import aws_sdk_lookoutequipment.types.idempotence_token
+    import aws_sdk_lookoutequipment.types.name_or_arn
+    import aws_sdk_lookoutequipment.types.tag_list
+
+
+class ImportDatasetRequest(TypedDict):
+    source_dataset_arn: "aws_sdk_lookoutequipment.types.dataset_arn.DatasetArn"
+    """<p>The Amazon Resource Name (ARN) of the dataset to import.</p>"""
+    dataset_name: NotRequired["aws_sdk_lookoutequipment.types.dataset_name.DatasetName"]
+    """<p>The name of the machine learning dataset to be created. If the dataset already exists, Amazon Lookout for Equipment overwrites the existing dataset. If you don't specify this field, it is filled with the name of the source dataset.</p>"""
+    client_token: "aws_sdk_lookoutequipment.types.idempotence_token.IdempotenceToken"
+    """<p>A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>"""
+    server_side_kms_key_id: NotRequired[
+        "aws_sdk_lookoutequipment.types.name_or_arn.NameOrArn"
+    ]
+    """<p>Provides the identifier of the KMS key key used to encrypt model data by Amazon Lookout for Equipment. </p>"""
+    tags: NotRequired["aws_sdk_lookoutequipment.types.tag_list.TagList"]
+    """<p>Any tags associated with the dataset to be created.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ImportDatasetRequest) -> dict:
+    out: dict = {}
+    out["SourceDatasetArn"] = value["source_dataset_arn"]
+    if "dataset_name" in value:
+        out["DatasetName"] = value["dataset_name"]
+    out["ClientToken"] = value["client_token"]
+    if "server_side_kms_key_id" in value:
+        out["ServerSideKmsKeyId"] = value["server_side_kms_key_id"]
+    if "tags" in value:
+        import aws_sdk_lookoutequipment.types.tag_list
+
+        out["Tags"] = aws_sdk_lookoutequipment.types.tag_list.serialize_aws_json_1_0(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ImportDatasetRequest:
+    out: ImportDatasetRequest = {}  # type: ignore[typeddict-item]
+    if "SourceDatasetArn" in data:
+        out["source_dataset_arn"] = data["SourceDatasetArn"]
+    else:
+        raise DeserializationError("ImportDatasetRequest.source_dataset_arn required")
+    if "DatasetName" in data:
+        out["dataset_name"] = data["DatasetName"]
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    else:
+        raise DeserializationError("ImportDatasetRequest.client_token required")
+    if "ServerSideKmsKeyId" in data:
+        out["server_side_kms_key_id"] = data["ServerSideKmsKeyId"]
+    if "Tags" in data:
+        import aws_sdk_lookoutequipment.types.tag_list
+
+        out["tags"] = aws_sdk_lookoutequipment.types.tag_list.deserialize_aws_json_1_0(
+            data["Tags"]
+        )
+    return out

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#ListJobTemplatesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_iot.types.job_template_summary_list
+    import aws_sdk_iot.types.next_token
+
+
+class ListJobTemplatesResponse(TypedDict):
+    job_templates: NotRequired[
+        "aws_sdk_iot.types.job_template_summary_list.JobTemplateSummaryList"
+    ]
+    """<p>A list of objects that contain information about the job templates.</p>"""
+    next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]
+    """<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListJobTemplatesResponse) -> dict:
+    out: dict = {}
+    if "job_templates" in value:
+        import aws_sdk_iot.types.job_template_summary_list
+
+        out["jobTemplates"] = (
+            aws_sdk_iot.types.job_template_summary_list.serialize_json(
+                value["job_templates"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListJobTemplatesResponse:
+    out: ListJobTemplatesResponse = {}  # type: ignore[typeddict-item]
+    if "jobTemplates" in data:
+        import aws_sdk_iot.types.job_template_summary_list
+
+        out["job_templates"] = (
+            aws_sdk_iot.types.job_template_summary_list.deserialize_json(
+                data["jobTemplates"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

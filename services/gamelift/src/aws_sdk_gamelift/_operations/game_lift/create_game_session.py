@@ -1,0 +1,197 @@
+"""Generated from Smithy shape ``com.amazonaws.gamelift#CreateGameSession``."""
+
+from __future__ import annotations
+
+import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
+import aws_sdk_gamelift._auth._signers
+import aws_sdk_gamelift._auth._sigv4
+from aws_sdk_gamelift._protocol.errors import parse_error_metadata_json
+from aws_sdk_gamelift._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_gamelift._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_gamelift.errors import UnknownServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_gamelift.types.create_game_session_input
+    import aws_sdk_gamelift.types.create_game_session_output
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "ConflictException":
+            import aws_sdk_gamelift.errors.conflict_exception
+
+            raise aws_sdk_gamelift.errors.conflict_exception.ConflictException.from_aws_json_1_1(
+                data
+            )
+        case "FleetCapacityExceededException":
+            import aws_sdk_gamelift.errors.fleet_capacity_exceeded_exception
+
+            raise aws_sdk_gamelift.errors.fleet_capacity_exceeded_exception.FleetCapacityExceededException.from_aws_json_1_1(
+                data
+            )
+        case "IdempotentParameterMismatchException":
+            import aws_sdk_gamelift.errors.idempotent_parameter_mismatch_exception
+
+            raise aws_sdk_gamelift.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException.from_aws_json_1_1(
+                data
+            )
+        case "InternalServiceException":
+            import aws_sdk_gamelift.errors.internal_service_exception
+
+            raise aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException.from_aws_json_1_1(
+                data
+            )
+        case "InvalidFleetStatusException":
+            import aws_sdk_gamelift.errors.invalid_fleet_status_exception
+
+            raise aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException.from_aws_json_1_1(
+                data
+            )
+        case "InvalidRequestException":
+            import aws_sdk_gamelift.errors.invalid_request_exception
+
+            raise aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_1(
+                data
+            )
+        case "LimitExceededException":
+            import aws_sdk_gamelift.errors.limit_exceeded_exception
+
+            raise aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
+                data
+            )
+        case "NotFoundException":
+            import aws_sdk_gamelift.errors.not_found_exception
+
+            raise aws_sdk_gamelift.errors.not_found_exception.NotFoundException.from_aws_json_1_1(
+                data
+            )
+        case "TerminalRoutingStrategyException":
+            import aws_sdk_gamelift.errors.terminal_routing_strategy_exception
+
+            raise aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException.from_aws_json_1_1(
+                data
+            )
+        case "UnauthorizedException":
+            import aws_sdk_gamelift.errors.unauthorized_exception
+
+            raise aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException.from_aws_json_1_1(
+                data
+            )
+        case "UnsupportedRegionException":
+            import aws_sdk_gamelift.errors.unsupported_region_exception
+
+            raise aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException.from_aws_json_1_1(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_gamelift.types.create_game_session_output.CreateGameSessionOutput:
+    import aws_sdk_gamelift.types.create_game_session_output
+
+    out: aws_sdk_gamelift.types.create_game_session_output.CreateGameSessionOutput = (
+        aws_sdk_gamelift.types.create_game_session_output.deserialize_aws_json_1_1(
+            json.loads(response.read())
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_gamelift._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_gamelift._auth._sigv4.build_sigv4_auth_scheme(
+                "gamelift", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return aws_sdk_gamelift._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_gamelift.types.create_game_session_input.CreateGameSessionInput,
+) -> zapros.Request:
+    endpoint = resolve(  # noqa: F841
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    headers["X-Amz-Target"] = "GameLift.CreateGameSession"
+    import aws_sdk_gamelift.types.create_game_session_input
+
+    body: bytes | None = json.dumps(
+        aws_sdk_gamelift.types.create_game_session_input.serialize_aws_json_1_1(input)
+    ).encode()
+    headers["content-type"] = "application/x-amz-json-1.1"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url,
+        "POST",
+        headers=headers,
+        body=body,
+        context={"signer": signer},
+    )
+
+
+def create_game_session(
+    options: OperationOptions,
+    input: aws_sdk_gamelift.types.create_game_session_input.CreateGameSessionInput,
+) -> tuple[
+    aws_sdk_gamelift.types.create_game_session_output.CreateGameSessionOutput,
+    zapros.Response,
+]:
+    response = options.client.handler.handle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response, is_async=False), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_create_game_session(
+    options: AsyncOperationOptions,
+    input: aws_sdk_gamelift.types.create_game_session_input.CreateGameSessionInput,
+) -> tuple[
+    aws_sdk_gamelift.types.create_game_session_output.CreateGameSessionOutput,
+    zapros.Response,
+]:
+    response = await options.client.handler.ahandle(build_request(options, input))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return handle_response(response, is_async=True), response
+    except BaseException:
+        await response.aclose()
+        raise

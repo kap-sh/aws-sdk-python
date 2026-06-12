@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.appsync#DataSourceIntrospectionModelIndex``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appsync.types.data_source_introspection_model_index_fields
+    import aws_sdk_appsync.types.string
+
+
+class DataSourceIntrospectionModelIndex(TypedDict):
+    name: NotRequired["aws_sdk_appsync.types.string.String"]
+    """<p>The name of the index.</p>"""
+    fields: NotRequired[
+        "aws_sdk_appsync.types.data_source_introspection_model_index_fields.DataSourceIntrospectionModelIndexFields"
+    ]
+    """<p>The fields of the index.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataSourceIntrospectionModelIndex) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "fields" in value:
+        import aws_sdk_appsync.types.data_source_introspection_model_index_fields
+
+        out["fields"] = (
+            aws_sdk_appsync.types.data_source_introspection_model_index_fields.serialize_json(
+                value["fields"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DataSourceIntrospectionModelIndex:
+    out: DataSourceIntrospectionModelIndex = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "fields" in data:
+        import aws_sdk_appsync.types.data_source_introspection_model_index_fields
+
+        out["fields"] = (
+            aws_sdk_appsync.types.data_source_introspection_model_index_fields.deserialize_json(
+                data["fields"]
+            )
+        )
+    return out

@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.kafkaconnect#KafkaClusterClientAuthentication``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_kafkaconnect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_kafkaconnect.types.kafka_cluster_client_authentication_type
+
+
+class KafkaClusterClientAuthentication(TypedDict):
+    authentication_type: "aws_sdk_kafkaconnect.types.kafka_cluster_client_authentication_type.KafkaClusterClientAuthenticationType"
+    """<p>The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: KafkaClusterClientAuthentication) -> dict:
+    out: dict = {}
+    out["authenticationType"] = value["authentication_type"]
+    return out
+
+
+def deserialize_json(data: dict) -> KafkaClusterClientAuthentication:
+    out: KafkaClusterClientAuthentication = {}  # type: ignore[typeddict-item]
+    if "authenticationType" in data:
+        out["authentication_type"] = data["authenticationType"]
+    else:
+        raise DeserializationError(
+            "KafkaClusterClientAuthentication.authentication_type required"
+        )
+    return out

@@ -1,0 +1,1809 @@
+"""Generated from Smithy shape ``com.amazonaws.snowball#AWSIESnowballJobManagementService``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+from aws_sdk_snowball._auth._identity import Credentials
+from aws_sdk_snowball._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_snowball._auth._zapros_handler import AuthMiddleware
+from aws_sdk_snowball._pagination import resolve_path as _resolve_path
+from aws_sdk_snowball._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_snowball.types.address
+    import aws_sdk_snowball.types.address_id
+    import aws_sdk_snowball.types.boolean
+    import aws_sdk_snowball.types.cancel_cluster_request
+    import aws_sdk_snowball.types.cancel_cluster_result
+    import aws_sdk_snowball.types.cancel_job_request
+    import aws_sdk_snowball.types.cancel_job_result
+    import aws_sdk_snowball.types.cluster_id
+    import aws_sdk_snowball.types.cluster_list_entry
+    import aws_sdk_snowball.types.compatible_image
+    import aws_sdk_snowball.types.create_address_request
+    import aws_sdk_snowball.types.create_address_result
+    import aws_sdk_snowball.types.create_cluster_request
+    import aws_sdk_snowball.types.create_cluster_result
+    import aws_sdk_snowball.types.create_job_request
+    import aws_sdk_snowball.types.create_job_result
+    import aws_sdk_snowball.types.create_long_term_pricing_request
+    import aws_sdk_snowball.types.create_long_term_pricing_result
+    import aws_sdk_snowball.types.create_return_shipping_label_request
+    import aws_sdk_snowball.types.create_return_shipping_label_result
+    import aws_sdk_snowball.types.dependent_service_list
+    import aws_sdk_snowball.types.describe_address_request
+    import aws_sdk_snowball.types.describe_address_result
+    import aws_sdk_snowball.types.describe_addresses_request
+    import aws_sdk_snowball.types.describe_addresses_result
+    import aws_sdk_snowball.types.describe_cluster_request
+    import aws_sdk_snowball.types.describe_cluster_result
+    import aws_sdk_snowball.types.describe_job_request
+    import aws_sdk_snowball.types.describe_job_result
+    import aws_sdk_snowball.types.describe_return_shipping_label_request
+    import aws_sdk_snowball.types.describe_return_shipping_label_result
+    import aws_sdk_snowball.types.device_configuration
+    import aws_sdk_snowball.types.get_job_manifest_request
+    import aws_sdk_snowball.types.get_job_manifest_result
+    import aws_sdk_snowball.types.get_job_unlock_code_request
+    import aws_sdk_snowball.types.get_job_unlock_code_result
+    import aws_sdk_snowball.types.get_snowball_usage_request
+    import aws_sdk_snowball.types.get_snowball_usage_result
+    import aws_sdk_snowball.types.get_software_updates_request
+    import aws_sdk_snowball.types.get_software_updates_result
+    import aws_sdk_snowball.types.impact_level
+    import aws_sdk_snowball.types.initial_cluster_size
+    import aws_sdk_snowball.types.java_boolean
+    import aws_sdk_snowball.types.job_id
+    import aws_sdk_snowball.types.job_list_entry
+    import aws_sdk_snowball.types.job_resource
+    import aws_sdk_snowball.types.job_type
+    import aws_sdk_snowball.types.kms_key_arn
+    import aws_sdk_snowball.types.list_cluster_jobs_request
+    import aws_sdk_snowball.types.list_cluster_jobs_result
+    import aws_sdk_snowball.types.list_clusters_request
+    import aws_sdk_snowball.types.list_clusters_result
+    import aws_sdk_snowball.types.list_compatible_images_request
+    import aws_sdk_snowball.types.list_compatible_images_result
+    import aws_sdk_snowball.types.list_jobs_request
+    import aws_sdk_snowball.types.list_jobs_result
+    import aws_sdk_snowball.types.list_limit
+    import aws_sdk_snowball.types.list_long_term_pricing_request
+    import aws_sdk_snowball.types.list_long_term_pricing_result
+    import aws_sdk_snowball.types.list_pickup_locations_request
+    import aws_sdk_snowball.types.list_pickup_locations_result
+    import aws_sdk_snowball.types.list_service_versions_request
+    import aws_sdk_snowball.types.list_service_versions_result
+    import aws_sdk_snowball.types.long_term_pricing_id
+    import aws_sdk_snowball.types.long_term_pricing_id_list
+    import aws_sdk_snowball.types.long_term_pricing_list_entry
+    import aws_sdk_snowball.types.long_term_pricing_type
+    import aws_sdk_snowball.types.notification
+    import aws_sdk_snowball.types.on_device_service_configuration
+    import aws_sdk_snowball.types.pickup_details
+    import aws_sdk_snowball.types.remote_management
+    import aws_sdk_snowball.types.role_arn
+    import aws_sdk_snowball.types.service_name
+    import aws_sdk_snowball.types.shipment_state
+    import aws_sdk_snowball.types.shipping_option
+    import aws_sdk_snowball.types.snowball_capacity
+    import aws_sdk_snowball.types.snowball_type
+    import aws_sdk_snowball.types.string
+    import aws_sdk_snowball.types.tax_documents
+    import aws_sdk_snowball.types.update_cluster_request
+    import aws_sdk_snowball.types.update_cluster_result
+    import aws_sdk_snowball.types.update_job_request
+    import aws_sdk_snowball.types.update_job_result
+    import aws_sdk_snowball.types.update_job_shipment_state_request
+    import aws_sdk_snowball.types.update_job_shipment_state_result
+    import aws_sdk_snowball.types.update_long_term_pricing_request
+    import aws_sdk_snowball.types.update_long_term_pricing_result
+
+
+class AsyncSnowballClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncSnowballClient:
+    """A client for the ``Snowball`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncSnowballClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncSnowballClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncSnowballClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def cancel_cluster(
+        self,
+        cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.cancel_cluster_result.CancelClusterResult":
+        """<p>Cancels a cluster job. You can only cancel a cluster job while it's in the <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster job to cancel it.</p>
+
+        Args:
+            cluster_id: <p>The 39-character ID for the cluster that you want to cancel, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+        Examples:
+            To cancel a cluster job
+            This operation cancels a cluster job. You can only cancel a cluster job while it's in the AwaitingQuorum status.
+
+            >>> await client.cancel_cluster(cluster_id='CID123e4567-e89b-12d3-a456-426655440000')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.cancel_cluster_request.CancelClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.cancel_cluster_result.CancelClusterResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.cancel_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.cancel_cluster.async_cancel_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.cancel_cluster_request.CancelClusterRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_id"] = cluster_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def cancel_job(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.cancel_job_result.CancelJobResult":
+        """<p>Cancels the specified job. You can only cancel a job before its <code>JobState</code> value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the response element data returned.</p>
+
+        Args:
+            job_id: <p>The 39-character job ID for the job that you want to cancel, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+        Examples:
+            To cancel a job for a Snowball device
+            This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.
+
+            >>> await client.cancel_job(job_id='JID123e4567-e89b-12d3-a456-426655440000')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.cancel_job_request.CancelJobRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.cancel_job_result.CancelJobResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.cancel_job
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.cancel_job.async_cancel_job(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_address(
+        self,
+        address: "aws_sdk_snowball.types.address.Address",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.create_address_result.CreateAddressResult":
+        """<p>Creates an address for a Snow device to be shipped to. In most regions, addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown. If providing an address as a JSON file through the <code>cli-input-json</code> option, include the full file path. For example, <code>--cli-input-json file://create-address.json</code>.</p>
+
+        Args:
+            address: <p>The address that you want the Snow device shipped to.</p>
+
+        Examples:
+            To create an address for a job
+            This operation creates an address for a job. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.
+
+            >>> await client.create_address(address={'City': 'Seattle', 'Company': "My Company's Name", 'Country': 'USA', 'Name': 'My Name', 'PhoneNumber': '425-555-5555', 'PostalCode': '98101', 'StateOrProvince': 'WA', 'Street1': '123 Main Street'})
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.create_address_request.CreateAddressRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.create_address_result.CreateAddressResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_address
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_address.async_create_address(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.create_address_request.CreateAddressRequest = {}  # type: ignore[typeddict-item]
+        input["address"] = address
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_cluster(
+        self,
+        job_type: "aws_sdk_snowball.types.job_type.JobType",
+        address_id: "aws_sdk_snowball.types.address_id.AddressId",
+        snowball_type: "aws_sdk_snowball.types.snowball_type.SnowballType",
+        shipping_option: "aws_sdk_snowball.types.shipping_option.ShippingOption",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        resources: Optional["aws_sdk_snowball.types.job_resource.JobResource"] = None,
+        on_device_service_configuration: Optional[
+            "aws_sdk_snowball.types.on_device_service_configuration.OnDeviceServiceConfiguration"
+        ] = None,
+        description: Optional["aws_sdk_snowball.types.string.String"] = None,
+        kms_key_arn: Optional["aws_sdk_snowball.types.kms_key_arn.KmsKeyARN"] = None,
+        role_arn: Optional["aws_sdk_snowball.types.role_arn.RoleARN"] = None,
+        notification: Optional[
+            "aws_sdk_snowball.types.notification.Notification"
+        ] = None,
+        forwarding_address_id: Optional[
+            "aws_sdk_snowball.types.address_id.AddressId"
+        ] = None,
+        tax_documents: Optional[
+            "aws_sdk_snowball.types.tax_documents.TaxDocuments"
+        ] = None,
+        remote_management: Optional[
+            "aws_sdk_snowball.types.remote_management.RemoteManagement"
+        ] = None,
+        initial_cluster_size: Optional[
+            "aws_sdk_snowball.types.initial_cluster_size.InitialClusterSize"
+        ] = None,
+        force_create_jobs: Optional["aws_sdk_snowball.types.boolean.Boolean"] = None,
+        long_term_pricing_ids: Optional[
+            "aws_sdk_snowball.types.long_term_pricing_id_list.LongTermPricingIdList"
+        ] = None,
+        snowball_capacity_preference: Optional[
+            "aws_sdk_snowball.types.snowball_capacity.SnowballCapacity"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.create_cluster_result.CreateClusterResult":
+        """<p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.</p>
+
+        Args:
+            job_type: <p>The type of job for this cluster. Currently, the only job type supported for clusters is <code>LOCAL_USE</code>.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+            resources: <p>The resources associated with the cluster job. These resources include Amazon S3 buckets and optional Lambda functions written in the Python language. </p>
+            on_device_service_configuration: <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. Amazon Web Services Snow Family device clusters support Amazon S3 and NFS (Network File System).</p>
+            description: <p>An optional description of this specific cluster, for example <code>Environmental Data Cluster-01</code>.</p>
+            address_id: <p>The ID for the address that you want the cluster shipped to.</p>
+            kms_key_arn: <p>The <code>KmsKeyARN</code> value that you want to associate with this cluster. <code>KmsKeyARN</code> values are created by using the <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html\">CreateKey</a> API action in Key Management Service (KMS). </p>
+            role_arn: <p>The <code>RoleARN</code> that you want to associate with this cluster. <code>RoleArn</code> values are created by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a> API action in Identity and Access Management (IAM).</p>
+            snowball_type: <p>The type of Snow Family devices to use for this cluster. </p> <note> <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the <code>EDGE</code> device type.</p> </note> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+            shipping_option: <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows: </p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the United States of America (US), you have access to one-day shipping and two-day shipping.</p> </li> </ul> <ul> <li> <p>In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the US, you have access to one-day shipping and two-day shipping.</p> </li> </ul>
+            notification: <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.</p>
+            forwarding_address_id: <p>The forwarding address ID for a cluster. This field is not supported in most regions.</p>
+            tax_documents: <p>The tax documents required in your Amazon Web Services Region.</p>
+            remote_management: <p>Allows you to securely operate and manage Snow devices in a cluster remotely from outside of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will automatically be available when the device arrives at your location. Otherwise, you need to use the Snowball Client to manage the device.</p>
+            initial_cluster_size: <p>If provided, each job will be automatically created and associated with the new cluster. If not provided, will be treated as 0.</p>
+            force_create_jobs: <p>Force to create cluster when user attempts to overprovision or underprovision a cluster. A cluster is overprovisioned or underprovisioned if the initial size of the cluster is more (overprovisioned) or less (underprovisioned) than what needed to meet capacity requirement specified with <code>OnDeviceServiceConfiguration</code>.</p>
+            long_term_pricing_ids: <p>Lists long-term pricing id that will be used to associate with jobs automatically created for the new cluster.</p>
+            snowball_capacity_preference: <p>If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+
+        Examples:
+            To create a cluster
+            Creates an empty cluster. Each cluster supports five nodes. You use the CreateJob action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.
+
+            >>> await client.create_cluster(job_type='LOCAL_USE', resources={'S3Resources': [{'BucketArn': 'arn:aws:s3:::MyBucket', 'KeyRange': {}}]}, description='MyCluster', address_id='ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b', kms_key_arn='arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456', role_arn='arn:aws:iam::123456789012:role/snowball-import-S3-role', snowball_type='EDGE', shipping_option='SECOND_DAY', notification={'NotifyAll': False, 'JobStatesToNotify': []})
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.create_cluster_request.CreateClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.create_cluster_result.CreateClusterResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_cluster.async_create_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input["job_type"] = job_type
+        if resources is not None:
+            input["resources"] = resources
+        if on_device_service_configuration is not None:
+            input["on_device_service_configuration"] = on_device_service_configuration
+        if description is not None:
+            input["description"] = description
+        input["address_id"] = address_id
+        if kms_key_arn is not None:
+            input["kms_key_arn"] = kms_key_arn
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        input["snowball_type"] = snowball_type
+        input["shipping_option"] = shipping_option
+        if notification is not None:
+            input["notification"] = notification
+        if forwarding_address_id is not None:
+            input["forwarding_address_id"] = forwarding_address_id
+        if tax_documents is not None:
+            input["tax_documents"] = tax_documents
+        if remote_management is not None:
+            input["remote_management"] = remote_management
+        if initial_cluster_size is not None:
+            input["initial_cluster_size"] = initial_cluster_size
+        if force_create_jobs is not None:
+            input["force_create_jobs"] = force_create_jobs
+        if long_term_pricing_ids is not None:
+            input["long_term_pricing_ids"] = long_term_pricing_ids
+        if snowball_capacity_preference is not None:
+            input["snowball_capacity_preference"] = snowball_capacity_preference
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_job(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        job_type: Optional["aws_sdk_snowball.types.job_type.JobType"] = None,
+        resources: Optional["aws_sdk_snowball.types.job_resource.JobResource"] = None,
+        on_device_service_configuration: Optional[
+            "aws_sdk_snowball.types.on_device_service_configuration.OnDeviceServiceConfiguration"
+        ] = None,
+        description: Optional["aws_sdk_snowball.types.string.String"] = None,
+        address_id: Optional["aws_sdk_snowball.types.address_id.AddressId"] = None,
+        kms_key_arn: Optional["aws_sdk_snowball.types.kms_key_arn.KmsKeyARN"] = None,
+        role_arn: Optional["aws_sdk_snowball.types.role_arn.RoleARN"] = None,
+        snowball_capacity_preference: Optional[
+            "aws_sdk_snowball.types.snowball_capacity.SnowballCapacity"
+        ] = None,
+        shipping_option: Optional[
+            "aws_sdk_snowball.types.shipping_option.ShippingOption"
+        ] = None,
+        notification: Optional[
+            "aws_sdk_snowball.types.notification.Notification"
+        ] = None,
+        cluster_id: Optional["aws_sdk_snowball.types.cluster_id.ClusterId"] = None,
+        snowball_type: Optional[
+            "aws_sdk_snowball.types.snowball_type.SnowballType"
+        ] = None,
+        forwarding_address_id: Optional[
+            "aws_sdk_snowball.types.address_id.AddressId"
+        ] = None,
+        tax_documents: Optional[
+            "aws_sdk_snowball.types.tax_documents.TaxDocuments"
+        ] = None,
+        device_configuration: Optional[
+            "aws_sdk_snowball.types.device_configuration.DeviceConfiguration"
+        ] = None,
+        remote_management: Optional[
+            "aws_sdk_snowball.types.remote_management.RemoteManagement"
+        ] = None,
+        long_term_pricing_id: Optional[
+            "aws_sdk_snowball.types.long_term_pricing_id.LongTermPricingId"
+        ] = None,
+        impact_level: Optional[
+            "aws_sdk_snowball.types.impact_level.ImpactLevel"
+        ] = None,
+        pickup_details: Optional[
+            "aws_sdk_snowball.types.pickup_details.PickupDetails"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.create_job_result.CreateJobResult":
+        """<p>Creates a job to import or export data between Amazon S3 and your on-premises data center. Your Amazon Web Services account must have the right trust policies and permissions in place to create a job for a Snow device. If you're creating a job for a node in a cluster, you only need to provide the <code>clusterId</code> value; the other job attributes are inherited from the cluster. </p> <note> <p>Only the Snowball; Edge device type is supported when ordering clustered jobs.</p> <p>The device capacity is optional.</p> <p>Availability of device types differ by Amazon Web Services Region. For more information about Region availability, see <a href=\"https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4\">Amazon Web Services Regional Services</a>.</p> </note> <p></p> <p class=\"title\"> <b>Snow Family devices and their capacities.</b> </p> <ul> <li> <p>Device type: <b>SNC1_SSD</b> </p> <ul> <li> <p>Capacity: T14</p> </li> <li> <p>Description: Snowcone </p> </li> </ul> <p></p> </li> <li> <p>Device type: <b>SNC1_HDD</b> </p> <ul> <li> <p>Capacity: T8</p> </li> <li> <p>Description: Snowcone </p> </li> </ul> <p></p> </li> <li> <p>Device type: <b>EDGE_S</b> </p> <ul> <li> <p>Capacity: T98</p> </li> <li> <p>Description: Snowball Edge Storage Optimized for data transfer only </p> </li> </ul> <p></p> </li> <li> <p>Device type: <b>EDGE_CG</b> </p> <ul> <li> <p>Capacity: T42</p> </li> <li> <p>Description: Snowball Edge Compute Optimized with GPU</p> </li> </ul> <p></p> </li> <li> <p>Device type: <b>EDGE_C</b> </p> <ul> <li> <p>Capacity: T42</p> </li> <li> <p>Description: Snowball Edge Compute Optimized without GPU</p> </li> </ul> <p></p> </li> <li> <p>Device type: <b>EDGE</b> </p> <ul> <li> <p>Capacity: T100</p> </li> <li> <p>Description: Snowball Edge Storage Optimized with EC2 Compute</p> </li> </ul> <note> <p>This device is replaced with T98.</p> </note> <p></p> </li> <li> <p>Device type: <b>STANDARD</b> </p> <ul> <li> <p>Capacity: T50</p> </li> <li> <p>Description: Original Snowball device</p> <note> <p>This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region </p> </note> </li> </ul> <p></p> </li> <li> <p>Device type: <b>STANDARD</b> </p> <ul> <li> <p>Capacity: T80</p> </li> <li> <p>Description: Original Snowball device</p> <note> <p>This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region. </p> </note> </li> </ul> <p></p> </li> <li> <p>Snow Family device type: <b>RACK_5U_C</b> </p> <ul> <li> <p>Capacity: T13 </p> </li> <li> <p>Description: Snowblade.</p> </li> </ul> </li> <li> <p>Device type: <b>V3_5S</b> </p> <ul> <li> <p>Capacity: T240</p> </li> <li> <p>Description: Snowball Edge Storage Optimized 210TB</p> </li> </ul> </li> </ul>
+
+        Args:
+            job_type: <p>Defines the type of job that you're creating. </p>
+            resources: <p>Defines the Amazon S3 buckets associated with this job.</p> <p>With <code>IMPORT</code> jobs, you specify the bucket or buckets that your transferred data will be imported into.</p> <p>With <code>EXPORT</code> jobs, you specify the bucket or buckets that your transferred data will be exported from. Optionally, you can also specify a <code>KeyRange</code> value. If you choose to export a range, you define the length of the range by providing either an inclusive <code>BeginMarker</code> value, an inclusive <code>EndMarker</code> value, or both. Ranges are UTF-8 binary sorted.</p>
+            on_device_service_configuration: <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. Amazon Web Services Snow Family supports Amazon S3 and NFS (Network File System) and the Amazon Web Services Storage Gateway service Tape Gateway type.</p>
+            description: <p>Defines an optional description of this specific job, for example <code>Important Photos 2016-08-11</code>.</p>
+            address_id: <p>The ID for the address that you want the Snow device shipped to.</p>
+            kms_key_arn: <p>The <code>KmsKeyARN</code> that you want to associate with this job. <code>KmsKeyARN</code>s are created using the <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html\">CreateKey</a> Key Management Service (KMS) API action.</p>
+            role_arn: <p>The <code>RoleARN</code> that you want to associate with this job. <code>RoleArn</code>s are created using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a> Identity and Access Management (IAM) API action.</p>
+            snowball_capacity_preference: <p>If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+            shipping_option: <p>The shipping speed for this job. This speed doesn't dictate how soon you'll get the Snow device, rather it represents how quickly the Snow device moves to its destination while in transit. Regional shipping speeds are as follows:</p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the US, you have access to one-day shipping and two-day shipping.</p> </li> </ul>
+            notification: <p>Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for this job.</p>
+            cluster_id: <p>The ID of a cluster. If you're creating a job for a node in a cluster, you need to provide only this <code>clusterId</code> value. The other job attributes are inherited from the cluster.</p>
+            snowball_type: <p>The type of Snow Family devices to use for this job. </p> <note> <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the <code>EDGE</code> device type.</p> </note> <p>The type of Amazon Web Services Snow device to use for this job. Currently, the only supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html\">Snowball Edge Device Options</a> in the Snowball Edge Developer Guide.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+            forwarding_address_id: <p>The forwarding address ID for a job. This field is not supported in most Regions.</p>
+            tax_documents: <p>The tax documents required in your Amazon Web Services Region.</p>
+            device_configuration: <p>Defines the device configuration for an Snowball Edge job.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+            remote_management: <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will automatically be available when the device arrives at your location. Otherwise, you need to use the Snowball Edge client to manage the device. When set to <code>NOT_INSTALLED</code>, remote management will not be available on the device. </p>
+            long_term_pricing_id: <p>The ID of the long-term pricing type for the device.</p>
+            impact_level: <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
+            pickup_details: <p>Information identifying the person picking up the device.</p>
+
+        Examples:
+            To create a job
+            Creates a job to import or export data between Amazon S3 and your on-premises data center. Your AWS account must have the right trust policies and permissions in place to create a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide the clusterId value; the other job attributes are inherited from the cluster.
+
+            >>> await client.create_job(job_type='IMPORT', resources={'S3Resources': [{'BucketArn': 'arn:aws:s3:::MyBucket', 'KeyRange': {}}]}, description='My Job', address_id='ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b', kms_key_arn='arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456', role_arn='arn:aws:iam::123456789012:role/snowball-import-S3-role', snowball_capacity_preference='T80', shipping_option='SECOND_DAY', notification={'NotifyAll': False, 'JobStatesToNotify': []}, snowball_type='STANDARD')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.create_job_request.CreateJobRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.create_job_result.CreateJobResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_job
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_job.async_create_job(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        if job_type is not None:
+            input["job_type"] = job_type
+        if resources is not None:
+            input["resources"] = resources
+        if on_device_service_configuration is not None:
+            input["on_device_service_configuration"] = on_device_service_configuration
+        if description is not None:
+            input["description"] = description
+        if address_id is not None:
+            input["address_id"] = address_id
+        if kms_key_arn is not None:
+            input["kms_key_arn"] = kms_key_arn
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if snowball_capacity_preference is not None:
+            input["snowball_capacity_preference"] = snowball_capacity_preference
+        if shipping_option is not None:
+            input["shipping_option"] = shipping_option
+        if notification is not None:
+            input["notification"] = notification
+        if cluster_id is not None:
+            input["cluster_id"] = cluster_id
+        if snowball_type is not None:
+            input["snowball_type"] = snowball_type
+        if forwarding_address_id is not None:
+            input["forwarding_address_id"] = forwarding_address_id
+        if tax_documents is not None:
+            input["tax_documents"] = tax_documents
+        if device_configuration is not None:
+            input["device_configuration"] = device_configuration
+        if remote_management is not None:
+            input["remote_management"] = remote_management
+        if long_term_pricing_id is not None:
+            input["long_term_pricing_id"] = long_term_pricing_id
+        if impact_level is not None:
+            input["impact_level"] = impact_level
+        if pickup_details is not None:
+            input["pickup_details"] = pickup_details
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_long_term_pricing(
+        self,
+        long_term_pricing_type: "aws_sdk_snowball.types.long_term_pricing_type.LongTermPricingType",
+        snowball_type: "aws_sdk_snowball.types.snowball_type.SnowballType",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        is_long_term_pricing_auto_renew: Optional[
+            "aws_sdk_snowball.types.java_boolean.JavaBoolean"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.create_long_term_pricing_result.CreateLongTermPricingResult":
+        """<p>Creates a job with the long-term usage option for a device. The long-term usage is a 1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing. </p>
+
+        Args:
+            long_term_pricing_type: <p>The type of long-term pricing option you want for the device, either 1-year or 3-year long-term pricing.</p>
+            is_long_term_pricing_auto_renew: <p>Specifies whether the current long-term pricing type for the device should be renewed.</p>
+            snowball_type: <p>The type of Snow Family devices to use for the long-term pricing job.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.create_long_term_pricing_request.CreateLongTermPricingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.create_long_term_pricing_result.CreateLongTermPricingResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_long_term_pricing
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_long_term_pricing.async_create_long_term_pricing(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.create_long_term_pricing_request.CreateLongTermPricingRequest = {}  # type: ignore[typeddict-item]
+        input["long_term_pricing_type"] = long_term_pricing_type
+        if is_long_term_pricing_auto_renew is not None:
+            input["is_long_term_pricing_auto_renew"] = is_long_term_pricing_auto_renew
+        input["snowball_type"] = snowball_type
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_return_shipping_label(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        shipping_option: Optional[
+            "aws_sdk_snowball.types.shipping_option.ShippingOption"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.create_return_shipping_label_result.CreateReturnShippingLabelResult":
+        """<p>Creates a shipping label that will be used to return the Snow device to Amazon Web Services.</p>
+
+        Args:
+            job_id: <p>The ID for a job that you want to create the return shipping label for; for example, <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+            shipping_option: <p>The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to Amazon Web Services. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.create_return_shipping_label_request.CreateReturnShippingLabelRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.create_return_shipping_label_result.CreateReturnShippingLabelResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_return_shipping_label
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.create_return_shipping_label.async_create_return_shipping_label(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.create_return_shipping_label_request.CreateReturnShippingLabelRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+        if shipping_option is not None:
+            input["shipping_option"] = shipping_option
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_address(
+        self,
+        address_id: "aws_sdk_snowball.types.address_id.AddressId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.describe_address_result.DescribeAddressResult":
+        """<p>Takes an <code>AddressId</code> and returns specific details about that address in the form of an <code>Address</code> object.</p>
+
+        Args:
+            address_id: <p>The automatically generated ID for a specific address.</p>
+
+        Examples:
+            To describe an address for a job
+            This operation describes an address for a job.
+
+            >>> await client.describe_address(address_id='ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.describe_address_request.DescribeAddressRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.describe_address_result.DescribeAddressResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_address
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_address.async_describe_address(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.describe_address_request.DescribeAddressRequest = {}  # type: ignore[typeddict-item]
+        input["address_id"] = address_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_addresses(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "aws_sdk_snowball.types.describe_addresses_result.DescribeAddressesResult":
+        """<p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.</p>
+
+        Args:
+            max_results: <p>The number of <code>ADDRESS</code> objects to return.</p>
+            next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ADDRESS</code> objects, you have the option of specifying a value for <code>NextToken</code> as the starting point for your list of returned addresses.</p>
+
+        Examples:
+            To describe all the addresses you've created for AWS Snowball
+            This operation describes all the addresses that you've created for AWS Snowball. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
+
+            >>> await client.describe_addresses()
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.describe_addresses_request.DescribeAddressesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.describe_addresses_result.DescribeAddressesResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_addresses
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_addresses.async_describe_addresses(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.describe_addresses_request.DescribeAddressesRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_describe_addresses(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "AsyncIterator[aws_sdk_snowball.types.address.Address]":
+        _token = next_token
+        while True:
+            _response = await self.describe_addresses(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("addresses",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def describe_cluster(
+        self,
+        cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.describe_cluster_result.DescribeClusterResult":
+        """<p>Returns information about a specific cluster including shipping information, cluster status, and other important metadata.</p>
+
+        Args:
+            cluster_id: <p>The automatically generated ID for a cluster.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.describe_cluster_request.DescribeClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.describe_cluster_result.DescribeClusterResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_cluster.async_describe_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_id"] = cluster_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_job(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.describe_job_result.DescribeJobResult":
+        """<p>Returns information about a specific job including shipping information, job status, and other important metadata. </p>
+
+        Args:
+            job_id: <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.describe_job_request.DescribeJobRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.describe_job_result.DescribeJobResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_job
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_job.async_describe_job(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_return_shipping_label(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.describe_return_shipping_label_result.DescribeReturnShippingLabelResult":
+        """<p>Information on the shipping label of a Snow device that is being returned to Amazon Web Services.</p>
+
+        Args:
+            job_id: <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.describe_return_shipping_label_request.DescribeReturnShippingLabelRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.describe_return_shipping_label_result.DescribeReturnShippingLabelResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_return_shipping_label
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.describe_return_shipping_label.async_describe_return_shipping_label(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.describe_return_shipping_label_request.DescribeReturnShippingLabelRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_job_manifest(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.get_job_manifest_result.GetJobManifestResult":
+        """<p>Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified <code>JobId</code> value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the <code>GetJobManifest</code> action.</p> <p>The manifest is an encrypted file that you can download after your job enters the <code>WithCustomer</code> status. This is the only valid status for calling this API as the manifest and <code>UnlockCode</code> code value are used for securing your device and should only be used when you have the device. The manifest is decrypted by using the <code>UnlockCode</code> code value, when you pass both values to the Snow device through the Snowball client when the client is started for the first time. </p> <p>As a best practice, we recommend that you don't save a copy of an <code>UnlockCode</code> value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snow device associated with that job.</p> <p>The credentials of a given job, including its manifest file and unlock code, expire 360 days after the job is created.</p>
+
+                Args:
+                    job_id: <p>The ID for a job that you want to get the manifest file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+                Examples:
+                    To get the manifest for a job you've created for AWS Snowball
+                    Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified JobId value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the GetJobManifest action.
+
+        The manifest is an encrypted file that you can download after your job enters the WithCustomer status. The manifest is decrypted by using the UnlockCode code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
+
+        As a best practice, we recommend that you don't save a copy of an UnlockCode value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+
+        The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
+
+                    >>> await client.get_job_manifest(job_id='JID123e4567-e89b-12d3-a456-426655440000')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.get_job_manifest_request.GetJobManifestRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.get_job_manifest_result.GetJobManifestResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_job_manifest
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_job_manifest.async_get_job_manifest(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.get_job_manifest_request.GetJobManifestRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_job_unlock_code(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.get_job_unlock_code_result.GetJobUnlockCodeResult":
+        """<p>Returns the <code>UnlockCode</code> code value for the specified job. A particular <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job has been created.</p> <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snow device through the Snowball client when the client is started for the first time. The only valid status for calling this API is <code>WithCustomer</code> as the manifest and <code>Unlock</code> code values are used for securing your device and should only be used when you have the device.</p> <p>As a best practice, we recommend that you don't save a copy of the <code>UnlockCode</code> in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snow device associated with that job.</p>
+
+                Args:
+                    job_id: <p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+                Examples:
+                    To get the unlock code for a job you've created for AWS Snowball
+                    Returns the UnlockCode code value for the specified job. A particular UnlockCode value can be accessed for up to 90 days after the associated job has been created.
+
+        The UnlockCode value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snowball through the Snowball client when the client is started for the first time.
+
+        As a best practice, we recommend that you don't save a copy of the UnlockCode in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+
+                    >>> await client.get_job_unlock_code(job_id='JID123e4567-e89b-12d3-a456-426655440000')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.get_job_unlock_code_request.GetJobUnlockCodeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.get_job_unlock_code_result.GetJobUnlockCodeResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_job_unlock_code
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_job_unlock_code.async_get_job_unlock_code(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.get_job_unlock_code_request.GetJobUnlockCodeRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_snowball_usage(
+        self, *, config_overrides: Optional[AsyncSnowballClientConfig] = None
+    ) -> "aws_sdk_snowball.types.get_snowball_usage_result.GetSnowballUsageResult":
+        """<p>Returns information about the Snow Family service limit for your account, and also the number of Snow devices your account has in use.</p> <p>The default service limit for the number of Snow devices that you can have at one time is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
+
+                Examples:
+                    To see your Snowball service limit and the number of Snowballs you have in use
+                    Returns information about the Snowball service limit for your account, and also the number of Snowballs your account has in use.
+
+        The default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
+
+                    >>> await client.get_snowball_usage()
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.get_snowball_usage_request.GetSnowballUsageRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.get_snowball_usage_result.GetSnowballUsageResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_snowball_usage
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_snowball_usage.async_get_snowball_usage(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.get_snowball_usage_request.GetSnowballUsageRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_software_updates(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.get_software_updates_result.GetSoftwareUpdatesResult":
+        """<p>Returns an Amazon S3 presigned URL for an update file associated with a specified <code>JobId</code>.</p>
+
+        Args:
+            job_id: <p>The ID for a job that you want to get the software update file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.get_software_updates_request.GetSoftwareUpdatesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.get_software_updates_result.GetSoftwareUpdatesResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_software_updates
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.get_software_updates.async_get_software_updates(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.get_software_updates_request.GetSoftwareUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_cluster_jobs(
+        self,
+        cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "aws_sdk_snowball.types.list_cluster_jobs_result.ListClusterJobsResult":
+        """<p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's state, a job's ID, and other information.</p>
+
+        Args:
+            cluster_id: <p>The 39-character ID for the cluster that you want to list, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+            max_results: <p>The number of <code>JobListEntry</code> objects to return.</p>
+            next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_cluster_jobs_request.ListClusterJobsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_cluster_jobs_result.ListClusterJobsResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_cluster_jobs
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_cluster_jobs.async_list_cluster_jobs(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_cluster_jobs_request.ListClusterJobsRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_id"] = cluster_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_cluster_jobs(
+        self,
+        cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "AsyncIterator[aws_sdk_snowball.types.job_list_entry.JobListEntry]":
+        _token = next_token
+        while True:
+            _response = await self.list_cluster_jobs(
+                cluster_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("job_list_entries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_clusters(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "aws_sdk_snowball.types.list_clusters_result.ListClustersResult":
+        """<p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other important status information.</p>
+
+        Args:
+            max_results: <p>The number of <code>ClusterListEntry</code> objects to return.</p>
+            next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ClusterListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_clusters_request.ListClustersRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_clusters_result.ListClustersResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_clusters
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_clusters.async_list_clusters(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_clusters(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "AsyncIterator[aws_sdk_snowball.types.cluster_list_entry.ClusterListEntry]":
+        _token = next_token
+        while True:
+            _response = await self.list_clusters(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("cluster_list_entries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_compatible_images(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "aws_sdk_snowball.types.list_compatible_images_result.ListCompatibleImagesResult":
+        """<p>This action returns a list of the different Amazon EC2-compatible Amazon Machine Images (AMIs) that are owned by your Amazon Web Services accountthat would be supported for use on a Snow device. Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu 20.04 LTS - Focal, or Ubuntu 22.04 LTS - Jammy images, available on the Amazon Web Services Marketplace. Ubuntu 16.04 LTS - Xenial (HVM) images are no longer supported in the Market, but still supported for use on devices through Amazon EC2 VM Import/Export and running locally in AMIs.</p>
+
+        Args:
+            max_results: <p>The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.</p>
+            next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of compatible images, you can specify a value for <code>NextToken</code> as the starting point for your list of returned images.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_compatible_images_request.ListCompatibleImagesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_compatible_images_result.ListCompatibleImagesResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_compatible_images
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_compatible_images.async_list_compatible_images(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_compatible_images_request.ListCompatibleImagesRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_compatible_images(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "AsyncIterator[aws_sdk_snowball.types.compatible_image.CompatibleImage]":
+        _token = next_token
+        while True:
+            _response = await self.list_compatible_images(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("compatible_images",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_jobs(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "aws_sdk_snowball.types.list_jobs_result.ListJobsResult":
+        """<p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.</p>
+
+        Args:
+            max_results: <p>The number of <code>JobListEntry</code> objects to return.</p>
+            next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_jobs_request.ListJobsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_jobs_result.ListJobsResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_jobs
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_jobs.async_list_jobs(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_jobs(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "AsyncIterator[aws_sdk_snowball.types.job_list_entry.JobListEntry]":
+        _token = next_token
+        while True:
+            _response = await self.list_jobs(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("job_list_entries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_long_term_pricing(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> (
+        "aws_sdk_snowball.types.list_long_term_pricing_result.ListLongTermPricingResult"
+    ):
+        """<p>Lists all long-term pricing types.</p>
+
+        Args:
+            max_results: <p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>
+            next_token: <p>Because HTTP requests are stateless, this is the starting point for your next list of <code>ListLongTermPricing</code> to return.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_long_term_pricing_request.ListLongTermPricingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_long_term_pricing_result.ListLongTermPricingResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_long_term_pricing
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_long_term_pricing.async_list_long_term_pricing(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_long_term_pricing_request.ListLongTermPricingRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_long_term_pricing(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> "AsyncIterator[aws_sdk_snowball.types.long_term_pricing_list_entry.LongTermPricingListEntry]":
+        _token = next_token
+        while True:
+            _response = await self.list_long_term_pricing(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("long_term_pricing_entries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_pickup_locations(
+        self,
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> (
+        "aws_sdk_snowball.types.list_pickup_locations_result.ListPickupLocationsResult"
+    ):
+        """<p>A list of locations from which the customer can choose to pickup a device.</p>
+
+        Args:
+            max_results: <p>The maximum number of locations to list per page.</p>
+            next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ListPickupLocationsRequest</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+
+        Examples:
+            To get a list of locations from which the customer can choose to pickup a device.
+            Returns a specified number of Address objects. Each Address is a pickup location address for Snow Family devices.
+
+            >>> await client.list_pickup_locations()
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_pickup_locations_request.ListPickupLocationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_pickup_locations_result.ListPickupLocationsResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_pickup_locations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_pickup_locations.async_list_pickup_locations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_pickup_locations_request.ListPickupLocationsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_service_versions(
+        self,
+        service_name: "aws_sdk_snowball.types.service_name.ServiceName",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        dependent_services: Optional[
+            "aws_sdk_snowball.types.dependent_service_list.DependentServiceList"
+        ] = None,
+        max_results: Optional["aws_sdk_snowball.types.list_limit.ListLimit"] = None,
+        next_token: Optional["aws_sdk_snowball.types.string.String"] = None,
+    ) -> (
+        "aws_sdk_snowball.types.list_service_versions_result.ListServiceVersionsResult"
+    ):
+        """<p>Lists all supported versions for Snow on-device services. Returns an array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
+
+        Args:
+            service_name: <p>The name of the service for which you're requesting supported versions.</p>
+            dependent_services: <p>A list of names and versions of dependant services of the requested service.</p>
+            max_results: <p>The maximum number of <code>ListServiceVersions</code> objects to return.</p>
+            next_token: <p>Because HTTP requests are stateless, this is the starting point for the next list of returned <code>ListServiceVersionsRequest</code> versions.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.list_service_versions_request.ListServiceVersionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.list_service_versions_result.ListServiceVersionsResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_service_versions
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.list_service_versions.async_list_service_versions(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.list_service_versions_request.ListServiceVersionsRequest = {}  # type: ignore[typeddict-item]
+        input["service_name"] = service_name
+        if dependent_services is not None:
+            input["dependent_services"] = dependent_services
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_cluster(
+        self,
+        cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        role_arn: Optional["aws_sdk_snowball.types.role_arn.RoleARN"] = None,
+        description: Optional["aws_sdk_snowball.types.string.String"] = None,
+        resources: Optional["aws_sdk_snowball.types.job_resource.JobResource"] = None,
+        on_device_service_configuration: Optional[
+            "aws_sdk_snowball.types.on_device_service_configuration.OnDeviceServiceConfiguration"
+        ] = None,
+        address_id: Optional["aws_sdk_snowball.types.address_id.AddressId"] = None,
+        shipping_option: Optional[
+            "aws_sdk_snowball.types.shipping_option.ShippingOption"
+        ] = None,
+        notification: Optional[
+            "aws_sdk_snowball.types.notification.Notification"
+        ] = None,
+        forwarding_address_id: Optional[
+            "aws_sdk_snowball.types.address_id.AddressId"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.update_cluster_result.UpdateClusterResult":
+        """<p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code> state, you can update some of the information associated with a cluster. Once the cluster changes to a different job state, usually 60 minutes after the cluster being created, this action is no longer available.</p>
+
+        Args:
+            cluster_id: <p>The cluster ID of the cluster that you want to update, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+            role_arn: <p>The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a> API action in Identity and Access Management (IAM).</p>
+            description: <p>The updated description of this cluster.</p>
+            resources: <p>The updated arrays of <a>JobResource</a> objects that can include updated <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
+            on_device_service_configuration: <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. Amazon Web Services Snow Family device clusters support Amazon S3 and NFS (Network File System).</p>
+            address_id: <p>The ID of the updated <a>Address</a> object.</p>
+            shipping_option: <p>The updated shipping option value of this cluster's <a>ShippingDetails</a> object.</p>
+            notification: <p>The new or updated <a>Notification</a> object.</p>
+            forwarding_address_id: <p>The updated ID for the forwarding address for a cluster. This field is not supported in most regions.</p>
+
+        Examples:
+            To update a cluster
+            This action allows you to update certain parameters for a cluster. Once the cluster changes to a different state, usually within 60 minutes of it being created, this action is no longer available.
+
+            >>> await client.update_cluster(cluster_id='CID123e4567-e89b-12d3-a456-426655440000', description='updated-cluster-name', address_id='ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.update_cluster_request.UpdateClusterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.update_cluster_result.UpdateClusterResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_cluster.async_update_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input["cluster_id"] = cluster_id
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if description is not None:
+            input["description"] = description
+        if resources is not None:
+            input["resources"] = resources
+        if on_device_service_configuration is not None:
+            input["on_device_service_configuration"] = on_device_service_configuration
+        if address_id is not None:
+            input["address_id"] = address_id
+        if shipping_option is not None:
+            input["shipping_option"] = shipping_option
+        if notification is not None:
+            input["notification"] = notification
+        if forwarding_address_id is not None:
+            input["forwarding_address_id"] = forwarding_address_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_job(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        role_arn: Optional["aws_sdk_snowball.types.role_arn.RoleARN"] = None,
+        notification: Optional[
+            "aws_sdk_snowball.types.notification.Notification"
+        ] = None,
+        resources: Optional["aws_sdk_snowball.types.job_resource.JobResource"] = None,
+        on_device_service_configuration: Optional[
+            "aws_sdk_snowball.types.on_device_service_configuration.OnDeviceServiceConfiguration"
+        ] = None,
+        address_id: Optional["aws_sdk_snowball.types.address_id.AddressId"] = None,
+        shipping_option: Optional[
+            "aws_sdk_snowball.types.shipping_option.ShippingOption"
+        ] = None,
+        description: Optional["aws_sdk_snowball.types.string.String"] = None,
+        snowball_capacity_preference: Optional[
+            "aws_sdk_snowball.types.snowball_capacity.SnowballCapacity"
+        ] = None,
+        forwarding_address_id: Optional[
+            "aws_sdk_snowball.types.address_id.AddressId"
+        ] = None,
+        pickup_details: Optional[
+            "aws_sdk_snowball.types.pickup_details.PickupDetails"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.update_job_result.UpdateJobResult":
+        """<p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of the information associated with a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.</p>
+
+        Args:
+            job_id: <p>The job ID of the job that you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+            role_arn: <p>The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a>Identity and Access Management (IAM) API action.</p>
+            notification: <p>The new or updated <a>Notification</a> object.</p>
+            resources: <p>The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object. </p>
+            on_device_service_configuration: <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. Amazon Web Services Snow Family supports Amazon S3 and NFS (Network File System) and the Amazon Web Services Storage Gateway service Tape Gateway type.</p>
+            address_id: <p>The ID of the updated <a>Address</a> object.</p>
+            shipping_option: <p>The updated shipping option value of this job's <a>ShippingDetails</a> object.</p>
+            description: <p>The updated description of this job's <a>JobMetadata</a> object.</p>
+            snowball_capacity_preference: <p>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a> object. The 50 TB Snowballs are only available in the US regions.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+            forwarding_address_id: <p>The updated ID for the forwarding address for a job. This field is not supported in most regions.</p>
+
+        Examples:
+            To update a job
+            This action allows you to update certain parameters for a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
+
+            >>> await client.update_job(job_id='JID123e4567-e89b-12d3-a456-426655440000', address_id='ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b', shipping_option='NEXT_DAY', description='updated-job-name', snowball_capacity_preference='T100')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.update_job_request.UpdateJobRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.update_job_result.UpdateJobResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_job
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_job.async_update_job(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if notification is not None:
+            input["notification"] = notification
+        if resources is not None:
+            input["resources"] = resources
+        if on_device_service_configuration is not None:
+            input["on_device_service_configuration"] = on_device_service_configuration
+        if address_id is not None:
+            input["address_id"] = address_id
+        if shipping_option is not None:
+            input["shipping_option"] = shipping_option
+        if description is not None:
+            input["description"] = description
+        if snowball_capacity_preference is not None:
+            input["snowball_capacity_preference"] = snowball_capacity_preference
+        if forwarding_address_id is not None:
+            input["forwarding_address_id"] = forwarding_address_id
+        if pickup_details is not None:
+            input["pickup_details"] = pickup_details
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_job_shipment_state(
+        self,
+        job_id: "aws_sdk_snowball.types.job_id.JobId",
+        shipment_state: "aws_sdk_snowball.types.shipment_state.ShipmentState",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+    ) -> "aws_sdk_snowball.types.update_job_shipment_state_result.UpdateJobShipmentStateResult":
+        """<p>Updates the state when a shipment state changes to a different state.</p>
+
+        Args:
+            job_id: <p>The job ID of the job whose shipment date you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+            shipment_state: <p>The state of a device when it is being shipped. </p> <p>Set to <code>RECEIVED</code> when the device arrives at your location.</p> <p>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.update_job_shipment_state_request.UpdateJobShipmentStateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.update_job_shipment_state_result.UpdateJobShipmentStateResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_job_shipment_state
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_job_shipment_state.async_update_job_shipment_state(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.update_job_shipment_state_request.UpdateJobShipmentStateRequest = {}  # type: ignore[typeddict-item]
+        input["job_id"] = job_id
+        input["shipment_state"] = shipment_state
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_long_term_pricing(
+        self,
+        long_term_pricing_id: "aws_sdk_snowball.types.long_term_pricing_id.LongTermPricingId",
+        *,
+        config_overrides: Optional[AsyncSnowballClientConfig] = None,
+        replacement_job: Optional["aws_sdk_snowball.types.job_id.JobId"] = None,
+        is_long_term_pricing_auto_renew: Optional[
+            "aws_sdk_snowball.types.java_boolean.JavaBoolean"
+        ] = None,
+    ) -> "aws_sdk_snowball.types.update_long_term_pricing_result.UpdateLongTermPricingResult":
+        """<p>Updates the long-term pricing type.</p>
+
+        Args:
+            long_term_pricing_id: <p>The ID of the long-term pricing type for the device.</p>
+            replacement_job: <p>Specifies that a device that is ordered with long-term pricing should be replaced with a new device.</p>
+            is_long_term_pricing_auto_renew: <p>If set to <code>true</code>, specifies that the current long-term pricing type for the device should be automatically renewed before the long-term pricing contract expires.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_snowball.types.update_long_term_pricing_request.UpdateLongTermPricingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_snowball.types.update_long_term_pricing_result.UpdateLongTermPricingResult"
+        ]:
+            import aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_long_term_pricing
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_snowball._operations.awsie_snowball_job_management_service.update_long_term_pricing.async_update_long_term_pricing(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_snowball.types.update_long_term_pricing_request.UpdateLongTermPricingRequest = {}  # type: ignore[typeddict-item]
+        input["long_term_pricing_id"] = long_term_pricing_id
+        if replacement_job is not None:
+            input["replacement_job"] = replacement_job
+        if is_long_term_pricing_auto_renew is not None:
+            input["is_long_term_pricing_auto_renew"] = is_long_term_pricing_auto_renew
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

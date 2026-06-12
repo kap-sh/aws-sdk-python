@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.route53domains#DomainSummary``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_route_53_domains.types.boolean
+    import aws_sdk_route_53_domains.types.domain_name
+    import aws_sdk_route_53_domains.types.timestamp
+
+
+class DomainSummary(TypedDict):
+    domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
+    """<p>The name of the domain that the summary information applies to.</p>"""
+    auto_renew: NotRequired["aws_sdk_route_53_domains.types.boolean.Boolean"]
+    """<p>Indicates whether the domain is automatically renewed upon expiration.</p>"""
+    transfer_lock: NotRequired["aws_sdk_route_53_domains.types.boolean.Boolean"]
+    """<p>Indicates whether a domain is locked from unauthorized transfer to another party.</p>"""
+    expiry: NotRequired["aws_sdk_route_53_domains.types.timestamp.Timestamp"]
+    """<p>Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DomainSummary) -> dict:
+    out: dict = {}
+    if "domain_name" in value:
+        out["DomainName"] = value["domain_name"]
+    if "auto_renew" in value:
+        out["AutoRenew"] = value["auto_renew"]
+    if "transfer_lock" in value:
+        out["TransferLock"] = value["transfer_lock"]
+    if "expiry" in value:
+        import aws_sdk_route_53_domains.types.timestamp
+
+        out["Expiry"] = aws_sdk_route_53_domains.types.timestamp.serialize_aws_json_1_1(
+            value["expiry"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DomainSummary:
+    out: DomainSummary = {}  # type: ignore[typeddict-item]
+    if "DomainName" in data:
+        out["domain_name"] = data["DomainName"]
+    if "AutoRenew" in data:
+        out["auto_renew"] = data["AutoRenew"]
+    if "TransferLock" in data:
+        out["transfer_lock"] = data["TransferLock"]
+    if "Expiry" in data:
+        import aws_sdk_route_53_domains.types.timestamp
+
+        out["expiry"] = (
+            aws_sdk_route_53_domains.types.timestamp.deserialize_aws_json_1_1(
+                data["Expiry"]
+            )
+        )
+    return out

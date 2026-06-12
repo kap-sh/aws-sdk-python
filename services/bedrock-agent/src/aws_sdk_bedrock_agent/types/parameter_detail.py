@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#ParameterDetail``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent.types.parameter_description
+    import aws_sdk_bedrock_agent.types.type
+
+
+class ParameterDetail(TypedDict):
+    description: NotRequired[
+        "aws_sdk_bedrock_agent.types.parameter_description.ParameterDescription"
+    ]
+    """<p>A description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.</p>"""
+    type: "aws_sdk_bedrock_agent.types.type.Type"
+    """<p>The data type of the parameter.</p>"""
+    required: NotRequired["bool"]
+    """<p>Whether the parameter is required for the agent to complete the function for action group invocation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ParameterDetail) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["description"] = value["description"]
+    import aws_sdk_bedrock_agent.types.type
+
+    out["type"] = aws_sdk_bedrock_agent.types.type.serialize_json(value["type"])
+    if "required" in value:
+        out["required"] = value["required"]
+    return out
+
+
+def deserialize_json(data: dict) -> ParameterDetail:
+    out: ParameterDetail = {}  # type: ignore[typeddict-item]
+    if "description" in data:
+        out["description"] = data["description"]
+    if "type" in data:
+        import aws_sdk_bedrock_agent.types.type
+
+        out["type"] = aws_sdk_bedrock_agent.types.type.deserialize_json(data["type"])
+    else:
+        raise DeserializationError("ParameterDetail.type required")
+    if "required" in data:
+        out["required"] = data["required"]
+    return out

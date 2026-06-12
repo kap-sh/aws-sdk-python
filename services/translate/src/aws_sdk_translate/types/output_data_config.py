@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.translate#OutputDataConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_translate.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_translate.types.encryption_key
+    import aws_sdk_translate.types.s3_uri
+
+
+class OutputDataConfig(TypedDict):
+    s3_uri: "aws_sdk_translate.types.s3_uri.S3Uri"
+    """<p>The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.</p>"""
+    encryption_key: NotRequired["aws_sdk_translate.types.encryption_key.EncryptionKey"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: OutputDataConfig) -> dict:
+    out: dict = {}
+    out["S3Uri"] = value["s3_uri"]
+    if "encryption_key" in value:
+        import aws_sdk_translate.types.encryption_key
+
+        out["EncryptionKey"] = (
+            aws_sdk_translate.types.encryption_key.serialize_aws_json_1_1(
+                value["encryption_key"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> OutputDataConfig:
+    out: OutputDataConfig = {}  # type: ignore[typeddict-item]
+    if "S3Uri" in data:
+        out["s3_uri"] = data["S3Uri"]
+    else:
+        raise DeserializationError("OutputDataConfig.s3_uri required")
+    if "EncryptionKey" in data:
+        import aws_sdk_translate.types.encryption_key
+
+        out["encryption_key"] = (
+            aws_sdk_translate.types.encryption_key.deserialize_aws_json_1_1(
+                data["EncryptionKey"]
+            )
+        )
+    return out

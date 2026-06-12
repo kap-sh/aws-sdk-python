@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#OutputConfig``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker.types.compiler_options
+    import aws_sdk_sagemaker.types.kms_key_id
+    import aws_sdk_sagemaker.types.s3_uri
+    import aws_sdk_sagemaker.types.target_device
+    import aws_sdk_sagemaker.types.target_platform
+
+
+class OutputConfig(TypedDict):
+    s3_output_location: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
+    """<p>Identifies the S3 bucket where you want Amazon SageMaker AI to store the model artifacts. For example, <code>s3://bucket-name/key-name-prefix</code>.</p>"""
+    target_device: NotRequired["aws_sdk_sagemaker.types.target_device.TargetDevice"]
+    """<p>Identifies the target device or the machine learning instance that you want to run your model on after the compilation has completed. Alternatively, you can specify OS, architecture, and accelerator using <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html\">TargetPlatform</a> fields. It can be used instead of <code>TargetPlatform</code>.</p> <note> <p>Currently <code>ml_trn1</code> is available only in US East (N. Virginia) Region, and <code>ml_inf2</code> is available only in US East (Ohio) Region.</p> </note>"""
+    target_platform: NotRequired[
+        "aws_sdk_sagemaker.types.target_platform.TargetPlatform"
+    ]
+    """<p>Contains information about a target platform that you want your model to run on, such as OS, architecture, and accelerators. It is an alternative of <code>TargetDevice</code>.</p> <p>The following examples show how to configure the <code>TargetPlatform</code> and <code>CompilerOptions</code> JSON strings for popular target platforms: </p> <ul> <li> <p>Raspberry Pi 3 Model B+</p> <p> <code>\"TargetPlatform\": {\"Os\": \"LINUX\", \"Arch\": \"ARM_EABIHF\"},</code> </p> <p> <code> \"CompilerOptions\": {'mattr': ['+neon']}</code> </p> </li> <li> <p>Jetson TX2</p> <p> <code>\"TargetPlatform\": {\"Os\": \"LINUX\", \"Arch\": \"ARM64\", \"Accelerator\": \"NVIDIA\"},</code> </p> <p> <code> \"CompilerOptions\": {'gpu-code': 'sm_62', 'trt-ver': '6.0.1', 'cuda-ver': '10.0'}</code> </p> </li> <li> <p>EC2 m5.2xlarge instance OS</p> <p> <code>\"TargetPlatform\": {\"Os\": \"LINUX\", \"Arch\": \"X86_64\", \"Accelerator\": \"NVIDIA\"},</code> </p> <p> <code> \"CompilerOptions\": {'mcpu': 'skylake-avx512'}</code> </p> </li> <li> <p>RK3399</p> <p> <code>\"TargetPlatform\": {\"Os\": \"LINUX\", \"Arch\": \"ARM64\", \"Accelerator\": \"MALI\"}</code> </p> </li> <li> <p>ARMv7 phone (CPU)</p> <p> <code>\"TargetPlatform\": {\"Os\": \"ANDROID\", \"Arch\": \"ARM_EABI\"},</code> </p> <p> <code> \"CompilerOptions\": {'ANDROID_PLATFORM': 25, 'mattr': ['+neon']}</code> </p> </li> <li> <p>ARMv8 phone (CPU)</p> <p> <code>\"TargetPlatform\": {\"Os\": \"ANDROID\", \"Arch\": \"ARM64\"},</code> </p> <p> <code> \"CompilerOptions\": {'ANDROID_PLATFORM': 29}</code> </p> </li> </ul>"""
+    compiler_options: NotRequired[
+        "aws_sdk_sagemaker.types.compiler_options.CompilerOptions"
+    ]
+    """<p>Specifies additional parameters for compiler options in JSON format. The compiler options are <code>TargetPlatform</code> specific. It is required for NVIDIA accelerators and highly recommended for CPU compilations. For any other cases, it is optional to specify <code>CompilerOptions.</code> </p> <ul> <li> <p> <code>DTYPE</code>: Specifies the data type for the input. When compiling for <code>ml_*</code> (except for <code>ml_inf</code>) instances using PyTorch framework, provide the data type (dtype) of the model's input. <code>\"float32\"</code> is used if <code>\"DTYPE\"</code> is not specified. Options for data type are:</p> <ul> <li> <p>float32: Use either <code>\"float\"</code> or <code>\"float32\"</code>.</p> </li> <li> <p>int64: Use either <code>\"int64\"</code> or <code>\"long\"</code>.</p> </li> </ul> <p> For example, <code>{\"dtype\" : \"float32\"}</code>.</p> </li> <li> <p> <code>CPU</code>: Compilation for CPU supports the following compiler options.</p> <ul> <li> <p> <code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code> </p> </li> <li> <p> <code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code> </p> </li> </ul> </li> <li> <p> <code>ARM</code>: Details of ARM CPU compilations.</p> <ul> <li> <p> <code>NEON</code>: NEON is an implementation of the Advanced SIMD extension used in ARMv7 processors.</p> <p>For example, add <code>{'mattr': ['+neon']}</code> to the compiler options if compiling for ARM 32-bit platform with the NEON support.</p> </li> </ul> </li> <li> <p> <code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following compiler options.</p> <ul> <li> <p> <code>gpu_code</code>: Specifies the targeted architecture.</p> </li> <li> <p> <code>trt-ver</code>: Specifies the TensorRT versions in x.y.z. format.</p> </li> <li> <p> <code>cuda-ver</code>: Specifies the CUDA version in x.y format.</p> </li> </ul> <p>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver': '10.1'}</code> </p> </li> <li> <p> <code>ANDROID</code>: Compilation for the Android OS supports the following compiler options:</p> <ul> <li> <p> <code>ANDROID_PLATFORM</code>: Specifies the Android API levels. Available levels range from 21 to 29. For example, <code>{'ANDROID_PLATFORM': 28}</code>.</p> </li> <li> <p> <code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler options if compiling for ARM 32-bit platform with NEON support.</p> </li> </ul> </li> <li> <p> <code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options passed in as a JSON string. For example, <code>\"CompilerOptions\": \"\\"--verbose 1 --num-neuroncores 2 -O2\\"\"</code>. </p> <p>For information about supported compiler options, see <a href=\"https://awsdocs-neuron.readthedocs-hosted.com/en/latest/compiler/neuronx-cc/api-reference-guide/neuron-compiler-cli-reference-guide.html\"> Neuron Compiler CLI Reference Guide</a>. </p> </li> <li> <p> <code>CoreML</code>: Compilation for the CoreML <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html\">OutputConfig</a> <code>TargetDevice</code> supports the following compiler options:</p> <ul> <li> <p> <code>class_labels</code>: Specifies the classification labels file name inside input tar.gz file. For example, <code>{\"class_labels\": \"imagenet_labels_1000.txt\"}</code>. Labels inside the txt file should be separated by newlines.</p> </li> </ul> </li> </ul>"""
+    kms_key_id: NotRequired["aws_sdk_sagemaker.types.kms_key_id.KmsKeyId"]
+    """<p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker AI uses to encrypt your output models with Amazon S3 server-side encryption after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html\">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i> </p> <p>The KmsKeyId can be any of the following formats: </p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Alias name: <code>alias/ExampleAlias</code> </p> </li> <li> <p>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code> </p> </li> </ul>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: OutputConfig) -> dict:
+    out: dict = {}
+    if "s3_output_location" in value:
+        out["S3OutputLocation"] = value["s3_output_location"]
+    if "target_device" in value:
+        import aws_sdk_sagemaker.types.target_device
+
+        out["TargetDevice"] = (
+            aws_sdk_sagemaker.types.target_device.serialize_aws_json_1_1(
+                value["target_device"]
+            )
+        )
+    if "target_platform" in value:
+        import aws_sdk_sagemaker.types.target_platform
+
+        out["TargetPlatform"] = (
+            aws_sdk_sagemaker.types.target_platform.serialize_aws_json_1_1(
+                value["target_platform"]
+            )
+        )
+    if "compiler_options" in value:
+        out["CompilerOptions"] = value["compiler_options"]
+    if "kms_key_id" in value:
+        out["KmsKeyId"] = value["kms_key_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> OutputConfig:
+    out: OutputConfig = {}  # type: ignore[typeddict-item]
+    if "S3OutputLocation" in data:
+        out["s3_output_location"] = data["S3OutputLocation"]
+    if "TargetDevice" in data:
+        import aws_sdk_sagemaker.types.target_device
+
+        out["target_device"] = (
+            aws_sdk_sagemaker.types.target_device.deserialize_aws_json_1_1(
+                data["TargetDevice"]
+            )
+        )
+    if "TargetPlatform" in data:
+        import aws_sdk_sagemaker.types.target_platform
+
+        out["target_platform"] = (
+            aws_sdk_sagemaker.types.target_platform.deserialize_aws_json_1_1(
+                data["TargetPlatform"]
+            )
+        )
+    if "CompilerOptions" in data:
+        out["compiler_options"] = data["CompilerOptions"]
+    if "KmsKeyId" in data:
+        out["kms_key_id"] = data["KmsKeyId"]
+    return out

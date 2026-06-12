@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#DescribeConsumableResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_batch.types.string
+
+
+class DescribeConsumableResourceRequest(TypedDict):
+    consumable_resource: NotRequired["aws_sdk_batch.types.string.String"]
+    """<p>The name or ARN of the consumable resource whose description will be returned.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeConsumableResourceRequest) -> dict:
+    out: dict = {}
+    if "consumable_resource" in value:
+        out["consumableResource"] = value["consumable_resource"]
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeConsumableResourceRequest:
+    out: DescribeConsumableResourceRequest = {}  # type: ignore[typeddict-item]
+    if "consumableResource" in data:
+        out["consumable_resource"] = data["consumableResource"]
+    return out

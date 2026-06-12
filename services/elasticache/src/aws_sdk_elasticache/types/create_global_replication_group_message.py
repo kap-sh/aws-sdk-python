@@ -1,0 +1,74 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticache#CreateGlobalReplicationGroupMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_elasticache._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import aws_sdk_elasticache.types.string
+
+
+class CreateGlobalReplicationGroupMessage(TypedDict):
+    global_replication_group_id_suffix: NotRequired[
+        "aws_sdk_elasticache.types.string.String"
+    ]
+    """<p>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix to the Global datastore ID when it is created. Each Amazon Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with \"dsdfu\" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions. </p> <p>For a full list of Amazon Regions and their respective Global datastore iD prefixes, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastores-CLI.html\">Using the Amazon CLI with Global datastores </a>.</p>"""
+    global_replication_group_description: NotRequired[
+        "aws_sdk_elasticache.types.string.String"
+    ]
+    """<p>Provides details of the Global datastore</p>"""
+    primary_replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
+    """<p>The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster. This value is stored as a lowercase string.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: CreateGlobalReplicationGroupMessage,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    if "global_replication_group_id_suffix" in value:
+        pairs.append(
+            (
+                f"{prefix}.GlobalReplicationGroupIdSuffix",
+                str(value["global_replication_group_id_suffix"]),
+            )
+        )
+    if "global_replication_group_description" in value:
+        pairs.append(
+            (
+                f"{prefix}.GlobalReplicationGroupDescription",
+                str(value["global_replication_group_description"]),
+            )
+        )
+    if "primary_replication_group_id" in value:
+        pairs.append(
+            (
+                f"{prefix}.PrimaryReplicationGroupId",
+                str(value["primary_replication_group_id"]),
+            )
+        )
+
+
+def deserialize_query(el: Element) -> CreateGlobalReplicationGroupMessage:
+    out: CreateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+    child_global_replication_group_id_suffix = el.find("GlobalReplicationGroupIdSuffix")
+    if child_global_replication_group_id_suffix is not None:
+        out["global_replication_group_id_suffix"] = str(
+            child_global_replication_group_id_suffix.text or ""
+        )
+    child_global_replication_group_description = el.find(
+        "GlobalReplicationGroupDescription"
+    )
+    if child_global_replication_group_description is not None:
+        out["global_replication_group_description"] = str(
+            child_global_replication_group_description.text or ""
+        )
+    child_primary_replication_group_id = el.find("PrimaryReplicationGroupId")
+    if child_primary_replication_group_id is not None:
+        out["primary_replication_group_id"] = str(
+            child_primary_replication_group_id.text or ""
+        )
+    return out

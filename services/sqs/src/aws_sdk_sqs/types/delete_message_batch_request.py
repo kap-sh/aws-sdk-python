@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.sqs#DeleteMessageBatchRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_sqs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_sqs.types.delete_message_batch_request_entry_list
+    import aws_sdk_sqs.types.string
+
+
+class DeleteMessageBatchRequest(TypedDict):
+    queue_url: "aws_sdk_sqs.types.string.String"
+    """<p>The URL of the Amazon SQS queue from which messages are deleted.</p> <p>Queue URLs and names are case-sensitive.</p>"""
+    entries: "aws_sdk_sqs.types.delete_message_batch_request_entry_list.DeleteMessageBatchRequestEntryList"
+    """<p>Lists the receipt handles for the messages to be deleted.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DeleteMessageBatchRequest) -> dict:
+    out: dict = {}
+    out["QueueUrl"] = value["queue_url"]
+    import aws_sdk_sqs.types.delete_message_batch_request_entry_list
+
+    out["Entries"] = (
+        aws_sdk_sqs.types.delete_message_batch_request_entry_list.serialize_aws_json_1_0(
+            value["entries"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DeleteMessageBatchRequest:
+    out: DeleteMessageBatchRequest = {}  # type: ignore[typeddict-item]
+    if "QueueUrl" in data:
+        out["queue_url"] = data["QueueUrl"]
+    else:
+        raise DeserializationError("DeleteMessageBatchRequest.queue_url required")
+    if "Entries" in data:
+        import aws_sdk_sqs.types.delete_message_batch_request_entry_list
+
+        out["entries"] = (
+            aws_sdk_sqs.types.delete_message_batch_request_entry_list.deserialize_aws_json_1_0(
+                data["Entries"]
+            )
+        )
+    else:
+        raise DeserializationError("DeleteMessageBatchRequest.entries required")
+    return out

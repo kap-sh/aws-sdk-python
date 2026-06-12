@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#ListAssociatedFleetsResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_appstream.types.string
+    import aws_sdk_appstream.types.string_list
+
+
+class ListAssociatedFleetsResult(TypedDict):
+    names: NotRequired["aws_sdk_appstream.types.string_list.StringList"]
+    """<p>The name of the fleet.</p>"""
+    next_token: NotRequired["aws_sdk_appstream.types.string.String"]
+    """<p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListAssociatedFleetsResult) -> dict:
+    out: dict = {}
+    if "names" in value:
+        import aws_sdk_appstream.types.string_list
+
+        out["Names"] = aws_sdk_appstream.types.string_list.serialize_aws_json_1_1(
+            value["names"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListAssociatedFleetsResult:
+    out: ListAssociatedFleetsResult = {}  # type: ignore[typeddict-item]
+    if "Names" in data:
+        import aws_sdk_appstream.types.string_list
+
+        out["names"] = aws_sdk_appstream.types.string_list.deserialize_aws_json_1_1(
+            data["Names"]
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

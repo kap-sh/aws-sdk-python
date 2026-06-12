@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteCustomVocabularyRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_lex_models_v2.types.draft_bot_version
+    import aws_sdk_lex_models_v2.types.id
+    import aws_sdk_lex_models_v2.types.locale_id
+
+
+class DeleteCustomVocabularyRequest(TypedDict):
+    bot_id: "aws_sdk_lex_models_v2.types.id.Id"
+    """<p>The unique identifier of the bot to remove the custom vocabulary from.</p>"""
+    bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"
+    """<p>The version of the bot to remove the custom vocabulary from.</p>"""
+    locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
+    """<p>The locale identifier for the locale that contains the custom vocabulary to remove.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteCustomVocabularyRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteCustomVocabularyRequest:
+    out: DeleteCustomVocabularyRequest = {}  # type: ignore[typeddict-item]
+    return out

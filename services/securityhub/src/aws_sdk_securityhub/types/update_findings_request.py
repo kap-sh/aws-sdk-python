@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#UpdateFindingsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securityhub.types.aws_security_finding_filters
+    import aws_sdk_securityhub.types.note_update
+    import aws_sdk_securityhub.types.record_state
+
+
+class UpdateFindingsRequest(TypedDict):
+    filters: NotRequired[
+        "aws_sdk_securityhub.types.aws_security_finding_filters.AwsSecurityFindingFilters"
+    ]
+    """<p>A collection of attributes that specify which findings you want to update.</p>"""
+    note: NotRequired["aws_sdk_securityhub.types.note_update.NoteUpdate"]
+    """<p>The updated note for the finding.</p>"""
+    record_state: NotRequired["aws_sdk_securityhub.types.record_state.RecordState"]
+    """<p>The updated record state for the finding.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateFindingsRequest) -> dict:
+    out: dict = {}
+    if "filters" in value:
+        import aws_sdk_securityhub.types.aws_security_finding_filters
+
+        out["Filters"] = (
+            aws_sdk_securityhub.types.aws_security_finding_filters.serialize_json(
+                value["filters"]
+            )
+        )
+    if "note" in value:
+        import aws_sdk_securityhub.types.note_update
+
+        out["Note"] = aws_sdk_securityhub.types.note_update.serialize_json(
+            value["note"]
+        )
+    if "record_state" in value:
+        import aws_sdk_securityhub.types.record_state
+
+        out["RecordState"] = aws_sdk_securityhub.types.record_state.serialize_json(
+            value["record_state"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateFindingsRequest:
+    out: UpdateFindingsRequest = {}  # type: ignore[typeddict-item]
+    if "Filters" in data:
+        import aws_sdk_securityhub.types.aws_security_finding_filters
+
+        out["filters"] = (
+            aws_sdk_securityhub.types.aws_security_finding_filters.deserialize_json(
+                data["Filters"]
+            )
+        )
+    if "Note" in data:
+        import aws_sdk_securityhub.types.note_update
+
+        out["note"] = aws_sdk_securityhub.types.note_update.deserialize_json(
+            data["Note"]
+        )
+    if "RecordState" in data:
+        import aws_sdk_securityhub.types.record_state
+
+        out["record_state"] = aws_sdk_securityhub.types.record_state.deserialize_json(
+            data["RecordState"]
+        )
+    return out

@@ -1,0 +1,951 @@
+"""Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#ServerlessApplicationRepository``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+import aws_sdk_serverlessapplicationrepository._auth._signers
+import aws_sdk_serverlessapplicationrepository._auth._sigv4
+from aws_sdk_serverlessapplicationrepository._auth._identity import Credentials
+from aws_sdk_serverlessapplicationrepository._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_serverlessapplicationrepository._auth._zapros_handler import AuthMiddleware
+from aws_sdk_serverlessapplicationrepository._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_serverlessapplicationrepository.types.__list_of__string
+    import aws_sdk_serverlessapplicationrepository.types.__list_of_application_policy_statement
+    import aws_sdk_serverlessapplicationrepository.types.__list_of_parameter_value
+    import aws_sdk_serverlessapplicationrepository.types.__list_of_tag
+    import aws_sdk_serverlessapplicationrepository.types.__string
+    import aws_sdk_serverlessapplicationrepository.types.create_application_request
+    import aws_sdk_serverlessapplicationrepository.types.create_application_response
+    import aws_sdk_serverlessapplicationrepository.types.create_application_version_request
+    import aws_sdk_serverlessapplicationrepository.types.create_application_version_response
+    import aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_request
+    import aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_response
+    import aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_request
+    import aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_response
+    import aws_sdk_serverlessapplicationrepository.types.delete_application_request
+    import aws_sdk_serverlessapplicationrepository.types.get_application_policy_request
+    import aws_sdk_serverlessapplicationrepository.types.get_application_policy_response
+    import aws_sdk_serverlessapplicationrepository.types.get_application_request
+    import aws_sdk_serverlessapplicationrepository.types.get_application_response
+    import aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_request
+    import aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_response
+    import aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request
+    import aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_response
+    import aws_sdk_serverlessapplicationrepository.types.list_application_versions_request
+    import aws_sdk_serverlessapplicationrepository.types.list_application_versions_response
+    import aws_sdk_serverlessapplicationrepository.types.list_applications_request
+    import aws_sdk_serverlessapplicationrepository.types.list_applications_response
+    import aws_sdk_serverlessapplicationrepository.types.max_items
+    import aws_sdk_serverlessapplicationrepository.types.put_application_policy_request
+    import aws_sdk_serverlessapplicationrepository.types.put_application_policy_response
+    import aws_sdk_serverlessapplicationrepository.types.rollback_configuration
+    import aws_sdk_serverlessapplicationrepository.types.unshare_application_request
+    import aws_sdk_serverlessapplicationrepository.types.update_application_request
+    import aws_sdk_serverlessapplicationrepository.types.update_application_response
+
+
+class ServerlessApplicationRepositoryClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class ServerlessApplicationRepositoryClient:
+    """A client for the ``ServerlessApplicationRepository`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = ServerlessApplicationRepositoryClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: ServerlessApplicationRepositoryClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def create_application(
+        self,
+        author: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        description: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        name: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        home_page_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        labels: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
+        ] = None,
+        license_body: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        license_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        readme_body: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        readme_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        semantic_version: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        source_code_archive_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        source_code_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        spdx_license_id: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        template_body: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        template_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.create_application_response.CreateApplicationResponse":
+        """<p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
+
+        Args:
+            author: <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>
+            description: <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+            home_page_url: <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
+            labels: <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>
+            license_body: <p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application. The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
+            license_url: <p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
+            name: <p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\-]+\";</p>
+            readme_body: <p>A local text readme file in Markdown language that contains a more detailed description of the application and how it works. The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
+            readme_url: <p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
+            semantic_version: <p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>
+            source_code_archive_url: <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+            source_code_url: <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
+            spdx_license_id: <p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>
+            template_body: <p>The local raw packaged AWS SAM template file of your application. The file has the format file://&lt;path>/&lt;filename>.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
+            template_url: <p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.create_application_request.CreateApplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.create_application_response.CreateApplicationResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_application
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_application.create_application(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["author"] = author
+        input["description"] = description
+        if home_page_url is not None:
+            input["home_page_url"] = home_page_url
+        if labels is not None:
+            input["labels"] = labels
+        if license_body is not None:
+            input["license_body"] = license_body
+        if license_url is not None:
+            input["license_url"] = license_url
+        input["name"] = name
+        if readme_body is not None:
+            input["readme_body"] = readme_body
+        if readme_url is not None:
+            input["readme_url"] = readme_url
+        if semantic_version is not None:
+            input["semantic_version"] = semantic_version
+        if source_code_archive_url is not None:
+            input["source_code_archive_url"] = source_code_archive_url
+        if source_code_url is not None:
+            input["source_code_url"] = source_code_url
+        if spdx_license_id is not None:
+            input["spdx_license_id"] = spdx_license_id
+        if template_body is not None:
+            input["template_body"] = template_body
+        if template_url is not None:
+            input["template_url"] = template_url
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_application_version(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        semantic_version: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        source_code_archive_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        source_code_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        template_body: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        template_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.create_application_version_response.CreateApplicationVersionResponse":
+        """<p>Creates an application version.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            semantic_version: <p>The semantic version of the new version.</p>
+            source_code_archive_url: <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+            source_code_url: <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
+            template_body: <p>The raw packaged AWS SAM template of your application.</p>
+            template_url: <p>A link to the packaged AWS SAM template of your application.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.create_application_version_request.CreateApplicationVersionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.create_application_version_response.CreateApplicationVersionResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_application_version
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_application_version.create_application_version(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.create_application_version_request.CreateApplicationVersionRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        input["semantic_version"] = semantic_version
+        if source_code_archive_url is not None:
+            input["source_code_archive_url"] = source_code_archive_url
+        if source_code_url is not None:
+            input["source_code_url"] = source_code_url
+        if template_body is not None:
+            input["template_body"] = template_body
+        if template_url is not None:
+            input["template_url"] = template_url
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_cloud_formation_change_set(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        stack_name: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        capabilities: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
+        ] = None,
+        change_set_name: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        description: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        notification_arns: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
+        ] = None,
+        parameter_overrides: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of_parameter_value.__listOfParameterValue"
+        ] = None,
+        resource_types: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
+        ] = None,
+        rollback_configuration: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.rollback_configuration.RollbackConfiguration"
+        ] = None,
+        semantic_version: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of_tag.__listOfTag"
+        ] = None,
+        template_id: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_response.CreateCloudFormationChangeSetResponse":
+        """<p>Creates an AWS CloudFormation change set for the given application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            capabilities: <p>A list of values that you must specify before you can deploy certain applications. Some applications might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those applications, you must explicitly acknowledge their capabilities by specifying this parameter.</p><p>The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.</p><p>The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM: <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\">AWS::IAM::Group</a>, <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\">AWS::IAM::InstanceProfile</a>, <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html\">AWS::IAM::Policy</a>, and <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\">AWS::IAM::Role</a>. If the application contains IAM resources, you can specify either CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM.</p><p>The following resources require you to specify CAPABILITY_RESOURCE_POLICY: <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html\">AWS::Lambda::Permission</a>, <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html\">AWS::IAM:Policy</a>, <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html\">AWS::ApplicationAutoScaling::ScalingPolicy</a>, <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html\">AWS::S3::BucketPolicy</a>, <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html\">AWS::SQS::QueuePolicy</a>, and <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html\">AWS::SNS:TopicPolicy</a>.</p><p>Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.</p><p>If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.</p>
+            change_set_name: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            client_token: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            description: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            notification_arns: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            parameter_overrides: <p>A list of parameter values for the parameters of the application.</p>
+            resource_types: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            rollback_configuration: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            semantic_version: <p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>
+            stack_name: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            tags: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
+            template_id: <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_request.CreateCloudFormationChangeSetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_response.CreateCloudFormationChangeSetResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_cloud_formation_change_set
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_cloud_formation_change_set.create_cloud_formation_change_set(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_request.CreateCloudFormationChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        if capabilities is not None:
+            input["capabilities"] = capabilities
+        if change_set_name is not None:
+            input["change_set_name"] = change_set_name
+        if client_token is not None:
+            input["client_token"] = client_token
+        if description is not None:
+            input["description"] = description
+        if notification_arns is not None:
+            input["notification_arns"] = notification_arns
+        if parameter_overrides is not None:
+            input["parameter_overrides"] = parameter_overrides
+        if resource_types is not None:
+            input["resource_types"] = resource_types
+        if rollback_configuration is not None:
+            input["rollback_configuration"] = rollback_configuration
+        if semantic_version is not None:
+            input["semantic_version"] = semantic_version
+        input["stack_name"] = stack_name
+        if tags is not None:
+            input["tags"] = tags
+        if template_id is not None:
+            input["template_id"] = template_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_cloud_formation_template(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        semantic_version: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_response.CreateCloudFormationTemplateResponse":
+        """<p>Creates an AWS CloudFormation template.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            semantic_version: <p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_request.CreateCloudFormationTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_response.CreateCloudFormationTemplateResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_cloud_formation_template
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.create_cloud_formation_template.create_cloud_formation_template(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_request.CreateCloudFormationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        if semantic_version is not None:
+            input["semantic_version"] = semantic_version
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_application(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the specified application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.delete_application_request.DeleteApplicationRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.delete_application
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.delete_application.delete_application(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_application(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        semantic_version: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.get_application_response.GetApplicationResponse":
+        """<p>Gets the specified application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            semantic_version: <p>The semantic version of the application to get.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.get_application_request.GetApplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.get_application_response.GetApplicationResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.get_application
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.get_application.get_application(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        if semantic_version is not None:
+            input["semantic_version"] = semantic_version
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_application_policy(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.get_application_policy_response.GetApplicationPolicyResponse":
+        """<p>Retrieves the policy for the application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.get_application_policy_request.GetApplicationPolicyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.get_application_policy_response.GetApplicationPolicyResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.get_application_policy
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.get_application_policy.get_application_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.get_application_policy_request.GetApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_cloud_formation_template(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        template_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_response.GetCloudFormationTemplateResponse":
+        """<p>Gets the specified AWS CloudFormation template.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            template_id: <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_request.GetCloudFormationTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_response.GetCloudFormationTemplateResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.get_cloud_formation_template
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.get_cloud_formation_template.get_cloud_formation_template(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_request.GetCloudFormationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        input["template_id"] = template_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_application_dependencies(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.max_items.MaxItems"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        semantic_version: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_response.ListApplicationDependenciesResponse":
+        """<p>Retrieves the list of applications nested in the containing application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            max_items: <p>The total number of items to return.</p>
+            next_token: <p>A token to specify where to start paginating.</p>
+            semantic_version: <p>The semantic version of the application to get.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_response.ListApplicationDependenciesResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.list_application_dependencies
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.list_application_dependencies.list_application_dependencies(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        if max_items is not None:
+            input["max_items"] = max_items
+        if next_token is not None:
+            input["next_token"] = next_token
+        if semantic_version is not None:
+            input["semantic_version"] = semantic_version
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_applications(
+        self,
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.max_items.MaxItems"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.list_applications_response.ListApplicationsResponse":
+        """<p>Lists applications owned by the requester.</p>
+
+        Args:
+            max_items: <p>The total number of items to return.</p>
+            next_token: <p>A token to specify where to start paginating.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.list_applications_request.ListApplicationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.list_applications_response.ListApplicationsResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.list_applications
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.list_applications.list_applications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        if max_items is not None:
+            input["max_items"] = max_items
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_application_versions(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.max_items.MaxItems"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.list_application_versions_response.ListApplicationVersionsResponse":
+        """<p>Lists versions for the specified application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            max_items: <p>The total number of items to return.</p>
+            next_token: <p>A token to specify where to start paginating.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.list_application_versions_request.ListApplicationVersionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.list_application_versions_response.ListApplicationVersionsResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.list_application_versions
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.list_application_versions.list_application_versions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        if max_items is not None:
+            input["max_items"] = max_items
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def put_application_policy(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        statements: "aws_sdk_serverlessapplicationrepository.types.__list_of_application_policy_statement.__listOfApplicationPolicyStatement",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.put_application_policy_response.PutApplicationPolicyResponse":
+        """<p>Sets the permission policy for an application. For the list of actions supported for this operation, see <a href=\"https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions\">Application Permissions</a> .</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            statements: <p>An array of policy statements applied to the application.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.put_application_policy_request.PutApplicationPolicyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.put_application_policy_response.PutApplicationPolicyResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.put_application_policy
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.put_application_policy.put_application_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.put_application_policy_request.PutApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        input["statements"] = statements
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def unshare_application(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        organization_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+    ) -> None:
+        """<p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            organization_id: <p>The AWS Organization ID to unshare the application from.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.unshare_application_request.UnshareApplicationRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.unshare_application
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.unshare_application.unshare_application(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.unshare_application_request.UnshareApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        input["organization_id"] = organization_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_application(
+        self,
+        application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string",
+        *,
+        config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
+        author: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        description: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        home_page_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        labels: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
+        ] = None,
+        readme_body: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        readme_url: Optional[
+            "aws_sdk_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+    ) -> "aws_sdk_serverlessapplicationrepository.types.update_application_response.UpdateApplicationResponse":
+        """<p>Updates the specified application.</p>
+
+        Args:
+            application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+            author: <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>
+            description: <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+            home_page_url: <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
+            labels: <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>
+            readme_body: <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+            readme_url: <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_serverlessapplicationrepository.types.update_application_request.UpdateApplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_serverlessapplicationrepository.types.update_application_response.UpdateApplicationResponse"
+        ]:
+            import aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.update_application
+
+            output, http_response = (
+                aws_sdk_serverlessapplicationrepository._operations.serverless_application_repository.update_application.update_application(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_serverlessapplicationrepository.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input["application_id"] = application_id
+        if author is not None:
+            input["author"] = author
+        if description is not None:
+            input["description"] = description
+        if home_page_url is not None:
+            input["home_page_url"] = home_page_url
+        if labels is not None:
+            input["labels"] = labels
+        if readme_body is not None:
+            input["readme_body"] = readme_body
+        if readme_url is not None:
+            input["readme_url"] = readme_url
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

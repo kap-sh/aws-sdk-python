@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#BudgetActionToRemove``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_deadline.types.budget_action_type
+    import aws_sdk_deadline.types.threshold_percentage
+
+
+class BudgetActionToRemove(TypedDict):
+    type: "aws_sdk_deadline.types.budget_action_type.BudgetActionType"
+    """<p>The type of budget action to remove.</p>"""
+    threshold_percentage: (
+        "aws_sdk_deadline.types.threshold_percentage.ThresholdPercentage"
+    )
+    """<p>The percentage threshold for the budget action to remove.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BudgetActionToRemove) -> dict:
+    out: dict = {}
+    import aws_sdk_deadline.types.budget_action_type
+
+    out["type"] = aws_sdk_deadline.types.budget_action_type.serialize_json(
+        value["type"]
+    )
+    out["thresholdPercentage"] = value["threshold_percentage"]
+    return out
+
+
+def deserialize_json(data: dict) -> BudgetActionToRemove:
+    out: BudgetActionToRemove = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_deadline.types.budget_action_type
+
+        out["type"] = aws_sdk_deadline.types.budget_action_type.deserialize_json(
+            data["type"]
+        )
+    else:
+        raise DeserializationError("BudgetActionToRemove.type required")
+    if "thresholdPercentage" in data:
+        out["threshold_percentage"] = data["thresholdPercentage"]
+    else:
+        raise DeserializationError("BudgetActionToRemove.threshold_percentage required")
+    return out

@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#GatewayNetworkInterfaces``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_storage_gateway.types.network_interface
+
+GatewayNetworkInterfaces: TypeAlias = list[
+    "aws_sdk_storage_gateway.types.network_interface.NetworkInterface"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GatewayNetworkInterfaces) -> list:
+    import aws_sdk_storage_gateway.types.network_interface
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_storage_gateway.types.network_interface.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> GatewayNetworkInterfaces:
+    import aws_sdk_storage_gateway.types.network_interface
+
+    out: GatewayNetworkInterfaces = []
+    for item in data:
+        out.append(
+            aws_sdk_storage_gateway.types.network_interface.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

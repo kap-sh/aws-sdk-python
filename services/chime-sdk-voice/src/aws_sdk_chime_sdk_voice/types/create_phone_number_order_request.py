@@ -1,0 +1,78 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreatePhoneNumberOrderRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_chime_sdk_voice.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_chime_sdk_voice.types.e164_phone_number_list
+    import aws_sdk_chime_sdk_voice.types.phone_number_name
+    import aws_sdk_chime_sdk_voice.types.phone_number_product_type
+
+
+class CreatePhoneNumberOrderRequest(TypedDict):
+    product_type: (
+        "aws_sdk_chime_sdk_voice.types.phone_number_product_type.PhoneNumberProductType"
+    )
+    """<p>The phone number product type.</p>"""
+    e164_phone_numbers: (
+        "aws_sdk_chime_sdk_voice.types.e164_phone_number_list.E164PhoneNumberList"
+    )
+    """<p>List of phone numbers, in E.164 format.</p>"""
+    name: NotRequired["aws_sdk_chime_sdk_voice.types.phone_number_name.PhoneNumberName"]
+    """<p>Specifies the name assigned to one or more phone numbers.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreatePhoneNumberOrderRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_chime_sdk_voice.types.phone_number_product_type
+
+    out["ProductType"] = (
+        aws_sdk_chime_sdk_voice.types.phone_number_product_type.serialize_json(
+            value["product_type"]
+        )
+    )
+    import aws_sdk_chime_sdk_voice.types.e164_phone_number_list
+
+    out["E164PhoneNumbers"] = (
+        aws_sdk_chime_sdk_voice.types.e164_phone_number_list.serialize_json(
+            value["e164_phone_numbers"]
+        )
+    )
+    if "name" in value:
+        out["Name"] = value["name"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreatePhoneNumberOrderRequest:
+    out: CreatePhoneNumberOrderRequest = {}  # type: ignore[typeddict-item]
+    if "ProductType" in data:
+        import aws_sdk_chime_sdk_voice.types.phone_number_product_type
+
+        out["product_type"] = (
+            aws_sdk_chime_sdk_voice.types.phone_number_product_type.deserialize_json(
+                data["ProductType"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreatePhoneNumberOrderRequest.product_type required"
+        )
+    if "E164PhoneNumbers" in data:
+        import aws_sdk_chime_sdk_voice.types.e164_phone_number_list
+
+        out["e164_phone_numbers"] = (
+            aws_sdk_chime_sdk_voice.types.e164_phone_number_list.deserialize_json(
+                data["E164PhoneNumbers"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreatePhoneNumberOrderRequest.e164_phone_numbers required"
+        )
+    if "Name" in data:
+        out["name"] = data["Name"]
+    return out

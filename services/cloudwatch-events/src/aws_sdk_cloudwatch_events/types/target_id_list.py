@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchevents#TargetIdList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_events.types.target_id
+
+TargetIdList: TypeAlias = list["aws_sdk_cloudwatch_events.types.target_id.TargetId"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TargetIdList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> TargetIdList:
+    return list(data)

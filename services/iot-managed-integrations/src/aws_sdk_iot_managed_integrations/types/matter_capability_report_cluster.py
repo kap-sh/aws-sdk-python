@@ -1,0 +1,168 @@
+"""Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#MatterCapabilityReportCluster``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_iot_managed_integrations.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_iot_managed_integrations.types.capability_name
+    import aws_sdk_iot_managed_integrations.types.cluster_id
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_attributes
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_cluster_revision_id
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_commands
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_events
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_fabric_index
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_feature_map
+    import aws_sdk_iot_managed_integrations.types.matter_capability_report_generated_commands
+    import aws_sdk_iot_managed_integrations.types.schema_versioned_id
+    import aws_sdk_iot_managed_integrations.types.spec_version
+
+
+class MatterCapabilityReportCluster(TypedDict):
+    id: "aws_sdk_iot_managed_integrations.types.cluster_id.ClusterId"
+    """<p>The id of the Amazon Web Services Matter capability report cluster.</p>"""
+    revision: "aws_sdk_iot_managed_integrations.types.matter_capability_report_cluster_revision_id.MatterCapabilityReportClusterRevisionId"
+    """<p>The id of the revision for the Amazon Web Services Matter capability report.</p>"""
+    public_id: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.schema_versioned_id.SchemaVersionedId"
+    ]
+    """<p>The id of the schema version.</p>"""
+    name: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.capability_name.CapabilityName"
+    ]
+    """<p>The capability name used in the Amazon Web Services Matter capability report.</p>"""
+    spec_version: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.spec_version.SpecVersion"
+    ]
+    """<p>The spec version used in the Amazon Web Services Matter capability report.</p>"""
+    attributes: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.matter_capability_report_attributes.MatterCapabilityReportAttributes"
+    ]
+    """<p>The attributes of the Amazon Web Services Matter capability report.</p>"""
+    commands: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.matter_capability_report_commands.MatterCapabilityReportCommands"
+    ]
+    """<p>The commands used with the Amazon Web Services Matter capability report.</p>"""
+    events: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.matter_capability_report_events.MatterCapabilityReportEvents"
+    ]
+    """<p>The events used with the Amazon Web Services Matter capability report.</p>"""
+    feature_map: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.matter_capability_report_feature_map.MatterCapabilityReportFeatureMap"
+    ]
+    """<p>32 bit-map used to indicate which features a cluster supports.</p>"""
+    generated_commands: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.matter_capability_report_generated_commands.MatterCapabilityReportGeneratedCommands"
+    ]
+    """<p>Matter clusters used in capability report.</p>"""
+    fabric_index: NotRequired[
+        "aws_sdk_iot_managed_integrations.types.matter_capability_report_fabric_index.MatterCapabilityReportFabricIndex"
+    ]
+    """<p>The fabric index for the Amazon Web Services Matter capability report.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MatterCapabilityReportCluster) -> dict:
+    out: dict = {}
+    out["id"] = value["id"]
+    out["revision"] = value["revision"]
+    if "public_id" in value:
+        out["publicId"] = value["public_id"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "spec_version" in value:
+        out["specVersion"] = value["spec_version"]
+    if "attributes" in value:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_attributes
+
+        out["attributes"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_attributes.serialize_json(
+                value["attributes"]
+            )
+        )
+    if "commands" in value:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_commands
+
+        out["commands"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_commands.serialize_json(
+                value["commands"]
+            )
+        )
+    if "events" in value:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_events
+
+        out["events"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_events.serialize_json(
+                value["events"]
+            )
+        )
+    if "feature_map" in value:
+        out["featureMap"] = value["feature_map"]
+    if "generated_commands" in value:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_generated_commands
+
+        out["generatedCommands"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_generated_commands.serialize_json(
+                value["generated_commands"]
+            )
+        )
+    if "fabric_index" in value:
+        out["fabricIndex"] = value["fabric_index"]
+    return out
+
+
+def deserialize_json(data: dict) -> MatterCapabilityReportCluster:
+    out: MatterCapabilityReportCluster = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("MatterCapabilityReportCluster.id required")
+    if "revision" in data:
+        out["revision"] = data["revision"]
+    else:
+        raise DeserializationError("MatterCapabilityReportCluster.revision required")
+    if "publicId" in data:
+        out["public_id"] = data["publicId"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "specVersion" in data:
+        out["spec_version"] = data["specVersion"]
+    if "attributes" in data:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_attributes
+
+        out["attributes"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_attributes.deserialize_json(
+                data["attributes"]
+            )
+        )
+    if "commands" in data:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_commands
+
+        out["commands"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_commands.deserialize_json(
+                data["commands"]
+            )
+        )
+    if "events" in data:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_events
+
+        out["events"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_events.deserialize_json(
+                data["events"]
+            )
+        )
+    if "featureMap" in data:
+        out["feature_map"] = data["featureMap"]
+    if "generatedCommands" in data:
+        import aws_sdk_iot_managed_integrations.types.matter_capability_report_generated_commands
+
+        out["generated_commands"] = (
+            aws_sdk_iot_managed_integrations.types.matter_capability_report_generated_commands.deserialize_json(
+                data["generatedCommands"]
+            )
+        )
+    if "fabricIndex" in data:
+        out["fabric_index"] = data["fabricIndex"]
+    return out

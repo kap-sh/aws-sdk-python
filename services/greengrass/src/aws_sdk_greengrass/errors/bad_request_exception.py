@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.greengrass#BadRequestException``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_greengrass.errors import ServiceError
+
+if TYPE_CHECKING:
+    import aws_sdk_greengrass.types.__string
+    import aws_sdk_greengrass.types.error_details
+
+
+class BadRequestException_(TypedDict):
+    error_details: NotRequired["aws_sdk_greengrass.types.error_details.ErrorDetails"]
+    """Details about the error."""
+    message: NotRequired["aws_sdk_greengrass.types.__string.__string"]
+    """A message containing information about the error."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BadRequestException_) -> dict:
+    out: dict = {}
+    if "error_details" in value:
+        import aws_sdk_greengrass.types.error_details
+
+        out["ErrorDetails"] = aws_sdk_greengrass.types.error_details.serialize_json(
+            value["error_details"]
+        )
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> BadRequestException_:
+    out: BadRequestException_ = {}  # type: ignore[typeddict-item]
+    if "ErrorDetails" in data:
+        import aws_sdk_greengrass.types.error_details
+
+        out["error_details"] = aws_sdk_greengrass.types.error_details.deserialize_json(
+            data["ErrorDetails"]
+        )
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class BadRequestException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.greengrass#BadRequestException``."""
+
+    code: str | None = "BadRequestException"
+
+    def __init__(self, data: BadRequestException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="BadRequestException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "BadRequestException":
+        return cls(deserialize_json(data))

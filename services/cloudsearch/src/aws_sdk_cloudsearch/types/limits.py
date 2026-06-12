@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudsearch#Limits``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cloudsearch._protocol.xml import Element
+from aws_sdk_cloudsearch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cloudsearch.types.maximum_partition_count
+    import aws_sdk_cloudsearch.types.maximum_replication_count
+
+
+class Limits(TypedDict):
+    maximum_replication_count: (
+        "aws_sdk_cloudsearch.types.maximum_replication_count.MaximumReplicationCount"
+    )
+    maximum_partition_count: (
+        "aws_sdk_cloudsearch.types.maximum_partition_count.MaximumPartitionCount"
+    )
+
+
+# --- awsQuery ser/de ---
+def serialize_query(value: Limits, pairs: list[tuple[str, str]], prefix: str) -> None:
+    pairs.append(
+        (f"{prefix}.MaximumReplicationCount", str(value["maximum_replication_count"]))
+    )
+    pairs.append(
+        (f"{prefix}.MaximumPartitionCount", str(value["maximum_partition_count"]))
+    )
+
+
+def deserialize_query(el: Element) -> Limits:
+    out: Limits = {}  # type: ignore[typeddict-item]
+    child_maximum_replication_count = el.find("MaximumReplicationCount")
+    if child_maximum_replication_count is not None:
+        out["maximum_replication_count"] = int(
+            child_maximum_replication_count.text or ""
+        )
+    else:
+        raise DeserializationError("Limits.maximum_replication_count required")
+    child_maximum_partition_count = el.find("MaximumPartitionCount")
+    if child_maximum_partition_count is not None:
+        out["maximum_partition_count"] = int(child_maximum_partition_count.text or "")
+    else:
+        raise DeserializationError("Limits.maximum_partition_count required")
+    return out
