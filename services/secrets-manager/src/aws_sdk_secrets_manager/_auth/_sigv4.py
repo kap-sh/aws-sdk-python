@@ -14,13 +14,31 @@ import datetime as _dt
 import hashlib
 import hmac
 import re
-from typing import Literal, TypedDict
+from typing import Any, Literal, TypedDict
 from urllib.parse import quote, unquote
 
 import zapros
 from pywhatwgurl import URLSearchParams
 from zapros import Headers, Request
 from zapros._utils import get_host_header_value
+
+
+def build_sigv4_auth_scheme(
+    signing_name: str, region: str | None
+) -> dict[str, Any] | None:
+    """Return a sigv4 auth scheme dict for the given signing name and region.
+
+    Returns None when region is not set so callers can use it in an ``or`` chain.
+    """
+    if region is None:
+        return None
+    return {
+        "name": "sigv4",
+        "signingName": signing_name,
+        "signingRegion": region,
+        "disableDoubleEncoding": False,
+        "disableNormalizePath": False,
+    }
 
 
 class SigV4AuthContext(TypedDict):

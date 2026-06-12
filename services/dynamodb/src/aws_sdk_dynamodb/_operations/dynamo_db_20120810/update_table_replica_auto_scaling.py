@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Any, Never
 import zapros
 
 import aws_sdk_dynamodb._auth._signers
+import aws_sdk_dynamodb._auth._sigv4
 from aws_sdk_dynamodb._protocol.errors import parse_error_metadata_json
 from aws_sdk_dynamodb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dynamodb._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -65,34 +66,20 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_dynamodb._auth._signers.Signer | None:
-    if auth_schemes:
-        for scheme in auth_schemes:
-            match scheme["name"]:
-                case "sigv4" | "sigv4a" | "sigv4-s3express" if (
-                    options.credentials_provider is not None
-                ):
-                    return aws_sdk_dynamodb._auth._signers.SigV4Signer(
-                        options.credentials_provider, auth_scheme=scheme
-                    )
-                case "none":
-                    return None
-                case _:
-                    raise RuntimeError(
-                        f"Could not find provider for auth scheme {scheme['name']!r}"
-                    )
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        if options.region is None:
-            raise RuntimeError("options.region is required for SigV4 signing")
-        return aws_sdk_dynamodb._auth._signers.SigV4Signer(
-            options.credentials_provider,
-            auth_scheme={
-                "name": "sigv4",
-                "signingName": "dynamodb",
-                "signingRegion": options.region,
-                "disableDoubleEncoding": False,
-                "disableNormalizePath": False,
-            },
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_dynamodb._auth._sigv4.build_sigv4_auth_scheme(
+                "dynamodb", options.region
+            )
         )
+        if sigv4_config is not None:
+            return aws_sdk_dynamodb._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
 
