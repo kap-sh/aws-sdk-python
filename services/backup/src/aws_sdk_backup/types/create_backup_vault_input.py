@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateBackupVaultInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
     import aws_sdk_backup.types.backup_vault_name
     import aws_sdk_backup.types.string
     import aws_sdk_backup.types.tags
+
 
 class CreateBackupVaultInput(TypedDict):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
@@ -18,12 +21,16 @@ class CreateBackupVaultInput(TypedDict):
     creator_request_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>A unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. This parameter is optional.</p> <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateBackupVaultInput) -> dict:
     out: dict = {}
     if "backup_vault_tags" in value:
         import aws_sdk_backup.types.tags
-        out["BackupVaultTags"] = aws_sdk_backup.types.tags.serialize_json(value["backup_vault_tags"])
+
+        out["BackupVaultTags"] = aws_sdk_backup.types.tags.serialize_json(
+            value["backup_vault_tags"]
+        )
     if "encryption_key_arn" in value:
         out["EncryptionKeyArn"] = value["encryption_key_arn"]
     if "creator_request_id" in value:
@@ -35,7 +42,10 @@ def deserialize_json(data: dict) -> CreateBackupVaultInput:
     out: CreateBackupVaultInput = {}  # type: ignore[typeddict-item]
     if "BackupVaultTags" in data:
         import aws_sdk_backup.types.tags
-        out["backup_vault_tags"] = aws_sdk_backup.types.tags.deserialize_json(data["BackupVaultTags"])
+
+        out["backup_vault_tags"] = aws_sdk_backup.types.tags.deserialize_json(
+            data["BackupVaultTags"]
+        )
     if "EncryptionKeyArn" in data:
         out["encryption_key_arn"] = data["EncryptionKeyArn"]
     if "CreatorRequestId" in data:

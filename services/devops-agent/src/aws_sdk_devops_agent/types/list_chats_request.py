@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.devopsagent#ListChatsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_devops_agent.types.agent_space_id
+    import aws_sdk_devops_agent.types.resource_id
+
+
+class ListChatsRequest(TypedDict):
+    agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
+    user_id: NotRequired["aws_sdk_devops_agent.types.resource_id.ResourceId"]
+    """<p>The user identifier to list chats for. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.</p>"""
+    max_results: NotRequired["int"]
+    """<p>Maximum number of results to return</p>"""
+    next_token: NotRequired["str"]
+    """<p>Token for pagination</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListChatsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListChatsRequest:
+    out: ListChatsRequest = {}  # type: ignore[typeddict-item]
+    return out

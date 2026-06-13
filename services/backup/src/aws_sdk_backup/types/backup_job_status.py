@@ -1,19 +1,40 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupJobStatus``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_backup.errors import DeserializationError
-from aws_sdk_backup._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import Literal, TypeAlias, cast
 
-BackupJobStatus: TypeAlias = Literal["CREATED", "PENDING", "RUNNING", "ABORTING", "ABORTED", "COMPLETED", "FAILED", "EXPIRED", "PARTIAL", "AGGREGATE_ALL", "ANY",]
+from aws_sdk_backup.errors import DeserializationError
+
+BackupJobStatus: TypeAlias = Literal[
+    "CREATED",
+    "PENDING",
+    "RUNNING",
+    "ABORTING",
+    "ABORTED",
+    "COMPLETED",
+    "FAILED",
+    "EXPIRED",
+    "PARTIAL",
+    "AGGREGATE_ALL",
+    "ANY",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("CREATED", "PENDING", "RUNNING", "ABORTING", "ABORTED", "COMPLETED", "FAILED", "EXPIRED", "PARTIAL", "AGGREGATE_ALL", "ANY",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "CREATED",
+        "PENDING",
+        "RUNNING",
+        "ABORTING",
+        "ABORTED",
+        "COMPLETED",
+        "FAILED",
+        "EXPIRED",
+        "PARTIAL",
+        "AGGREGATE_ALL",
+        "ANY",
+    )
+)
 
 
 def serialize_json(value: BackupJobStatus) -> str:

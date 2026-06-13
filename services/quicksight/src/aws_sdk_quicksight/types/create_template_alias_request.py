@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#CreateTemplateAliasRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.alias_name
+    import aws_sdk_quicksight.types.aws_account_id
+    import aws_sdk_quicksight.types.short_restrictive_resource_id
+    import aws_sdk_quicksight.types.version_number
+
+
+class CreateTemplateAliasRequest(TypedDict):
+    aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
+    """<p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>"""
+    template_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
+    """<p>An ID for the template.</p>"""
+    alias_name: "aws_sdk_quicksight.types.alias_name.AliasName"
+    """<p>The name that you want to give to the template alias that you're creating. Don't start the alias name with the <code>$</code> character. Alias names that start with <code>$</code> are reserved by Quick Sight. </p>"""
+    template_version_number: "aws_sdk_quicksight.types.version_number.VersionNumber"
+    """<p>The version number of the template.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateTemplateAliasRequest) -> dict:
+    out: dict = {}
+    out["TemplateVersionNumber"] = value["template_version_number"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateTemplateAliasRequest:
+    out: CreateTemplateAliasRequest = {}  # type: ignore[typeddict-item]
+    if "TemplateVersionNumber" in data:
+        out["template_version_number"] = data["TemplateVersionNumber"]
+    else:
+        raise DeserializationError(
+            "CreateTemplateAliasRequest.template_version_number required"
+        )
+    return out

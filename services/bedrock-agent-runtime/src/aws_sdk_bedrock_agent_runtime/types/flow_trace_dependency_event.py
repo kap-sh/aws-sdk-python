@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceDependencyEvent``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
     import aws_sdk_bedrock_agent_runtime.types.node_name
     import aws_sdk_bedrock_agent_runtime.types.trace_elements
+
 
 class FlowTraceDependencyEvent(TypedDict):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
@@ -15,14 +18,25 @@ class FlowTraceDependencyEvent(TypedDict):
     trace_elements: "aws_sdk_bedrock_agent_runtime.types.trace_elements.TraceElements"
     """<p>The trace elements containing detailed information about the dependency.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: FlowTraceDependencyEvent) -> dict:
     out: dict = {}
     out["nodeName"] = value["node_name"]
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-    out["timestamp"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(value["timestamp"])
+
+    out["timestamp"] = (
+        aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+            value["timestamp"]
+        )
+    )
     import aws_sdk_bedrock_agent_runtime.types.trace_elements
-    out["traceElements"] = aws_sdk_bedrock_agent_runtime.types.trace_elements.serialize_json(value["trace_elements"])
+
+    out["traceElements"] = (
+        aws_sdk_bedrock_agent_runtime.types.trace_elements.serialize_json(
+            value["trace_elements"]
+        )
+    )
     return out
 
 
@@ -34,12 +48,22 @@ def deserialize_json(data: dict) -> FlowTraceDependencyEvent:
         raise DeserializationError("FlowTraceDependencyEvent.node_name required")
     if "timestamp" in data:
         import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-        out["timestamp"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(data["timestamp"])
+
+        out["timestamp"] = (
+            aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
+                data["timestamp"]
+            )
+        )
     else:
         raise DeserializationError("FlowTraceDependencyEvent.timestamp required")
     if "traceElements" in data:
         import aws_sdk_bedrock_agent_runtime.types.trace_elements
-        out["trace_elements"] = aws_sdk_bedrock_agent_runtime.types.trace_elements.deserialize_json(data["traceElements"])
+
+        out["trace_elements"] = (
+            aws_sdk_bedrock_agent_runtime.types.trace_elements.deserialize_json(
+                data["traceElements"]
+            )
+        )
     else:
         raise DeserializationError("FlowTraceDependencyEvent.trace_elements required")
     return out

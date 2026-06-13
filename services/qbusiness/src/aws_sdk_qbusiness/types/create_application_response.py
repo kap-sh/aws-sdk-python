@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateApplicationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_arn
     import aws_sdk_qbusiness.types.application_id
 
+
 class CreateApplicationResponse(TypedDict):
     application_id: NotRequired["aws_sdk_qbusiness.types.application_id.ApplicationId"]
     """<p>The identifier of the Amazon Q Business application.</p>"""
-    application_arn: NotRequired["aws_sdk_qbusiness.types.application_arn.ApplicationArn"]
+    application_arn: NotRequired[
+        "aws_sdk_qbusiness.types.application_arn.ApplicationArn"
+    ]
     """<p> The Amazon Resource Name (ARN) of the Amazon Q Business application. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateApplicationResponse) -> dict:

@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_networkflowmonitor._services.async_network_flow_monitor import ensure_async_iterator
-from aws_sdk_networkflowmonitor._services.network_flow_monitor import ensure_sync_iterator
-from aws_sdk_networkflowmonitor._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_networkflowmonitor._auth._signers
 import aws_sdk_networkflowmonitor._auth._sigv4
+from aws_sdk_networkflowmonitor._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_networkflowmonitor._services.network_flow_monitor import NetworkFlowMonitorClient, NetworkFlowMonitorClientConfig
-    from aws_sdk_networkflowmonitor._services.async_network_flow_monitor import AsyncNetworkFlowMonitorClient, AsyncNetworkFlowMonitorClientConfig
     import aws_sdk_networkflowmonitor.types.arn
     import aws_sdk_networkflowmonitor.types.create_monitor_input
     import aws_sdk_networkflowmonitor.types.create_monitor_output
@@ -38,11 +43,35 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.update_monitor_input
     import aws_sdk_networkflowmonitor.types.update_monitor_output
     import aws_sdk_networkflowmonitor.types.uuid_string
+    from aws_sdk_networkflowmonitor._services.async_network_flow_monitor import (
+        AsyncNetworkFlowMonitorClient,
+        AsyncNetworkFlowMonitorClientConfig,
+    )
+    from aws_sdk_networkflowmonitor._services.network_flow_monitor import (
+        NetworkFlowMonitorClient,
+        NetworkFlowMonitorClientConfig,
+    )
+
 
 class MonitorResource:
     def __init__(self, service: NetworkFlowMonitorClient) -> None:
         self._service = service
-    def put(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", local_resources: "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources", scope_arn: "aws_sdk_networkflowmonitor.types.arn.Arn", *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None, remote_resources: Optional["aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"] = None, client_token: Optional["aws_sdk_networkflowmonitor.types.uuid_string.UuidString"] = None, tags: Optional["aws_sdk_networkflowmonitor.types.tag_map.TagMap"] = None) -> "aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput":
+
+    def put(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        local_resources: "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources",
+        scope_arn: "aws_sdk_networkflowmonitor.types.arn.Arn",
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+        remote_resources: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_networkflowmonitor.types.uuid_string.UuidString"
+        ] = None,
+        tags: Optional["aws_sdk_networkflowmonitor.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput":
         """<p>Create a monitor for specific network flows between local and remote resources, so that you can monitor network performance for one or several of your workloads. For each monitor, Network Flow Monitor publishes detailed end-to-end performance metrics and a network health indicator (NHI) that informs you whether there were Amazon Web Services network issues for one or more of the network flows tracked by a monitor, during a time period that you choose. </p>
 
         Args:
@@ -53,9 +82,19 @@ class MonitorResource:
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
             tags: <p>The tags for a monitor. You can add a maximum of 200 tags.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.create_monitor
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.create_monitor.create_monitor(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.create_monitor.create_monitor(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -70,26 +109,71 @@ class MonitorResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput":
+
+    def read(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput":
         """<p>Gets information about a monitor in Network Flow Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_monitor
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_monitor.get_monitor(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_monitor.get_monitor(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput = {}  # type: ignore[typeddict-item]
         input["monitor_name"] = monitor_name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None, local_resources_to_add: Optional["aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"] = None, local_resources_to_remove: Optional["aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"] = None, remote_resources_to_add: Optional["aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"] = None, remote_resources_to_remove: Optional["aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"] = None, client_token: Optional["aws_sdk_networkflowmonitor.types.uuid_string.UuidString"] = None) -> "aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput":
+
+    def update(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+        local_resources_to_add: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"
+        ] = None,
+        local_resources_to_remove: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"
+        ] = None,
+        remote_resources_to_add: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"
+        ] = None,
+        remote_resources_to_remove: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_networkflowmonitor.types.uuid_string.UuidString"
+        ] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput":
         """<p>Update a monitor to add or remove local or remote resources.</p>
 
         Args:
@@ -100,9 +184,19 @@ class MonitorResource:
             remote_resources_to_remove: <p>The remote resources to remove, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.update_monitor
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.update_monitor.update_monitor(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.update_monitor.update_monitor(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -119,26 +213,62 @@ class MonitorResource:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput":
+
+    def delete(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput":
         """<p>Deletes a monitor in Network Flow Monitor.</p>
 
         Args:
             monitor_name: <p>The name of the monitor to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.delete_monitor
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.delete_monitor.delete_monitor(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.delete_monitor.delete_monitor(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput = {}  # type: ignore[typeddict-item]
         input["monitor_name"] = monitor_name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None, next_token: Optional[str] = None, max_results: Optional["aws_sdk_networkflowmonitor.types.max_results.MaxResults"] = None, monitor_status: Optional["aws_sdk_networkflowmonitor.types.monitor_status.MonitorStatus"] = None) -> "aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_networkflowmonitor.types.max_results.MaxResults"
+        ] = None,
+        monitor_status: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_status.MonitorStatus"
+        ] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput":
         """<p>List all monitors in an account. Optionally, you can list only monitors that have a specific status, by using the <code>STATUS</code> parameter.</p>
 
         Args:
@@ -146,9 +276,19 @@ class MonitorResource:
             max_results: <p>The number of query results that you want to return with this call.</p>
             monitor_status: <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.list_monitors
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.list_monitors.list_monitors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.list_monitors.list_monitors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -160,9 +300,22 @@ class MonitorResource:
         if monitor_status is not None:
             input["monitor_status"] = monitor_status
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_query_results_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", query_id: str, *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput":
+
+    def get_query_results_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        query_id: str,
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput":
         """<p>Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor.</p> <p>Create a query ID for this call by calling the corresponding API call to start the query, <code>StartQueryMonitorTopContributors</code>. Use the scope ID that was returned for your account by <code>CreateScope</code>.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
 
         Args:
@@ -171,9 +324,19 @@ class MonitorResource:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_results_monitor_top_contributors
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_results_monitor_top_contributors.get_query_results_monitor_top_contributors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_results_monitor_top_contributors.get_query_results_monitor_top_contributors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -185,18 +348,39 @@ class MonitorResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_query_status_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", query_id: str, *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput":
+
+    def get_query_status_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        query_id: str,
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput":
         """<p>Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors for a monitor.</p> <p>When you create a query, use this call to check the status of the query to make sure that it has has <code>SUCCEEDED</code> before you review the results. Use the same query ID that you used for the corresponding API call to start (create) the query, <code>StartQueryMonitorTopContributors</code>.</p> <p>When you run a query, use this call to check the status of the query to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_status_monitor_top_contributors
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_status_monitor_top_contributors.get_query_status_monitor_top_contributors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_status_monitor_top_contributors.get_query_status_monitor_top_contributors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -204,9 +388,24 @@ class MonitorResource:
         input["monitor_name"] = monitor_name
         input["query_id"] = query_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_query_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", start_time: datetime.datetime, end_time: datetime.datetime, metric_name: "aws_sdk_networkflowmonitor.types.monitor_metric.MonitorMetric", destination_category: "aws_sdk_networkflowmonitor.types.destination_category.DestinationCategory", *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None, limit: Optional["aws_sdk_networkflowmonitor.types.limit.Limit"] = None) -> "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput":
+
+    def start_query_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        metric_name: "aws_sdk_networkflowmonitor.types.monitor_metric.MonitorMetric",
+        destination_category: "aws_sdk_networkflowmonitor.types.destination_category.DestinationCategory",
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+        limit: Optional["aws_sdk_networkflowmonitor.types.limit.Limit"] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput":
         """<p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href=\"https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html\"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
 
         Args:
@@ -217,9 +416,19 @@ class MonitorResource:
             destination_category: <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
             limit: <p>The maximum number of top contributors to return.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.start_query_monitor_top_contributors
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.start_query_monitor_top_contributors.start_query_monitor_top_contributors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.start_query_monitor_top_contributors.start_query_monitor_top_contributors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -232,18 +441,39 @@ class MonitorResource:
         if limit is not None:
             input["limit"] = limit
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def stop_query_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", query_id: str, *, config_overrides: Optional[NetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput":
+
+    def stop_query_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        query_id: str,
+        *,
+        config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput":
         """<p>Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name. </p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput]') -> OperationResponse["aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.stop_query_monitor_top_contributors
-            output, http_response = aws_sdk_networkflowmonitor._operations.network_flow_monitor.stop_query_monitor_top_contributors.stop_query_monitor_top_contributors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_networkflowmonitor._operations.network_flow_monitor.stop_query_monitor_top_contributors.stop_query_monitor_top_contributors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -251,13 +481,33 @@ class MonitorResource:
         input["monitor_name"] = monitor_name
         input["query_id"] = query_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncMonitorResource:
     def __init__(self, service: AsyncNetworkFlowMonitorClient) -> None:
         self._service = service
-    async def put(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", local_resources: "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources", scope_arn: "aws_sdk_networkflowmonitor.types.arn.Arn", *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None, remote_resources: Optional["aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"] = None, client_token: Optional["aws_sdk_networkflowmonitor.types.uuid_string.UuidString"] = None, tags: Optional["aws_sdk_networkflowmonitor.types.tag_map.TagMap"] = None) -> "aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput":
+
+    async def put(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        local_resources: "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources",
+        scope_arn: "aws_sdk_networkflowmonitor.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+        remote_resources: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_networkflowmonitor.types.uuid_string.UuidString"
+        ] = None,
+        tags: Optional["aws_sdk_networkflowmonitor.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput":
         """<p>Create a monitor for specific network flows between local and remote resources, so that you can monitor network performance for one or several of your workloads. For each monitor, Network Flow Monitor publishes detailed end-to-end performance metrics and a network health indicator (NHI) that informs you whether there were Amazon Web Services network issues for one or more of the network flows tracked by a monitor, during a time period that you choose. </p>
 
         Args:
@@ -268,9 +518,20 @@ class AsyncMonitorResource:
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
             tags: <p>The tags for a monitor. You can add a maximum of 200 tags.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.create_monitor_output.CreateMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.create_monitor
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.create_monitor.async_create_monitor(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.create_monitor.async_create_monitor(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -285,26 +546,72 @@ class AsyncMonitorResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput":
+
+    async def read(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput":
         """<p>Gets information about a monitor in Network Flow Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.get_monitor_output.GetMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_monitor
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_monitor.async_get_monitor(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_monitor.async_get_monitor(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput = {}  # type: ignore[typeddict-item]
         input["monitor_name"] = monitor_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None, local_resources_to_add: Optional["aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"] = None, local_resources_to_remove: Optional["aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"] = None, remote_resources_to_add: Optional["aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"] = None, remote_resources_to_remove: Optional["aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"] = None, client_token: Optional["aws_sdk_networkflowmonitor.types.uuid_string.UuidString"] = None) -> "aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput":
+
+    async def update(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+        local_resources_to_add: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"
+        ] = None,
+        local_resources_to_remove: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_local_resources.MonitorLocalResources"
+        ] = None,
+        remote_resources_to_add: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"
+        ] = None,
+        remote_resources_to_remove: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_remote_resources.MonitorRemoteResources"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_networkflowmonitor.types.uuid_string.UuidString"
+        ] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput":
         """<p>Update a monitor to add or remove local or remote resources.</p>
 
         Args:
@@ -315,9 +622,20 @@ class AsyncMonitorResource:
             remote_resources_to_remove: <p>The remote resources to remove, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.update_monitor_output.UpdateMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.update_monitor
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.update_monitor.async_update_monitor(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.update_monitor.async_update_monitor(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -334,26 +652,63 @@ class AsyncMonitorResource:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput":
+
+    async def delete(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput":
         """<p>Deletes a monitor in Network Flow Monitor.</p>
 
         Args:
             monitor_name: <p>The name of the monitor to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.delete_monitor_output.DeleteMonitorOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.delete_monitor
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.delete_monitor.async_delete_monitor(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.delete_monitor.async_delete_monitor(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput = {}  # type: ignore[typeddict-item]
         input["monitor_name"] = monitor_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None, next_token: Optional[str] = None, max_results: Optional["aws_sdk_networkflowmonitor.types.max_results.MaxResults"] = None, monitor_status: Optional["aws_sdk_networkflowmonitor.types.monitor_status.MonitorStatus"] = None) -> "aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_networkflowmonitor.types.max_results.MaxResults"
+        ] = None,
+        monitor_status: Optional[
+            "aws_sdk_networkflowmonitor.types.monitor_status.MonitorStatus"
+        ] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput":
         """<p>List all monitors in an account. Optionally, you can list only monitors that have a specific status, by using the <code>STATUS</code> parameter.</p>
 
         Args:
@@ -361,9 +716,20 @@ class AsyncMonitorResource:
             max_results: <p>The number of query results that you want to return with this call.</p>
             monitor_status: <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.list_monitors_output.ListMonitorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.list_monitors
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.list_monitors.async_list_monitors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.list_monitors.async_list_monitors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -375,9 +741,22 @@ class AsyncMonitorResource:
         if monitor_status is not None:
             input["monitor_status"] = monitor_status
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_query_results_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", query_id: str, *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput":
+
+    async def get_query_results_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        query_id: str,
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput":
         """<p>Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor.</p> <p>Create a query ID for this call by calling the corresponding API call to start the query, <code>StartQueryMonitorTopContributors</code>. Use the scope ID that was returned for your account by <code>CreateScope</code>.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
 
         Args:
@@ -386,9 +765,20 @@ class AsyncMonitorResource:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_output.GetQueryResultsMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_results_monitor_top_contributors
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_results_monitor_top_contributors.async_get_query_results_monitor_top_contributors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_results_monitor_top_contributors.async_get_query_results_monitor_top_contributors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -400,18 +790,40 @@ class AsyncMonitorResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_query_status_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", query_id: str, *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput":
+
+    async def get_query_status_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        query_id: str,
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput":
         """<p>Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors for a monitor.</p> <p>When you create a query, use this call to check the status of the query to make sure that it has has <code>SUCCEEDED</code> before you review the results. Use the same query ID that you used for the corresponding API call to start (create) the query, <code>StartQueryMonitorTopContributors</code>.</p> <p>When you run a query, use this call to check the status of the query to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_output.GetQueryStatusMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_status_monitor_top_contributors
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_status_monitor_top_contributors.async_get_query_status_monitor_top_contributors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.get_query_status_monitor_top_contributors.async_get_query_status_monitor_top_contributors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -419,9 +831,24 @@ class AsyncMonitorResource:
         input["monitor_name"] = monitor_name
         input["query_id"] = query_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_query_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", start_time: datetime.datetime, end_time: datetime.datetime, metric_name: "aws_sdk_networkflowmonitor.types.monitor_metric.MonitorMetric", destination_category: "aws_sdk_networkflowmonitor.types.destination_category.DestinationCategory", *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None, limit: Optional["aws_sdk_networkflowmonitor.types.limit.Limit"] = None) -> "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput":
+
+    async def start_query_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        metric_name: "aws_sdk_networkflowmonitor.types.monitor_metric.MonitorMetric",
+        destination_category: "aws_sdk_networkflowmonitor.types.destination_category.DestinationCategory",
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+        limit: Optional["aws_sdk_networkflowmonitor.types.limit.Limit"] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput":
         """<p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href=\"https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html\"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
 
         Args:
@@ -432,9 +859,20 @@ class AsyncMonitorResource:
             destination_category: <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
             limit: <p>The maximum number of top contributors to return.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.start_query_monitor_top_contributors
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.start_query_monitor_top_contributors.async_start_query_monitor_top_contributors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.start_query_monitor_top_contributors.async_start_query_monitor_top_contributors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -447,18 +885,40 @@ class AsyncMonitorResource:
         if limit is not None:
             input["limit"] = limit
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def stop_query_monitor_top_contributors(self, monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName", query_id: str, *, config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None) -> "aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput":
+
+    async def stop_query_monitor_top_contributors(
+        self,
+        monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName",
+        query_id: str,
+        *,
+        config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
+    ) -> "aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput":
         """<p>Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name. </p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput]') -> AsyncOperationResponse["aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_output.StopQueryMonitorTopContributorsOutput"
+        ]:
             import aws_sdk_networkflowmonitor._operations.network_flow_monitor.stop_query_monitor_top_contributors
-            output, http_response = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.stop_query_monitor_top_contributors.async_stop_query_monitor_top_contributors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_networkflowmonitor._operations.network_flow_monitor.stop_query_monitor_top_contributors.async_stop_query_monitor_top_contributors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -466,5 +926,9 @@ class AsyncMonitorResource:
         input["monitor_name"] = monitor_name
         input["query_id"] = query_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

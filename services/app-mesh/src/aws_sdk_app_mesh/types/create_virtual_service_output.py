@@ -1,19 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#CreateVirtualServiceOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_app_mesh.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_service_data
+
 
 class CreateVirtualServiceOutput(TypedDict):
     virtual_service: "aws_sdk_app_mesh.types.virtual_service_data.VirtualServiceData"
     """<p>The full description of your virtual service following the create call.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateVirtualServiceOutput) -> dict:
     out: dict = {}
     import aws_sdk_app_mesh.types.virtual_service_data
-    out["virtualService"] = aws_sdk_app_mesh.types.virtual_service_data.serialize_json(value["virtual_service"])
+
+    out["virtualService"] = aws_sdk_app_mesh.types.virtual_service_data.serialize_json(
+        value["virtual_service"]
+    )
     return out
 
 
@@ -21,7 +28,14 @@ def deserialize_json(data: dict) -> CreateVirtualServiceOutput:
     out: CreateVirtualServiceOutput = {}  # type: ignore[typeddict-item]
     if "virtualService" in data:
         import aws_sdk_app_mesh.types.virtual_service_data
-        out["virtual_service"] = aws_sdk_app_mesh.types.virtual_service_data.deserialize_json(data["virtualService"])
+
+        out["virtual_service"] = (
+            aws_sdk_app_mesh.types.virtual_service_data.deserialize_json(
+                data["virtualService"]
+            )
+        )
     else:
-        raise DeserializationError("CreateVirtualServiceOutput.virtual_service required")
+        raise DeserializationError(
+            "CreateVirtualServiceOutput.virtual_service required"
+        )
     return out

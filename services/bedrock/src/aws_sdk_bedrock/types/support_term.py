@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#SupportTerm``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
 
 

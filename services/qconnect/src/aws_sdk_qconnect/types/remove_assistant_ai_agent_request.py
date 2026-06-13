@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#RemoveAssistantAIAgentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_qconnect.types.ai_agent_type
+    import aws_sdk_qconnect.types.non_empty_string
+    import aws_sdk_qconnect.types.uuid_or_arn
+
+
+class RemoveAssistantAIAgentRequest(TypedDict):
+    assistant_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
+    """<p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
+    ai_agent_type: "aws_sdk_qconnect.types.ai_agent_type.AIAgentType"
+    """<p>The type of the AI Agent being removed for use by default from the Amazon Q in Connect Assistant.</p>"""
+    orchestrator_use_case: NotRequired[
+        "aws_sdk_qconnect.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>The orchestrator use case for the AI Agent being removed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RemoveAssistantAIAgentRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> RemoveAssistantAIAgentRequest:
+    out: RemoveAssistantAIAgentRequest = {}  # type: ignore[typeddict-item]
+    return out

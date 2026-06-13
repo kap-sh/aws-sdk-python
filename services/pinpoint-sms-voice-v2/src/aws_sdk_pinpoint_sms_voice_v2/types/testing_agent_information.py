@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#TestingAgentInformation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint_sms_voice_v2.types.testing_agent_status
+
+
+class TestingAgentInformation(TypedDict):
+    status: (
+        "aws_sdk_pinpoint_sms_voice_v2.types.testing_agent_status.TestingAgentStatus"
+    )
+    """<p>The current status of the testing agent.</p>"""
+    testing_agent_id: NotRequired["str"]
+    """<p>The unique identifier for the testing agent.</p>"""
+    registration_id: "str"
+    """<p>The unique identifier of the registration associated with the testing agent.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: TestingAgentInformation) -> dict:
+    out: dict = {}
+    out["Status"] = value["status"]
+    if "testing_agent_id" in value:
+        out["TestingAgentId"] = value["testing_agent_id"]
+    out["RegistrationId"] = value["registration_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> TestingAgentInformation:
+    out: TestingAgentInformation = {}  # type: ignore[typeddict-item]
+    if "Status" in data:
+        out["status"] = data["Status"]
+    else:
+        raise DeserializationError("TestingAgentInformation.status required")
+    if "TestingAgentId" in data:
+        out["testing_agent_id"] = data["TestingAgentId"]
+    if "RegistrationId" in data:
+        out["registration_id"] = data["RegistrationId"]
+    else:
+        raise DeserializationError("TestingAgentInformation.registration_id required")
+    return out

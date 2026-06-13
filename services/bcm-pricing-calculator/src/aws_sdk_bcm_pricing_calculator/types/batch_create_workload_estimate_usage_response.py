@@ -1,26 +1,44 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateWorkloadEstimateUsageResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors
     import aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items
 
+
 class BatchCreateWorkloadEstimateUsageResponse(TypedDict):
-    items: NotRequired["aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items.BatchCreateWorkloadEstimateUsageItems"]
+    items: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items.BatchCreateWorkloadEstimateUsageItems"
+    ]
     """<p> Returns the list of successful usage line items that were created for the Workload estimate. </p>"""
-    errors: NotRequired["aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors.BatchCreateWorkloadEstimateUsageErrors"]
+    errors: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors.BatchCreateWorkloadEstimateUsageErrors"
+    ]
     """<p> Returns the list of errors reason and the usage item keys that cannot be created in the Workload estimate. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: BatchCreateWorkloadEstimateUsageResponse) -> dict:
     out: dict = {}
     if "items" in value:
         import aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items
-        out["items"] = aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items.serialize_aws_json_1_0(value["items"])
+
+        out["items"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items.serialize_aws_json_1_0(
+                value["items"]
+            )
+        )
     if "errors" in value:
         import aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors
-        out["errors"] = aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors.serialize_aws_json_1_0(value["errors"])
+
+        out["errors"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors.serialize_aws_json_1_0(
+                value["errors"]
+            )
+        )
     return out
 
 
@@ -28,8 +46,18 @@ def deserialize_aws_json_1_0(data: dict) -> BatchCreateWorkloadEstimateUsageResp
     out: BatchCreateWorkloadEstimateUsageResponse = {}  # type: ignore[typeddict-item]
     if "items" in data:
         import aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items
-        out["items"] = aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items.deserialize_aws_json_1_0(data["items"])
+
+        out["items"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_items.deserialize_aws_json_1_0(
+                data["items"]
+            )
+        )
     if "errors" in data:
         import aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors
-        out["errors"] = aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors.deserialize_aws_json_1_0(data["errors"])
+
+        out["errors"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_create_workload_estimate_usage_errors.deserialize_aws_json_1_0(
+                data["errors"]
+            )
+        )
     return out

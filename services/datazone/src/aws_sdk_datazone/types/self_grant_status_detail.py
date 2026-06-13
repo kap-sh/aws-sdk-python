@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#SelfGrantStatusDetail``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_datazone.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_datazone.types.self_grant_status
+
+
+class SelfGrantStatusDetail(TypedDict):
+    database_name: "str"
+    """<p>The name of the database used for the data source.</p>"""
+    schema_name: NotRequired["str"]
+    """<p>The name of the schema used in the data source.</p>"""
+    status: "aws_sdk_datazone.types.self_grant_status.SelfGrantStatus"
+    """<p>The self granting status of the data source.</p>"""
+    failure_cause: NotRequired["str"]
+    """<p>The reason for why the operation failed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SelfGrantStatusDetail) -> dict:
+    out: dict = {}
+    out["databaseName"] = value["database_name"]
+    if "schema_name" in value:
+        out["schemaName"] = value["schema_name"]
+    import aws_sdk_datazone.types.self_grant_status
+
+    out["status"] = aws_sdk_datazone.types.self_grant_status.serialize_json(
+        value["status"]
+    )
+    if "failure_cause" in value:
+        out["failureCause"] = value["failure_cause"]
+    return out
+
+
+def deserialize_json(data: dict) -> SelfGrantStatusDetail:
+    out: SelfGrantStatusDetail = {}  # type: ignore[typeddict-item]
+    if "databaseName" in data:
+        out["database_name"] = data["databaseName"]
+    else:
+        raise DeserializationError("SelfGrantStatusDetail.database_name required")
+    if "schemaName" in data:
+        out["schema_name"] = data["schemaName"]
+    if "status" in data:
+        import aws_sdk_datazone.types.self_grant_status
+
+        out["status"] = aws_sdk_datazone.types.self_grant_status.deserialize_json(
+            data["status"]
+        )
+    else:
+        raise DeserializationError("SelfGrantStatusDetail.status required")
+    if "failureCause" in data:
+        out["failure_cause"] = data["failureCause"]
+    return out

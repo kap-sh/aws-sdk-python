@@ -1,19 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AntennaListItem``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_groundstation.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.antenna_name
     import aws_sdk_groundstation.types.aws_region
     import aws_sdk_groundstation.types.ground_station_name
 
+
 class AntennaListItem(TypedDict):
-    ground_station_name: "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
+    ground_station_name: (
+        "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
+    )
     """<p>Name of the ground station the antenna is associated with.</p>"""
     antenna_name: "aws_sdk_groundstation.types.antenna_name.AntennaName"
     """<p>Name of the antenna.</p>"""
     region: "aws_sdk_groundstation.types.aws_region.AWSRegion"
     """<p>Region of the antenna.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AntennaListItem) -> dict:

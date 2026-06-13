@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceNodeActionEvent``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
     import aws_sdk_bedrock_agent_runtime.types.node_name
+
 
 class FlowTraceNodeActionEvent(TypedDict):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
@@ -23,12 +27,18 @@ class FlowTraceNodeActionEvent(TypedDict):
     operation_response: NotRequired["object"]
     """<p>The response payload received from the downstream service.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: FlowTraceNodeActionEvent) -> dict:
     out: dict = {}
     out["nodeName"] = value["node_name"]
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-    out["timestamp"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(value["timestamp"])
+
+    out["timestamp"] = (
+        aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+            value["timestamp"]
+        )
+    )
     out["requestId"] = value["request_id"]
     out["serviceName"] = value["service_name"]
     out["operationName"] = value["operation_name"]
@@ -47,7 +57,12 @@ def deserialize_json(data: dict) -> FlowTraceNodeActionEvent:
         raise DeserializationError("FlowTraceNodeActionEvent.node_name required")
     if "timestamp" in data:
         import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-        out["timestamp"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(data["timestamp"])
+
+        out["timestamp"] = (
+            aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
+                data["timestamp"]
+            )
+        )
     else:
         raise DeserializationError("FlowTraceNodeActionEvent.timestamp required")
     if "requestId" in data:

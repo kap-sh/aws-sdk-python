@@ -2,12 +2,15 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.grant_identifier
+
 
 class AddPolicyGrantOutput(TypedDict):
     grant_id: NotRequired["aws_sdk_datazone.types.grant_identifier.GrantIdentifier"]
     """<p>The ID of the policy grant that was added to a specified entity.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AddPolicyGrantOutput) -> dict:

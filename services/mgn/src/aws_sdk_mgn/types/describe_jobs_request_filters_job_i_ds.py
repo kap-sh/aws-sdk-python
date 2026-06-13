@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DescribeJobsRequestFiltersJobIDs``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.job_id
 

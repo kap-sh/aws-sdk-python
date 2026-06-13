@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.location#GetMapTileRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_location.types.api_key
+    import aws_sdk_location.types.resource_name
+    import aws_sdk_location.types.sensitive_string
+
+
+class GetMapTileRequest(TypedDict):
+    map_name: "aws_sdk_location.types.resource_name.ResourceName"
+    """<p>The map resource to retrieve the map tiles from.</p>"""
+    z: "aws_sdk_location.types.sensitive_string.SensitiveString"
+    """<p>The zoom value for the map tile.</p>"""
+    x: "aws_sdk_location.types.sensitive_string.SensitiveString"
+    """<p>The X axis value for the map tile.</p>"""
+    y: "aws_sdk_location.types.sensitive_string.SensitiveString"
+    """<p>The Y axis value for the map tile. </p>"""
+    key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]
+    """<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMapTileRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetMapTileRequest:
+    out: GetMapTileRequest = {}  # type: ignore[typeddict-item]
+    return out

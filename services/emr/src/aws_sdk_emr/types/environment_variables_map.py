@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_emr.types.xml_string_max_len256
     import aws_sdk_emr.types.xml_string
+    import aws_sdk_emr.types.xml_string_max_len256
 
 EnvironmentVariablesMap: TypeAlias = dict[
     "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256",

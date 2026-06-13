@@ -1,0 +1,248 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import ensure_async_iterator
+from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import ensure_sync_iterator
+from aws_sdk_bedrock_agentcore_control._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+import aws_sdk_bedrock_agentcore_control._auth._signers
+import aws_sdk_bedrock_agentcore_control._auth._sigv4
+if TYPE_CHECKING:
+    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import BedrockAgentCoreControlClient, BedrockAgentCoreControlClientConfig
+    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import AsyncBedrockAgentCoreControlClient, AsyncBedrockAgentCoreControlClientConfig
+    import aws_sdk_bedrock_agentcore_control.types.browser_enterprise_policies
+    import aws_sdk_bedrock_agentcore_control.types.browser_id
+    import aws_sdk_bedrock_agentcore_control.types.browser_network_configuration
+    import aws_sdk_bedrock_agentcore_control.types.browser_signing_config_input
+    import aws_sdk_bedrock_agentcore_control.types.browser_summary
+    import aws_sdk_bedrock_agentcore_control.types.certificates
+    import aws_sdk_bedrock_agentcore_control.types.client_token
+    import aws_sdk_bedrock_agentcore_control.types.create_browser_request
+    import aws_sdk_bedrock_agentcore_control.types.create_browser_response
+    import aws_sdk_bedrock_agentcore_control.types.delete_browser_request
+    import aws_sdk_bedrock_agentcore_control.types.delete_browser_response
+    import aws_sdk_bedrock_agentcore_control.types.description
+    import aws_sdk_bedrock_agentcore_control.types.get_browser_request
+    import aws_sdk_bedrock_agentcore_control.types.get_browser_response
+    import aws_sdk_bedrock_agentcore_control.types.list_browsers_request
+    import aws_sdk_bedrock_agentcore_control.types.list_browsers_response
+    import aws_sdk_bedrock_agentcore_control.types.max_results
+    import aws_sdk_bedrock_agentcore_control.types.next_token
+    import aws_sdk_bedrock_agentcore_control.types.recording_config
+    import aws_sdk_bedrock_agentcore_control.types.resource_type
+    import aws_sdk_bedrock_agentcore_control.types.role_arn
+    import aws_sdk_bedrock_agentcore_control.types.sandbox_name
+    import aws_sdk_bedrock_agentcore_control.types.tags_map
+
+class BrowserResource:
+    def __init__(self, service: BedrockAgentCoreControlClient) -> None:
+        self._service = service
+    def create(self, name: "aws_sdk_bedrock_agentcore_control.types.sandbox_name.SandboxName", network_configuration: "aws_sdk_bedrock_agentcore_control.types.browser_network_configuration.BrowserNetworkConfiguration", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore_control.types.description.Description"] = None, execution_role_arn: Optional["aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn"] = None, recording: Optional["aws_sdk_bedrock_agentcore_control.types.recording_config.RecordingConfig"] = None, browser_signing: Optional["aws_sdk_bedrock_agentcore_control.types.browser_signing_config_input.BrowserSigningConfigInput"] = None, enterprise_policies: Optional["aws_sdk_bedrock_agentcore_control.types.browser_enterprise_policies.BrowserEnterprisePolicies"] = None, certificates: Optional["aws_sdk_bedrock_agentcore_control.types.certificates.Certificates"] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_browser_response.CreateBrowserResponse":
+        """<p>Creates a custom browser.</p>
+
+        Args:
+            name: <p>The name of the browser. The name must be unique within your account.</p>
+            description: <p>The description of the browser.</p>
+            execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the browser to access Amazon Web Services services.</p>
+            network_configuration: <p>The network configuration for the browser. This configuration specifies the network mode for the browser.</p>
+            recording: <p>The recording configuration for the browser. When enabled, browser sessions are recorded and stored in the specified Amazon S3 location.</p>
+            browser_signing: <p>The browser signing configuration that enables cryptographic agent identification using HTTP message signatures for web bot authentication.</p>
+            enterprise_policies: <p>A list of enterprise policy files for the browser.</p>
+            certificates: <p>A list of certificates to install in the browser.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
+            tags: <p>A map of tag keys and values to assign to the browser. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.create_browser_response.CreateBrowserResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_browser
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_browser.create_browser(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if execution_role_arn is not None:
+            input["execution_role_arn"] = execution_role_arn
+        input["network_configuration"] = network_configuration
+        if recording is not None:
+            input["recording"] = recording
+        if browser_signing is not None:
+            input["browser_signing"] = browser_signing
+        if enterprise_policies is not None:
+            input["enterprise_policies"] = enterprise_policies
+        if certificates is not None:
+            input["certificates"] = certificates
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def read(self, browser_id: "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_browser_response.GetBrowserResponse":
+        """<p>Gets information about a custom browser.</p>
+
+        Args:
+            browser_id: <p>The unique identifier of the browser to retrieve.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.get_browser_response.GetBrowserResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_browser
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_browser.get_browser(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest = {}  # type: ignore[typeddict-item]
+        input["browser_id"] = browser_id
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete(self, browser_id: "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_browser_response.DeleteBrowserResponse":
+        """<p>Deletes a custom browser.</p>
+
+        Args:
+            browser_id: <p>The unique identifier of the browser to delete.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_browser_response.DeleteBrowserResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_browser
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_browser.delete_browser(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest = {}  # type: ignore[typeddict-item]
+        input["browser_id"] = browser_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list(self, *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None, type: Optional["aws_sdk_bedrock_agentcore_control.types.resource_type.ResourceType"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_browsers_response.ListBrowsersResponse":
+        """<p>Lists all custom browsers in your account.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
+            next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+            type: <p>The type of browsers to list. If not specified, all browser types are returned.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_browsers_response.ListBrowsersResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_browsers
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_browsers.list_browsers(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if type is not None:
+            input["type"] = type
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+
+class AsyncBrowserResource:
+    def __init__(self, service: AsyncBedrockAgentCoreControlClient) -> None:
+        self._service = service
+    async def create(self, name: "aws_sdk_bedrock_agentcore_control.types.sandbox_name.SandboxName", network_configuration: "aws_sdk_bedrock_agentcore_control.types.browser_network_configuration.BrowserNetworkConfiguration", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore_control.types.description.Description"] = None, execution_role_arn: Optional["aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn"] = None, recording: Optional["aws_sdk_bedrock_agentcore_control.types.recording_config.RecordingConfig"] = None, browser_signing: Optional["aws_sdk_bedrock_agentcore_control.types.browser_signing_config_input.BrowserSigningConfigInput"] = None, enterprise_policies: Optional["aws_sdk_bedrock_agentcore_control.types.browser_enterprise_policies.BrowserEnterprisePolicies"] = None, certificates: Optional["aws_sdk_bedrock_agentcore_control.types.certificates.Certificates"] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_browser_response.CreateBrowserResponse":
+        """<p>Creates a custom browser.</p>
+
+        Args:
+            name: <p>The name of the browser. The name must be unique within your account.</p>
+            description: <p>The description of the browser.</p>
+            execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the browser to access Amazon Web Services services.</p>
+            network_configuration: <p>The network configuration for the browser. This configuration specifies the network mode for the browser.</p>
+            recording: <p>The recording configuration for the browser. When enabled, browser sessions are recorded and stored in the specified Amazon S3 location.</p>
+            browser_signing: <p>The browser signing configuration that enables cryptographic agent identification using HTTP message signatures for web bot authentication.</p>
+            enterprise_policies: <p>A list of enterprise policy files for the browser.</p>
+            certificates: <p>A list of certificates to install in the browser.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
+            tags: <p>A map of tag keys and values to assign to the browser. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.create_browser_response.CreateBrowserResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_browser
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_browser.async_create_browser(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if execution_role_arn is not None:
+            input["execution_role_arn"] = execution_role_arn
+        input["network_configuration"] = network_configuration
+        if recording is not None:
+            input["recording"] = recording
+        if browser_signing is not None:
+            input["browser_signing"] = browser_signing
+        if enterprise_policies is not None:
+            input["enterprise_policies"] = enterprise_policies
+        if certificates is not None:
+            input["certificates"] = certificates
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def read(self, browser_id: "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_browser_response.GetBrowserResponse":
+        """<p>Gets information about a custom browser.</p>
+
+        Args:
+            browser_id: <p>The unique identifier of the browser to retrieve.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.get_browser_response.GetBrowserResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_browser
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_browser.async_get_browser(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest = {}  # type: ignore[typeddict-item]
+        input["browser_id"] = browser_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete(self, browser_id: "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_browser_response.DeleteBrowserResponse":
+        """<p>Deletes a custom browser.</p>
+
+        Args:
+            browser_id: <p>The unique identifier of the browser to delete.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_browser_response.DeleteBrowserResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_browser
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_browser.async_delete_browser(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest = {}  # type: ignore[typeddict-item]
+        input["browser_id"] = browser_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list(self, *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None, type: Optional["aws_sdk_bedrock_agentcore_control.types.resource_type.ResourceType"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_browsers_response.ListBrowsersResponse":
+        """<p>Lists all custom browsers in your account.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
+            next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+            type: <p>The type of browsers to list. If not specified, all browser types are returned.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_browsers_response.ListBrowsersResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_browsers
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_browsers.async_list_browsers(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if type is not None:
+            input["type"] = type
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output

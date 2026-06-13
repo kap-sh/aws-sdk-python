@@ -1,0 +1,909 @@
+"""Generated from Smithy shape ``com.amazonaws.gameliftstreams#GameLiftStreams``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+import aws_sdk_gameliftstreams._auth._signers
+import aws_sdk_gameliftstreams._auth._sigv4
+from aws_sdk_gameliftstreams._auth._identity import Credentials
+from aws_sdk_gameliftstreams._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_gameliftstreams._auth._zapros_handler import AuthMiddleware
+from aws_sdk_gameliftstreams._pagination import resolve_path as _resolve_path
+from aws_sdk_gameliftstreams._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_gameliftstreams.types.add_stream_group_locations_input
+    import aws_sdk_gameliftstreams.types.add_stream_group_locations_output
+    import aws_sdk_gameliftstreams.types.arn
+    import aws_sdk_gameliftstreams.types.associate_applications_input
+    import aws_sdk_gameliftstreams.types.associate_applications_output
+    import aws_sdk_gameliftstreams.types.client_token
+    import aws_sdk_gameliftstreams.types.connection_timeout_seconds
+    import aws_sdk_gameliftstreams.types.create_stream_session_connection_input
+    import aws_sdk_gameliftstreams.types.create_stream_session_connection_output
+    import aws_sdk_gameliftstreams.types.description
+    import aws_sdk_gameliftstreams.types.disassociate_applications_input
+    import aws_sdk_gameliftstreams.types.disassociate_applications_output
+    import aws_sdk_gameliftstreams.types.environment_variables
+    import aws_sdk_gameliftstreams.types.export_files_status
+    import aws_sdk_gameliftstreams.types.export_stream_session_files_input
+    import aws_sdk_gameliftstreams.types.export_stream_session_files_output
+    import aws_sdk_gameliftstreams.types.game_launch_arg_list
+    import aws_sdk_gameliftstreams.types.get_stream_session_input
+    import aws_sdk_gameliftstreams.types.get_stream_session_output
+    import aws_sdk_gameliftstreams.types.identifier
+    import aws_sdk_gameliftstreams.types.identifiers
+    import aws_sdk_gameliftstreams.types.list_stream_sessions_by_account_input
+    import aws_sdk_gameliftstreams.types.list_stream_sessions_by_account_output
+    import aws_sdk_gameliftstreams.types.list_stream_sessions_input
+    import aws_sdk_gameliftstreams.types.list_stream_sessions_output
+    import aws_sdk_gameliftstreams.types.list_tags_for_resource_request
+    import aws_sdk_gameliftstreams.types.list_tags_for_resource_response
+    import aws_sdk_gameliftstreams.types.location_configurations
+    import aws_sdk_gameliftstreams.types.location_list
+    import aws_sdk_gameliftstreams.types.locations_list
+    import aws_sdk_gameliftstreams.types.max_results
+    import aws_sdk_gameliftstreams.types.next_token
+    import aws_sdk_gameliftstreams.types.output_uri
+    import aws_sdk_gameliftstreams.types.performance_stats_configuration
+    import aws_sdk_gameliftstreams.types.protocol
+    import aws_sdk_gameliftstreams.types.remove_stream_group_locations_input
+    import aws_sdk_gameliftstreams.types.session_length_seconds
+    import aws_sdk_gameliftstreams.types.signal_request
+    import aws_sdk_gameliftstreams.types.start_stream_session_input
+    import aws_sdk_gameliftstreams.types.start_stream_session_output
+    import aws_sdk_gameliftstreams.types.stream_session_status
+    import aws_sdk_gameliftstreams.types.stream_session_summary
+    import aws_sdk_gameliftstreams.types.tag_key_list
+    import aws_sdk_gameliftstreams.types.tag_resource_request
+    import aws_sdk_gameliftstreams.types.tag_resource_response
+    import aws_sdk_gameliftstreams.types.tags
+    import aws_sdk_gameliftstreams.types.terminate_stream_session_input
+    import aws_sdk_gameliftstreams.types.untag_resource_request
+    import aws_sdk_gameliftstreams.types.untag_resource_response
+    import aws_sdk_gameliftstreams.types.user_id
+
+
+class GameLiftStreamsClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    use_fips: bool | None
+    endpoint: str | None
+    region: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class GameLiftStreamsClient:
+    """A client for the ``GameLiftStreams`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = GameLiftStreamsClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[GameLiftStreamsClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: GameLiftStreamsClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            region=overrides.get("region", self.config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def add_stream_group_locations(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        location_configurations: "aws_sdk_gameliftstreams.types.location_configurations.LocationConfigurations",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.add_stream_group_locations_output.AddStreamGroupLocationsOutput":
+        """<p> Add locations that can host stream sessions. To add a location, the stream group must be in <code>ACTIVE</code> status. You configure locations and their corresponding capacity for each stream group. Creating a stream group in a location that's nearest to your end users can help minimize latency and improve quality. </p> <p> This operation provisions stream capacity at the specified locations. By default, all locations have 1 or 2 capacity, depending on the stream class option: 2 for 'High' and 1 for 'Ultra' and 'Win2022'. This operation also copies the content files of all associated applications to an internal S3 bucket at each location. This allows Amazon GameLift Streams to host performant stream sessions. </p>
+
+        Args:
+            identifier: <p> A stream group to add the specified locations to. </p> <p>This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            location_configurations: <p> A set of one or more locations and the streaming capacity for each location. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.add_stream_group_locations_input.AddStreamGroupLocationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.add_stream_group_locations_output.AddStreamGroupLocationsOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.add_stream_group_locations
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.add_stream_group_locations.add_stream_group_locations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.add_stream_group_locations_input.AddStreamGroupLocationsInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["location_configurations"] = location_configurations
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def associate_applications(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        application_identifiers: "aws_sdk_gameliftstreams.types.identifiers.Identifiers",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.associate_applications_output.AssociateApplicationsOutput":
+        """<p>When you associate, or link, an application with a stream group, then Amazon GameLift Streams can launch the application using the stream group's allocated compute resources. The stream group must be in <code>ACTIVE</code> status. You can reverse this action by using <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html\">DisassociateApplications</a>.</p> <p>If a stream group does not already have a linked application, Amazon GameLift Streams will automatically assign the first application provided in <code>ApplicationIdentifiers</code> as the default.</p>
+
+        Args:
+            identifier: <p>A stream group to associate to the applications.</p> <p>This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            application_identifiers: <p>A set of applications to associate with the stream group.</p> <p>This value is a set of either <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.associate_applications_input.AssociateApplicationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.associate_applications_output.AssociateApplicationsOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.associate_applications
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.associate_applications.associate_applications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.associate_applications_input.AssociateApplicationsInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["application_identifiers"] = application_identifiers
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_stream_session_connection(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        stream_session_identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        signal_request: "aws_sdk_gameliftstreams.types.signal_request.SignalRequest",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_gameliftstreams.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_gameliftstreams.types.create_stream_session_connection_output.CreateStreamSessionConnectionOutput":
+        """<p>Enables clients to reconnect to a stream session while preserving all session state and data in the disconnected session. This reconnection process can be initiated when a stream session is in either <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. The process works as follows: </p> <ol> <li> <p>Initial disconnect:</p> <ul> <li> <p>When a client disconnects or loses connection, the stream session transitions from <code>CONNECTED</code> to <code>PENDING_CLIENT_RECONNECTION</code> </p> </li> </ul> </li> <li> <p>Reconnection time window:</p> <ul> <li> <p>Clients have <code>ConnectionTimeoutSeconds</code> (defined in <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html\">StartStreamSession</a>) to reconnect before session termination</p> </li> <li> <p>Your backend server must call <b>CreateStreamSessionConnection</b> to initiate reconnection</p> </li> <li> <p>Session transitions to <code>RECONNECTING</code> status</p> </li> </ul> </li> <li> <p>Reconnection completion:</p> <ul> <li> <p>On successful <b>CreateStreamSessionConnection</b>, session status changes to <code>ACTIVE</code> </p> </li> <li> <p>Provide the new connection information to the requesting client</p> </li> <li> <p>Client must establish connection within <code>ConnectionTimeoutSeconds</code> </p> </li> <li> <p>Session terminates automatically if client fails to connect in time</p> </li> </ul> </li> </ol> <p>For more information about the stream session lifecycle, see <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/stream-sessions.html\">Stream sessions</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p> <p>To begin re-connecting to an existing stream session, specify the stream group ID and stream session ID that you want to reconnect to, and the signal request to use with the stream.</p>
+
+        Args:
+            client_token: <p> A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field. </p>
+            identifier: <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p> The stream group that you want to run this stream session with. The stream group must be in <code>ACTIVE</code> status. </p>
+            stream_session_identifier: <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</code>. Example ID: <code>ABC123def4567</code>. </p> <p> The stream session must be in <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. </p>
+            signal_request: <p>A WebRTC ICE offer string to use when initializing a WebRTC connection. The offer is a very long JSON string. Provide the string as a text value in quotes. The offer must be newly generated, not the same offer provided to <code>StartStreamSession</code>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.create_stream_session_connection_input.CreateStreamSessionConnectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.create_stream_session_connection_output.CreateStreamSessionConnectionOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.create_stream_session_connection
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.create_stream_session_connection.create_stream_session_connection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.create_stream_session_connection_input.CreateStreamSessionConnectionInput = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["identifier"] = identifier
+        input["stream_session_identifier"] = stream_session_identifier
+        input["signal_request"] = signal_request
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def disassociate_applications(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        application_identifiers: "aws_sdk_gameliftstreams.types.identifiers.Identifiers",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.disassociate_applications_output.DisassociateApplicationsOutput":
+        """<p> When you disassociate, or unlink, an application from a stream group, you can no longer stream this application by using that stream group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an end-user's stream. Amazon GameLift Streams will not initiate new streams in the stream group using the disassociated application. The disassociate action does not affect the stream capacity of a stream group. To disassociate an application, the stream group must be in <code>ACTIVE</code> status. </p> <p> If you disassociate the default application, Amazon GameLift Streams will automatically choose a new default application from the remaining associated applications. To change which application is the default application, call <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html\">UpdateStreamGroup</a> and specify a new <code>DefaultApplicationIdentifier</code>. </p>
+
+        Args:
+            identifier: <p>A stream group to disassociate these applications from.</p> <p>This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            application_identifiers: <p>A set of applications that you want to disassociate from the stream group.</p> <p>This value is a set of either <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.disassociate_applications_input.DisassociateApplicationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.disassociate_applications_output.DisassociateApplicationsOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.disassociate_applications
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.disassociate_applications.disassociate_applications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.disassociate_applications_input.DisassociateApplicationsInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["application_identifiers"] = application_identifiers
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def export_stream_session_files(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        stream_session_identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        output_uri: "aws_sdk_gameliftstreams.types.output_uri.OutputUri",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.export_stream_session_files_output.ExportStreamSessionFilesOutput":
+        """<p> Export the files that your application modifies or generates in a stream session, which can help you debug or verify your application. When your application runs, it generates output files such as logs, diagnostic information, crash dumps, save files, user data, screenshots, and so on. The files can be defined by the engine or frameworks that your application uses, or information that you've programmed your application to output. </p> <p> You can only call this action on a stream session that is in progress, specifically in one of the following statuses <code>ACTIVE</code>, <code>CONNECTED</code>, <code>PENDING_CLIENT_RECONNECTION</code>, and <code>RECONNECTING</code>. You must provide an Amazon Simple Storage Service (Amazon S3) bucket to store the files in. When the session ends, Amazon GameLift Streams produces a compressed folder that contains all of the files and directories that were modified or created by the application during the stream session. AWS uses your security credentials to authenticate and authorize access to your Amazon S3 bucket. </p> <p>Amazon GameLift Streams collects the following generated and modified files. Find them in the corresponding folders in the <code>.zip</code> archive.</p> <ul> <li> <p> <code>application/</code>: The folder where your application or game is stored. </p> </li> </ul> <ul> <li> <p> <code>profile/</code>: The user profile folder.</p> </li> <li> <p> <code>temp/</code>: The system temp folder.</p> </li> </ul> <p/> <p>To verify the status of the exported files, use GetStreamSession. </p> <p>To delete the files, delete the object in the S3 bucket. </p>
+
+        Args:
+            identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            stream_session_identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</code>. Example ID: <code>ABC123def4567</code>. </p>
+            output_uri: <p> The S3 bucket URI where Amazon GameLift Streams uploads the set of compressed exported files for this stream session. Amazon GameLift Streams generates a ZIP file name based on the stream session metadata. Alternatively, you can provide a custom file name with a <code>.zip</code> file extension.</p> <p> Example 1: If you provide an S3 URI called <code>s3://amzn-s3-demo-destination-bucket/MyGame_Session1.zip</code>, then Amazon GameLift Streams will save the files at that location. </p> <p> Example 2: If you provide an S3 URI called <code>s3://amzn-s3-demo-destination-bucket/MyGameSessions_ExportedFiles/</code>, then Amazon GameLift Streams will save the files at <code>s3://amzn-s3-demo-destination-bucket/MyGameSessions_ExportedFiles/YYYYMMDD-HHMMSS-appId-sg-Id-sessionId.zip</code> or another similar name. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.export_stream_session_files_input.ExportStreamSessionFilesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.export_stream_session_files_output.ExportStreamSessionFilesOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.export_stream_session_files
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.export_stream_session_files.export_stream_session_files(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.export_stream_session_files_input.ExportStreamSessionFilesInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["stream_session_identifier"] = stream_session_identifier
+        input["output_uri"] = output_uri
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_stream_session(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        stream_session_identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> (
+        "aws_sdk_gameliftstreams.types.get_stream_session_output.GetStreamSessionOutput"
+    ):
+        """<p>Retrieves properties for a Amazon GameLift Streams stream session resource. Specify the Amazon Resource Name (ARN) of the stream session that you want to retrieve and its stream group ARN. If the operation is successful, it returns properties for the requested resource.</p>
+
+        Args:
+            identifier: <p>The stream group that runs this stream session.</p> <p>This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            stream_session_identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</code>. Example ID: <code>ABC123def4567</code>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.get_stream_session_input.GetStreamSessionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.get_stream_session_output.GetStreamSessionOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.get_stream_session
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.get_stream_session.get_stream_session(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.get_stream_session_input.GetStreamSessionInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["stream_session_identifier"] = stream_session_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_stream_sessions(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+        status: Optional[
+            "aws_sdk_gameliftstreams.types.stream_session_status.StreamSessionStatus"
+        ] = None,
+        export_files_status: Optional[
+            "aws_sdk_gameliftstreams.types.export_files_status.ExportFilesStatus"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_gameliftstreams.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_gameliftstreams.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_gameliftstreams.types.list_stream_sessions_output.ListStreamSessionsOutput":
+        """<p>Retrieves a list of Amazon GameLift Streams stream sessions that a stream group is hosting.</p> <p>To retrieve stream sessions, specify the stream group, and optionally filter by stream session status. You can paginate the results as needed.</p> <p>This operation returns the requested stream sessions in no particular order.</p>
+
+        Args:
+            status: <p>Filter by the stream session status. You can specify one status in each request to retrieve only sessions that are currently in that status.</p>
+            export_files_status: <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that exported files status.</p> <p> Exported files can be in one of the following states: </p> <ul> <li> <p> <code>SUCCEEDED</code>: The exported files are successfully stored in an S3 bucket.</p> </li> <li> <p> <code>FAILED</code>: The session ended but Amazon GameLift Streams couldn't collect and upload the files to S3.</p> </li> <li> <p> <code>PENDING</code>: Either the stream session is still in progress, or uploading the exported files to the S3 bucket is in progress.</p> </li> </ul>
+            next_token: <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
+            max_results: <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>. </p>
+            identifier: <p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for. You can use either the stream group ID or the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.list_stream_sessions_input.ListStreamSessionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.list_stream_sessions_output.ListStreamSessionsOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.list_stream_sessions
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.list_stream_sessions.list_stream_sessions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.list_stream_sessions_input.ListStreamSessionsInput = {}  # type: ignore[typeddict-item]
+        if status is not None:
+            input["status"] = status
+        if export_files_status is not None:
+            input["export_files_status"] = export_files_status
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_stream_sessions(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+        status: Optional[
+            "aws_sdk_gameliftstreams.types.stream_session_status.StreamSessionStatus"
+        ] = None,
+        export_files_status: Optional[
+            "aws_sdk_gameliftstreams.types.export_files_status.ExportFilesStatus"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_gameliftstreams.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_gameliftstreams.types.max_results.MaxResults"
+        ] = None,
+    ) -> "Iterator[aws_sdk_gameliftstreams.types.stream_session_summary.StreamSessionSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_stream_sessions(
+                identifier,
+                config_overrides=config_overrides,
+                status=status,
+                export_files_status=export_files_status,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_stream_sessions_by_account(
+        self,
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+        status: Optional[
+            "aws_sdk_gameliftstreams.types.stream_session_status.StreamSessionStatus"
+        ] = None,
+        export_files_status: Optional[
+            "aws_sdk_gameliftstreams.types.export_files_status.ExportFilesStatus"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_gameliftstreams.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_gameliftstreams.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_gameliftstreams.types.list_stream_sessions_by_account_output.ListStreamSessionsByAccountOutput":
+        """<p>Retrieves a list of Amazon GameLift Streams stream sessions that this user account has access to.</p> <p>In the returned list of stream sessions, the <code>ExportFilesMetadata</code> property only shows the <code>Status</code> value. To get the <code>OutpurUri</code> and <code>StatusReason</code> values, use <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html\">GetStreamSession</a>.</p> <p>We don't recommend using this operation to regularly check stream session statuses because it's costly. Instead, to check status updates for a specific stream session, use <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html\">GetStreamSession</a>.</p>
+
+        Args:
+            status: <p>Filter by the stream session status. You can specify one status in each request to retrieve only sessions that are currently in that status.</p>
+            export_files_status: <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that exported files status.</p>
+            next_token: <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
+            max_results: <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.list_stream_sessions_by_account_input.ListStreamSessionsByAccountInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.list_stream_sessions_by_account_output.ListStreamSessionsByAccountOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.list_stream_sessions_by_account
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.list_stream_sessions_by_account.list_stream_sessions_by_account(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.list_stream_sessions_by_account_input.ListStreamSessionsByAccountInput = {}  # type: ignore[typeddict-item]
+        if status is not None:
+            input["status"] = status
+        if export_files_status is not None:
+            input["export_files_status"] = export_files_status
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_stream_sessions_by_account(
+        self,
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+        status: Optional[
+            "aws_sdk_gameliftstreams.types.stream_session_status.StreamSessionStatus"
+        ] = None,
+        export_files_status: Optional[
+            "aws_sdk_gameliftstreams.types.export_files_status.ExportFilesStatus"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_gameliftstreams.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_gameliftstreams.types.max_results.MaxResults"
+        ] = None,
+    ) -> "Iterator[aws_sdk_gameliftstreams.types.stream_session_summary.StreamSessionSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_stream_sessions_by_account(
+                config_overrides=config_overrides,
+                status=status,
+                export_files_status=export_files_status,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_gameliftstreams.types.arn.Arn",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Retrieves all tags assigned to a Amazon GameLift Streams resource. To list tags for a resource, specify the ARN value for the resource.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i> </p> <p> <a href=\"http://aws.amazon.com/answers/account-management/aws-tagging-strategies/\"> Amazon Web Services Tagging Strategies</a> </p>
+
+        Args:
+            resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> that you want to retrieve tags for. To get an Amazon GameLift Streams resource ARN, call a List or Get operation for the resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.list_tags_for_resource
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def remove_stream_group_locations(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        locations: "aws_sdk_gameliftstreams.types.locations_list.LocationsList",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> None:
+        """<p> Removes a set of remote locations from this stream group. To remove a location, the stream group must be in <code>ACTIVE</code> status. When you remove a location, Amazon GameLift Streams releases allocated compute resources in that location. Stream sessions can no longer start from removed locations in a stream group. Amazon GameLift Streams also deletes the content files of all associated applications that were in Amazon GameLift Streams's internal Amazon S3 bucket at this location. </p> <p> You cannot remove the Amazon Web Services Region location where you initially created this stream group, known as the primary location. However, you can set the stream capacity to zero to avoid incurring costs for allocated compute resources in that location. </p>
+
+        Args:
+            identifier: <p> A stream group to remove the specified locations from. </p> <p> This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            locations: <p> A set of locations to remove this stream group. For example, <code>us-east-1</code>.</p> <p> For a complete list of locations that Amazon GameLift Streams supports, refer to <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html\">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.remove_stream_group_locations_input.RemoveStreamGroupLocationsInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.remove_stream_group_locations
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.remove_stream_group_locations.remove_stream_group_locations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.remove_stream_group_locations_input.RemoveStreamGroupLocationsInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["locations"] = locations
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def start_stream_session(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        protocol: "aws_sdk_gameliftstreams.types.protocol.Protocol",
+        signal_request: "aws_sdk_gameliftstreams.types.signal_request.SignalRequest",
+        application_identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_gameliftstreams.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_gameliftstreams.types.description.Description"
+        ] = None,
+        user_id: Optional["aws_sdk_gameliftstreams.types.user_id.UserId"] = None,
+        locations: Optional[
+            "aws_sdk_gameliftstreams.types.location_list.LocationList"
+        ] = None,
+        connection_timeout_seconds: Optional[
+            "aws_sdk_gameliftstreams.types.connection_timeout_seconds.ConnectionTimeoutSeconds"
+        ] = None,
+        session_length_seconds: Optional[
+            "aws_sdk_gameliftstreams.types.session_length_seconds.SessionLengthSeconds"
+        ] = None,
+        additional_launch_args: Optional[
+            "aws_sdk_gameliftstreams.types.game_launch_arg_list.GameLaunchArgList"
+        ] = None,
+        additional_environment_variables: Optional[
+            "aws_sdk_gameliftstreams.types.environment_variables.EnvironmentVariables"
+        ] = None,
+        performance_stats_configuration: Optional[
+            "aws_sdk_gameliftstreams.types.performance_stats_configuration.PerformanceStatsConfiguration"
+        ] = None,
+    ) -> "aws_sdk_gameliftstreams.types.start_stream_session_output.StartStreamSessionOutput":
+        """<p> This action initiates a new stream session and outputs connection information that clients can use to access the stream. A stream session refers to an instance of a stream that Amazon GameLift Streams transmits from the server to the end-user. A stream session runs on a compute resource that a stream group has allocated. The start stream session process works as follows: </p> <ol> <li> <p>Prerequisites:</p> <ul> <li> <p>You must have a stream group in <code>ACTIVE</code> status</p> </li> <li> <p>You must have idle or on-demand capacity in a stream group in the location you want to stream from</p> </li> <li> <p>You must have at least one application associated to the stream group (use <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html\">AssociateApplications</a> if needed)</p> </li> </ul> </li> <li> <p>Start stream request:</p> <ul> <li> <p>Your backend server calls <b>StartStreamSession</b> to initiate connection</p> </li> <li> <p>Amazon GameLift Streams creates the stream session resource, assigns an Amazon Resource Name (ARN) value, and begins searching for available stream capacity to run the stream</p> </li> <li> <p>Session transitions to <code>ACTIVATING</code> status</p> </li> </ul> </li> <li> <p>Placement completion:</p> <ul> <li> <p>If Amazon GameLift Streams is successful in finding capacity for the stream, the stream session status changes to <code>ACTIVE</code> status and <b>StartStreamSession</b> returns stream connection information</p> </li> <li> <p>If Amazon GameLift Streams was not successful in finding capacity within the placement timeout period (defined according to the capacity type and platform type), the stream session status changes to <code>ERROR</code> status and <b>StartStreamSession</b> returns a <code>StatusReason</code> of <code>placementTimeout</code> </p> </li> </ul> </li> <li> <p>Connection completion:</p> <ul> <li> <p>Provide the new connection information to the requesting client</p> </li> <li> <p>Client must establish connection within <code>ConnectionTimeoutSeconds</code> (specified in <b>StartStreamSession</b> parameters)</p> </li> <li> <p>Session terminates automatically if client fails to connect in time</p> </li> </ul> </li> </ol> <p>For more information about the stream session lifecycle, see <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/stream-sessions.html\">Stream sessions</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p> <p>Timeouts to be aware of that affect a stream session:</p> <ul> <li> <p> <b>Placement timeout</b>: The amount of time that Amazon GameLift Streams has to find capacity for a stream request. Placement timeout varies based on the capacity type used to fulfill your stream request:</p> <ul> <li> <p> <b>Always-on capacity</b>: 75 seconds</p> </li> <li> <p> <b>On-demand capacity</b>:</p> <ul> <li> <p>Linux/Proton runtimes: 90 seconds</p> </li> <li> <p>Windows runtime: 10 minutes</p> </li> </ul> </li> </ul> </li> <li> <p> <b>Connection timeout</b>: The amount of time that Amazon GameLift Streams waits for a client to connect to a stream session in <code>ACTIVE</code> status, or reconnect to a stream session in <code>PENDING_CLIENT_RECONNECTION</code> status, the latter of which occurs when a client disconnects or loses connection from a stream session. If no client connects before the timeout, Amazon GameLift Streams terminates the stream session. This value is specified by <code>ConnectionTimeoutSeconds</code> in the <code>StartStreamSession</code> parameters.</p> </li> <li> <p> <b>Maximum session length</b>: A stream session will be terminated after this amount of time has elapsed since it started, regardless of any existing client connections. This value is specified by <code>SessionLengthSeconds</code> in the <code>StartStreamSession</code> parameters.</p> </li> </ul> <p>To start a new stream session, specify a stream group ID and application ID, along with the transport protocol and signal request to use with the stream session.</p> <p>For stream groups that have multiple locations, provide a set of locations ordered by priority using a <code>Locations</code> parameter. Amazon GameLift Streams will start a single stream session in the next available location. An application must be finished replicating to a remote location before the remote location can host a stream.</p> <p>To reconnect to a stream session after a client disconnects or loses connection, use <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamSessionConnection.html\">CreateStreamSessionConnection</a>.</p>
+
+        Args:
+            client_token: <p> A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field. </p>
+            description: <p>A human-readable label for the stream session. You can update this value later.</p>
+            identifier: <p>The stream group to run this stream session with.</p> <p>This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+            protocol: <p>The data transport protocol to use for the stream session.</p>
+            signal_request: <p>A WebRTC ICE offer string to use when initializing a WebRTC connection. Typically, the offer is a very long JSON string. Provide the string as a text value in quotes.</p> <p>Amazon GameLift Streams also supports setting the field to \"NO_CLIENT_CONNECTION\". This will create a session without needing any browser request or Web SDK integration. The session starts up as usual and waits for a reconnection from a browser, which is accomplished using <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamSessionConnection.html\">CreateStreamSessionConnection</a>.</p>
+            application_identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+            user_id: <p> An opaque, unique identifier for an end-user, defined by the developer. </p>
+            locations: <p> A list of locations, in order of priority, where you want Amazon GameLift Streams to start a stream from. For example, <code>us-east-1</code>. Amazon GameLift Streams selects the location with the next available capacity to start a single stream session in. If this value is empty, Amazon GameLift Streams attempts to start a stream session in the primary location. </p> <p> For a complete list of locations that Amazon GameLift Streams supports, refer to <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html\">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+            connection_timeout_seconds: <p>Length of time (in seconds) that Amazon GameLift Streams should wait for a client to connect or reconnect to the stream session. Applies to both connection and reconnection scenarios. This time span starts when the stream session reaches <code>ACTIVE</code> state. If no client connects before the timeout, Amazon GameLift Streams terminates the stream session. Default value is 120.</p>
+            session_length_seconds: <p>The maximum duration of a session. Amazon GameLift Streams will automatically terminate a session after this amount of time has elapsed, regardless of any existing client connections. Default value is 43200 (12 hours).</p>
+            additional_launch_args: <p>A list of CLI arguments that are sent to the streaming server when a stream session launches. You can use this to configure the application or stream session details. You can also provide custom arguments that Amazon GameLift Streams passes to your game client.</p> <p> <code>AdditionalEnvironmentVariables</code> and <code>AdditionalLaunchArgs</code> have similar purposes. <code>AdditionalEnvironmentVariables</code> passes data using environment variables; while <code>AdditionalLaunchArgs</code> passes data using command-line arguments.</p>
+            additional_environment_variables: <p>A set of options that you can use to control the stream session runtime environment, expressed as a set of key-value pairs. You can use this to configure the application or stream session details. You can also provide custom environment variables that Amazon GameLift Streams passes to your game client.</p> <note> <p>If you want to debug your application with environment variables, we recommend that you do so in a local environment outside of Amazon GameLift Streams. For more information, refer to the Compatibility Guidance in the troubleshooting section of the Developer Guide.</p> </note> <p> <code>AdditionalEnvironmentVariables</code> and <code>AdditionalLaunchArgs</code> have similar purposes. <code>AdditionalEnvironmentVariables</code> passes data using environment variables; while <code>AdditionalLaunchArgs</code> passes data using command-line arguments.</p>
+            performance_stats_configuration: <p>Configuration settings for sharing the stream session's performance stats with the client</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.start_stream_session_input.StartStreamSessionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.start_stream_session_output.StartStreamSessionOutput"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.start_stream_session
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.start_stream_session.start_stream_session(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.start_stream_session_input.StartStreamSessionInput = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        if description is not None:
+            input["description"] = description
+        input["identifier"] = identifier
+        input["protocol"] = protocol
+        input["signal_request"] = signal_request
+        input["application_identifier"] = application_identifier
+        if user_id is not None:
+            input["user_id"] = user_id
+        if locations is not None:
+            input["locations"] = locations
+        if connection_timeout_seconds is not None:
+            input["connection_timeout_seconds"] = connection_timeout_seconds
+        if session_length_seconds is not None:
+            input["session_length_seconds"] = session_length_seconds
+        if additional_launch_args is not None:
+            input["additional_launch_args"] = additional_launch_args
+        if additional_environment_variables is not None:
+            input["additional_environment_variables"] = additional_environment_variables
+        if performance_stats_configuration is not None:
+            input["performance_stats_configuration"] = performance_stats_configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_gameliftstreams.types.arn.Arn",
+        tags: "aws_sdk_gameliftstreams.types.tags.Tags",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.tag_resource_response.TagResourceResponse":
+        """<p>Assigns one or more tags to a Amazon GameLift Streams resource. Use tags to organize Amazon Web Services resources for a range of purposes. You can assign tags to the following Amazon GameLift Streams resource types:</p> <ul> <li> <p>Application</p> </li> <li> <p>StreamGroup</p> </li> </ul> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i> </p> <p> <a href=\"http://aws.amazon.com/answers/account-management/aws-tagging-strategies/\"> Amazon Web Services Tagging Strategies</a> </p>
+
+        Args:
+            resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to apply tags to.</p>
+            tags: <p>A list of tags, in the form of key-value pairs, to assign to the specified Amazon GameLift Streams resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.tag_resource
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def terminate_stream_session(
+        self,
+        identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        stream_session_identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> None:
+        """<p>Permanently terminates an active stream session. When called, the stream session status changes to <code>TERMINATING</code>. You can terminate a stream session in any status except <code>ACTIVATING</code>. If the stream session is in <code>ACTIVATING</code> status, an exception is thrown.</p>
+
+        Args:
+            identifier: <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p>The stream group that runs this stream session.</p>
+            stream_session_identifier: <p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</code>. Example ID: <code>ABC123def4567</code>. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.terminate_stream_session_input.TerminateStreamSessionInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.terminate_stream_session
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.terminate_stream_session.terminate_stream_session(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.terminate_stream_session_input.TerminateStreamSessionInput = {}  # type: ignore[typeddict-item]
+        input["identifier"] = identifier
+        input["stream_session_identifier"] = stream_session_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_gameliftstreams.types.arn.Arn",
+        tag_keys: "aws_sdk_gameliftstreams.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[GameLiftStreamsClientConfig] = None,
+    ) -> "aws_sdk_gameliftstreams.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes one or more tags from a Amazon GameLift Streams resource. To remove tags, specify the Amazon GameLift Streams resource and a list of one or more tags to remove.</p>
+
+        Args:
+            resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to remove tags from.</p>
+            tag_keys: <p>A list of tag keys to remove from the specified Amazon GameLift Streams resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_gameliftstreams.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_gameliftstreams.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_gameliftstreams._operations.game_lift_streams.untag_resource
+
+            output, http_response = (
+                aws_sdk_gameliftstreams._operations.game_lift_streams.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_gameliftstreams.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#Filter``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class Filter(TypedDict):
     attribute: NotRequired["str"]
@@ -10,6 +12,7 @@ class Filter(TypedDict):
     """<p>The type of search (For example, eq, geq, leq)</p>"""
     value: NotRequired["str"]
     """<p>Value of the filter.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Filter) -> dict:

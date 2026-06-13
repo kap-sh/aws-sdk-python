@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#JobLogEventData``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.conversion_properties
     import aws_sdk_drs.types.ec2_instance_id
@@ -9,6 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.job_event_attempt_count
     import aws_sdk_drs.types.large_bounded_string
     import aws_sdk_drs.types.source_server_id
+
 
 class JobLogEventData(TypedDict):
     source_server_id: NotRequired["aws_sdk_drs.types.source_server_id.SourceServerID"]
@@ -19,14 +22,19 @@ class JobLogEventData(TypedDict):
     """<p>The ID of a Recovery Instance.</p>"""
     raw_error: NotRequired["aws_sdk_drs.types.large_bounded_string.LargeBoundedString"]
     """<p>A string representing a job error.</p>"""
-    conversion_properties: NotRequired["aws_sdk_drs.types.conversion_properties.ConversionProperties"]
+    conversion_properties: NotRequired[
+        "aws_sdk_drs.types.conversion_properties.ConversionProperties"
+    ]
     """<p>Properties of a conversion job</p>"""
-    event_resource_data: NotRequired["aws_sdk_drs.types.event_resource_data.EventResourceData"]
+    event_resource_data: NotRequired[
+        "aws_sdk_drs.types.event_resource_data.EventResourceData"
+    ]
     """<p>Properties of resource related to a job event.</p>"""
     attempt_count: "aws_sdk_drs.types.job_event_attempt_count.JobEventAttemptCount"
     """<p>Retries for this operation.</p>"""
     max_attempts_count: "aws_sdk_drs.types.job_event_attempt_count.JobEventAttemptCount"
     """<p>The maximum number of retries that will be attempted if this operation failed.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: JobLogEventData) -> dict:
@@ -41,10 +49,18 @@ def serialize_json(value: JobLogEventData) -> dict:
         out["rawError"] = value["raw_error"]
     if "conversion_properties" in value:
         import aws_sdk_drs.types.conversion_properties
-        out["conversionProperties"] = aws_sdk_drs.types.conversion_properties.serialize_json(value["conversion_properties"])
+
+        out["conversionProperties"] = (
+            aws_sdk_drs.types.conversion_properties.serialize_json(
+                value["conversion_properties"]
+            )
+        )
     if "event_resource_data" in value:
         import aws_sdk_drs.types.event_resource_data
-        out["eventResourceData"] = aws_sdk_drs.types.event_resource_data.serialize_json(value["event_resource_data"])
+
+        out["eventResourceData"] = aws_sdk_drs.types.event_resource_data.serialize_json(
+            value["event_resource_data"]
+        )
     out["attemptCount"] = value.get("attempt_count", 0)
     out["maxAttemptsCount"] = value.get("max_attempts_count", 0)
     return out
@@ -62,10 +78,20 @@ def deserialize_json(data: dict) -> JobLogEventData:
         out["raw_error"] = data["rawError"]
     if "conversionProperties" in data:
         import aws_sdk_drs.types.conversion_properties
-        out["conversion_properties"] = aws_sdk_drs.types.conversion_properties.deserialize_json(data["conversionProperties"])
+
+        out["conversion_properties"] = (
+            aws_sdk_drs.types.conversion_properties.deserialize_json(
+                data["conversionProperties"]
+            )
+        )
     if "eventResourceData" in data:
         import aws_sdk_drs.types.event_resource_data
-        out["event_resource_data"] = aws_sdk_drs.types.event_resource_data.deserialize_json(data["eventResourceData"])
+
+        out["event_resource_data"] = (
+            aws_sdk_drs.types.event_resource_data.deserialize_json(
+                data["eventResourceData"]
+            )
+        )
     if "attemptCount" in data:
         out["attempt_count"] = data["attemptCount"]
     else:

@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#GatewayRouteHostnameRewrite``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.default_gateway_route_rewrite
 
+
 class GatewayRouteHostnameRewrite(TypedDict):
-    default_target_hostname: NotRequired["aws_sdk_app_mesh.types.default_gateway_route_rewrite.DefaultGatewayRouteRewrite"]
+    default_target_hostname: NotRequired[
+        "aws_sdk_app_mesh.types.default_gateway_route_rewrite.DefaultGatewayRouteRewrite"
+    ]
     """<p>The default target host name to write to.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GatewayRouteHostnameRewrite) -> dict:

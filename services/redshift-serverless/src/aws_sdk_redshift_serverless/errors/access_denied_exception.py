@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#AccessDeniedException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_redshift_serverless.errors import ServiceError
+
 
 class AccessDeniedException_(TypedDict):
     code: NotRequired["str"]
     message: NotRequired["str"]
+
 
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: AccessDeniedException_) -> dict:
@@ -29,10 +33,16 @@ def deserialize_aws_json_1_1(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.redshiftserverless#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

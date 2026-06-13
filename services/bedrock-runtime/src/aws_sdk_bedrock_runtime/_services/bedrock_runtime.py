@@ -1,20 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#AmazonBedrockFrontendService``."""
 
-from aws_sdk_bedrock_runtime._auth._signers import SigV4Signer
-from aws_sdk_bedrock_runtime._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_bedrock_runtime._auth._zapros_handler import AuthMiddleware
-from aws_sdk_bedrock_runtime._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_bedrock_runtime.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 from aws_sdk_bedrock_runtime._auth._identity import Credentials
-from aws_sdk_bedrock_runtime._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
-from aws_sdk_bedrock_runtime._auth._providers import BearerTokenProvider, StaticBearerTokenProvider
+from aws_sdk_bedrock_runtime._auth._providers import (
+    BearerTokenProvider,
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+    StaticBearerTokenProvider,
+)
+from aws_sdk_bedrock_runtime._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock_runtime._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    retry,
+)
+
 
 class BedrockRuntimeClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
@@ -26,7 +32,9 @@ class BedrockRuntimeClientConfig(TypedDict, total=False):
     credentials_provider: CredentialsProvider | None
     bearer_provider: BearerTokenProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -34,6 +42,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class BedrockRuntimeClient:
     """A client for the ``BedrockRuntime`` service.
@@ -51,23 +60,84 @@ class BedrockRuntimeClient:
         bearer: Bearer token for authentication.
         bearer_provider: Provider that resolves bearer tokens. Takes precedence over ``bearer``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None, bearer: str | None = None, bearer_provider: BearerTokenProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+        bearer: str | None = None,
+        bearer_provider: BearerTokenProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
         if bearer is not None and bearer_provider is not None:
-            warnings.warn("Both bearer and bearer_provider given; provider takes precedence")
+            warnings.warn(
+                "Both bearer and bearer_provider given; provider takes precedence"
+            )
         if bearer_provider is None and bearer is not None:
             bearer_provider = StaticBearerTokenProvider(bearer)
-        self.config = BedrockRuntimeClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider, "bearer_provider": bearer_provider})
-    def operation_options(self, config_overrides: Optional[BedrockRuntimeClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = BedrockRuntimeClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+                "bearer_provider": bearer_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[BedrockRuntimeClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: BedrockRuntimeClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")), bearer_provider=overrides.get("bearer_provider", self.config.get("bearer_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+            bearer_provider=overrides.get(
+                "bearer_provider", self.config.get("bearer_provider")
+            ),
+        )
         return interceptors_, options_
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

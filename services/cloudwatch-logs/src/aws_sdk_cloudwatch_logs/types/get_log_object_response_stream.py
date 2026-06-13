@@ -4,8 +4,8 @@ from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
     import aws_sdk_cloudwatch_logs.types.fields_data
+    import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
 
 
 class _GetLogObjectResponseStream_fields(TypedDict):
@@ -13,7 +13,7 @@ class _GetLogObjectResponseStream_fields(TypedDict):
 
 
 class _GetLogObjectResponseStream_InternalStreamingException(TypedDict):
-    InternalStreamingException: "aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.InternalStreamingException"
+    InternalStreamingException: "aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.InternalStreamingException_"
 
 
 GetLogObjectResponseStream: TypeAlias = (

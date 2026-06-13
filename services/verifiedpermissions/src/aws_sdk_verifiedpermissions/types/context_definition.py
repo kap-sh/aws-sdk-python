@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 if TYPE_CHECKING:
-    import aws_sdk_verifiedpermissions.types.cedar_json
     import aws_sdk_verifiedpermissions.types.context_map
+    import aws_sdk_verifiedpermissions.types.cedar_json
 
 class _ContextDefinition_contextMap(TypedDict):
     contextMap: "aws_sdk_verifiedpermissions.types.context_map.ContextMap"

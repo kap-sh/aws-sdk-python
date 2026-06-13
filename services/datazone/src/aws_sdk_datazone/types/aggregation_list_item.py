@@ -3,15 +3,20 @@
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aggregation_display_value
     import aws_sdk_datazone.types.attribute
 
+
 class AggregationListItem(TypedDict):
     attribute: "aws_sdk_datazone.types.attribute.Attribute"
     """<p>An attribute on which to compute aggregations.</p>"""
-    display_value: NotRequired["aws_sdk_datazone.types.aggregation_display_value.AggregationDisplayValue"]
+    display_value: NotRequired[
+        "aws_sdk_datazone.types.aggregation_display_value.AggregationDisplayValue"
+    ]
     """<p>The display value of the aggregation list item. Supported values include <code>value</code> and <code>glossaryTerm.name</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AggregationListItem) -> dict:

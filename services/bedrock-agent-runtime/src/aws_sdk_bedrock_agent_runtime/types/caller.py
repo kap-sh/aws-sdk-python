@@ -1,14 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Caller``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
-from aws_sdk_bedrock_agent_runtime.errors import DeserializationError, SerializationError
+
+from aws_sdk_bedrock_agent_runtime.errors import (
+    DeserializationError,
+    SerializationError,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_arn
+
 
 class _Caller_agentAliasArn(TypedDict):
     agentAliasArn: "aws_sdk_bedrock_agent_runtime.types.agent_alias_arn.AgentAliasArn"
 
+
 Caller: TypeAlias = _Caller_agentAliasArn
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Caller) -> dict:

@@ -8,9 +8,12 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.custom_control_method
     import aws_sdk_bedrock_agent.types.lambda_arn
 
-
-class _ActionGroupExecutor_lambda(TypedDict):
-    lambda: "aws_sdk_bedrock_agent.types.lambda_arn.LambdaArn"
+_ActionGroupExecutor_lambda = TypedDict(
+    "_ActionGroupExecutor_lambda",
+    {
+        "lambda": "aws_sdk_bedrock_agent.types.lambda_arn.LambdaArn",
+    },
+)
 
 
 class _ActionGroupExecutor_customControl(TypedDict):

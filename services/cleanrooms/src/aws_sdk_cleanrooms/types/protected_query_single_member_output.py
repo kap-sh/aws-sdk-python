@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedQuerySingleMemberOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanrooms.types.account_id
+
+
+class ProtectedQuerySingleMemberOutput(TypedDict):
+    account_id: "aws_sdk_cleanrooms.types.account_id.AccountId"
+    """<p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the query.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ProtectedQuerySingleMemberOutput) -> dict:
+    out: dict = {}
+    out["accountId"] = value["account_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> ProtectedQuerySingleMemberOutput:
+    out: ProtectedQuerySingleMemberOutput = {}  # type: ignore[typeddict-item]
+    if "accountId" in data:
+        out["account_id"] = data["accountId"]
+    else:
+        raise DeserializationError(
+            "ProtectedQuerySingleMemberOutput.account_id required"
+        )
+    return out

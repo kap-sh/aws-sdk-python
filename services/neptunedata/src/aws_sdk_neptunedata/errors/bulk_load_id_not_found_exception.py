@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#BulkLoadIdNotFoundException``."""
 
 from typing import TypedDict
-from aws_sdk_neptunedata.errors import DeserializationError
-from aws_sdk_neptunedata.errors import ServiceError
+
+from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
+
 
 class BulkLoadIdNotFoundException_(TypedDict):
     detailed_message: "str"
@@ -11,6 +12,7 @@ class BulkLoadIdNotFoundException_(TypedDict):
     """<p>The bulk-load job ID that could not be found.</p>"""
     code: "str"
     """<p>The HTTP status code returned with the exception.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BulkLoadIdNotFoundException_) -> dict:
@@ -26,7 +28,9 @@ def deserialize_json(data: dict) -> BulkLoadIdNotFoundException_:
     if "detailedMessage" in data:
         out["detailed_message"] = data["detailedMessage"]
     else:
-        raise DeserializationError("BulkLoadIdNotFoundException_.detailed_message required")
+        raise DeserializationError(
+            "BulkLoadIdNotFoundException_.detailed_message required"
+        )
     if "requestId" in data:
         out["request_id"] = data["requestId"]
     else:
@@ -40,10 +44,16 @@ def deserialize_json(data: dict) -> BulkLoadIdNotFoundException_:
 
 class BulkLoadIdNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.neptunedata#BulkLoadIdNotFoundException``."""
-    code: str | None = 'BulkLoadIdNotFoundException'
+
+    code: str | None = "BulkLoadIdNotFoundException"
 
     def __init__(self, data: BulkLoadIdNotFoundException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=True, code='BulkLoadIdNotFoundException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=True,
+            code="BulkLoadIdNotFoundException",
+        )
         self.data = data
 
     @classmethod

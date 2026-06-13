@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CustomDescriptor``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.inline_content
+
+class CustomDescriptor(TypedDict):
+    inline_content: NotRequired["aws_sdk_bedrock_agentcore.types.inline_content.InlineContent"]
+    """<p> The inline content of the custom descriptor.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CustomDescriptor) -> dict:
+    out: dict = {}
+    if "inline_content" in value:
+        out["inlineContent"] = value["inline_content"]
+    return out
+
+
+def deserialize_json(data: dict) -> CustomDescriptor:
+    out: CustomDescriptor = {}  # type: ignore[typeddict-item]
+    if "inlineContent" in data:
+        out["inline_content"] = data["inlineContent"]
+    return out

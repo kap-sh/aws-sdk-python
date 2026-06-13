@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ApplicableAssetTypes``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.type_name
 

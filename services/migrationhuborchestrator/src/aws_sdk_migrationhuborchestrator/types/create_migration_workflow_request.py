@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#CreateMigrationWorkflowRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_migrationhuborchestrator.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.step_input_parameters
     import aws_sdk_migrationhuborchestrator.types.string_list
     import aws_sdk_migrationhuborchestrator.types.string_map
+
 
 class CreateMigrationWorkflowRequest(TypedDict):
     name: "str"
@@ -19,10 +23,13 @@ class CreateMigrationWorkflowRequest(TypedDict):
     """<p>The configuration ID of the application configured in Application Discovery Service.</p>"""
     input_parameters: "aws_sdk_migrationhuborchestrator.types.step_input_parameters.StepInputParameters"
     """<p>The input parameters required to create a migration workflow.</p>"""
-    step_targets: NotRequired["aws_sdk_migrationhuborchestrator.types.string_list.StringList"]
+    step_targets: NotRequired[
+        "aws_sdk_migrationhuborchestrator.types.string_list.StringList"
+    ]
     """<p>The servers on which a step will be run.</p>"""
     tags: NotRequired["aws_sdk_migrationhuborchestrator.types.string_map.StringMap"]
     """<p>The tags to add on a migration workflow.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateMigrationWorkflowRequest) -> dict:
@@ -34,13 +41,26 @@ def serialize_json(value: CreateMigrationWorkflowRequest) -> dict:
     if "application_configuration_id" in value:
         out["applicationConfigurationId"] = value["application_configuration_id"]
     import aws_sdk_migrationhuborchestrator.types.step_input_parameters
-    out["inputParameters"] = aws_sdk_migrationhuborchestrator.types.step_input_parameters.serialize_json(value["input_parameters"])
+
+    out["inputParameters"] = (
+        aws_sdk_migrationhuborchestrator.types.step_input_parameters.serialize_json(
+            value["input_parameters"]
+        )
+    )
     if "step_targets" in value:
         import aws_sdk_migrationhuborchestrator.types.string_list
-        out["stepTargets"] = aws_sdk_migrationhuborchestrator.types.string_list.serialize_json(value["step_targets"])
+
+        out["stepTargets"] = (
+            aws_sdk_migrationhuborchestrator.types.string_list.serialize_json(
+                value["step_targets"]
+            )
+        )
     if "tags" in value:
         import aws_sdk_migrationhuborchestrator.types.string_map
-        out["tags"] = aws_sdk_migrationhuborchestrator.types.string_map.serialize_json(value["tags"])
+
+        out["tags"] = aws_sdk_migrationhuborchestrator.types.string_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -55,18 +75,37 @@ def deserialize_json(data: dict) -> CreateMigrationWorkflowRequest:
     if "templateId" in data:
         out["template_id"] = data["templateId"]
     else:
-        raise DeserializationError("CreateMigrationWorkflowRequest.template_id required")
+        raise DeserializationError(
+            "CreateMigrationWorkflowRequest.template_id required"
+        )
     if "applicationConfigurationId" in data:
         out["application_configuration_id"] = data["applicationConfigurationId"]
     if "inputParameters" in data:
         import aws_sdk_migrationhuborchestrator.types.step_input_parameters
-        out["input_parameters"] = aws_sdk_migrationhuborchestrator.types.step_input_parameters.deserialize_json(data["inputParameters"])
+
+        out["input_parameters"] = (
+            aws_sdk_migrationhuborchestrator.types.step_input_parameters.deserialize_json(
+                data["inputParameters"]
+            )
+        )
     else:
-        raise DeserializationError("CreateMigrationWorkflowRequest.input_parameters required")
+        raise DeserializationError(
+            "CreateMigrationWorkflowRequest.input_parameters required"
+        )
     if "stepTargets" in data:
         import aws_sdk_migrationhuborchestrator.types.string_list
-        out["step_targets"] = aws_sdk_migrationhuborchestrator.types.string_list.deserialize_json(data["stepTargets"])
+
+        out["step_targets"] = (
+            aws_sdk_migrationhuborchestrator.types.string_list.deserialize_json(
+                data["stepTargets"]
+            )
+        )
     if "tags" in data:
         import aws_sdk_migrationhuborchestrator.types.string_map
-        out["tags"] = aws_sdk_migrationhuborchestrator.types.string_map.deserialize_json(data["tags"])
+
+        out["tags"] = (
+            aws_sdk_migrationhuborchestrator.types.string_map.deserialize_json(
+                data["tags"]
+            )
+        )
     return out

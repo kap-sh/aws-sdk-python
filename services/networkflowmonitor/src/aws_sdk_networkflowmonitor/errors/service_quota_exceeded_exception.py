@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#ServiceQuotaExceededException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_networkflowmonitor.errors import ServiceError
+
 
 class ServiceQuotaExceededException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ServiceQuotaExceededException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> ServiceQuotaExceededException_:
 
 class ServiceQuotaExceededException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.networkflowmonitor#ServiceQuotaExceededException``."""
-    code: str | None = 'ServiceQuotaExceededException'
+
+    code: str | None = "ServiceQuotaExceededException"
 
     def __init__(self, data: ServiceQuotaExceededException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ServiceQuotaExceededException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ServiceQuotaExceededException",
+        )
         self.data = data
 
     @classmethod

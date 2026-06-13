@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.arcregionswitch#ArcRoutingControlState``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_arc_region_switch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_arc_region_switch.types.routing_control_arn
+    import aws_sdk_arc_region_switch.types.routing_control_state_change
+
+
+class ArcRoutingControlState(TypedDict):
+    routing_control_arn: (
+        "aws_sdk_arc_region_switch.types.routing_control_arn.RoutingControlArn"
+    )
+    """<p>The Amazon Resource Name (ARN) of a routing control.</p>"""
+    state: "aws_sdk_arc_region_switch.types.routing_control_state_change.RoutingControlStateChange"
+    """<p>The state of an ARC routing control, On or Off.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ArcRoutingControlState) -> dict:
+    out: dict = {}
+    out["routingControlArn"] = value["routing_control_arn"]
+    import aws_sdk_arc_region_switch.types.routing_control_state_change
+
+    out["state"] = (
+        aws_sdk_arc_region_switch.types.routing_control_state_change.serialize_aws_json_1_0(
+            value["state"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ArcRoutingControlState:
+    out: ArcRoutingControlState = {}  # type: ignore[typeddict-item]
+    if "routingControlArn" in data:
+        out["routing_control_arn"] = data["routingControlArn"]
+    else:
+        raise DeserializationError(
+            "ArcRoutingControlState.routing_control_arn required"
+        )
+    if "state" in data:
+        import aws_sdk_arc_region_switch.types.routing_control_state_change
+
+        out["state"] = (
+            aws_sdk_arc_region_switch.types.routing_control_state_change.deserialize_aws_json_1_0(
+                data["state"]
+            )
+        )
+    else:
+        raise DeserializationError("ArcRoutingControlState.state required")
+    return out

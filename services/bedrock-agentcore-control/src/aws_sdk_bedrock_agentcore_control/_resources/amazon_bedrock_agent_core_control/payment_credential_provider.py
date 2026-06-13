@@ -1,0 +1,232 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import ensure_async_iterator
+from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import ensure_sync_iterator
+from aws_sdk_bedrock_agentcore_control._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+import aws_sdk_bedrock_agentcore_control._auth._signers
+import aws_sdk_bedrock_agentcore_control._auth._sigv4
+if TYPE_CHECKING:
+    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import BedrockAgentCoreControlClient, BedrockAgentCoreControlClientConfig
+    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import AsyncBedrockAgentCoreControlClient, AsyncBedrockAgentCoreControlClientConfig
+    import aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_request
+    import aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_response
+    import aws_sdk_bedrock_agentcore_control.types.credential_provider_name
+    import aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_request
+    import aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_response
+    import aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_request
+    import aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_response
+    import aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_request
+    import aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_response
+    import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_item
+    import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_vendor_type
+    import aws_sdk_bedrock_agentcore_control.types.payment_provider_configuration_input
+    import aws_sdk_bedrock_agentcore_control.types.tags_map
+    import aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_request
+    import aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_response
+
+class PaymentCredentialProvider:
+    def __init__(self, service: BedrockAgentCoreControlClient) -> None:
+        self._service = service
+    def put(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", credential_provider_vendor: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_vendor_type.PaymentCredentialProviderVendorType", provider_configuration_input: "aws_sdk_bedrock_agentcore_control.types.payment_provider_configuration_input.PaymentProviderConfigurationInput", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_response.CreatePaymentCredentialProviderResponse":
+        """<p>Creates a new payment credential provider for storing authentication credentials used by payment connectors to communicate with external payment providers.</p>
+
+        Args:
+            name: <p>Unique name for the payment credential provider.</p>
+            credential_provider_vendor: <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+            provider_configuration_input: <p>Configuration specific to the vendor, including API credentials.</p>
+            tags: <p>Optional tags for resource organization.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_response.CreatePaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_payment_credential_provider
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_payment_credential_provider.create_payment_credential_provider(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["credential_provider_vendor"] = credential_provider_vendor
+        input["provider_configuration_input"] = provider_configuration_input
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def read(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_response.GetPaymentCredentialProviderResponse":
+        """<p>Retrieves information about a specific payment credential provider.</p>
+
+        Args:
+            name: <p>The name of the payment credential provider to retrieve.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_response.GetPaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_payment_credential_provider
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_payment_credential_provider.get_payment_credential_provider(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def update(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", credential_provider_vendor: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_vendor_type.PaymentCredentialProviderVendorType", provider_configuration_input: "aws_sdk_bedrock_agentcore_control.types.payment_provider_configuration_input.PaymentProviderConfigurationInput", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_response.UpdatePaymentCredentialProviderResponse":
+        """<p>Updates an existing payment credential provider with new authentication credentials.</p>
+
+        Args:
+            name: <p>The name of the payment credential provider to update.</p>
+            credential_provider_vendor: <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+            provider_configuration_input: <p>Configuration specific to the vendor, including API credentials.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_response.UpdatePaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_payment_credential_provider
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_payment_credential_provider.update_payment_credential_provider(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["credential_provider_vendor"] = credential_provider_vendor
+        input["provider_configuration_input"] = provider_configuration_input
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_response.DeletePaymentCredentialProviderResponse":
+        """<p>Deletes a payment credential provider and its associated stored credentials.</p>
+
+        Args:
+            name: <p>The name of the payment credential provider to delete.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_response.DeletePaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_payment_credential_provider
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_payment_credential_provider.delete_payment_credential_provider(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list_payment_credential_providers(self, *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_response.ListPaymentCredentialProvidersResponse":
+        """<p>Lists all payment credential providers in the account.</p>
+
+        Args:
+            next_token: <p>Pagination token.</p>
+            max_results: <p>Maximum number of results to return.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_response.ListPaymentCredentialProvidersResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_payment_credential_providers
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_payment_credential_providers.list_payment_credential_providers(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+
+class AsyncPaymentCredentialProvider:
+    def __init__(self, service: AsyncBedrockAgentCoreControlClient) -> None:
+        self._service = service
+    async def put(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", credential_provider_vendor: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_vendor_type.PaymentCredentialProviderVendorType", provider_configuration_input: "aws_sdk_bedrock_agentcore_control.types.payment_provider_configuration_input.PaymentProviderConfigurationInput", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_response.CreatePaymentCredentialProviderResponse":
+        """<p>Creates a new payment credential provider for storing authentication credentials used by payment connectors to communicate with external payment providers.</p>
+
+        Args:
+            name: <p>Unique name for the payment credential provider.</p>
+            credential_provider_vendor: <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+            provider_configuration_input: <p>Configuration specific to the vendor, including API credentials.</p>
+            tags: <p>Optional tags for resource organization.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_response.CreatePaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_payment_credential_provider
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_payment_credential_provider.async_create_payment_credential_provider(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["credential_provider_vendor"] = credential_provider_vendor
+        input["provider_configuration_input"] = provider_configuration_input
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def read(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_response.GetPaymentCredentialProviderResponse":
+        """<p>Retrieves information about a specific payment credential provider.</p>
+
+        Args:
+            name: <p>The name of the payment credential provider to retrieve.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_response.GetPaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_payment_credential_provider
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_payment_credential_provider.async_get_payment_credential_provider(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", credential_provider_vendor: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_vendor_type.PaymentCredentialProviderVendorType", provider_configuration_input: "aws_sdk_bedrock_agentcore_control.types.payment_provider_configuration_input.PaymentProviderConfigurationInput", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_response.UpdatePaymentCredentialProviderResponse":
+        """<p>Updates an existing payment credential provider with new authentication credentials.</p>
+
+        Args:
+            name: <p>The name of the payment credential provider to update.</p>
+            credential_provider_vendor: <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+            provider_configuration_input: <p>Configuration specific to the vendor, including API credentials.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_response.UpdatePaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_payment_credential_provider
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_payment_credential_provider.async_update_payment_credential_provider(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+        input["credential_provider_vendor"] = credential_provider_vendor
+        input["provider_configuration_input"] = provider_configuration_input
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete(self, name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_response.DeletePaymentCredentialProviderResponse":
+        """<p>Deletes a payment credential provider and its associated stored credentials.</p>
+
+        Args:
+            name: <p>The name of the payment credential provider to delete.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_response.DeletePaymentCredentialProviderResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_payment_credential_provider
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_payment_credential_provider.async_delete_payment_credential_provider(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
+        input["name"] = name
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list_payment_credential_providers(self, *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_response.ListPaymentCredentialProvidersResponse":
+        """<p>Lists all payment credential providers in the account.</p>
+
+        Args:
+            next_token: <p>Pagination token.</p>
+            max_results: <p>Maximum number of results to return.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_response.ListPaymentCredentialProvidersResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_payment_credential_providers
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_payment_credential_providers.async_list_payment_credential_providers(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output

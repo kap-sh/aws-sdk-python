@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#UpdateSessionResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent_runtime.types.date_timestamp
+    import aws_sdk_bedrock_agent_runtime.types.session_arn
+    import aws_sdk_bedrock_agent_runtime.types.session_status
+    import aws_sdk_bedrock_agent_runtime.types.uuid
+
+
+class UpdateSessionResponse(TypedDict):
+    session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
+    """<p>The unique identifier of the session you updated.</p>"""
+    session_arn: "aws_sdk_bedrock_agent_runtime.types.session_arn.SessionArn"
+    """<p>The Amazon Resource Name (ARN) of the session that was updated.</p>"""
+    session_status: "aws_sdk_bedrock_agent_runtime.types.session_status.SessionStatus"
+    """<p>The status of the session you updated.</p>"""
+    created_at: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"
+    """<p>The timestamp for when the session was created.</p>"""
+    last_updated_at: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"
+    """<p>The timestamp for when the session was last modified.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateSessionResponse) -> dict:
+    out: dict = {}
+    out["sessionId"] = value["session_id"]
+    out["sessionArn"] = value["session_arn"]
+    import aws_sdk_bedrock_agent_runtime.types.session_status
+
+    out["sessionStatus"] = (
+        aws_sdk_bedrock_agent_runtime.types.session_status.serialize_json(
+            value["session_status"]
+        )
+    )
+    import aws_sdk_bedrock_agent_runtime.types.date_timestamp
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
+    import aws_sdk_bedrock_agent_runtime.types.date_timestamp
+
+    out["lastUpdatedAt"] = (
+        aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+            value["last_updated_at"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateSessionResponse:
+    out: UpdateSessionResponse = {}  # type: ignore[typeddict-item]
+    if "sessionId" in data:
+        out["session_id"] = data["sessionId"]
+    else:
+        raise DeserializationError("UpdateSessionResponse.session_id required")
+    if "sessionArn" in data:
+        out["session_arn"] = data["sessionArn"]
+    else:
+        raise DeserializationError("UpdateSessionResponse.session_arn required")
+    if "sessionStatus" in data:
+        import aws_sdk_bedrock_agent_runtime.types.session_status
+
+        out["session_status"] = (
+            aws_sdk_bedrock_agent_runtime.types.session_status.deserialize_json(
+                data["sessionStatus"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateSessionResponse.session_status required")
+    if "createdAt" in data:
+        import aws_sdk_bedrock_agent_runtime.types.date_timestamp
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateSessionResponse.created_at required")
+    if "lastUpdatedAt" in data:
+        import aws_sdk_bedrock_agent_runtime.types.date_timestamp
+
+        out["last_updated_at"] = (
+            aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
+                data["lastUpdatedAt"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateSessionResponse.last_updated_at required")
+    return out

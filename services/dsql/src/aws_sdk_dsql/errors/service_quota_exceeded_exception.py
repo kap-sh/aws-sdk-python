@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ServiceQuotaExceededException``."""
 
 from typing import TypedDict
-from aws_sdk_dsql.errors import DeserializationError
-from aws_sdk_dsql.errors import ServiceError
+
+from aws_sdk_dsql.errors import DeserializationError, ServiceError
+
 
 class ServiceQuotaExceededException_(TypedDict):
     message: "str"
@@ -15,6 +16,7 @@ class ServiceQuotaExceededException_(TypedDict):
     """<p>The request exceeds a service quota.</p>"""
     quota_code: "str"
     """<p>The service exceeds a quota.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ServiceQuotaExceededException_) -> dict:
@@ -36,15 +38,21 @@ def deserialize_json(data: dict) -> ServiceQuotaExceededException_:
     if "resourceId" in data:
         out["resource_id"] = data["resourceId"]
     else:
-        raise DeserializationError("ServiceQuotaExceededException_.resource_id required")
+        raise DeserializationError(
+            "ServiceQuotaExceededException_.resource_id required"
+        )
     if "resourceType" in data:
         out["resource_type"] = data["resourceType"]
     else:
-        raise DeserializationError("ServiceQuotaExceededException_.resource_type required")
+        raise DeserializationError(
+            "ServiceQuotaExceededException_.resource_type required"
+        )
     if "serviceCode" in data:
         out["service_code"] = data["serviceCode"]
     else:
-        raise DeserializationError("ServiceQuotaExceededException_.service_code required")
+        raise DeserializationError(
+            "ServiceQuotaExceededException_.service_code required"
+        )
     if "quotaCode" in data:
         out["quota_code"] = data["quotaCode"]
     else:
@@ -54,10 +62,16 @@ def deserialize_json(data: dict) -> ServiceQuotaExceededException_:
 
 class ServiceQuotaExceededException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dsql#ServiceQuotaExceededException``."""
-    code: str | None = 'ServiceQuotaExceededException'
+
+    code: str | None = "ServiceQuotaExceededException"
 
     def __init__(self, data: ServiceQuotaExceededException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ServiceQuotaExceededException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ServiceQuotaExceededException",
+        )
         self.data = data
 
     @classmethod

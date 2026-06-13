@@ -1,0 +1,80 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#CreateConfiguredTableAssociationInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanrooms.types.configured_table_identifier
+    import aws_sdk_cleanrooms.types.membership_identifier
+    import aws_sdk_cleanrooms.types.role_arn
+    import aws_sdk_cleanrooms.types.table_alias
+    import aws_sdk_cleanrooms.types.table_description
+    import aws_sdk_cleanrooms.types.tag_map
+
+
+class CreateConfiguredTableAssociationInput(TypedDict):
+    name: "aws_sdk_cleanrooms.types.table_alias.TableAlias"
+    """<p>The name of the configured table association. This name is used to query the underlying configured table.</p>"""
+    description: NotRequired[
+        "aws_sdk_cleanrooms.types.table_description.TableDescription"
+    ]
+    """<p>A description for the configured table association.</p>"""
+    membership_identifier: (
+        "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
+    )
+    """<p>A unique identifier for one of your memberships for a collaboration. The configured table is associated to the collaboration that this membership belongs to. Currently accepts a membership ID.</p>"""
+    configured_table_identifier: (
+        "aws_sdk_cleanrooms.types.configured_table_identifier.ConfiguredTableIdentifier"
+    )
+    """<p>A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.</p>"""
+    role_arn: "aws_sdk_cleanrooms.types.role_arn.RoleArn"
+    """<p>The service will assume this role to access catalog metadata and query the table.</p>"""
+    tags: NotRequired["aws_sdk_cleanrooms.types.tag_map.TagMap"]
+    """<p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateConfiguredTableAssociationInput) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    out["configuredTableIdentifier"] = value["configured_table_identifier"]
+    out["roleArn"] = value["role_arn"]
+    if "tags" in value:
+        import aws_sdk_cleanrooms.types.tag_map
+
+        out["tags"] = aws_sdk_cleanrooms.types.tag_map.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> CreateConfiguredTableAssociationInput:
+    out: CreateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError(
+            "CreateConfiguredTableAssociationInput.name required"
+        )
+    if "description" in data:
+        out["description"] = data["description"]
+    if "configuredTableIdentifier" in data:
+        out["configured_table_identifier"] = data["configuredTableIdentifier"]
+    else:
+        raise DeserializationError(
+            "CreateConfiguredTableAssociationInput.configured_table_identifier required"
+        )
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    else:
+        raise DeserializationError(
+            "CreateConfiguredTableAssociationInput.role_arn required"
+        )
+    if "tags" in data:
+        import aws_sdk_cleanrooms.types.tag_map
+
+        out["tags"] = aws_sdk_cleanrooms.types.tag_map.deserialize_json(data["tags"])
+    return out

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CodeInterpreterInvocationOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.files
     import aws_sdk_bedrock_agent_runtime.types.metadata
+
 
 class CodeInterpreterInvocationOutput(TypedDict):
     execution_output: NotRequired["str"]
@@ -18,6 +21,7 @@ class CodeInterpreterInvocationOutput(TypedDict):
     metadata: NotRequired["aws_sdk_bedrock_agent_runtime.types.metadata.Metadata"]
     """<p>Contains information about the output from the code interpreter.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CodeInterpreterInvocationOutput) -> dict:
     out: dict = {}
@@ -27,12 +31,18 @@ def serialize_json(value: CodeInterpreterInvocationOutput) -> dict:
         out["executionError"] = value["execution_error"]
     if "files" in value:
         import aws_sdk_bedrock_agent_runtime.types.files
-        out["files"] = aws_sdk_bedrock_agent_runtime.types.files.serialize_json(value["files"])
+
+        out["files"] = aws_sdk_bedrock_agent_runtime.types.files.serialize_json(
+            value["files"]
+        )
     if "execution_timeout" in value:
         out["executionTimeout"] = value["execution_timeout"]
     if "metadata" in value:
         import aws_sdk_bedrock_agent_runtime.types.metadata
-        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.serialize_json(value["metadata"])
+
+        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.serialize_json(
+            value["metadata"]
+        )
     return out
 
 
@@ -44,10 +54,16 @@ def deserialize_json(data: dict) -> CodeInterpreterInvocationOutput:
         out["execution_error"] = data["executionError"]
     if "files" in data:
         import aws_sdk_bedrock_agent_runtime.types.files
-        out["files"] = aws_sdk_bedrock_agent_runtime.types.files.deserialize_json(data["files"])
+
+        out["files"] = aws_sdk_bedrock_agent_runtime.types.files.deserialize_json(
+            data["files"]
+        )
     if "executionTimeout" in data:
         out["execution_timeout"] = data["executionTimeout"]
     if "metadata" in data:
         import aws_sdk_bedrock_agent_runtime.types.metadata
-        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.deserialize_json(data["metadata"])
+
+        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.deserialize_json(
+            data["metadata"]
+        )
     return out

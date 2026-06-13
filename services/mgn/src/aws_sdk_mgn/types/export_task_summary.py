@@ -1,8 +1,10 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ExportTaskSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.positive_integer
+
 
 class ExportTaskSummary(TypedDict):
     servers_count: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
@@ -11,6 +13,7 @@ class ExportTaskSummary(TypedDict):
     """<p>Export task summary applications count.</p>"""
     waves_count: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>Export task summary waves count.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ExportTaskSummary) -> dict:

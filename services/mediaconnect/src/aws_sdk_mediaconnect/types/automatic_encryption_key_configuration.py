@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class AutomaticEncryptionKeyConfiguration(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AutomaticEncryptionKeyConfiguration) -> dict:

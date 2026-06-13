@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#BadRequestException``."""
 
 from typing import TypedDict
-from aws_sdk_neptunedata.errors import DeserializationError
-from aws_sdk_neptunedata.errors import ServiceError
+
+from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
+
 
 class BadRequestException_(TypedDict):
     detailed_message: "str"
@@ -11,6 +12,7 @@ class BadRequestException_(TypedDict):
     """<p>The ID of the bad request.</p>"""
     code: "str"
     """<p>The HTTP status code returned with the exception.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BadRequestException_) -> dict:
@@ -40,10 +42,16 @@ def deserialize_json(data: dict) -> BadRequestException_:
 
 class BadRequestException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.neptunedata#BadRequestException``."""
-    code: str | None = 'BadRequestException'
+
+    code: str | None = "BadRequestException"
 
     def __init__(self, data: BadRequestException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='BadRequestException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="BadRequestException",
+        )
         self.data = data
 
     @classmethod

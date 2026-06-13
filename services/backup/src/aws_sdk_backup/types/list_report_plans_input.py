@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#ListReportPlansInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_backup.types.max_results
+    import aws_sdk_backup.types.string
+
+
+class ListReportPlansInput(TypedDict):
+    max_results: NotRequired["aws_sdk_backup.types.max_results.MaxResults"]
+    """<p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will return 1 MB of data.</p>"""
+    next_token: NotRequired["aws_sdk_backup.types.string.string"]
+    """<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListReportPlansInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListReportPlansInput:
+    out: ListReportPlansInput = {}  # type: ignore[typeddict-item]
+    return out

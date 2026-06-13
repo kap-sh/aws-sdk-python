@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.redshiftdata#SqlParameter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_redshift_data.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_redshift_data.types.parameter_name
+    import aws_sdk_redshift_data.types.parameter_value
+
+
+class SqlParameter(TypedDict):
+    name: "aws_sdk_redshift_data.types.parameter_name.ParameterName"
+    """<p>The name of the parameter.</p>"""
+    value: "aws_sdk_redshift_data.types.parameter_value.ParameterValue"
+    """<p>The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html\">Data types</a> in the <i>Amazon Redshift Database Developer Guide</i>. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SqlParameter) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    out["value"] = value["value"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SqlParameter:
+    out: SqlParameter = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("SqlParameter.name required")
+    if "value" in data:
+        out["value"] = data["value"]
+    else:
+        raise DeserializationError("SqlParameter.value required")
+    return out

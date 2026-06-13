@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_grafana._services.async_grafana import ensure_async_iterator
-from aws_sdk_grafana._services.grafana import ensure_sync_iterator
-from aws_sdk_grafana._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_grafana._auth._signers
 import aws_sdk_grafana._auth._sigv4
+from aws_sdk_grafana._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_grafana._services.grafana import grafanaClient, grafanaClientConfig
-    from aws_sdk_grafana._services.async_grafana import AsyncgrafanaClient, AsyncgrafanaClientConfig
     import aws_sdk_grafana.types.account_access_type
     import aws_sdk_grafana.types.authentication_providers
     import aws_sdk_grafana.types.client_token
@@ -39,11 +44,67 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
     import aws_sdk_grafana.types.workspace_name
     import aws_sdk_grafana.types.workspace_summary
+    from aws_sdk_grafana._services.async_grafana import (
+        AsyncgrafanaClient,
+        AsyncgrafanaClientConfig,
+    )
+    from aws_sdk_grafana._services.grafana import grafanaClient, grafanaClientConfig
+
 
 class Workspace:
     def __init__(self, service: grafanaClient) -> None:
         self._service = service
-    def create(self, account_access_type: "aws_sdk_grafana.types.account_access_type.AccountAccessType", permission_type: "aws_sdk_grafana.types.permission_type.PermissionType", authentication_providers: "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders", *, config_overrides: Optional[grafanaClientConfig] = None, client_token: Optional["aws_sdk_grafana.types.client_token.ClientToken"] = None, organization_role_name: Optional["aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"] = None, stack_set_name: Optional["aws_sdk_grafana.types.stack_set_name.StackSetName"] = None, workspace_data_sources: Optional["aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"] = None, workspace_description: Optional["aws_sdk_grafana.types.description.Description"] = None, workspace_name: Optional["aws_sdk_grafana.types.workspace_name.WorkspaceName"] = None, workspace_notification_destinations: Optional["aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"] = None, workspace_organizational_units: Optional["aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"] = None, workspace_role_arn: Optional["aws_sdk_grafana.types.iam_role_arn.IamRoleArn"] = None, tags: Optional["aws_sdk_grafana.types.tag_map.TagMap"] = None, vpc_configuration: Optional["aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"] = None, configuration: Optional["aws_sdk_grafana.types.overridable_configuration_json.OverridableConfigurationJson"] = None, network_access_control: Optional["aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"] = None, grafana_version: Optional["aws_sdk_grafana.types.grafana_version.GrafanaVersion"] = None, ip_address_type: Optional["aws_sdk_grafana.types.ip_address_type.IPAddressType"] = None, kms_key_id: Optional["aws_sdk_grafana.types.kms_key_id.KmsKeyId"] = None) -> "aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse":
+
+    def create(
+        self,
+        account_access_type: "aws_sdk_grafana.types.account_access_type.AccountAccessType",
+        permission_type: "aws_sdk_grafana.types.permission_type.PermissionType",
+        authentication_providers: "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders",
+        *,
+        config_overrides: Optional[grafanaClientConfig] = None,
+        client_token: Optional["aws_sdk_grafana.types.client_token.ClientToken"] = None,
+        organization_role_name: Optional[
+            "aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"
+        ] = None,
+        stack_set_name: Optional[
+            "aws_sdk_grafana.types.stack_set_name.StackSetName"
+        ] = None,
+        workspace_data_sources: Optional[
+            "aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"
+        ] = None,
+        workspace_description: Optional[
+            "aws_sdk_grafana.types.description.Description"
+        ] = None,
+        workspace_name: Optional[
+            "aws_sdk_grafana.types.workspace_name.WorkspaceName"
+        ] = None,
+        workspace_notification_destinations: Optional[
+            "aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"
+        ] = None,
+        workspace_organizational_units: Optional[
+            "aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"
+        ] = None,
+        workspace_role_arn: Optional[
+            "aws_sdk_grafana.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        tags: Optional["aws_sdk_grafana.types.tag_map.TagMap"] = None,
+        vpc_configuration: Optional[
+            "aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"
+        ] = None,
+        configuration: Optional[
+            "aws_sdk_grafana.types.overridable_configuration_json.OverridableConfigurationJson"
+        ] = None,
+        network_access_control: Optional[
+            "aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"
+        ] = None,
+        grafana_version: Optional[
+            "aws_sdk_grafana.types.grafana_version.GrafanaVersion"
+        ] = None,
+        ip_address_type: Optional[
+            "aws_sdk_grafana.types.ip_address_type.IPAddressType"
+        ] = None,
+        kms_key_id: Optional["aws_sdk_grafana.types.kms_key_id.KmsKeyId"] = None,
+    ) -> "aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse":
         """<p>Creates a <i>workspace</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.</p> <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html\">UpdateWorkspace</a>.</p>
 
         Args:
@@ -67,9 +128,19 @@ class Workspace:
             ip_address_type: <p>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are <code>IPv4</code> and <code>DualStack</code>. For more information about IP address types, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html\">Network access control</a>.</p>
             kms_key_id: <p>The ID or ARN of the Key Management Service key to use for encrypting workspace data.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest]') -> OperationResponse["aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.create_workspace
-            output, http_response = aws_sdk_grafana._operations.aws_grafana_control_plane.create_workspace.create_workspace(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_grafana._operations.aws_grafana_control_plane.create_workspace.create_workspace(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -89,7 +160,9 @@ class Workspace:
         if workspace_name is not None:
             input["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = workspace_notification_destinations
+            input["workspace_notification_destinations"] = (
+                workspace_notification_destinations
+            )
         if workspace_organizational_units is not None:
             input["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
@@ -110,26 +183,97 @@ class Workspace:
         if kms_key_id is not None:
             input["kms_key_id"] = kms_key_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId", *, config_overrides: Optional[grafanaClientConfig] = None) -> "aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse":
+
+    def read(
+        self,
+        workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId",
+        *,
+        config_overrides: Optional[grafanaClientConfig] = None,
+    ) -> "aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse":
         """<p>Displays information about one Amazon Managed Grafana workspace.</p>
 
         Args:
             workspace_id: <p>The ID of the workspace to display information about.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest]') -> OperationResponse["aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.describe_workspace
-            output, http_response = aws_sdk_grafana._operations.aws_grafana_control_plane.describe_workspace.describe_workspace(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_grafana._operations.aws_grafana_control_plane.describe_workspace.describe_workspace(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
         input["workspace_id"] = workspace_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId", *, config_overrides: Optional[grafanaClientConfig] = None, account_access_type: Optional["aws_sdk_grafana.types.account_access_type.AccountAccessType"] = None, organization_role_name: Optional["aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"] = None, permission_type: Optional["aws_sdk_grafana.types.permission_type.PermissionType"] = None, stack_set_name: Optional["aws_sdk_grafana.types.stack_set_name.StackSetName"] = None, workspace_data_sources: Optional["aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"] = None, workspace_description: Optional["aws_sdk_grafana.types.description.Description"] = None, workspace_name: Optional["aws_sdk_grafana.types.workspace_name.WorkspaceName"] = None, workspace_notification_destinations: Optional["aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"] = None, workspace_organizational_units: Optional["aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"] = None, workspace_role_arn: Optional["aws_sdk_grafana.types.iam_role_arn.IamRoleArn"] = None, vpc_configuration: Optional["aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"] = None, remove_vpc_configuration: Optional[bool] = None, network_access_control: Optional["aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"] = None, remove_network_access_configuration: Optional[bool] = None, ip_address_type: Optional["aws_sdk_grafana.types.ip_address_type.IPAddressType"] = None) -> "aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse":
+
+    def update(
+        self,
+        workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId",
+        *,
+        config_overrides: Optional[grafanaClientConfig] = None,
+        account_access_type: Optional[
+            "aws_sdk_grafana.types.account_access_type.AccountAccessType"
+        ] = None,
+        organization_role_name: Optional[
+            "aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"
+        ] = None,
+        permission_type: Optional[
+            "aws_sdk_grafana.types.permission_type.PermissionType"
+        ] = None,
+        stack_set_name: Optional[
+            "aws_sdk_grafana.types.stack_set_name.StackSetName"
+        ] = None,
+        workspace_data_sources: Optional[
+            "aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"
+        ] = None,
+        workspace_description: Optional[
+            "aws_sdk_grafana.types.description.Description"
+        ] = None,
+        workspace_name: Optional[
+            "aws_sdk_grafana.types.workspace_name.WorkspaceName"
+        ] = None,
+        workspace_notification_destinations: Optional[
+            "aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"
+        ] = None,
+        workspace_organizational_units: Optional[
+            "aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"
+        ] = None,
+        workspace_role_arn: Optional[
+            "aws_sdk_grafana.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        vpc_configuration: Optional[
+            "aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"
+        ] = None,
+        remove_vpc_configuration: Optional[bool] = None,
+        network_access_control: Optional[
+            "aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"
+        ] = None,
+        remove_network_access_configuration: Optional[bool] = None,
+        ip_address_type: Optional[
+            "aws_sdk_grafana.types.ip_address_type.IPAddressType"
+        ] = None,
+    ) -> "aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse":
         """<p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any optional parameters, the existing values of those parameters are not changed.</p> <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html\">UpdateWorkspaceAuthentication</a>.</p> <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html\">UpdatePermissions</a>.</p>
 
         Args:
@@ -150,9 +294,19 @@ class Workspace:
             remove_network_access_configuration: <p>Whether to remove the network access configuration from the workspace.</p> <p>Setting this to <code>true</code> and providing a <code>networkAccessControl</code> to set will return an error.</p> <p>If you remove this configuration by setting this to <code>true</code>, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required.</p>
             ip_address_type: <p>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are <code>IPv4</code> and <code>DualStack</code>. For more information about IP address types, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html\">Network access control</a>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest]') -> OperationResponse["aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.update_workspace
-            output, http_response = aws_sdk_grafana._operations.aws_grafana_control_plane.update_workspace.update_workspace(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_grafana._operations.aws_grafana_control_plane.update_workspace.update_workspace(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -173,7 +327,9 @@ class Workspace:
         if workspace_name is not None:
             input["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = workspace_notification_destinations
+            input["workspace_notification_destinations"] = (
+                workspace_notification_destinations
+            )
         if workspace_organizational_units is not None:
             input["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
@@ -185,39 +341,84 @@ class Workspace:
         if network_access_control is not None:
             input["network_access_control"] = network_access_control
         if remove_network_access_configuration is not None:
-            input["remove_network_access_configuration"] = remove_network_access_configuration
+            input["remove_network_access_configuration"] = (
+                remove_network_access_configuration
+            )
         if ip_address_type is not None:
             input["ip_address_type"] = ip_address_type
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId", *, config_overrides: Optional[grafanaClientConfig] = None) -> "aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse":
+
+    def delete(
+        self,
+        workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId",
+        *,
+        config_overrides: Optional[grafanaClientConfig] = None,
+    ) -> "aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse":
         """<p>Deletes an Amazon Managed Grafana workspace.</p>
 
         Args:
             workspace_id: <p>The ID of the workspace to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest]') -> OperationResponse["aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.delete_workspace
-            output, http_response = aws_sdk_grafana._operations.aws_grafana_control_plane.delete_workspace.delete_workspace(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_grafana._operations.aws_grafana_control_plane.delete_workspace.delete_workspace(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
         input["workspace_id"] = workspace_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[grafanaClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_grafana.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[grafanaClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_grafana.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse":
         """<p>Returns a list of Amazon Managed Grafana workspaces in the account, with some information about each workspace. For more complete information about one workspace, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_DescribeWorkspace.html\">DescribeWorkspace</a>.</p>
 
         Args:
             max_results: <p>The maximum number of workspaces to include in the results.</p>
             next_token: <p>The token for the next set of workspaces to return. (You receive this token from a previous <code>ListWorkspaces</code> operation.)</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest]') -> OperationResponse["aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.list_workspaces
-            output, http_response = aws_sdk_grafana._operations.aws_grafana_control_plane.list_workspaces.list_workspaces(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_grafana._operations.aws_grafana_control_plane.list_workspaces.list_workspaces(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -227,13 +428,68 @@ class Workspace:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncWorkspace:
     def __init__(self, service: AsyncgrafanaClient) -> None:
         self._service = service
-    async def create(self, account_access_type: "aws_sdk_grafana.types.account_access_type.AccountAccessType", permission_type: "aws_sdk_grafana.types.permission_type.PermissionType", authentication_providers: "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders", *, config_overrides: Optional[AsyncgrafanaClientConfig] = None, client_token: Optional["aws_sdk_grafana.types.client_token.ClientToken"] = None, organization_role_name: Optional["aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"] = None, stack_set_name: Optional["aws_sdk_grafana.types.stack_set_name.StackSetName"] = None, workspace_data_sources: Optional["aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"] = None, workspace_description: Optional["aws_sdk_grafana.types.description.Description"] = None, workspace_name: Optional["aws_sdk_grafana.types.workspace_name.WorkspaceName"] = None, workspace_notification_destinations: Optional["aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"] = None, workspace_organizational_units: Optional["aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"] = None, workspace_role_arn: Optional["aws_sdk_grafana.types.iam_role_arn.IamRoleArn"] = None, tags: Optional["aws_sdk_grafana.types.tag_map.TagMap"] = None, vpc_configuration: Optional["aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"] = None, configuration: Optional["aws_sdk_grafana.types.overridable_configuration_json.OverridableConfigurationJson"] = None, network_access_control: Optional["aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"] = None, grafana_version: Optional["aws_sdk_grafana.types.grafana_version.GrafanaVersion"] = None, ip_address_type: Optional["aws_sdk_grafana.types.ip_address_type.IPAddressType"] = None, kms_key_id: Optional["aws_sdk_grafana.types.kms_key_id.KmsKeyId"] = None) -> "aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse":
+
+    async def create(
+        self,
+        account_access_type: "aws_sdk_grafana.types.account_access_type.AccountAccessType",
+        permission_type: "aws_sdk_grafana.types.permission_type.PermissionType",
+        authentication_providers: "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders",
+        *,
+        config_overrides: Optional[AsyncgrafanaClientConfig] = None,
+        client_token: Optional["aws_sdk_grafana.types.client_token.ClientToken"] = None,
+        organization_role_name: Optional[
+            "aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"
+        ] = None,
+        stack_set_name: Optional[
+            "aws_sdk_grafana.types.stack_set_name.StackSetName"
+        ] = None,
+        workspace_data_sources: Optional[
+            "aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"
+        ] = None,
+        workspace_description: Optional[
+            "aws_sdk_grafana.types.description.Description"
+        ] = None,
+        workspace_name: Optional[
+            "aws_sdk_grafana.types.workspace_name.WorkspaceName"
+        ] = None,
+        workspace_notification_destinations: Optional[
+            "aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"
+        ] = None,
+        workspace_organizational_units: Optional[
+            "aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"
+        ] = None,
+        workspace_role_arn: Optional[
+            "aws_sdk_grafana.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        tags: Optional["aws_sdk_grafana.types.tag_map.TagMap"] = None,
+        vpc_configuration: Optional[
+            "aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"
+        ] = None,
+        configuration: Optional[
+            "aws_sdk_grafana.types.overridable_configuration_json.OverridableConfigurationJson"
+        ] = None,
+        network_access_control: Optional[
+            "aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"
+        ] = None,
+        grafana_version: Optional[
+            "aws_sdk_grafana.types.grafana_version.GrafanaVersion"
+        ] = None,
+        ip_address_type: Optional[
+            "aws_sdk_grafana.types.ip_address_type.IPAddressType"
+        ] = None,
+        kms_key_id: Optional["aws_sdk_grafana.types.kms_key_id.KmsKeyId"] = None,
+    ) -> "aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse":
         """<p>Creates a <i>workspace</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.</p> <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html\">UpdateWorkspace</a>.</p>
 
         Args:
@@ -257,9 +513,20 @@ class AsyncWorkspace:
             ip_address_type: <p>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are <code>IPv4</code> and <code>DualStack</code>. For more information about IP address types, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html\">Network access control</a>.</p>
             kms_key_id: <p>The ID or ARN of the Key Management Service key to use for encrypting workspace data.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest]') -> AsyncOperationResponse["aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_grafana.types.create_workspace_response.CreateWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.create_workspace
-            output, http_response = await aws_sdk_grafana._operations.aws_grafana_control_plane.create_workspace.async_create_workspace(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_grafana._operations.aws_grafana_control_plane.create_workspace.async_create_workspace(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -279,7 +546,9 @@ class AsyncWorkspace:
         if workspace_name is not None:
             input["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = workspace_notification_destinations
+            input["workspace_notification_destinations"] = (
+                workspace_notification_destinations
+            )
         if workspace_organizational_units is not None:
             input["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
@@ -300,26 +569,98 @@ class AsyncWorkspace:
         if kms_key_id is not None:
             input["kms_key_id"] = kms_key_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncgrafanaClientConfig] = None) -> "aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse":
+
+    async def read(
+        self,
+        workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId",
+        *,
+        config_overrides: Optional[AsyncgrafanaClientConfig] = None,
+    ) -> "aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse":
         """<p>Displays information about one Amazon Managed Grafana workspace.</p>
 
         Args:
             workspace_id: <p>The ID of the workspace to display information about.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest]') -> AsyncOperationResponse["aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_grafana.types.describe_workspace_response.DescribeWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.describe_workspace
-            output, http_response = await aws_sdk_grafana._operations.aws_grafana_control_plane.describe_workspace.async_describe_workspace(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_grafana._operations.aws_grafana_control_plane.describe_workspace.async_describe_workspace(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
         input["workspace_id"] = workspace_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncgrafanaClientConfig] = None, account_access_type: Optional["aws_sdk_grafana.types.account_access_type.AccountAccessType"] = None, organization_role_name: Optional["aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"] = None, permission_type: Optional["aws_sdk_grafana.types.permission_type.PermissionType"] = None, stack_set_name: Optional["aws_sdk_grafana.types.stack_set_name.StackSetName"] = None, workspace_data_sources: Optional["aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"] = None, workspace_description: Optional["aws_sdk_grafana.types.description.Description"] = None, workspace_name: Optional["aws_sdk_grafana.types.workspace_name.WorkspaceName"] = None, workspace_notification_destinations: Optional["aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"] = None, workspace_organizational_units: Optional["aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"] = None, workspace_role_arn: Optional["aws_sdk_grafana.types.iam_role_arn.IamRoleArn"] = None, vpc_configuration: Optional["aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"] = None, remove_vpc_configuration: Optional[bool] = None, network_access_control: Optional["aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"] = None, remove_network_access_configuration: Optional[bool] = None, ip_address_type: Optional["aws_sdk_grafana.types.ip_address_type.IPAddressType"] = None) -> "aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse":
+
+    async def update(
+        self,
+        workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId",
+        *,
+        config_overrides: Optional[AsyncgrafanaClientConfig] = None,
+        account_access_type: Optional[
+            "aws_sdk_grafana.types.account_access_type.AccountAccessType"
+        ] = None,
+        organization_role_name: Optional[
+            "aws_sdk_grafana.types.organization_role_name.OrganizationRoleName"
+        ] = None,
+        permission_type: Optional[
+            "aws_sdk_grafana.types.permission_type.PermissionType"
+        ] = None,
+        stack_set_name: Optional[
+            "aws_sdk_grafana.types.stack_set_name.StackSetName"
+        ] = None,
+        workspace_data_sources: Optional[
+            "aws_sdk_grafana.types.data_source_types_list.DataSourceTypesList"
+        ] = None,
+        workspace_description: Optional[
+            "aws_sdk_grafana.types.description.Description"
+        ] = None,
+        workspace_name: Optional[
+            "aws_sdk_grafana.types.workspace_name.WorkspaceName"
+        ] = None,
+        workspace_notification_destinations: Optional[
+            "aws_sdk_grafana.types.notification_destinations_list.NotificationDestinationsList"
+        ] = None,
+        workspace_organizational_units: Optional[
+            "aws_sdk_grafana.types.organizational_unit_list.OrganizationalUnitList"
+        ] = None,
+        workspace_role_arn: Optional[
+            "aws_sdk_grafana.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        vpc_configuration: Optional[
+            "aws_sdk_grafana.types.vpc_configuration.VpcConfiguration"
+        ] = None,
+        remove_vpc_configuration: Optional[bool] = None,
+        network_access_control: Optional[
+            "aws_sdk_grafana.types.network_access_configuration.NetworkAccessConfiguration"
+        ] = None,
+        remove_network_access_configuration: Optional[bool] = None,
+        ip_address_type: Optional[
+            "aws_sdk_grafana.types.ip_address_type.IPAddressType"
+        ] = None,
+    ) -> "aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse":
         """<p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any optional parameters, the existing values of those parameters are not changed.</p> <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html\">UpdateWorkspaceAuthentication</a>.</p> <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html\">UpdatePermissions</a>.</p>
 
         Args:
@@ -340,9 +681,20 @@ class AsyncWorkspace:
             remove_network_access_configuration: <p>Whether to remove the network access configuration from the workspace.</p> <p>Setting this to <code>true</code> and providing a <code>networkAccessControl</code> to set will return an error.</p> <p>If you remove this configuration by setting this to <code>true</code>, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required.</p>
             ip_address_type: <p>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are <code>IPv4</code> and <code>DualStack</code>. For more information about IP address types, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html\">Network access control</a>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest]') -> AsyncOperationResponse["aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_grafana.types.update_workspace_response.UpdateWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.update_workspace
-            output, http_response = await aws_sdk_grafana._operations.aws_grafana_control_plane.update_workspace.async_update_workspace(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_grafana._operations.aws_grafana_control_plane.update_workspace.async_update_workspace(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -363,7 +715,9 @@ class AsyncWorkspace:
         if workspace_name is not None:
             input["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = workspace_notification_destinations
+            input["workspace_notification_destinations"] = (
+                workspace_notification_destinations
+            )
         if workspace_organizational_units is not None:
             input["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
@@ -375,39 +729,86 @@ class AsyncWorkspace:
         if network_access_control is not None:
             input["network_access_control"] = network_access_control
         if remove_network_access_configuration is not None:
-            input["remove_network_access_configuration"] = remove_network_access_configuration
+            input["remove_network_access_configuration"] = (
+                remove_network_access_configuration
+            )
         if ip_address_type is not None:
             input["ip_address_type"] = ip_address_type
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId", *, config_overrides: Optional[AsyncgrafanaClientConfig] = None) -> "aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse":
+
+    async def delete(
+        self,
+        workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId",
+        *,
+        config_overrides: Optional[AsyncgrafanaClientConfig] = None,
+    ) -> "aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse":
         """<p>Deletes an Amazon Managed Grafana workspace.</p>
 
         Args:
             workspace_id: <p>The ID of the workspace to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest]') -> AsyncOperationResponse["aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_grafana.types.delete_workspace_response.DeleteWorkspaceResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.delete_workspace
-            output, http_response = await aws_sdk_grafana._operations.aws_grafana_control_plane.delete_workspace.async_delete_workspace(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_grafana._operations.aws_grafana_control_plane.delete_workspace.async_delete_workspace(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
         input["workspace_id"] = workspace_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncgrafanaClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_grafana.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncgrafanaClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_grafana.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse":
         """<p>Returns a list of Amazon Managed Grafana workspaces in the account, with some information about each workspace. For more complete information about one workspace, use <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_DescribeWorkspace.html\">DescribeWorkspace</a>.</p>
 
         Args:
             max_results: <p>The maximum number of workspaces to include in the results.</p>
             next_token: <p>The token for the next set of workspaces to return. (You receive this token from a previous <code>ListWorkspaces</code> operation.)</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest]') -> AsyncOperationResponse["aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_grafana.types.list_workspaces_response.ListWorkspacesResponse"
+        ]:
             import aws_sdk_grafana._operations.aws_grafana_control_plane.list_workspaces
-            output, http_response = await aws_sdk_grafana._operations.aws_grafana_control_plane.list_workspaces.async_list_workspaces(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_grafana._operations.aws_grafana_control_plane.list_workspaces.async_list_workspaces(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -417,5 +818,9 @@ class AsyncWorkspace:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

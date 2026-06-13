@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#CreateStreamInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_dsql.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.client_token
     import aws_sdk_dsql.types.cluster_id
@@ -10,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.stream_ordering
     import aws_sdk_dsql.types.tag_map
     import aws_sdk_dsql.types.target_definition
+
 
 class CreateStreamInput(TypedDict):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
@@ -25,17 +29,26 @@ class CreateStreamInput(TypedDict):
     client_token: NotRequired["aws_sdk_dsql.types.client_token.ClientToken"]
     """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateStreamInput) -> dict:
     out: dict = {}
     import aws_sdk_dsql.types.target_definition
-    out["targetDefinition"] = aws_sdk_dsql.types.target_definition.serialize_json(value["target_definition"])
+
+    out["targetDefinition"] = aws_sdk_dsql.types.target_definition.serialize_json(
+        value["target_definition"]
+    )
     import aws_sdk_dsql.types.stream_ordering
-    out["ordering"] = aws_sdk_dsql.types.stream_ordering.serialize_json(value["ordering"])
+
+    out["ordering"] = aws_sdk_dsql.types.stream_ordering.serialize_json(
+        value["ordering"]
+    )
     import aws_sdk_dsql.types.stream_format
+
     out["format"] = aws_sdk_dsql.types.stream_format.serialize_json(value["format"])
     if "tags" in value:
         import aws_sdk_dsql.types.tag_map
+
         out["tags"] = aws_sdk_dsql.types.tag_map.serialize_json(value["tags"])
     if "client_token" in value:
         out["clientToken"] = value["client_token"]
@@ -46,21 +59,33 @@ def deserialize_json(data: dict) -> CreateStreamInput:
     out: CreateStreamInput = {}  # type: ignore[typeddict-item]
     if "targetDefinition" in data:
         import aws_sdk_dsql.types.target_definition
-        out["target_definition"] = aws_sdk_dsql.types.target_definition.deserialize_json(data["targetDefinition"])
+
+        out["target_definition"] = (
+            aws_sdk_dsql.types.target_definition.deserialize_json(
+                data["targetDefinition"]
+            )
+        )
     else:
         raise DeserializationError("CreateStreamInput.target_definition required")
     if "ordering" in data:
         import aws_sdk_dsql.types.stream_ordering
-        out["ordering"] = aws_sdk_dsql.types.stream_ordering.deserialize_json(data["ordering"])
+
+        out["ordering"] = aws_sdk_dsql.types.stream_ordering.deserialize_json(
+            data["ordering"]
+        )
     else:
         raise DeserializationError("CreateStreamInput.ordering required")
     if "format" in data:
         import aws_sdk_dsql.types.stream_format
-        out["format"] = aws_sdk_dsql.types.stream_format.deserialize_json(data["format"])
+
+        out["format"] = aws_sdk_dsql.types.stream_format.deserialize_json(
+            data["format"]
+        )
     else:
         raise DeserializationError("CreateStreamInput.format required")
     if "tags" in data:
         import aws_sdk_dsql.types.tag_map
+
         out["tags"] = aws_sdk_dsql.types.tag_map.deserialize_json(data["tags"])
     if "clientToken" in data:
         out["client_token"] = data["clientToken"]

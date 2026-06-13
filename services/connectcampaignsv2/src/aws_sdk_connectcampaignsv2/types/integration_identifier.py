@@ -18,11 +18,12 @@ class _IntegrationIdentifier_qConnect(TypedDict):
     qConnect: "aws_sdk_connectcampaignsv2.types.q_connect_integration_identifier.QConnectIntegrationIdentifier"
 
 
-class _IntegrationIdentifier_lambda(TypedDict):
-    lambda: (
-        "aws_sdk_connectcampaignsv2.types.lambda_integration_identifier.LambdaIntegrationIdentifier"
-    )
-
+_IntegrationIdentifier_lambda = TypedDict(
+    "_IntegrationIdentifier_lambda",
+    {
+        "lambda": "aws_sdk_connectcampaignsv2.types.lambda_integration_identifier.LambdaIntegrationIdentifier",
+    },
+)
 
 IntegrationIdentifier: TypeAlias = (
     _IntegrationIdentifier_customerProfiles

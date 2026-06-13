@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#AssistantData``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_wisdom.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.arn
     import aws_sdk_wisdom.types.assistant_integration_configuration
@@ -13,6 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.server_side_encryption_configuration
     import aws_sdk_wisdom.types.tags
     import aws_sdk_wisdom.types.uuid
+
 
 class AssistantData(TypedDict):
     assistant_id: "aws_sdk_wisdom.types.uuid.Uuid"
@@ -29,10 +33,15 @@ class AssistantData(TypedDict):
     """<p>The description.</p>"""
     tags: NotRequired["aws_sdk_wisdom.types.tags.Tags"]
     """<p>The tags used to organize, track, or control access for this resource.</p>"""
-    server_side_encryption_configuration: NotRequired["aws_sdk_wisdom.types.server_side_encryption_configuration.ServerSideEncryptionConfiguration"]
+    server_side_encryption_configuration: NotRequired[
+        "aws_sdk_wisdom.types.server_side_encryption_configuration.ServerSideEncryptionConfiguration"
+    ]
     """<p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, and <code>kms:Decrypt/kms:GenerateDataKey</code> permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Wisdom, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html\">Enable Amazon Connect Wisdom for your instance</a>.</p>"""
-    integration_configuration: NotRequired["aws_sdk_wisdom.types.assistant_integration_configuration.AssistantIntegrationConfiguration"]
+    integration_configuration: NotRequired[
+        "aws_sdk_wisdom.types.assistant_integration_configuration.AssistantIntegrationConfiguration"
+    ]
     """<p>The configuration information for the Wisdom assistant integration.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssistantData) -> dict:
@@ -46,13 +55,24 @@ def serialize_json(value: AssistantData) -> dict:
         out["description"] = value["description"]
     if "tags" in value:
         import aws_sdk_wisdom.types.tags
+
         out["tags"] = aws_sdk_wisdom.types.tags.serialize_json(value["tags"])
     if "server_side_encryption_configuration" in value:
         import aws_sdk_wisdom.types.server_side_encryption_configuration
-        out["serverSideEncryptionConfiguration"] = aws_sdk_wisdom.types.server_side_encryption_configuration.serialize_json(value["server_side_encryption_configuration"])
+
+        out["serverSideEncryptionConfiguration"] = (
+            aws_sdk_wisdom.types.server_side_encryption_configuration.serialize_json(
+                value["server_side_encryption_configuration"]
+            )
+        )
     if "integration_configuration" in value:
         import aws_sdk_wisdom.types.assistant_integration_configuration
-        out["integrationConfiguration"] = aws_sdk_wisdom.types.assistant_integration_configuration.serialize_json(value["integration_configuration"])
+
+        out["integrationConfiguration"] = (
+            aws_sdk_wisdom.types.assistant_integration_configuration.serialize_json(
+                value["integration_configuration"]
+            )
+        )
     return out
 
 
@@ -82,11 +102,22 @@ def deserialize_json(data: dict) -> AssistantData:
         out["description"] = data["description"]
     if "tags" in data:
         import aws_sdk_wisdom.types.tags
+
         out["tags"] = aws_sdk_wisdom.types.tags.deserialize_json(data["tags"])
     if "serverSideEncryptionConfiguration" in data:
         import aws_sdk_wisdom.types.server_side_encryption_configuration
-        out["server_side_encryption_configuration"] = aws_sdk_wisdom.types.server_side_encryption_configuration.deserialize_json(data["serverSideEncryptionConfiguration"])
+
+        out["server_side_encryption_configuration"] = (
+            aws_sdk_wisdom.types.server_side_encryption_configuration.deserialize_json(
+                data["serverSideEncryptionConfiguration"]
+            )
+        )
     if "integrationConfiguration" in data:
         import aws_sdk_wisdom.types.assistant_integration_configuration
-        out["integration_configuration"] = aws_sdk_wisdom.types.assistant_integration_configuration.deserialize_json(data["integrationConfiguration"])
+
+        out["integration_configuration"] = (
+            aws_sdk_wisdom.types.assistant_integration_configuration.deserialize_json(
+                data["integrationConfiguration"]
+            )
+        )
     return out

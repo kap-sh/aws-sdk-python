@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#CancelHarvestJobRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.entity_tag
     import aws_sdk_mediapackagev2.types.resource_name
+
 
 class CancelHarvestJobRequest(TypedDict):
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
@@ -17,6 +20,7 @@ class CancelHarvestJobRequest(TypedDict):
     """<p>The name of the harvest job to cancel. This name must be unique within the channel and cannot be changed after the harvest job is submitted.</p>"""
     e_tag: NotRequired["aws_sdk_mediapackagev2.types.entity_tag.EntityTag"]
     """<p>The current Entity Tag (ETag) associated with the harvest job. Used for concurrency control.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelHarvestJobRequest) -> dict:

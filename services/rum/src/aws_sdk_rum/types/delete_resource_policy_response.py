@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.rum#DeleteResourcePolicyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.policy_revision_id
 
+
 class DeleteResourcePolicyResponse(TypedDict):
-    policy_revision_id: NotRequired["aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"]
+    policy_revision_id: NotRequired[
+        "aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"
+    ]
     """<p>The revision ID of the policy that was removed, if it had one.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteResourcePolicyResponse) -> dict:

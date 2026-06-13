@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#DescribeOAuthClientApplicationResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.o_auth_client_application
+    import aws_sdk_quicksight.types.status_code
+    import aws_sdk_quicksight.types.string
+
+
+class DescribeOAuthClientApplicationResponse(TypedDict):
+    o_auth_client_application: NotRequired[
+        "aws_sdk_quicksight.types.o_auth_client_application.OAuthClientApplication"
+    ]
+    """<p>The information about the OAuthClientApplication.</p>"""
+    request_id: NotRequired["aws_sdk_quicksight.types.string.String"]
+    """<p>The Amazon Web Services request ID for this operation.</p>"""
+    status: "aws_sdk_quicksight.types.status_code.StatusCode"
+    """<p>The HTTP status of the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeOAuthClientApplicationResponse) -> dict:
+    out: dict = {}
+    if "o_auth_client_application" in value:
+        import aws_sdk_quicksight.types.o_auth_client_application
+
+        out["OAuthClientApplication"] = (
+            aws_sdk_quicksight.types.o_auth_client_application.serialize_json(
+                value["o_auth_client_application"]
+            )
+        )
+    if "request_id" in value:
+        out["RequestId"] = value["request_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeOAuthClientApplicationResponse:
+    out: DescribeOAuthClientApplicationResponse = {}  # type: ignore[typeddict-item]
+    if "OAuthClientApplication" in data:
+        import aws_sdk_quicksight.types.o_auth_client_application
+
+        out["o_auth_client_application"] = (
+            aws_sdk_quicksight.types.o_auth_client_application.deserialize_json(
+                data["OAuthClientApplication"]
+            )
+        )
+    if "RequestId" in data:
+        out["request_id"] = data["RequestId"]
+    return out

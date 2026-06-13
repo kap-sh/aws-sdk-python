@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.costoptimizationhub#UpdateEnrollmentStatusRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cost_optimization_hub.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cost_optimization_hub.types.enrollment_status
+
+
+class UpdateEnrollmentStatusRequest(TypedDict):
+    status: "aws_sdk_cost_optimization_hub.types.enrollment_status.EnrollmentStatus"
+    """<p>Sets the account status.</p>"""
+    include_member_accounts: NotRequired["bool"]
+    """<p>Indicates whether to enroll member accounts of the organization if the account is the management account or delegated administrator.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateEnrollmentStatusRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_cost_optimization_hub.types.enrollment_status
+
+    out["status"] = (
+        aws_sdk_cost_optimization_hub.types.enrollment_status.serialize_aws_json_1_0(
+            value["status"]
+        )
+    )
+    if "include_member_accounts" in value:
+        out["includeMemberAccounts"] = value["include_member_accounts"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateEnrollmentStatusRequest:
+    out: UpdateEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
+    if "status" in data:
+        import aws_sdk_cost_optimization_hub.types.enrollment_status
+
+        out["status"] = (
+            aws_sdk_cost_optimization_hub.types.enrollment_status.deserialize_aws_json_1_0(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateEnrollmentStatusRequest.status required")
+    if "includeMemberAccounts" in data:
+        out["include_member_accounts"] = data["includeMemberAccounts"]
+    return out

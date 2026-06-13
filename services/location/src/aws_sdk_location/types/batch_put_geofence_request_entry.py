@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchPutGeofenceRequestEntry``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geofence_geometry
     import aws_sdk_location.types.id
     import aws_sdk_location.types.property_map
+
 
 class BatchPutGeofenceRequestEntry(TypedDict):
     geofence_id: "aws_sdk_location.types.id.Id"
@@ -16,15 +20,22 @@ class BatchPutGeofenceRequestEntry(TypedDict):
     geofence_properties: NotRequired["aws_sdk_location.types.property_map.PropertyMap"]
     """<p>Associates one of more properties with the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p> <p>Format: <code>\"key\" : \"value\"</code> </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchPutGeofenceRequestEntry) -> dict:
     out: dict = {}
     out["GeofenceId"] = value["geofence_id"]
     import aws_sdk_location.types.geofence_geometry
-    out["Geometry"] = aws_sdk_location.types.geofence_geometry.serialize_json(value["geometry"])
+
+    out["Geometry"] = aws_sdk_location.types.geofence_geometry.serialize_json(
+        value["geometry"]
+    )
     if "geofence_properties" in value:
         import aws_sdk_location.types.property_map
-        out["GeofenceProperties"] = aws_sdk_location.types.property_map.serialize_json(value["geofence_properties"])
+
+        out["GeofenceProperties"] = aws_sdk_location.types.property_map.serialize_json(
+            value["geofence_properties"]
+        )
     return out
 
 
@@ -36,10 +47,18 @@ def deserialize_json(data: dict) -> BatchPutGeofenceRequestEntry:
         raise DeserializationError("BatchPutGeofenceRequestEntry.geofence_id required")
     if "Geometry" in data:
         import aws_sdk_location.types.geofence_geometry
-        out["geometry"] = aws_sdk_location.types.geofence_geometry.deserialize_json(data["Geometry"])
+
+        out["geometry"] = aws_sdk_location.types.geofence_geometry.deserialize_json(
+            data["Geometry"]
+        )
     else:
         raise DeserializationError("BatchPutGeofenceRequestEntry.geometry required")
     if "GeofenceProperties" in data:
         import aws_sdk_location.types.property_map
-        out["geofence_properties"] = aws_sdk_location.types.property_map.deserialize_json(data["GeofenceProperties"])
+
+        out["geofence_properties"] = (
+            aws_sdk_location.types.property_map.deserialize_json(
+                data["GeofenceProperties"]
+            )
+        )
     return out

@@ -1,12 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#AmazonConnectCases``."""
 
-from aws_sdk_connectcases._auth._signers import SigV4Signer
-from aws_sdk_connectcases._auth._sigv4 import presign_sigv4
+import warnings
 from collections.abc import Iterator
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
 from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
+from zapros import BaseHandler, Client
+
+import aws_sdk_connectcases._auth._signers
+import aws_sdk_connectcases._auth._sigv4
+from aws_sdk_connectcases._auth._identity import Credentials
+from aws_sdk_connectcases._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
 from aws_sdk_connectcases._auth._zapros_handler import AuthMiddleware
 from aws_sdk_connectcases._services._pipeline import (
     Interceptor,
@@ -15,20 +22,6 @@ from aws_sdk_connectcases._services._pipeline import (
     OperationResponse,
     execute_pipeline,
     retry,
-)
-import time
-from aws_sdk_connectcases.errors import (
-    ServiceError,
-    WaiterFailedError,
-    WaiterTimeoutError,
-)
-import warnings
-import aws_sdk_connectcases._auth._signers
-import aws_sdk_connectcases._auth._sigv4
-from aws_sdk_connectcases._auth._identity import Credentials
-from aws_sdk_connectcases._auth._providers import (
-    CredentialsProvider,
-    StaticAwsCredentialsProvider,
 )
 
 if TYPE_CHECKING:

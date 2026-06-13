@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelLoaderJobOutput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CancelLoaderJobOutput(TypedDict):
     status: NotRequired["str"]
     """<p>The cancellation status.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelLoaderJobOutput) -> dict:

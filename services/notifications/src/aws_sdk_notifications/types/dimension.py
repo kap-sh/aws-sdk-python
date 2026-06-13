@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#Dimension``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_notifications.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.text_part_reference
+
 
 class Dimension(TypedDict):
     name: "aws_sdk_notifications.types.text_part_reference.TextPartReference"
     """<p>The name of the dimension</p>"""
     value: "aws_sdk_notifications.types.text_part_reference.TextPartReference"
     """<p>The value of the dimension.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Dimension) -> dict:

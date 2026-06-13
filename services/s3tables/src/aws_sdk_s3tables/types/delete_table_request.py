@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#DeleteTableRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.namespace_name
     import aws_sdk_s3tables.types.table_bucket_arn
     import aws_sdk_s3tables.types.table_name
     import aws_sdk_s3tables.types.version_token
+
 
 class DeleteTableRequest(TypedDict):
     table_bucket_arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
@@ -17,6 +20,7 @@ class DeleteTableRequest(TypedDict):
     """<p>The name of the table.</p>"""
     version_token: NotRequired["aws_sdk_s3tables.types.version_token.VersionToken"]
     """<p>The version token of the table.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteTableRequest) -> dict:

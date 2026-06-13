@@ -53,43 +53,43 @@ class _StartConversationResponseEventStream_HeartbeatEvent(TypedDict):
 
 class _StartConversationResponseEventStream_AccessDeniedException(TypedDict):
     AccessDeniedException: (
-        "aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException"
+        "aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException_"
     )
 
 
 class _StartConversationResponseEventStream_ResourceNotFoundException(TypedDict):
-    ResourceNotFoundException: "aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException"
+    ResourceNotFoundException: "aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
 class _StartConversationResponseEventStream_ValidationException(TypedDict):
     ValidationException: (
-        "aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException"
+        "aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException_"
     )
 
 
 class _StartConversationResponseEventStream_ThrottlingException(TypedDict):
     ThrottlingException: (
-        "aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException"
+        "aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException_"
     )
 
 
 class _StartConversationResponseEventStream_InternalServerException(TypedDict):
-    InternalServerException: "aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException"
+    InternalServerException: "aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException_"
 
 
 class _StartConversationResponseEventStream_ConflictException(TypedDict):
     ConflictException: (
-        "aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException"
+        "aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException_"
     )
 
 
 class _StartConversationResponseEventStream_DependencyFailedException(TypedDict):
-    DependencyFailedException: "aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException"
+    DependencyFailedException: "aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException_"
 
 
 class _StartConversationResponseEventStream_BadGatewayException(TypedDict):
     BadGatewayException: (
-        "aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException"
+        "aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException_"
     )
 
 

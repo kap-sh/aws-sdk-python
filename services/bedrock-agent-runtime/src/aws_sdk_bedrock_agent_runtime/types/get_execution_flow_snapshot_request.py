@@ -1,18 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetExecutionFlowSnapshotRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier
     import aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier
     import aws_sdk_bedrock_agent_runtime.types.flow_identifier
 
+
 class GetExecutionFlowSnapshotRequest(TypedDict):
-    flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier"
+    flow_identifier: (
+        "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier"
+    )
     """<p>The unique identifier of the flow.</p>"""
-    flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier"
+    flow_alias_identifier: (
+        "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier"
+    )
     """<p>The unique identifier of the flow alias used for the flow execution.</p>"""
     execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier"
     """<p>The unique identifier of the flow execution.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetExecutionFlowSnapshotRequest) -> dict:

@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#AssociatedDomainSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.domain_arn
+
 
 class AssociatedDomainSummary(TypedDict):
     arn: NotRequired["aws_sdk_controlcatalog.types.domain_arn.DomainArn"]
     """<p>The Amazon Resource Name (ARN) of the related domain.</p>"""
     name: NotRequired["str"]
     """<p>The name of the related domain.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociatedDomainSummary) -> dict:

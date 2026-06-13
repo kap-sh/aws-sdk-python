@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#DeleteEnvironmentInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.environment_name
+
 
 class DeleteEnvironmentInput(TypedDict):
     name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
     """<p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteEnvironmentInput) -> dict:

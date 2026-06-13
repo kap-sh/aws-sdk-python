@@ -9,11 +9,21 @@ import base64
 from email.utils import format_datetime as _fmt_http
 from email.utils import parsedate_to_datetime as _parse_http
 
-ComputeEnvironments: TypeAlias = Literal["SPARK", "ATHENA", "PYTHON",]
+ComputeEnvironments: TypeAlias = Literal[
+    "SPARK",
+    "ATHENA",
+    "PYTHON",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("SPARK", "ATHENA", "PYTHON",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "SPARK",
+        "ATHENA",
+        "PYTHON",
+    )
+)
 
 
 def serialize_json(value: ComputeEnvironments) -> str:

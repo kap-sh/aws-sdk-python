@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ContentBody``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.image_inputs
+
 
 class ContentBody(TypedDict):
     body: NotRequired["str"]
     """<p>The body of the API response.</p>"""
     images: NotRequired["aws_sdk_bedrock_agent_runtime.types.image_inputs.ImageInputs"]
     """<p>Lists details, including format and source, for the image in the response from the function call. You can specify only one image and the function in the <code>returnControlInvocationResults</code> must be a computer use action. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html\">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ContentBody) -> dict:
@@ -18,7 +22,10 @@ def serialize_json(value: ContentBody) -> dict:
         out["body"] = value["body"]
     if "images" in value:
         import aws_sdk_bedrock_agent_runtime.types.image_inputs
-        out["images"] = aws_sdk_bedrock_agent_runtime.types.image_inputs.serialize_json(value["images"])
+
+        out["images"] = aws_sdk_bedrock_agent_runtime.types.image_inputs.serialize_json(
+            value["images"]
+        )
     return out
 
 
@@ -28,5 +35,10 @@ def deserialize_json(data: dict) -> ContentBody:
         out["body"] = data["body"]
     if "images" in data:
         import aws_sdk_bedrock_agent_runtime.types.image_inputs
-        out["images"] = aws_sdk_bedrock_agent_runtime.types.image_inputs.deserialize_json(data["images"])
+
+        out["images"] = (
+            aws_sdk_bedrock_agent_runtime.types.image_inputs.deserialize_json(
+                data["images"]
+            )
+        )
     return out

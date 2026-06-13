@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#Backends``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.backend
 
@@ -10,6 +11,7 @@ Backends: TypeAlias = list["aws_sdk_app_mesh.types.backend.Backend"]
 # --- restJson1 ser/de ---
 def serialize_json(value: Backends) -> list:
     import aws_sdk_app_mesh.types.backend
+
     out: list = []
     for item in value:
         out.append(aws_sdk_app_mesh.types.backend.serialize_json(item))
@@ -18,6 +20,7 @@ def serialize_json(value: Backends) -> list:
 
 def deserialize_json(data: list) -> Backends:
     import aws_sdk_app_mesh.types.backend
+
     out: Backends = []
     for item in data:
         out.append(aws_sdk_app_mesh.types.backend.deserialize_json(item))

@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitorConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.arn
     import aws_sdk_rum.types.favorite_pages
@@ -9,6 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.pages
     import aws_sdk_rum.types.session_sample_rate
     import aws_sdk_rum.types.telemetries
+
 
 class AppMonitorConfiguration(TypedDict):
     identity_pool_id: NotRequired["aws_sdk_rum.types.identity_pool_id.IdentityPoolId"]
@@ -30,6 +33,7 @@ class AppMonitorConfiguration(TypedDict):
     enable_x_ray: NotRequired["bool"]
     """<p>If you set this to <code>true</code>, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the X-Ray console and the CloudWatch ServiceLens console. For more information, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html\">What is X-Ray?</a> </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AppMonitorConfiguration) -> dict:
     out: dict = {}
@@ -37,13 +41,22 @@ def serialize_json(value: AppMonitorConfiguration) -> dict:
         out["IdentityPoolId"] = value["identity_pool_id"]
     if "excluded_pages" in value:
         import aws_sdk_rum.types.pages
-        out["ExcludedPages"] = aws_sdk_rum.types.pages.serialize_json(value["excluded_pages"])
+
+        out["ExcludedPages"] = aws_sdk_rum.types.pages.serialize_json(
+            value["excluded_pages"]
+        )
     if "included_pages" in value:
         import aws_sdk_rum.types.pages
-        out["IncludedPages"] = aws_sdk_rum.types.pages.serialize_json(value["included_pages"])
+
+        out["IncludedPages"] = aws_sdk_rum.types.pages.serialize_json(
+            value["included_pages"]
+        )
     if "favorite_pages" in value:
         import aws_sdk_rum.types.favorite_pages
-        out["FavoritePages"] = aws_sdk_rum.types.favorite_pages.serialize_json(value["favorite_pages"])
+
+        out["FavoritePages"] = aws_sdk_rum.types.favorite_pages.serialize_json(
+            value["favorite_pages"]
+        )
     out["SessionSampleRate"] = value.get("session_sample_rate", 0)
     if "guest_role_arn" in value:
         out["GuestRoleArn"] = value["guest_role_arn"]
@@ -51,7 +64,10 @@ def serialize_json(value: AppMonitorConfiguration) -> dict:
         out["AllowCookies"] = value["allow_cookies"]
     if "telemetries" in value:
         import aws_sdk_rum.types.telemetries
-        out["Telemetries"] = aws_sdk_rum.types.telemetries.serialize_json(value["telemetries"])
+
+        out["Telemetries"] = aws_sdk_rum.types.telemetries.serialize_json(
+            value["telemetries"]
+        )
     if "enable_x_ray" in value:
         out["EnableXRay"] = value["enable_x_ray"]
     return out
@@ -63,13 +79,22 @@ def deserialize_json(data: dict) -> AppMonitorConfiguration:
         out["identity_pool_id"] = data["IdentityPoolId"]
     if "ExcludedPages" in data:
         import aws_sdk_rum.types.pages
-        out["excluded_pages"] = aws_sdk_rum.types.pages.deserialize_json(data["ExcludedPages"])
+
+        out["excluded_pages"] = aws_sdk_rum.types.pages.deserialize_json(
+            data["ExcludedPages"]
+        )
     if "IncludedPages" in data:
         import aws_sdk_rum.types.pages
-        out["included_pages"] = aws_sdk_rum.types.pages.deserialize_json(data["IncludedPages"])
+
+        out["included_pages"] = aws_sdk_rum.types.pages.deserialize_json(
+            data["IncludedPages"]
+        )
     if "FavoritePages" in data:
         import aws_sdk_rum.types.favorite_pages
-        out["favorite_pages"] = aws_sdk_rum.types.favorite_pages.deserialize_json(data["FavoritePages"])
+
+        out["favorite_pages"] = aws_sdk_rum.types.favorite_pages.deserialize_json(
+            data["FavoritePages"]
+        )
     if "SessionSampleRate" in data:
         out["session_sample_rate"] = data["SessionSampleRate"]
     else:
@@ -80,7 +105,10 @@ def deserialize_json(data: dict) -> AppMonitorConfiguration:
         out["allow_cookies"] = data["AllowCookies"]
     if "Telemetries" in data:
         import aws_sdk_rum.types.telemetries
-        out["telemetries"] = aws_sdk_rum.types.telemetries.deserialize_json(data["Telemetries"])
+
+        out["telemetries"] = aws_sdk_rum.types.telemetries.deserialize_json(
+            data["Telemetries"]
+        )
     if "EnableXRay" in data:
         out["enable_x_ray"] = data["EnableXRay"]
     return out

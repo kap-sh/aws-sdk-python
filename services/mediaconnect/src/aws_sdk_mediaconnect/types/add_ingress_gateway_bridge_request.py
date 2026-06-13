@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddIngressGatewayBridgeRequest``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class AddIngressGatewayBridgeRequest(TypedDict):
     max_bitrate: NotRequired["int"]
     """<p> The maximum expected bitrate (in bps) of the ingress bridge. </p>"""
     max_outputs: NotRequired["int"]
     """<p> The maximum number of expected outputs on the ingress bridge. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AddIngressGatewayBridgeRequest) -> dict:

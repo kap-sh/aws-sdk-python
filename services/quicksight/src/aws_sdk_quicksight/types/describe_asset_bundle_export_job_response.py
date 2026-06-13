@@ -1,0 +1,275 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#DescribeAssetBundleExportJobResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.arn
+    import aws_sdk_quicksight.types.asset_bundle_cloud_formation_override_property_configuration
+    import aws_sdk_quicksight.types.asset_bundle_export_format
+    import aws_sdk_quicksight.types.asset_bundle_export_job_error_list
+    import aws_sdk_quicksight.types.asset_bundle_export_job_status
+    import aws_sdk_quicksight.types.asset_bundle_export_job_validation_strategy
+    import aws_sdk_quicksight.types.asset_bundle_export_job_warning_list
+    import aws_sdk_quicksight.types.asset_bundle_resource_arns
+    import aws_sdk_quicksight.types.aws_account_id
+    import aws_sdk_quicksight.types.boolean
+    import aws_sdk_quicksight.types.include_folder_members
+    import aws_sdk_quicksight.types.non_empty_string
+    import aws_sdk_quicksight.types.sensitive_s3_uri
+    import aws_sdk_quicksight.types.short_restrictive_resource_id
+    import aws_sdk_quicksight.types.status_code
+    import aws_sdk_quicksight.types.timestamp
+
+
+class DescribeAssetBundleExportJobResponse(TypedDict):
+    job_status: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_export_job_status.AssetBundleExportJobStatus"
+    ]
+    """<p>Indicates the status of a job through its queuing and execution.</p> <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>"""
+    download_url: NotRequired[
+        "aws_sdk_quicksight.types.sensitive_s3_uri.SensitiveS3Uri"
+    ]
+    """<p>The URL to download the exported asset bundle data from.</p> <p>This URL is available only after the job has succeeded. This URL is valid for 5 minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed.</p> <p>The downloaded asset bundle is a zip file named <code>assetbundle-{jobId}.qs</code>. The file has a <code>.qs</code> extension.</p> <p>This URL can't be used in a <code>StartAssetBundleImportJob</code> API call and should only be used for download purposes.</p>"""
+    errors: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_export_job_error_list.AssetBundleExportJobErrorList"
+    ]
+    """<p>An array of error records that describes any failures that occurred during the export job processing.</p> <p>Error records accumulate while the job runs. The complete set of error records is available after the job has completed and failed.</p>"""
+    arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
+    """<p>The Amazon Resource Name (ARN) for the export job.</p>"""
+    created_time: NotRequired["aws_sdk_quicksight.types.timestamp.Timestamp"]
+    """<p>The time that the export job was created.</p>"""
+    asset_bundle_export_job_id: NotRequired[
+        "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
+    ]
+    """<p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>"""
+    aws_account_id: NotRequired["aws_sdk_quicksight.types.aws_account_id.AwsAccountId"]
+    """<p>The ID of the Amazon Web Services account that the export job was executed in. </p>"""
+    resource_arns: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_resource_arns.AssetBundleResourceArns"
+    ]
+    """<p>A list of resource ARNs that exported with the job.</p>"""
+    include_all_dependencies: "aws_sdk_quicksight.types.boolean.Boolean"
+    """<p>The include dependencies flag.</p>"""
+    export_format: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_export_format.AssetBundleExportFormat"
+    ]
+    """<p>The format of the exported asset bundle. A <code>QUICKSIGHT_JSON</code> formatted file can be used to make a <code>StartAssetBundleImportJob</code> API call. A <code>CLOUDFORMATION_JSON</code> formatted file can be used in the CloudFormation console and with the CloudFormation APIs.</p>"""
+    cloud_formation_override_property_configuration: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_cloud_formation_override_property_configuration.AssetBundleCloudFormationOverridePropertyConfiguration"
+    ]
+    """<p>The CloudFormation override property configuration for the export job.</p>"""
+    request_id: NotRequired["aws_sdk_quicksight.types.non_empty_string.NonEmptyString"]
+    """<p>The Amazon Web Services request ID for this operation.</p>"""
+    status: "aws_sdk_quicksight.types.status_code.StatusCode"
+    """<p>The HTTP status of the response.</p>"""
+    include_permissions: "aws_sdk_quicksight.types.boolean.Boolean"
+    """<p>The include permissions flag.</p>"""
+    include_tags: "aws_sdk_quicksight.types.boolean.Boolean"
+    """<p>The include tags flag.</p>"""
+    validation_strategy: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_export_job_validation_strategy.AssetBundleExportJobValidationStrategy"
+    ]
+    """<p>The validation strategy that is used to export the analysis or dashboard.</p>"""
+    warnings: NotRequired[
+        "aws_sdk_quicksight.types.asset_bundle_export_job_warning_list.AssetBundleExportJobWarningList"
+    ]
+    """<p>An array of warning records that describe the analysis or dashboard that is exported. This array includes UI errors that can be skipped during the validation process.</p> <p>This property only appears if <code>StrictModeForAllResources</code> in <code>ValidationStrategy</code> is set to <code>FALSE</code>.</p>"""
+    include_folder_memberships: "aws_sdk_quicksight.types.boolean.Boolean"
+    """<p>The include folder memberships flag.</p>"""
+    include_folder_members: NotRequired[
+        "aws_sdk_quicksight.types.include_folder_members.IncludeFolderMembers"
+    ]
+    """<p>A setting that determines whether folder members are included.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeAssetBundleExportJobResponse) -> dict:
+    out: dict = {}
+    if "job_status" in value:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_status
+
+        out["JobStatus"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_status.serialize_json(
+                value["job_status"]
+            )
+        )
+    if "download_url" in value:
+        out["DownloadUrl"] = value["download_url"]
+    if "errors" in value:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_error_list
+
+        out["Errors"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_error_list.serialize_json(
+                value["errors"]
+            )
+        )
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "created_time" in value:
+        import aws_sdk_quicksight.types.timestamp
+
+        out["CreatedTime"] = aws_sdk_quicksight.types.timestamp.serialize_json(
+            value["created_time"]
+        )
+    if "asset_bundle_export_job_id" in value:
+        out["AssetBundleExportJobId"] = value["asset_bundle_export_job_id"]
+    if "aws_account_id" in value:
+        out["AwsAccountId"] = value["aws_account_id"]
+    if "resource_arns" in value:
+        import aws_sdk_quicksight.types.asset_bundle_resource_arns
+
+        out["ResourceArns"] = (
+            aws_sdk_quicksight.types.asset_bundle_resource_arns.serialize_json(
+                value["resource_arns"]
+            )
+        )
+    out["IncludeAllDependencies"] = value.get("include_all_dependencies", False)
+    if "export_format" in value:
+        import aws_sdk_quicksight.types.asset_bundle_export_format
+
+        out["ExportFormat"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_format.serialize_json(
+                value["export_format"]
+            )
+        )
+    if "cloud_formation_override_property_configuration" in value:
+        import aws_sdk_quicksight.types.asset_bundle_cloud_formation_override_property_configuration
+
+        out["CloudFormationOverridePropertyConfiguration"] = (
+            aws_sdk_quicksight.types.asset_bundle_cloud_formation_override_property_configuration.serialize_json(
+                value["cloud_formation_override_property_configuration"]
+            )
+        )
+    if "request_id" in value:
+        out["RequestId"] = value["request_id"]
+    out["IncludePermissions"] = value.get("include_permissions", False)
+    out["IncludeTags"] = value.get("include_tags", False)
+    if "validation_strategy" in value:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_validation_strategy
+
+        out["ValidationStrategy"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_validation_strategy.serialize_json(
+                value["validation_strategy"]
+            )
+        )
+    if "warnings" in value:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_warning_list
+
+        out["Warnings"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_warning_list.serialize_json(
+                value["warnings"]
+            )
+        )
+    out["IncludeFolderMemberships"] = value.get("include_folder_memberships", False)
+    if "include_folder_members" in value:
+        import aws_sdk_quicksight.types.include_folder_members
+
+        out["IncludeFolderMembers"] = (
+            aws_sdk_quicksight.types.include_folder_members.serialize_json(
+                value["include_folder_members"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeAssetBundleExportJobResponse:
+    out: DescribeAssetBundleExportJobResponse = {}  # type: ignore[typeddict-item]
+    if "JobStatus" in data:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_status
+
+        out["job_status"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_status.deserialize_json(
+                data["JobStatus"]
+            )
+        )
+    if "DownloadUrl" in data:
+        out["download_url"] = data["DownloadUrl"]
+    if "Errors" in data:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_error_list
+
+        out["errors"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_error_list.deserialize_json(
+                data["Errors"]
+            )
+        )
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "CreatedTime" in data:
+        import aws_sdk_quicksight.types.timestamp
+
+        out["created_time"] = aws_sdk_quicksight.types.timestamp.deserialize_json(
+            data["CreatedTime"]
+        )
+    if "AssetBundleExportJobId" in data:
+        out["asset_bundle_export_job_id"] = data["AssetBundleExportJobId"]
+    if "AwsAccountId" in data:
+        out["aws_account_id"] = data["AwsAccountId"]
+    if "ResourceArns" in data:
+        import aws_sdk_quicksight.types.asset_bundle_resource_arns
+
+        out["resource_arns"] = (
+            aws_sdk_quicksight.types.asset_bundle_resource_arns.deserialize_json(
+                data["ResourceArns"]
+            )
+        )
+    if "IncludeAllDependencies" in data:
+        out["include_all_dependencies"] = data["IncludeAllDependencies"]
+    else:
+        out["include_all_dependencies"] = False
+    if "ExportFormat" in data:
+        import aws_sdk_quicksight.types.asset_bundle_export_format
+
+        out["export_format"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_format.deserialize_json(
+                data["ExportFormat"]
+            )
+        )
+    if "CloudFormationOverridePropertyConfiguration" in data:
+        import aws_sdk_quicksight.types.asset_bundle_cloud_formation_override_property_configuration
+
+        out["cloud_formation_override_property_configuration"] = (
+            aws_sdk_quicksight.types.asset_bundle_cloud_formation_override_property_configuration.deserialize_json(
+                data["CloudFormationOverridePropertyConfiguration"]
+            )
+        )
+    if "RequestId" in data:
+        out["request_id"] = data["RequestId"]
+    if "IncludePermissions" in data:
+        out["include_permissions"] = data["IncludePermissions"]
+    else:
+        out["include_permissions"] = False
+    if "IncludeTags" in data:
+        out["include_tags"] = data["IncludeTags"]
+    else:
+        out["include_tags"] = False
+    if "ValidationStrategy" in data:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_validation_strategy
+
+        out["validation_strategy"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_validation_strategy.deserialize_json(
+                data["ValidationStrategy"]
+            )
+        )
+    if "Warnings" in data:
+        import aws_sdk_quicksight.types.asset_bundle_export_job_warning_list
+
+        out["warnings"] = (
+            aws_sdk_quicksight.types.asset_bundle_export_job_warning_list.deserialize_json(
+                data["Warnings"]
+            )
+        )
+    if "IncludeFolderMemberships" in data:
+        out["include_folder_memberships"] = data["IncludeFolderMemberships"]
+    else:
+        out["include_folder_memberships"] = False
+    if "IncludeFolderMembers" in data:
+        import aws_sdk_quicksight.types.include_folder_members
+
+        out["include_folder_members"] = (
+            aws_sdk_quicksight.types.include_folder_members.deserialize_json(
+                data["IncludeFolderMembers"]
+            )
+        )
+    return out

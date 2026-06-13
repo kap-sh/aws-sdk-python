@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeleteGatewayResponse``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class DeleteGatewayResponse(TypedDict):
     gateway_arn: NotRequired["str"]
     """<p> The ARN of the gateway that was deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteGatewayResponse) -> dict:

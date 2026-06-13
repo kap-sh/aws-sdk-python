@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DisconnectSourceServerRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_id
+
 
 class DisconnectSourceServerRequest(TypedDict):
     source_server_id: "aws_sdk_drs.types.source_server_id.SourceServerID"
     """<p>The ID of the Source Server to disconnect.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DisconnectSourceServerRequest) -> dict:
@@ -21,5 +25,7 @@ def deserialize_json(data: dict) -> DisconnectSourceServerRequest:
     if "sourceServerID" in data:
         out["source_server_id"] = data["sourceServerID"]
     else:
-        raise DeserializationError("DisconnectSourceServerRequest.source_server_id required")
+        raise DeserializationError(
+            "DisconnectSourceServerRequest.source_server_id required"
+        )
     return out

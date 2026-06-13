@@ -1,20 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.billing#AWSBilling``."""
 
-from aws_sdk_billing._auth._signers import SigV4Signer
-from aws_sdk_billing._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from aws_sdk_billing._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_billing._auth._zapros_handler import AuthMiddleware
-from aws_sdk_billing._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_billing.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 from aws_sdk_billing._auth._identity import Credentials
-from aws_sdk_billing._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_billing._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_billing._auth._zapros_handler import AuthMiddleware
+from aws_sdk_billing._pagination import resolve_path as _resolve_path
+from aws_sdk_billing._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_billing.types.account_id
     import aws_sdk_billing.types.active_time_range
@@ -58,6 +66,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.update_billing_view_request
     import aws_sdk_billing.types.update_billing_view_response
 
+
 class BillingClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -67,7 +76,9 @@ class BillingClientConfig(TypedDict, total=False):
     region: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -75,6 +86,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class BillingClient:
     """A client for the ``Billing`` service.
@@ -90,19 +102,77 @@ class BillingClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, region: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = BillingClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "region": region, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[BillingClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = BillingClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[BillingClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: BillingClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), region=overrides.get("region", self.config.get("region")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            region=overrides.get("region", self.config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def associate_source_views(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.associate_source_views_response.AssociateSourceViewsResponse":
+
+    def associate_source_views(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.associate_source_views_response.AssociateSourceViewsResponse":
         """<p> Associates one or more source billing views with an existing billing view. This allows creating aggregate billing views that combine data from multiple sources. </p>
 
         Args:
@@ -114,9 +184,19 @@ class BillingClient:
 
             >>> client.associate_source_views(arn='arn:aws:billing::123456789012:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899', source_views=['arn:aws:billing::123456789012:billingview/primary', 'arn:aws:billing::123456789012:billingview/custom-d3f9c7e4-8b2f-4a6e-9d3b-2f7c8a1e5f6d'])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.associate_source_views_request.AssociateSourceViewsRequest]') -> OperationResponse["aws_sdk_billing.types.associate_source_views_response.AssociateSourceViewsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.associate_source_views_request.AssociateSourceViewsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.associate_source_views_response.AssociateSourceViewsResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.associate_source_views
-            output, http_response = aws_sdk_billing._operations.aws_billing.associate_source_views.associate_source_views(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.associate_source_views.associate_source_views(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -124,9 +204,30 @@ class BillingClient:
         input["arn"] = arn
         input["source_views"] = source_views
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_billing_view(self, name: "aws_sdk_billing.types.billing_view_name.BillingViewName", source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList", *, config_overrides: Optional[BillingClientConfig] = None, description: Optional["aws_sdk_billing.types.billing_view_description.BillingViewDescription"] = None, data_filter_expression: Optional["aws_sdk_billing.types.expression.Expression"] = None, client_token: Optional["aws_sdk_billing.types.client_token.ClientToken"] = None, resource_tags: Optional["aws_sdk_billing.types.resource_tag_list.ResourceTagList"] = None) -> "aws_sdk_billing.types.create_billing_view_response.CreateBillingViewResponse":
+
+    def create_billing_view(
+        self,
+        name: "aws_sdk_billing.types.billing_view_name.BillingViewName",
+        source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        description: Optional[
+            "aws_sdk_billing.types.billing_view_description.BillingViewDescription"
+        ] = None,
+        data_filter_expression: Optional[
+            "aws_sdk_billing.types.expression.Expression"
+        ] = None,
+        client_token: Optional["aws_sdk_billing.types.client_token.ClientToken"] = None,
+        resource_tags: Optional[
+            "aws_sdk_billing.types.resource_tag_list.ResourceTagList"
+        ] = None,
+    ) -> "aws_sdk_billing.types.create_billing_view_response.CreateBillingViewResponse":
         """<p> Creates a billing view with the specified billing view attributes. </p>
 
         Args:
@@ -142,9 +243,19 @@ class BillingClient:
 
             >>> client.create_billing_view(name='Example Custom Billing View', source_views=['arn:aws:billing::123456789101:billingview/primary'], description='Custom Billing View Example', data_filter_expression={'dimensions': {'key': 'LINKED_ACCOUNT', 'values': ['000000000000']}})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.create_billing_view_request.CreateBillingViewRequest]') -> OperationResponse["aws_sdk_billing.types.create_billing_view_response.CreateBillingViewResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.create_billing_view_request.CreateBillingViewRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.create_billing_view_response.CreateBillingViewResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.create_billing_view
-            output, http_response = aws_sdk_billing._operations.aws_billing.create_billing_view.create_billing_view(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.create_billing_view.create_billing_view(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -160,9 +271,20 @@ class BillingClient:
         if resource_tags is not None:
             input["resource_tags"] = resource_tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_billing_view(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", *, config_overrides: Optional[BillingClientConfig] = None, force: Optional[bool] = None) -> "aws_sdk_billing.types.delete_billing_view_response.DeleteBillingViewResponse":
+
+    def delete_billing_view(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        force: Optional[bool] = None,
+    ) -> "aws_sdk_billing.types.delete_billing_view_response.DeleteBillingViewResponse":
         """<p>Deletes the specified billing view.</p>
 
         Args:
@@ -174,9 +296,19 @@ class BillingClient:
 
             >>> client.delete_billing_view(arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.delete_billing_view_request.DeleteBillingViewRequest]') -> OperationResponse["aws_sdk_billing.types.delete_billing_view_response.DeleteBillingViewResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.delete_billing_view_request.DeleteBillingViewRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.delete_billing_view_response.DeleteBillingViewResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.delete_billing_view
-            output, http_response = aws_sdk_billing._operations.aws_billing.delete_billing_view.delete_billing_view(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.delete_billing_view.delete_billing_view(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -185,9 +317,20 @@ class BillingClient:
         if force is not None:
             input["force"] = force
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_source_views(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.disassociate_source_views_response.DisassociateSourceViewsResponse":
+
+    def disassociate_source_views(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.disassociate_source_views_response.DisassociateSourceViewsResponse":
         """<p> Removes the association between one or more source billing views and an existing billing view. This allows modifying the composition of aggregate billing views. </p>
 
         Args:
@@ -199,9 +342,19 @@ class BillingClient:
 
             >>> client.disassociate_source_views(arn='arn:aws:billing::123456789012:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899', source_views=['arn:aws:billing::123456789012:billingview/primary', 'arn:aws:billing::123456789012:billingview/custom-d3f9c7e4-8b2f-4a6e-9d3b-2f7c8a1e5f6d'])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.disassociate_source_views_request.DisassociateSourceViewsRequest]') -> OperationResponse["aws_sdk_billing.types.disassociate_source_views_response.DisassociateSourceViewsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.disassociate_source_views_request.DisassociateSourceViewsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.disassociate_source_views_response.DisassociateSourceViewsResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.disassociate_source_views
-            output, http_response = aws_sdk_billing._operations.aws_billing.disassociate_source_views.disassociate_source_views(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.disassociate_source_views.disassociate_source_views(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -209,9 +362,19 @@ class BillingClient:
         input["arn"] = arn
         input["source_views"] = source_views
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_billing_view(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.get_billing_view_response.GetBillingViewResponse":
+
+    def get_billing_view(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.get_billing_view_response.GetBillingViewResponse":
         """<p>Returns the metadata associated to the specified billing view ARN. </p>
 
         Args:
@@ -222,18 +385,38 @@ class BillingClient:
 
             >>> client.get_billing_view(arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.get_billing_view_request.GetBillingViewRequest]') -> OperationResponse["aws_sdk_billing.types.get_billing_view_response.GetBillingViewResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.get_billing_view_request.GetBillingViewRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.get_billing_view_response.GetBillingViewResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.get_billing_view
-            output, http_response = aws_sdk_billing._operations.aws_billing.get_billing_view.get_billing_view(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.get_billing_view.get_billing_view(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_billing.types.get_billing_view_request.GetBillingViewRequest = {}  # type: ignore[typeddict-item]
         input["arn"] = arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_resource_policy(self, resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.get_resource_policy_response.GetResourcePolicyResponse":
+
+    def get_resource_policy(
+        self,
+        resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.get_resource_policy_response.GetResourcePolicyResponse":
         """<p>Returns the resource-based policy document attached to the resource in <code>JSON</code> format. </p>
 
         Args:
@@ -244,18 +427,55 @@ class BillingClient:
 
             >>> client.get_resource_policy(resource_arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.get_resource_policy_request.GetResourcePolicyRequest]') -> OperationResponse["aws_sdk_billing.types.get_resource_policy_response.GetResourcePolicyResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.get_resource_policy_request.GetResourcePolicyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.get_resource_policy_response.GetResourcePolicyResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.get_resource_policy
-            output, http_response = aws_sdk_billing._operations.aws_billing.get_resource_policy.get_resource_policy(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.get_resource_policy.get_resource_policy(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_billing.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_billing_views(self, *, config_overrides: Optional[BillingClientConfig] = None, active_time_range: Optional["aws_sdk_billing.types.active_time_range.ActiveTimeRange"] = None, arns: Optional["aws_sdk_billing.types.billing_view_arn_list.BillingViewArnList"] = None, billing_view_types: Optional["aws_sdk_billing.types.billing_view_type_list.BillingViewTypeList"] = None, names: Optional["aws_sdk_billing.types.string_searches.StringSearches"] = None, owner_account_id: Optional["aws_sdk_billing.types.account_id.AccountId"] = None, source_account_id: Optional["aws_sdk_billing.types.account_id.AccountId"] = None, max_results: Optional["aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"] = None, next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None) -> "aws_sdk_billing.types.list_billing_views_response.ListBillingViewsResponse":
+
+    def list_billing_views(
+        self,
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        active_time_range: Optional[
+            "aws_sdk_billing.types.active_time_range.ActiveTimeRange"
+        ] = None,
+        arns: Optional[
+            "aws_sdk_billing.types.billing_view_arn_list.BillingViewArnList"
+        ] = None,
+        billing_view_types: Optional[
+            "aws_sdk_billing.types.billing_view_type_list.BillingViewTypeList"
+        ] = None,
+        names: Optional["aws_sdk_billing.types.string_searches.StringSearches"] = None,
+        owner_account_id: Optional["aws_sdk_billing.types.account_id.AccountId"] = None,
+        source_account_id: Optional[
+            "aws_sdk_billing.types.account_id.AccountId"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None,
+    ) -> "aws_sdk_billing.types.list_billing_views_response.ListBillingViewsResponse":
         """<p>Lists the billing views available for a given time period. </p> <p>Every Amazon Web Services account has a unique <code>PRIMARY</code> billing view that represents the billing data available by default. Accounts that use Billing Conductor also have <code>BILLING_GROUP</code> billing views representing pro forma costs associated with each created billing group.</p>
 
         Args:
@@ -276,9 +496,19 @@ class BillingClient:
 
             >>> client.list_billing_views(active_time_range={'activeAfterInclusive': 1719792001, 'activeBeforeInclusive': 1719792000})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.list_billing_views_request.ListBillingViewsRequest]') -> OperationResponse["aws_sdk_billing.types.list_billing_views_response.ListBillingViewsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.list_billing_views_request.ListBillingViewsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.list_billing_views_response.ListBillingViewsResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.list_billing_views
-            output, http_response = aws_sdk_billing._operations.aws_billing.list_billing_views.list_billing_views(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.list_billing_views.list_billing_views(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -300,9 +530,36 @@ class BillingClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_billing_views(self, *, config_overrides: Optional[BillingClientConfig] = None, active_time_range: Optional["aws_sdk_billing.types.active_time_range.ActiveTimeRange"] = None, arns: Optional["aws_sdk_billing.types.billing_view_arn_list.BillingViewArnList"] = None, billing_view_types: Optional["aws_sdk_billing.types.billing_view_type_list.BillingViewTypeList"] = None, names: Optional["aws_sdk_billing.types.string_searches.StringSearches"] = None, owner_account_id: Optional["aws_sdk_billing.types.account_id.AccountId"] = None, source_account_id: Optional["aws_sdk_billing.types.account_id.AccountId"] = None, max_results: Optional["aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"] = None, next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None) -> "Iterator[aws_sdk_billing.types.billing_view_list_element.BillingViewListElement]":
+
+    def iter_list_billing_views(
+        self,
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        active_time_range: Optional[
+            "aws_sdk_billing.types.active_time_range.ActiveTimeRange"
+        ] = None,
+        arns: Optional[
+            "aws_sdk_billing.types.billing_view_arn_list.BillingViewArnList"
+        ] = None,
+        billing_view_types: Optional[
+            "aws_sdk_billing.types.billing_view_type_list.BillingViewTypeList"
+        ] = None,
+        names: Optional["aws_sdk_billing.types.string_searches.StringSearches"] = None,
+        owner_account_id: Optional["aws_sdk_billing.types.account_id.AccountId"] = None,
+        source_account_id: Optional[
+            "aws_sdk_billing.types.account_id.AccountId"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None,
+    ) -> "Iterator[aws_sdk_billing.types.billing_view_list_element.BillingViewListElement]":
         _token = next_token
         while True:
             _response = self.list_billing_views(
@@ -316,13 +573,23 @@ class BillingClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('billing_views',))
+            _page = _resolve_path(_response, ("billing_views",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_source_views_for_billing_view(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", *, config_overrides: Optional[BillingClientConfig] = None, max_results: Optional["aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"] = None, next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None) -> "aws_sdk_billing.types.list_source_views_for_billing_view_response.ListSourceViewsForBillingViewResponse":
+
+    def list_source_views_for_billing_view(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None,
+    ) -> "aws_sdk_billing.types.list_source_views_for_billing_view_response.ListSourceViewsForBillingViewResponse":
         """<p>Lists the source views (managed Amazon Web Services billing views) associated with the billing view. </p>
 
         Args:
@@ -335,9 +602,19 @@ class BillingClient:
 
             >>> client.list_source_views_for_billing_view(arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.list_source_views_for_billing_view_request.ListSourceViewsForBillingViewRequest]') -> OperationResponse["aws_sdk_billing.types.list_source_views_for_billing_view_response.ListSourceViewsForBillingViewResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.list_source_views_for_billing_view_request.ListSourceViewsForBillingViewRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.list_source_views_for_billing_view_response.ListSourceViewsForBillingViewResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.list_source_views_for_billing_view
-            output, http_response = aws_sdk_billing._operations.aws_billing.list_source_views_for_billing_view.list_source_views_for_billing_view(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.list_source_views_for_billing_view.list_source_views_for_billing_view(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -348,9 +625,23 @@ class BillingClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_source_views_for_billing_view(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", *, config_overrides: Optional[BillingClientConfig] = None, max_results: Optional["aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"] = None, next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None) -> "Iterator[aws_sdk_billing.types.billing_view_arn.BillingViewArn]":
+
+    def iter_list_source_views_for_billing_view(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_billing.types.billing_views_max_results.BillingViewsMaxResults"
+        ] = None,
+        next_token: Optional["aws_sdk_billing.types.page_token.PageToken"] = None,
+    ) -> "Iterator[aws_sdk_billing.types.billing_view_arn.BillingViewArn]":
         _token = next_token
         while True:
             _response = self.list_source_views_for_billing_view(
@@ -359,13 +650,19 @@ class BillingClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('source_views',))
+            _page = _resolve_path(_response, ("source_views",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_tags_for_resource(self, resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         """<p>Lists tags associated with the billing view resource. </p>
 
         Args:
@@ -376,18 +673,39 @@ class BillingClient:
 
             >>> client.list_tags_for_resource(resource_arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.list_tags_for_resource_request.ListTagsForResourceRequest]') -> OperationResponse["aws_sdk_billing.types.list_tags_for_resource_response.ListTagsForResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.list_tags_for_resource
-            output, http_response = aws_sdk_billing._operations.aws_billing.list_tags_for_resource.list_tags_for_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_billing.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def tag_resource(self, resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn", resource_tags: "aws_sdk_billing.types.resource_tag_list.ResourceTagList", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.tag_resource_response.TagResourceResponse":
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn",
+        resource_tags: "aws_sdk_billing.types.resource_tag_list.ResourceTagList",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.tag_resource_response.TagResourceResponse":
         """<p> An API operation for adding one or more tags (key-value pairs) to a resource. </p>
 
         Args:
@@ -399,9 +717,19 @@ class BillingClient:
 
             >>> client.tag_resource(resource_arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899', resource_tags=[{'key': 'ExampleTagKey', 'value': 'ExampleTagValue'}])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.tag_resource_request.TagResourceRequest]') -> OperationResponse["aws_sdk_billing.types.tag_resource_response.TagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.tag_resource_response.TagResourceResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.tag_resource
-            output, http_response = aws_sdk_billing._operations.aws_billing.tag_resource.tag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -409,9 +737,20 @@ class BillingClient:
         input["resource_arn"] = resource_arn
         input["resource_tags"] = resource_tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def untag_resource(self, resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn", resource_tag_keys: "aws_sdk_billing.types.resource_tag_key_list.ResourceTagKeyList", *, config_overrides: Optional[BillingClientConfig] = None) -> "aws_sdk_billing.types.untag_resource_response.UntagResourceResponse":
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn",
+        resource_tag_keys: "aws_sdk_billing.types.resource_tag_key_list.ResourceTagKeyList",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+    ) -> "aws_sdk_billing.types.untag_resource_response.UntagResourceResponse":
         """<p> Removes one or more tags from a resource. Specify only tag keys in your request. Don't specify the value. </p>
 
         Args:
@@ -423,9 +762,19 @@ class BillingClient:
 
             >>> client.untag_resource(resource_arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899', resource_tag_keys=['ExampleTagKey'])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.untag_resource_request.UntagResourceRequest]') -> OperationResponse["aws_sdk_billing.types.untag_resource_response.UntagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.untag_resource_response.UntagResourceResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.untag_resource
-            output, http_response = aws_sdk_billing._operations.aws_billing.untag_resource.untag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -433,9 +782,28 @@ class BillingClient:
         input["resource_arn"] = resource_arn
         input["resource_tag_keys"] = resource_tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_billing_view(self, arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn", *, config_overrides: Optional[BillingClientConfig] = None, name: Optional["aws_sdk_billing.types.billing_view_name.BillingViewName"] = None, description: Optional["aws_sdk_billing.types.billing_view_description.BillingViewDescription"] = None, data_filter_expression: Optional["aws_sdk_billing.types.expression.Expression"] = None) -> "aws_sdk_billing.types.update_billing_view_response.UpdateBillingViewResponse":
+
+    def update_billing_view(
+        self,
+        arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn",
+        *,
+        config_overrides: Optional[BillingClientConfig] = None,
+        name: Optional[
+            "aws_sdk_billing.types.billing_view_name.BillingViewName"
+        ] = None,
+        description: Optional[
+            "aws_sdk_billing.types.billing_view_description.BillingViewDescription"
+        ] = None,
+        data_filter_expression: Optional[
+            "aws_sdk_billing.types.expression.Expression"
+        ] = None,
+    ) -> "aws_sdk_billing.types.update_billing_view_response.UpdateBillingViewResponse":
         """<p>An API to update the attributes of the billing view. </p>
 
         Args:
@@ -449,9 +817,19 @@ class BillingClient:
 
             >>> client.update_billing_view(name='Example Custom Billing View', arn='arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899', description='Custom Billing View Example -- updated description', data_filter_expression={'dimensions': {'key': 'LINKED_ACCOUNT', 'values': ['000000000000']}})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_billing.types.update_billing_view_request.UpdateBillingViewRequest]') -> OperationResponse["aws_sdk_billing.types.update_billing_view_response.UpdateBillingViewResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_billing.types.update_billing_view_request.UpdateBillingViewRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_billing.types.update_billing_view_response.UpdateBillingViewResponse"
+        ]:
             import aws_sdk_billing._operations.aws_billing.update_billing_view
-            output, http_response = aws_sdk_billing._operations.aws_billing.update_billing_view.update_billing_view(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_billing._operations.aws_billing.update_billing_view.update_billing_view(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -464,9 +842,15 @@ class BillingClient:
         if data_filter_expression is not None:
             input["data_filter_expression"] = data_filter_expression
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

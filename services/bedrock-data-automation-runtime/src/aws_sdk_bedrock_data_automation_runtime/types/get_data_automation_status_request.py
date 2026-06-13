@@ -1,12 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#GetDataAutomationStatusRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation_runtime.types.invocation_arn
 
+
 class GetDataAutomationStatusRequest(TypedDict):
-    invocation_arn: "aws_sdk_bedrock_data_automation_runtime.types.invocation_arn.InvocationArn"
+    invocation_arn: (
+        "aws_sdk_bedrock_data_automation_runtime.types.invocation_arn.InvocationArn"
+    )
     """Invocation arn."""
+
 
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: GetDataAutomationStatusRequest) -> dict:

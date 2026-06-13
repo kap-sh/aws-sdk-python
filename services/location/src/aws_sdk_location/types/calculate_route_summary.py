@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.bounding_box
     import aws_sdk_location.types.distance_unit
     import aws_sdk_location.types.sensitive_double
+
 
 class CalculateRouteSummary(TypedDict):
     route_b_box: "aws_sdk_location.types.bounding_box.BoundingBox"
@@ -19,11 +22,15 @@ class CalculateRouteSummary(TypedDict):
     distance_unit: "aws_sdk_location.types.distance_unit.DistanceUnit"
     """<p>The unit of measurement for route distances.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CalculateRouteSummary) -> dict:
     out: dict = {}
     import aws_sdk_location.types.bounding_box
-    out["RouteBBox"] = aws_sdk_location.types.bounding_box.serialize_json(value["route_b_box"])
+
+    out["RouteBBox"] = aws_sdk_location.types.bounding_box.serialize_json(
+        value["route_b_box"]
+    )
     out["DataSource"] = value["data_source"]
     out["Distance"] = value["distance"]
     out["DurationSeconds"] = value["duration_seconds"]
@@ -35,7 +42,10 @@ def deserialize_json(data: dict) -> CalculateRouteSummary:
     out: CalculateRouteSummary = {}  # type: ignore[typeddict-item]
     if "RouteBBox" in data:
         import aws_sdk_location.types.bounding_box
-        out["route_b_box"] = aws_sdk_location.types.bounding_box.deserialize_json(data["RouteBBox"])
+
+        out["route_b_box"] = aws_sdk_location.types.bounding_box.deserialize_json(
+            data["RouteBBox"]
+        )
     else:
         raise DeserializationError("CalculateRouteSummary.route_b_box required")
     if "DataSource" in data:

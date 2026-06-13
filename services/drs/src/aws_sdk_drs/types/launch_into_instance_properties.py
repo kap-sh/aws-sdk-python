@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchIntoInstanceProperties``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.ec2_instance_id
 
+
 class LaunchIntoInstanceProperties(TypedDict):
-    launch_into_ec2_instance_id: NotRequired["aws_sdk_drs.types.ec2_instance_id.EC2InstanceID"]
+    launch_into_ec2_instance_id: NotRequired[
+        "aws_sdk_drs.types.ec2_instance_id.EC2InstanceID"
+    ]
     """<p>Optionally holds EC2 instance ID of an instance to launch into, instead of launching a new instance during drill, recovery or failback.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: LaunchIntoInstanceProperties) -> dict:

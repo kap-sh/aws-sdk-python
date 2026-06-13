@@ -9,11 +9,19 @@ import base64
 from email.utils import format_datetime as _fmt_http
 from email.utils import parsedate_to_datetime as _parse_http
 
-AttributeEntityType: TypeAlias = Literal["ASSET", "LISTING",]
+AttributeEntityType: TypeAlias = Literal[
+    "ASSET",
+    "LISTING",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("ASSET", "LISTING",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ASSET",
+        "LISTING",
+    )
+)
 
 
 def serialize_json(value: AttributeEntityType) -> str:

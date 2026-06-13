@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionExecutionPayload``."""
 
 from typing import TYPE_CHECKING, TypeAlias
-if TYPE_CHECKING:
-    import aws_sdk_qbusiness.types.action_payload_field_key
-    import aws_sdk_qbusiness.types.action_execution_payload_field
 
-ActionExecutionPayload: TypeAlias = dict["aws_sdk_qbusiness.types.action_payload_field_key.ActionPayloadFieldKey", "aws_sdk_qbusiness.types.action_execution_payload_field.ActionExecutionPayloadField"]
+if TYPE_CHECKING:
+    import aws_sdk_qbusiness.types.action_execution_payload_field
+    import aws_sdk_qbusiness.types.action_payload_field_key
+
+ActionExecutionPayload: TypeAlias = dict[
+    "aws_sdk_qbusiness.types.action_payload_field_key.ActionPayloadFieldKey",
+    "aws_sdk_qbusiness.types.action_execution_payload_field.ActionExecutionPayloadField",
+]
 
 
 # --- restJson1 ser/de ---
@@ -13,7 +17,10 @@ def serialize_json(input_to_serialize: ActionExecutionPayload) -> dict:
     out: dict = {}
     for key, value in input_to_serialize.items():
         import aws_sdk_qbusiness.types.action_execution_payload_field
-        out[key] = aws_sdk_qbusiness.types.action_execution_payload_field.serialize_json(value)
+
+        out[key] = (
+            aws_sdk_qbusiness.types.action_execution_payload_field.serialize_json(value)
+        )
     return out
 
 
@@ -21,5 +28,10 @@ def deserialize_json(data: dict) -> ActionExecutionPayload:
     out: ActionExecutionPayload = {}
     for key, value in data.items():
         import aws_sdk_qbusiness.types.action_execution_payload_field
-        out[key] = aws_sdk_qbusiness.types.action_execution_payload_field.deserialize_json(value)
+
+        out[key] = (
+            aws_sdk_qbusiness.types.action_execution_payload_field.deserialize_json(
+                value
+            )
+        )
     return out

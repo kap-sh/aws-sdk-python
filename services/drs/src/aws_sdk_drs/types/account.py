@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.drs#Account``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.account_id
+
 
 class Account(TypedDict):
     account_id: NotRequired["aws_sdk_drs.types.account_id.AccountID"]
     """<p>Account ID of AWS account.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Account) -> dict:

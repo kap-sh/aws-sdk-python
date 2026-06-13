@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#GetVectorsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3vectors.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.get_vectors_input_list
     import aws_sdk_s3vectors.types.index_arn
     import aws_sdk_s3vectors.types.index_name
     import aws_sdk_s3vectors.types.vector_bucket_name
 
+
 class GetVectorsInput(TypedDict):
-    vector_bucket_name: NotRequired["aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"]
+    vector_bucket_name: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"
+    ]
     """<p>The name of the vector bucket that contains the vector index. </p>"""
     index_name: NotRequired["aws_sdk_s3vectors.types.index_name.IndexName"]
     """<p>The name of the vector index.</p>"""
@@ -23,6 +29,7 @@ class GetVectorsInput(TypedDict):
     return_metadata: "bool"
     """<p>Indicates whether to include metadata in the response. The default value is <code>false</code>.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: GetVectorsInput) -> dict:
     out: dict = {}
@@ -33,7 +40,10 @@ def serialize_json(value: GetVectorsInput) -> dict:
     if "index_arn" in value:
         out["indexArn"] = value["index_arn"]
     import aws_sdk_s3vectors.types.get_vectors_input_list
-    out["keys"] = aws_sdk_s3vectors.types.get_vectors_input_list.serialize_json(value["keys"])
+
+    out["keys"] = aws_sdk_s3vectors.types.get_vectors_input_list.serialize_json(
+        value["keys"]
+    )
     out["returnData"] = value.get("return_data", False)
     out["returnMetadata"] = value.get("return_metadata", False)
     return out
@@ -49,7 +59,10 @@ def deserialize_json(data: dict) -> GetVectorsInput:
         out["index_arn"] = data["indexArn"]
     if "keys" in data:
         import aws_sdk_s3vectors.types.get_vectors_input_list
-        out["keys"] = aws_sdk_s3vectors.types.get_vectors_input_list.deserialize_json(data["keys"])
+
+        out["keys"] = aws_sdk_s3vectors.types.get_vectors_input_list.deserialize_json(
+            data["keys"]
+        )
     else:
         raise DeserializationError("GetVectorsInput.keys required")
     if "returnData" in data:

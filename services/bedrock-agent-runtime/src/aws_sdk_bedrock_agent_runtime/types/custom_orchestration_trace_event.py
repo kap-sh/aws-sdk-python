@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CustomOrchestrationTraceEvent``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CustomOrchestrationTraceEvent(TypedDict):
     text: NotRequired["str"]
     """<p> The text that prompted the event at this step. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomOrchestrationTraceEvent) -> dict:

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchUpdateBillScenarioCommitmentModificationRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries
     import aws_sdk_bcm_pricing_calculator.types.resource_id
+
 
 class BatchUpdateBillScenarioCommitmentModificationRequest(TypedDict):
     bill_scenario_id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
@@ -12,24 +15,43 @@ class BatchUpdateBillScenarioCommitmentModificationRequest(TypedDict):
     commitment_modifications: "aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries.BatchUpdateBillScenarioCommitmentModificationEntries"
     """<p> List of commitments that you want to update in a Bill Scenario. </p>"""
 
+
 # --- awsJson1_0 ser/de ---
-def serialize_aws_json_1_0(value: BatchUpdateBillScenarioCommitmentModificationRequest) -> dict:
+def serialize_aws_json_1_0(
+    value: BatchUpdateBillScenarioCommitmentModificationRequest,
+) -> dict:
     out: dict = {}
     out["billScenarioId"] = value["bill_scenario_id"]
     import aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries
-    out["commitmentModifications"] = aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries.serialize_aws_json_1_0(value["commitment_modifications"])
+
+    out["commitmentModifications"] = (
+        aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries.serialize_aws_json_1_0(
+            value["commitment_modifications"]
+        )
+    )
     return out
 
 
-def deserialize_aws_json_1_0(data: dict) -> BatchUpdateBillScenarioCommitmentModificationRequest:
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> BatchUpdateBillScenarioCommitmentModificationRequest:
     out: BatchUpdateBillScenarioCommitmentModificationRequest = {}  # type: ignore[typeddict-item]
     if "billScenarioId" in data:
         out["bill_scenario_id"] = data["billScenarioId"]
     else:
-        raise DeserializationError("BatchUpdateBillScenarioCommitmentModificationRequest.bill_scenario_id required")
+        raise DeserializationError(
+            "BatchUpdateBillScenarioCommitmentModificationRequest.bill_scenario_id required"
+        )
     if "commitmentModifications" in data:
         import aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries
-        out["commitment_modifications"] = aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries.deserialize_aws_json_1_0(data["commitmentModifications"])
+
+        out["commitment_modifications"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries.deserialize_aws_json_1_0(
+                data["commitmentModifications"]
+            )
+        )
     else:
-        raise DeserializationError("BatchUpdateBillScenarioCommitmentModificationRequest.commitment_modifications required")
+        raise DeserializationError(
+            "BatchUpdateBillScenarioCommitmentModificationRequest.commitment_modifications required"
+        )
     return out

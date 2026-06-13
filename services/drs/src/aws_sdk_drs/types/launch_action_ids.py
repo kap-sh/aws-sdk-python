@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchActionIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_id
 

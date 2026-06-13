@@ -1,15 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AccessDeniedException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_quicksight.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
+
 
 class AccessDeniedException_(TypedDict):
     message: NotRequired["aws_sdk_quicksight.types.string.String"]
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The Amazon Web Services request ID for this request.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccessDeniedException_) -> dict:
@@ -32,10 +37,16 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.quicksight#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

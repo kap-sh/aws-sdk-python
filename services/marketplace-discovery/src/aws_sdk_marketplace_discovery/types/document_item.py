@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#DocumentItem``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_marketplace_discovery.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.legal_document_type
     import aws_sdk_marketplace_discovery.types.url
+
 
 class DocumentItem(TypedDict):
     type: "aws_sdk_marketplace_discovery.types.legal_document_type.LegalDocumentType"
@@ -15,11 +19,17 @@ class DocumentItem(TypedDict):
     version: NotRequired["str"]
     """<p>The version of the standard contract, if applicable.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DocumentItem) -> dict:
     out: dict = {}
     import aws_sdk_marketplace_discovery.types.legal_document_type
-    out["type"] = aws_sdk_marketplace_discovery.types.legal_document_type.serialize_json(value["type"])
+
+    out["type"] = (
+        aws_sdk_marketplace_discovery.types.legal_document_type.serialize_json(
+            value["type"]
+        )
+    )
     out["url"] = value["url"]
     if "version" in value:
         out["version"] = value["version"]
@@ -30,7 +40,12 @@ def deserialize_json(data: dict) -> DocumentItem:
     out: DocumentItem = {}  # type: ignore[typeddict-item]
     if "type" in data:
         import aws_sdk_marketplace_discovery.types.legal_document_type
-        out["type"] = aws_sdk_marketplace_discovery.types.legal_document_type.deserialize_json(data["type"])
+
+        out["type"] = (
+            aws_sdk_marketplace_discovery.types.legal_document_type.deserialize_json(
+                data["type"]
+            )
+        )
     else:
         raise DeserializationError("DocumentItem.type required")
     if "url" in data:

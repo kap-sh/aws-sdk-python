@@ -1,15 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemTypeFilter``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
+    import aws_sdk_connectcases.types.comment_filter
+    import aws_sdk_connectcases.types.connect_case_filter
+    import aws_sdk_connectcases.types.contact_filter
     import aws_sdk_connectcases.types.custom_filter
     import aws_sdk_connectcases.types.file_filter
     import aws_sdk_connectcases.types.sla_filter
-    import aws_sdk_connectcases.types.contact_filter
-    import aws_sdk_connectcases.types.comment_filter
-    import aws_sdk_connectcases.types.connect_case_filter
 
 
 class _RelatedItemTypeFilter_contact(TypedDict):

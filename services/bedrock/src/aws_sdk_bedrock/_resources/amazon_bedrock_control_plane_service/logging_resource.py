@@ -1,23 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock._services.async_bedrock import ensure_async_iterator
-from aws_sdk_bedrock._services.bedrock import ensure_sync_iterator
-from aws_sdk_bedrock._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock._auth._signers
 import aws_sdk_bedrock._auth._sigv4
+from aws_sdk_bedrock._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
-    from aws_sdk_bedrock._services.async_bedrock import (
-        AsyncBedrockClient,
-        AsyncBedrockClientConfig,
-    )
     import aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request
     import aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_response
     import aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request
@@ -25,6 +19,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.logging_config
     import aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request
     import aws_sdk_bedrock.types.put_model_invocation_logging_configuration_response
+    from aws_sdk_bedrock._services.async_bedrock import (
+        AsyncBedrockClient,
+        AsyncBedrockClientConfig,
+    )
+    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
 
 
 class LoggingResource:

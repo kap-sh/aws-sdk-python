@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ArnList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
 

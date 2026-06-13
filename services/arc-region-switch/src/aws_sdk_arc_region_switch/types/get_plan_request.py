@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.arcregionswitch#GetPlanRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_arc_region_switch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_arc_region_switch.types.plan_arn
+
+
+class GetPlanRequest(TypedDict):
+    arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
+    """<p>The Amazon Resource Name (ARN) of the plan.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetPlanRequest) -> dict:
+    out: dict = {}
+    out["arn"] = value["arn"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetPlanRequest:
+    out: GetPlanRequest = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("GetPlanRequest.arn required")
+    return out

@@ -1,21 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#AmazonNeptuneDataplane``."""
 
-from aws_sdk_neptunedata._auth._signers import SigV4Signer
-from aws_sdk_neptunedata._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_neptunedata._auth._zapros_handler import AuthMiddleware
-from aws_sdk_neptunedata._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_neptunedata.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_neptunedata._auth._signers
 import aws_sdk_neptunedata._auth._sigv4
 from aws_sdk_neptunedata._auth._identity import Credentials
-from aws_sdk_neptunedata._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_neptunedata._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_neptunedata._auth._zapros_handler import AuthMiddleware
+from aws_sdk_neptunedata._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.action
     import aws_sdk_neptunedata.types.cancel_gremlin_query_input
@@ -114,6 +122,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.string_list
     import aws_sdk_neptunedata.types.string_valued_map
 
+
 class neptunedataClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -123,7 +132,9 @@ class neptunedataClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -131,6 +142,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class neptunedataClient:
     """A client for the ``neptunedata`` service.
@@ -146,53 +158,154 @@ class neptunedataClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = neptunedataClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[neptunedataClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = neptunedataClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[neptunedataClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: neptunedataClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def cancel_gremlin_query(self, query_id: str, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.cancel_gremlin_query_output.CancelGremlinQueryOutput":
+
+    def cancel_gremlin_query(
+        self,
+        query_id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+    ) -> (
+        "aws_sdk_neptunedata.types.cancel_gremlin_query_output.CancelGremlinQueryOutput"
+    ):
         """<p>Cancels a Gremlin query. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status-cancel.html\">Gremlin query cancellation</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery\">neptune-db:CancelQuery</a> IAM action in that cluster.</p>
 
         Args:
             query_id: <p>The unique identifier that identifies the query to be canceled.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.cancel_gremlin_query_input.CancelGremlinQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.cancel_gremlin_query_output.CancelGremlinQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.cancel_gremlin_query_input.CancelGremlinQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.cancel_gremlin_query_output.CancelGremlinQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_gremlin_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_gremlin_query.cancel_gremlin_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_gremlin_query.cancel_gremlin_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_neptunedata.types.cancel_gremlin_query_input.CancelGremlinQueryInput = {}  # type: ignore[typeddict-item]
         input["query_id"] = query_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def cancel_loader_job(self, load_id: str, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.cancel_loader_job_output.CancelLoaderJobOutput":
+
+    def cancel_loader_job(
+        self,
+        load_id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+    ) -> "aws_sdk_neptunedata.types.cancel_loader_job_output.CancelLoaderJobOutput":
         """<p>Cancels a specified load job. This is an HTTP <code>DELETE</code> request. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm\">Neptune Loader Get-Status API</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelloaderjob\">neptune-db:CancelLoaderJob</a> IAM action in that cluster..</p>
 
         Args:
             load_id: <p>The ID of the load job to be deleted.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.cancel_loader_job_input.CancelLoaderJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.cancel_loader_job_output.CancelLoaderJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.cancel_loader_job_input.CancelLoaderJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.cancel_loader_job_output.CancelLoaderJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_loader_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_loader_job.cancel_loader_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_loader_job.cancel_loader_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_neptunedata.types.cancel_loader_job_input.CancelLoaderJobInput = {}  # type: ignore[typeddict-item]
         input["load_id"] = load_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def cancel_ml_data_processing_job(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None, clean: Optional[bool] = None) -> "aws_sdk_neptunedata.types.cancel_ml_data_processing_job_output.CancelMLDataProcessingJobOutput":
+
+    def cancel_ml_data_processing_job(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        clean: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.cancel_ml_data_processing_job_output.CancelMLDataProcessingJobOutput":
         """<p>Cancels a Neptune ML data processing job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html\">The <code>dataprocessing</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmldataprocessingjob\">neptune-db:CancelMLDataProcessingJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -200,9 +313,19 @@ class neptunedataClient:
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
             clean: <p>If set to <code>TRUE</code>, this flag specifies that all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.cancel_ml_data_processing_job_input.CancelMLDataProcessingJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.cancel_ml_data_processing_job_output.CancelMLDataProcessingJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.cancel_ml_data_processing_job_input.CancelMLDataProcessingJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.cancel_ml_data_processing_job_output.CancelMLDataProcessingJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_data_processing_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_data_processing_job.cancel_ml_data_processing_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_data_processing_job.cancel_ml_data_processing_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -213,9 +336,21 @@ class neptunedataClient:
         if clean is not None:
             input["clean"] = clean
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def cancel_ml_model_training_job(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None, clean: Optional[bool] = None) -> "aws_sdk_neptunedata.types.cancel_ml_model_training_job_output.CancelMLModelTrainingJobOutput":
+
+    def cancel_ml_model_training_job(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        clean: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.cancel_ml_model_training_job_output.CancelMLModelTrainingJobOutput":
         """<p>Cancels a Neptune ML model training job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html\">Model training using the <code>modeltraining</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltrainingjob\">neptune-db:CancelMLModelTrainingJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -223,9 +358,19 @@ class neptunedataClient:
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
             clean: <p>If set to <code>TRUE</code>, this flag specifies that all Amazon S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.cancel_ml_model_training_job_input.CancelMLModelTrainingJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.cancel_ml_model_training_job_output.CancelMLModelTrainingJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.cancel_ml_model_training_job_input.CancelMLModelTrainingJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.cancel_ml_model_training_job_output.CancelMLModelTrainingJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_model_training_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_model_training_job.cancel_ml_model_training_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_model_training_job.cancel_ml_model_training_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -236,9 +381,21 @@ class neptunedataClient:
         if clean is not None:
             input["clean"] = clean
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def cancel_ml_model_transform_job(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None, clean: Optional[bool] = None) -> "aws_sdk_neptunedata.types.cancel_ml_model_transform_job_output.CancelMLModelTransformJobOutput":
+
+    def cancel_ml_model_transform_job(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        clean: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.cancel_ml_model_transform_job_output.CancelMLModelTransformJobOutput":
         """<p>Cancels a specified model transform job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html\">Use a trained model to generate new model artifacts</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltransformjob\">neptune-db:CancelMLModelTransformJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -246,9 +403,19 @@ class neptunedataClient:
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
             clean: <p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.cancel_ml_model_transform_job_input.CancelMLModelTransformJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.cancel_ml_model_transform_job_output.CancelMLModelTransformJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.cancel_ml_model_transform_job_input.CancelMLModelTransformJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.cancel_ml_model_transform_job_output.CancelMLModelTransformJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_model_transform_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_model_transform_job.cancel_ml_model_transform_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_ml_model_transform_job.cancel_ml_model_transform_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -259,18 +426,39 @@ class neptunedataClient:
         if clean is not None:
             input["clean"] = clean
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def cancel_open_cypher_query(self, query_id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, silent: Optional[bool] = None) -> "aws_sdk_neptunedata.types.cancel_open_cypher_query_output.CancelOpenCypherQueryOutput":
+
+    def cancel_open_cypher_query(
+        self,
+        query_id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        silent: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.cancel_open_cypher_query_output.CancelOpenCypherQueryOutput":
         """<p>Cancels a specified openCypher query. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html\">Neptune openCypher status endpoint</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery\">neptune-db:CancelQuery</a> IAM action in that cluster.</p>
 
         Args:
             query_id: <p>The unique ID of the openCypher query to cancel.</p>
             silent: <p>If set to <code>TRUE</code>, causes the cancelation of the openCypher query to happen silently.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.cancel_open_cypher_query_input.CancelOpenCypherQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.cancel_open_cypher_query_output.CancelOpenCypherQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.cancel_open_cypher_query_input.CancelOpenCypherQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.cancel_open_cypher_query_output.CancelOpenCypherQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_open_cypher_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_open_cypher_query.cancel_open_cypher_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.cancel_open_cypher_query.cancel_open_cypher_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -279,9 +467,27 @@ class neptunedataClient:
         if silent is not None:
             input["silent"] = silent
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_ml_endpoint(self, *, config_overrides: Optional[neptunedataClientConfig] = None, id: Optional[str] = None, ml_model_training_job_id: Optional[str] = None, ml_model_transform_job_id: Optional[str] = None, update: Optional[bool] = None, neptune_iam_role_arn: Optional[str] = None, model_name: Optional[str] = None, instance_type: Optional[str] = None, instance_count: Optional[int] = None, volume_encryption_kms_key: Optional[str] = None) -> "aws_sdk_neptunedata.types.create_ml_endpoint_output.CreateMLEndpointOutput":
+
+    def create_ml_endpoint(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        id: Optional[str] = None,
+        ml_model_training_job_id: Optional[str] = None,
+        ml_model_transform_job_id: Optional[str] = None,
+        update: Optional[bool] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        model_name: Optional[str] = None,
+        instance_type: Optional[str] = None,
+        instance_count: Optional[int] = None,
+        volume_encryption_kms_key: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.create_ml_endpoint_output.CreateMLEndpointOutput":
         """<p>Creates a new Neptune ML inference endpoint that lets you query one specific model that the model-training process constructed. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html\">Managing inference endpoints using the endpoints command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#createmlendpoint\">neptune-db:CreateMLEndpoint</a> IAM action in that cluster.</p>
 
         Args:
@@ -295,9 +501,19 @@ class neptunedataClient:
             instance_count: <p>The minimum number of Amazon EC2 instances to deploy to an endpoint for prediction. The default is 1</p>
             volume_encryption_kms_key: <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.create_ml_endpoint_input.CreateMLEndpointInput]') -> OperationResponse["aws_sdk_neptunedata.types.create_ml_endpoint_output.CreateMLEndpointOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.create_ml_endpoint_input.CreateMLEndpointInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.create_ml_endpoint_output.CreateMLEndpointOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.create_ml_endpoint
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.create_ml_endpoint.create_ml_endpoint(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.create_ml_endpoint.create_ml_endpoint(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -321,9 +537,21 @@ class neptunedataClient:
         if volume_encryption_kms_key is not None:
             input["volume_encryption_kms_key"] = volume_encryption_kms_key
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_ml_endpoint(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None, clean: Optional[bool] = None) -> "aws_sdk_neptunedata.types.delete_ml_endpoint_output.DeleteMLEndpointOutput":
+
+    def delete_ml_endpoint(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        clean: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.delete_ml_endpoint_output.DeleteMLEndpointOutput":
         """<p>Cancels the creation of a Neptune ML inference endpoint. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html\">Managing inference endpoints using the endpoints command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletemlendpoint\">neptune-db:DeleteMLEndpoint</a> IAM action in that cluster.</p>
 
         Args:
@@ -331,9 +559,19 @@ class neptunedataClient:
             neptune_iam_role_arn: <p>The ARN of an IAM role providing Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will be thrown.</p>
             clean: <p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.delete_ml_endpoint_input.DeleteMLEndpointInput]') -> OperationResponse["aws_sdk_neptunedata.types.delete_ml_endpoint_output.DeleteMLEndpointOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.delete_ml_endpoint_input.DeleteMLEndpointInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.delete_ml_endpoint_output.DeleteMLEndpointOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_ml_endpoint
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_ml_endpoint.delete_ml_endpoint(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_ml_endpoint.delete_ml_endpoint(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -344,42 +582,95 @@ class neptunedataClient:
         if clean is not None:
             input["clean"] = clean
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_propertygraph_statistics(self, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.delete_propertygraph_statistics_output.DeletePropertygraphStatisticsOutput":
-        """<p>Deletes statistics for Gremlin and openCypher (property graph) data.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>
-        """
-        def _handler(req: 'OperationRequest[None]') -> OperationResponse["aws_sdk_neptunedata.types.delete_propertygraph_statistics_output.DeletePropertygraphStatisticsOutput"]:
+
+    def delete_propertygraph_statistics(
+        self, *, config_overrides: Optional[neptunedataClientConfig] = None
+    ) -> "aws_sdk_neptunedata.types.delete_propertygraph_statistics_output.DeletePropertygraphStatisticsOutput":
+        """<p>Deletes statistics for Gremlin and openCypher (property graph) data.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>"""
+
+        def _handler(
+            req: "OperationRequest[None]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.delete_propertygraph_statistics_output.DeletePropertygraphStatisticsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_propertygraph_statistics
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_propertygraph_statistics.delete_propertygraph_statistics(req.options)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_propertygraph_statistics.delete_propertygraph_statistics(
+                    req.options
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
 
-        response = execute_pipeline(OperationRequest(input=None, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=None, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_sparql_statistics(self, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.delete_sparql_statistics_output.DeleteSparqlStatisticsOutput":
-        """<p>Deletes SPARQL statistics</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>
-        """
-        def _handler(req: 'OperationRequest[None]') -> OperationResponse["aws_sdk_neptunedata.types.delete_sparql_statistics_output.DeleteSparqlStatisticsOutput"]:
+
+    def delete_sparql_statistics(
+        self, *, config_overrides: Optional[neptunedataClientConfig] = None
+    ) -> "aws_sdk_neptunedata.types.delete_sparql_statistics_output.DeleteSparqlStatisticsOutput":
+        """<p>Deletes SPARQL statistics</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>"""
+
+        def _handler(
+            req: "OperationRequest[None]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.delete_sparql_statistics_output.DeleteSparqlStatisticsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_sparql_statistics
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_sparql_statistics.delete_sparql_statistics(req.options)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.delete_sparql_statistics.delete_sparql_statistics(
+                    req.options
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
 
-        response = execute_pipeline(OperationRequest(input=None, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=None, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def execute_fast_reset(self, action: "aws_sdk_neptunedata.types.action.Action", *, config_overrides: Optional[neptunedataClientConfig] = None, token: Optional[str] = None) -> "aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput":
+
+    def execute_fast_reset(
+        self,
+        action: "aws_sdk_neptunedata.types.action.Action",
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        token: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput":
         """<p>The fast reset REST API lets you reset a Neptune graph quicky and easily, removing all of its data.</p> <p>Neptune fast reset is a two-step process. First you call <code>ExecuteFastReset</code> with <code>action</code> set to <code>initiateDatabaseReset</code>. This returns a UUID token which you then include when calling <code>ExecuteFastReset</code> again with <code>action</code> set to <code>performDatabaseReset</code>. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html\">Empty an Amazon Neptune DB cluster using the fast reset API</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase\">neptune-db:ResetDatabase</a> IAM action in that cluster.</p>
 
         Args:
             action: <p>The fast reset action. One of the following values:</p> <ul> <li> <p> <b> <code>initiateDatabaseReset</code> </b> - This action generates a unique token needed to actually perform the fast reset.</p> </li> <li> <p> <b> <code>performDatabaseReset</code> </b> - This action uses the token generated by the <code>initiateDatabaseReset</code> action to actually perform the fast reset.</p> <p/> </li> </ul>
             token: <p>The fast-reset token to initiate the reset.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput]') -> OperationResponse["aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_fast_reset
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_fast_reset.execute_fast_reset(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_fast_reset.execute_fast_reset(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -388,26 +679,60 @@ class neptunedataClient:
         if token is not None:
             input["token"] = token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def execute_gremlin_explain_query(self, gremlin_query: str, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.execute_gremlin_explain_query_output.ExecuteGremlinExplainQueryOutput":
+
+    def execute_gremlin_explain_query(
+        self,
+        gremlin_query: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+    ) -> "aws_sdk_neptunedata.types.execute_gremlin_explain_query_output.ExecuteGremlinExplainQueryOutput":
         """<p>Executes a Gremlin Explain query.</p> <p>Amazon Neptune has added a Gremlin feature named <code>explain</code> that provides is a self-service tool for understanding the execution approach being taken by the Neptune engine for the query. You invoke it by adding an <code>explain</code> parameter to an HTTP call that submits a Gremlin query.</p> <p>The explain feature provides information about the logical structure of query execution plans. You can use this information to identify potential evaluation and execution bottlenecks and to tune your query, as explained in <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html\">Tuning Gremlin queries</a>. You can also use query hints to improve query execution plans.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery\">neptune-db:ReadDataViaQuery</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery\">neptune-db:WriteDataViaQuery</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery\">neptune-db:DeleteDataViaQuery</a> </p> </li> </ul> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             gremlin_query: <p>The Gremlin explain query string.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.execute_gremlin_explain_query_input.ExecuteGremlinExplainQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.execute_gremlin_explain_query_output.ExecuteGremlinExplainQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.execute_gremlin_explain_query_input.ExecuteGremlinExplainQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.execute_gremlin_explain_query_output.ExecuteGremlinExplainQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_explain_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_explain_query.execute_gremlin_explain_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_explain_query.execute_gremlin_explain_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_neptunedata.types.execute_gremlin_explain_query_input.ExecuteGremlinExplainQueryInput = {}  # type: ignore[typeddict-item]
         input["gremlin_query"] = gremlin_query
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def execute_gremlin_profile_query(self, gremlin_query: str, *, config_overrides: Optional[neptunedataClientConfig] = None, results: Optional[bool] = None, chop: Optional[int] = None, serializer: Optional[str] = None, index_ops: Optional[bool] = None) -> "aws_sdk_neptunedata.types.execute_gremlin_profile_query_output.ExecuteGremlinProfileQueryOutput":
+
+    def execute_gremlin_profile_query(
+        self,
+        gremlin_query: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        results: Optional[bool] = None,
+        chop: Optional[int] = None,
+        serializer: Optional[str] = None,
+        index_ops: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.execute_gremlin_profile_query_output.ExecuteGremlinProfileQueryOutput":
         """<p>Executes a Gremlin Profile query, which runs a specified traversal, collects various metrics about the run, and produces a profile report as output. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for details.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery\">neptune-db:ReadDataViaQuery</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
@@ -417,9 +742,19 @@ class neptunedataClient:
             serializer: <p>If non-null, the gathered results are returned in a serialized response message in the format specified by this parameter. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for more information.</p>
             index_ops: <p>If this flag is set to <code>TRUE</code>, the results include a detailed report of all index operations that took place during query execution and serialization.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.execute_gremlin_profile_query_input.ExecuteGremlinProfileQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.execute_gremlin_profile_query_output.ExecuteGremlinProfileQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.execute_gremlin_profile_query_input.ExecuteGremlinProfileQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.execute_gremlin_profile_query_output.ExecuteGremlinProfileQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_profile_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_profile_query.execute_gremlin_profile_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_profile_query.execute_gremlin_profile_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -434,18 +769,39 @@ class neptunedataClient:
         if index_ops is not None:
             input["index_ops"] = index_ops
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def execute_gremlin_query(self, gremlin_query: str, *, config_overrides: Optional[neptunedataClientConfig] = None, serializer: Optional[str] = None) -> "aws_sdk_neptunedata.types.execute_gremlin_query_output.ExecuteGremlinQueryOutput":
+
+    def execute_gremlin_query(
+        self,
+        gremlin_query: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        serializer: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.execute_gremlin_query_output.ExecuteGremlinQueryOutput":
         """<p>This commands executes a Gremlin query. Amazon Neptune is compatible with Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal language to query the graph, as described under <a href=\"https://tinkerpop.apache.org/docs/current/reference/#graph\">The Graph</a> in the Apache TinkerPop3 documentation. More details can also be found in <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin.html\">Accessing a Neptune graph with Gremlin</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that enables one of the following IAM actions in that cluster, depending on the query:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery\">neptune-db:ReadDataViaQuery</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery\">neptune-db:WriteDataViaQuery</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery\">neptune-db:DeleteDataViaQuery</a> </p> </li> </ul> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             gremlin_query: <p>Using this API, you can run Gremlin queries in string format much as you can using the HTTP endpoint. The interface is compatible with whatever Gremlin version your DB cluster is using (see the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin-client.html#best-practices-gremlin-java-latest\">Tinkerpop client section</a> to determine which Gremlin releases your engine version supports).</p>
             serializer: <p>If non-null, the query results are returned in a serialized response message in the format specified by this parameter. See the <a href=\"https://tinkerpop.apache.org/docs/current/reference/#_graphson\">GraphSON</a> section in the TinkerPop documentation for a list of the formats that are currently supported.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.execute_gremlin_query_input.ExecuteGremlinQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.execute_gremlin_query_output.ExecuteGremlinQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.execute_gremlin_query_input.ExecuteGremlinQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.execute_gremlin_query_output.ExecuteGremlinQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_query.execute_gremlin_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_gremlin_query.execute_gremlin_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -454,9 +810,21 @@ class neptunedataClient:
         if serializer is not None:
             input["serializer"] = serializer
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def execute_open_cypher_explain_query(self, open_cypher_query: str, explain_mode: "aws_sdk_neptunedata.types.open_cypher_explain_mode.OpenCypherExplainMode", *, config_overrides: Optional[neptunedataClientConfig] = None, parameters: Optional[str] = None) -> "aws_sdk_neptunedata.types.execute_open_cypher_explain_query_output.ExecuteOpenCypherExplainQueryOutput":
+
+    def execute_open_cypher_explain_query(
+        self,
+        open_cypher_query: str,
+        explain_mode: "aws_sdk_neptunedata.types.open_cypher_explain_mode.OpenCypherExplainMode",
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        parameters: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.execute_open_cypher_explain_query_output.ExecuteOpenCypherExplainQueryOutput":
         """<p>Executes an openCypher <code>explain</code> request. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-explain.html\">The openCypher explain feature</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery\">neptune-db:ReadDataViaQuery</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:OpenCypher</a> IAM condition key can be used in the policy document to restrict the use of openCypher queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
@@ -464,9 +832,19 @@ class neptunedataClient:
             parameters: <p>The openCypher query parameters.</p>
             explain_mode: <p>The openCypher <code>explain</code> mode. Can be one of: <code>static</code>, <code>dynamic</code>, or <code>details</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.execute_open_cypher_explain_query_input.ExecuteOpenCypherExplainQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.execute_open_cypher_explain_query_output.ExecuteOpenCypherExplainQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.execute_open_cypher_explain_query_input.ExecuteOpenCypherExplainQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.execute_open_cypher_explain_query_output.ExecuteOpenCypherExplainQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_open_cypher_explain_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_open_cypher_explain_query.execute_open_cypher_explain_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_open_cypher_explain_query.execute_open_cypher_explain_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -476,18 +854,39 @@ class neptunedataClient:
             input["parameters"] = parameters
         input["explain_mode"] = explain_mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def execute_open_cypher_query(self, open_cypher_query: str, *, config_overrides: Optional[neptunedataClientConfig] = None, parameters: Optional[str] = None) -> "aws_sdk_neptunedata.types.execute_open_cypher_query_output.ExecuteOpenCypherQueryOutput":
+
+    def execute_open_cypher_query(
+        self,
+        open_cypher_query: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        parameters: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.execute_open_cypher_query_output.ExecuteOpenCypherQueryOutput":
         """<p>Executes an openCypher query. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html\">Accessing the Neptune Graph with openCypher</a> for more information.</p> <p>Neptune supports building graph applications using openCypher, which is currently one of the most popular query languages among developers working with graph databases. Developers, business analysts, and data scientists like openCypher's declarative, SQL-inspired syntax because it provides a familiar structure in which to querying property graphs.</p> <p>The openCypher language was originally developed by Neo4j, then open-sourced in 2015 and contributed to the <a href=\"https://opencypher.org/\">openCypher project</a> under an Apache 2 open-source license.</p> <p>Note that when invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery\">neptune-db:ReadDataViaQuery</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery\">neptune-db:WriteDataViaQuery</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery\">neptune-db:DeleteDataViaQuery</a> </p> </li> </ul> <p>Note also that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:OpenCypher</a> IAM condition key can be used in the policy document to restrict the use of openCypher queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             open_cypher_query: <p>The openCypher query string to be executed.</p>
             parameters: <p>The openCypher query parameters for query execution. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/opencypher-parameterized-queries.html\">Examples of openCypher parameterized queries</a> for more information.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.execute_open_cypher_query_input.ExecuteOpenCypherQueryInput]') -> OperationResponse["aws_sdk_neptunedata.types.execute_open_cypher_query_output.ExecuteOpenCypherQueryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.execute_open_cypher_query_input.ExecuteOpenCypherQueryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.execute_open_cypher_query_output.ExecuteOpenCypherQueryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_open_cypher_query
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_open_cypher_query.execute_open_cypher_query(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.execute_open_cypher_query.execute_open_cypher_query(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -496,38 +895,92 @@ class neptunedataClient:
         if parameters is not None:
             input["parameters"] = parameters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_engine_status(self, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.get_engine_status_output.GetEngineStatusOutput":
-        """<p>Retrieves the status of the graph database on the host.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getenginestatus\">neptune-db:GetEngineStatus</a> IAM action in that cluster.</p>
-        """
-        def _handler(req: 'OperationRequest[None]') -> OperationResponse["aws_sdk_neptunedata.types.get_engine_status_output.GetEngineStatusOutput"]:
+
+    def get_engine_status(
+        self, *, config_overrides: Optional[neptunedataClientConfig] = None
+    ) -> "aws_sdk_neptunedata.types.get_engine_status_output.GetEngineStatusOutput":
+        """<p>Retrieves the status of the graph database on the host.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getenginestatus\">neptune-db:GetEngineStatus</a> IAM action in that cluster.</p>"""
+
+        def _handler(
+            req: "OperationRequest[None]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_engine_status_output.GetEngineStatusOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_engine_status
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_engine_status.get_engine_status(req.options)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_engine_status.get_engine_status(
+                    req.options
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
 
-        response = execute_pipeline(OperationRequest(input=None, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=None, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_gremlin_query_status(self, query_id: str, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.get_gremlin_query_status_output.GetGremlinQueryStatusOutput":
+
+    def get_gremlin_query_status(
+        self,
+        query_id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+    ) -> "aws_sdk_neptunedata.types.get_gremlin_query_status_output.GetGremlinQueryStatusOutput":
         """<p>Gets the status of a specified Gremlin query.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus\">neptune-db:GetQueryStatus</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             query_id: <p>The unique identifier that identifies the Gremlin query.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_gremlin_query_status_input.GetGremlinQueryStatusInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_gremlin_query_status_output.GetGremlinQueryStatusOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_gremlin_query_status_input.GetGremlinQueryStatusInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_gremlin_query_status_output.GetGremlinQueryStatusOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_gremlin_query_status
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_gremlin_query_status.get_gremlin_query_status(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_gremlin_query_status.get_gremlin_query_status(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_neptunedata.types.get_gremlin_query_status_input.GetGremlinQueryStatusInput = {}  # type: ignore[typeddict-item]
         input["query_id"] = query_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_loader_job_status(self, load_id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, details: Optional[bool] = None, errors: Optional[bool] = None, page: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None, errors_per_page: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None) -> "aws_sdk_neptunedata.types.get_loader_job_status_output.GetLoaderJobStatusOutput":
+
+    def get_loader_job_status(
+        self,
+        load_id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        details: Optional[bool] = None,
+        errors: Optional[bool] = None,
+        page: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+        errors_per_page: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+    ) -> "aws_sdk_neptunedata.types.get_loader_job_status_output.GetLoaderJobStatusOutput":
         """<p>Gets status information about a specified load job. Neptune keeps track of the most recent 1,024 bulk load jobs, and stores the last 10,000 error details per job.</p> <p>See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm\">Neptune Loader Get-Status API</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getloaderjobstatus\">neptune-db:GetLoaderJobStatus</a> IAM action in that cluster..</p>
 
         Args:
@@ -537,9 +990,19 @@ class neptunedataClient:
             page: <p>The error page number (a positive integer; the default is <code>1</code>). Only valid when the <code>errors</code> parameter is set to <code>TRUE</code>.</p>
             errors_per_page: <p>The number of errors returned in each page (a positive integer; the default is <code>10</code>). Only valid when the <code>errors</code> parameter set to <code>TRUE</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_loader_job_status_output.GetLoaderJobStatusOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_loader_job_status_output.GetLoaderJobStatusOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_loader_job_status
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_loader_job_status.get_loader_job_status(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_loader_job_status.get_loader_job_status(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -554,18 +1017,39 @@ class neptunedataClient:
         if errors_per_page is not None:
             input["errors_per_page"] = errors_per_page
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_ml_data_processing_job(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.get_ml_data_processing_job_output.GetMLDataProcessingJobOutput":
+
+    def get_ml_data_processing_job(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.get_ml_data_processing_job_output.GetMLDataProcessingJobOutput":
         """<p>Retrieves information about a specified data processing job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html\">The <code>dataprocessing</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmldataprocessingjobstatus\">neptune-db:neptune-db:GetMLDataProcessingJobStatus</a> IAM action in that cluster.</p>
 
         Args:
             id: <p>The unique identifier of the data-processing job to be retrieved.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_ml_data_processing_job_input.GetMLDataProcessingJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_ml_data_processing_job_output.GetMLDataProcessingJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_ml_data_processing_job_input.GetMLDataProcessingJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_ml_data_processing_job_output.GetMLDataProcessingJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_data_processing_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_data_processing_job.get_ml_data_processing_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_data_processing_job.get_ml_data_processing_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -574,18 +1058,39 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_ml_endpoint(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.get_ml_endpoint_output.GetMLEndpointOutput":
+
+    def get_ml_endpoint(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.get_ml_endpoint_output.GetMLEndpointOutput":
         """<p>Retrieves details about an inference endpoint. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html\">Managing inference endpoints using the endpoints command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlendpointstatus\">neptune-db:GetMLEndpointStatus</a> IAM action in that cluster.</p>
 
         Args:
             id: <p>The unique identifier of the inference endpoint.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_ml_endpoint_input.GetMLEndpointInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_ml_endpoint_output.GetMLEndpointOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_ml_endpoint_input.GetMLEndpointInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_ml_endpoint_output.GetMLEndpointOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_endpoint
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_endpoint.get_ml_endpoint(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_endpoint.get_ml_endpoint(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -594,18 +1099,39 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_ml_model_training_job(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.get_ml_model_training_job_output.GetMLModelTrainingJobOutput":
+
+    def get_ml_model_training_job(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.get_ml_model_training_job_output.GetMLModelTrainingJobOutput":
         """<p>Retrieves information about a Neptune ML model training job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html\">Model training using the <code>modeltraining</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus\">neptune-db:GetMLModelTrainingJobStatus</a> IAM action in that cluster.</p>
 
         Args:
             id: <p>The unique identifier of the model-training job to retrieve.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_ml_model_training_job_input.GetMLModelTrainingJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_ml_model_training_job_output.GetMLModelTrainingJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_ml_model_training_job_input.GetMLModelTrainingJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_ml_model_training_job_output.GetMLModelTrainingJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_model_training_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_model_training_job.get_ml_model_training_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_model_training_job.get_ml_model_training_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -614,18 +1140,39 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_ml_model_transform_job(self, id: str, *, config_overrides: Optional[neptunedataClientConfig] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.get_ml_model_transform_job_output.GetMLModelTransformJobOutput":
+
+    def get_ml_model_transform_job(
+        self,
+        id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.get_ml_model_transform_job_output.GetMLModelTransformJobOutput":
         """<p>Gets information about a specified model transform job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html\">Use a trained model to generate new model artifacts</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltransformjobstatus\">neptune-db:GetMLModelTransformJobStatus</a> IAM action in that cluster.</p>
 
         Args:
             id: <p>The unique identifier of the model-transform job to be reetrieved.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_ml_model_transform_job_input.GetMLModelTransformJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_ml_model_transform_job_output.GetMLModelTransformJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_ml_model_transform_job_input.GetMLModelTransformJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_ml_model_transform_job_output.GetMLModelTransformJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_model_transform_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_model_transform_job.get_ml_model_transform_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_ml_model_transform_job.get_ml_model_transform_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -634,38 +1181,90 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_open_cypher_query_status(self, query_id: str, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.get_open_cypher_query_status_output.GetOpenCypherQueryStatusOutput":
+
+    def get_open_cypher_query_status(
+        self,
+        query_id: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+    ) -> "aws_sdk_neptunedata.types.get_open_cypher_query_status_output.GetOpenCypherQueryStatusOutput":
         """<p>Retrieves the status of a specified openCypher query.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus\">neptune-db:GetQueryStatus</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:OpenCypher</a> IAM condition key can be used in the policy document to restrict the use of openCypher queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             query_id: <p>The unique ID of the openCypher query for which to retrieve the query status.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_open_cypher_query_status_input.GetOpenCypherQueryStatusInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_open_cypher_query_status_output.GetOpenCypherQueryStatusOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_open_cypher_query_status_input.GetOpenCypherQueryStatusInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_open_cypher_query_status_output.GetOpenCypherQueryStatusOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_open_cypher_query_status
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_open_cypher_query_status.get_open_cypher_query_status(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_open_cypher_query_status.get_open_cypher_query_status(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_neptunedata.types.get_open_cypher_query_status_input.GetOpenCypherQueryStatusInput = {}  # type: ignore[typeddict-item]
         input["query_id"] = query_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_propertygraph_statistics(self, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.get_propertygraph_statistics_output.GetPropertygraphStatisticsOutput":
-        """<p>Gets property graph statistics (Gremlin and openCypher).</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus\">neptune-db:GetStatisticsStatus</a> IAM action in that cluster.</p>
-        """
-        def _handler(req: 'OperationRequest[None]') -> OperationResponse["aws_sdk_neptunedata.types.get_propertygraph_statistics_output.GetPropertygraphStatisticsOutput"]:
+
+    def get_propertygraph_statistics(
+        self, *, config_overrides: Optional[neptunedataClientConfig] = None
+    ) -> "aws_sdk_neptunedata.types.get_propertygraph_statistics_output.GetPropertygraphStatisticsOutput":
+        """<p>Gets property graph statistics (Gremlin and openCypher).</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus\">neptune-db:GetStatisticsStatus</a> IAM action in that cluster.</p>"""
+
+        def _handler(
+            req: "OperationRequest[None]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_propertygraph_statistics_output.GetPropertygraphStatisticsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_statistics
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_statistics.get_propertygraph_statistics(req.options)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_statistics.get_propertygraph_statistics(
+                    req.options
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
 
-        response = execute_pipeline(OperationRequest(input=None, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=None, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_propertygraph_stream(self, *, config_overrides: Optional[neptunedataClientConfig] = None, limit: Optional[int] = None, iterator_type: Optional["aws_sdk_neptunedata.types.iterator_type.IteratorType"] = None, commit_num: Optional[int] = None, op_num: Optional[int] = None, encoding: Optional["aws_sdk_neptunedata.types.encoding.Encoding"] = None) -> "aws_sdk_neptunedata.types.get_propertygraph_stream_output.GetPropertygraphStreamOutput":
+
+    def get_propertygraph_stream(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        limit: Optional[int] = None,
+        iterator_type: Optional[
+            "aws_sdk_neptunedata.types.iterator_type.IteratorType"
+        ] = None,
+        commit_num: Optional[int] = None,
+        op_num: Optional[int] = None,
+        encoding: Optional["aws_sdk_neptunedata.types.encoding.Encoding"] = None,
+    ) -> "aws_sdk_neptunedata.types.get_propertygraph_stream_output.GetPropertygraphStreamOutput":
         """<p>Gets a stream for a property graph.</p> <p>With the Neptune Streams feature, you can generate a complete sequence of change-log entries that record every change made to your graph data as it happens. <code>GetPropertygraphStream</code> lets you collect these change-log entries for a property graph.</p> <p>The Neptune streams feature needs to be enabled on your Neptune DBcluster. To enable streams, set the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams\">neptune_streams</a> DB cluster parameter to <code>1</code>.</p> <p>See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/streams.html\">Capturing graph changes in real time using Neptune streams</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords\">neptune-db:GetStreamRecords</a> IAM action in that cluster.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that enables one of the following IAM actions, depending on the query:</p> <p>Note that you can restrict property-graph queries using the following IAM context keys:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Gremlin</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:OpenCypher</a> </p> </li> </ul> <p>See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
@@ -675,9 +1274,19 @@ class neptunedataClient:
             op_num: <p>The operation sequence number within the specified commit to start reading from in the change-log stream data. The default is <code>1</code>.</p>
             encoding: <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_propertygraph_stream_input.GetPropertygraphStreamInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_propertygraph_stream_output.GetPropertygraphStreamOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_propertygraph_stream_input.GetPropertygraphStreamInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_propertygraph_stream_output.GetPropertygraphStreamOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_stream
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_stream.get_propertygraph_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_stream.get_propertygraph_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -693,17 +1302,39 @@ class neptunedataClient:
         if encoding is not None:
             input["encoding"] = encoding
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_propertygraph_summary(self, *, config_overrides: Optional[neptunedataClientConfig] = None, mode: Optional["aws_sdk_neptunedata.types.graph_summary_type.GraphSummaryType"] = None) -> "aws_sdk_neptunedata.types.get_propertygraph_summary_output.GetPropertygraphSummaryOutput":
+
+    def get_propertygraph_summary(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        mode: Optional[
+            "aws_sdk_neptunedata.types.graph_summary_type.GraphSummaryType"
+        ] = None,
+    ) -> "aws_sdk_neptunedata.types.get_propertygraph_summary_output.GetPropertygraphSummaryOutput":
         """<p>Gets a graph summary for a property graph.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary\">neptune-db:GetGraphSummary</a> IAM action in that cluster.</p>
 
         Args:
             mode: <p>Mode can take one of two values: <code>BASIC</code> (the default), and <code>DETAILED</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_propertygraph_summary_input.GetPropertygraphSummaryInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_propertygraph_summary_output.GetPropertygraphSummaryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_propertygraph_summary_input.GetPropertygraphSummaryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_propertygraph_summary_output.GetPropertygraphSummaryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_summary
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_summary.get_propertygraph_summary(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_propertygraph_summary.get_propertygraph_summary(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -711,17 +1342,39 @@ class neptunedataClient:
         if mode is not None:
             input["mode"] = mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_rdf_graph_summary(self, *, config_overrides: Optional[neptunedataClientConfig] = None, mode: Optional["aws_sdk_neptunedata.types.graph_summary_type.GraphSummaryType"] = None) -> "aws_sdk_neptunedata.types.get_rdf_graph_summary_output.GetRDFGraphSummaryOutput":
+
+    def get_rdf_graph_summary(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        mode: Optional[
+            "aws_sdk_neptunedata.types.graph_summary_type.GraphSummaryType"
+        ] = None,
+    ) -> "aws_sdk_neptunedata.types.get_rdf_graph_summary_output.GetRDFGraphSummaryOutput":
         """<p>Gets a graph summary for an RDF graph.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary\">neptune-db:GetGraphSummary</a> IAM action in that cluster.</p>
 
         Args:
             mode: <p>Mode can take one of two values: <code>BASIC</code> (the default), and <code>DETAILED</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_rdf_graph_summary_input.GetRDFGraphSummaryInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_rdf_graph_summary_output.GetRDFGraphSummaryOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_rdf_graph_summary_input.GetRDFGraphSummaryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_rdf_graph_summary_output.GetRDFGraphSummaryOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_rdf_graph_summary
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_rdf_graph_summary.get_rdf_graph_summary(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_rdf_graph_summary.get_rdf_graph_summary(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -729,21 +1382,53 @@ class neptunedataClient:
         if mode is not None:
             input["mode"] = mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_sparql_statistics(self, *, config_overrides: Optional[neptunedataClientConfig] = None) -> "aws_sdk_neptunedata.types.get_sparql_statistics_output.GetSparqlStatisticsOutput":
-        """<p>Gets RDF statistics (SPARQL).</p>
-        """
-        def _handler(req: 'OperationRequest[None]') -> OperationResponse["aws_sdk_neptunedata.types.get_sparql_statistics_output.GetSparqlStatisticsOutput"]:
+
+    def get_sparql_statistics(
+        self, *, config_overrides: Optional[neptunedataClientConfig] = None
+    ) -> "aws_sdk_neptunedata.types.get_sparql_statistics_output.GetSparqlStatisticsOutput":
+        """<p>Gets RDF statistics (SPARQL).</p>"""
+
+        def _handler(
+            req: "OperationRequest[None]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_sparql_statistics_output.GetSparqlStatisticsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_sparql_statistics
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_sparql_statistics.get_sparql_statistics(req.options)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_sparql_statistics.get_sparql_statistics(
+                    req.options
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
 
-        response = execute_pipeline(OperationRequest(input=None, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=None, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_sparql_stream(self, *, config_overrides: Optional[neptunedataClientConfig] = None, limit: Optional[int] = None, iterator_type: Optional["aws_sdk_neptunedata.types.iterator_type.IteratorType"] = None, commit_num: Optional[int] = None, op_num: Optional[int] = None, encoding: Optional["aws_sdk_neptunedata.types.encoding.Encoding"] = None) -> "aws_sdk_neptunedata.types.get_sparql_stream_output.GetSparqlStreamOutput":
+
+    def get_sparql_stream(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        limit: Optional[int] = None,
+        iterator_type: Optional[
+            "aws_sdk_neptunedata.types.iterator_type.IteratorType"
+        ] = None,
+        commit_num: Optional[int] = None,
+        op_num: Optional[int] = None,
+        encoding: Optional["aws_sdk_neptunedata.types.encoding.Encoding"] = None,
+    ) -> "aws_sdk_neptunedata.types.get_sparql_stream_output.GetSparqlStreamOutput":
         """<p>Gets a stream for an RDF graph.</p> <p>With the Neptune Streams feature, you can generate a complete sequence of change-log entries that record every change made to your graph data as it happens. <code>GetSparqlStream</code> lets you collect these change-log entries for an RDF graph.</p> <p>The Neptune streams feature needs to be enabled on your Neptune DBcluster. To enable streams, set the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams\">neptune_streams</a> DB cluster parameter to <code>1</code>.</p> <p>See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/streams.html\">Capturing graph changes in real time using Neptune streams</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords\">neptune-db:GetStreamRecords</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Sparql</a> IAM condition key can be used in the policy document to restrict the use of SPARQL queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
@@ -753,9 +1438,19 @@ class neptunedataClient:
             op_num: <p>The operation sequence number within the specified commit to start reading from in the change-log stream data. The default is <code>1</code>.</p>
             encoding: <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput]') -> OperationResponse["aws_sdk_neptunedata.types.get_sparql_stream_output.GetSparqlStreamOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.get_sparql_stream_output.GetSparqlStreamOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_sparql_stream
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_sparql_stream.get_sparql_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.get_sparql_stream.get_sparql_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -771,17 +1466,39 @@ class neptunedataClient:
         if encoding is not None:
             input["encoding"] = encoding
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_gremlin_queries(self, *, config_overrides: Optional[neptunedataClientConfig] = None, include_waiting: Optional[bool] = None) -> "aws_sdk_neptunedata.types.list_gremlin_queries_output.ListGremlinQueriesOutput":
+
+    def list_gremlin_queries(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        include_waiting: Optional[bool] = None,
+    ) -> (
+        "aws_sdk_neptunedata.types.list_gremlin_queries_output.ListGremlinQueriesOutput"
+    ):
         """<p>Lists active Gremlin queries. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html\">Gremlin query status API</a> for details about the output.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus\">neptune-db:GetQueryStatus</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             include_waiting: <p>If set to <code>TRUE</code>, the list returned includes waiting queries. The default is <code>FALSE</code>;</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_gremlin_queries_input.ListGremlinQueriesInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_gremlin_queries_output.ListGremlinQueriesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_gremlin_queries_input.ListGremlinQueriesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_gremlin_queries_output.ListGremlinQueriesOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_gremlin_queries
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_gremlin_queries.list_gremlin_queries(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_gremlin_queries.list_gremlin_queries(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -789,18 +1506,41 @@ class neptunedataClient:
         if include_waiting is not None:
             input["include_waiting"] = include_waiting
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_loader_jobs(self, *, config_overrides: Optional[neptunedataClientConfig] = None, limit: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None, include_queued_loads: Optional[bool] = None) -> "aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput":
+
+    def list_loader_jobs(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        limit: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+        include_queued_loads: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput":
         """<p>Retrieves a list of the <code>loadIds</code> for all active loader jobs.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs\">neptune-db:ListLoaderJobs</a> IAM action in that cluster..</p>
 
         Args:
             limit: <p>The number of load IDs to list. Must be a positive integer greater than zero and not more than <code>100</code> (which is the default).</p>
             include_queued_loads: <p>An optional parameter that can be used to exclude the load IDs of queued load requests when requesting a list of load IDs by setting the parameter to <code>FALSE</code>. The default value is <code>TRUE</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_loader_jobs_input.ListLoaderJobsInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_loader_jobs_input.ListLoaderJobsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_loader_jobs
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_loader_jobs.list_loader_jobs(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_loader_jobs.list_loader_jobs(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -810,18 +1550,41 @@ class neptunedataClient:
         if include_queued_loads is not None:
             input["include_queued_loads"] = include_queued_loads
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_ml_data_processing_jobs(self, *, config_overrides: Optional[neptunedataClientConfig] = None, max_items: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.list_ml_data_processing_jobs_output.ListMLDataProcessingJobsOutput":
+
+    def list_ml_data_processing_jobs(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.list_ml_data_processing_jobs_output.ListMLDataProcessingJobsOutput":
         """<p>Returns a list of Neptune ML data processing jobs. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html#machine-learning-api-dataprocessing-list-jobs\">Listing active data-processing jobs using the Neptune ML dataprocessing command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs\">neptune-db:ListMLDataProcessingJobs</a> IAM action in that cluster.</p>
 
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_ml_data_processing_jobs_input.ListMLDataProcessingJobsInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_ml_data_processing_jobs_output.ListMLDataProcessingJobsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_ml_data_processing_jobs_input.ListMLDataProcessingJobsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_ml_data_processing_jobs_output.ListMLDataProcessingJobsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_data_processing_jobs
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_data_processing_jobs.list_ml_data_processing_jobs(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_data_processing_jobs.list_ml_data_processing_jobs(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -831,18 +1594,41 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_ml_endpoints(self, *, config_overrides: Optional[neptunedataClientConfig] = None, max_items: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.list_ml_endpoints_output.ListMLEndpointsOutput":
+
+    def list_ml_endpoints(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.list_ml_endpoints_output.ListMLEndpointsOutput":
         """<p>Lists existing inference endpoints. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html\">Managing inference endpoints using the endpoints command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlendpoints\">neptune-db:ListMLEndpoints</a> IAM action in that cluster.</p>
 
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_ml_endpoints_input.ListMLEndpointsInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_ml_endpoints_output.ListMLEndpointsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_ml_endpoints_input.ListMLEndpointsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_ml_endpoints_output.ListMLEndpointsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_endpoints
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_endpoints.list_ml_endpoints(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_endpoints.list_ml_endpoints(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -852,18 +1638,41 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_ml_model_training_jobs(self, *, config_overrides: Optional[neptunedataClientConfig] = None, max_items: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.list_ml_model_training_jobs_output.ListMLModelTrainingJobsOutput":
+
+    def list_ml_model_training_jobs(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.list_ml_model_training_jobs_output.ListMLModelTrainingJobsOutput":
         """<p>Lists Neptune ML model-training jobs. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html\">Model training using the <code>modeltraining</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#neptune-db:listmlmodeltrainingjobs\">neptune-db:neptune-db:ListMLModelTrainingJobs</a> IAM action in that cluster.</p>
 
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_ml_model_training_jobs_input.ListMLModelTrainingJobsInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_ml_model_training_jobs_output.ListMLModelTrainingJobsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_ml_model_training_jobs_input.ListMLModelTrainingJobsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_ml_model_training_jobs_output.ListMLModelTrainingJobsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_model_training_jobs
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_model_training_jobs.list_ml_model_training_jobs(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_model_training_jobs.list_ml_model_training_jobs(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -873,18 +1682,41 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_ml_model_transform_jobs(self, *, config_overrides: Optional[neptunedataClientConfig] = None, max_items: Optional["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"] = None, neptune_iam_role_arn: Optional[str] = None) -> "aws_sdk_neptunedata.types.list_ml_model_transform_jobs_output.ListMLModelTransformJobsOutput":
+
+    def list_ml_model_transform_jobs(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        max_items: Optional[
+            "aws_sdk_neptunedata.types.positive_integer.PositiveInteger"
+        ] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.list_ml_model_transform_jobs_output.ListMLModelTransformJobsOutput":
         """<p>Returns a list of model transform job IDs. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html\">Use a trained model to generate new model artifacts</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlmodeltransformjobs\">neptune-db:ListMLModelTransformJobs</a> IAM action in that cluster.</p>
 
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_ml_model_transform_jobs_input.ListMLModelTransformJobsInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_ml_model_transform_jobs_output.ListMLModelTransformJobsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_ml_model_transform_jobs_input.ListMLModelTransformJobsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_ml_model_transform_jobs_output.ListMLModelTransformJobsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_model_transform_jobs
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_model_transform_jobs.list_ml_model_transform_jobs(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_ml_model_transform_jobs.list_ml_model_transform_jobs(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -894,17 +1726,37 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_open_cypher_queries(self, *, config_overrides: Optional[neptunedataClientConfig] = None, include_waiting: Optional[bool] = None) -> "aws_sdk_neptunedata.types.list_open_cypher_queries_output.ListOpenCypherQueriesOutput":
+
+    def list_open_cypher_queries(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        include_waiting: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.list_open_cypher_queries_output.ListOpenCypherQueriesOutput":
         """<p>Lists active openCypher queries. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html\">Neptune openCypher status endpoint</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus\">neptune-db:GetQueryStatus</a> IAM action in that cluster.</p> <p>Note that the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys\">neptune-db:QueryLanguage:OpenCypher</a> IAM condition key can be used in the policy document to restrict the use of openCypher queries (see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html\">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
 
         Args:
             include_waiting: <p> When set to <code>TRUE</code> and other parameters are not present, causes status information to be returned for waiting queries as well as for running queries.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.list_open_cypher_queries_input.ListOpenCypherQueriesInput]') -> OperationResponse["aws_sdk_neptunedata.types.list_open_cypher_queries_output.ListOpenCypherQueriesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.list_open_cypher_queries_input.ListOpenCypherQueriesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.list_open_cypher_queries_output.ListOpenCypherQueriesOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_open_cypher_queries
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_open_cypher_queries.list_open_cypher_queries(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.list_open_cypher_queries.list_open_cypher_queries(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -912,17 +1764,39 @@ class neptunedataClient:
         if include_waiting is not None:
             input["include_waiting"] = include_waiting
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def manage_propertygraph_statistics(self, *, config_overrides: Optional[neptunedataClientConfig] = None, mode: Optional["aws_sdk_neptunedata.types.statistics_auto_generation_mode.StatisticsAutoGenerationMode"] = None) -> "aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput":
+
+    def manage_propertygraph_statistics(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        mode: Optional[
+            "aws_sdk_neptunedata.types.statistics_auto_generation_mode.StatisticsAutoGenerationMode"
+        ] = None,
+    ) -> "aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput":
         """<p>Manages the generation and use of property graph statistics.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics\">neptune-db:ManageStatistics</a> IAM action in that cluster.</p>
 
         Args:
             mode: <p>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>, <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of which manually triggers DFE statistics generation.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.manage_propertygraph_statistics_input.ManagePropertygraphStatisticsInput]') -> OperationResponse["aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.manage_propertygraph_statistics_input.ManagePropertygraphStatisticsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.manage_propertygraph_statistics
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.manage_propertygraph_statistics.manage_propertygraph_statistics(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.manage_propertygraph_statistics.manage_propertygraph_statistics(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -930,17 +1804,39 @@ class neptunedataClient:
         if mode is not None:
             input["mode"] = mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def manage_sparql_statistics(self, *, config_overrides: Optional[neptunedataClientConfig] = None, mode: Optional["aws_sdk_neptunedata.types.statistics_auto_generation_mode.StatisticsAutoGenerationMode"] = None) -> "aws_sdk_neptunedata.types.manage_sparql_statistics_output.ManageSparqlStatisticsOutput":
+
+    def manage_sparql_statistics(
+        self,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        mode: Optional[
+            "aws_sdk_neptunedata.types.statistics_auto_generation_mode.StatisticsAutoGenerationMode"
+        ] = None,
+    ) -> "aws_sdk_neptunedata.types.manage_sparql_statistics_output.ManageSparqlStatisticsOutput":
         """<p>Manages the generation and use of RDF graph statistics.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics\">neptune-db:ManageStatistics</a> IAM action in that cluster.</p>
 
         Args:
             mode: <p>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>, <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of which manually triggers DFE statistics generation.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.manage_sparql_statistics_input.ManageSparqlStatisticsInput]') -> OperationResponse["aws_sdk_neptunedata.types.manage_sparql_statistics_output.ManageSparqlStatisticsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.manage_sparql_statistics_input.ManageSparqlStatisticsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.manage_sparql_statistics_output.ManageSparqlStatisticsOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.manage_sparql_statistics
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.manage_sparql_statistics.manage_sparql_statistics(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.manage_sparql_statistics.manage_sparql_statistics(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -948,9 +1844,37 @@ class neptunedataClient:
         if mode is not None:
             input["mode"] = mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_loader_job(self, source: str, format: "aws_sdk_neptunedata.types.format.Format", s3_bucket_region: "aws_sdk_neptunedata.types.s3_bucket_region.S3BucketRegion", iam_role_arn: str, *, config_overrides: Optional[neptunedataClientConfig] = None, mode: Optional["aws_sdk_neptunedata.types.mode.Mode"] = None, fail_on_error: Optional[bool] = None, parallelism: Optional["aws_sdk_neptunedata.types.parallelism.Parallelism"] = None, parser_configuration: Optional["aws_sdk_neptunedata.types.string_valued_map.StringValuedMap"] = None, update_single_cardinality_properties: Optional[bool] = None, queue_request: Optional[bool] = None, dependencies: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, user_provided_edge_ids: Optional[bool] = None, edge_only_load: Optional[bool] = None) -> "aws_sdk_neptunedata.types.start_loader_job_output.StartLoaderJobOutput":
+
+    def start_loader_job(
+        self,
+        source: str,
+        format: "aws_sdk_neptunedata.types.format.Format",
+        s3_bucket_region: "aws_sdk_neptunedata.types.s3_bucket_region.S3BucketRegion",
+        iam_role_arn: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        mode: Optional["aws_sdk_neptunedata.types.mode.Mode"] = None,
+        fail_on_error: Optional[bool] = None,
+        parallelism: Optional[
+            "aws_sdk_neptunedata.types.parallelism.Parallelism"
+        ] = None,
+        parser_configuration: Optional[
+            "aws_sdk_neptunedata.types.string_valued_map.StringValuedMap"
+        ] = None,
+        update_single_cardinality_properties: Optional[bool] = None,
+        queue_request: Optional[bool] = None,
+        dependencies: Optional[
+            "aws_sdk_neptunedata.types.string_list.StringList"
+        ] = None,
+        user_provided_edge_ids: Optional[bool] = None,
+        edge_only_load: Optional[bool] = None,
+    ) -> "aws_sdk_neptunedata.types.start_loader_job_output.StartLoaderJobOutput":
         """<p>Starts a Neptune bulk loader job to load data from an Amazon S3 bucket into a Neptune DB instance. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html\">Using the Amazon Neptune Bulk Loader to Ingest Data</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startloaderjob\">neptune-db:StartLoaderJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -968,9 +1892,19 @@ class neptunedataClient:
             user_provided_edge_ids: <p>This parameter is required only when loading openCypher data that contains relationship IDs. It must be included and set to <code>True</code> when openCypher relationship IDs are explicitly provided in the load data (recommended).</p> <p>When <code>userProvidedEdgeIds</code> is absent or set to <code>True</code>, an <code>:ID</code> column must be present in every relationship file in the load.</p> <p>When <code>userProvidedEdgeIds</code> is present and set to <code>False</code>, relationship files in the load <b>must not</b> contain an <code>:ID</code> column. Instead, the Neptune loader automatically generates an ID for each relationship.</p> <p>It's useful to provide relationship IDs explicitly so that the loader can resume loading after error in the CSV data have been fixed, without having to reload any relationships that have already been loaded. If relationship IDs have not been explicitly assigned, the loader cannot resume a failed load if any relationship file has had to be corrected, and must instead reload all the relationships.</p>
             edge_only_load: <p> <b> <code>edgeOnlyLoad</code> </b> - A flag that controls file processing order during bulk loading.</p> <p> <i>Allowed values</i>: <code>\"TRUE\"</code>, <code>\"FALSE\"</code>.</p> <p> <i>Default value</i>: <code>\"FALSE\"</code>.</p> <p>When this parameter is set to \"FALSE\", the loader automatically loads vertex files first, then edge files afterwards. It does this by first scanning all files to determine their contents (vertices or edges). When this parameter is set to \"TRUE\", the loader skips the initial scanning phase and immediately loads all files in the order they appear.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.start_loader_job_input.StartLoaderJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.start_loader_job_output.StartLoaderJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.start_loader_job_input.StartLoaderJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.start_loader_job_output.StartLoaderJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_loader_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_loader_job.start_loader_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_loader_job.start_loader_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -988,7 +1922,9 @@ class neptunedataClient:
         if parser_configuration is not None:
             input["parser_configuration"] = parser_configuration
         if update_single_cardinality_properties is not None:
-            input["update_single_cardinality_properties"] = update_single_cardinality_properties
+            input["update_single_cardinality_properties"] = (
+                update_single_cardinality_properties
+            )
         if queue_request is not None:
             input["queue_request"] = queue_request
         if dependencies is not None:
@@ -998,9 +1934,35 @@ class neptunedataClient:
         if edge_only_load is not None:
             input["edge_only_load"] = edge_only_load
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_ml_data_processing_job(self, input_data_s3_location: str, processed_data_s3_location: str, *, config_overrides: Optional[neptunedataClientConfig] = None, id: Optional[str] = None, previous_data_processing_job_id: Optional[str] = None, sagemaker_iam_role_arn: Optional[str] = None, neptune_iam_role_arn: Optional[str] = None, processing_instance_type: Optional[str] = None, processing_instance_volume_size_in_gb: Optional[int] = None, processing_time_out_in_seconds: Optional[int] = None, model_type: Optional[str] = None, config_file_name: Optional[str] = None, subnets: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, security_group_ids: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, volume_encryption_kms_key: Optional[str] = None, s3_output_encryption_kms_key: Optional[str] = None) -> "aws_sdk_neptunedata.types.start_ml_data_processing_job_output.StartMLDataProcessingJobOutput":
+
+    def start_ml_data_processing_job(
+        self,
+        input_data_s3_location: str,
+        processed_data_s3_location: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        id: Optional[str] = None,
+        previous_data_processing_job_id: Optional[str] = None,
+        sagemaker_iam_role_arn: Optional[str] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        processing_instance_type: Optional[str] = None,
+        processing_instance_volume_size_in_gb: Optional[int] = None,
+        processing_time_out_in_seconds: Optional[int] = None,
+        model_type: Optional[str] = None,
+        config_file_name: Optional[str] = None,
+        subnets: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None,
+        security_group_ids: Optional[
+            "aws_sdk_neptunedata.types.string_list.StringList"
+        ] = None,
+        volume_encryption_kms_key: Optional[str] = None,
+        s3_output_encryption_kms_key: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.start_ml_data_processing_job_output.StartMLDataProcessingJobOutput":
         """<p>Creates a new Neptune ML data processing job for processing the graph data exported from Neptune for training. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html\">The <code>dataprocessing</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeldataprocessingjob\">neptune-db:StartMLModelDataProcessingJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -1020,9 +1982,19 @@ class neptunedataClient:
             volume_encryption_kms_key: <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>
             s3_output_encryption_kms_key: <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt the output of the processing job. The default is none.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.start_ml_data_processing_job_input.StartMLDataProcessingJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.start_ml_data_processing_job_output.StartMLDataProcessingJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.start_ml_data_processing_job_input.StartMLDataProcessingJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.start_ml_data_processing_job_output.StartMLDataProcessingJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_data_processing_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_data_processing_job.start_ml_data_processing_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_data_processing_job.start_ml_data_processing_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -1040,7 +2012,9 @@ class neptunedataClient:
         if processing_instance_type is not None:
             input["processing_instance_type"] = processing_instance_type
         if processing_instance_volume_size_in_gb is not None:
-            input["processing_instance_volume_size_in_gb"] = processing_instance_volume_size_in_gb
+            input["processing_instance_volume_size_in_gb"] = (
+                processing_instance_volume_size_in_gb
+            )
         if processing_time_out_in_seconds is not None:
             input["processing_time_out_in_seconds"] = processing_time_out_in_seconds
         if model_type is not None:
@@ -1056,9 +2030,40 @@ class neptunedataClient:
         if s3_output_encryption_kms_key is not None:
             input["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_ml_model_training_job(self, data_processing_job_id: str, train_model_s3_location: str, *, config_overrides: Optional[neptunedataClientConfig] = None, id: Optional[str] = None, previous_model_training_job_id: Optional[str] = None, sagemaker_iam_role_arn: Optional[str] = None, neptune_iam_role_arn: Optional[str] = None, base_processing_instance_type: Optional[str] = None, training_instance_type: Optional[str] = None, training_instance_volume_size_in_gb: Optional[int] = None, training_time_out_in_seconds: Optional[int] = None, max_hpo_number_of_training_jobs: Optional[int] = None, max_hpo_parallel_training_jobs: Optional[int] = None, subnets: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, security_group_ids: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, volume_encryption_kms_key: Optional[str] = None, s3_output_encryption_kms_key: Optional[str] = None, enable_managed_spot_training: Optional[bool] = None, custom_model_training_parameters: Optional["aws_sdk_neptunedata.types.custom_model_training_parameters.CustomModelTrainingParameters"] = None) -> "aws_sdk_neptunedata.types.start_ml_model_training_job_output.StartMLModelTrainingJobOutput":
+
+    def start_ml_model_training_job(
+        self,
+        data_processing_job_id: str,
+        train_model_s3_location: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        id: Optional[str] = None,
+        previous_model_training_job_id: Optional[str] = None,
+        sagemaker_iam_role_arn: Optional[str] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        base_processing_instance_type: Optional[str] = None,
+        training_instance_type: Optional[str] = None,
+        training_instance_volume_size_in_gb: Optional[int] = None,
+        training_time_out_in_seconds: Optional[int] = None,
+        max_hpo_number_of_training_jobs: Optional[int] = None,
+        max_hpo_parallel_training_jobs: Optional[int] = None,
+        subnets: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None,
+        security_group_ids: Optional[
+            "aws_sdk_neptunedata.types.string_list.StringList"
+        ] = None,
+        volume_encryption_kms_key: Optional[str] = None,
+        s3_output_encryption_kms_key: Optional[str] = None,
+        enable_managed_spot_training: Optional[bool] = None,
+        custom_model_training_parameters: Optional[
+            "aws_sdk_neptunedata.types.custom_model_training_parameters.CustomModelTrainingParameters"
+        ] = None,
+    ) -> "aws_sdk_neptunedata.types.start_ml_model_training_job_output.StartMLModelTrainingJobOutput":
         """<p>Creates a new Neptune ML model training job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html\">Model training using the <code>modeltraining</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltrainingjob\">neptune-db:StartMLModelTrainingJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -1081,9 +2086,19 @@ class neptunedataClient:
             enable_managed_spot_training: <p>Optimizes the cost of training machine-learning models by using Amazon Elastic Compute Cloud spot instances. The default is <code>False</code>.</p>
             custom_model_training_parameters: <p>The configuration for custom model training. This is a JSON object.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.start_ml_model_training_job_input.StartMLModelTrainingJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.start_ml_model_training_job_output.StartMLModelTrainingJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.start_ml_model_training_job_input.StartMLModelTrainingJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.start_ml_model_training_job_output.StartMLModelTrainingJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_model_training_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_model_training_job.start_ml_model_training_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_model_training_job.start_ml_model_training_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -1103,7 +2118,9 @@ class neptunedataClient:
         if training_instance_type is not None:
             input["training_instance_type"] = training_instance_type
         if training_instance_volume_size_in_gb is not None:
-            input["training_instance_volume_size_in_gb"] = training_instance_volume_size_in_gb
+            input["training_instance_volume_size_in_gb"] = (
+                training_instance_volume_size_in_gb
+            )
         if training_time_out_in_seconds is not None:
             input["training_time_out_in_seconds"] = training_time_out_in_seconds
         if max_hpo_number_of_training_jobs is not None:
@@ -1123,9 +2140,36 @@ class neptunedataClient:
         if custom_model_training_parameters is not None:
             input["custom_model_training_parameters"] = custom_model_training_parameters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_ml_model_transform_job(self, model_transform_output_s3_location: str, *, config_overrides: Optional[neptunedataClientConfig] = None, id: Optional[str] = None, data_processing_job_id: Optional[str] = None, ml_model_training_job_id: Optional[str] = None, training_job_name: Optional[str] = None, sagemaker_iam_role_arn: Optional[str] = None, neptune_iam_role_arn: Optional[str] = None, custom_model_transform_parameters: Optional["aws_sdk_neptunedata.types.custom_model_transform_parameters.CustomModelTransformParameters"] = None, base_processing_instance_type: Optional[str] = None, base_processing_instance_volume_size_in_gb: Optional[int] = None, subnets: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, security_group_ids: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None, volume_encryption_kms_key: Optional[str] = None, s3_output_encryption_kms_key: Optional[str] = None) -> "aws_sdk_neptunedata.types.start_ml_model_transform_job_output.StartMLModelTransformJobOutput":
+
+    def start_ml_model_transform_job(
+        self,
+        model_transform_output_s3_location: str,
+        *,
+        config_overrides: Optional[neptunedataClientConfig] = None,
+        id: Optional[str] = None,
+        data_processing_job_id: Optional[str] = None,
+        ml_model_training_job_id: Optional[str] = None,
+        training_job_name: Optional[str] = None,
+        sagemaker_iam_role_arn: Optional[str] = None,
+        neptune_iam_role_arn: Optional[str] = None,
+        custom_model_transform_parameters: Optional[
+            "aws_sdk_neptunedata.types.custom_model_transform_parameters.CustomModelTransformParameters"
+        ] = None,
+        base_processing_instance_type: Optional[str] = None,
+        base_processing_instance_volume_size_in_gb: Optional[int] = None,
+        subnets: Optional["aws_sdk_neptunedata.types.string_list.StringList"] = None,
+        security_group_ids: Optional[
+            "aws_sdk_neptunedata.types.string_list.StringList"
+        ] = None,
+        volume_encryption_kms_key: Optional[str] = None,
+        s3_output_encryption_kms_key: Optional[str] = None,
+    ) -> "aws_sdk_neptunedata.types.start_ml_model_transform_job_output.StartMLModelTransformJobOutput":
         """<p>Creates a new model transform job. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html\">Use a trained model to generate new model artifacts</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltransformjob\">neptune-db:StartMLModelTransformJob</a> IAM action in that cluster.</p>
 
         Args:
@@ -1144,9 +2188,19 @@ class neptunedataClient:
             volume_encryption_kms_key: <p>The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>
             s3_output_encryption_kms_key: <p>The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt the output of the processing job. The default is none.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptunedata.types.start_ml_model_transform_job_input.StartMLModelTransformJobInput]') -> OperationResponse["aws_sdk_neptunedata.types.start_ml_model_transform_job_output.StartMLModelTransformJobOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptunedata.types.start_ml_model_transform_job_input.StartMLModelTransformJobInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptunedata.types.start_ml_model_transform_job_output.StartMLModelTransformJobOutput"
+        ]:
             import aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_model_transform_job
-            output, http_response = aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_model_transform_job.start_ml_model_transform_job(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptunedata._operations.amazon_neptune_dataplane.start_ml_model_transform_job.start_ml_model_transform_job(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -1165,11 +2219,15 @@ class neptunedataClient:
         if neptune_iam_role_arn is not None:
             input["neptune_iam_role_arn"] = neptune_iam_role_arn
         if custom_model_transform_parameters is not None:
-            input["custom_model_transform_parameters"] = custom_model_transform_parameters
+            input["custom_model_transform_parameters"] = (
+                custom_model_transform_parameters
+            )
         if base_processing_instance_type is not None:
             input["base_processing_instance_type"] = base_processing_instance_type
         if base_processing_instance_volume_size_in_gb is not None:
-            input["base_processing_instance_volume_size_in_gb"] = base_processing_instance_volume_size_in_gb
+            input["base_processing_instance_volume_size_in_gb"] = (
+                base_processing_instance_volume_size_in_gb
+            )
         if subnets is not None:
             input["subnets"] = subnets
         if security_group_ids is not None:
@@ -1179,9 +2237,15 @@ class neptunedataClient:
         if s3_output_encryption_kms_key is not None:
             input["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

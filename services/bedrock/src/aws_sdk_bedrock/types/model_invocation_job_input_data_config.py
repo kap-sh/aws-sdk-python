@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ModelInvocationJobInputDataConfig``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:

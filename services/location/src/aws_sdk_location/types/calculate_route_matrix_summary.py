@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteMatrixSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.distance_unit
+
 
 class CalculateRouteMatrixSummary(TypedDict):
     data_source: "str"
@@ -14,6 +17,7 @@ class CalculateRouteMatrixSummary(TypedDict):
     """<p>The count of error results in the route matrix. If this number is 0, all routes were calculated successfully.</p>"""
     distance_unit: "aws_sdk_location.types.distance_unit.DistanceUnit"
     """<p>The unit of measurement for route distances.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CalculateRouteMatrixSummary) -> dict:

@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.odb#Month``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_odb.types.month_name
+
+
+class Month(TypedDict):
+    name: NotRequired["aws_sdk_odb.types.month_name.MonthName"]
+    """<p>The name of the month.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Month) -> dict:
+    out: dict = {}
+    if "name" in value:
+        import aws_sdk_odb.types.month_name
+
+        out["name"] = aws_sdk_odb.types.month_name.serialize_aws_json_1_0(value["name"])
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> Month:
+    out: Month = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        import aws_sdk_odb.types.month_name
+
+        out["name"] = aws_sdk_odb.types.month_name.deserialize_aws_json_1_0(
+            data["name"]
+        )
+    return out

@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteMatrixRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
     import aws_sdk_location.types.calculate_route_car_mode_options
@@ -13,6 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_boolean
     import aws_sdk_location.types.timestamp
     import aws_sdk_location.types.travel_mode
+
 
 class CalculateRouteMatrixRequest(TypedDict):
     calculator_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -29,35 +33,59 @@ class CalculateRouteMatrixRequest(TypedDict):
     """<p>Sets the time of departure as the current time. Uses the current time to calculate the route matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>. If neither is set, the best time of day to travel with the best traffic conditions is used to calculate the route matrix.</p> <p>Default Value: <code>false</code> </p> <p>Valid Values: <code>false</code> | <code>true</code> </p>"""
     distance_unit: NotRequired["aws_sdk_location.types.distance_unit.DistanceUnit"]
     """<p>Set the unit system to specify the distance.</p> <p>Default Value: <code>Kilometers</code> </p>"""
-    car_mode_options: NotRequired["aws_sdk_location.types.calculate_route_car_mode_options.CalculateRouteCarModeOptions"]
+    car_mode_options: NotRequired[
+        "aws_sdk_location.types.calculate_route_car_mode_options.CalculateRouteCarModeOptions"
+    ]
     """<p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding routes that use ferries or tolls.</p> <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>"""
-    truck_mode_options: NotRequired["aws_sdk_location.types.calculate_route_truck_mode_options.CalculateRouteTruckModeOptions"]
+    truck_mode_options: NotRequired[
+        "aws_sdk_location.types.calculate_route_truck_mode_options.CalculateRouteTruckModeOptions"
+    ]
     """<p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding routes that use ferries or tolls, and truck specifications to consider when choosing an optimal road.</p> <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>"""
     key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]
     """<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CalculateRouteMatrixRequest) -> dict:
     out: dict = {}
     import aws_sdk_location.types.position_list
-    out["DeparturePositions"] = aws_sdk_location.types.position_list.serialize_json(value["departure_positions"])
+
+    out["DeparturePositions"] = aws_sdk_location.types.position_list.serialize_json(
+        value["departure_positions"]
+    )
     import aws_sdk_location.types.position_list
-    out["DestinationPositions"] = aws_sdk_location.types.position_list.serialize_json(value["destination_positions"])
+
+    out["DestinationPositions"] = aws_sdk_location.types.position_list.serialize_json(
+        value["destination_positions"]
+    )
     if "travel_mode" in value:
         out["TravelMode"] = value["travel_mode"]
     if "departure_time" in value:
         import aws_sdk_location.types.timestamp
-        out["DepartureTime"] = aws_sdk_location.types.timestamp.serialize_json(value["departure_time"])
+
+        out["DepartureTime"] = aws_sdk_location.types.timestamp.serialize_json(
+            value["departure_time"]
+        )
     if "depart_now" in value:
         out["DepartNow"] = value["depart_now"]
     if "distance_unit" in value:
         out["DistanceUnit"] = value["distance_unit"]
     if "car_mode_options" in value:
         import aws_sdk_location.types.calculate_route_car_mode_options
-        out["CarModeOptions"] = aws_sdk_location.types.calculate_route_car_mode_options.serialize_json(value["car_mode_options"])
+
+        out["CarModeOptions"] = (
+            aws_sdk_location.types.calculate_route_car_mode_options.serialize_json(
+                value["car_mode_options"]
+            )
+        )
     if "truck_mode_options" in value:
         import aws_sdk_location.types.calculate_route_truck_mode_options
-        out["TruckModeOptions"] = aws_sdk_location.types.calculate_route_truck_mode_options.serialize_json(value["truck_mode_options"])
+
+        out["TruckModeOptions"] = (
+            aws_sdk_location.types.calculate_route_truck_mode_options.serialize_json(
+                value["truck_mode_options"]
+            )
+        )
     return out
 
 
@@ -65,27 +93,54 @@ def deserialize_json(data: dict) -> CalculateRouteMatrixRequest:
     out: CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
     if "DeparturePositions" in data:
         import aws_sdk_location.types.position_list
-        out["departure_positions"] = aws_sdk_location.types.position_list.deserialize_json(data["DeparturePositions"])
+
+        out["departure_positions"] = (
+            aws_sdk_location.types.position_list.deserialize_json(
+                data["DeparturePositions"]
+            )
+        )
     else:
-        raise DeserializationError("CalculateRouteMatrixRequest.departure_positions required")
+        raise DeserializationError(
+            "CalculateRouteMatrixRequest.departure_positions required"
+        )
     if "DestinationPositions" in data:
         import aws_sdk_location.types.position_list
-        out["destination_positions"] = aws_sdk_location.types.position_list.deserialize_json(data["DestinationPositions"])
+
+        out["destination_positions"] = (
+            aws_sdk_location.types.position_list.deserialize_json(
+                data["DestinationPositions"]
+            )
+        )
     else:
-        raise DeserializationError("CalculateRouteMatrixRequest.destination_positions required")
+        raise DeserializationError(
+            "CalculateRouteMatrixRequest.destination_positions required"
+        )
     if "TravelMode" in data:
         out["travel_mode"] = data["TravelMode"]
     if "DepartureTime" in data:
         import aws_sdk_location.types.timestamp
-        out["departure_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["DepartureTime"])
+
+        out["departure_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["DepartureTime"]
+        )
     if "DepartNow" in data:
         out["depart_now"] = data["DepartNow"]
     if "DistanceUnit" in data:
         out["distance_unit"] = data["DistanceUnit"]
     if "CarModeOptions" in data:
         import aws_sdk_location.types.calculate_route_car_mode_options
-        out["car_mode_options"] = aws_sdk_location.types.calculate_route_car_mode_options.deserialize_json(data["CarModeOptions"])
+
+        out["car_mode_options"] = (
+            aws_sdk_location.types.calculate_route_car_mode_options.deserialize_json(
+                data["CarModeOptions"]
+            )
+        )
     if "TruckModeOptions" in data:
         import aws_sdk_location.types.calculate_route_truck_mode_options
-        out["truck_mode_options"] = aws_sdk_location.types.calculate_route_truck_mode_options.deserialize_json(data["TruckModeOptions"])
+
+        out["truck_mode_options"] = (
+            aws_sdk_location.types.calculate_route_truck_mode_options.deserialize_json(
+                data["TruckModeOptions"]
+            )
+        )
     return out

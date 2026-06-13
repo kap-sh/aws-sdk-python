@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#NotebookStatus``."""
+
+import datetime
+import decimal
+from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
+from aws_sdk_datazone.errors import DeserializationError
+from aws_sdk_datazone._protocol.xml import Element, SubElement
+import base64
+from email.utils import format_datetime as _fmt_http
+from email.utils import parsedate_to_datetime as _parse_http
+
+"""<p>The status of a notebook in Amazon SageMaker Unified Studio.</p>"""
+NotebookStatus: TypeAlias = Literal[
+    "ACTIVE",
+    "ARCHIVED",
+]
+
+
+# --- restJson1 ser/de ---
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ACTIVE",
+        "ARCHIVED",
+    )
+)
+
+
+def serialize_json(value: NotebookStatus) -> str:
+    return value
+
+
+def deserialize_json(data: str) -> NotebookStatus:
+    if data not in _VALUES:
+        raise DeserializationError(f"unknown NotebookStatus value: {data!r}")
+    return cast(NotebookStatus, data)

@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#EndSessionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.session_arn
     import aws_sdk_bedrock_agent_runtime.types.session_status
     import aws_sdk_bedrock_agent_runtime.types.uuid
+
 
 class EndSessionResponse(TypedDict):
     session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
@@ -15,13 +18,19 @@ class EndSessionResponse(TypedDict):
     session_status: "aws_sdk_bedrock_agent_runtime.types.session_status.SessionStatus"
     """<p>The current status of the session you ended.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: EndSessionResponse) -> dict:
     out: dict = {}
     out["sessionId"] = value["session_id"]
     out["sessionArn"] = value["session_arn"]
     import aws_sdk_bedrock_agent_runtime.types.session_status
-    out["sessionStatus"] = aws_sdk_bedrock_agent_runtime.types.session_status.serialize_json(value["session_status"])
+
+    out["sessionStatus"] = (
+        aws_sdk_bedrock_agent_runtime.types.session_status.serialize_json(
+            value["session_status"]
+        )
+    )
     return out
 
 
@@ -37,7 +46,12 @@ def deserialize_json(data: dict) -> EndSessionResponse:
         raise DeserializationError("EndSessionResponse.session_arn required")
     if "sessionStatus" in data:
         import aws_sdk_bedrock_agent_runtime.types.session_status
-        out["session_status"] = aws_sdk_bedrock_agent_runtime.types.session_status.deserialize_json(data["sessionStatus"])
+
+        out["session_status"] = (
+            aws_sdk_bedrock_agent_runtime.types.session_status.deserialize_json(
+                data["sessionStatus"]
+            )
+        )
     else:
         raise DeserializationError("EndSessionResponse.session_status required")
     return out

@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ChatSyncOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_review
     import aws_sdk_qbusiness.types.attachments_output
@@ -11,8 +13,11 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.source_attributions
     import aws_sdk_qbusiness.types.string
 
+
 class ChatSyncOutput(TypedDict):
-    conversation_id: NotRequired["aws_sdk_qbusiness.types.conversation_id.ConversationId"]
+    conversation_id: NotRequired[
+        "aws_sdk_qbusiness.types.conversation_id.ConversationId"
+    ]
     """<p>The identifier of the Amazon Q Business conversation.</p>"""
     system_message: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>An AI-generated message in a conversation.</p>"""
@@ -22,12 +27,19 @@ class ChatSyncOutput(TypedDict):
     """<p>The identifier of an Amazon Q Business end user text input message within the conversation.</p>"""
     action_review: NotRequired["aws_sdk_qbusiness.types.action_review.ActionReview"]
     """<p>A request from Amazon Q Business to the end user for information Amazon Q Business needs to successfully complete a requested plugin action.</p>"""
-    auth_challenge_request: NotRequired["aws_sdk_qbusiness.types.auth_challenge_request.AuthChallengeRequest"]
+    auth_challenge_request: NotRequired[
+        "aws_sdk_qbusiness.types.auth_challenge_request.AuthChallengeRequest"
+    ]
     """<p>An authentication verification event activated by an end user request to use a custom plugin.</p>"""
-    source_attributions: NotRequired["aws_sdk_qbusiness.types.source_attributions.SourceAttributions"]
+    source_attributions: NotRequired[
+        "aws_sdk_qbusiness.types.source_attributions.SourceAttributions"
+    ]
     """<p>The source documents used to generate the conversation response.</p>"""
-    failed_attachments: NotRequired["aws_sdk_qbusiness.types.attachments_output.AttachmentsOutput"]
+    failed_attachments: NotRequired[
+        "aws_sdk_qbusiness.types.attachments_output.AttachmentsOutput"
+    ]
     """<p>A list of files which failed to upload during chat.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ChatSyncOutput) -> dict:
@@ -42,16 +54,34 @@ def serialize_json(value: ChatSyncOutput) -> dict:
         out["userMessageId"] = value["user_message_id"]
     if "action_review" in value:
         import aws_sdk_qbusiness.types.action_review
-        out["actionReview"] = aws_sdk_qbusiness.types.action_review.serialize_json(value["action_review"])
+
+        out["actionReview"] = aws_sdk_qbusiness.types.action_review.serialize_json(
+            value["action_review"]
+        )
     if "auth_challenge_request" in value:
         import aws_sdk_qbusiness.types.auth_challenge_request
-        out["authChallengeRequest"] = aws_sdk_qbusiness.types.auth_challenge_request.serialize_json(value["auth_challenge_request"])
+
+        out["authChallengeRequest"] = (
+            aws_sdk_qbusiness.types.auth_challenge_request.serialize_json(
+                value["auth_challenge_request"]
+            )
+        )
     if "source_attributions" in value:
         import aws_sdk_qbusiness.types.source_attributions
-        out["sourceAttributions"] = aws_sdk_qbusiness.types.source_attributions.serialize_json(value["source_attributions"])
+
+        out["sourceAttributions"] = (
+            aws_sdk_qbusiness.types.source_attributions.serialize_json(
+                value["source_attributions"]
+            )
+        )
     if "failed_attachments" in value:
         import aws_sdk_qbusiness.types.attachments_output
-        out["failedAttachments"] = aws_sdk_qbusiness.types.attachments_output.serialize_json(value["failed_attachments"])
+
+        out["failedAttachments"] = (
+            aws_sdk_qbusiness.types.attachments_output.serialize_json(
+                value["failed_attachments"]
+            )
+        )
     return out
 
 
@@ -67,14 +97,32 @@ def deserialize_json(data: dict) -> ChatSyncOutput:
         out["user_message_id"] = data["userMessageId"]
     if "actionReview" in data:
         import aws_sdk_qbusiness.types.action_review
-        out["action_review"] = aws_sdk_qbusiness.types.action_review.deserialize_json(data["actionReview"])
+
+        out["action_review"] = aws_sdk_qbusiness.types.action_review.deserialize_json(
+            data["actionReview"]
+        )
     if "authChallengeRequest" in data:
         import aws_sdk_qbusiness.types.auth_challenge_request
-        out["auth_challenge_request"] = aws_sdk_qbusiness.types.auth_challenge_request.deserialize_json(data["authChallengeRequest"])
+
+        out["auth_challenge_request"] = (
+            aws_sdk_qbusiness.types.auth_challenge_request.deserialize_json(
+                data["authChallengeRequest"]
+            )
+        )
     if "sourceAttributions" in data:
         import aws_sdk_qbusiness.types.source_attributions
-        out["source_attributions"] = aws_sdk_qbusiness.types.source_attributions.deserialize_json(data["sourceAttributions"])
+
+        out["source_attributions"] = (
+            aws_sdk_qbusiness.types.source_attributions.deserialize_json(
+                data["sourceAttributions"]
+            )
+        )
     if "failedAttachments" in data:
         import aws_sdk_qbusiness.types.attachments_output
-        out["failed_attachments"] = aws_sdk_qbusiness.types.attachments_output.deserialize_json(data["failedAttachments"])
+
+        out["failed_attachments"] = (
+            aws_sdk_qbusiness.types.attachments_output.deserialize_json(
+                data["failedAttachments"]
+            )
+        )
     return out

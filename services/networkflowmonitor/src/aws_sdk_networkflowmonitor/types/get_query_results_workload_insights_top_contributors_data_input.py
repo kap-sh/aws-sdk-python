@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#GetQueryResultsWorkloadInsightsTopContributorsDataInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.scope_id
+
 
 class GetQueryResultsWorkloadInsightsTopContributorsDataInput(TypedDict):
     scope_id: "aws_sdk_networkflowmonitor.types.scope_id.ScopeId"
@@ -15,12 +18,17 @@ class GetQueryResultsWorkloadInsightsTopContributorsDataInput(TypedDict):
     max_results: NotRequired["int"]
     """<p>The number of query results that you want to return with this call.</p>"""
 
+
 # --- restJson1 ser/de ---
-def serialize_json(value: GetQueryResultsWorkloadInsightsTopContributorsDataInput) -> dict:
+def serialize_json(
+    value: GetQueryResultsWorkloadInsightsTopContributorsDataInput,
+) -> dict:
     out: dict = {}
     return out
 
 
-def deserialize_json(data: dict) -> GetQueryResultsWorkloadInsightsTopContributorsDataInput:
+def deserialize_json(
+    data: dict,
+) -> GetQueryResultsWorkloadInsightsTopContributorsDataInput:
     out: GetQueryResultsWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
     return out

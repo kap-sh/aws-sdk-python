@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.location#GeoArnList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geo_arn_v2
 

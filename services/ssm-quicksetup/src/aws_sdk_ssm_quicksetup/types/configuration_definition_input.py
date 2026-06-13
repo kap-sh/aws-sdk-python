@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ConfigurationDefinitionInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.configuration_parameters_map
     import aws_sdk_ssm_quicksetup.types.iam_role_arn
+
 
 class ConfigurationDefinitionInput(TypedDict):
     type: "str"
@@ -16,21 +20,33 @@ class ConfigurationDefinitionInput(TypedDict):
     """<p>The version of the Quick Setup type to use.</p>"""
     local_deployment_execution_role_name: NotRequired["str"]
     """<p>The name of the IAM role used to deploy local configurations.</p>"""
-    local_deployment_administration_role_arn: NotRequired["aws_sdk_ssm_quicksetup.types.iam_role_arn.IAMRoleArn"]
+    local_deployment_administration_role_arn: NotRequired[
+        "aws_sdk_ssm_quicksetup.types.iam_role_arn.IAMRoleArn"
+    ]
     """<p>The ARN of the IAM role used to administrate local configuration deployments.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConfigurationDefinitionInput) -> dict:
     out: dict = {}
     out["Type"] = value["type"]
     import aws_sdk_ssm_quicksetup.types.configuration_parameters_map
-    out["Parameters"] = aws_sdk_ssm_quicksetup.types.configuration_parameters_map.serialize_json(value["parameters"])
+
+    out["Parameters"] = (
+        aws_sdk_ssm_quicksetup.types.configuration_parameters_map.serialize_json(
+            value["parameters"]
+        )
+    )
     if "type_version" in value:
         out["TypeVersion"] = value["type_version"]
     if "local_deployment_execution_role_name" in value:
-        out["LocalDeploymentExecutionRoleName"] = value["local_deployment_execution_role_name"]
+        out["LocalDeploymentExecutionRoleName"] = value[
+            "local_deployment_execution_role_name"
+        ]
     if "local_deployment_administration_role_arn" in value:
-        out["LocalDeploymentAdministrationRoleArn"] = value["local_deployment_administration_role_arn"]
+        out["LocalDeploymentAdministrationRoleArn"] = value[
+            "local_deployment_administration_role_arn"
+        ]
     return out
 
 
@@ -42,13 +58,22 @@ def deserialize_json(data: dict) -> ConfigurationDefinitionInput:
         raise DeserializationError("ConfigurationDefinitionInput.type required")
     if "Parameters" in data:
         import aws_sdk_ssm_quicksetup.types.configuration_parameters_map
-        out["parameters"] = aws_sdk_ssm_quicksetup.types.configuration_parameters_map.deserialize_json(data["Parameters"])
+
+        out["parameters"] = (
+            aws_sdk_ssm_quicksetup.types.configuration_parameters_map.deserialize_json(
+                data["Parameters"]
+            )
+        )
     else:
         raise DeserializationError("ConfigurationDefinitionInput.parameters required")
     if "TypeVersion" in data:
         out["type_version"] = data["TypeVersion"]
     if "LocalDeploymentExecutionRoleName" in data:
-        out["local_deployment_execution_role_name"] = data["LocalDeploymentExecutionRoleName"]
+        out["local_deployment_execution_role_name"] = data[
+            "LocalDeploymentExecutionRoleName"
+        ]
     if "LocalDeploymentAdministrationRoleArn" in data:
-        out["local_deployment_administration_role_arn"] = data["LocalDeploymentAdministrationRoleArn"]
+        out["local_deployment_administration_role_arn"] = data[
+            "LocalDeploymentAdministrationRoleArn"
+        ]
     return out

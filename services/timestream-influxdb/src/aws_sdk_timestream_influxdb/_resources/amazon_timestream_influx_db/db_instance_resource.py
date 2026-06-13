@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_timestream_influxdb._services.async_timestream_influx_db import ensure_async_iterator
-from aws_sdk_timestream_influxdb._services.timestream_influx_db import ensure_sync_iterator
-from aws_sdk_timestream_influxdb._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_timestream_influxdb._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_timestream_influxdb._services.timestream_influx_db import TimestreamInfluxDBClient, TimestreamInfluxDBClientConfig
-    from aws_sdk_timestream_influxdb._services.async_timestream_influx_db import AsyncTimestreamInfluxDBClient, AsyncTimestreamInfluxDBClientConfig
     import aws_sdk_timestream_influxdb.types.allocated_storage
     import aws_sdk_timestream_influxdb.types.bucket
     import aws_sdk_timestream_influxdb.types.create_db_instance_input
@@ -38,11 +43,61 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.username
     import aws_sdk_timestream_influxdb.types.vpc_security_group_id_list
     import aws_sdk_timestream_influxdb.types.vpc_subnet_id_list
+    from aws_sdk_timestream_influxdb._services.async_timestream_influx_db import (
+        AsyncTimestreamInfluxDBClient,
+        AsyncTimestreamInfluxDBClientConfig,
+    )
+    from aws_sdk_timestream_influxdb._services.timestream_influx_db import (
+        TimestreamInfluxDBClient,
+        TimestreamInfluxDBClientConfig,
+    )
+
 
 class DbInstanceResource:
     def __init__(self, service: TimestreamInfluxDBClient) -> None:
         self._service = service
-    def create(self, name: "aws_sdk_timestream_influxdb.types.db_instance_name.DbInstanceName", password: "aws_sdk_timestream_influxdb.types.password.Password", db_instance_type: "aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType", vpc_subnet_ids: "aws_sdk_timestream_influxdb.types.vpc_subnet_id_list.VpcSubnetIdList", vpc_security_group_ids: "aws_sdk_timestream_influxdb.types.vpc_security_group_id_list.VpcSecurityGroupIdList", allocated_storage: "aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage", *, config_overrides: Optional[TimestreamInfluxDBClientConfig] = None, username: Optional["aws_sdk_timestream_influxdb.types.username.Username"] = None, organization: Optional["aws_sdk_timestream_influxdb.types.organization.Organization"] = None, bucket: Optional["aws_sdk_timestream_influxdb.types.bucket.Bucket"] = None, publicly_accessible: Optional[bool] = None, db_storage_type: Optional["aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"] = None, db_parameter_group_identifier: Optional["aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"] = None, deployment_type: Optional["aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"] = None, log_delivery_configuration: Optional["aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"] = None, maintenance_schedule: Optional["aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"] = None, tags: Optional["aws_sdk_timestream_influxdb.types.request_tag_map.RequestTagMap"] = None, port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None, network_type: Optional["aws_sdk_timestream_influxdb.types.network_type.NetworkType"] = None) -> "aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput":
+
+    def create(
+        self,
+        name: "aws_sdk_timestream_influxdb.types.db_instance_name.DbInstanceName",
+        password: "aws_sdk_timestream_influxdb.types.password.Password",
+        db_instance_type: "aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType",
+        vpc_subnet_ids: "aws_sdk_timestream_influxdb.types.vpc_subnet_id_list.VpcSubnetIdList",
+        vpc_security_group_ids: "aws_sdk_timestream_influxdb.types.vpc_security_group_id_list.VpcSecurityGroupIdList",
+        allocated_storage: "aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage",
+        *,
+        config_overrides: Optional[TimestreamInfluxDBClientConfig] = None,
+        username: Optional[
+            "aws_sdk_timestream_influxdb.types.username.Username"
+        ] = None,
+        organization: Optional[
+            "aws_sdk_timestream_influxdb.types.organization.Organization"
+        ] = None,
+        bucket: Optional["aws_sdk_timestream_influxdb.types.bucket.Bucket"] = None,
+        publicly_accessible: Optional[bool] = None,
+        db_storage_type: Optional[
+            "aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"
+        ] = None,
+        db_parameter_group_identifier: Optional[
+            "aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"
+        ] = None,
+        deployment_type: Optional[
+            "aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"
+        ] = None,
+        log_delivery_configuration: Optional[
+            "aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"
+        ] = None,
+        maintenance_schedule: Optional[
+            "aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_timestream_influxdb.types.request_tag_map.RequestTagMap"
+        ] = None,
+        port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None,
+        network_type: Optional[
+            "aws_sdk_timestream_influxdb.types.network_type.NetworkType"
+        ] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput":
         """<p>Creates a new Timestream for InfluxDB DB instance.</p>
 
         Args:
@@ -65,9 +120,19 @@ class DbInstanceResource:
             port: <p>The port number on which InfluxDB accepts connections.</p> <p>Valid Values: 1024-65535</p> <p>Default: 8086</p> <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
             network_type: <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput]') -> OperationResponse["aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.create_db_instance
-            output, http_response = aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.create_db_instance.create_db_instance(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.create_db_instance.create_db_instance(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -103,26 +168,78 @@ class DbInstanceResource:
         if network_type is not None:
             input["network_type"] = network_type
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[TimestreamInfluxDBClientConfig] = None) -> "aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput":
+
+    def read(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[TimestreamInfluxDBClientConfig] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput":
         """<p>Returns a Timestream for InfluxDB DB instance.</p>
 
         Args:
             identifier: <p>The id of the DB instance.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput]') -> OperationResponse["aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.get_db_instance
-            output, http_response = aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.get_db_instance.get_db_instance(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.get_db_instance.get_db_instance(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput = {}  # type: ignore[typeddict-item]
         input["identifier"] = identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[TimestreamInfluxDBClientConfig] = None, log_delivery_configuration: Optional["aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"] = None, db_parameter_group_identifier: Optional["aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"] = None, port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None, db_instance_type: Optional["aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType"] = None, deployment_type: Optional["aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"] = None, db_storage_type: Optional["aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"] = None, allocated_storage: Optional["aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage"] = None, maintenance_schedule: Optional["aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"] = None) -> "aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput":
+
+    def update(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[TimestreamInfluxDBClientConfig] = None,
+        log_delivery_configuration: Optional[
+            "aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"
+        ] = None,
+        db_parameter_group_identifier: Optional[
+            "aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"
+        ] = None,
+        port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None,
+        db_instance_type: Optional[
+            "aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType"
+        ] = None,
+        deployment_type: Optional[
+            "aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"
+        ] = None,
+        db_storage_type: Optional[
+            "aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"
+        ] = None,
+        allocated_storage: Optional[
+            "aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage"
+        ] = None,
+        maintenance_schedule: Optional[
+            "aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"
+        ] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput":
         """<p>Updates a Timestream for InfluxDB DB instance.</p>
 
         Args:
@@ -136,9 +253,19 @@ class DbInstanceResource:
             allocated_storage: <p>The amount of storage to allocate for your DB storage type (in gibibytes).</p>
             maintenance_schedule: <p>Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput]') -> OperationResponse["aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.update_db_instance
-            output, http_response = aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.update_db_instance.update_db_instance(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.update_db_instance.update_db_instance(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -161,35 +288,80 @@ class DbInstanceResource:
         if maintenance_schedule is not None:
             input["maintenance_schedule"] = maintenance_schedule
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[TimestreamInfluxDBClientConfig] = None) -> "aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput":
+
+    def delete(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[TimestreamInfluxDBClientConfig] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput":
         """<p>Deletes a Timestream for InfluxDB DB instance.</p>
 
         Args:
             identifier: <p>The id of the DB instance.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput]') -> OperationResponse["aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.delete_db_instance
-            output, http_response = aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.delete_db_instance.delete_db_instance(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.delete_db_instance.delete_db_instance(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput = {}  # type: ignore[typeddict-item]
         input["identifier"] = identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[TimestreamInfluxDBClientConfig] = None, next_token: Optional["aws_sdk_timestream_influxdb.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_timestream_influxdb.types.max_results.MaxResults"] = None) -> "aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[TimestreamInfluxDBClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_timestream_influxdb.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_timestream_influxdb.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput":
         """<p>Returns a list of Timestream for InfluxDB DB instances.</p>
 
         Args:
             next_token: <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput]') -> OperationResponse["aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.list_db_instances
-            output, http_response = aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.list_db_instances.list_db_instances(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.list_db_instances.list_db_instances(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -199,30 +371,96 @@ class DbInstanceResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def reboot_db_instance(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[TimestreamInfluxDBClientConfig] = None) -> "aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput":
+
+    def reboot_db_instance(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[TimestreamInfluxDBClientConfig] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput":
         """<p>Reboots a Timestream for InfluxDB instance.</p>
 
         Args:
             identifier: <p>The id of the DB instance to reboot.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput]') -> OperationResponse["aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.reboot_db_instance
-            output, http_response = aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.reboot_db_instance.reboot_db_instance(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.reboot_db_instance.reboot_db_instance(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput = {}  # type: ignore[typeddict-item]
         input["identifier"] = identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncDbInstanceResource:
     def __init__(self, service: AsyncTimestreamInfluxDBClient) -> None:
         self._service = service
-    async def create(self, name: "aws_sdk_timestream_influxdb.types.db_instance_name.DbInstanceName", password: "aws_sdk_timestream_influxdb.types.password.Password", db_instance_type: "aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType", vpc_subnet_ids: "aws_sdk_timestream_influxdb.types.vpc_subnet_id_list.VpcSubnetIdList", vpc_security_group_ids: "aws_sdk_timestream_influxdb.types.vpc_security_group_id_list.VpcSecurityGroupIdList", allocated_storage: "aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage", *, config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None, username: Optional["aws_sdk_timestream_influxdb.types.username.Username"] = None, organization: Optional["aws_sdk_timestream_influxdb.types.organization.Organization"] = None, bucket: Optional["aws_sdk_timestream_influxdb.types.bucket.Bucket"] = None, publicly_accessible: Optional[bool] = None, db_storage_type: Optional["aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"] = None, db_parameter_group_identifier: Optional["aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"] = None, deployment_type: Optional["aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"] = None, log_delivery_configuration: Optional["aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"] = None, maintenance_schedule: Optional["aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"] = None, tags: Optional["aws_sdk_timestream_influxdb.types.request_tag_map.RequestTagMap"] = None, port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None, network_type: Optional["aws_sdk_timestream_influxdb.types.network_type.NetworkType"] = None) -> "aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput":
+
+    async def create(
+        self,
+        name: "aws_sdk_timestream_influxdb.types.db_instance_name.DbInstanceName",
+        password: "aws_sdk_timestream_influxdb.types.password.Password",
+        db_instance_type: "aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType",
+        vpc_subnet_ids: "aws_sdk_timestream_influxdb.types.vpc_subnet_id_list.VpcSubnetIdList",
+        vpc_security_group_ids: "aws_sdk_timestream_influxdb.types.vpc_security_group_id_list.VpcSecurityGroupIdList",
+        allocated_storage: "aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage",
+        *,
+        config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None,
+        username: Optional[
+            "aws_sdk_timestream_influxdb.types.username.Username"
+        ] = None,
+        organization: Optional[
+            "aws_sdk_timestream_influxdb.types.organization.Organization"
+        ] = None,
+        bucket: Optional["aws_sdk_timestream_influxdb.types.bucket.Bucket"] = None,
+        publicly_accessible: Optional[bool] = None,
+        db_storage_type: Optional[
+            "aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"
+        ] = None,
+        db_parameter_group_identifier: Optional[
+            "aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"
+        ] = None,
+        deployment_type: Optional[
+            "aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"
+        ] = None,
+        log_delivery_configuration: Optional[
+            "aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"
+        ] = None,
+        maintenance_schedule: Optional[
+            "aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_timestream_influxdb.types.request_tag_map.RequestTagMap"
+        ] = None,
+        port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None,
+        network_type: Optional[
+            "aws_sdk_timestream_influxdb.types.network_type.NetworkType"
+        ] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput":
         """<p>Creates a new Timestream for InfluxDB DB instance.</p>
 
         Args:
@@ -245,9 +483,20 @@ class AsyncDbInstanceResource:
             port: <p>The port number on which InfluxDB accepts connections.</p> <p>Valid Values: 1024-65535</p> <p>Default: 8086</p> <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
             network_type: <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput]') -> AsyncOperationResponse["aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_timestream_influxdb.types.create_db_instance_output.CreateDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.create_db_instance
-            output, http_response = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.create_db_instance.async_create_db_instance(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.create_db_instance.async_create_db_instance(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -283,26 +532,79 @@ class AsyncDbInstanceResource:
         if network_type is not None:
             input["network_type"] = network_type
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None) -> "aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput":
+
+    async def read(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput":
         """<p>Returns a Timestream for InfluxDB DB instance.</p>
 
         Args:
             identifier: <p>The id of the DB instance.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput]') -> AsyncOperationResponse["aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_timestream_influxdb.types.get_db_instance_output.GetDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.get_db_instance
-            output, http_response = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.get_db_instance.async_get_db_instance(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.get_db_instance.async_get_db_instance(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput = {}  # type: ignore[typeddict-item]
         input["identifier"] = identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None, log_delivery_configuration: Optional["aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"] = None, db_parameter_group_identifier: Optional["aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"] = None, port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None, db_instance_type: Optional["aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType"] = None, deployment_type: Optional["aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"] = None, db_storage_type: Optional["aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"] = None, allocated_storage: Optional["aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage"] = None, maintenance_schedule: Optional["aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"] = None) -> "aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput":
+
+    async def update(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None,
+        log_delivery_configuration: Optional[
+            "aws_sdk_timestream_influxdb.types.log_delivery_configuration.LogDeliveryConfiguration"
+        ] = None,
+        db_parameter_group_identifier: Optional[
+            "aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"
+        ] = None,
+        port: Optional["aws_sdk_timestream_influxdb.types.port.Port"] = None,
+        db_instance_type: Optional[
+            "aws_sdk_timestream_influxdb.types.db_instance_type.DbInstanceType"
+        ] = None,
+        deployment_type: Optional[
+            "aws_sdk_timestream_influxdb.types.deployment_type.DeploymentType"
+        ] = None,
+        db_storage_type: Optional[
+            "aws_sdk_timestream_influxdb.types.db_storage_type.DbStorageType"
+        ] = None,
+        allocated_storage: Optional[
+            "aws_sdk_timestream_influxdb.types.allocated_storage.AllocatedStorage"
+        ] = None,
+        maintenance_schedule: Optional[
+            "aws_sdk_timestream_influxdb.types.maintenance_schedule.MaintenanceSchedule"
+        ] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput":
         """<p>Updates a Timestream for InfluxDB DB instance.</p>
 
         Args:
@@ -316,9 +618,20 @@ class AsyncDbInstanceResource:
             allocated_storage: <p>The amount of storage to allocate for your DB storage type (in gibibytes).</p>
             maintenance_schedule: <p>Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput]') -> AsyncOperationResponse["aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_timestream_influxdb.types.update_db_instance_output.UpdateDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.update_db_instance
-            output, http_response = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.update_db_instance.async_update_db_instance(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.update_db_instance.async_update_db_instance(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -341,35 +654,82 @@ class AsyncDbInstanceResource:
         if maintenance_schedule is not None:
             input["maintenance_schedule"] = maintenance_schedule
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None) -> "aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput":
+
+    async def delete(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput":
         """<p>Deletes a Timestream for InfluxDB DB instance.</p>
 
         Args:
             identifier: <p>The id of the DB instance.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput]') -> AsyncOperationResponse["aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_timestream_influxdb.types.delete_db_instance_output.DeleteDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.delete_db_instance
-            output, http_response = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.delete_db_instance.async_delete_db_instance(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.delete_db_instance.async_delete_db_instance(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput = {}  # type: ignore[typeddict-item]
         input["identifier"] = identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None, next_token: Optional["aws_sdk_timestream_influxdb.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_timestream_influxdb.types.max_results.MaxResults"] = None) -> "aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_timestream_influxdb.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_timestream_influxdb.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput":
         """<p>Returns a list of Timestream for InfluxDB DB instances.</p>
 
         Args:
             next_token: <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput]') -> AsyncOperationResponse["aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_timestream_influxdb.types.list_db_instances_output.ListDbInstancesOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.list_db_instances
-            output, http_response = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.list_db_instances.async_list_db_instances(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.list_db_instances.async_list_db_instances(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -379,22 +739,47 @@ class AsyncDbInstanceResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def reboot_db_instance(self, identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier", *, config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None) -> "aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput":
+
+    async def reboot_db_instance(
+        self,
+        identifier: "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier",
+        *,
+        config_overrides: Optional[AsyncTimestreamInfluxDBClientConfig] = None,
+    ) -> "aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput":
         """<p>Reboots a Timestream for InfluxDB instance.</p>
 
         Args:
             identifier: <p>The id of the DB instance to reboot.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput]') -> AsyncOperationResponse["aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_timestream_influxdb.types.reboot_db_instance_output.RebootDbInstanceOutput"
+        ]:
             import aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.reboot_db_instance
-            output, http_response = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.reboot_db_instance.async_reboot_db_instance(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_timestream_influxdb._operations.amazon_timestream_influx_db.reboot_db_instance.async_reboot_db_instance(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput = {}  # type: ignore[typeddict-item]
         input["identifier"] = identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

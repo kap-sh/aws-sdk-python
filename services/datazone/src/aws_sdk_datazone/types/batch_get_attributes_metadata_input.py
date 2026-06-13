@@ -2,12 +2,14 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute_entity_type
     import aws_sdk_datazone.types.attributes_list
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.entity_id
     import aws_sdk_datazone.types.revision
+
 
 class BatchGetAttributesMetadataInput(TypedDict):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
@@ -20,6 +22,7 @@ class BatchGetAttributesMetadataInput(TypedDict):
     """<p>The entity revision for which you want to get attribute metadata.</p>"""
     attribute_identifiers: "aws_sdk_datazone.types.attributes_list.AttributesList"
     """<p>The attribute identifier.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchGetAttributesMetadataInput) -> dict:

@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DataReplicationInitiationStep``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.data_replication_initiation_step_name
     import aws_sdk_mgn.types.data_replication_initiation_step_status
 
+
 class DataReplicationInitiationStep(TypedDict):
-    name: NotRequired["aws_sdk_mgn.types.data_replication_initiation_step_name.DataReplicationInitiationStepName"]
+    name: NotRequired[
+        "aws_sdk_mgn.types.data_replication_initiation_step_name.DataReplicationInitiationStepName"
+    ]
     """<p>Request to query data initiation step name.</p>"""
-    status: NotRequired["aws_sdk_mgn.types.data_replication_initiation_step_status.DataReplicationInitiationStepStatus"]
+    status: NotRequired[
+        "aws_sdk_mgn.types.data_replication_initiation_step_status.DataReplicationInitiationStepStatus"
+    ]
     """<p>Request to query data initiation status.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataReplicationInitiationStep) -> dict:

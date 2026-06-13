@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceServiceAccountRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_grafana.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.role
     import aws_sdk_grafana.types.service_account_name
     import aws_sdk_grafana.types.workspace_id
+
 
 class CreateWorkspaceServiceAccountRequest(TypedDict):
     name: "aws_sdk_grafana.types.service_account_name.ServiceAccountName"
@@ -14,6 +17,7 @@ class CreateWorkspaceServiceAccountRequest(TypedDict):
     """<p>The permission level to use for this service account.</p> <note> <p>For more information about the roles and the permissions each has, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html\">User roles</a> in the <i>Amazon Managed Grafana User Guide</i>.</p> </note>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace within which to create the service account.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateWorkspaceServiceAccountRequest) -> dict:
@@ -32,5 +36,7 @@ def deserialize_json(data: dict) -> CreateWorkspaceServiceAccountRequest:
     if "grafanaRole" in data:
         out["grafana_role"] = data["grafanaRole"]
     else:
-        raise DeserializationError("CreateWorkspaceServiceAccountRequest.grafana_role required")
+        raise DeserializationError(
+            "CreateWorkspaceServiceAccountRequest.grafana_role required"
+        )
     return out

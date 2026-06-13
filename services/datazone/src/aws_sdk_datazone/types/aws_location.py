@@ -2,10 +2,12 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_account_id
     import aws_sdk_datazone.types.aws_region
     import aws_sdk_datazone.types.connection_id
+
 
 class AwsLocation(TypedDict):
     access_role: NotRequired["str"]
@@ -16,6 +18,7 @@ class AwsLocation(TypedDict):
     """<p>The Region of a connection.</p>"""
     iam_connection_id: NotRequired["aws_sdk_datazone.types.connection_id.ConnectionId"]
     """<p>The IAM connection ID of a connection.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsLocation) -> dict:

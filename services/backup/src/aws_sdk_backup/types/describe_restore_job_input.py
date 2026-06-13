@@ -1,0 +1,22 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#DescribeRestoreJobInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_backup.types.restore_job_id
+
+
+class DescribeRestoreJobInput(TypedDict):
+    restore_job_id: "aws_sdk_backup.types.restore_job_id.RestoreJobId"
+    """<p>Uniquely identifies the job that restores a recovery point.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeRestoreJobInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeRestoreJobInput:
+    out: DescribeRestoreJobInput = {}  # type: ignore[typeddict-item]
+    return out

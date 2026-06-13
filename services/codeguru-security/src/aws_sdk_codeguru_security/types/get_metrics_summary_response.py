@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.codegurusecurity#GetMetricsSummaryResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_codeguru_security.types.metrics_summary
+
+
+class GetMetricsSummaryResponse(TypedDict):
+    metrics_summary: NotRequired[
+        "aws_sdk_codeguru_security.types.metrics_summary.MetricsSummary"
+    ]
+    """<p>The summary metrics from the specified date.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMetricsSummaryResponse) -> dict:
+    out: dict = {}
+    if "metrics_summary" in value:
+        import aws_sdk_codeguru_security.types.metrics_summary
+
+        out["metricsSummary"] = (
+            aws_sdk_codeguru_security.types.metrics_summary.serialize_json(
+                value["metrics_summary"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetMetricsSummaryResponse:
+    out: GetMetricsSummaryResponse = {}  # type: ignore[typeddict-item]
+    if "metricsSummary" in data:
+        import aws_sdk_codeguru_security.types.metrics_summary
+
+        out["metrics_summary"] = (
+            aws_sdk_codeguru_security.types.metrics_summary.deserialize_json(
+                data["metricsSummary"]
+            )
+        )
+    return out

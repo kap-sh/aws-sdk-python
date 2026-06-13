@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#CloudFormationFulfillmentOption``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_marketplace_discovery.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.fulfillment_option_type
+
 
 class CloudFormationFulfillmentOption(TypedDict):
     fulfillment_option_id: "str"
@@ -22,13 +26,19 @@ class CloudFormationFulfillmentOption(TypedDict):
     usage_instructions: NotRequired["str"]
     """<p>Instructions on how to deploy and use this CloudFormation template.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CloudFormationFulfillmentOption) -> dict:
     out: dict = {}
     out["fulfillmentOptionId"] = value["fulfillment_option_id"]
     out["fulfillmentOptionName"] = value["fulfillment_option_name"]
     import aws_sdk_marketplace_discovery.types.fulfillment_option_type
-    out["fulfillmentOptionType"] = aws_sdk_marketplace_discovery.types.fulfillment_option_type.serialize_json(value["fulfillment_option_type"])
+
+    out["fulfillmentOptionType"] = (
+        aws_sdk_marketplace_discovery.types.fulfillment_option_type.serialize_json(
+            value["fulfillment_option_type"]
+        )
+    )
     out["fulfillmentOptionDisplayName"] = value["fulfillment_option_display_name"]
     if "fulfillment_option_version" in value:
         out["fulfillmentOptionVersion"] = value["fulfillment_option_version"]
@@ -44,20 +54,33 @@ def deserialize_json(data: dict) -> CloudFormationFulfillmentOption:
     if "fulfillmentOptionId" in data:
         out["fulfillment_option_id"] = data["fulfillmentOptionId"]
     else:
-        raise DeserializationError("CloudFormationFulfillmentOption.fulfillment_option_id required")
+        raise DeserializationError(
+            "CloudFormationFulfillmentOption.fulfillment_option_id required"
+        )
     if "fulfillmentOptionName" in data:
         out["fulfillment_option_name"] = data["fulfillmentOptionName"]
     else:
-        raise DeserializationError("CloudFormationFulfillmentOption.fulfillment_option_name required")
+        raise DeserializationError(
+            "CloudFormationFulfillmentOption.fulfillment_option_name required"
+        )
     if "fulfillmentOptionType" in data:
         import aws_sdk_marketplace_discovery.types.fulfillment_option_type
-        out["fulfillment_option_type"] = aws_sdk_marketplace_discovery.types.fulfillment_option_type.deserialize_json(data["fulfillmentOptionType"])
+
+        out["fulfillment_option_type"] = (
+            aws_sdk_marketplace_discovery.types.fulfillment_option_type.deserialize_json(
+                data["fulfillmentOptionType"]
+            )
+        )
     else:
-        raise DeserializationError("CloudFormationFulfillmentOption.fulfillment_option_type required")
+        raise DeserializationError(
+            "CloudFormationFulfillmentOption.fulfillment_option_type required"
+        )
     if "fulfillmentOptionDisplayName" in data:
         out["fulfillment_option_display_name"] = data["fulfillmentOptionDisplayName"]
     else:
-        raise DeserializationError("CloudFormationFulfillmentOption.fulfillment_option_display_name required")
+        raise DeserializationError(
+            "CloudFormationFulfillmentOption.fulfillment_option_display_name required"
+        )
     if "fulfillmentOptionVersion" in data:
         out["fulfillment_option_version"] = data["fulfillmentOptionVersion"]
     if "releaseNotes" in data:

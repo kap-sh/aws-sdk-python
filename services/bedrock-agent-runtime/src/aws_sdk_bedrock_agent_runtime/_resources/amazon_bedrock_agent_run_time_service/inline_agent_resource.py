@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import ensure_async_iterator
-from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import ensure_sync_iterator
-from aws_sdk_bedrock_agent_runtime._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agent_runtime._auth._signers
 import aws_sdk_bedrock_agent_runtime._auth._sigv4
+from aws_sdk_bedrock_agent_runtime._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import BedrockAgentRuntimeClient, BedrockAgentRuntimeClientConfig
-    from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import AsyncBedrockAgentRuntimeClient, AsyncBedrockAgentRuntimeClientConfig
     import aws_sdk_bedrock_agent_runtime.types.agent_action_groups
     import aws_sdk_bedrock_agent_runtime.types.agent_collaboration
     import aws_sdk_bedrock_agent_runtime.types.collaborator_configurations
@@ -29,11 +34,79 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.session_id
     import aws_sdk_bedrock_agent_runtime.types.session_ttl
     import aws_sdk_bedrock_agent_runtime.types.streaming_configurations
+    from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import (
+        AsyncBedrockAgentRuntimeClient,
+        AsyncBedrockAgentRuntimeClientConfig,
+    )
+    from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import (
+        BedrockAgentRuntimeClient,
+        BedrockAgentRuntimeClientConfig,
+    )
+
 
 class InlineAgentResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
-    def invoke_inline_agent(self, foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier", instruction: "aws_sdk_bedrock_agent_runtime.types.instruction.Instruction", session_id: "aws_sdk_bedrock_agent_runtime.types.session_id.SessionId", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None, customer_encryption_key_arn: Optional["aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"] = None, idle_session_ttl_in_seconds: Optional["aws_sdk_bedrock_agent_runtime.types.session_ttl.SessionTTL"] = None, action_groups: Optional["aws_sdk_bedrock_agent_runtime.types.agent_action_groups.AgentActionGroups"] = None, knowledge_bases: Optional["aws_sdk_bedrock_agent_runtime.types.knowledge_bases.KnowledgeBases"] = None, guardrail_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.GuardrailConfigurationWithArn"] = None, prompt_override_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.PromptOverrideConfiguration"] = None, agent_collaboration: Optional["aws_sdk_bedrock_agent_runtime.types.agent_collaboration.AgentCollaboration"] = None, collaborator_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.CollaboratorConfigurations"] = None, agent_name: Optional["aws_sdk_bedrock_agent_runtime.types.name.Name"] = None, end_session: Optional[bool] = None, enable_trace: Optional[bool] = None, input_text: Optional["aws_sdk_bedrock_agent_runtime.types.input_text.InputText"] = None, streaming_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.streaming_configurations.StreamingConfigurations"] = None, prompt_creation_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.prompt_creation_configurations.PromptCreationConfigurations"] = None, inline_session_state: Optional["aws_sdk_bedrock_agent_runtime.types.inline_session_state.InlineSessionState"] = None, collaborators: Optional["aws_sdk_bedrock_agent_runtime.types.collaborators.Collaborators"] = None, bedrock_model_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.inline_bedrock_model_configurations.InlineBedrockModelConfigurations"] = None, orchestration_type: Optional["aws_sdk_bedrock_agent_runtime.types.orchestration_type.OrchestrationType"] = None, custom_orchestration: Optional["aws_sdk_bedrock_agent_runtime.types.custom_orchestration.CustomOrchestration"] = None) -> "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse":
+
+    def invoke_inline_agent(
+        self,
+        foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier",
+        instruction: "aws_sdk_bedrock_agent_runtime.types.instruction.Instruction",
+        session_id: "aws_sdk_bedrock_agent_runtime.types.session_id.SessionId",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+        customer_encryption_key_arn: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+        idle_session_ttl_in_seconds: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.session_ttl.SessionTTL"
+        ] = None,
+        action_groups: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.agent_action_groups.AgentActionGroups"
+        ] = None,
+        knowledge_bases: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.knowledge_bases.KnowledgeBases"
+        ] = None,
+        guardrail_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.GuardrailConfigurationWithArn"
+        ] = None,
+        prompt_override_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.PromptOverrideConfiguration"
+        ] = None,
+        agent_collaboration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.agent_collaboration.AgentCollaboration"
+        ] = None,
+        collaborator_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.CollaboratorConfigurations"
+        ] = None,
+        agent_name: Optional["aws_sdk_bedrock_agent_runtime.types.name.Name"] = None,
+        end_session: Optional[bool] = None,
+        enable_trace: Optional[bool] = None,
+        input_text: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.input_text.InputText"
+        ] = None,
+        streaming_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.streaming_configurations.StreamingConfigurations"
+        ] = None,
+        prompt_creation_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.prompt_creation_configurations.PromptCreationConfigurations"
+        ] = None,
+        inline_session_state: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.inline_session_state.InlineSessionState"
+        ] = None,
+        collaborators: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.collaborators.Collaborators"
+        ] = None,
+        bedrock_model_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.inline_bedrock_model_configurations.InlineBedrockModelConfigurations"
+        ] = None,
+        orchestration_type: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.orchestration_type.OrchestrationType"
+        ] = None,
+        custom_orchestration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.custom_orchestration.CustomOrchestration"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse":
         """<p> Invokes an inline Amazon Bedrock agent using the configurations you provide with the request. </p> <ul> <li> <p>Specify the following fields for security purposes.</p> <ul> <li> <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p> </li> <li> <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p> </li> </ul> </li> <li> <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p> </li> <li> <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p> </li> </ul> <note> </note>
 
         Args:
@@ -60,9 +133,19 @@ class InlineAgentResource:
             orchestration_type: <p>Specifies the type of orchestration strategy for the agent. This is set to DEFAULT orchestration type, by default. </p>
             custom_orchestration: <p>Contains details of the custom orchestration configured for the agent. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_inline_agent
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_inline_agent.invoke_inline_agent(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_inline_agent.invoke_inline_agent(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -109,13 +192,77 @@ class InlineAgentResource:
         if custom_orchestration is not None:
             input["custom_orchestration"] = custom_orchestration
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncInlineAgentResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
-    async def invoke_inline_agent(self, foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier", instruction: "aws_sdk_bedrock_agent_runtime.types.instruction.Instruction", session_id: "aws_sdk_bedrock_agent_runtime.types.session_id.SessionId", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None, customer_encryption_key_arn: Optional["aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"] = None, idle_session_ttl_in_seconds: Optional["aws_sdk_bedrock_agent_runtime.types.session_ttl.SessionTTL"] = None, action_groups: Optional["aws_sdk_bedrock_agent_runtime.types.agent_action_groups.AgentActionGroups"] = None, knowledge_bases: Optional["aws_sdk_bedrock_agent_runtime.types.knowledge_bases.KnowledgeBases"] = None, guardrail_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.GuardrailConfigurationWithArn"] = None, prompt_override_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.PromptOverrideConfiguration"] = None, agent_collaboration: Optional["aws_sdk_bedrock_agent_runtime.types.agent_collaboration.AgentCollaboration"] = None, collaborator_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.CollaboratorConfigurations"] = None, agent_name: Optional["aws_sdk_bedrock_agent_runtime.types.name.Name"] = None, end_session: Optional[bool] = None, enable_trace: Optional[bool] = None, input_text: Optional["aws_sdk_bedrock_agent_runtime.types.input_text.InputText"] = None, streaming_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.streaming_configurations.StreamingConfigurations"] = None, prompt_creation_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.prompt_creation_configurations.PromptCreationConfigurations"] = None, inline_session_state: Optional["aws_sdk_bedrock_agent_runtime.types.inline_session_state.InlineSessionState"] = None, collaborators: Optional["aws_sdk_bedrock_agent_runtime.types.collaborators.Collaborators"] = None, bedrock_model_configurations: Optional["aws_sdk_bedrock_agent_runtime.types.inline_bedrock_model_configurations.InlineBedrockModelConfigurations"] = None, orchestration_type: Optional["aws_sdk_bedrock_agent_runtime.types.orchestration_type.OrchestrationType"] = None, custom_orchestration: Optional["aws_sdk_bedrock_agent_runtime.types.custom_orchestration.CustomOrchestration"] = None) -> "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse":
+
+    async def invoke_inline_agent(
+        self,
+        foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier",
+        instruction: "aws_sdk_bedrock_agent_runtime.types.instruction.Instruction",
+        session_id: "aws_sdk_bedrock_agent_runtime.types.session_id.SessionId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+        customer_encryption_key_arn: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+        idle_session_ttl_in_seconds: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.session_ttl.SessionTTL"
+        ] = None,
+        action_groups: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.agent_action_groups.AgentActionGroups"
+        ] = None,
+        knowledge_bases: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.knowledge_bases.KnowledgeBases"
+        ] = None,
+        guardrail_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.GuardrailConfigurationWithArn"
+        ] = None,
+        prompt_override_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.PromptOverrideConfiguration"
+        ] = None,
+        agent_collaboration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.agent_collaboration.AgentCollaboration"
+        ] = None,
+        collaborator_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.CollaboratorConfigurations"
+        ] = None,
+        agent_name: Optional["aws_sdk_bedrock_agent_runtime.types.name.Name"] = None,
+        end_session: Optional[bool] = None,
+        enable_trace: Optional[bool] = None,
+        input_text: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.input_text.InputText"
+        ] = None,
+        streaming_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.streaming_configurations.StreamingConfigurations"
+        ] = None,
+        prompt_creation_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.prompt_creation_configurations.PromptCreationConfigurations"
+        ] = None,
+        inline_session_state: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.inline_session_state.InlineSessionState"
+        ] = None,
+        collaborators: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.collaborators.Collaborators"
+        ] = None,
+        bedrock_model_configurations: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.inline_bedrock_model_configurations.InlineBedrockModelConfigurations"
+        ] = None,
+        orchestration_type: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.orchestration_type.OrchestrationType"
+        ] = None,
+        custom_orchestration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.custom_orchestration.CustomOrchestration"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse":
         """<p> Invokes an inline Amazon Bedrock agent using the configurations you provide with the request. </p> <ul> <li> <p>Specify the following fields for security purposes.</p> <ul> <li> <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p> </li> <li> <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p> </li> </ul> </li> <li> <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p> </li> <li> <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p> </li> </ul> <note> </note>
 
         Args:
@@ -142,9 +289,20 @@ class AsyncInlineAgentResource:
             orchestration_type: <p>Specifies the type of orchestration strategy for the agent. This is set to DEFAULT orchestration type, by default. </p>
             custom_orchestration: <p>Contains details of the custom orchestration configured for the agent. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_inline_agent
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_inline_agent.async_invoke_inline_agent(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_inline_agent.async_invoke_inline_agent(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -191,5 +349,9 @@ class AsyncInlineAgentResource:
         if custom_orchestration is not None:
             input["custom_orchestration"] = custom_orchestration
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

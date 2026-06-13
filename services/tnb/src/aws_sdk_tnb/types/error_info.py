@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ErrorInfo``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.error_cause
     import aws_sdk_tnb.types.error_details
+
 
 class ErrorInfo(TypedDict):
     cause: NotRequired["aws_sdk_tnb.types.error_cause.ErrorCause"]
     """<p>Error cause.</p>"""
     details: NotRequired["aws_sdk_tnb.types.error_details.ErrorDetails"]
     """<p>Error details.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ErrorInfo) -> dict:

@@ -1,18 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyMutation``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.automated_reasoning_policy_add_variable_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_rule_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_type_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_rule_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_variable_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_add_type_mutation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_mutation
     import aws_sdk_bedrock.types.automated_reasoning_policy_add_rule_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_add_type_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_add_variable_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_rule_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_variable_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_rule_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_type_mutation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_mutation
 
 
 class _AutomatedReasoningPolicyMutation_addType(TypedDict):

@@ -3,9 +3,11 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class AddToProjectMemberPoolPolicyGrantDetail(TypedDict):
     include_child_domain_units: NotRequired["bool"]
     """<p>Specifies whether the policy grant is applied to child domain units.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AddToProjectMemberPoolPolicyGrantDetail) -> dict:

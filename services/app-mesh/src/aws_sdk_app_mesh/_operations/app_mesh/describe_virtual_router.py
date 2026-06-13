@@ -1,21 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DescribeVirtualRouter``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_app_mesh._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_app_mesh._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_app_mesh.errors import ServiceError, UnknownServiceError
-from aws_sdk_app_mesh._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_app_mesh._auth._signers
 import aws_sdk_app_mesh._auth._sigv4
+from aws_sdk_app_mesh._protocol.errors import parse_error_metadata_json
+from aws_sdk_app_mesh._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_app_mesh._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_app_mesh.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.describe_virtual_router_input
     import aws_sdk_app_mesh.types.describe_virtual_router_output
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,39 +26,82 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "BadRequestException":
             import aws_sdk_app_mesh.errors.bad_request_exception
-            raise aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException.from_json(data)
+
+            raise aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException.from_json(
+                data
+            )
         case "ForbiddenException":
             import aws_sdk_app_mesh.errors.forbidden_exception
-            raise aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException.from_json(data)
+
+            raise aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException.from_json(
+                data
+            )
         case "InternalServerErrorException":
             import aws_sdk_app_mesh.errors.internal_server_error_exception
-            raise aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException.from_json(data)
+
+            raise aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException.from_json(
+                data
+            )
         case "NotFoundException":
             import aws_sdk_app_mesh.errors.not_found_exception
-            raise aws_sdk_app_mesh.errors.not_found_exception.NotFoundException.from_json(data)
+
+            raise aws_sdk_app_mesh.errors.not_found_exception.NotFoundException.from_json(
+                data
+            )
         case "ServiceUnavailableException":
             import aws_sdk_app_mesh.errors.service_unavailable_exception
-            raise aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException.from_json(data)
+
+            raise aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
+                data
+            )
         case "TooManyRequestsException":
             import aws_sdk_app_mesh.errors.too_many_requests_exception
-            raise aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException.from_json(data)
+
+            raise aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput:
     import aws_sdk_app_mesh.types.virtual_router_data
-    out: aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput = {"virtual_router": aws_sdk_app_mesh.types.virtual_router_data.deserialize_json(json.loads(response.read()))}  # type: ignore[typeddict-item]
+
+    out: aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput = {
+        "virtual_router": aws_sdk_app_mesh.types.virtual_router_data.deserialize_json(
+            json.loads(response.read())
+        )
+    }  # type: ignore[typeddict-item]
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_app_mesh._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_app_mesh._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_app_mesh._auth._sigv4.build_sigv4_auth_scheme('appmesh', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_app_mesh._auth._sigv4.build_sigv4_auth_scheme(
+                "appmesh", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_app_mesh._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_app_mesh._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_app_mesh.types.describe_virtual_router_input.DescribeVirtualRouterInput) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_app_mesh.types.describe_virtual_router_input.DescribeVirtualRouterInput,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             Region=options.region,
@@ -64,8 +110,13 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
             Endpoint=options.endpoint,
         )
     )
-    url = endpoint.url.rstrip("/") + "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}"
-    url = url.replace("{virtualRouterName}", quote(str(input["virtual_router_name"]), safe=""))
+    url = (
+        endpoint.url.rstrip("/")
+        + "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}"
+    )
+    url = url.replace(
+        "{virtualRouterName}", quote(str(input["virtual_router_name"]), safe="")
+    )
     url = url.replace("{meshName}", quote(str(input["mesh_name"]), safe=""))
     params: dict[str, str] = {}
     if "mesh_owner" in input:
@@ -83,7 +134,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def describe_virtual_router(options: OperationOptions, input: aws_sdk_app_mesh.types.describe_virtual_router_input.DescribeVirtualRouterInput) -> tuple[aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput, zapros.Response]:
+
+def describe_virtual_router(
+    options: OperationOptions,
+    input: aws_sdk_app_mesh.types.describe_virtual_router_input.DescribeVirtualRouterInput,
+) -> tuple[
+    aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -94,7 +152,14 @@ def describe_virtual_router(options: OperationOptions, input: aws_sdk_app_mesh.t
         response.close()
         raise
 
-async def async_describe_virtual_router(options: AsyncOperationOptions, input: aws_sdk_app_mesh.types.describe_virtual_router_input.DescribeVirtualRouterInput) -> tuple[aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput, zapros.Response]:
+
+async def async_describe_virtual_router(
+    options: AsyncOperationOptions,
+    input: aws_sdk_app_mesh.types.describe_virtual_router_input.DescribeVirtualRouterInput,
+) -> tuple[
+    aws_sdk_app_mesh.types.describe_virtual_router_output.DescribeVirtualRouterOutput,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

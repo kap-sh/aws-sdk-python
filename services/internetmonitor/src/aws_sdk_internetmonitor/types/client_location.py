@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#ClientLocation``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_internetmonitor.errors import DeserializationError
+
 
 class ClientLocation(TypedDict):
     as_name: "str"
@@ -21,6 +24,7 @@ class ClientLocation(TypedDict):
     """<p>The latitude where the internet event is located.</p>"""
     longitude: "float"
     """<p>The longitude where the internet event is located.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ClientLocation) -> dict:

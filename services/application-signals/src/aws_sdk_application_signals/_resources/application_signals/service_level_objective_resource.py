@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_application_signals._services.async_application_signals import ensure_async_iterator
-from aws_sdk_application_signals._services.application_signals import ensure_sync_iterator
-from aws_sdk_application_signals._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_application_signals._auth._signers
 import aws_sdk_application_signals._auth._sigv4
+from aws_sdk_application_signals._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_application_signals._services.application_signals import ApplicationSignalsClient, ApplicationSignalsClientConfig
-    from aws_sdk_application_signals._services.async_application_signals import AsyncApplicationSignalsClient, AsyncApplicationSignalsClientConfig
     import aws_sdk_application_signals.types.attributes
     import aws_sdk_application_signals.types.aws_account_id
     import aws_sdk_application_signals.types.burn_rate_configurations
@@ -34,11 +39,42 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.tag_list
     import aws_sdk_application_signals.types.update_service_level_objective_input
     import aws_sdk_application_signals.types.update_service_level_objective_output
+    from aws_sdk_application_signals._services.application_signals import (
+        ApplicationSignalsClient,
+        ApplicationSignalsClientConfig,
+    )
+    from aws_sdk_application_signals._services.async_application_signals import (
+        AsyncApplicationSignalsClient,
+        AsyncApplicationSignalsClientConfig,
+    )
+
 
 class ServiceLevelObjectiveResource:
     def __init__(self, service: ApplicationSignalsClient) -> None:
         self._service = service
-    def create(self, name: "aws_sdk_application_signals.types.service_level_objective_name.ServiceLevelObjectiveName", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, description: Optional["aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"] = None, sli_config: Optional["aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"] = None, request_based_sli_config: Optional["aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"] = None, goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None, tags: Optional["aws_sdk_application_signals.types.tag_list.TagList"] = None, burn_rate_configurations: Optional["aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"] = None, create_recommended_slo: Optional[bool] = None, auto_investigation_enabled: Optional[bool] = None) -> "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput":
+
+    def create(
+        self,
+        name: "aws_sdk_application_signals.types.service_level_objective_name.ServiceLevelObjectiveName",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        description: Optional[
+            "aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"
+        ] = None,
+        sli_config: Optional[
+            "aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"
+        ] = None,
+        request_based_sli_config: Optional[
+            "aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"
+        ] = None,
+        goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None,
+        tags: Optional["aws_sdk_application_signals.types.tag_list.TagList"] = None,
+        burn_rate_configurations: Optional[
+            "aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"
+        ] = None,
+        create_recommended_slo: Optional[bool] = None,
+        auto_investigation_enabled: Optional[bool] = None,
+    ) -> "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput":
         """<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
 
         Args:
@@ -52,9 +88,19 @@ class ServiceLevelObjectiveResource:
             create_recommended_slo: <p>Set this to <code>true</code> to create a recommended SLO out of the box. When set to <code>true</code>, you don't need to specify the <code>MetricThreshold</code> or <code>ComparisonOperator</code> in the <code>SliConfig</code> or <code>RequestBasedSliConfig</code>. The default value is <code>false</code>.</p> <p>This is supported for SLOs on a service, service operation, or a dependency.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput]') -> OperationResponse["aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.create_service_level_objective
-            output, http_response = aws_sdk_application_signals._operations.application_signals.create_service_level_objective.create_service_level_objective(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.create_service_level_objective.create_service_level_objective(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -77,26 +123,70 @@ class ServiceLevelObjectiveResource:
         if auto_investigation_enabled is not None:
             input["auto_investigation_enabled"] = auto_investigation_enabled
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput":
+
+    def read(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput":
         """<p>Returns information about one SLO created in the account. </p>
 
         Args:
             id: <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput]') -> OperationResponse["aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.get_service_level_objective
-            output, http_response = aws_sdk_application_signals._operations.application_signals.get_service_level_objective.get_service_level_objective(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.get_service_level_objective.get_service_level_objective(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
         input["id"] = id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, description: Optional["aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"] = None, sli_config: Optional["aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"] = None, request_based_sli_config: Optional["aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"] = None, goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None, burn_rate_configurations: Optional["aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"] = None, auto_investigation_enabled: Optional[bool] = None) -> "aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput":
+
+    def update(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        description: Optional[
+            "aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"
+        ] = None,
+        sli_config: Optional[
+            "aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"
+        ] = None,
+        request_based_sli_config: Optional[
+            "aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"
+        ] = None,
+        goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None,
+        burn_rate_configurations: Optional[
+            "aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"
+        ] = None,
+        auto_investigation_enabled: Optional[bool] = None,
+    ) -> "aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput":
         """<p>Updates an existing service level objective (SLO). If you omit parameters, the previous values of those parameters are retained. </p> <p>You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.</p>
 
         Args:
@@ -108,9 +198,19 @@ class ServiceLevelObjectiveResource:
             burn_rate_configurations: <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput]') -> OperationResponse["aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.update_service_level_objective
-            output, http_response = aws_sdk_application_signals._operations.application_signals.update_service_level_objective.update_service_level_objective(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.update_service_level_objective.update_service_level_objective(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -129,26 +229,80 @@ class ServiceLevelObjectiveResource:
         if auto_investigation_enabled is not None:
             input["auto_investigation_enabled"] = auto_investigation_enabled
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput":
+
+    def delete(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput":
         """<p>Deletes the specified service level objective.</p>
 
         Args:
             id: <p>The ARN or name of the service level objective to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput]') -> OperationResponse["aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.delete_service_level_objective
-            output, http_response = aws_sdk_application_signals._operations.application_signals.delete_service_level_objective.delete_service_level_objective(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.delete_service_level_objective.delete_service_level_objective(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
         input["id"] = id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, key_attributes: Optional["aws_sdk_application_signals.types.attributes.Attributes"] = None, operation_name: Optional["aws_sdk_application_signals.types.operation_name.OperationName"] = None, dependency_config: Optional["aws_sdk_application_signals.types.dependency_config.DependencyConfig"] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_level_objectives_max_results.ListServiceLevelObjectivesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, metric_source_types: Optional["aws_sdk_application_signals.types.metric_source_types.MetricSourceTypes"] = None, include_linked_accounts: Optional[bool] = None, slo_owner_aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None, metric_source: Optional["aws_sdk_application_signals.types.metric_source.MetricSource"] = None) -> "aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        key_attributes: Optional[
+            "aws_sdk_application_signals.types.attributes.Attributes"
+        ] = None,
+        operation_name: Optional[
+            "aws_sdk_application_signals.types.operation_name.OperationName"
+        ] = None,
+        dependency_config: Optional[
+            "aws_sdk_application_signals.types.dependency_config.DependencyConfig"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_level_objectives_max_results.ListServiceLevelObjectivesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        metric_source_types: Optional[
+            "aws_sdk_application_signals.types.metric_source_types.MetricSourceTypes"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+        slo_owner_aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+        metric_source: Optional[
+            "aws_sdk_application_signals.types.metric_source.MetricSource"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput":
         """<p>Returns a list of SLOs created in this account.</p>
 
         Args:
@@ -162,9 +316,19 @@ class ServiceLevelObjectiveResource:
             slo_owner_aws_account_id: <p>SLO's Amazon Web Services account ID.</p>
             metric_source: <p>Identifies the metric source to filter SLOs by.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput]') -> OperationResponse["aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_level_objectives
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_service_level_objectives.list_service_level_objectives(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_service_level_objectives.list_service_level_objectives(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -188,13 +352,40 @@ class ServiceLevelObjectiveResource:
         if metric_source is not None:
             input["metric_source"] = metric_source
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncServiceLevelObjectiveResource:
     def __init__(self, service: AsyncApplicationSignalsClient) -> None:
         self._service = service
-    async def create(self, name: "aws_sdk_application_signals.types.service_level_objective_name.ServiceLevelObjectiveName", *, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None, description: Optional["aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"] = None, sli_config: Optional["aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"] = None, request_based_sli_config: Optional["aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"] = None, goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None, tags: Optional["aws_sdk_application_signals.types.tag_list.TagList"] = None, burn_rate_configurations: Optional["aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"] = None, create_recommended_slo: Optional[bool] = None, auto_investigation_enabled: Optional[bool] = None) -> "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput":
+
+    async def create(
+        self,
+        name: "aws_sdk_application_signals.types.service_level_objective_name.ServiceLevelObjectiveName",
+        *,
+        config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
+        description: Optional[
+            "aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"
+        ] = None,
+        sli_config: Optional[
+            "aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"
+        ] = None,
+        request_based_sli_config: Optional[
+            "aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"
+        ] = None,
+        goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None,
+        tags: Optional["aws_sdk_application_signals.types.tag_list.TagList"] = None,
+        burn_rate_configurations: Optional[
+            "aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"
+        ] = None,
+        create_recommended_slo: Optional[bool] = None,
+        auto_investigation_enabled: Optional[bool] = None,
+    ) -> "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput":
         """<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
 
         Args:
@@ -208,9 +399,20 @@ class AsyncServiceLevelObjectiveResource:
             create_recommended_slo: <p>Set this to <code>true</code> to create a recommended SLO out of the box. When set to <code>true</code>, you don't need to specify the <code>MetricThreshold</code> or <code>ComparisonOperator</code> in the <code>SliConfig</code> or <code>RequestBasedSliConfig</code>. The default value is <code>false</code>.</p> <p>This is supported for SLOs on a service, service operation, or a dependency.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput]') -> AsyncOperationResponse["aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.create_service_level_objective
-            output, http_response = await aws_sdk_application_signals._operations.application_signals.create_service_level_objective.async_create_service_level_objective(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_application_signals._operations.application_signals.create_service_level_objective.async_create_service_level_objective(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -233,26 +435,71 @@ class AsyncServiceLevelObjectiveResource:
         if auto_investigation_enabled is not None:
             input["auto_investigation_enabled"] = auto_investigation_enabled
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput":
+
+    async def read(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput":
         """<p>Returns information about one SLO created in the account. </p>
 
         Args:
             id: <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput]') -> AsyncOperationResponse["aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.get_service_level_objective
-            output, http_response = await aws_sdk_application_signals._operations.application_signals.get_service_level_objective.async_get_service_level_objective(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_application_signals._operations.application_signals.get_service_level_objective.async_get_service_level_objective(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
         input["id"] = id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None, description: Optional["aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"] = None, sli_config: Optional["aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"] = None, request_based_sli_config: Optional["aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"] = None, goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None, burn_rate_configurations: Optional["aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"] = None, auto_investigation_enabled: Optional[bool] = None) -> "aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput":
+
+    async def update(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
+        description: Optional[
+            "aws_sdk_application_signals.types.service_level_objective_description.ServiceLevelObjectiveDescription"
+        ] = None,
+        sli_config: Optional[
+            "aws_sdk_application_signals.types.service_level_indicator_config.ServiceLevelIndicatorConfig"
+        ] = None,
+        request_based_sli_config: Optional[
+            "aws_sdk_application_signals.types.request_based_service_level_indicator_config.RequestBasedServiceLevelIndicatorConfig"
+        ] = None,
+        goal: Optional["aws_sdk_application_signals.types.goal.Goal"] = None,
+        burn_rate_configurations: Optional[
+            "aws_sdk_application_signals.types.burn_rate_configurations.BurnRateConfigurations"
+        ] = None,
+        auto_investigation_enabled: Optional[bool] = None,
+    ) -> "aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput":
         """<p>Updates an existing service level objective (SLO). If you omit parameters, the previous values of those parameters are retained. </p> <p>You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.</p>
 
         Args:
@@ -264,9 +511,20 @@ class AsyncServiceLevelObjectiveResource:
             burn_rate_configurations: <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput]') -> AsyncOperationResponse["aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_application_signals.types.update_service_level_objective_output.UpdateServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.update_service_level_objective
-            output, http_response = await aws_sdk_application_signals._operations.application_signals.update_service_level_objective.async_update_service_level_objective(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_application_signals._operations.application_signals.update_service_level_objective.async_update_service_level_objective(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -285,26 +543,81 @@ class AsyncServiceLevelObjectiveResource:
         if auto_investigation_enabled is not None:
             input["auto_investigation_enabled"] = auto_investigation_enabled
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput":
+
+    async def delete(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput":
         """<p>Deletes the specified service level objective.</p>
 
         Args:
             id: <p>The ARN or name of the service level objective to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput]') -> AsyncOperationResponse["aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_application_signals.types.delete_service_level_objective_output.DeleteServiceLevelObjectiveOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.delete_service_level_objective
-            output, http_response = await aws_sdk_application_signals._operations.application_signals.delete_service_level_objective.async_delete_service_level_objective(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_application_signals._operations.application_signals.delete_service_level_objective.async_delete_service_level_objective(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
         input["id"] = id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None, key_attributes: Optional["aws_sdk_application_signals.types.attributes.Attributes"] = None, operation_name: Optional["aws_sdk_application_signals.types.operation_name.OperationName"] = None, dependency_config: Optional["aws_sdk_application_signals.types.dependency_config.DependencyConfig"] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_level_objectives_max_results.ListServiceLevelObjectivesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, metric_source_types: Optional["aws_sdk_application_signals.types.metric_source_types.MetricSourceTypes"] = None, include_linked_accounts: Optional[bool] = None, slo_owner_aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None, metric_source: Optional["aws_sdk_application_signals.types.metric_source.MetricSource"] = None) -> "aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
+        key_attributes: Optional[
+            "aws_sdk_application_signals.types.attributes.Attributes"
+        ] = None,
+        operation_name: Optional[
+            "aws_sdk_application_signals.types.operation_name.OperationName"
+        ] = None,
+        dependency_config: Optional[
+            "aws_sdk_application_signals.types.dependency_config.DependencyConfig"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_level_objectives_max_results.ListServiceLevelObjectivesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        metric_source_types: Optional[
+            "aws_sdk_application_signals.types.metric_source_types.MetricSourceTypes"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+        slo_owner_aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+        metric_source: Optional[
+            "aws_sdk_application_signals.types.metric_source.MetricSource"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput":
         """<p>Returns a list of SLOs created in this account.</p>
 
         Args:
@@ -318,9 +631,20 @@ class AsyncServiceLevelObjectiveResource:
             slo_owner_aws_account_id: <p>SLO's Amazon Web Services account ID.</p>
             metric_source: <p>Identifies the metric source to filter SLOs by.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput]') -> AsyncOperationResponse["aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_level_objectives
-            output, http_response = await aws_sdk_application_signals._operations.application_signals.list_service_level_objectives.async_list_service_level_objectives(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_application_signals._operations.application_signals.list_service_level_objectives.async_list_service_level_objectives(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -344,5 +668,9 @@ class AsyncServiceLevelObjectiveResource:
         if metric_source is not None:
             input["metric_source"] = metric_source
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchConfigurationTemplateIDs``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_configuration_template_id
 
-LaunchConfigurationTemplateIDs: TypeAlias = list["aws_sdk_drs.types.launch_configuration_template_id.LaunchConfigurationTemplateID"]
+LaunchConfigurationTemplateIDs: TypeAlias = list[
+    "aws_sdk_drs.types.launch_configuration_template_id.LaunchConfigurationTemplateID"
+]
 
 
 # --- restJson1 ser/de ---

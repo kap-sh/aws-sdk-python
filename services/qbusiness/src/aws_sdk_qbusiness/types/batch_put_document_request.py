@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#BatchPutDocumentRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_qbusiness.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.documents
     import aws_sdk_qbusiness.types.execution_id
     import aws_sdk_qbusiness.types.index_id
     import aws_sdk_qbusiness.types.role_arn
+
 
 class BatchPutDocumentRequest(TypedDict):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
@@ -22,11 +26,15 @@ class BatchPutDocumentRequest(TypedDict):
     data_source_sync_id: NotRequired["aws_sdk_qbusiness.types.execution_id.ExecutionId"]
     """<p>The identifier of the data source sync during which the documents were added.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchPutDocumentRequest) -> dict:
     out: dict = {}
     import aws_sdk_qbusiness.types.documents
-    out["documents"] = aws_sdk_qbusiness.types.documents.serialize_json(value["documents"])
+
+    out["documents"] = aws_sdk_qbusiness.types.documents.serialize_json(
+        value["documents"]
+    )
     if "role_arn" in value:
         out["roleArn"] = value["role_arn"]
     if "data_source_sync_id" in value:
@@ -38,7 +46,10 @@ def deserialize_json(data: dict) -> BatchPutDocumentRequest:
     out: BatchPutDocumentRequest = {}  # type: ignore[typeddict-item]
     if "documents" in data:
         import aws_sdk_qbusiness.types.documents
-        out["documents"] = aws_sdk_qbusiness.types.documents.deserialize_json(data["documents"])
+
+        out["documents"] = aws_sdk_qbusiness.types.documents.deserialize_json(
+            data["documents"]
+        )
     else:
         raise DeserializationError("BatchPutDocumentRequest.documents required")
     if "roleArn" in data:

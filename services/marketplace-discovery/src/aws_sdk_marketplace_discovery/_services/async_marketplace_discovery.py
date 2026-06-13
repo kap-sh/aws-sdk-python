@@ -1,23 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#AWSMarketplaceDiscovery``."""
 
-from aws_sdk_marketplace_discovery._auth._signers import SigV4Signer
-from aws_sdk_marketplace_discovery._auth._sigv4 import presign_sigv4
-from collections.abc import AsyncIterator
-from aws_sdk_marketplace_discovery._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, AsyncBaseHandler, AsyncClient
-from aws_sdk_marketplace_discovery._auth._zapros_handler import AuthMiddleware
-from aws_sdk_marketplace_discovery._services._pipeline import AsyncInterceptor, AsyncOperationOptions, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline, aretry
-from aws_sdk_marketplace_discovery._async import anysleep
-import time
-from aws_sdk_marketplace_discovery.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
 import aws_sdk_marketplace_discovery._auth._signers
 import aws_sdk_marketplace_discovery._auth._sigv4
 from aws_sdk_marketplace_discovery._auth._identity import Credentials
-from aws_sdk_marketplace_discovery._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_marketplace_discovery._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_marketplace_discovery._auth._zapros_handler import AuthMiddleware
+from aws_sdk_marketplace_discovery._pagination import resolve_path as _resolve_path
+from aws_sdk_marketplace_discovery._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.facet_type_list
     import aws_sdk_marketplace_discovery.types.fulfillment_option
@@ -56,6 +63,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.search_listings_sort_order
     import aws_sdk_marketplace_discovery.types.search_text
 
+
 class AsyncMarketplaceDiscoveryClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int
@@ -64,14 +72,19 @@ class AsyncMarketplaceDiscoveryClientConfig(TypedDict, total=False):
     region: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
-async def ensure_async_iterator(it: AsyncIterator[bytes] | bytes) -> AsyncIterator[bytes]:
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
     if isinstance(it, bytes):
         yield it
     else:
         async for chunk in it:
             yield chunk
+
 
 class AsyncMarketplaceDiscoveryClient:
     """A client for the ``MarketplaceDiscovery`` service.
@@ -86,19 +99,71 @@ class AsyncMarketplaceDiscoveryClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: AsyncBaseHandler | None = None, operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, use_fips: bool | None = None, endpoint: str | None = None, region: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = AsyncClient(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncMarketplaceDiscoveryClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "use_fips": use_fips, "endpoint": endpoint, "region": region, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        self.config = AsyncMarketplaceDiscoveryClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
         overrides: AsyncMarketplaceDiscoveryClientConfig = config_overrides or {}
-        interceptors_: list[AsyncInterceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), aretry()]
-        options_: AsyncOperationOptions = AsyncOperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), region=overrides.get("region", self.config.get("region")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            region=overrides.get("region", self.config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    async def get_listing(self, listing_id: "aws_sdk_marketplace_discovery.types.listing_id.ListingId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None) -> "aws_sdk_marketplace_discovery.types.get_listing_output.GetListingOutput":
+
+    async def get_listing(
+        self,
+        listing_id: "aws_sdk_marketplace_discovery.types.listing_id.ListingId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.get_listing_output.GetListingOutput":
         """<p>Provides details about a listing, such as descriptions, badges, categories, pricing model summaries, reviews, and associated products and offers.</p>
 
         Args:
@@ -115,18 +180,39 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.get_listing(listing_id='prodview-sampleMultiProductId')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_listing_input.GetListingInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.get_listing_output.GetListingOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_listing_input.GetListingInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.get_listing_output.GetListingOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_listing
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_listing.async_get_listing(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_listing.async_get_listing(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_marketplace_discovery.types.get_listing_input.GetListingInput = {}  # type: ignore[typeddict-item]
         input["listing_id"] = listing_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_offer(self, offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None) -> "aws_sdk_marketplace_discovery.types.get_offer_output.GetOfferOutput":
+
+    async def get_offer(
+        self,
+        offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.get_offer_output.GetOfferOutput":
         """<p>Provides details about an offer, such as the pricing model, seller of record, availability dates, badges, and associated products.</p>
 
         Args:
@@ -146,18 +232,39 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.get_offer(offer_id='offer-sampleFreeId')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_offer_input.GetOfferInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.get_offer_output.GetOfferOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_offer_input.GetOfferInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.get_offer_output.GetOfferOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer.async_get_offer(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer.async_get_offer(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_marketplace_discovery.types.get_offer_input.GetOfferInput = {}  # type: ignore[typeddict-item]
         input["offer_id"] = offer_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_offer_set(self, offer_set_id: "aws_sdk_marketplace_discovery.types.offer_set_id.OfferSetId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None) -> "aws_sdk_marketplace_discovery.types.get_offer_set_output.GetOfferSetOutput":
+
+    async def get_offer_set(
+        self,
+        offer_set_id: "aws_sdk_marketplace_discovery.types.offer_set_id.OfferSetId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.get_offer_set_output.GetOfferSetOutput":
         """<p>Provides details about an offer set, which is a bundle of offers across multiple products. Includes the seller, availability dates, buyer notes, and associated product-offer pairs.</p>
 
         Args:
@@ -168,18 +275,45 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.get_offer_set(offer_set_id='offerset-sampleId')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_offer_set_input.GetOfferSetInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.get_offer_set_output.GetOfferSetOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_offer_set_input.GetOfferSetInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.get_offer_set_output.GetOfferSetOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer_set
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer_set.async_get_offer_set(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer_set.async_get_offer_set(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_marketplace_discovery.types.get_offer_set_input.GetOfferSetInput = {}  # type: ignore[typeddict-item]
         input["offer_set_id"] = offer_set_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_offer_terms(self, offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "aws_sdk_marketplace_discovery.types.get_offer_terms_output.GetOfferTermsOutput":
+
+    async def get_offer_terms(
+        self,
+        offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> (
+        "aws_sdk_marketplace_discovery.types.get_offer_terms_output.GetOfferTermsOutput"
+    ):
         """<p>Returns the terms attached to an offer, such as pricing terms (usage-based, contract, BYOL, free trial), legal terms, payment schedules, validity terms, support terms, and renewal terms.</p>
 
         Args:
@@ -216,9 +350,20 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.get_offer_terms(offer_id='offer-sampleValidityId')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_offer_terms_input.GetOfferTermsInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.get_offer_terms_output.GetOfferTermsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_offer_terms_input.GetOfferTermsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.get_offer_terms_output.GetOfferTermsOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer_terms
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer_terms.async_get_offer_terms(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_offer_terms.async_get_offer_terms(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -229,9 +374,23 @@ class AsyncMarketplaceDiscoveryClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_get_offer_terms(self, offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.offer_term.OfferTerm]":
+
+    async def iter_get_offer_terms(
+        self,
+        offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.offer_term.OfferTerm]":
         _token = next_token
         while True:
             _response = await self.get_offer_terms(
@@ -240,13 +399,19 @@ class AsyncMarketplaceDiscoveryClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('offer_terms',))
+            _page = _resolve_path(_response, ("offer_terms",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def get_product(self, product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None) -> "aws_sdk_marketplace_discovery.types.get_product_output.GetProductOutput":
+
+    async def get_product(
+        self,
+        product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.get_product_output.GetProductOutput":
         """<p>Provides details about a product, such as descriptions, highlights, categories, fulfillment option summaries, promotional media, and seller engagement options.</p>
 
         Args:
@@ -263,18 +428,43 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.get_product(product_id='prod-sampleProServId')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_product_input.GetProductInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.get_product_output.GetProductOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.get_product_input.GetProductInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.get_product_output.GetProductOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_product
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_product.async_get_product(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.get_product.async_get_product(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_marketplace_discovery.types.get_product_input.GetProductInput = {}  # type: ignore[typeddict-item]
         input["product_id"] = product_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_fulfillment_options(self, product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "aws_sdk_marketplace_discovery.types.list_fulfillment_options_output.ListFulfillmentOptionsOutput":
+
+    async def list_fulfillment_options(
+        self,
+        product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.list_fulfillment_options_output.ListFulfillmentOptionsOutput":
         """<p>Returns the fulfillment options available for a product, including deployment details such as version information, operating systems, usage instructions, and release notes.</p>
 
         Args:
@@ -320,9 +510,20 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.list_fulfillment_options(product_id='prod-sampleSmModelId')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.list_fulfillment_options_output.ListFulfillmentOptionsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.list_fulfillment_options_output.ListFulfillmentOptionsOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.list_fulfillment_options
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.list_fulfillment_options.async_list_fulfillment_options(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.list_fulfillment_options.async_list_fulfillment_options(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -333,9 +534,23 @@ class AsyncMarketplaceDiscoveryClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_fulfillment_options(self, product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId", *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.fulfillment_option.FulfillmentOption]":
+
+    async def iter_list_fulfillment_options(
+        self,
+        product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.fulfillment_option.FulfillmentOption]":
         _token = next_token
         while True:
             _response = await self.list_fulfillment_options(
@@ -344,13 +559,27 @@ class AsyncMarketplaceDiscoveryClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('fulfillment_options',))
+            _page = _resolve_path(_response, ("fulfillment_options",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def list_purchase_options(self, *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, filters: Optional["aws_sdk_marketplace_discovery.types.purchase_option_filter_list.PurchaseOptionFilterList"] = None, max_results: Optional["aws_sdk_marketplace_discovery.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "aws_sdk_marketplace_discovery.types.list_purchase_options_output.ListPurchaseOptionsOutput":
+
+    async def list_purchase_options(
+        self,
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_marketplace_discovery.types.purchase_option_filter_list.PurchaseOptionFilterList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_marketplace_discovery.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.list_purchase_options_output.ListPurchaseOptionsOutput":
         """<p>Returns the purchase options (offers and offer sets) available to the buyer. You can filter results by product, seller, purchase option type, visibility scope, and availability status.</p> <note> <p>You must include at least one of the following filters in the request: a <code>PRODUCT_ID</code> filter to specify the product for which to retrieve purchase options, or a <code>VISIBILITY_SCOPE</code> filter to retrieve purchase options by visibility.</p> </note>
 
         Args:
@@ -366,9 +595,20 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.list_purchase_options(filters=[{'filterType': 'SELLER_OF_RECORD_PROFILE_ID', 'filterValues': ['seller-sampleResellerId']}, {'filterType': 'PURCHASE_OPTION_TYPE', 'filterValues': ['OFFERSET']}, {'filterType': 'VISIBILITY_SCOPE', 'filterValues': ['PRIVATE']}])
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.list_purchase_options_input.ListPurchaseOptionsInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.list_purchase_options_output.ListPurchaseOptionsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.list_purchase_options_input.ListPurchaseOptionsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.list_purchase_options_output.ListPurchaseOptionsOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.list_purchase_options
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.list_purchase_options.async_list_purchase_options(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.list_purchase_options.async_list_purchase_options(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -380,9 +620,27 @@ class AsyncMarketplaceDiscoveryClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_purchase_options(self, *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, filters: Optional["aws_sdk_marketplace_discovery.types.purchase_option_filter_list.PurchaseOptionFilterList"] = None, max_results: Optional["aws_sdk_marketplace_discovery.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.purchase_option_summary.PurchaseOptionSummary]":
+
+    async def iter_list_purchase_options(
+        self,
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_marketplace_discovery.types.purchase_option_filter_list.PurchaseOptionFilterList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_marketplace_discovery.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.purchase_option_summary.PurchaseOptionSummary]":
         _token = next_token
         while True:
             _response = await self.list_purchase_options(
@@ -391,13 +649,30 @@ class AsyncMarketplaceDiscoveryClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('purchase_options',))
+            _page = _resolve_path(_response, ("purchase_options",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def search_facets(self, *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, search_text: Optional["aws_sdk_marketplace_discovery.types.search_text.SearchText"] = None, filters: Optional["aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"] = None, facet_types: Optional["aws_sdk_marketplace_discovery.types.facet_type_list.FacetTypeList"] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "aws_sdk_marketplace_discovery.types.search_facets_output.SearchFacetsOutput":
+
+    async def search_facets(
+        self,
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_marketplace_discovery.types.search_text.SearchText"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"
+        ] = None,
+        facet_types: Optional[
+            "aws_sdk_marketplace_discovery.types.facet_type_list.FacetTypeList"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.search_facets_output.SearchFacetsOutput":
         """<p>Returns available facet values for filtering listings, such as categories, pricing models, fulfillment option types, publishers, and customer ratings. Each facet value includes a count of matching listings.</p>
 
         Args:
@@ -416,9 +691,20 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.search_facets(filters=[{'filterType': 'CATEGORY', 'filterValues': ['security']}, {'filterType': 'MIN_AVERAGE_CUSTOMER_RATING', 'filterValues': ['3.0']}, {'filterType': 'MAX_AVERAGE_CUSTOMER_RATING', 'filterValues': ['5.0']}], facet_types=['PRICING_MODEL', 'AVERAGE_CUSTOMER_RATING'])
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.search_facets_input.SearchFacetsInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.search_facets_output.SearchFacetsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.search_facets_input.SearchFacetsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.search_facets_output.SearchFacetsOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.search_facets
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.search_facets.async_search_facets(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.search_facets.async_search_facets(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -432,9 +718,30 @@ class AsyncMarketplaceDiscoveryClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_search_facets(self, *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, search_text: Optional["aws_sdk_marketplace_discovery.types.search_text.SearchText"] = None, filters: Optional["aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"] = None, facet_types: Optional["aws_sdk_marketplace_discovery.types.facet_type_list.FacetTypeList"] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "AsyncIterator[tuple[aws_sdk_marketplace_discovery.types.search_facet_type.SearchFacetType, aws_sdk_marketplace_discovery.types.listing_facet_list.ListingFacetList]]":
+
+    async def iter_search_facets(
+        self,
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_marketplace_discovery.types.search_text.SearchText"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"
+        ] = None,
+        facet_types: Optional[
+            "aws_sdk_marketplace_discovery.types.facet_type_list.FacetTypeList"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[tuple[aws_sdk_marketplace_discovery.types.search_facet_type.SearchFacetType, aws_sdk_marketplace_discovery.types.listing_facet_list.ListingFacetList]]":
         _token = next_token
         while True:
             _response = await self.search_facets(
@@ -444,13 +751,36 @@ class AsyncMarketplaceDiscoveryClient:
                 facet_types=facet_types,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('listing_facets',))
+            _page = _resolve_path(_response, ("listing_facets",))
             for _k, _v in (_page or {}).items():
                 yield (_k, _v)
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def search_listings(self, *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, search_text: Optional["aws_sdk_marketplace_discovery.types.search_text.SearchText"] = None, filters: Optional["aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"] = None, max_results: Optional["aws_sdk_marketplace_discovery.types.max_results.MaxResults"] = None, sort_by: Optional["aws_sdk_marketplace_discovery.types.search_listings_sort_by.SearchListingsSortBy"] = None, sort_order: Optional["aws_sdk_marketplace_discovery.types.search_listings_sort_order.SearchListingsSortOrder"] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "aws_sdk_marketplace_discovery.types.search_listings_output.SearchListingsOutput":
+
+    async def search_listings(
+        self,
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_marketplace_discovery.types.search_text.SearchText"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_marketplace_discovery.types.max_results.MaxResults"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_marketplace_discovery.types.search_listings_sort_by.SearchListingsSortBy"
+        ] = None,
+        sort_order: Optional[
+            "aws_sdk_marketplace_discovery.types.search_listings_sort_order.SearchListingsSortOrder"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_marketplace_discovery.types.search_listings_output.SearchListingsOutput":
         """<p>Returns a list of product listings based on search criteria and filters. You can search by keyword, filter by category, pricing model, fulfillment type, and other attributes, and sort results by relevance or customer rating.</p>
 
         Args:
@@ -467,9 +797,20 @@ class AsyncMarketplaceDiscoveryClient:
 
             >>> await client.search_listings(search_text='computer vision', filters=[{'filterType': 'CATEGORY', 'filterValues': ['machine-learning']}, {'filterType': 'FULFILLMENT_OPTION_TYPE', 'filterValues': ['SAAS']}], max_results=25, sort_by='RELEVANCE', sort_order='DESCENDING')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_discovery.types.search_listings_input.SearchListingsInput]') -> AsyncOperationResponse["aws_sdk_marketplace_discovery.types.search_listings_output.SearchListingsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_discovery.types.search_listings_input.SearchListingsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_discovery.types.search_listings_output.SearchListingsOutput"
+        ]:
             import aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.search_listings
-            output, http_response = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.search_listings.async_search_listings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_discovery._operations.aws_marketplace_discovery.search_listings.async_search_listings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -487,9 +828,36 @@ class AsyncMarketplaceDiscoveryClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_search_listings(self, *, config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None, search_text: Optional["aws_sdk_marketplace_discovery.types.search_text.SearchText"] = None, filters: Optional["aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"] = None, max_results: Optional["aws_sdk_marketplace_discovery.types.max_results.MaxResults"] = None, sort_by: Optional["aws_sdk_marketplace_discovery.types.search_listings_sort_by.SearchListingsSortBy"] = None, sort_order: Optional["aws_sdk_marketplace_discovery.types.search_listings_sort_order.SearchListingsSortOrder"] = None, next_token: Optional["aws_sdk_marketplace_discovery.types.next_token.NextToken"] = None) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.listing_summary.ListingSummary]":
+
+    async def iter_search_listings(
+        self,
+        *,
+        config_overrides: Optional[AsyncMarketplaceDiscoveryClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_marketplace_discovery.types.search_text.SearchText"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_marketplace_discovery.types.search_filter_list.SearchFilterList"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_marketplace_discovery.types.max_results.MaxResults"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_marketplace_discovery.types.search_listings_sort_by.SearchListingsSortBy"
+        ] = None,
+        sort_order: Optional[
+            "aws_sdk_marketplace_discovery.types.search_listings_sort_order.SearchListingsSortOrder"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_marketplace_discovery.types.next_token.NextToken"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_marketplace_discovery.types.listing_summary.ListingSummary]":
         _token = next_token
         while True:
             _response = await self.search_listings(
@@ -501,13 +869,15 @@ class AsyncMarketplaceDiscoveryClient:
                 sort_order=sort_order,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('listing_summaries',))
+            _page = _resolve_path(_response, ("listing_summaries",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
+
     async def __aenter__(self) -> Self:
         return self
+
     async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
         await self._client.aclose()

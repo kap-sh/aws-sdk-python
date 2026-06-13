@@ -1,0 +1,91 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#RefreshSchedule``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.arn
+    import aws_sdk_quicksight.types.ingestion_type
+    import aws_sdk_quicksight.types.refresh_frequency
+    import aws_sdk_quicksight.types.string
+    import aws_sdk_quicksight.types.timestamp
+
+
+class RefreshSchedule(TypedDict):
+    schedule_id: "aws_sdk_quicksight.types.string.String"
+    """<p>An identifier for the refresh schedule.</p>"""
+    schedule_frequency: "aws_sdk_quicksight.types.refresh_frequency.RefreshFrequency"
+    """<p>The frequency for the refresh schedule.</p>"""
+    start_after_date_time: NotRequired["aws_sdk_quicksight.types.timestamp.Timestamp"]
+    """<p>Time after which the refresh schedule can be started, expressed in <code>YYYY-MM-DDTHH:MM:SS</code> format.</p>"""
+    refresh_type: "aws_sdk_quicksight.types.ingestion_type.IngestionType"
+    """<p>The type of refresh that a datset undergoes. Valid values are as follows:</p> <ul> <li> <p> <code>FULL_REFRESH</code>: A complete refresh of a dataset.</p> </li> <li> <p> <code>INCREMENTAL_REFRESH</code>: A partial refresh of some rows of a dataset, based on the time window specified.</p> </li> </ul> <p>For more information on full and incremental refreshes, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html\">Refreshing SPICE data</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
+    arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
+    """<p>The Amazon Resource Name (ARN) for the refresh schedule.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RefreshSchedule) -> dict:
+    out: dict = {}
+    out["ScheduleId"] = value["schedule_id"]
+    import aws_sdk_quicksight.types.refresh_frequency
+
+    out["ScheduleFrequency"] = (
+        aws_sdk_quicksight.types.refresh_frequency.serialize_json(
+            value["schedule_frequency"]
+        )
+    )
+    if "start_after_date_time" in value:
+        import aws_sdk_quicksight.types.timestamp
+
+        out["StartAfterDateTime"] = aws_sdk_quicksight.types.timestamp.serialize_json(
+            value["start_after_date_time"]
+        )
+    import aws_sdk_quicksight.types.ingestion_type
+
+    out["RefreshType"] = aws_sdk_quicksight.types.ingestion_type.serialize_json(
+        value["refresh_type"]
+    )
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> RefreshSchedule:
+    out: RefreshSchedule = {}  # type: ignore[typeddict-item]
+    if "ScheduleId" in data:
+        out["schedule_id"] = data["ScheduleId"]
+    else:
+        raise DeserializationError("RefreshSchedule.schedule_id required")
+    if "ScheduleFrequency" in data:
+        import aws_sdk_quicksight.types.refresh_frequency
+
+        out["schedule_frequency"] = (
+            aws_sdk_quicksight.types.refresh_frequency.deserialize_json(
+                data["ScheduleFrequency"]
+            )
+        )
+    else:
+        raise DeserializationError("RefreshSchedule.schedule_frequency required")
+    if "StartAfterDateTime" in data:
+        import aws_sdk_quicksight.types.timestamp
+
+        out["start_after_date_time"] = (
+            aws_sdk_quicksight.types.timestamp.deserialize_json(
+                data["StartAfterDateTime"]
+            )
+        )
+    if "RefreshType" in data:
+        import aws_sdk_quicksight.types.ingestion_type
+
+        out["refresh_type"] = aws_sdk_quicksight.types.ingestion_type.deserialize_json(
+            data["RefreshType"]
+        )
+    else:
+        raise DeserializationError("RefreshSchedule.refresh_type required")
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    return out

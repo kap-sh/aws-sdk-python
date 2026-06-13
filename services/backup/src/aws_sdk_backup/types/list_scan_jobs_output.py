@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#ListScanJobsOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_backup.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_backup.types.scan_jobs
+
+
+class ListScanJobsOutput(TypedDict):
+    next_token: NotRequired["str"]
+    """<p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>"""
+    scan_jobs: "aws_sdk_backup.types.scan_jobs.ScanJobs"
+    """<p>An array of structures containing metadata about your scan jobs returned in JSON format.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListScanJobsOutput) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    import aws_sdk_backup.types.scan_jobs
+
+    out["ScanJobs"] = aws_sdk_backup.types.scan_jobs.serialize_json(value["scan_jobs"])
+    return out
+
+
+def deserialize_json(data: dict) -> ListScanJobsOutput:
+    out: ListScanJobsOutput = {}  # type: ignore[typeddict-item]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "ScanJobs" in data:
+        import aws_sdk_backup.types.scan_jobs
+
+        out["scan_jobs"] = aws_sdk_backup.types.scan_jobs.deserialize_json(
+            data["ScanJobs"]
+        )
+    else:
+        raise DeserializationError("ListScanJobsOutput.scan_jobs required")
+    return out

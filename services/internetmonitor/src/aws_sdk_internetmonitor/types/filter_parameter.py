@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#FilterParameter``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.filter_list
     import aws_sdk_internetmonitor.types.operator
+
 
 class FilterParameter(TypedDict):
     field: NotRequired["str"]
@@ -13,6 +16,7 @@ class FilterParameter(TypedDict):
     """<p>The operator to use with the filter field and a value, such as <code>not_equals</code>.</p>"""
     values: NotRequired["aws_sdk_internetmonitor.types.filter_list.FilterList"]
     """<p>One or more values to be used, together with the specified operator, to filter data for a query. For example, you could specify an array of values such as <code>[\"Seattle\", \"Redmond\"]</code>. Values in the array are separated by commas.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FilterParameter) -> dict:
@@ -23,7 +27,10 @@ def serialize_json(value: FilterParameter) -> dict:
         out["Operator"] = value["operator"]
     if "values" in value:
         import aws_sdk_internetmonitor.types.filter_list
-        out["Values"] = aws_sdk_internetmonitor.types.filter_list.serialize_json(value["values"])
+
+        out["Values"] = aws_sdk_internetmonitor.types.filter_list.serialize_json(
+            value["values"]
+        )
     return out
 
 
@@ -35,5 +42,8 @@ def deserialize_json(data: dict) -> FilterParameter:
         out["operator"] = data["Operator"]
     if "Values" in data:
         import aws_sdk_internetmonitor.types.filter_list
-        out["values"] = aws_sdk_internetmonitor.types.filter_list.deserialize_json(data["Values"])
+
+        out["values"] = aws_sdk_internetmonitor.types.filter_list.deserialize_json(
+            data["Values"]
+        )
     return out

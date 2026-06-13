@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.location#DataSourceConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.intended_use
+
 
 class DataSourceConfiguration(TypedDict):
     intended_use: NotRequired["aws_sdk_location.types.intended_use.IntendedUse"]
     """<p>Specifies how the results of an operation will be stored by the caller. </p> <p>Valid values include:</p> <ul> <li> <p> <code>SingleUse</code> specifies that the results won't be stored. </p> </li> <li> <p> <code>Storage</code> specifies that the result can be cached or stored in a database.</p> </li> </ul> <p>Default value: <code>SingleUse</code> </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataSourceConfiguration) -> dict:

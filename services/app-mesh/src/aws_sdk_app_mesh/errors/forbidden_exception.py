@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ForbiddenException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_app_mesh.errors import ServiceError
+
 
 class ForbiddenException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ForbiddenException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> ForbiddenException_:
 
 class ForbiddenException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.appmesh#ForbiddenException``."""
-    code: str | None = 'ForbiddenException'
+
+    code: str | None = "ForbiddenException"
 
     def __init__(self, data: ForbiddenException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ForbiddenException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ForbiddenException",
+        )
         self.data = data
 
     @classmethod

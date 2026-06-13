@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ConversationSource``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_qbusiness.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.attachment_id
     import aws_sdk_qbusiness.types.conversation_id
+
 
 class ConversationSource(TypedDict):
     conversation_id: "aws_sdk_qbusiness.types.conversation_id.ConversationId"
     """<p>The unique identifier of the Amazon Q Business conversation.</p>"""
     attachment_id: "aws_sdk_qbusiness.types.attachment_id.AttachmentId"
     """<p>The unique identifier of the Amazon Q Business attachment.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConversationSource) -> dict:

@@ -1,20 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#AreaOfInterest``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry
+
 
 class _AreaOfInterest_AreaOfInterestGeometry(TypedDict):
     AreaOfInterestGeometry: "aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry.AreaOfInterestGeometry"
 
+
 AreaOfInterest: TypeAlias = _AreaOfInterest_AreaOfInterestGeometry
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AreaOfInterest) -> dict:
     if "AreaOfInterestGeometry" in value:
         import aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry
-        return {"AreaOfInterestGeometry": aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry.serialize_json(value["AreaOfInterestGeometry"])}
+
+        return {
+            "AreaOfInterestGeometry": aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry.serialize_json(
+                value["AreaOfInterestGeometry"]
+            )
+        }
     else:
         raise SerializationError("AreaOfInterest: no variant present")
 
@@ -22,6 +32,11 @@ def serialize_json(value: AreaOfInterest) -> dict:
 def deserialize_json(data: dict) -> AreaOfInterest:
     if "AreaOfInterestGeometry" in data:
         import aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry
-        return {"AreaOfInterestGeometry": aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry.deserialize_json(data["AreaOfInterestGeometry"])}
+
+        return {
+            "AreaOfInterestGeometry": aws_sdk_sagemaker_geospatial.types.area_of_interest_geometry.deserialize_json(
+                data["AreaOfInterestGeometry"]
+            )
+        }
     else:
         raise DeserializationError("AreaOfInterest: no recognized variant key")

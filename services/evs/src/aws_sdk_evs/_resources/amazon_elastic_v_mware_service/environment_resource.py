@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_evs._services.async_evs import ensure_async_iterator
-from aws_sdk_evs._services.evs import ensure_sync_iterator
-from aws_sdk_evs._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_evs._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_evs._services.evs import evsClient, evsClientConfig
-    from aws_sdk_evs._services.async_evs import AsyncevsClient, AsyncevsClientConfig
     import aws_sdk_evs.types.allocation_id
     import aws_sdk_evs.types.appliance_fqdn
     import aws_sdk_evs.types.associate_eip_to_vlan_request
@@ -73,11 +78,38 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.vm_entitlement
     import aws_sdk_evs.types.vm_id_list
     import aws_sdk_evs.types.vpc_id
+    from aws_sdk_evs._services.async_evs import AsyncevsClient, AsyncevsClientConfig
+    from aws_sdk_evs._services.evs import evsClient, evsClientConfig
+
 
 class EnvironmentResource:
     def __init__(self, service: evsClient) -> None:
         self._service = service
-    def create(self, vpc_id: "aws_sdk_evs.types.vpc_id.VpcId", service_access_subnet_id: "aws_sdk_evs.types.subnet_id.SubnetId", vcf_version: "aws_sdk_evs.types.vcf_version.VcfVersion", terms_accepted: bool, license_info: "aws_sdk_evs.types.license_info_list.LicenseInfoList", initial_vlans: "aws_sdk_evs.types.initial_vlans.InitialVlans", hosts: "aws_sdk_evs.types.host_info_for_create_list.HostInfoForCreateList", connectivity_info: "aws_sdk_evs.types.connectivity_info.ConnectivityInfo", vcf_hostnames: "aws_sdk_evs.types.vcf_hostnames.VcfHostnames", site_id: str, *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None, environment_name: Optional["aws_sdk_evs.types.environment_name.EnvironmentName"] = None, kms_key_id: Optional[str] = None, tags: Optional["aws_sdk_evs.types.request_tag_map.RequestTagMap"] = None, service_access_security_groups: Optional["aws_sdk_evs.types.service_access_security_groups.ServiceAccessSecurityGroups"] = None) -> "aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse":
+
+    def create(
+        self,
+        vpc_id: "aws_sdk_evs.types.vpc_id.VpcId",
+        service_access_subnet_id: "aws_sdk_evs.types.subnet_id.SubnetId",
+        vcf_version: "aws_sdk_evs.types.vcf_version.VcfVersion",
+        terms_accepted: bool,
+        license_info: "aws_sdk_evs.types.license_info_list.LicenseInfoList",
+        initial_vlans: "aws_sdk_evs.types.initial_vlans.InitialVlans",
+        hosts: "aws_sdk_evs.types.host_info_for_create_list.HostInfoForCreateList",
+        connectivity_info: "aws_sdk_evs.types.connectivity_info.ConnectivityInfo",
+        vcf_hostnames: "aws_sdk_evs.types.vcf_hostnames.VcfHostnames",
+        site_id: str,
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+        environment_name: Optional[
+            "aws_sdk_evs.types.environment_name.EnvironmentName"
+        ] = None,
+        kms_key_id: Optional[str] = None,
+        tags: Optional["aws_sdk_evs.types.request_tag_map.RequestTagMap"] = None,
+        service_access_security_groups: Optional[
+            "aws_sdk_evs.types.service_access_security_groups.ServiceAccessSecurityGroups"
+        ] = None,
+    ) -> "aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse":
         """<p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <p>During environment creation, Amazon EVS performs validations on DNS settings, provisions VLAN subnets and hosts, and deploys the supplied version of VCF.</p> <p>It can take several hours to create an environment. After the deployment completes, you can configure VCF in the vSphere user interface according to your needs.</p> <important> <p>When creating a new environment, the default ESX version for the selected VCF version will be used, you cannot choose a specific ESX version in <code>CreateEnvironment</code> action. When a host has been added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.</p> </important> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
 
         Args:
@@ -97,9 +129,19 @@ class EnvironmentResource:
             vcf_hostnames: <p>The DNS hostnames for the virtual machines that host the VCF management appliances. Amazon EVS requires that you provide DNS hostnames for the following appliances: vCenter, NSX Manager, SDDC Manager, and Cloud Builder.</p>
             site_id: <p>The Broadcom Site ID that is allocated to you as part of your electronic software delivery. This ID allows customer access to the Broadcom portal, and is provided to you by Broadcom at the close of your software contract or contract renewal. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest]') -> OperationResponse["aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment.create_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment.create_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -125,35 +167,76 @@ class EnvironmentResource:
         input["vcf_hostnames"] = vcf_hostnames
         input["site_id"] = site_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[evsClientConfig] = None) -> "aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse":
+
+    def read(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+    ) -> "aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse":
         """<p>Returns a description of the specified environment.</p>
 
         Args:
             environment_id: <p>A unique ID for the environment.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest]') -> OperationResponse["aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_environment
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_environment.get_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_environment.get_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
         input["environment_id"] = environment_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse":
+
+    def delete(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse":
         """<p>Deletes an Amazon EVS environment.</p> <p>Amazon EVS environments will only be enabled for deletion once the hosts are deleted. You can delete hosts using the <code>DeleteEnvironmentHost</code> action.</p> <p>Environment deletion also deletes the associated Amazon EVS VLAN subnets and Amazon Web Services Secrets Manager secrets that Amazon EVS created. Amazon Web Services resources that you create are not deleted. These resources may continue to incur costs.</p>
 
         Args:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID associated with the environment to be deleted.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest]') -> OperationResponse["aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment.delete_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment.delete_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -162,9 +245,25 @@ class EnvironmentResource:
             input["client_token"] = client_token
         input["environment_id"] = environment_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[evsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None, state: Optional["aws_sdk_evs.types.environment_state_list.EnvironmentStateList"] = None) -> "aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+        state: Optional[
+            "aws_sdk_evs.types.environment_state_list.EnvironmentStateList"
+        ] = None,
+    ) -> "aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse":
         """<p>Lists the Amazon EVS environments in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
 
         Args:
@@ -172,9 +271,19 @@ class EnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             state: <p>The state of an environment. Used to filter response results to return only environments with the specified <code>environmentState</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest]') -> OperationResponse["aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environments
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environments.list_environments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environments.list_environments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -186,9 +295,22 @@ class EnvironmentResource:
         if state is not None:
             input["state"] = state
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_eip_to_vlan(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", vlan_name: str, allocation_id: "aws_sdk_evs.types.allocation_id.AllocationId", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse":
+
+    def associate_eip_to_vlan(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        vlan_name: str,
+        allocation_id: "aws_sdk_evs.types.allocation_id.AllocationId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse":
         """<p>Associates an Elastic IP address with a public HCX VLAN. This operation is only allowed for public HCX VLANs at this time.</p>
 
         Args:
@@ -197,9 +319,19 @@ class EnvironmentResource:
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             allocation_id: <p>The Elastic IP address allocation ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest]') -> OperationResponse["aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.associate_eip_to_vlan
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.associate_eip_to_vlan.associate_eip_to_vlan(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.associate_eip_to_vlan.associate_eip_to_vlan(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -210,9 +342,23 @@ class EnvironmentResource:
         input["vlan_name"] = vlan_name
         input["allocation_id"] = allocation_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_entitlement(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType", vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse":
+
+    def create_entitlement(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType",
+        vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse":
         """<p>Creates a Windows Server License entitlement for virtual machines in an Amazon EVS environment using the provided vCenter Server connector. This is an asynchronous operation. Amazon EVS validates the specified virtual machines before starting usage tracking.</p>
 
         Args:
@@ -222,9 +368,19 @@ class EnvironmentResource:
             entitlement_type: <p>The type of entitlement to create.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to create entitlements for.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest]') -> OperationResponse["aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_entitlement
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_entitlement.create_entitlement(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_entitlement.create_entitlement(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -236,9 +392,23 @@ class EnvironmentResource:
         input["entitlement_type"] = entitlement_type
         input["vm_ids"] = vm_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_environment_connector(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", type: "aws_sdk_evs.types.connector_type.ConnectorType", appliance_fqdn: "aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn", secret_identifier: "aws_sdk_evs.types.secret_identifier.SecretIdentifier", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse":
+
+    def create_environment_connector(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        type: "aws_sdk_evs.types.connector_type.ConnectorType",
+        appliance_fqdn: "aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn",
+        secret_identifier: "aws_sdk_evs.types.secret_identifier.SecretIdentifier",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse":
         """<p>Creates a connector for an Amazon EVS environment. A connector establishes a connection to a VCF appliance, such as vCenter, using a fully qualified domain name and an Amazon Web Services Secrets Manager secret that stores the appliance credentials.</p>
 
         Args:
@@ -248,9 +418,19 @@ class EnvironmentResource:
             appliance_fqdn: <p>The fully qualified domain name (FQDN) of the VCF appliance that the connector targets.</p>
             secret_identifier: <p>The ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p> <important> <p>Do not use credentials with Administrator privileges. We recommend using a service account with the minimum required permissions.</p> </important>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest]') -> OperationResponse["aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_connector
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_connector.create_environment_connector(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_connector.create_environment_connector(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -262,9 +442,22 @@ class EnvironmentResource:
         input["appliance_fqdn"] = appliance_fqdn
         input["secret_identifier"] = secret_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_environment_host(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", host: "aws_sdk_evs.types.host_info_for_create.HostInfoForCreate", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None, esx_version: Optional["aws_sdk_evs.types.esx_version.EsxVersion"] = None) -> "aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse":
+
+    def create_environment_host(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        host: "aws_sdk_evs.types.host_info_for_create.HostInfoForCreate",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+        esx_version: Optional["aws_sdk_evs.types.esx_version.EsxVersion"] = None,
+    ) -> "aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse":
         """<p>Creates an ESX host and adds it to an Amazon EVS environment. Amazon EVS supports 4-32 hosts per environment.</p> <p>This action can only be used after the Amazon EVS environment is deployed.</p> <p>You can use the <code>dedicatedHostId</code> parameter to specify an Amazon EC2 Dedicated Host for ESX host creation.</p> <p> You can use the <code>placementGroupId</code> parameter to specify a cluster or partition placement group to launch EC2 instances into.</p> <note> <p>If you don't specify an ESX version when adding hosts using <code>CreateEnvironmentHost</code> action, Amazon EVS automatically uses the default ESX version associated with your environment's VCF version. To find the default ESX version for a particular VCF version, use the <code>GetVersions</code> action.</p> </note> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironmentHost</code> action. This results in a <code>ValidationException</code> response.</p> </note>
 
         Args:
@@ -273,9 +466,19 @@ class EnvironmentResource:
             host: <p>The host that is created and added to the environment.</p>
             esx_version: <p>The ESX version to use for the host.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest]') -> OperationResponse["aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_host
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_host.create_environment_host(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_host.create_environment_host(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -287,9 +490,23 @@ class EnvironmentResource:
         if esx_version is not None:
             input["esx_version"] = esx_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_entitlement(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType", vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse":
+
+    def delete_entitlement(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType",
+        vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse":
         """<p>Deletes a Windows Server License entitlement for virtual machines in an Amazon EVS environment. Deleting an entitlement stops usage tracking for the specified virtual machines.</p>
 
         Args:
@@ -299,9 +516,19 @@ class EnvironmentResource:
             entitlement_type: <p>The type of entitlement to delete.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to delete entitlements for.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest]') -> OperationResponse["aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_entitlement
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_entitlement.delete_entitlement(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_entitlement.delete_entitlement(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -313,9 +540,21 @@ class EnvironmentResource:
         input["entitlement_type"] = entitlement_type
         input["vm_ids"] = vm_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_environment_connector(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse":
+
+    def delete_environment_connector(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse":
         """<p>Deletes a connector from an Amazon EVS environment.</p> <note> <p>Before deleting a connector, you must remove all entitlements that are associated with the same vCenter.</p> </note>
 
         Args:
@@ -323,9 +562,19 @@ class EnvironmentResource:
             environment_id: <p>A unique ID for the environment that the connector belongs to.</p>
             connector_id: <p>A unique ID for the connector to be deleted.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest]') -> OperationResponse["aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_connector
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_connector.delete_environment_connector(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_connector.delete_environment_connector(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -335,9 +584,21 @@ class EnvironmentResource:
         input["environment_id"] = environment_id
         input["connector_id"] = connector_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_environment_host(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", host_name: "aws_sdk_evs.types.host_name.HostName", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse":
+
+    def delete_environment_host(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        host_name: "aws_sdk_evs.types.host_name.HostName",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse":
         """<p>Deletes a host from an Amazon EVS environment.</p> <note> <p>Before deleting a host, you must unassign and decommission the host from within the SDDC Manager user interface. Not doing so could impact the availability of your virtual machines or result in data loss.</p> </note>
 
         Args:
@@ -345,9 +606,19 @@ class EnvironmentResource:
             environment_id: <p>A unique ID for the host's environment.</p>
             host_name: <p>The DNS hostname associated with the host to be deleted.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest]') -> OperationResponse["aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_host
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_host.delete_environment_host(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_host.delete_environment_host(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -357,9 +628,22 @@ class EnvironmentResource:
         input["environment_id"] = environment_id
         input["host_name"] = host_name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_eip_from_vlan(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", vlan_name: str, association_id: "aws_sdk_evs.types.association_id.AssociationId", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse":
+
+    def disassociate_eip_from_vlan(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        vlan_name: str,
+        association_id: "aws_sdk_evs.types.association_id.AssociationId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse":
         """<p>Disassociates an Elastic IP address from a public HCX VLAN. This operation is only allowed for public HCX VLANs at this time.</p>
 
         Args:
@@ -368,9 +652,19 @@ class EnvironmentResource:
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             association_id: <p> A unique ID for the Elastic IP address association.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest]') -> OperationResponse["aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.disassociate_eip_from_vlan
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.disassociate_eip_from_vlan.disassociate_eip_from_vlan(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.disassociate_eip_from_vlan.disassociate_eip_from_vlan(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -381,18 +675,39 @@ class EnvironmentResource:
         input["vlan_name"] = vlan_name
         input["association_id"] = association_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_depot_url(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[evsClientConfig] = None, rotate: Optional[bool] = None) -> "aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse":
+
+    def get_depot_url(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        rotate: Optional[bool] = None,
+    ) -> "aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse":
         """<p>Returns a URL and authentication token for accessing the Amazon EVS Custom Addon depot. Configure the depot URL as a download source in vSphere Lifecycle Manager (vLCM) to sync and install the Amazon EVS Custom Addon.</p> <p>The depot URL remains active until you rotate the authentication token by calling this action with <code>rotate</code> set to <code>true</code>.</p>
 
         Args:
             environment_id: <p>The unique ID of the Amazon EVS environment to get the depot URL for.</p>
             rotate: <p>Revokes the current authentication token and returns a new depot URL with a new token. Previously issued depot URLs will stop working within 5 minutes of rotation.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest]') -> OperationResponse["aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_depot_url
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_depot_url.get_depot_url(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_depot_url.get_depot_url(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -401,9 +716,23 @@ class EnvironmentResource:
         if rotate is not None:
             input["rotate"] = rotate
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_environment_connectors(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[evsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse":
+
+    def list_environment_connectors(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse":
         """<p>Lists the connectors within an environment. Returns the status of each connector and its applicable checks, among other connector details.</p>
 
         Args:
@@ -411,9 +740,19 @@ class EnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest]') -> OperationResponse["aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_connectors
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_connectors.list_environment_connectors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_connectors.list_environment_connectors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -424,9 +763,25 @@ class EnvironmentResource:
             input["max_results"] = max_results
         input["environment_id"] = environment_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_environment_hosts(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[evsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse":
+
+    def list_environment_hosts(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> (
+        "aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse"
+    ):
         """<p>List the hosts within an environment.</p>
 
         Args:
@@ -434,9 +789,19 @@ class EnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest]') -> OperationResponse["aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_hosts
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_hosts.list_environment_hosts(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_hosts.list_environment_hosts(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -447,9 +812,25 @@ class EnvironmentResource:
             input["max_results"] = max_results
         input["environment_id"] = environment_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_environment_vlans(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[evsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse":
+
+    def list_environment_vlans(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> (
+        "aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse"
+    ):
         """<p>Lists environment VLANs that are associated with the specified environment.</p>
 
         Args:
@@ -457,9 +838,19 @@ class EnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest]') -> OperationResponse["aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_vlans
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_vlans.list_environment_vlans(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_vlans.list_environment_vlans(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -470,9 +861,25 @@ class EnvironmentResource:
             input["max_results"] = max_results
         input["environment_id"] = environment_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_vm_entitlements(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType", *, config_overrides: Optional[evsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse":
+
+    def list_vm_entitlements(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse":
         """<p>Lists the Windows Server License entitlements for virtual machines in an Amazon EVS environment. Returns existing entitlements for virtual machines associated with the specified environment and connector.</p>
 
         Args:
@@ -482,9 +889,19 @@ class EnvironmentResource:
             connector_id: <p>A unique ID for the connector.</p>
             entitlement_type: <p>The type of entitlement to list.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest]') -> OperationResponse["aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_vm_entitlements
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_vm_entitlements.list_vm_entitlements(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_vm_entitlements.list_vm_entitlements(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -497,9 +914,27 @@ class EnvironmentResource:
         input["connector_id"] = connector_id
         input["entitlement_type"] = entitlement_type
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_environment_connector(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", *, config_overrides: Optional[evsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None, appliance_fqdn: Optional["aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn"] = None, secret_identifier: Optional["aws_sdk_evs.types.secret_identifier.SecretIdentifier"] = None) -> "aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse":
+
+    def update_environment_connector(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        *,
+        config_overrides: Optional[evsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+        appliance_fqdn: Optional[
+            "aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn"
+        ] = None,
+        secret_identifier: Optional[
+            "aws_sdk_evs.types.secret_identifier.SecretIdentifier"
+        ] = None,
+    ) -> "aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse":
         """<p>Updates a connector for an Amazon EVS environment. You can update the Amazon Web Services Secrets Manager secret ARN or the appliance FQDN to reconfigure the connector metadata.</p> <note> <p>You cannot update both the secret and the FQDN in the same request.</p> </note>
 
         Args:
@@ -509,9 +944,19 @@ class EnvironmentResource:
             appliance_fqdn: <p>The new fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>
             secret_identifier: <p>The new ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest]') -> OperationResponse["aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.update_environment_connector
-            output, http_response = aws_sdk_evs._operations.amazon_elastic_v_mware_service.update_environment_connector.update_environment_connector(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_evs._operations.amazon_elastic_v_mware_service.update_environment_connector.update_environment_connector(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -525,13 +970,42 @@ class EnvironmentResource:
         if secret_identifier is not None:
             input["secret_identifier"] = secret_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncEnvironmentResource:
     def __init__(self, service: AsyncevsClient) -> None:
         self._service = service
-    async def create(self, vpc_id: "aws_sdk_evs.types.vpc_id.VpcId", service_access_subnet_id: "aws_sdk_evs.types.subnet_id.SubnetId", vcf_version: "aws_sdk_evs.types.vcf_version.VcfVersion", terms_accepted: bool, license_info: "aws_sdk_evs.types.license_info_list.LicenseInfoList", initial_vlans: "aws_sdk_evs.types.initial_vlans.InitialVlans", hosts: "aws_sdk_evs.types.host_info_for_create_list.HostInfoForCreateList", connectivity_info: "aws_sdk_evs.types.connectivity_info.ConnectivityInfo", vcf_hostnames: "aws_sdk_evs.types.vcf_hostnames.VcfHostnames", site_id: str, *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None, environment_name: Optional["aws_sdk_evs.types.environment_name.EnvironmentName"] = None, kms_key_id: Optional[str] = None, tags: Optional["aws_sdk_evs.types.request_tag_map.RequestTagMap"] = None, service_access_security_groups: Optional["aws_sdk_evs.types.service_access_security_groups.ServiceAccessSecurityGroups"] = None) -> "aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse":
+
+    async def create(
+        self,
+        vpc_id: "aws_sdk_evs.types.vpc_id.VpcId",
+        service_access_subnet_id: "aws_sdk_evs.types.subnet_id.SubnetId",
+        vcf_version: "aws_sdk_evs.types.vcf_version.VcfVersion",
+        terms_accepted: bool,
+        license_info: "aws_sdk_evs.types.license_info_list.LicenseInfoList",
+        initial_vlans: "aws_sdk_evs.types.initial_vlans.InitialVlans",
+        hosts: "aws_sdk_evs.types.host_info_for_create_list.HostInfoForCreateList",
+        connectivity_info: "aws_sdk_evs.types.connectivity_info.ConnectivityInfo",
+        vcf_hostnames: "aws_sdk_evs.types.vcf_hostnames.VcfHostnames",
+        site_id: str,
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+        environment_name: Optional[
+            "aws_sdk_evs.types.environment_name.EnvironmentName"
+        ] = None,
+        kms_key_id: Optional[str] = None,
+        tags: Optional["aws_sdk_evs.types.request_tag_map.RequestTagMap"] = None,
+        service_access_security_groups: Optional[
+            "aws_sdk_evs.types.service_access_security_groups.ServiceAccessSecurityGroups"
+        ] = None,
+    ) -> "aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse":
         """<p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <p>During environment creation, Amazon EVS performs validations on DNS settings, provisions VLAN subnets and hosts, and deploys the supplied version of VCF.</p> <p>It can take several hours to create an environment. After the deployment completes, you can configure VCF in the vSphere user interface according to your needs.</p> <important> <p>When creating a new environment, the default ESX version for the selected VCF version will be used, you cannot choose a specific ESX version in <code>CreateEnvironment</code> action. When a host has been added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.</p> </important> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
 
         Args:
@@ -551,9 +1025,20 @@ class AsyncEnvironmentResource:
             vcf_hostnames: <p>The DNS hostnames for the virtual machines that host the VCF management appliances. Amazon EVS requires that you provide DNS hostnames for the following appliances: vCenter, NSX Manager, SDDC Manager, and Cloud Builder.</p>
             site_id: <p>The Broadcom Site ID that is allocated to you as part of your electronic software delivery. This ID allows customer access to the Broadcom portal, and is provided to you by Broadcom at the close of your software contract or contract renewal. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.create_environment_response.CreateEnvironmentResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment.async_create_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment.async_create_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -579,35 +1064,78 @@ class AsyncEnvironmentResource:
         input["vcf_hostnames"] = vcf_hostnames
         input["site_id"] = site_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[AsyncevsClientConfig] = None) -> "aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse":
+
+    async def read(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+    ) -> "aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse":
         """<p>Returns a description of the specified environment.</p>
 
         Args:
             environment_id: <p>A unique ID for the environment.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.get_environment_response.GetEnvironmentResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_environment
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_environment.async_get_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_environment.async_get_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
         input["environment_id"] = environment_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse":
+
+    async def delete(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse":
         """<p>Deletes an Amazon EVS environment.</p> <p>Amazon EVS environments will only be enabled for deletion once the hosts are deleted. You can delete hosts using the <code>DeleteEnvironmentHost</code> action.</p> <p>Environment deletion also deletes the associated Amazon EVS VLAN subnets and Amazon Web Services Secrets Manager secrets that Amazon EVS created. Amazon Web Services resources that you create are not deleted. These resources may continue to incur costs.</p>
 
         Args:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID associated with the environment to be deleted.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.delete_environment_response.DeleteEnvironmentResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment.async_delete_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment.async_delete_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -616,9 +1144,25 @@ class AsyncEnvironmentResource:
             input["client_token"] = client_token
         input["environment_id"] = environment_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncevsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None, state: Optional["aws_sdk_evs.types.environment_state_list.EnvironmentStateList"] = None) -> "aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+        state: Optional[
+            "aws_sdk_evs.types.environment_state_list.EnvironmentStateList"
+        ] = None,
+    ) -> "aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse":
         """<p>Lists the Amazon EVS environments in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
 
         Args:
@@ -626,9 +1170,20 @@ class AsyncEnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             state: <p>The state of an environment. Used to filter response results to return only environments with the specified <code>environmentState</code>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.list_environments_response.ListEnvironmentsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environments
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environments.async_list_environments(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environments.async_list_environments(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -640,9 +1195,22 @@ class AsyncEnvironmentResource:
         if state is not None:
             input["state"] = state
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_eip_to_vlan(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", vlan_name: str, allocation_id: "aws_sdk_evs.types.allocation_id.AllocationId", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse":
+
+    async def associate_eip_to_vlan(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        vlan_name: str,
+        allocation_id: "aws_sdk_evs.types.allocation_id.AllocationId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse":
         """<p>Associates an Elastic IP address with a public HCX VLAN. This operation is only allowed for public HCX VLANs at this time.</p>
 
         Args:
@@ -651,9 +1219,20 @@ class AsyncEnvironmentResource:
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             allocation_id: <p>The Elastic IP address allocation ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.associate_eip_to_vlan_response.AssociateEipToVlanResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.associate_eip_to_vlan
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.associate_eip_to_vlan.async_associate_eip_to_vlan(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.associate_eip_to_vlan.async_associate_eip_to_vlan(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -664,9 +1243,23 @@ class AsyncEnvironmentResource:
         input["vlan_name"] = vlan_name
         input["allocation_id"] = allocation_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def create_entitlement(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType", vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse":
+
+    async def create_entitlement(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType",
+        vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse":
         """<p>Creates a Windows Server License entitlement for virtual machines in an Amazon EVS environment using the provided vCenter Server connector. This is an asynchronous operation. Amazon EVS validates the specified virtual machines before starting usage tracking.</p>
 
         Args:
@@ -676,9 +1269,20 @@ class AsyncEnvironmentResource:
             entitlement_type: <p>The type of entitlement to create.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to create entitlements for.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.create_entitlement_response.CreateEntitlementResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_entitlement
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_entitlement.async_create_entitlement(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_entitlement.async_create_entitlement(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -690,9 +1294,23 @@ class AsyncEnvironmentResource:
         input["entitlement_type"] = entitlement_type
         input["vm_ids"] = vm_ids
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def create_environment_connector(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", type: "aws_sdk_evs.types.connector_type.ConnectorType", appliance_fqdn: "aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn", secret_identifier: "aws_sdk_evs.types.secret_identifier.SecretIdentifier", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse":
+
+    async def create_environment_connector(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        type: "aws_sdk_evs.types.connector_type.ConnectorType",
+        appliance_fqdn: "aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn",
+        secret_identifier: "aws_sdk_evs.types.secret_identifier.SecretIdentifier",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse":
         """<p>Creates a connector for an Amazon EVS environment. A connector establishes a connection to a VCF appliance, such as vCenter, using a fully qualified domain name and an Amazon Web Services Secrets Manager secret that stores the appliance credentials.</p>
 
         Args:
@@ -702,9 +1320,20 @@ class AsyncEnvironmentResource:
             appliance_fqdn: <p>The fully qualified domain name (FQDN) of the VCF appliance that the connector targets.</p>
             secret_identifier: <p>The ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p> <important> <p>Do not use credentials with Administrator privileges. We recommend using a service account with the minimum required permissions.</p> </important>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.create_environment_connector_response.CreateEnvironmentConnectorResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_connector
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_connector.async_create_environment_connector(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_connector.async_create_environment_connector(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -716,9 +1345,22 @@ class AsyncEnvironmentResource:
         input["appliance_fqdn"] = appliance_fqdn
         input["secret_identifier"] = secret_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def create_environment_host(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", host: "aws_sdk_evs.types.host_info_for_create.HostInfoForCreate", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None, esx_version: Optional["aws_sdk_evs.types.esx_version.EsxVersion"] = None) -> "aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse":
+
+    async def create_environment_host(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        host: "aws_sdk_evs.types.host_info_for_create.HostInfoForCreate",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+        esx_version: Optional["aws_sdk_evs.types.esx_version.EsxVersion"] = None,
+    ) -> "aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse":
         """<p>Creates an ESX host and adds it to an Amazon EVS environment. Amazon EVS supports 4-32 hosts per environment.</p> <p>This action can only be used after the Amazon EVS environment is deployed.</p> <p>You can use the <code>dedicatedHostId</code> parameter to specify an Amazon EC2 Dedicated Host for ESX host creation.</p> <p> You can use the <code>placementGroupId</code> parameter to specify a cluster or partition placement group to launch EC2 instances into.</p> <note> <p>If you don't specify an ESX version when adding hosts using <code>CreateEnvironmentHost</code> action, Amazon EVS automatically uses the default ESX version associated with your environment's VCF version. To find the default ESX version for a particular VCF version, use the <code>GetVersions</code> action.</p> </note> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironmentHost</code> action. This results in a <code>ValidationException</code> response.</p> </note>
 
         Args:
@@ -727,9 +1369,20 @@ class AsyncEnvironmentResource:
             host: <p>The host that is created and added to the environment.</p>
             esx_version: <p>The ESX version to use for the host.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.create_environment_host_response.CreateEnvironmentHostResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_host
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_host.async_create_environment_host(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.create_environment_host.async_create_environment_host(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -741,9 +1394,23 @@ class AsyncEnvironmentResource:
         if esx_version is not None:
             input["esx_version"] = esx_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_entitlement(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType", vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse":
+
+    async def delete_entitlement(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType",
+        vm_ids: "aws_sdk_evs.types.vm_id_list.VmIdList",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse":
         """<p>Deletes a Windows Server License entitlement for virtual machines in an Amazon EVS environment. Deleting an entitlement stops usage tracking for the specified virtual machines.</p>
 
         Args:
@@ -753,9 +1420,20 @@ class AsyncEnvironmentResource:
             entitlement_type: <p>The type of entitlement to delete.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to delete entitlements for.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.delete_entitlement_response.DeleteEntitlementResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_entitlement
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_entitlement.async_delete_entitlement(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_entitlement.async_delete_entitlement(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -767,9 +1445,21 @@ class AsyncEnvironmentResource:
         input["entitlement_type"] = entitlement_type
         input["vm_ids"] = vm_ids
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_environment_connector(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse":
+
+    async def delete_environment_connector(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse":
         """<p>Deletes a connector from an Amazon EVS environment.</p> <note> <p>Before deleting a connector, you must remove all entitlements that are associated with the same vCenter.</p> </note>
 
         Args:
@@ -777,9 +1467,20 @@ class AsyncEnvironmentResource:
             environment_id: <p>A unique ID for the environment that the connector belongs to.</p>
             connector_id: <p>A unique ID for the connector to be deleted.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.delete_environment_connector_response.DeleteEnvironmentConnectorResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_connector
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_connector.async_delete_environment_connector(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_connector.async_delete_environment_connector(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -789,9 +1490,21 @@ class AsyncEnvironmentResource:
         input["environment_id"] = environment_id
         input["connector_id"] = connector_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_environment_host(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", host_name: "aws_sdk_evs.types.host_name.HostName", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse":
+
+    async def delete_environment_host(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        host_name: "aws_sdk_evs.types.host_name.HostName",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse":
         """<p>Deletes a host from an Amazon EVS environment.</p> <note> <p>Before deleting a host, you must unassign and decommission the host from within the SDDC Manager user interface. Not doing so could impact the availability of your virtual machines or result in data loss.</p> </note>
 
         Args:
@@ -799,9 +1512,20 @@ class AsyncEnvironmentResource:
             environment_id: <p>A unique ID for the host's environment.</p>
             host_name: <p>The DNS hostname associated with the host to be deleted.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.delete_environment_host_response.DeleteEnvironmentHostResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_host
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_host.async_delete_environment_host(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.delete_environment_host.async_delete_environment_host(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -811,9 +1535,22 @@ class AsyncEnvironmentResource:
         input["environment_id"] = environment_id
         input["host_name"] = host_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_eip_from_vlan(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", vlan_name: str, association_id: "aws_sdk_evs.types.association_id.AssociationId", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None) -> "aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse":
+
+    async def disassociate_eip_from_vlan(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        vlan_name: str,
+        association_id: "aws_sdk_evs.types.association_id.AssociationId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse":
         """<p>Disassociates an Elastic IP address from a public HCX VLAN. This operation is only allowed for public HCX VLANs at this time.</p>
 
         Args:
@@ -822,9 +1559,20 @@ class AsyncEnvironmentResource:
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             association_id: <p> A unique ID for the Elastic IP address association.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.disassociate_eip_from_vlan_response.DisassociateEipFromVlanResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.disassociate_eip_from_vlan
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.disassociate_eip_from_vlan.async_disassociate_eip_from_vlan(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.disassociate_eip_from_vlan.async_disassociate_eip_from_vlan(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -835,18 +1583,40 @@ class AsyncEnvironmentResource:
         input["vlan_name"] = vlan_name
         input["association_id"] = association_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_depot_url(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[AsyncevsClientConfig] = None, rotate: Optional[bool] = None) -> "aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse":
+
+    async def get_depot_url(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        rotate: Optional[bool] = None,
+    ) -> "aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse":
         """<p>Returns a URL and authentication token for accessing the Amazon EVS Custom Addon depot. Configure the depot URL as a download source in vSphere Lifecycle Manager (vLCM) to sync and install the Amazon EVS Custom Addon.</p> <p>The depot URL remains active until you rotate the authentication token by calling this action with <code>rotate</code> set to <code>true</code>.</p>
 
         Args:
             environment_id: <p>The unique ID of the Amazon EVS environment to get the depot URL for.</p>
             rotate: <p>Revokes the current authentication token and returns a new depot URL with a new token. Previously issued depot URLs will stop working within 5 minutes of rotation.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.get_depot_url_response.GetDepotUrlResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_depot_url
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_depot_url.async_get_depot_url(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.get_depot_url.async_get_depot_url(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -855,9 +1625,23 @@ class AsyncEnvironmentResource:
         if rotate is not None:
             input["rotate"] = rotate
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_environment_connectors(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[AsyncevsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse":
+
+    async def list_environment_connectors(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse":
         """<p>Lists the connectors within an environment. Returns the status of each connector and its applicable checks, among other connector details.</p>
 
         Args:
@@ -865,9 +1649,20 @@ class AsyncEnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.list_environment_connectors_response.ListEnvironmentConnectorsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_connectors
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_connectors.async_list_environment_connectors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_connectors.async_list_environment_connectors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -878,9 +1673,25 @@ class AsyncEnvironmentResource:
             input["max_results"] = max_results
         input["environment_id"] = environment_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_environment_hosts(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[AsyncevsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse":
+
+    async def list_environment_hosts(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> (
+        "aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse"
+    ):
         """<p>List the hosts within an environment.</p>
 
         Args:
@@ -888,9 +1699,20 @@ class AsyncEnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.list_environment_hosts_response.ListEnvironmentHostsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_hosts
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_hosts.async_list_environment_hosts(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_hosts.async_list_environment_hosts(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -901,9 +1723,25 @@ class AsyncEnvironmentResource:
             input["max_results"] = max_results
         input["environment_id"] = environment_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_environment_vlans(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", *, config_overrides: Optional[AsyncevsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse":
+
+    async def list_environment_vlans(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> (
+        "aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse"
+    ):
         """<p>Lists environment VLANs that are associated with the specified environment.</p>
 
         Args:
@@ -911,9 +1749,20 @@ class AsyncEnvironmentResource:
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.list_environment_vlans_response.ListEnvironmentVlansResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_vlans
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_vlans.async_list_environment_vlans(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_environment_vlans.async_list_environment_vlans(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -924,9 +1773,25 @@ class AsyncEnvironmentResource:
             input["max_results"] = max_results
         input["environment_id"] = environment_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_vm_entitlements(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType", *, config_overrides: Optional[AsyncevsClientConfig] = None, next_token: Optional["aws_sdk_evs.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None) -> "aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse":
+
+    async def list_vm_entitlements(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        entitlement_type: "aws_sdk_evs.types.entitlement_type.EntitlementType",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_evs.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_evs.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse":
         """<p>Lists the Windows Server License entitlements for virtual machines in an Amazon EVS environment. Returns existing entitlements for virtual machines associated with the specified environment and connector.</p>
 
         Args:
@@ -936,9 +1801,20 @@ class AsyncEnvironmentResource:
             connector_id: <p>A unique ID for the connector.</p>
             entitlement_type: <p>The type of entitlement to list.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.list_vm_entitlements_response.ListVmEntitlementsResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_vm_entitlements
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_vm_entitlements.async_list_vm_entitlements(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.list_vm_entitlements.async_list_vm_entitlements(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -951,9 +1827,27 @@ class AsyncEnvironmentResource:
         input["connector_id"] = connector_id
         input["entitlement_type"] = entitlement_type
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_environment_connector(self, environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId", connector_id: "aws_sdk_evs.types.connector_id.ConnectorId", *, config_overrides: Optional[AsyncevsClientConfig] = None, client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None, appliance_fqdn: Optional["aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn"] = None, secret_identifier: Optional["aws_sdk_evs.types.secret_identifier.SecretIdentifier"] = None) -> "aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse":
+
+    async def update_environment_connector(
+        self,
+        environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId",
+        connector_id: "aws_sdk_evs.types.connector_id.ConnectorId",
+        *,
+        config_overrides: Optional[AsyncevsClientConfig] = None,
+        client_token: Optional["aws_sdk_evs.types.client_token.ClientToken"] = None,
+        appliance_fqdn: Optional[
+            "aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn"
+        ] = None,
+        secret_identifier: Optional[
+            "aws_sdk_evs.types.secret_identifier.SecretIdentifier"
+        ] = None,
+    ) -> "aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse":
         """<p>Updates a connector for an Amazon EVS environment. You can update the Amazon Web Services Secrets Manager secret ARN or the appliance FQDN to reconfigure the connector metadata.</p> <note> <p>You cannot update both the secret and the FQDN in the same request.</p> </note>
 
         Args:
@@ -963,9 +1857,20 @@ class AsyncEnvironmentResource:
             appliance_fqdn: <p>The new fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>
             secret_identifier: <p>The new ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest]') -> AsyncOperationResponse["aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_evs.types.update_environment_connector_response.UpdateEnvironmentConnectorResponse"
+        ]:
             import aws_sdk_evs._operations.amazon_elastic_v_mware_service.update_environment_connector
-            output, http_response = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.update_environment_connector.async_update_environment_connector(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_evs._operations.amazon_elastic_v_mware_service.update_environment_connector.async_update_environment_connector(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -979,5 +1884,9 @@ class AsyncEnvironmentResource:
         if secret_identifier is not None:
             input["secret_identifier"] = secret_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

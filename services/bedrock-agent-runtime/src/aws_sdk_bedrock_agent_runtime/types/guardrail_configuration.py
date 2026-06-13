@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailConfiguration``."""
 
 from typing import TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 
 class GuardrailConfiguration(TypedDict):
     guardrail_id: "str"
     """<p>The unique identifier for the guardrail.</p>"""
     guardrail_version: "str"
     """<p>The version of the guardrail.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GuardrailConfiguration) -> dict:

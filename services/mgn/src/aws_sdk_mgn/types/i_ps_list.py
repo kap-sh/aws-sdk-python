@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#IPsList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
 

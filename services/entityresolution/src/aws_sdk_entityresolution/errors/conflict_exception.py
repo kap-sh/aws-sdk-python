@@ -1,13 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ConflictException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_entityresolution.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.error_message
 
+
 class ConflictException_(TypedDict):
     message: NotRequired["aws_sdk_entityresolution.types.error_message.ErrorMessage"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConflictException_) -> dict:
@@ -26,10 +31,16 @@ def deserialize_json(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.entityresolution#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

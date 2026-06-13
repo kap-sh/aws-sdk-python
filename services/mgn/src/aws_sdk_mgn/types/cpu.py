@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#CPU``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.positive_integer
+
 
 class CPU(TypedDict):
     cores: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>The number of CPU cores on the source server.</p>"""
     model_name: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
     """<p>The source server's CPU model name.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CPU) -> dict:

@@ -1,0 +1,428 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#LineChartConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.axis_display_options
+    import aws_sdk_quicksight.types.chart_axis_label_options
+    import aws_sdk_quicksight.types.contribution_analysis_default_list
+    import aws_sdk_quicksight.types.data_label_options
+    import aws_sdk_quicksight.types.forecast_configuration_list
+    import aws_sdk_quicksight.types.legend_options
+    import aws_sdk_quicksight.types.line_chart_default_series_settings
+    import aws_sdk_quicksight.types.line_chart_field_wells
+    import aws_sdk_quicksight.types.line_chart_sort_configuration
+    import aws_sdk_quicksight.types.line_chart_type
+    import aws_sdk_quicksight.types.line_series_axis_display_options
+    import aws_sdk_quicksight.types.reference_line_list
+    import aws_sdk_quicksight.types.series_item_list
+    import aws_sdk_quicksight.types.single_axis_options
+    import aws_sdk_quicksight.types.small_multiples_options
+    import aws_sdk_quicksight.types.tooltip_options
+    import aws_sdk_quicksight.types.visual_interaction_options
+    import aws_sdk_quicksight.types.visual_palette
+
+
+class LineChartConfiguration(TypedDict):
+    field_wells: NotRequired[
+        "aws_sdk_quicksight.types.line_chart_field_wells.LineChartFieldWells"
+    ]
+    """<p>The field well configuration of a line chart.</p>"""
+    sort_configuration: NotRequired[
+        "aws_sdk_quicksight.types.line_chart_sort_configuration.LineChartSortConfiguration"
+    ]
+    """<p>The sort configuration of a line chart.</p>"""
+    forecast_configurations: NotRequired[
+        "aws_sdk_quicksight.types.forecast_configuration_list.ForecastConfigurationList"
+    ]
+    """<p>The forecast configuration of a line chart.</p>"""
+    type: NotRequired["aws_sdk_quicksight.types.line_chart_type.LineChartType"]
+    """<p>Determines the type of the line chart.</p>"""
+    small_multiples_options: NotRequired[
+        "aws_sdk_quicksight.types.small_multiples_options.SmallMultiplesOptions"
+    ]
+    """<p>The small multiples setup for the visual.</p>"""
+    x_axis_display_options: NotRequired[
+        "aws_sdk_quicksight.types.axis_display_options.AxisDisplayOptions"
+    ]
+    """<p>The options that determine the presentation of the x-axis.</p>"""
+    x_axis_label_options: NotRequired[
+        "aws_sdk_quicksight.types.chart_axis_label_options.ChartAxisLabelOptions"
+    ]
+    """<p>The options that determine the presentation of the x-axis label.</p>"""
+    primary_y_axis_display_options: NotRequired[
+        "aws_sdk_quicksight.types.line_series_axis_display_options.LineSeriesAxisDisplayOptions"
+    ]
+    """<p>The series axis configuration of a line chart.</p>"""
+    primary_y_axis_label_options: NotRequired[
+        "aws_sdk_quicksight.types.chart_axis_label_options.ChartAxisLabelOptions"
+    ]
+    """<p>The options that determine the presentation of the y-axis label.</p>"""
+    secondary_y_axis_display_options: NotRequired[
+        "aws_sdk_quicksight.types.line_series_axis_display_options.LineSeriesAxisDisplayOptions"
+    ]
+    """<p>The series axis configuration of a line chart.</p>"""
+    secondary_y_axis_label_options: NotRequired[
+        "aws_sdk_quicksight.types.chart_axis_label_options.ChartAxisLabelOptions"
+    ]
+    """<p>The options that determine the presentation of the secondary y-axis label.</p>"""
+    single_axis_options: NotRequired[
+        "aws_sdk_quicksight.types.single_axis_options.SingleAxisOptions"
+    ]
+    default_series_settings: NotRequired[
+        "aws_sdk_quicksight.types.line_chart_default_series_settings.LineChartDefaultSeriesSettings"
+    ]
+    """<p>The options that determine the default presentation of all line series in <code>LineChartVisual</code>.</p>"""
+    series: NotRequired["aws_sdk_quicksight.types.series_item_list.SeriesItemList"]
+    """<p>The series item configuration of a line chart.</p>"""
+    legend: NotRequired["aws_sdk_quicksight.types.legend_options.LegendOptions"]
+    """<p>The legend configuration of a line chart.</p>"""
+    data_labels: NotRequired[
+        "aws_sdk_quicksight.types.data_label_options.DataLabelOptions"
+    ]
+    """<p>The data label configuration of a line chart.</p>"""
+    reference_lines: NotRequired[
+        "aws_sdk_quicksight.types.reference_line_list.ReferenceLineList"
+    ]
+    """<p>The reference lines configuration of a line chart.</p>"""
+    tooltip: NotRequired["aws_sdk_quicksight.types.tooltip_options.TooltipOptions"]
+    """<p>The tooltip configuration of a line chart.</p>"""
+    contribution_analysis_defaults: NotRequired[
+        "aws_sdk_quicksight.types.contribution_analysis_default_list.ContributionAnalysisDefaultList"
+    ]
+    """<p>The default configuration of a line chart's contribution analysis.</p>"""
+    visual_palette: NotRequired["aws_sdk_quicksight.types.visual_palette.VisualPalette"]
+    """<p>The visual palette configuration of a line chart.</p>"""
+    interactions: NotRequired[
+        "aws_sdk_quicksight.types.visual_interaction_options.VisualInteractionOptions"
+    ]
+    """<p>The general visual interactions setup for a visual.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: LineChartConfiguration) -> dict:
+    out: dict = {}
+    if "field_wells" in value:
+        import aws_sdk_quicksight.types.line_chart_field_wells
+
+        out["FieldWells"] = (
+            aws_sdk_quicksight.types.line_chart_field_wells.serialize_json(
+                value["field_wells"]
+            )
+        )
+    if "sort_configuration" in value:
+        import aws_sdk_quicksight.types.line_chart_sort_configuration
+
+        out["SortConfiguration"] = (
+            aws_sdk_quicksight.types.line_chart_sort_configuration.serialize_json(
+                value["sort_configuration"]
+            )
+        )
+    if "forecast_configurations" in value:
+        import aws_sdk_quicksight.types.forecast_configuration_list
+
+        out["ForecastConfigurations"] = (
+            aws_sdk_quicksight.types.forecast_configuration_list.serialize_json(
+                value["forecast_configurations"]
+            )
+        )
+    if "type" in value:
+        import aws_sdk_quicksight.types.line_chart_type
+
+        out["Type"] = aws_sdk_quicksight.types.line_chart_type.serialize_json(
+            value["type"]
+        )
+    if "small_multiples_options" in value:
+        import aws_sdk_quicksight.types.small_multiples_options
+
+        out["SmallMultiplesOptions"] = (
+            aws_sdk_quicksight.types.small_multiples_options.serialize_json(
+                value["small_multiples_options"]
+            )
+        )
+    if "x_axis_display_options" in value:
+        import aws_sdk_quicksight.types.axis_display_options
+
+        out["XAxisDisplayOptions"] = (
+            aws_sdk_quicksight.types.axis_display_options.serialize_json(
+                value["x_axis_display_options"]
+            )
+        )
+    if "x_axis_label_options" in value:
+        import aws_sdk_quicksight.types.chart_axis_label_options
+
+        out["XAxisLabelOptions"] = (
+            aws_sdk_quicksight.types.chart_axis_label_options.serialize_json(
+                value["x_axis_label_options"]
+            )
+        )
+    if "primary_y_axis_display_options" in value:
+        import aws_sdk_quicksight.types.line_series_axis_display_options
+
+        out["PrimaryYAxisDisplayOptions"] = (
+            aws_sdk_quicksight.types.line_series_axis_display_options.serialize_json(
+                value["primary_y_axis_display_options"]
+            )
+        )
+    if "primary_y_axis_label_options" in value:
+        import aws_sdk_quicksight.types.chart_axis_label_options
+
+        out["PrimaryYAxisLabelOptions"] = (
+            aws_sdk_quicksight.types.chart_axis_label_options.serialize_json(
+                value["primary_y_axis_label_options"]
+            )
+        )
+    if "secondary_y_axis_display_options" in value:
+        import aws_sdk_quicksight.types.line_series_axis_display_options
+
+        out["SecondaryYAxisDisplayOptions"] = (
+            aws_sdk_quicksight.types.line_series_axis_display_options.serialize_json(
+                value["secondary_y_axis_display_options"]
+            )
+        )
+    if "secondary_y_axis_label_options" in value:
+        import aws_sdk_quicksight.types.chart_axis_label_options
+
+        out["SecondaryYAxisLabelOptions"] = (
+            aws_sdk_quicksight.types.chart_axis_label_options.serialize_json(
+                value["secondary_y_axis_label_options"]
+            )
+        )
+    if "single_axis_options" in value:
+        import aws_sdk_quicksight.types.single_axis_options
+
+        out["SingleAxisOptions"] = (
+            aws_sdk_quicksight.types.single_axis_options.serialize_json(
+                value["single_axis_options"]
+            )
+        )
+    if "default_series_settings" in value:
+        import aws_sdk_quicksight.types.line_chart_default_series_settings
+
+        out["DefaultSeriesSettings"] = (
+            aws_sdk_quicksight.types.line_chart_default_series_settings.serialize_json(
+                value["default_series_settings"]
+            )
+        )
+    if "series" in value:
+        import aws_sdk_quicksight.types.series_item_list
+
+        out["Series"] = aws_sdk_quicksight.types.series_item_list.serialize_json(
+            value["series"]
+        )
+    if "legend" in value:
+        import aws_sdk_quicksight.types.legend_options
+
+        out["Legend"] = aws_sdk_quicksight.types.legend_options.serialize_json(
+            value["legend"]
+        )
+    if "data_labels" in value:
+        import aws_sdk_quicksight.types.data_label_options
+
+        out["DataLabels"] = aws_sdk_quicksight.types.data_label_options.serialize_json(
+            value["data_labels"]
+        )
+    if "reference_lines" in value:
+        import aws_sdk_quicksight.types.reference_line_list
+
+        out["ReferenceLines"] = (
+            aws_sdk_quicksight.types.reference_line_list.serialize_json(
+                value["reference_lines"]
+            )
+        )
+    if "tooltip" in value:
+        import aws_sdk_quicksight.types.tooltip_options
+
+        out["Tooltip"] = aws_sdk_quicksight.types.tooltip_options.serialize_json(
+            value["tooltip"]
+        )
+    if "contribution_analysis_defaults" in value:
+        import aws_sdk_quicksight.types.contribution_analysis_default_list
+
+        out["ContributionAnalysisDefaults"] = (
+            aws_sdk_quicksight.types.contribution_analysis_default_list.serialize_json(
+                value["contribution_analysis_defaults"]
+            )
+        )
+    if "visual_palette" in value:
+        import aws_sdk_quicksight.types.visual_palette
+
+        out["VisualPalette"] = aws_sdk_quicksight.types.visual_palette.serialize_json(
+            value["visual_palette"]
+        )
+    if "interactions" in value:
+        import aws_sdk_quicksight.types.visual_interaction_options
+
+        out["Interactions"] = (
+            aws_sdk_quicksight.types.visual_interaction_options.serialize_json(
+                value["interactions"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> LineChartConfiguration:
+    out: LineChartConfiguration = {}  # type: ignore[typeddict-item]
+    if "FieldWells" in data:
+        import aws_sdk_quicksight.types.line_chart_field_wells
+
+        out["field_wells"] = (
+            aws_sdk_quicksight.types.line_chart_field_wells.deserialize_json(
+                data["FieldWells"]
+            )
+        )
+    if "SortConfiguration" in data:
+        import aws_sdk_quicksight.types.line_chart_sort_configuration
+
+        out["sort_configuration"] = (
+            aws_sdk_quicksight.types.line_chart_sort_configuration.deserialize_json(
+                data["SortConfiguration"]
+            )
+        )
+    if "ForecastConfigurations" in data:
+        import aws_sdk_quicksight.types.forecast_configuration_list
+
+        out["forecast_configurations"] = (
+            aws_sdk_quicksight.types.forecast_configuration_list.deserialize_json(
+                data["ForecastConfigurations"]
+            )
+        )
+    if "Type" in data:
+        import aws_sdk_quicksight.types.line_chart_type
+
+        out["type"] = aws_sdk_quicksight.types.line_chart_type.deserialize_json(
+            data["Type"]
+        )
+    if "SmallMultiplesOptions" in data:
+        import aws_sdk_quicksight.types.small_multiples_options
+
+        out["small_multiples_options"] = (
+            aws_sdk_quicksight.types.small_multiples_options.deserialize_json(
+                data["SmallMultiplesOptions"]
+            )
+        )
+    if "XAxisDisplayOptions" in data:
+        import aws_sdk_quicksight.types.axis_display_options
+
+        out["x_axis_display_options"] = (
+            aws_sdk_quicksight.types.axis_display_options.deserialize_json(
+                data["XAxisDisplayOptions"]
+            )
+        )
+    if "XAxisLabelOptions" in data:
+        import aws_sdk_quicksight.types.chart_axis_label_options
+
+        out["x_axis_label_options"] = (
+            aws_sdk_quicksight.types.chart_axis_label_options.deserialize_json(
+                data["XAxisLabelOptions"]
+            )
+        )
+    if "PrimaryYAxisDisplayOptions" in data:
+        import aws_sdk_quicksight.types.line_series_axis_display_options
+
+        out["primary_y_axis_display_options"] = (
+            aws_sdk_quicksight.types.line_series_axis_display_options.deserialize_json(
+                data["PrimaryYAxisDisplayOptions"]
+            )
+        )
+    if "PrimaryYAxisLabelOptions" in data:
+        import aws_sdk_quicksight.types.chart_axis_label_options
+
+        out["primary_y_axis_label_options"] = (
+            aws_sdk_quicksight.types.chart_axis_label_options.deserialize_json(
+                data["PrimaryYAxisLabelOptions"]
+            )
+        )
+    if "SecondaryYAxisDisplayOptions" in data:
+        import aws_sdk_quicksight.types.line_series_axis_display_options
+
+        out["secondary_y_axis_display_options"] = (
+            aws_sdk_quicksight.types.line_series_axis_display_options.deserialize_json(
+                data["SecondaryYAxisDisplayOptions"]
+            )
+        )
+    if "SecondaryYAxisLabelOptions" in data:
+        import aws_sdk_quicksight.types.chart_axis_label_options
+
+        out["secondary_y_axis_label_options"] = (
+            aws_sdk_quicksight.types.chart_axis_label_options.deserialize_json(
+                data["SecondaryYAxisLabelOptions"]
+            )
+        )
+    if "SingleAxisOptions" in data:
+        import aws_sdk_quicksight.types.single_axis_options
+
+        out["single_axis_options"] = (
+            aws_sdk_quicksight.types.single_axis_options.deserialize_json(
+                data["SingleAxisOptions"]
+            )
+        )
+    if "DefaultSeriesSettings" in data:
+        import aws_sdk_quicksight.types.line_chart_default_series_settings
+
+        out["default_series_settings"] = (
+            aws_sdk_quicksight.types.line_chart_default_series_settings.deserialize_json(
+                data["DefaultSeriesSettings"]
+            )
+        )
+    if "Series" in data:
+        import aws_sdk_quicksight.types.series_item_list
+
+        out["series"] = aws_sdk_quicksight.types.series_item_list.deserialize_json(
+            data["Series"]
+        )
+    if "Legend" in data:
+        import aws_sdk_quicksight.types.legend_options
+
+        out["legend"] = aws_sdk_quicksight.types.legend_options.deserialize_json(
+            data["Legend"]
+        )
+    if "DataLabels" in data:
+        import aws_sdk_quicksight.types.data_label_options
+
+        out["data_labels"] = (
+            aws_sdk_quicksight.types.data_label_options.deserialize_json(
+                data["DataLabels"]
+            )
+        )
+    if "ReferenceLines" in data:
+        import aws_sdk_quicksight.types.reference_line_list
+
+        out["reference_lines"] = (
+            aws_sdk_quicksight.types.reference_line_list.deserialize_json(
+                data["ReferenceLines"]
+            )
+        )
+    if "Tooltip" in data:
+        import aws_sdk_quicksight.types.tooltip_options
+
+        out["tooltip"] = aws_sdk_quicksight.types.tooltip_options.deserialize_json(
+            data["Tooltip"]
+        )
+    if "ContributionAnalysisDefaults" in data:
+        import aws_sdk_quicksight.types.contribution_analysis_default_list
+
+        out["contribution_analysis_defaults"] = (
+            aws_sdk_quicksight.types.contribution_analysis_default_list.deserialize_json(
+                data["ContributionAnalysisDefaults"]
+            )
+        )
+    if "VisualPalette" in data:
+        import aws_sdk_quicksight.types.visual_palette
+
+        out["visual_palette"] = (
+            aws_sdk_quicksight.types.visual_palette.deserialize_json(
+                data["VisualPalette"]
+            )
+        )
+    if "Interactions" in data:
+        import aws_sdk_quicksight.types.visual_interaction_options
+
+        out["interactions"] = (
+            aws_sdk_quicksight.types.visual_interaction_options.deserialize_json(
+                data["Interactions"]
+            )
+        )
+    return out

@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceApiKeyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_grafana.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.api_key_name
     import aws_sdk_grafana.types.api_key_token
     import aws_sdk_grafana.types.workspace_id
+
 
 class CreateWorkspaceApiKeyResponse(TypedDict):
     key_name: "aws_sdk_grafana.types.api_key_name.ApiKeyName"
@@ -14,6 +17,7 @@ class CreateWorkspaceApiKeyResponse(TypedDict):
     """<p>The key token. Use this value as a bearer token to authenticate HTTP requests to the workspace.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace that the key is valid for.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateWorkspaceApiKeyResponse) -> dict:
@@ -37,5 +41,7 @@ def deserialize_json(data: dict) -> CreateWorkspaceApiKeyResponse:
     if "workspaceId" in data:
         out["workspace_id"] = data["workspaceId"]
     else:
-        raise DeserializationError("CreateWorkspaceApiKeyResponse.workspace_id required")
+        raise DeserializationError(
+            "CreateWorkspaceApiKeyResponse.workspace_id required"
+        )
     return out

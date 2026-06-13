@@ -1,21 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteFastReset``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_neptunedata._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_neptunedata._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_neptunedata.errors import ServiceError, UnknownServiceError
-from aws_sdk_neptunedata._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
 import aws_sdk_neptunedata._auth._signers
 import aws_sdk_neptunedata._auth._sigv4
-from aws_sdk_neptunedata._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_neptunedata._protocol.errors import parse_error_metadata_json
+from aws_sdk_neptunedata._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_neptunedata._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_neptunedata.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.execute_fast_reset_input
     import aws_sdk_neptunedata.types.execute_fast_reset_output
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,60 +28,124 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_neptunedata.errors.access_denied_exception
-            raise aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "ClientTimeoutException":
             import aws_sdk_neptunedata.errors.client_timeout_exception
-            raise aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException.from_json(
+                data
+            )
         case "ConstraintViolationException":
             import aws_sdk_neptunedata.errors.constraint_violation_exception
-            raise aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException.from_json(
+                data
+            )
         case "IllegalArgumentException":
             import aws_sdk_neptunedata.errors.illegal_argument_exception
-            raise aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException.from_json(
+                data
+            )
         case "InvalidArgumentException":
             import aws_sdk_neptunedata.errors.invalid_argument_exception
-            raise aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException.from_json(
+                data
+            )
         case "InvalidParameterException":
             import aws_sdk_neptunedata.errors.invalid_parameter_exception
-            raise aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException.from_json(
+                data
+            )
         case "MethodNotAllowedException":
             import aws_sdk_neptunedata.errors.method_not_allowed_exception
-            raise aws_sdk_neptunedata.errors.method_not_allowed_exception.MethodNotAllowedException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.method_not_allowed_exception.MethodNotAllowedException.from_json(
+                data
+            )
         case "MissingParameterException":
             import aws_sdk_neptunedata.errors.missing_parameter_exception
-            raise aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException.from_json(
+                data
+            )
         case "PreconditionsFailedException":
             import aws_sdk_neptunedata.errors.preconditions_failed_exception
-            raise aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException.from_json(
+                data
+            )
         case "ReadOnlyViolationException":
             import aws_sdk_neptunedata.errors.read_only_violation_exception
-            raise aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException.from_json(
+                data
+            )
         case "ServerShutdownException":
             import aws_sdk_neptunedata.errors.server_shutdown_exception
-            raise aws_sdk_neptunedata.errors.server_shutdown_exception.ServerShutdownException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.server_shutdown_exception.ServerShutdownException.from_json(
+                data
+            )
         case "TooManyRequestsException":
             import aws_sdk_neptunedata.errors.too_many_requests_exception
-            raise aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException.from_json(
+                data
+            )
         case "UnsupportedOperationException":
             import aws_sdk_neptunedata.errors.unsupported_operation_exception
-            raise aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException.from_json(data)
+
+            raise aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput:
     import aws_sdk_neptunedata.types.execute_fast_reset_output
-    out: aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput = aws_sdk_neptunedata.types.execute_fast_reset_output.deserialize_json(json.loads(response.read()))
+
+    out: aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput = (
+        aws_sdk_neptunedata.types.execute_fast_reset_output.deserialize_json(
+            json.loads(response.read())
+        )
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_neptunedata._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_neptunedata._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_neptunedata._auth._sigv4.build_sigv4_auth_scheme('neptune-db', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_neptunedata._auth._sigv4.build_sigv4_auth_scheme(
+                "neptune-db", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_neptunedata._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_neptunedata._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             Region=options.region,
@@ -89,7 +158,10 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_neptunedata.types.execute_fast_reset_input
-    body: bytes | None = json.dumps(aws_sdk_neptunedata.types.execute_fast_reset_input.serialize_json(input)).encode()
+
+    body: bytes | None = json.dumps(
+        aws_sdk_neptunedata.types.execute_fast_reset_input.serialize_json(input)
+    ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -102,7 +174,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def execute_fast_reset(options: OperationOptions, input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput) -> tuple[aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput, zapros.Response]:
+
+def execute_fast_reset(
+    options: OperationOptions,
+    input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput,
+) -> tuple[
+    aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -113,7 +192,14 @@ def execute_fast_reset(options: OperationOptions, input: aws_sdk_neptunedata.typ
         response.close()
         raise
 
-async def async_execute_fast_reset(options: AsyncOperationOptions, input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput) -> tuple[aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput, zapros.Response]:
+
+async def async_execute_fast_reset(
+    options: AsyncOperationOptions,
+    input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput,
+) -> tuple[
+    aws_sdk_neptunedata.types.execute_fast_reset_output.ExecuteFastResetOutput,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

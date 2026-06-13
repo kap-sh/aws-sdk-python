@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.ssmsap#ApplicationCredential``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_ssm_sap.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm_sap.types.credential_type
+    import aws_sdk_ssm_sap.types.database_name
+    import aws_sdk_ssm_sap.types.secret_id
+
+
+class ApplicationCredential(TypedDict):
+    database_name: "aws_sdk_ssm_sap.types.database_name.DatabaseName"
+    """<p>The name of the SAP HANA database.</p>"""
+    credential_type: "aws_sdk_ssm_sap.types.credential_type.CredentialType"
+    """<p>The type of the application credentials. </p>"""
+    secret_id: "aws_sdk_ssm_sap.types.secret_id.SecretId"
+    """<p>The secret ID created in AWS Secrets Manager to store the credentials of the SAP application. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ApplicationCredential) -> dict:
+    out: dict = {}
+    out["DatabaseName"] = value["database_name"]
+    import aws_sdk_ssm_sap.types.credential_type
+
+    out["CredentialType"] = aws_sdk_ssm_sap.types.credential_type.serialize_json(
+        value["credential_type"]
+    )
+    out["SecretId"] = value["secret_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> ApplicationCredential:
+    out: ApplicationCredential = {}  # type: ignore[typeddict-item]
+    if "DatabaseName" in data:
+        out["database_name"] = data["DatabaseName"]
+    else:
+        raise DeserializationError("ApplicationCredential.database_name required")
+    if "CredentialType" in data:
+        import aws_sdk_ssm_sap.types.credential_type
+
+        out["credential_type"] = aws_sdk_ssm_sap.types.credential_type.deserialize_json(
+            data["CredentialType"]
+        )
+    else:
+        raise DeserializationError("ApplicationCredential.credential_type required")
+    if "SecretId" in data:
+        out["secret_id"] = data["SecretId"]
+    else:
+        raise DeserializationError("ApplicationCredential.secret_id required")
+    return out

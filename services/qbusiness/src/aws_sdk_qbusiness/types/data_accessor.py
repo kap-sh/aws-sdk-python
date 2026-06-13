@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataAccessor``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_accessor_arn
     import aws_sdk_qbusiness.types.data_accessor_authentication_detail
@@ -11,23 +13,37 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.principal_role_arn
     import aws_sdk_qbusiness.types.timestamp
 
+
 class DataAccessor(TypedDict):
-    display_name: NotRequired["aws_sdk_qbusiness.types.data_accessor_name.DataAccessorName"]
+    display_name: NotRequired[
+        "aws_sdk_qbusiness.types.data_accessor_name.DataAccessorName"
+    ]
     """<p>The friendly name of the data accessor.</p>"""
-    data_accessor_id: NotRequired["aws_sdk_qbusiness.types.data_accessor_id.DataAccessorId"]
+    data_accessor_id: NotRequired[
+        "aws_sdk_qbusiness.types.data_accessor_id.DataAccessorId"
+    ]
     """<p>The unique identifier of the data accessor.</p>"""
-    data_accessor_arn: NotRequired["aws_sdk_qbusiness.types.data_accessor_arn.DataAccessorArn"]
+    data_accessor_arn: NotRequired[
+        "aws_sdk_qbusiness.types.data_accessor_arn.DataAccessorArn"
+    ]
     """<p>The Amazon Resource Name (ARN) of the data accessor.</p>"""
-    idc_application_arn: NotRequired["aws_sdk_qbusiness.types.idc_application_arn.IdcApplicationArn"]
+    idc_application_arn: NotRequired[
+        "aws_sdk_qbusiness.types.idc_application_arn.IdcApplicationArn"
+    ]
     """<p>The Amazon Resource Name (ARN) of the associated IAM Identity Center application.</p>"""
-    principal: NotRequired["aws_sdk_qbusiness.types.principal_role_arn.PrincipalRoleArn"]
+    principal: NotRequired[
+        "aws_sdk_qbusiness.types.principal_role_arn.PrincipalRoleArn"
+    ]
     """<p>The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.</p>"""
-    authentication_detail: NotRequired["aws_sdk_qbusiness.types.data_accessor_authentication_detail.DataAccessorAuthenticationDetail"]
+    authentication_detail: NotRequired[
+        "aws_sdk_qbusiness.types.data_accessor_authentication_detail.DataAccessorAuthenticationDetail"
+    ]
     """<p>The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.</p>"""
     created_at: NotRequired["aws_sdk_qbusiness.types.timestamp.Timestamp"]
     """<p>The timestamp when the data accessor was created.</p>"""
     updated_at: NotRequired["aws_sdk_qbusiness.types.timestamp.Timestamp"]
     """<p>The timestamp when the data accessor was last updated.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataAccessor) -> dict:
@@ -44,13 +60,24 @@ def serialize_json(value: DataAccessor) -> dict:
         out["principal"] = value["principal"]
     if "authentication_detail" in value:
         import aws_sdk_qbusiness.types.data_accessor_authentication_detail
-        out["authenticationDetail"] = aws_sdk_qbusiness.types.data_accessor_authentication_detail.serialize_json(value["authentication_detail"])
+
+        out["authenticationDetail"] = (
+            aws_sdk_qbusiness.types.data_accessor_authentication_detail.serialize_json(
+                value["authentication_detail"]
+            )
+        )
     if "created_at" in value:
         import aws_sdk_qbusiness.types.timestamp
-        out["createdAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(value["created_at"])
+
+        out["createdAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(
+            value["created_at"]
+        )
     if "updated_at" in value:
         import aws_sdk_qbusiness.types.timestamp
-        out["updatedAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(value["updated_at"])
+
+        out["updatedAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(
+            value["updated_at"]
+        )
     return out
 
 
@@ -68,11 +95,22 @@ def deserialize_json(data: dict) -> DataAccessor:
         out["principal"] = data["principal"]
     if "authenticationDetail" in data:
         import aws_sdk_qbusiness.types.data_accessor_authentication_detail
-        out["authentication_detail"] = aws_sdk_qbusiness.types.data_accessor_authentication_detail.deserialize_json(data["authenticationDetail"])
+
+        out["authentication_detail"] = (
+            aws_sdk_qbusiness.types.data_accessor_authentication_detail.deserialize_json(
+                data["authenticationDetail"]
+            )
+        )
     if "createdAt" in data:
         import aws_sdk_qbusiness.types.timestamp
-        out["created_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(
+            data["createdAt"]
+        )
     if "updatedAt" in data:
         import aws_sdk_qbusiness.types.timestamp
-        out["updated_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(data["updatedAt"])
+
+        out["updated_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(
+            data["updatedAt"]
+        )
     return out

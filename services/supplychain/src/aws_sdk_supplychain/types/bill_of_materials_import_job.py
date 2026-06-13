@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#BillOfMaterialsImportJob``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_supplychain.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.configuration_job_status
     import aws_sdk_supplychain.types.configuration_s3_uri
     import aws_sdk_supplychain.types.uuid
+
 
 class BillOfMaterialsImportJob(TypedDict):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
@@ -20,13 +24,17 @@ class BillOfMaterialsImportJob(TypedDict):
     message: NotRequired["str"]
     """<p>When the BillOfMaterialsImportJob has reached a terminal state, there will be a message.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BillOfMaterialsImportJob) -> dict:
     out: dict = {}
     out["instanceId"] = value["instance_id"]
     out["jobId"] = value["job_id"]
     import aws_sdk_supplychain.types.configuration_job_status
-    out["status"] = aws_sdk_supplychain.types.configuration_job_status.serialize_json(value["status"])
+
+    out["status"] = aws_sdk_supplychain.types.configuration_job_status.serialize_json(
+        value["status"]
+    )
     out["s3uri"] = value["s3uri"]
     if "message" in value:
         out["message"] = value["message"]
@@ -45,7 +53,12 @@ def deserialize_json(data: dict) -> BillOfMaterialsImportJob:
         raise DeserializationError("BillOfMaterialsImportJob.job_id required")
     if "status" in data:
         import aws_sdk_supplychain.types.configuration_job_status
-        out["status"] = aws_sdk_supplychain.types.configuration_job_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_supplychain.types.configuration_job_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("BillOfMaterialsImportJob.status required")
     if "s3uri" in data:

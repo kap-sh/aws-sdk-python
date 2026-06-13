@@ -5,6 +5,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer_data.types.arn
     import aws_sdk_signer_data.types.certificate_hashes
     import aws_sdk_signer_data.types.platform_id
+    import datetime
 
 class GetRevocationStatusRequest(TypedDict):
     signature_timestamp: "datetime.datetime"

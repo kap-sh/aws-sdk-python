@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ConstraintViolationException``."""
 
 from typing import TypedDict
-from aws_sdk_neptunedata.errors import DeserializationError
-from aws_sdk_neptunedata.errors import ServiceError
+
+from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
+
 
 class ConstraintViolationException_(TypedDict):
     detailed_message: "str"
@@ -11,6 +12,7 @@ class ConstraintViolationException_(TypedDict):
     """<p>The ID of the request in question.</p>"""
     code: "str"
     """<p>The HTTP status code returned with the exception.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConstraintViolationException_) -> dict:
@@ -26,7 +28,9 @@ def deserialize_json(data: dict) -> ConstraintViolationException_:
     if "detailedMessage" in data:
         out["detailed_message"] = data["detailedMessage"]
     else:
-        raise DeserializationError("ConstraintViolationException_.detailed_message required")
+        raise DeserializationError(
+            "ConstraintViolationException_.detailed_message required"
+        )
     if "requestId" in data:
         out["request_id"] = data["requestId"]
     else:
@@ -40,10 +44,16 @@ def deserialize_json(data: dict) -> ConstraintViolationException_:
 
 class ConstraintViolationException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.neptunedata#ConstraintViolationException``."""
-    code: str | None = 'ConstraintViolationException'
+
+    code: str | None = "ConstraintViolationException"
 
     def __init__(self, data: ConstraintViolationException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=True, code='ConstraintViolationException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=True,
+            code="ConstraintViolationException",
+        )
         self.data = data
 
     @classmethod

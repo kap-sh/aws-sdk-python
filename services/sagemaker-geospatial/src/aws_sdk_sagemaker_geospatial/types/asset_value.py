@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#AssetValue``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class AssetValue(TypedDict):
     href: NotRequired["str"]
     """<p>Link to the asset object.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssetValue) -> dict:

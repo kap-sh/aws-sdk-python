@@ -1,20 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#LicenseServer``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_provisioning_status
     import aws_sdk_license_manager_user_subscriptions.types.license_server_health_status
 
+
 class LicenseServer(TypedDict):
-    provisioning_status: NotRequired["aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_provisioning_status.LicenseServerEndpointProvisioningStatus"]
+    provisioning_status: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_provisioning_status.LicenseServerEndpointProvisioningStatus"
+    ]
     """<p>The current state of the provisioning process for the RDS license server.</p>"""
-    health_status: NotRequired["aws_sdk_license_manager_user_subscriptions.types.license_server_health_status.LicenseServerHealthStatus"]
+    health_status: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.license_server_health_status.LicenseServerHealthStatus"
+    ]
     """<p>The health status of the RDS license server.</p>"""
     ipv4_address: NotRequired["str"]
     """<p>A list of domain IPv4 addresses that are used for the RDS license server.</p>"""
     ipv6_address: NotRequired["str"]
     """<p>A list of domain IPv6 addresses that are used for the RDS license server.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: LicenseServer) -> dict:

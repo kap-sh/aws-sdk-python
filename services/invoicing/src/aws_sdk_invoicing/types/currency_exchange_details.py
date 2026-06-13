@@ -1,17 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#CurrencyExchangeDetails``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
 
+
 class CurrencyExchangeDetails(TypedDict):
-    source_currency_code: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
+    source_currency_code: NotRequired[
+        "aws_sdk_invoicing.types.basic_string.BasicString"
+    ]
     """<p>The exchange source currency. </p>"""
-    target_currency_code: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
+    target_currency_code: NotRequired[
+        "aws_sdk_invoicing.types.basic_string.BasicString"
+    ]
     """<p>The exchange target currency. </p>"""
     rate: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     """<p>The currency exchange rate. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CurrencyExchangeDetails) -> dict:

@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ResourceNotFoundException``."""
 
 from typing import TypedDict
-from aws_sdk_dsql.errors import DeserializationError
-from aws_sdk_dsql.errors import ServiceError
+
+from aws_sdk_dsql.errors import DeserializationError, ServiceError
+
 
 class ResourceNotFoundException_(TypedDict):
     message: "str"
@@ -10,6 +11,7 @@ class ResourceNotFoundException_(TypedDict):
     """<p>The resource ID could not be found.</p>"""
     resource_type: "str"
     """<p>The resource type could not be found.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ResourceNotFoundException_) -> dict:
@@ -39,10 +41,16 @@ def deserialize_json(data: dict) -> ResourceNotFoundException_:
 
 class ResourceNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.dsql#ResourceNotFoundException``."""
-    code: str | None = 'ResourceNotFoundException'
+
+    code: str | None = "ResourceNotFoundException"
 
     def __init__(self, data: ResourceNotFoundException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ResourceNotFoundException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ResourceNotFoundException",
+        )
         self.data = data
 
     @classmethod

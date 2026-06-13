@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateRestoreTestingPlanInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_backup.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.restore_testing_plan_for_create
     import aws_sdk_backup.types.sensitive_string_map
+
 
 class CreateRestoreTestingPlanInput(TypedDict):
     creator_request_id: NotRequired["str"]
@@ -15,16 +19,25 @@ class CreateRestoreTestingPlanInput(TypedDict):
     tags: NotRequired["aws_sdk_backup.types.sensitive_string_map.SensitiveStringMap"]
     """<p>The tags to assign to the restore testing plan.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateRestoreTestingPlanInput) -> dict:
     out: dict = {}
     if "creator_request_id" in value:
         out["CreatorRequestId"] = value["creator_request_id"]
     import aws_sdk_backup.types.restore_testing_plan_for_create
-    out["RestoreTestingPlan"] = aws_sdk_backup.types.restore_testing_plan_for_create.serialize_json(value["restore_testing_plan"])
+
+    out["RestoreTestingPlan"] = (
+        aws_sdk_backup.types.restore_testing_plan_for_create.serialize_json(
+            value["restore_testing_plan"]
+        )
+    )
     if "tags" in value:
         import aws_sdk_backup.types.sensitive_string_map
-        out["Tags"] = aws_sdk_backup.types.sensitive_string_map.serialize_json(value["tags"])
+
+        out["Tags"] = aws_sdk_backup.types.sensitive_string_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -34,10 +47,20 @@ def deserialize_json(data: dict) -> CreateRestoreTestingPlanInput:
         out["creator_request_id"] = data["CreatorRequestId"]
     if "RestoreTestingPlan" in data:
         import aws_sdk_backup.types.restore_testing_plan_for_create
-        out["restore_testing_plan"] = aws_sdk_backup.types.restore_testing_plan_for_create.deserialize_json(data["RestoreTestingPlan"])
+
+        out["restore_testing_plan"] = (
+            aws_sdk_backup.types.restore_testing_plan_for_create.deserialize_json(
+                data["RestoreTestingPlan"]
+            )
+        )
     else:
-        raise DeserializationError("CreateRestoreTestingPlanInput.restore_testing_plan required")
+        raise DeserializationError(
+            "CreateRestoreTestingPlanInput.restore_testing_plan required"
+        )
     if "Tags" in data:
         import aws_sdk_backup.types.sensitive_string_map
-        out["tags"] = aws_sdk_backup.types.sensitive_string_map.deserialize_json(data["Tags"])
+
+        out["tags"] = aws_sdk_backup.types.sensitive_string_map.deserialize_json(
+            data["Tags"]
+        )
     return out

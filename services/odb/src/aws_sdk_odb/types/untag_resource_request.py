@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.odb#UntagResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_odb.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_odb.types.resource_arn
+    import aws_sdk_odb.types.tag_keys
+
+
+class UntagResourceRequest(TypedDict):
+    resource_arn: "aws_sdk_odb.types.resource_arn.ResourceArn"
+    """<p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>"""
+    tag_keys: "aws_sdk_odb.types.tag_keys.TagKeys"
+    """<p>The names (keys) of the tags to remove from the resource.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UntagResourceRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_odb.types.tag_keys
+
+    out["tagKeys"] = aws_sdk_odb.types.tag_keys.serialize_aws_json_1_0(
+        value["tag_keys"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UntagResourceRequest:
+    out: UntagResourceRequest = {}  # type: ignore[typeddict-item]
+    if "tagKeys" in data:
+        import aws_sdk_odb.types.tag_keys
+
+        out["tag_keys"] = aws_sdk_odb.types.tag_keys.deserialize_aws_json_1_0(
+            data["tagKeys"]
+        )
+    else:
+        raise DeserializationError("UntagResourceRequest.tag_keys required")
+    return out

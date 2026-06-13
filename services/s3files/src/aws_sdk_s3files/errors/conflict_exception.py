@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ConflictException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
-from aws_sdk_s3files.errors import DeserializationError
-from aws_sdk_s3files.errors import ServiceError
+
+from aws_sdk_s3files.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.error_code
+
 
 class ConflictException_(TypedDict):
     error_code: "aws_sdk_s3files.types.error_code.ErrorCode"
@@ -15,6 +18,7 @@ class ConflictException_(TypedDict):
     """<p>The identifier of the resource that caused the conflict.</p>"""
     resource_type: NotRequired["str"]
     """<p>The type of the resource that caused the conflict.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConflictException_) -> dict:
@@ -46,10 +50,16 @@ def deserialize_json(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.s3files#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

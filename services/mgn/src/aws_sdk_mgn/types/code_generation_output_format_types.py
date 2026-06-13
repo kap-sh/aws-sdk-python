@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#CodeGenerationOutputFormatTypes``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.code_generation_output_format_type
 
-CodeGenerationOutputFormatTypes: TypeAlias = list["aws_sdk_mgn.types.code_generation_output_format_type.CodeGenerationOutputFormatType"]
+CodeGenerationOutputFormatTypes: TypeAlias = list[
+    "aws_sdk_mgn.types.code_generation_output_format_type.CodeGenerationOutputFormatType"
+]
 
 
 # --- restJson1 ser/de ---

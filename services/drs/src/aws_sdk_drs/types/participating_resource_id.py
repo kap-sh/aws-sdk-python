@@ -1,14 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ParticipatingResourceID``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_drs.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_network_id
+
 
 class _ParticipatingResourceID_sourceNetworkID(TypedDict):
     sourceNetworkID: "aws_sdk_drs.types.source_network_id.SourceNetworkID"
 
+
 ParticipatingResourceID: TypeAlias = _ParticipatingResourceID_sourceNetworkID
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ParticipatingResourceID) -> dict:

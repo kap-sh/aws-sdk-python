@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CancelImportTaskOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_neptune_graph.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.format
     import aws_sdk_neptune_graph.types.graph_id
@@ -10,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.parquet_type
     import aws_sdk_neptune_graph.types.role_arn
     import aws_sdk_neptune_graph.types.task_id
+
 
 class CancelImportTaskOutput(TypedDict):
     graph_id: NotRequired["aws_sdk_neptune_graph.types.graph_id.GraphId"]
@@ -27,6 +31,7 @@ class CancelImportTaskOutput(TypedDict):
     status: "aws_sdk_neptune_graph.types.import_task_status.ImportTaskStatus"
     """<p>Current status of the task. Status is CANCELLING when the import task is cancelled.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelImportTaskOutput) -> dict:
     out: dict = {}
@@ -36,13 +41,22 @@ def serialize_json(value: CancelImportTaskOutput) -> dict:
     out["source"] = value["source"]
     if "format" in value:
         import aws_sdk_neptune_graph.types.format
-        out["format"] = aws_sdk_neptune_graph.types.format.serialize_json(value["format"])
+
+        out["format"] = aws_sdk_neptune_graph.types.format.serialize_json(
+            value["format"]
+        )
     if "parquet_type" in value:
         import aws_sdk_neptune_graph.types.parquet_type
-        out["parquetType"] = aws_sdk_neptune_graph.types.parquet_type.serialize_json(value["parquet_type"])
+
+        out["parquetType"] = aws_sdk_neptune_graph.types.parquet_type.serialize_json(
+            value["parquet_type"]
+        )
     out["roleArn"] = value["role_arn"]
     import aws_sdk_neptune_graph.types.import_task_status
-    out["status"] = aws_sdk_neptune_graph.types.import_task_status.serialize_json(value["status"])
+
+    out["status"] = aws_sdk_neptune_graph.types.import_task_status.serialize_json(
+        value["status"]
+    )
     return out
 
 
@@ -60,17 +74,26 @@ def deserialize_json(data: dict) -> CancelImportTaskOutput:
         raise DeserializationError("CancelImportTaskOutput.source required")
     if "format" in data:
         import aws_sdk_neptune_graph.types.format
-        out["format"] = aws_sdk_neptune_graph.types.format.deserialize_json(data["format"])
+
+        out["format"] = aws_sdk_neptune_graph.types.format.deserialize_json(
+            data["format"]
+        )
     if "parquetType" in data:
         import aws_sdk_neptune_graph.types.parquet_type
-        out["parquet_type"] = aws_sdk_neptune_graph.types.parquet_type.deserialize_json(data["parquetType"])
+
+        out["parquet_type"] = aws_sdk_neptune_graph.types.parquet_type.deserialize_json(
+            data["parquetType"]
+        )
     if "roleArn" in data:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CancelImportTaskOutput.role_arn required")
     if "status" in data:
         import aws_sdk_neptune_graph.types.import_task_status
-        out["status"] = aws_sdk_neptune_graph.types.import_task_status.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_neptune_graph.types.import_task_status.deserialize_json(
+            data["status"]
+        )
     else:
         raise DeserializationError("CancelImportTaskOutput.status required")
     return out

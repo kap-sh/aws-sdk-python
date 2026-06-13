@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#ResourceNotFoundException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_networkflowmonitor.errors import ServiceError
+
 
 class ResourceNotFoundException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ResourceNotFoundException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> ResourceNotFoundException_:
 
 class ResourceNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.networkflowmonitor#ResourceNotFoundException``."""
-    code: str | None = 'ResourceNotFoundException'
+
+    code: str | None = "ResourceNotFoundException"
 
     def __init__(self, data: ResourceNotFoundException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ResourceNotFoundException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ResourceNotFoundException",
+        )
         self.data = data
 
     @classmethod

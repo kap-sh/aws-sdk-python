@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#Placement``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.arn
     import aws_sdk_workspaces_instances.types.availability_zone
@@ -11,12 +13,17 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.string64
     import aws_sdk_workspaces_instances.types.tenancy_enum
 
+
 class Placement(TypedDict):
     affinity: NotRequired["aws_sdk_workspaces_instances.types.string64.String64"]
     """<p>Specifies host affinity for dedicated instances.</p>"""
-    availability_zone: NotRequired["aws_sdk_workspaces_instances.types.availability_zone.AvailabilityZone"]
+    availability_zone: NotRequired[
+        "aws_sdk_workspaces_instances.types.availability_zone.AvailabilityZone"
+    ]
     """<p>Identifies the specific AWS availability zone.</p>"""
-    group_id: NotRequired["aws_sdk_workspaces_instances.types.placement_group_id.PlacementGroupId"]
+    group_id: NotRequired[
+        "aws_sdk_workspaces_instances.types.placement_group_id.PlacementGroupId"
+    ]
     """<p>Unique identifier for placement group.</p>"""
     group_name: NotRequired["aws_sdk_workspaces_instances.types.string64.String64"]
     """<p>Name of the placement group.</p>"""
@@ -24,10 +31,13 @@ class Placement(TypedDict):
     """<p>Identifies the specific dedicated host.</p>"""
     host_resource_group_arn: NotRequired["aws_sdk_workspaces_instances.types.arn.ARN"]
     """<p>ARN of the host resource group.</p>"""
-    partition_number: NotRequired["aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"]
+    partition_number: NotRequired[
+        "aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"
+    ]
     """<p>Specifies partition number for partition placement groups.</p>"""
     tenancy: NotRequired["aws_sdk_workspaces_instances.types.tenancy_enum.TenancyEnum"]
     """<p>Defines instance tenancy configuration.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: Placement) -> dict:
@@ -48,7 +58,12 @@ def serialize_aws_json_1_0(value: Placement) -> dict:
         out["PartitionNumber"] = value["partition_number"]
     if "tenancy" in value:
         import aws_sdk_workspaces_instances.types.tenancy_enum
-        out["Tenancy"] = aws_sdk_workspaces_instances.types.tenancy_enum.serialize_aws_json_1_0(value["tenancy"])
+
+        out["Tenancy"] = (
+            aws_sdk_workspaces_instances.types.tenancy_enum.serialize_aws_json_1_0(
+                value["tenancy"]
+            )
+        )
     return out
 
 
@@ -70,5 +85,10 @@ def deserialize_aws_json_1_0(data: dict) -> Placement:
         out["partition_number"] = data["PartitionNumber"]
     if "Tenancy" in data:
         import aws_sdk_workspaces_instances.types.tenancy_enum
-        out["tenancy"] = aws_sdk_workspaces_instances.types.tenancy_enum.deserialize_aws_json_1_0(data["Tenancy"])
+
+        out["tenancy"] = (
+            aws_sdk_workspaces_instances.types.tenancy_enum.deserialize_aws_json_1_0(
+                data["Tenancy"]
+            )
+        )
     return out

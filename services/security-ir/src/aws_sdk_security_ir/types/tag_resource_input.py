@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.securityir#TagResourceInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_security_ir.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_security_ir.types.arn
+    import aws_sdk_security_ir.types.tag_map
+
+
+class TagResourceInput(TypedDict):
+    resource_arn: "aws_sdk_security_ir.types.arn.Arn"
+    """<p>Required element for TagResource to identify the ARN for the resource to add a tag to.</p>"""
+    tags: "aws_sdk_security_ir.types.tag_map.TagMap"
+    """<p>Required element for ListTagsForResource to provide the content for a tag.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TagResourceInput) -> dict:
+    out: dict = {}
+    import aws_sdk_security_ir.types.tag_map
+
+    out["tags"] = aws_sdk_security_ir.types.tag_map.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> TagResourceInput:
+    out: TagResourceInput = {}  # type: ignore[typeddict-item]
+    if "tags" in data:
+        import aws_sdk_security_ir.types.tag_map
+
+        out["tags"] = aws_sdk_security_ir.types.tag_map.deserialize_json(data["tags"])
+    else:
+        raise DeserializationError("TagResourceInput.tags required")
+    return out

@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteDocument``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_qbusiness.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_id
+
 
 class DeleteDocument(TypedDict):
     document_id: "aws_sdk_qbusiness.types.document_id.DocumentId"
     """<p>The identifier of the deleted document.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteDocument) -> dict:

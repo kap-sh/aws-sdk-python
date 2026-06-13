@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#ForecastedEvent``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.forecasted_geofence_event_type
     import aws_sdk_location.types.id
@@ -10,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.property_map
     import aws_sdk_location.types.timestamp
     import aws_sdk_location.types.uuid
+
 
 class ForecastedEvent(TypedDict):
     event_id: "aws_sdk_location.types.uuid.Uuid"
@@ -27,6 +31,7 @@ class ForecastedEvent(TypedDict):
     geofence_properties: NotRequired["aws_sdk_location.types.property_map.PropertyMap"]
     """<p>The geofence properties.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ForecastedEvent) -> dict:
     out: dict = {}
@@ -37,10 +42,16 @@ def serialize_json(value: ForecastedEvent) -> dict:
     out["EventType"] = value["event_type"]
     if "forecasted_breach_time" in value:
         import aws_sdk_location.types.timestamp
-        out["ForecastedBreachTime"] = aws_sdk_location.types.timestamp.serialize_json(value["forecasted_breach_time"])
+
+        out["ForecastedBreachTime"] = aws_sdk_location.types.timestamp.serialize_json(
+            value["forecasted_breach_time"]
+        )
     if "geofence_properties" in value:
         import aws_sdk_location.types.property_map
-        out["GeofenceProperties"] = aws_sdk_location.types.property_map.serialize_json(value["geofence_properties"])
+
+        out["GeofenceProperties"] = aws_sdk_location.types.property_map.serialize_json(
+            value["geofence_properties"]
+        )
     return out
 
 
@@ -68,8 +79,18 @@ def deserialize_json(data: dict) -> ForecastedEvent:
         raise DeserializationError("ForecastedEvent.event_type required")
     if "ForecastedBreachTime" in data:
         import aws_sdk_location.types.timestamp
-        out["forecasted_breach_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["ForecastedBreachTime"])
+
+        out["forecasted_breach_time"] = (
+            aws_sdk_location.types.timestamp.deserialize_json(
+                data["ForecastedBreachTime"]
+            )
+        )
     if "GeofenceProperties" in data:
         import aws_sdk_location.types.property_map
-        out["geofence_properties"] = aws_sdk_location.types.property_map.deserialize_json(data["GeofenceProperties"])
+
+        out["geofence_properties"] = (
+            aws_sdk_location.types.property_map.deserialize_json(
+                data["GeofenceProperties"]
+            )
+        )
     return out

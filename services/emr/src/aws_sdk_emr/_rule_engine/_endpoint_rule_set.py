@@ -1,24 +1,15 @@
 from __future__ import annotations
 
 from typing import Any
-from zapros import URL
 
+from ._aws_partition import aws_partition
 from ._endpoint_runtime import (
     Endpoint,
     EndpointError,
-    apply_label,
-    aws_is_virtual_hostable_s3_bucket,
-    aws_parse_arn,
     get_attr,
     interpolate,
-    is_valid_host_label,
-    parse_url,
     string_equals,
-    substring,
-    uri_encode,
 )
-
-from ._aws_partition import aws_partition
 
 
 class EndpointParams:

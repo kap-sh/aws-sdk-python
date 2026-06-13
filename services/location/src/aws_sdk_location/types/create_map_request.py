@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateMapRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.map_configuration
     import aws_sdk_location.types.pricing_plan
     import aws_sdk_location.types.resource_description
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.tag_map
+
 
 class CreateMapRequest(TypedDict):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -17,23 +21,30 @@ class CreateMapRequest(TypedDict):
     """<p>Specifies the <code>MapConfiguration</code>, including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.</p>"""
     pricing_plan: NotRequired["aws_sdk_location.types.pricing_plan.PricingPlan"]
     """<p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>"""
-    description: NotRequired["aws_sdk_location.types.resource_description.ResourceDescription"]
+    description: NotRequired[
+        "aws_sdk_location.types.resource_description.ResourceDescription"
+    ]
     """<p>An optional description for the map resource.</p>"""
     tags: NotRequired["aws_sdk_location.types.tag_map.TagMap"]
     """<p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateMapRequest) -> dict:
     out: dict = {}
     out["MapName"] = value["map_name"]
     import aws_sdk_location.types.map_configuration
-    out["Configuration"] = aws_sdk_location.types.map_configuration.serialize_json(value["configuration"])
+
+    out["Configuration"] = aws_sdk_location.types.map_configuration.serialize_json(
+        value["configuration"]
+    )
     if "pricing_plan" in value:
         out["PricingPlan"] = value["pricing_plan"]
     if "description" in value:
         out["Description"] = value["description"]
     if "tags" in value:
         import aws_sdk_location.types.tag_map
+
         out["Tags"] = aws_sdk_location.types.tag_map.serialize_json(value["tags"])
     return out
 
@@ -46,7 +57,12 @@ def deserialize_json(data: dict) -> CreateMapRequest:
         raise DeserializationError("CreateMapRequest.map_name required")
     if "Configuration" in data:
         import aws_sdk_location.types.map_configuration
-        out["configuration"] = aws_sdk_location.types.map_configuration.deserialize_json(data["Configuration"])
+
+        out["configuration"] = (
+            aws_sdk_location.types.map_configuration.deserialize_json(
+                data["Configuration"]
+            )
+        )
     else:
         raise DeserializationError("CreateMapRequest.configuration required")
     if "PricingPlan" in data:
@@ -55,5 +71,6 @@ def deserialize_json(data: dict) -> CreateMapRequest:
         out["description"] = data["Description"]
     if "Tags" in data:
         import aws_sdk_location.types.tag_map
+
         out["tags"] = aws_sdk_location.types.tag_map.deserialize_json(data["Tags"])
     return out

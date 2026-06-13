@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#GetVectorsInputList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_key
 

@@ -1,0 +1,194 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#DescribeBackupVaultOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_backup.types.arn
+    import aws_sdk_backup.types.boolean
+    import aws_sdk_backup.types.encryption_key_type
+    import aws_sdk_backup.types.latest_mpa_approval_team_update
+    import aws_sdk_backup.types.long
+    import aws_sdk_backup.types.long2
+    import aws_sdk_backup.types.string
+    import aws_sdk_backup.types.timestamp
+    import aws_sdk_backup.types.vault_state
+    import aws_sdk_backup.types.vault_type
+
+
+class DescribeBackupVaultOutput(TypedDict):
+    backup_vault_name: NotRequired["aws_sdk_backup.types.string.string"]
+    """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.</p>"""
+    backup_vault_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
+    """<p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>"""
+    vault_type: NotRequired["aws_sdk_backup.types.vault_type.VaultType"]
+    """<p>The type of vault described.</p>"""
+    vault_state: NotRequired["aws_sdk_backup.types.vault_state.VaultState"]
+    """<p>The current state of the vault.-></p>"""
+    encryption_key_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
+    """<p>The server-side encryption key that is used to protect your backups; for example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>"""
+    creation_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
+    """<p>The date and time that a backup vault is created, in Unix format and Coordinated Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
+    creator_request_id: NotRequired["aws_sdk_backup.types.string.string"]
+    """<p>A unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. This parameter is optional. If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
+    number_of_recovery_points: "aws_sdk_backup.types.long2.Long2"
+    """<p>The number of recovery points that are stored in a backup vault.</p> <p>Recovery point count value displayed in the console can be an approximation. Use <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRecoveryPointsByBackupVault.html\"> <code>ListRecoveryPointsByBackupVault</code> </a> API to obtain the exact count.</p>"""
+    locked: NotRequired["aws_sdk_backup.types.boolean.Boolean"]
+    """<p>A Boolean that indicates whether Backup Vault Lock is currently protecting the backup vault. <code>True</code> means that Vault Lock causes delete or update operations on the recovery points stored in the vault to fail.</p>"""
+    min_retention_days: NotRequired["aws_sdk_backup.types.long.Long"]
+    """<p>The Backup Vault Lock setting that specifies the minimum retention period that the vault retains its recovery points. If this parameter is not specified, Vault Lock will not enforce a minimum retention period.</p> <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already stored in the vault prior to Vault Lock are not affected.</p>"""
+    max_retention_days: NotRequired["aws_sdk_backup.types.long.Long"]
+    """<p>The Backup Vault Lock setting that specifies the maximum retention period that the vault retains its recovery points. If this parameter is not specified, Vault Lock does not enforce a maximum retention period on the recovery points in the vault (allowing indefinite storage).</p> <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already stored in the vault prior to Vault Lock are not affected.</p>"""
+    lock_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
+    """<p>The date and time when Backup Vault Lock configuration cannot be changed or deleted.</p> <p>If you applied Vault Lock to your vault without specifying a lock date, you can change any of your Vault Lock settings, or delete Vault Lock from the vault entirely, at any time.</p> <p>This value is in Unix format, Coordinated Universal Time (UTC), and accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
+    source_backup_vault_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
+    """<p>The ARN of the source backup vault from which this restore access backup vault was created.</p>"""
+    mpa_approval_team_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
+    """<p>The ARN of the MPA approval team associated with this backup vault.</p>"""
+    mpa_session_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
+    """<p>The ARN of the MPA session associated with this backup vault.</p>"""
+    latest_mpa_approval_team_update: NotRequired[
+        "aws_sdk_backup.types.latest_mpa_approval_team_update.LatestMpaApprovalTeamUpdate"
+    ]
+    """<p>Information about the latest update to the MPA approval team association for this backup vault.</p>"""
+    encryption_key_type: NotRequired[
+        "aws_sdk_backup.types.encryption_key_type.EncryptionKeyType"
+    ]
+    """<p>The type of encryption key used for the backup vault. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or Amazon Web Services_OWNED_KMS_KEY for Amazon Web Services-owned keys.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeBackupVaultOutput) -> dict:
+    out: dict = {}
+    if "backup_vault_name" in value:
+        out["BackupVaultName"] = value["backup_vault_name"]
+    if "backup_vault_arn" in value:
+        out["BackupVaultArn"] = value["backup_vault_arn"]
+    if "vault_type" in value:
+        import aws_sdk_backup.types.vault_type
+
+        out["VaultType"] = aws_sdk_backup.types.vault_type.serialize_json(
+            value["vault_type"]
+        )
+    if "vault_state" in value:
+        import aws_sdk_backup.types.vault_state
+
+        out["VaultState"] = aws_sdk_backup.types.vault_state.serialize_json(
+            value["vault_state"]
+        )
+    if "encryption_key_arn" in value:
+        out["EncryptionKeyArn"] = value["encryption_key_arn"]
+    if "creation_date" in value:
+        import aws_sdk_backup.types.timestamp
+
+        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["creation_date"]
+        )
+    if "creator_request_id" in value:
+        out["CreatorRequestId"] = value["creator_request_id"]
+    out["NumberOfRecoveryPoints"] = value.get("number_of_recovery_points", 0)
+    if "locked" in value:
+        out["Locked"] = value["locked"]
+    if "min_retention_days" in value:
+        out["MinRetentionDays"] = value["min_retention_days"]
+    if "max_retention_days" in value:
+        out["MaxRetentionDays"] = value["max_retention_days"]
+    if "lock_date" in value:
+        import aws_sdk_backup.types.timestamp
+
+        out["LockDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["lock_date"]
+        )
+    if "source_backup_vault_arn" in value:
+        out["SourceBackupVaultArn"] = value["source_backup_vault_arn"]
+    if "mpa_approval_team_arn" in value:
+        out["MpaApprovalTeamArn"] = value["mpa_approval_team_arn"]
+    if "mpa_session_arn" in value:
+        out["MpaSessionArn"] = value["mpa_session_arn"]
+    if "latest_mpa_approval_team_update" in value:
+        import aws_sdk_backup.types.latest_mpa_approval_team_update
+
+        out["LatestMpaApprovalTeamUpdate"] = (
+            aws_sdk_backup.types.latest_mpa_approval_team_update.serialize_json(
+                value["latest_mpa_approval_team_update"]
+            )
+        )
+    if "encryption_key_type" in value:
+        import aws_sdk_backup.types.encryption_key_type
+
+        out["EncryptionKeyType"] = (
+            aws_sdk_backup.types.encryption_key_type.serialize_json(
+                value["encryption_key_type"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeBackupVaultOutput:
+    out: DescribeBackupVaultOutput = {}  # type: ignore[typeddict-item]
+    if "BackupVaultName" in data:
+        out["backup_vault_name"] = data["BackupVaultName"]
+    if "BackupVaultArn" in data:
+        out["backup_vault_arn"] = data["BackupVaultArn"]
+    if "VaultType" in data:
+        import aws_sdk_backup.types.vault_type
+
+        out["vault_type"] = aws_sdk_backup.types.vault_type.deserialize_json(
+            data["VaultType"]
+        )
+    if "VaultState" in data:
+        import aws_sdk_backup.types.vault_state
+
+        out["vault_state"] = aws_sdk_backup.types.vault_state.deserialize_json(
+            data["VaultState"]
+        )
+    if "EncryptionKeyArn" in data:
+        out["encryption_key_arn"] = data["EncryptionKeyArn"]
+    if "CreationDate" in data:
+        import aws_sdk_backup.types.timestamp
+
+        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CreationDate"]
+        )
+    if "CreatorRequestId" in data:
+        out["creator_request_id"] = data["CreatorRequestId"]
+    if "NumberOfRecoveryPoints" in data:
+        out["number_of_recovery_points"] = data["NumberOfRecoveryPoints"]
+    else:
+        out["number_of_recovery_points"] = 0
+    if "Locked" in data:
+        out["locked"] = data["Locked"]
+    if "MinRetentionDays" in data:
+        out["min_retention_days"] = data["MinRetentionDays"]
+    if "MaxRetentionDays" in data:
+        out["max_retention_days"] = data["MaxRetentionDays"]
+    if "LockDate" in data:
+        import aws_sdk_backup.types.timestamp
+
+        out["lock_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["LockDate"]
+        )
+    if "SourceBackupVaultArn" in data:
+        out["source_backup_vault_arn"] = data["SourceBackupVaultArn"]
+    if "MpaApprovalTeamArn" in data:
+        out["mpa_approval_team_arn"] = data["MpaApprovalTeamArn"]
+    if "MpaSessionArn" in data:
+        out["mpa_session_arn"] = data["MpaSessionArn"]
+    if "LatestMpaApprovalTeamUpdate" in data:
+        import aws_sdk_backup.types.latest_mpa_approval_team_update
+
+        out["latest_mpa_approval_team_update"] = (
+            aws_sdk_backup.types.latest_mpa_approval_team_update.deserialize_json(
+                data["LatestMpaApprovalTeamUpdate"]
+            )
+        )
+    if "EncryptionKeyType" in data:
+        import aws_sdk_backup.types.encryption_key_type
+
+        out["encryption_key_type"] = (
+            aws_sdk_backup.types.encryption_key_type.deserialize_json(
+                data["EncryptionKeyType"]
+            )
+        )
+    return out

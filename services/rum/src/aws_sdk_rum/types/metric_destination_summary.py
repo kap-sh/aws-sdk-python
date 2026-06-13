@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#MetricDestinationSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.destination_arn
     import aws_sdk_rum.types.iam_role_arn
     import aws_sdk_rum.types.metric_destination
+
 
 class MetricDestinationSummary(TypedDict):
     destination: NotRequired["aws_sdk_rum.types.metric_destination.MetricDestination"]
@@ -14,6 +17,7 @@ class MetricDestinationSummary(TypedDict):
     """<p>If the destination is <code>Evidently</code>, this specifies the ARN of the Evidently experiment that receives the metrics.</p>"""
     iam_role_arn: NotRequired["aws_sdk_rum.types.iam_role_arn.IamRoleArn"]
     """<p>This field appears only when the destination is <code>Evidently</code>. It specifies the ARN of the IAM role that is used to write to the Evidently experiment that receives the metrics.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: MetricDestinationSummary) -> dict:

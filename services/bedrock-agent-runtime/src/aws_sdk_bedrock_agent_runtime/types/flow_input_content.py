@@ -1,12 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowInputContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
-from aws_sdk_bedrock_agent_runtime.errors import DeserializationError, SerializationError
+from typing import TypeAlias, TypedDict
+
+from aws_sdk_bedrock_agent_runtime.errors import (
+    DeserializationError,
+    SerializationError,
+)
+
 
 class _FlowInputContent_document(TypedDict):
     document: "object"
 
+
 FlowInputContent: TypeAlias = _FlowInputContent_document
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FlowInputContent) -> dict:

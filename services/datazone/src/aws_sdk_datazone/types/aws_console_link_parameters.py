@@ -3,9 +3,11 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class AwsConsoleLinkParameters(TypedDict):
     uri: NotRequired["str"]
     """<p>The URI of the console link specified as part of the environment action.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsConsoleLinkParameters) -> dict:

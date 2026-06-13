@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ConflictException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_securitylake.errors import ServiceError
+
 
 class ConflictException_(TypedDict):
     message: NotRequired["str"]
@@ -10,6 +13,7 @@ class ConflictException_(TypedDict):
     """<p>The resource name.</p>"""
     resource_type: NotRequired["str"]
     """<p>The resource type.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConflictException_) -> dict:
@@ -36,10 +40,16 @@ def deserialize_json(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.securitylake#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#PrefixListIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.prefix_list_id
 

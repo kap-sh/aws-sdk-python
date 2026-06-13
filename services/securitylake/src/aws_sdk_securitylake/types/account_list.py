@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#AccountList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.aws_account_id
 

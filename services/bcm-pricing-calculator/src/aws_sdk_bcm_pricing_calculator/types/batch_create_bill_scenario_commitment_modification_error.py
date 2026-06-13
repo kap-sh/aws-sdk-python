@@ -1,21 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateBillScenarioCommitmentModificationError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code
     import aws_sdk_bcm_pricing_calculator.types.key
+
 
 class BatchCreateBillScenarioCommitmentModificationError(TypedDict):
     key: NotRequired["aws_sdk_bcm_pricing_calculator.types.key.Key"]
     """<p> The key of the entry that caused the error. </p>"""
     error_message: NotRequired["str"]
     """<p> A descriptive message for the error that occurred. </p>"""
-    error_code: NotRequired["aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code.BatchCreateBillScenarioCommitmentModificationErrorCode"]
+    error_code: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code.BatchCreateBillScenarioCommitmentModificationErrorCode"
+    ]
     """<p> The error code associated with the failed operation. </p>"""
 
+
 # --- awsJson1_0 ser/de ---
-def serialize_aws_json_1_0(value: BatchCreateBillScenarioCommitmentModificationError) -> dict:
+def serialize_aws_json_1_0(
+    value: BatchCreateBillScenarioCommitmentModificationError,
+) -> dict:
     out: dict = {}
     if "key" in value:
         out["key"] = value["key"]
@@ -23,11 +31,18 @@ def serialize_aws_json_1_0(value: BatchCreateBillScenarioCommitmentModificationE
         out["errorMessage"] = value["error_message"]
     if "error_code" in value:
         import aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code
-        out["errorCode"] = aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code.serialize_aws_json_1_0(value["error_code"])
+
+        out["errorCode"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code.serialize_aws_json_1_0(
+                value["error_code"]
+            )
+        )
     return out
 
 
-def deserialize_aws_json_1_0(data: dict) -> BatchCreateBillScenarioCommitmentModificationError:
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> BatchCreateBillScenarioCommitmentModificationError:
     out: BatchCreateBillScenarioCommitmentModificationError = {}  # type: ignore[typeddict-item]
     if "key" in data:
         out["key"] = data["key"]
@@ -35,5 +50,10 @@ def deserialize_aws_json_1_0(data: dict) -> BatchCreateBillScenarioCommitmentMod
         out["error_message"] = data["errorMessage"]
     if "errorCode" in data:
         import aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code
-        out["error_code"] = aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code.deserialize_aws_json_1_0(data["errorCode"])
+
+        out["error_code"] = (
+            aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_commitment_modification_error_code.deserialize_aws_json_1_0(
+                data["errorCode"]
+            )
+        )
     return out

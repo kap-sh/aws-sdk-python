@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListManagedNotificationChannelAssociationsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.managed_notification_configuration_os_arn
     import aws_sdk_notifications.types.next_token
+
 
 class ListManagedNotificationChannelAssociationsRequest(TypedDict):
     managed_notification_configuration_arn: "aws_sdk_notifications.types.managed_notification_configuration_os_arn.ManagedNotificationConfigurationOsArn"
@@ -13,6 +16,7 @@ class ListManagedNotificationChannelAssociationsRequest(TypedDict):
     """<p>The maximum number of results to be returned in this call. Defaults to 20.</p>"""
     next_token: NotRequired["aws_sdk_notifications.types.next_token.NextToken"]
     """<p>The start token for paginated calls. Retrieved from the response of a previous <code>ListManagedNotificationChannelAssociations</code> call.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListManagedNotificationChannelAssociationsRequest) -> dict:

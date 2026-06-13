@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#DeleteStreamOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_dsql.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_id
     import aws_sdk_dsql.types.stream_arn
     import aws_sdk_dsql.types.stream_creation_time
     import aws_sdk_dsql.types.stream_id
     import aws_sdk_dsql.types.stream_status
+
 
 class DeleteStreamOutput(TypedDict):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
@@ -21,6 +24,7 @@ class DeleteStreamOutput(TypedDict):
     creation_time: "aws_sdk_dsql.types.stream_creation_time.StreamCreationTime"
     """<p>The time when the stream was created.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteStreamOutput) -> dict:
     out: dict = {}
@@ -28,9 +32,13 @@ def serialize_json(value: DeleteStreamOutput) -> dict:
     out["streamIdentifier"] = value["stream_identifier"]
     out["arn"] = value["arn"]
     import aws_sdk_dsql.types.stream_status
+
     out["status"] = aws_sdk_dsql.types.stream_status.serialize_json(value["status"])
     import aws_sdk_dsql.types.stream_creation_time
-    out["creationTime"] = aws_sdk_dsql.types.stream_creation_time.serialize_json(value["creation_time"])
+
+    out["creationTime"] = aws_sdk_dsql.types.stream_creation_time.serialize_json(
+        value["creation_time"]
+    )
     return out
 
 
@@ -50,12 +58,18 @@ def deserialize_json(data: dict) -> DeleteStreamOutput:
         raise DeserializationError("DeleteStreamOutput.arn required")
     if "status" in data:
         import aws_sdk_dsql.types.stream_status
-        out["status"] = aws_sdk_dsql.types.stream_status.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_dsql.types.stream_status.deserialize_json(
+            data["status"]
+        )
     else:
         raise DeserializationError("DeleteStreamOutput.status required")
     if "creationTime" in data:
         import aws_sdk_dsql.types.stream_creation_time
-        out["creation_time"] = aws_sdk_dsql.types.stream_creation_time.deserialize_json(data["creationTime"])
+
+        out["creation_time"] = aws_sdk_dsql.types.stream_creation_time.deserialize_json(
+            data["creationTime"]
+        )
     else:
         raise DeserializationError("DeleteStreamOutput.creation_time required")
     return out

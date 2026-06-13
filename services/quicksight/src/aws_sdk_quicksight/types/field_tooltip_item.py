@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#FieldTooltipItem``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.field_id
+    import aws_sdk_quicksight.types.string
+    import aws_sdk_quicksight.types.tooltip_target
+    import aws_sdk_quicksight.types.visibility
+
+
+class FieldTooltipItem(TypedDict):
+    field_id: "aws_sdk_quicksight.types.field_id.FieldId"
+    """<p>The unique ID of the field that is targeted by the tooltip.</p>"""
+    label: NotRequired["aws_sdk_quicksight.types.string.String"]
+    """<p>The label of the tooltip item.</p>"""
+    visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
+    """<p>The visibility of the tooltip item.</p>"""
+    tooltip_target: NotRequired["aws_sdk_quicksight.types.tooltip_target.TooltipTarget"]
+    """<p>Determines the target of the field tooltip item in a combo chart visual.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FieldTooltipItem) -> dict:
+    out: dict = {}
+    out["FieldId"] = value["field_id"]
+    if "label" in value:
+        out["Label"] = value["label"]
+    if "visibility" in value:
+        import aws_sdk_quicksight.types.visibility
+
+        out["Visibility"] = aws_sdk_quicksight.types.visibility.serialize_json(
+            value["visibility"]
+        )
+    if "tooltip_target" in value:
+        import aws_sdk_quicksight.types.tooltip_target
+
+        out["TooltipTarget"] = aws_sdk_quicksight.types.tooltip_target.serialize_json(
+            value["tooltip_target"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> FieldTooltipItem:
+    out: FieldTooltipItem = {}  # type: ignore[typeddict-item]
+    if "FieldId" in data:
+        out["field_id"] = data["FieldId"]
+    else:
+        raise DeserializationError("FieldTooltipItem.field_id required")
+    if "Label" in data:
+        out["label"] = data["Label"]
+    if "Visibility" in data:
+        import aws_sdk_quicksight.types.visibility
+
+        out["visibility"] = aws_sdk_quicksight.types.visibility.deserialize_json(
+            data["Visibility"]
+        )
+    if "TooltipTarget" in data:
+        import aws_sdk_quicksight.types.tooltip_target
+
+        out["tooltip_target"] = (
+            aws_sdk_quicksight.types.tooltip_target.deserialize_json(
+                data["TooltipTarget"]
+            )
+        )
+    return out

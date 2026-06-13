@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.amp#PutRuleGroupsNamespaceResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_amp.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_amp.types.rule_groups_namespace_arn
+    import aws_sdk_amp.types.rule_groups_namespace_name
+    import aws_sdk_amp.types.rule_groups_namespace_status
+    import aws_sdk_amp.types.tag_map
+
+
+class PutRuleGroupsNamespaceResponse(TypedDict):
+    name: "aws_sdk_amp.types.rule_groups_namespace_name.RuleGroupsNamespaceName"
+    """<p>The name of the rule groups namespace that was updated.</p>"""
+    arn: "aws_sdk_amp.types.rule_groups_namespace_arn.RuleGroupsNamespaceArn"
+    """<p>The ARN of the rule groups namespace.</p>"""
+    status: "aws_sdk_amp.types.rule_groups_namespace_status.RuleGroupsNamespaceStatus"
+    """<p>A structure that includes the current status of the rule groups namespace.</p>"""
+    tags: NotRequired["aws_sdk_amp.types.tag_map.TagMap"]
+    """<p>The list of tag keys and values that are associated with the namespace.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutRuleGroupsNamespaceResponse) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    out["arn"] = value["arn"]
+    import aws_sdk_amp.types.rule_groups_namespace_status
+
+    out["status"] = aws_sdk_amp.types.rule_groups_namespace_status.serialize_json(
+        value["status"]
+    )
+    if "tags" in value:
+        import aws_sdk_amp.types.tag_map
+
+        out["tags"] = aws_sdk_amp.types.tag_map.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> PutRuleGroupsNamespaceResponse:
+    out: PutRuleGroupsNamespaceResponse = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("PutRuleGroupsNamespaceResponse.name required")
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("PutRuleGroupsNamespaceResponse.arn required")
+    if "status" in data:
+        import aws_sdk_amp.types.rule_groups_namespace_status
+
+        out["status"] = aws_sdk_amp.types.rule_groups_namespace_status.deserialize_json(
+            data["status"]
+        )
+    else:
+        raise DeserializationError("PutRuleGroupsNamespaceResponse.status required")
+    if "tags" in data:
+        import aws_sdk_amp.types.tag_map
+
+        out["tags"] = aws_sdk_amp.types.tag_map.deserialize_json(data["tags"])
+    return out

@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupVaultList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_vault_list_member
 
-BackupVaultList: TypeAlias = list["aws_sdk_backup.types.backup_vault_list_member.BackupVaultListMember"]
+BackupVaultList: TypeAlias = list[
+    "aws_sdk_backup.types.backup_vault_list_member.BackupVaultListMember"
+]
 
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BackupVaultList) -> list:
     import aws_sdk_backup.types.backup_vault_list_member
+
     out: list = []
     for item in value:
         out.append(aws_sdk_backup.types.backup_vault_list_member.serialize_json(item))
@@ -18,6 +22,7 @@ def serialize_json(value: BackupVaultList) -> list:
 
 def deserialize_json(data: list) -> BackupVaultList:
     import aws_sdk_backup.types.backup_vault_list_member
+
     out: BackupVaultList = []
     for item in data:
         out.append(aws_sdk_backup.types.backup_vault_list_member.deserialize_json(item))

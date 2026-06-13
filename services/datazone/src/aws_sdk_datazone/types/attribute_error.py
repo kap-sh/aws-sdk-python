@@ -2,16 +2,21 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute_identifier
 
+
 class AttributeError(TypedDict):
-    attribute_identifier: "aws_sdk_datazone.types.attribute_identifier.AttributeIdentifier"
+    attribute_identifier: (
+        "aws_sdk_datazone.types.attribute_identifier.AttributeIdentifier"
+    )
     """<p>The attribute ID as part of the attribute error.</p>"""
     code: "str"
     """<p>The code generated as part of the attribute error.</p>"""
     message: "str"
     """<p>The message generated as part of the attribute error.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AttributeError) -> dict:

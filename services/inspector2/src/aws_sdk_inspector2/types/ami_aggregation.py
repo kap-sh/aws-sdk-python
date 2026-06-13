@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AmiAggregation``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ami_sort_by
     import aws_sdk_inspector2.types.sort_order
     import aws_sdk_inspector2.types.string_filter_list
+
 
 class AmiAggregation(TypedDict):
     amis: NotRequired["aws_sdk_inspector2.types.string_filter_list.StringFilterList"]
@@ -15,12 +18,16 @@ class AmiAggregation(TypedDict):
     sort_by: NotRequired["aws_sdk_inspector2.types.ami_sort_by.AmiSortBy"]
     """<p>The value to sort results by.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AmiAggregation) -> dict:
     out: dict = {}
     if "amis" in value:
         import aws_sdk_inspector2.types.string_filter_list
-        out["amis"] = aws_sdk_inspector2.types.string_filter_list.serialize_json(value["amis"])
+
+        out["amis"] = aws_sdk_inspector2.types.string_filter_list.serialize_json(
+            value["amis"]
+        )
     if "sort_order" in value:
         out["sortOrder"] = value["sort_order"]
     if "sort_by" in value:
@@ -32,7 +39,10 @@ def deserialize_json(data: dict) -> AmiAggregation:
     out: AmiAggregation = {}  # type: ignore[typeddict-item]
     if "amis" in data:
         import aws_sdk_inspector2.types.string_filter_list
-        out["amis"] = aws_sdk_inspector2.types.string_filter_list.deserialize_json(data["amis"])
+
+        out["amis"] = aws_sdk_inspector2.types.string_filter_list.deserialize_json(
+            data["amis"]
+        )
     if "sortOrder" in data:
         out["sort_order"] = data["sortOrder"]
     if "sortBy" in data:

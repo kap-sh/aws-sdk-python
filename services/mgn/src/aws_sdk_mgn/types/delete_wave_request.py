@@ -1,17 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DeleteWaveRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mgn.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.wave_id
+
 
 class DeleteWaveRequest(TypedDict):
     wave_id: "aws_sdk_mgn.types.wave_id.WaveID"
     """<p>Wave ID.</p>"""
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Account ID.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteWaveRequest) -> dict:

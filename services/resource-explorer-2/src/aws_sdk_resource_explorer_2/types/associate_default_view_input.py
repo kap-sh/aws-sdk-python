@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#AssociateDefaultViewInput``."""
 
 from typing import TypedDict
+
 from aws_sdk_resource_explorer_2.errors import DeserializationError
+
 
 class AssociateDefaultViewInput(TypedDict):
     view_arn: "str"
     """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view to set as the default for the Amazon Web Services Region and Amazon Web Services account in which you call this operation. The specified view must already exist in the called Region.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociateDefaultViewInput) -> dict:

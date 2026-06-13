@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#DescribeMapResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geo_arn
     import aws_sdk_location.types.map_configuration
@@ -11,6 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.tag_map
     import aws_sdk_location.types.timestamp
+
 
 class DescribeMapResponse(TypedDict):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -32,6 +36,7 @@ class DescribeMapResponse(TypedDict):
     update_time: "aws_sdk_location.types.timestamp.Timestamp"
     """<p>The timestamp for when the map resource was last update in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeMapResponse) -> dict:
     out: dict = {}
@@ -41,15 +46,25 @@ def serialize_json(value: DescribeMapResponse) -> dict:
         out["PricingPlan"] = value["pricing_plan"]
     out["DataSource"] = value["data_source"]
     import aws_sdk_location.types.map_configuration
-    out["Configuration"] = aws_sdk_location.types.map_configuration.serialize_json(value["configuration"])
+
+    out["Configuration"] = aws_sdk_location.types.map_configuration.serialize_json(
+        value["configuration"]
+    )
     out["Description"] = value["description"]
     if "tags" in value:
         import aws_sdk_location.types.tag_map
+
         out["Tags"] = aws_sdk_location.types.tag_map.serialize_json(value["tags"])
     import aws_sdk_location.types.timestamp
-    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["create_time"])
+
+    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["create_time"]
+    )
     import aws_sdk_location.types.timestamp
-    out["UpdateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["update_time"])
+
+    out["UpdateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["update_time"]
+    )
     return out
 
 
@@ -71,7 +86,12 @@ def deserialize_json(data: dict) -> DescribeMapResponse:
         raise DeserializationError("DescribeMapResponse.data_source required")
     if "Configuration" in data:
         import aws_sdk_location.types.map_configuration
-        out["configuration"] = aws_sdk_location.types.map_configuration.deserialize_json(data["Configuration"])
+
+        out["configuration"] = (
+            aws_sdk_location.types.map_configuration.deserialize_json(
+                data["Configuration"]
+            )
+        )
     else:
         raise DeserializationError("DescribeMapResponse.configuration required")
     if "Description" in data:
@@ -80,15 +100,22 @@ def deserialize_json(data: dict) -> DescribeMapResponse:
         raise DeserializationError("DescribeMapResponse.description required")
     if "Tags" in data:
         import aws_sdk_location.types.tag_map
+
         out["tags"] = aws_sdk_location.types.tag_map.deserialize_json(data["Tags"])
     if "CreateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreateTime"])
+
+        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreateTime"]
+        )
     else:
         raise DeserializationError("DescribeMapResponse.create_time required")
     if "UpdateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["update_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["UpdateTime"])
+
+        out["update_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["UpdateTime"]
+        )
     else:
         raise DeserializationError("DescribeMapResponse.update_time required")
     return out

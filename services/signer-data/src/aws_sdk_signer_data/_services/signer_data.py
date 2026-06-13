@@ -2,7 +2,11 @@
 
 from aws_sdk_signer_data._auth._signers import SigV4Signer
 from aws_sdk_signer_data._auth._sigv4 import presign_sigv4
+import datetime
 from collections.abc import Iterator
+from collections.abc import Generator
+from contextlib import contextmanager
+from aws_sdk_signer_data._pagination import resolve_path as _resolve_path
 from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
 from typing_extensions import Self
 from typing import Optional
@@ -16,6 +20,9 @@ import aws_sdk_signer_data._auth._signers
 import aws_sdk_signer_data._auth._sigv4
 from aws_sdk_signer_data._auth._identity import Credentials
 from aws_sdk_signer_data._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_signer_data._auth._providers import BearerTokenProvider, StaticBearerTokenProvider
+from aws_sdk_signer_data._auth._providers import BasicCredentialsProvider, StaticBasicCredentialsProvider
+from aws_sdk_signer_data._auth._providers import ApiKeyProvider, StaticApiKeyProvider
 if TYPE_CHECKING:
     import aws_sdk_signer_data.types.arn
     import aws_sdk_signer_data.types.certificate_hashes

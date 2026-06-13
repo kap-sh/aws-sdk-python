@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#AccountIdList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.account_id_string
 
-AccountIdList: TypeAlias = list["aws_sdk_invoicing.types.account_id_string.AccountIdString"]
+AccountIdList: TypeAlias = list[
+    "aws_sdk_invoicing.types.account_id_string.AccountIdString"
+]
 
 
 # --- awsJson1_0 ser/de ---

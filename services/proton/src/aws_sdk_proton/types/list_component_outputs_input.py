@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.proton#ListComponentOutputsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_proton.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_proton.types.deployment_id
+    import aws_sdk_proton.types.empty_next_token
+    import aws_sdk_proton.types.resource_name
+
+
+class ListComponentOutputsInput(TypedDict):
+    component_name: "aws_sdk_proton.types.resource_name.ResourceName"
+    """<p>The name of the component whose outputs you want.</p>"""
+    next_token: NotRequired["aws_sdk_proton.types.empty_next_token.EmptyNextToken"]
+    """<p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>"""
+    deployment_id: NotRequired["aws_sdk_proton.types.deployment_id.DeploymentId"]
+    """<p>The ID of the deployment whose outputs you want.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListComponentOutputsInput) -> dict:
+    out: dict = {}
+    out["componentName"] = value["component_name"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "deployment_id" in value:
+        out["deploymentId"] = value["deployment_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListComponentOutputsInput:
+    out: ListComponentOutputsInput = {}  # type: ignore[typeddict-item]
+    if "componentName" in data:
+        out["component_name"] = data["componentName"]
+    else:
+        raise DeserializationError("ListComponentOutputsInput.component_name required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "deploymentId" in data:
+        out["deployment_id"] = data["deploymentId"]
+    return out

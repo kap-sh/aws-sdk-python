@@ -1,34 +1,76 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_proton._services.async_proton import ensure_async_iterator
-from aws_sdk_proton._services.proton import ensure_sync_iterator
-from aws_sdk_proton._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_proton._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
-    from aws_sdk_proton._services.async_proton import AsyncProtonClient, AsyncProtonClientConfig
     import aws_sdk_proton.types.get_account_settings_input
     import aws_sdk_proton.types.get_account_settings_output
     import aws_sdk_proton.types.repository_branch_input
     import aws_sdk_proton.types.role_arn_or_empty_string
     import aws_sdk_proton.types.update_account_settings_input
     import aws_sdk_proton.types.update_account_settings_output
+    from aws_sdk_proton._services.async_proton import (
+        AsyncProtonClient,
+        AsyncProtonClientConfig,
+    )
+    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
+
 
 class AccountSettingsResource:
     def __init__(self, service: ProtonClient) -> None:
         self._service = service
-    def read(self, *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput":
-        """<p>Get detail data for Proton account-wide settings.</p>
-        """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput]') -> OperationResponse["aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput"]:
+
+    def read(
+        self, *, config_overrides: Optional[ProtonClientConfig] = None
+    ) -> "aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput":
+        """<p>Get detail data for Proton account-wide settings.</p>"""
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_account_settings
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.get_account_settings.get_account_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.get_account_settings.get_account_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput = {}  # type: ignore[typeddict-item]
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, *, config_overrides: Optional[ProtonClientConfig] = None, pipeline_service_role_arn: Optional["aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"] = None, pipeline_provisioning_repository: Optional["aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"] = None, delete_pipeline_provisioning_repository: Optional[bool] = None, pipeline_codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"] = None) -> "aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput":
+
+    def update(
+        self,
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        pipeline_service_role_arn: Optional[
+            "aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"
+        ] = None,
+        pipeline_provisioning_repository: Optional[
+            "aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"
+        ] = None,
+        delete_pipeline_provisioning_repository: Optional[bool] = None,
+        pipeline_codebuild_role_arn: Optional[
+            "aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"
+        ] = None,
+    ) -> "aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput":
         """<p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
 
         Args:
@@ -37,9 +79,19 @@ class AccountSettingsResource:
             delete_pipeline_provisioning_repository: <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured pipeline repository.</p>
             pipeline_codebuild_role_arn: <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput]') -> OperationResponse["aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_account_settings
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.update_account_settings.update_account_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.update_account_settings.update_account_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -49,30 +101,69 @@ class AccountSettingsResource:
         if pipeline_provisioning_repository is not None:
             input["pipeline_provisioning_repository"] = pipeline_provisioning_repository
         if delete_pipeline_provisioning_repository is not None:
-            input["delete_pipeline_provisioning_repository"] = delete_pipeline_provisioning_repository
+            input["delete_pipeline_provisioning_repository"] = (
+                delete_pipeline_provisioning_repository
+            )
         if pipeline_codebuild_role_arn is not None:
             input["pipeline_codebuild_role_arn"] = pipeline_codebuild_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncAccountSettingsResource:
     def __init__(self, service: AsyncProtonClient) -> None:
         self._service = service
-    async def read(self, *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput":
-        """<p>Get detail data for Proton account-wide settings.</p>
-        """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput"]:
+
+    async def read(
+        self, *, config_overrides: Optional[AsyncProtonClientConfig] = None
+    ) -> "aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput":
+        """<p>Get detail data for Proton account-wide settings.</p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.get_account_settings_output.GetAccountSettingsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_account_settings
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.get_account_settings.async_get_account_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.get_account_settings.async_get_account_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput = {}  # type: ignore[typeddict-item]
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, *, config_overrides: Optional[AsyncProtonClientConfig] = None, pipeline_service_role_arn: Optional["aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"] = None, pipeline_provisioning_repository: Optional["aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"] = None, delete_pipeline_provisioning_repository: Optional[bool] = None, pipeline_codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"] = None) -> "aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput":
+
+    async def update(
+        self,
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        pipeline_service_role_arn: Optional[
+            "aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"
+        ] = None,
+        pipeline_provisioning_repository: Optional[
+            "aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"
+        ] = None,
+        delete_pipeline_provisioning_repository: Optional[bool] = None,
+        pipeline_codebuild_role_arn: Optional[
+            "aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"
+        ] = None,
+    ) -> "aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput":
         """<p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
 
         Args:
@@ -81,9 +172,20 @@ class AsyncAccountSettingsResource:
             delete_pipeline_provisioning_repository: <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured pipeline repository.</p>
             pipeline_codebuild_role_arn: <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.update_account_settings_output.UpdateAccountSettingsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_account_settings
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.update_account_settings.async_update_account_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.update_account_settings.async_update_account_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -93,9 +195,15 @@ class AsyncAccountSettingsResource:
         if pipeline_provisioning_repository is not None:
             input["pipeline_provisioning_repository"] = pipeline_provisioning_repository
         if delete_pipeline_provisioning_repository is not None:
-            input["delete_pipeline_provisioning_repository"] = delete_pipeline_provisioning_repository
+            input["delete_pipeline_provisioning_repository"] = (
+                delete_pipeline_provisioning_repository
+            )
         if pipeline_codebuild_role_arn is not None:
             input["pipeline_codebuild_role_arn"] = pipeline_codebuild_role_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

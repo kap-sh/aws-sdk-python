@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_proton._services.async_proton import ensure_async_iterator
-from aws_sdk_proton._services.proton import ensure_sync_iterator
-from aws_sdk_proton._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_proton._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
-    from aws_sdk_proton._services.async_proton import AsyncProtonClient, AsyncProtonClientConfig
     import aws_sdk_proton.types.client_token
     import aws_sdk_proton.types.component_deployment_update_type
     import aws_sdk_proton.types.component_summary
@@ -27,11 +32,40 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_manifest_contents
     import aws_sdk_proton.types.update_component_input
     import aws_sdk_proton.types.update_component_output
+    from aws_sdk_proton._services.async_proton import (
+        AsyncProtonClient,
+        AsyncProtonClientConfig,
+    )
+    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
+
 
 class ComponentResource:
     def __init__(self, service: ProtonClient) -> None:
         self._service = service
-    def put(self, name: "aws_sdk_proton.types.resource_name.ResourceName", template_file: "aws_sdk_proton.types.template_file_contents.TemplateFileContents", manifest: "aws_sdk_proton.types.template_manifest_contents.TemplateManifestContents", *, config_overrides: Optional[ProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None) -> "aws_sdk_proton.types.create_component_output.CreateComponentOutput":
+
+    def put(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        template_file: "aws_sdk_proton.types.template_file_contents.TemplateFileContents",
+        manifest: "aws_sdk_proton.types.template_manifest_contents.TemplateManifestContents",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_spec: Optional[
+            "aws_sdk_proton.types.spec_contents.SpecContents"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_proton.types.create_component_output.CreateComponentOutput":
         """<p>Create an Proton component. A component is an infrastructure extension for a service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -46,9 +80,19 @@ class ComponentResource:
             tags: <p>An optional list of metadata items that you can associate with the Proton component. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
             client_token: <p>The client token for the created component.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.create_component_input.CreateComponentInput]') -> OperationResponse["aws_sdk_proton.types.create_component_output.CreateComponentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.create_component_input.CreateComponentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.create_component_output.CreateComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_component
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.create_component.create_component(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.create_component.create_component(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -71,26 +115,71 @@ class ComponentResource:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.get_component_output.GetComponentOutput":
+
+    def read(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_component_output.GetComponentOutput":
         """<p>Get detailed data for a component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component that you want to get the detailed data for.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.get_component_input.GetComponentInput]') -> OperationResponse["aws_sdk_proton.types.get_component_output.GetComponentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.get_component_input.GetComponentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.get_component_output.GetComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_component
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.get_component.get_component(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.get_component.get_component(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.get_component_input.GetComponentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, name: "aws_sdk_proton.types.resource_name.ResourceName", deployment_type: "aws_sdk_proton.types.component_deployment_update_type.ComponentDeploymentUpdateType", *, config_overrides: Optional[ProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, service_name: Optional["aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"] = None, service_spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None, template_file: Optional["aws_sdk_proton.types.template_file_contents.TemplateFileContents"] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None) -> "aws_sdk_proton.types.update_component_output.UpdateComponentOutput":
+
+    def update(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        deployment_type: "aws_sdk_proton.types.component_deployment_update_type.ComponentDeploymentUpdateType",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"
+        ] = None,
+        service_spec: Optional[
+            "aws_sdk_proton.types.spec_contents.SpecContents"
+        ] = None,
+        template_file: Optional[
+            "aws_sdk_proton.types.template_file_contents.TemplateFileContents"
+        ] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_proton.types.update_component_output.UpdateComponentOutput":
         """<p>Update a component.</p> <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is <code>IN_PROGRESS</code>.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -103,9 +192,19 @@ class ComponentResource:
             template_file: <p>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom component provisions.</p> <note> <p>Components support a single IaC file, even if you use Terraform as your template language.</p> </note>
             client_token: <p>The client token for the updated component.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.update_component_input.UpdateComponentInput]') -> OperationResponse["aws_sdk_proton.types.update_component_output.UpdateComponentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.update_component_input.UpdateComponentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.update_component_output.UpdateComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_component
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.update_component.update_component(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.update_component.update_component(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -125,26 +224,68 @@ class ComponentResource:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput":
+
+    def delete(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput":
         """<p>Delete an Proton component resource.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.delete_component_input.DeleteComponentInput]') -> OperationResponse["aws_sdk_proton.types.delete_component_output.DeleteComponentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.delete_component_input.DeleteComponentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_component
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.delete_component.delete_component(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.delete_component.delete_component(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.delete_component_input.DeleteComponentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[ProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None) -> "aws_sdk_proton.types.list_components_output.ListComponentsOutput":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_components_output.ListComponentsOutput":
         """<p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -154,9 +295,19 @@ class ComponentResource:
             service_instance_name: <p>The name of a service instance for result list filtering. Proton returns the component attached to the service instance, if any.</p>
             max_results: <p>The maximum number of components to list.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.list_components_input.ListComponentsInput]') -> OperationResponse["aws_sdk_proton.types.list_components_output.ListComponentsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.list_components_input.ListComponentsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.list_components_output.ListComponentsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_components
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.list_components.list_components(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.list_components.list_components(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -172,13 +323,41 @@ class ComponentResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncComponentResource:
     def __init__(self, service: AsyncProtonClient) -> None:
         self._service = service
-    async def put(self, name: "aws_sdk_proton.types.resource_name.ResourceName", template_file: "aws_sdk_proton.types.template_file_contents.TemplateFileContents", manifest: "aws_sdk_proton.types.template_manifest_contents.TemplateManifestContents", *, config_overrides: Optional[AsyncProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None) -> "aws_sdk_proton.types.create_component_output.CreateComponentOutput":
+
+    async def put(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        template_file: "aws_sdk_proton.types.template_file_contents.TemplateFileContents",
+        manifest: "aws_sdk_proton.types.template_manifest_contents.TemplateManifestContents",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_spec: Optional[
+            "aws_sdk_proton.types.spec_contents.SpecContents"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_proton.types.create_component_output.CreateComponentOutput":
         """<p>Create an Proton component. A component is an infrastructure extension for a service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -193,9 +372,20 @@ class AsyncComponentResource:
             tags: <p>An optional list of metadata items that you can associate with the Proton component. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
             client_token: <p>The client token for the created component.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.create_component_input.CreateComponentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.create_component_output.CreateComponentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.create_component_input.CreateComponentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.create_component_output.CreateComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_component
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.create_component.async_create_component(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.create_component.async_create_component(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -218,26 +408,72 @@ class AsyncComponentResource:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.get_component_output.GetComponentOutput":
+
+    async def read(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_component_output.GetComponentOutput":
         """<p>Get detailed data for a component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component that you want to get the detailed data for.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.get_component_input.GetComponentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.get_component_output.GetComponentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.get_component_input.GetComponentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.get_component_output.GetComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_component
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.get_component.async_get_component(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.get_component.async_get_component(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.get_component_input.GetComponentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, name: "aws_sdk_proton.types.resource_name.ResourceName", deployment_type: "aws_sdk_proton.types.component_deployment_update_type.ComponentDeploymentUpdateType", *, config_overrides: Optional[AsyncProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, service_name: Optional["aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"] = None, service_spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None, template_file: Optional["aws_sdk_proton.types.template_file_contents.TemplateFileContents"] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None) -> "aws_sdk_proton.types.update_component_output.UpdateComponentOutput":
+
+    async def update(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        deployment_type: "aws_sdk_proton.types.component_deployment_update_type.ComponentDeploymentUpdateType",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"
+        ] = None,
+        service_spec: Optional[
+            "aws_sdk_proton.types.spec_contents.SpecContents"
+        ] = None,
+        template_file: Optional[
+            "aws_sdk_proton.types.template_file_contents.TemplateFileContents"
+        ] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_proton.types.update_component_output.UpdateComponentOutput":
         """<p>Update a component.</p> <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is <code>IN_PROGRESS</code>.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -250,9 +486,20 @@ class AsyncComponentResource:
             template_file: <p>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom component provisions.</p> <note> <p>Components support a single IaC file, even if you use Terraform as your template language.</p> </note>
             client_token: <p>The client token for the updated component.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.update_component_input.UpdateComponentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.update_component_output.UpdateComponentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.update_component_input.UpdateComponentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.update_component_output.UpdateComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_component
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.update_component.async_update_component(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.update_component.async_update_component(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -272,26 +519,69 @@ class AsyncComponentResource:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput":
+
+    async def delete(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput":
         """<p>Delete an Proton component resource.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.delete_component_input.DeleteComponentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.delete_component_output.DeleteComponentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.delete_component_input.DeleteComponentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_component
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.delete_component.async_delete_component(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.delete_component.async_delete_component(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.delete_component_input.DeleteComponentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None) -> "aws_sdk_proton.types.list_components_output.ListComponentsOutput":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_components_output.ListComponentsOutput":
         """<p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -301,9 +591,20 @@ class AsyncComponentResource:
             service_instance_name: <p>The name of a service instance for result list filtering. Proton returns the component attached to the service instance, if any.</p>
             max_results: <p>The maximum number of components to list.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.list_components_input.ListComponentsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.list_components_output.ListComponentsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.list_components_input.ListComponentsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.list_components_output.ListComponentsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_components
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.list_components.async_list_components(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.list_components.async_list_components(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -319,5 +620,9 @@ class AsyncComponentResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AccountSettings``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
     import aws_sdk_quicksight.types.edition
     import aws_sdk_quicksight.types.namespace
     import aws_sdk_quicksight.types.string
+
 
 class AccountSettings(TypedDict):
     account_name: NotRequired["aws_sdk_quicksight.types.string.String"]
@@ -22,6 +25,7 @@ class AccountSettings(TypedDict):
     termination_protection_enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A boolean value that determines whether or not an Quick Sight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountSettings) -> dict:
     out: dict = {}
@@ -29,13 +33,18 @@ def serialize_json(value: AccountSettings) -> dict:
         out["AccountName"] = value["account_name"]
     if "edition" in value:
         import aws_sdk_quicksight.types.edition
-        out["Edition"] = aws_sdk_quicksight.types.edition.serialize_json(value["edition"])
+
+        out["Edition"] = aws_sdk_quicksight.types.edition.serialize_json(
+            value["edition"]
+        )
     if "default_namespace" in value:
         out["DefaultNamespace"] = value["default_namespace"]
     if "notification_email" in value:
         out["NotificationEmail"] = value["notification_email"]
     out["PublicSharingEnabled"] = value.get("public_sharing_enabled", False)
-    out["TerminationProtectionEnabled"] = value.get("termination_protection_enabled", False)
+    out["TerminationProtectionEnabled"] = value.get(
+        "termination_protection_enabled", False
+    )
     return out
 
 
@@ -45,7 +54,10 @@ def deserialize_json(data: dict) -> AccountSettings:
         out["account_name"] = data["AccountName"]
     if "Edition" in data:
         import aws_sdk_quicksight.types.edition
-        out["edition"] = aws_sdk_quicksight.types.edition.deserialize_json(data["Edition"])
+
+        out["edition"] = aws_sdk_quicksight.types.edition.deserialize_json(
+            data["Edition"]
+        )
     if "DefaultNamespace" in data:
         out["default_namespace"] = data["DefaultNamespace"]
     if "NotificationEmail" in data:

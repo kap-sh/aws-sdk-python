@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AdditionalModelRequestFields``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields_key
     import aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields_value
 
-AdditionalModelRequestFields: TypeAlias = dict["aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields_key.AdditionalModelRequestFieldsKey", "aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields_value.AdditionalModelRequestFieldsValue"]
+AdditionalModelRequestFields: TypeAlias = dict[
+    "aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields_key.AdditionalModelRequestFieldsKey",
+    "aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields_value.AdditionalModelRequestFieldsValue",
+]
 
 
 # --- restJson1 ser/de ---

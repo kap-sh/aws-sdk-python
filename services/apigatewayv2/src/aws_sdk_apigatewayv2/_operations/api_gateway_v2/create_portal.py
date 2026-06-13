@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#CreatePortal``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
+from typing import TYPE_CHECKING, Never, Any, cast
 from aws_sdk_apigatewayv2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_apigatewayv2._rule_engine._endpoint_runtime import apply_label
+import jmespath
 import zapros
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 from aws_sdk_apigatewayv2.errors import ServiceError, UnknownServiceError
 from aws_sdk_apigatewayv2._protocol.errors import parse_error_metadata_json
 import json
@@ -16,6 +16,8 @@ from aws_sdk_apigatewayv2._services._pipeline import (
     AsyncOperationOptions,
     OperationOptions,
 )
+import datetime
+from email.utils import parsedate_to_datetime as _parse_http_date
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.create_portal_request

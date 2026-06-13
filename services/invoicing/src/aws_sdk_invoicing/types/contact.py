@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#Contact``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
     import aws_sdk_invoicing.types.email_string
+
 
 class Contact(TypedDict):
     name: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     """<p>The name of the contact person or role.</p>"""
     email: NotRequired["aws_sdk_invoicing.types.email_string.EmailString"]
     """<p>The email address of the contact person or role.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: Contact) -> dict:

@@ -1,0 +1,111 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CreateVerifiedDestinationNumberResult``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_pinpoint_sms_voice_v2.types.phone_number
+    import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
+    import aws_sdk_pinpoint_sms_voice_v2.types.verification_status
+
+
+class CreateVerifiedDestinationNumberResult(TypedDict):
+    verified_destination_number_arn: "str"
+    """<p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>"""
+    verified_destination_number_id: "str"
+    """<p>The unique identifier for the verified destination phone number.</p>"""
+    destination_phone_number: (
+        "aws_sdk_pinpoint_sms_voice_v2.types.phone_number.PhoneNumber"
+    )
+    """<p>The verified destination phone number, in E.164 format.</p>"""
+    status: "aws_sdk_pinpoint_sms_voice_v2.types.verification_status.VerificationStatus"
+    """<p>The status of the verified destination phone number.</p> <ul> <li> <p> <code>PENDING</code>: The phone number hasn't been verified yet.</p> </li> <li> <p> <code>VERIFIED</code>: The phone number is verified and can receive messages.</p> </li> </ul>"""
+    rcs_agent_id: NotRequired["str"]
+    """<p>The unique identifier of the RCS agent associated with the verified destination number.</p>"""
+    tags: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.tag_list.TagList"]
+    """<p>An array of tags (key and value pairs) to associate with the destination number.</p>"""
+    created_timestamp: "datetime.datetime"
+    """<p>The time when the verified phone number was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CreateVerifiedDestinationNumberResult) -> dict:
+    out: dict = {}
+    out["VerifiedDestinationNumberArn"] = value["verified_destination_number_arn"]
+    out["VerifiedDestinationNumberId"] = value["verified_destination_number_id"]
+    out["DestinationPhoneNumber"] = value["destination_phone_number"]
+    out["Status"] = value["status"]
+    if "rcs_agent_id" in value:
+        out["RcsAgentId"] = value["rcs_agent_id"]
+    if "tags" in value:
+        import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
+
+        out["Tags"] = (
+            aws_sdk_pinpoint_sms_voice_v2.types.tag_list.serialize_aws_json_1_0(
+                value["tags"]
+            )
+        )
+    import aws_sdk_pinpoint_sms_voice_v2.types._prelude.timestamp
+
+    out["CreatedTimestamp"] = (
+        aws_sdk_pinpoint_sms_voice_v2.types._prelude.timestamp.serialize_aws_json_1_0(
+            value["created_timestamp"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CreateVerifiedDestinationNumberResult:
+    out: CreateVerifiedDestinationNumberResult = {}  # type: ignore[typeddict-item]
+    if "VerifiedDestinationNumberArn" in data:
+        out["verified_destination_number_arn"] = data["VerifiedDestinationNumberArn"]
+    else:
+        raise DeserializationError(
+            "CreateVerifiedDestinationNumberResult.verified_destination_number_arn required"
+        )
+    if "VerifiedDestinationNumberId" in data:
+        out["verified_destination_number_id"] = data["VerifiedDestinationNumberId"]
+    else:
+        raise DeserializationError(
+            "CreateVerifiedDestinationNumberResult.verified_destination_number_id required"
+        )
+    if "DestinationPhoneNumber" in data:
+        out["destination_phone_number"] = data["DestinationPhoneNumber"]
+    else:
+        raise DeserializationError(
+            "CreateVerifiedDestinationNumberResult.destination_phone_number required"
+        )
+    if "Status" in data:
+        out["status"] = data["Status"]
+    else:
+        raise DeserializationError(
+            "CreateVerifiedDestinationNumberResult.status required"
+        )
+    if "RcsAgentId" in data:
+        out["rcs_agent_id"] = data["RcsAgentId"]
+    if "Tags" in data:
+        import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
+
+        out["tags"] = (
+            aws_sdk_pinpoint_sms_voice_v2.types.tag_list.deserialize_aws_json_1_0(
+                data["Tags"]
+            )
+        )
+    if "CreatedTimestamp" in data:
+        import aws_sdk_pinpoint_sms_voice_v2.types._prelude.timestamp
+
+        out["created_timestamp"] = (
+            aws_sdk_pinpoint_sms_voice_v2.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["CreatedTimestamp"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateVerifiedDestinationNumberResult.created_timestamp required"
+        )
+    return out

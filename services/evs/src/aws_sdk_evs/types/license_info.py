@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.evs#LicenseInfo``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_evs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_evs.types.solution_key
+    import aws_sdk_evs.types.v_san_license_key
+
+
+class LicenseInfo(TypedDict):
+    solution_key: "aws_sdk_evs.types.solution_key.SolutionKey"
+    """<p> The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must meet the instance-type-specific minimum core requirements.</p>"""
+    vsan_key: "aws_sdk_evs.types.v_san_license_key.VSanLicenseKey"
+    """<p> The VSAN license key. This license unlocks vSAN features. The vSAN license key must meet the instance-type-specific minimum capacity requirements.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: LicenseInfo) -> dict:
+    out: dict = {}
+    out["solutionKey"] = value["solution_key"]
+    out["vsanKey"] = value["vsan_key"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> LicenseInfo:
+    out: LicenseInfo = {}  # type: ignore[typeddict-item]
+    if "solutionKey" in data:
+        out["solution_key"] = data["solutionKey"]
+    else:
+        raise DeserializationError("LicenseInfo.solution_key required")
+    if "vsanKey" in data:
+        out["vsan_key"] = data["vsanKey"]
+    else:
+        raise DeserializationError("LicenseInfo.vsan_key required")
+    return out

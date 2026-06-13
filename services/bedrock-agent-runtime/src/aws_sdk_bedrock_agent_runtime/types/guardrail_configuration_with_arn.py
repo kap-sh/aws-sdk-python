@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailConfigurationWithArn``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_identifier_with_arn
     import aws_sdk_bedrock_agent_runtime.types.guardrail_version
 
+
 class GuardrailConfigurationWithArn(TypedDict):
     guardrail_identifier: "aws_sdk_bedrock_agent_runtime.types.guardrail_identifier_with_arn.GuardrailIdentifierWithArn"
     """<p> The unique identifier for the guardrail. </p>"""
-    guardrail_version: "aws_sdk_bedrock_agent_runtime.types.guardrail_version.GuardrailVersion"
+    guardrail_version: (
+        "aws_sdk_bedrock_agent_runtime.types.guardrail_version.GuardrailVersion"
+    )
     """<p> The version of the guardrail. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GuardrailConfigurationWithArn) -> dict:
@@ -25,9 +31,13 @@ def deserialize_json(data: dict) -> GuardrailConfigurationWithArn:
     if "guardrailIdentifier" in data:
         out["guardrail_identifier"] = data["guardrailIdentifier"]
     else:
-        raise DeserializationError("GuardrailConfigurationWithArn.guardrail_identifier required")
+        raise DeserializationError(
+            "GuardrailConfigurationWithArn.guardrail_identifier required"
+        )
     if "guardrailVersion" in data:
         out["guardrail_version"] = data["guardrailVersion"]
     else:
-        raise DeserializationError("GuardrailConfigurationWithArn.guardrail_version required")
+        raise DeserializationError(
+            "GuardrailConfigurationWithArn.guardrail_version required"
+        )
     return out

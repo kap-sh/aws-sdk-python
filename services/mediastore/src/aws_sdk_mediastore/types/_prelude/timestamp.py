@@ -1,0 +1,12 @@
+"""Generated from Smithy prelude shape ``smithy.api#Timestamp``."""
+
+import datetime
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: datetime.datetime) -> float:
+    return value.timestamp()
+
+
+def deserialize_aws_json_1_1(data: float) -> datetime.datetime:
+    return datetime.datetime.fromtimestamp(float(data), tz=datetime.timezone.utc)

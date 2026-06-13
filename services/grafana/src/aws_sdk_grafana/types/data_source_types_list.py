@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DataSourceTypesList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.data_source_type
 
-DataSourceTypesList: TypeAlias = list["aws_sdk_grafana.types.data_source_type.DataSourceType"]
+DataSourceTypesList: TypeAlias = list[
+    "aws_sdk_grafana.types.data_source_type.DataSourceType"
+]
 
 
 # --- restJson1 ser/de ---

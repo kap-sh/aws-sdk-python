@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#FieldForReranking``."""
 
 from typing import TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError
 
 

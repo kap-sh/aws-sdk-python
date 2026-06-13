@@ -2,9 +2,11 @@
 
 from typing import TypedDict
 
+
 class CancelGremlinQueryInput(TypedDict):
     query_id: "str"
     """<p>The unique identifier that identifies the query to be canceled.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelGremlinQueryInput) -> dict:

@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AudioSourceDetails``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.audio_extraction_type
     import aws_sdk_qbusiness.types.long
     import aws_sdk_qbusiness.types.media_id
     import aws_sdk_qbusiness.types.string
+
 
 class AudioSourceDetails(TypedDict):
     media_id: NotRequired["aws_sdk_qbusiness.types.media_id.MediaId"]
@@ -17,8 +20,11 @@ class AudioSourceDetails(TypedDict):
     """<p>The starting timestamp in milliseconds for the relevant audio segment.</p>"""
     end_time_milliseconds: NotRequired["aws_sdk_qbusiness.types.long.Long"]
     """<p>The ending timestamp in milliseconds for the relevant audio segment.</p>"""
-    audio_extraction_type: NotRequired["aws_sdk_qbusiness.types.audio_extraction_type.AudioExtractionType"]
+    audio_extraction_type: NotRequired[
+        "aws_sdk_qbusiness.types.audio_extraction_type.AudioExtractionType"
+    ]
     """<p>The type of audio extraction performed on the content.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AudioSourceDetails) -> dict:
@@ -33,7 +39,12 @@ def serialize_json(value: AudioSourceDetails) -> dict:
         out["endTimeMilliseconds"] = value["end_time_milliseconds"]
     if "audio_extraction_type" in value:
         import aws_sdk_qbusiness.types.audio_extraction_type
-        out["audioExtractionType"] = aws_sdk_qbusiness.types.audio_extraction_type.serialize_json(value["audio_extraction_type"])
+
+        out["audioExtractionType"] = (
+            aws_sdk_qbusiness.types.audio_extraction_type.serialize_json(
+                value["audio_extraction_type"]
+            )
+        )
     return out
 
 
@@ -49,5 +60,10 @@ def deserialize_json(data: dict) -> AudioSourceDetails:
         out["end_time_milliseconds"] = data["endTimeMilliseconds"]
     if "audioExtractionType" in data:
         import aws_sdk_qbusiness.types.audio_extraction_type
-        out["audio_extraction_type"] = aws_sdk_qbusiness.types.audio_extraction_type.deserialize_json(data["audioExtractionType"])
+
+        out["audio_extraction_type"] = (
+            aws_sdk_qbusiness.types.audio_extraction_type.deserialize_json(
+                data["audioExtractionType"]
+            )
+        )
     return out

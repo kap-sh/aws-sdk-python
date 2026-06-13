@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AggregationKey``."""
 
 from typing import TypedDict
+
 from aws_sdk_notifications.errors import DeserializationError
+
 
 class AggregationKey(TypedDict):
     name: "str"
     """<p>Indicates the type of aggregation key.</p>"""
     value: "str"
     """<p>Indicates the value associated with the aggregation key name.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AggregationKey) -> dict:

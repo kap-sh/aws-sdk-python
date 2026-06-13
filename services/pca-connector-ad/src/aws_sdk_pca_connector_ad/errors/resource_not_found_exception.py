@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.pcaconnectorad#ResourceNotFoundException``."""
+
+from typing import TypedDict
+
+from aws_sdk_pca_connector_ad.errors import DeserializationError, ServiceError
+
+
+class ResourceNotFoundException_(TypedDict):
+    message: "str"
+    resource_id: "str"
+    """<p>The identifier of the Amazon Web Services resource.</p>"""
+    resource_type: "str"
+    """<p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ResourceNotFoundException_) -> dict:
+    out: dict = {}
+    out["Message"] = value["message"]
+    out["ResourceId"] = value["resource_id"]
+    out["ResourceType"] = value["resource_type"]
+    return out
+
+
+def deserialize_json(data: dict) -> ResourceNotFoundException_:
+    out: ResourceNotFoundException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    else:
+        raise DeserializationError("ResourceNotFoundException_.message required")
+    if "ResourceId" in data:
+        out["resource_id"] = data["ResourceId"]
+    else:
+        raise DeserializationError("ResourceNotFoundException_.resource_id required")
+    if "ResourceType" in data:
+        out["resource_type"] = data["ResourceType"]
+    else:
+        raise DeserializationError("ResourceNotFoundException_.resource_type required")
+    return out
+
+
+class ResourceNotFoundException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.pcaconnectorad#ResourceNotFoundException``."""
+
+    code: str | None = "ResourceNotFoundException"
+
+    def __init__(self, data: ResourceNotFoundException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ResourceNotFoundException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "ResourceNotFoundException":
+        return cls(deserialize_json(data))

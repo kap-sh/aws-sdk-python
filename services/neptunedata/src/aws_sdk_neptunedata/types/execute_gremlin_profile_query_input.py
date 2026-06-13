@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinProfileQueryInput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_neptunedata.errors import DeserializationError
+
 
 class ExecuteGremlinProfileQueryInput(TypedDict):
     gremlin_query: "str"
@@ -15,6 +18,7 @@ class ExecuteGremlinProfileQueryInput(TypedDict):
     """<p>If non-null, the gathered results are returned in a serialized response message in the format specified by this parameter. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for more information.</p>"""
     index_ops: NotRequired["bool"]
     """<p>If this flag is set to <code>TRUE</code>, the results include a detailed report of all index operations that took place during query execution and serialization.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ExecuteGremlinProfileQueryInput) -> dict:
@@ -36,7 +40,9 @@ def deserialize_json(data: dict) -> ExecuteGremlinProfileQueryInput:
     if "gremlin" in data:
         out["gremlin_query"] = data["gremlin"]
     else:
-        raise DeserializationError("ExecuteGremlinProfileQueryInput.gremlin_query required")
+        raise DeserializationError(
+            "ExecuteGremlinProfileQueryInput.gremlin_query required"
+        )
     if "profile.results" in data:
         out["results"] = data["profile.results"]
     if "profile.chop" in data:

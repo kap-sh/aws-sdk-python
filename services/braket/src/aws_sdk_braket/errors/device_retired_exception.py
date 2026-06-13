@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeviceRetiredException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_braket.errors import ServiceError
+
 
 class DeviceRetiredException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeviceRetiredException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> DeviceRetiredException_:
 
 class DeviceRetiredException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.braket#DeviceRetiredException``."""
-    code: str | None = 'DeviceRetiredException'
+
+    code: str | None = "DeviceRetiredException"
 
     def __init__(self, data: DeviceRetiredException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='DeviceRetiredException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="DeviceRetiredException",
+        )
         self.data = data
 
     @classmethod

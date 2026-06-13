@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_pool_id
     import aws_sdk_datazone.types.account_pool_name
@@ -11,6 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.resolution_strategy
     import aws_sdk_datazone.types.updated_by
 
+
 class AccountPoolSummary(TypedDict):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>The ID of the domain.</p>"""
@@ -18,7 +20,9 @@ class AccountPoolSummary(TypedDict):
     """<p>The ID of the account pool.</p>"""
     name: NotRequired["aws_sdk_datazone.types.account_pool_name.AccountPoolName"]
     """<p>The name of the account pool.</p>"""
-    resolution_strategy: NotRequired["aws_sdk_datazone.types.resolution_strategy.ResolutionStrategy"]
+    resolution_strategy: NotRequired[
+        "aws_sdk_datazone.types.resolution_strategy.ResolutionStrategy"
+    ]
     """<p>The mechanism used to resolve the account selection from the account pool.</p>"""
     domain_unit_id: NotRequired["aws_sdk_datazone.types.domain_unit_id.DomainUnitId"]
     """<p>The ID of the domain unit.</p>"""
@@ -26,6 +30,7 @@ class AccountPoolSummary(TypedDict):
     """<p>The user who created the account pool.</p>"""
     updated_by: NotRequired["aws_sdk_datazone.types.updated_by.UpdatedBy"]
     """<p>The user who updated the account pool.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountPoolSummary) -> dict:
@@ -38,7 +43,12 @@ def serialize_json(value: AccountPoolSummary) -> dict:
         out["name"] = value["name"]
     if "resolution_strategy" in value:
         import aws_sdk_datazone.types.resolution_strategy
-        out["resolutionStrategy"] = aws_sdk_datazone.types.resolution_strategy.serialize_json(value["resolution_strategy"])
+
+        out["resolutionStrategy"] = (
+            aws_sdk_datazone.types.resolution_strategy.serialize_json(
+                value["resolution_strategy"]
+            )
+        )
     if "domain_unit_id" in value:
         out["domainUnitId"] = value["domain_unit_id"]
     if "created_by" in value:
@@ -58,7 +68,12 @@ def deserialize_json(data: dict) -> AccountPoolSummary:
         out["name"] = data["name"]
     if "resolutionStrategy" in data:
         import aws_sdk_datazone.types.resolution_strategy
-        out["resolution_strategy"] = aws_sdk_datazone.types.resolution_strategy.deserialize_json(data["resolutionStrategy"])
+
+        out["resolution_strategy"] = (
+            aws_sdk_datazone.types.resolution_strategy.deserialize_json(
+                data["resolutionStrategy"]
+            )
+        )
     if "domainUnitId" in data:
         out["domain_unit_id"] = data["domainUnitId"]
     if "createdBy" in data:

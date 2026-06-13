@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AutoEnable``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_inspector2.errors import DeserializationError
 
-AutoEnable = TypedDict("AutoEnable", {
-    "ec2": "bool",
-    "ecr": "bool",
-    "lambda": NotRequired["bool"],
-    "lambda_code": NotRequired["bool"],
-    "code_repository": NotRequired["bool"],
-})
+AutoEnable = TypedDict(
+    "AutoEnable",
+    {
+        "ec2": "bool",
+        "ecr": "bool",
+        "lambda": NotRequired["bool"],
+        "lambda_code": NotRequired["bool"],
+        "code_repository": NotRequired["bool"],
+    },
+)
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AutoEnable) -> dict:

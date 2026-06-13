@@ -1,36 +1,64 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ApiConfiguration``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_amplifyuibuilder.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.data_store_render_config
     import aws_sdk_amplifyuibuilder.types.graph_ql_render_config
     import aws_sdk_amplifyuibuilder.types.no_api_render_config
 
+
 class _ApiConfiguration_graphQLConfig(TypedDict):
-    graphQLConfig: "aws_sdk_amplifyuibuilder.types.graph_ql_render_config.GraphQLRenderConfig"
+    graphQLConfig: (
+        "aws_sdk_amplifyuibuilder.types.graph_ql_render_config.GraphQLRenderConfig"
+    )
 
 
 class _ApiConfiguration_dataStoreConfig(TypedDict):
-    dataStoreConfig: "aws_sdk_amplifyuibuilder.types.data_store_render_config.DataStoreRenderConfig"
+    dataStoreConfig: (
+        "aws_sdk_amplifyuibuilder.types.data_store_render_config.DataStoreRenderConfig"
+    )
 
 
 class _ApiConfiguration_noApiConfig(TypedDict):
     noApiConfig: "aws_sdk_amplifyuibuilder.types.no_api_render_config.NoApiRenderConfig"
 
-ApiConfiguration: TypeAlias = _ApiConfiguration_graphQLConfig | _ApiConfiguration_dataStoreConfig | _ApiConfiguration_noApiConfig
+
+ApiConfiguration: TypeAlias = (
+    _ApiConfiguration_graphQLConfig
+    | _ApiConfiguration_dataStoreConfig
+    | _ApiConfiguration_noApiConfig
+)
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ApiConfiguration) -> dict:
     if "graphQLConfig" in value:
         import aws_sdk_amplifyuibuilder.types.graph_ql_render_config
-        return {"graphQLConfig": aws_sdk_amplifyuibuilder.types.graph_ql_render_config.serialize_json(value["graphQLConfig"])}
+
+        return {
+            "graphQLConfig": aws_sdk_amplifyuibuilder.types.graph_ql_render_config.serialize_json(
+                value["graphQLConfig"]
+            )
+        }
     elif "dataStoreConfig" in value:
         import aws_sdk_amplifyuibuilder.types.data_store_render_config
-        return {"dataStoreConfig": aws_sdk_amplifyuibuilder.types.data_store_render_config.serialize_json(value["dataStoreConfig"])}
+
+        return {
+            "dataStoreConfig": aws_sdk_amplifyuibuilder.types.data_store_render_config.serialize_json(
+                value["dataStoreConfig"]
+            )
+        }
     elif "noApiConfig" in value:
         import aws_sdk_amplifyuibuilder.types.no_api_render_config
-        return {"noApiConfig": aws_sdk_amplifyuibuilder.types.no_api_render_config.serialize_json(value["noApiConfig"])}
+
+        return {
+            "noApiConfig": aws_sdk_amplifyuibuilder.types.no_api_render_config.serialize_json(
+                value["noApiConfig"]
+            )
+        }
     else:
         raise SerializationError("ApiConfiguration: no variant present")
 
@@ -38,12 +66,27 @@ def serialize_json(value: ApiConfiguration) -> dict:
 def deserialize_json(data: dict) -> ApiConfiguration:
     if "graphQLConfig" in data:
         import aws_sdk_amplifyuibuilder.types.graph_ql_render_config
-        return {"graphQLConfig": aws_sdk_amplifyuibuilder.types.graph_ql_render_config.deserialize_json(data["graphQLConfig"])}
+
+        return {
+            "graphQLConfig": aws_sdk_amplifyuibuilder.types.graph_ql_render_config.deserialize_json(
+                data["graphQLConfig"]
+            )
+        }
     elif "dataStoreConfig" in data:
         import aws_sdk_amplifyuibuilder.types.data_store_render_config
-        return {"dataStoreConfig": aws_sdk_amplifyuibuilder.types.data_store_render_config.deserialize_json(data["dataStoreConfig"])}
+
+        return {
+            "dataStoreConfig": aws_sdk_amplifyuibuilder.types.data_store_render_config.deserialize_json(
+                data["dataStoreConfig"]
+            )
+        }
     elif "noApiConfig" in data:
         import aws_sdk_amplifyuibuilder.types.no_api_render_config
-        return {"noApiConfig": aws_sdk_amplifyuibuilder.types.no_api_render_config.deserialize_json(data["noApiConfig"])}
+
+        return {
+            "noApiConfig": aws_sdk_amplifyuibuilder.types.no_api_render_config.deserialize_json(
+                data["noApiConfig"]
+            )
+        }
     else:
         raise DeserializationError("ApiConfiguration: no recognized variant key")

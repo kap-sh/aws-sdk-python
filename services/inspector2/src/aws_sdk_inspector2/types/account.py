@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Account``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_inspector2.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id
     import aws_sdk_inspector2.types.resource_status
     import aws_sdk_inspector2.types.status
+
 
 class Account(TypedDict):
     account_id: "aws_sdk_inspector2.types.account_id.AccountId"
@@ -15,13 +18,17 @@ class Account(TypedDict):
     resource_status: "aws_sdk_inspector2.types.resource_status.ResourceStatus"
     """<p>Details of the status of Amazon Inspector scans by resource type.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: Account) -> dict:
     out: dict = {}
     out["accountId"] = value["account_id"]
     out["status"] = value["status"]
     import aws_sdk_inspector2.types.resource_status
-    out["resourceStatus"] = aws_sdk_inspector2.types.resource_status.serialize_json(value["resource_status"])
+
+    out["resourceStatus"] = aws_sdk_inspector2.types.resource_status.serialize_json(
+        value["resource_status"]
+    )
     return out
 
 
@@ -37,7 +44,12 @@ def deserialize_json(data: dict) -> Account:
         raise DeserializationError("Account.status required")
     if "resourceStatus" in data:
         import aws_sdk_inspector2.types.resource_status
-        out["resource_status"] = aws_sdk_inspector2.types.resource_status.deserialize_json(data["resourceStatus"])
+
+        out["resource_status"] = (
+            aws_sdk_inspector2.types.resource_status.deserialize_json(
+                data["resourceStatus"]
+            )
+        )
     else:
         raise DeserializationError("Account.resource_status required")
     return out

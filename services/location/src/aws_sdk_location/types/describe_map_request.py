@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#DescribeMapRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
+
 
 class DescribeMapRequest(TypedDict):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the map resource.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeMapRequest) -> dict:

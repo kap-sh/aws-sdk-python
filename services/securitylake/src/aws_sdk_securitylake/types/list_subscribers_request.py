@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.securitylake#ListSubscribersRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_securitylake.types.max_results
+    import aws_sdk_securitylake.types.next_token
+
+
+class ListSubscribersRequest(TypedDict):
+    next_token: NotRequired["aws_sdk_securitylake.types.next_token.NextToken"]
+    """<p>If nextToken is returned, there are more results available. You can repeat the call using the returned token to retrieve the next page.</p>"""
+    max_results: "aws_sdk_securitylake.types.max_results.MaxResults"
+    """<p>The maximum number of accounts for which the configuration is displayed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListSubscribersRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListSubscribersRequest:
+    out: ListSubscribersRequest = {}  # type: ignore[typeddict-item]
+    return out

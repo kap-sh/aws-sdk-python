@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#DescribeRouteCalculatorResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geo_arn
     import aws_sdk_location.types.pricing_plan
@@ -10,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.tag_map
     import aws_sdk_location.types.timestamp
+
 
 class DescribeRouteCalculatorResponse(TypedDict):
     calculator_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -29,6 +33,7 @@ class DescribeRouteCalculatorResponse(TypedDict):
     tags: NotRequired["aws_sdk_location.types.tag_map.TagMap"]
     """<p>Tags associated with route calculator resource.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeRouteCalculatorResponse) -> dict:
     out: dict = {}
@@ -38,12 +43,19 @@ def serialize_json(value: DescribeRouteCalculatorResponse) -> dict:
         out["PricingPlan"] = value["pricing_plan"]
     out["Description"] = value["description"]
     import aws_sdk_location.types.timestamp
-    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["create_time"])
+
+    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["create_time"]
+    )
     import aws_sdk_location.types.timestamp
-    out["UpdateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["update_time"])
+
+    out["UpdateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["update_time"]
+    )
     out["DataSource"] = value["data_source"]
     if "tags" in value:
         import aws_sdk_location.types.tag_map
+
         out["Tags"] = aws_sdk_location.types.tag_map.serialize_json(value["tags"])
     return out
 
@@ -53,32 +65,51 @@ def deserialize_json(data: dict) -> DescribeRouteCalculatorResponse:
     if "CalculatorName" in data:
         out["calculator_name"] = data["CalculatorName"]
     else:
-        raise DeserializationError("DescribeRouteCalculatorResponse.calculator_name required")
+        raise DeserializationError(
+            "DescribeRouteCalculatorResponse.calculator_name required"
+        )
     if "CalculatorArn" in data:
         out["calculator_arn"] = data["CalculatorArn"]
     else:
-        raise DeserializationError("DescribeRouteCalculatorResponse.calculator_arn required")
+        raise DeserializationError(
+            "DescribeRouteCalculatorResponse.calculator_arn required"
+        )
     if "PricingPlan" in data:
         out["pricing_plan"] = data["PricingPlan"]
     if "Description" in data:
         out["description"] = data["Description"]
     else:
-        raise DeserializationError("DescribeRouteCalculatorResponse.description required")
+        raise DeserializationError(
+            "DescribeRouteCalculatorResponse.description required"
+        )
     if "CreateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreateTime"])
+
+        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreateTime"]
+        )
     else:
-        raise DeserializationError("DescribeRouteCalculatorResponse.create_time required")
+        raise DeserializationError(
+            "DescribeRouteCalculatorResponse.create_time required"
+        )
     if "UpdateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["update_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["UpdateTime"])
+
+        out["update_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["UpdateTime"]
+        )
     else:
-        raise DeserializationError("DescribeRouteCalculatorResponse.update_time required")
+        raise DeserializationError(
+            "DescribeRouteCalculatorResponse.update_time required"
+        )
     if "DataSource" in data:
         out["data_source"] = data["DataSource"]
     else:
-        raise DeserializationError("DescribeRouteCalculatorResponse.data_source required")
+        raise DeserializationError(
+            "DescribeRouteCalculatorResponse.data_source required"
+        )
     if "Tags" in data:
         import aws_sdk_location.types.tag_map
+
         out["tags"] = aws_sdk_location.types.tag_map.deserialize_json(data["Tags"])
     return out

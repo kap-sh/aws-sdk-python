@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CreateInvocationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
     import aws_sdk_bedrock_agent_runtime.types.uuid
+
 
 class CreateInvocationResponse(TypedDict):
     session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
@@ -14,13 +17,19 @@ class CreateInvocationResponse(TypedDict):
     created_at: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"
     """<p>The timestamp for when the invocation was created.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateInvocationResponse) -> dict:
     out: dict = {}
     out["sessionId"] = value["session_id"]
     out["invocationId"] = value["invocation_id"]
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     return out
 
 
@@ -36,7 +45,12 @@ def deserialize_json(data: dict) -> CreateInvocationResponse:
         raise DeserializationError("CreateInvocationResponse.invocation_id required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreateInvocationResponse.created_at required")
     return out

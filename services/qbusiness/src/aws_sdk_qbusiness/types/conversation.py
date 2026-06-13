@@ -1,19 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#Conversation``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.conversation_id
     import aws_sdk_qbusiness.types.conversation_title
     import aws_sdk_qbusiness.types.timestamp
 
+
 class Conversation(TypedDict):
-    conversation_id: NotRequired["aws_sdk_qbusiness.types.conversation_id.ConversationId"]
+    conversation_id: NotRequired[
+        "aws_sdk_qbusiness.types.conversation_id.ConversationId"
+    ]
     """<p>The identifier of the Amazon Q Business conversation.</p>"""
     title: NotRequired["aws_sdk_qbusiness.types.conversation_title.ConversationTitle"]
     """<p>The title of the conversation.</p>"""
     start_time: NotRequired["aws_sdk_qbusiness.types.timestamp.Timestamp"]
     """<p>The start time of the conversation.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Conversation) -> dict:
@@ -24,7 +30,10 @@ def serialize_json(value: Conversation) -> dict:
         out["title"] = value["title"]
     if "start_time" in value:
         import aws_sdk_qbusiness.types.timestamp
-        out["startTime"] = aws_sdk_qbusiness.types.timestamp.serialize_json(value["start_time"])
+
+        out["startTime"] = aws_sdk_qbusiness.types.timestamp.serialize_json(
+            value["start_time"]
+        )
     return out
 
 
@@ -36,5 +45,8 @@ def deserialize_json(data: dict) -> Conversation:
         out["title"] = data["title"]
     if "startTime" in data:
         import aws_sdk_qbusiness.types.timestamp
-        out["start_time"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(data["startTime"])
+
+        out["start_time"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(
+            data["startTime"]
+        )
     return out

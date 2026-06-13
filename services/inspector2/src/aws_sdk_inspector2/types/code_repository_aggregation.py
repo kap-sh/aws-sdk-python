@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#CodeRepositoryAggregation``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_inspector2.types.code_repository_sort_by
+    import aws_sdk_inspector2.types.sort_order
+    import aws_sdk_inspector2.types.string_filter_list
+
+
+class CodeRepositoryAggregation(TypedDict):
+    project_names: NotRequired[
+        "aws_sdk_inspector2.types.string_filter_list.StringFilterList"
+    ]
+    """<p>The project names to include in the aggregation results.</p>"""
+    provider_types: NotRequired[
+        "aws_sdk_inspector2.types.string_filter_list.StringFilterList"
+    ]
+    """<p>The repository provider types to include in the aggregation results.</p>"""
+    sort_order: NotRequired["aws_sdk_inspector2.types.sort_order.SortOrder"]
+    """<p>The order to sort results by (ascending or descending) in the code repository aggregation.</p>"""
+    sort_by: NotRequired[
+        "aws_sdk_inspector2.types.code_repository_sort_by.CodeRepositorySortBy"
+    ]
+    """<p>The value to sort results by in the code repository aggregation.</p>"""
+    resource_ids: NotRequired[
+        "aws_sdk_inspector2.types.string_filter_list.StringFilterList"
+    ]
+    """<p>The resource IDs to include in the aggregation results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CodeRepositoryAggregation) -> dict:
+    out: dict = {}
+    if "project_names" in value:
+        import aws_sdk_inspector2.types.string_filter_list
+
+        out["projectNames"] = (
+            aws_sdk_inspector2.types.string_filter_list.serialize_json(
+                value["project_names"]
+            )
+        )
+    if "provider_types" in value:
+        import aws_sdk_inspector2.types.string_filter_list
+
+        out["providerTypes"] = (
+            aws_sdk_inspector2.types.string_filter_list.serialize_json(
+                value["provider_types"]
+            )
+        )
+    if "sort_order" in value:
+        out["sortOrder"] = value["sort_order"]
+    if "sort_by" in value:
+        out["sortBy"] = value["sort_by"]
+    if "resource_ids" in value:
+        import aws_sdk_inspector2.types.string_filter_list
+
+        out["resourceIds"] = aws_sdk_inspector2.types.string_filter_list.serialize_json(
+            value["resource_ids"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CodeRepositoryAggregation:
+    out: CodeRepositoryAggregation = {}  # type: ignore[typeddict-item]
+    if "projectNames" in data:
+        import aws_sdk_inspector2.types.string_filter_list
+
+        out["project_names"] = (
+            aws_sdk_inspector2.types.string_filter_list.deserialize_json(
+                data["projectNames"]
+            )
+        )
+    if "providerTypes" in data:
+        import aws_sdk_inspector2.types.string_filter_list
+
+        out["provider_types"] = (
+            aws_sdk_inspector2.types.string_filter_list.deserialize_json(
+                data["providerTypes"]
+            )
+        )
+    if "sortOrder" in data:
+        out["sort_order"] = data["sortOrder"]
+    if "sortBy" in data:
+        out["sort_by"] = data["sortBy"]
+    if "resourceIds" in data:
+        import aws_sdk_inspector2.types.string_filter_list
+
+        out["resource_ids"] = (
+            aws_sdk_inspector2.types.string_filter_list.deserialize_json(
+                data["resourceIds"]
+            )
+        )
+    return out

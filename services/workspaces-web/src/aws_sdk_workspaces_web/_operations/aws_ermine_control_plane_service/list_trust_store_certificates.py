@@ -1,18 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ListTrustStoreCertificates``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
+from typing import TYPE_CHECKING, Never, Any, cast
 from aws_sdk_workspaces_web._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_workspaces_web._rule_engine._endpoint_runtime import apply_label
+import jmespath
 import zapros
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 from aws_sdk_workspaces_web.errors import ServiceError, UnknownServiceError
 from aws_sdk_workspaces_web._protocol.errors import parse_error_metadata_json
 import json
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
 from aws_sdk_workspaces_web._services._pipeline import AsyncOperationOptions, OperationOptions
+import datetime
+from email.utils import parsedate_to_datetime as _parse_http_date
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.list_trust_store_certificates_request
     import aws_sdk_workspaces_web.types.list_trust_store_certificates_response

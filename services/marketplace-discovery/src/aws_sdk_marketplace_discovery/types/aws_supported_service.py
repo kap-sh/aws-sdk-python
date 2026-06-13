@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#AwsSupportedService``."""
 
 from typing import TypedDict
+
 from aws_sdk_marketplace_discovery.errors import DeserializationError
+
 
 class AwsSupportedService(TypedDict):
     supported_service_type: "str"
@@ -10,6 +12,7 @@ class AwsSupportedService(TypedDict):
     """<p>The human-readable name of the supported service.</p>"""
     description: "str"
     """<p>A description of the supported service.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsSupportedService) -> dict:
@@ -25,7 +28,9 @@ def deserialize_json(data: dict) -> AwsSupportedService:
     if "supportedServiceType" in data:
         out["supported_service_type"] = data["supportedServiceType"]
     else:
-        raise DeserializationError("AwsSupportedService.supported_service_type required")
+        raise DeserializationError(
+            "AwsSupportedService.supported_service_type required"
+        )
     if "displayName" in data:
         out["display_name"] = data["displayName"]
     else:

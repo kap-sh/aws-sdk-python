@@ -22,21 +22,25 @@ class _StartSpeechSynthesisStreamEventStream_StreamClosedEvent(TypedDict):
 
 
 class _StartSpeechSynthesisStreamEventStream_ValidationException(TypedDict):
-    ValidationException: "aws_sdk_polly.errors.validation_exception.ValidationException"
+    ValidationException: (
+        "aws_sdk_polly.errors.validation_exception.ValidationException_"
+    )
 
 
 class _StartSpeechSynthesisStreamEventStream_ServiceQuotaExceededException(TypedDict):
-    ServiceQuotaExceededException: "aws_sdk_polly.errors.service_quota_exceeded_exception.ServiceQuotaExceededException"
+    ServiceQuotaExceededException: "aws_sdk_polly.errors.service_quota_exceeded_exception.ServiceQuotaExceededException_"
 
 
 class _StartSpeechSynthesisStreamEventStream_ServiceFailureException(TypedDict):
     ServiceFailureException: (
-        "aws_sdk_polly.errors.service_failure_exception.ServiceFailureException"
+        "aws_sdk_polly.errors.service_failure_exception.ServiceFailureException_"
     )
 
 
 class _StartSpeechSynthesisStreamEventStream_ThrottlingException(TypedDict):
-    ThrottlingException: "aws_sdk_polly.errors.throttling_exception.ThrottlingException"
+    ThrottlingException: (
+        "aws_sdk_polly.errors.throttling_exception.ThrottlingException_"
+    )
 
 
 StartSpeechSynthesisStreamEventStream: TypeAlias = (

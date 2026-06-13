@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ConstructProperties``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.construct_property_key
     import aws_sdk_mgn.types.marshalled_resource_definition
 
-ConstructProperties: TypeAlias = dict["aws_sdk_mgn.types.construct_property_key.ConstructPropertyKey", "aws_sdk_mgn.types.marshalled_resource_definition.MarshalledResourceDefinition"]
+ConstructProperties: TypeAlias = dict[
+    "aws_sdk_mgn.types.construct_property_key.ConstructPropertyKey",
+    "aws_sdk_mgn.types.marshalled_resource_definition.MarshalledResourceDefinition",
+]
 
 
 # --- restJson1 ser/de ---

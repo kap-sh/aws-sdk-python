@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ContentConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore_control.types.content_level
+    import aws_sdk_bedrock_agentcore_control.types.content_type
+
+class ContentConfiguration(TypedDict):
+    type: "aws_sdk_bedrock_agentcore_control.types.content_type.ContentType"
+    """<p>Type of content to stream.</p>"""
+    level: "aws_sdk_bedrock_agentcore_control.types.content_level.ContentLevel"
+    """<p>Level of detail for streamed content.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ContentConfiguration) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock_agentcore_control.types.content_type
+    out["type"] = aws_sdk_bedrock_agentcore_control.types.content_type.serialize_json(value["type"])
+    import aws_sdk_bedrock_agentcore_control.types.content_level
+    out["level"] = aws_sdk_bedrock_agentcore_control.types.content_level.serialize_json(value.get("level", 'METADATA_ONLY'))
+    return out
+
+
+def deserialize_json(data: dict) -> ContentConfiguration:
+    out: ContentConfiguration = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_bedrock_agentcore_control.types.content_type
+        out["type"] = aws_sdk_bedrock_agentcore_control.types.content_type.deserialize_json(data["type"])
+    else:
+        raise DeserializationError("ContentConfiguration.type required")
+    if "level" in data:
+        import aws_sdk_bedrock_agentcore_control.types.content_level
+        out["level"] = aws_sdk_bedrock_agentcore_control.types.content_level.deserialize_json(data["level"])
+    else:
+        out["level"] = 'METADATA_ONLY'
+    return out

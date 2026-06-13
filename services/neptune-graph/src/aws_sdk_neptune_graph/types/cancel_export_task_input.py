@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CancelExportTaskInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.export_task_id
+
 
 class CancelExportTaskInput(TypedDict):
     task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId"
     """<p>The unique identifier of the export task.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelExportTaskInput) -> dict:

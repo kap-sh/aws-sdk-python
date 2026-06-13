@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchDeleteWorkloadEstimateUsageEntries``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.resource_id
 
-BatchDeleteWorkloadEstimateUsageEntries: TypeAlias = list["aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"]
+BatchDeleteWorkloadEstimateUsageEntries: TypeAlias = list[
+    "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
+]
 
 
 # --- awsJson1_0 ser/de ---

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeSourceServersRequestFiltersIDs``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_id
 
-DescribeSourceServersRequestFiltersIDs: TypeAlias = list["aws_sdk_drs.types.source_server_id.SourceServerID"]
+DescribeSourceServersRequestFiltersIDs: TypeAlias = list[
+    "aws_sdk_drs.types.source_server_id.SourceServerID"
+]
 
 
 # --- restJson1 ser/de ---

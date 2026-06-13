@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_mgn._services.async_mgn import ensure_async_iterator
-from aws_sdk_mgn._services.mgn import ensure_sync_iterator
-from aws_sdk_mgn._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_mgn._auth._signers
 import aws_sdk_mgn._auth._sigv4
+from aws_sdk_mgn._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
-    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
     import aws_sdk_mgn.types.action_category
     import aws_sdk_mgn.types.action_description
     import aws_sdk_mgn.types.action_id
@@ -46,11 +51,51 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.template_action_document
     import aws_sdk_mgn.types.template_actions_request_filters
     import aws_sdk_mgn.types.update_launch_configuration_template_request
+    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
+    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
+
 
 class LaunchConfigurationTemplateResource:
     def __init__(self, service: mgnClient) -> None:
         self._service = service
-    def create(self, *, config_overrides: Optional[mgnClientConfig] = None, post_launch_actions: Optional["aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"] = None, enable_map_auto_tagging: Optional[bool] = None, map_auto_tagging_mpe_id: Optional["aws_sdk_mgn.types.tag_value.TagValue"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None, launch_disposition: Optional["aws_sdk_mgn.types.launch_disposition.LaunchDisposition"] = None, target_instance_type_right_sizing_method: Optional["aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"] = None, copy_private_ip: Optional[bool] = None, associate_public_ip_address: Optional[bool] = None, copy_tags: Optional[bool] = None, licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None, boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None, small_volume_max_size: Optional["aws_sdk_mgn.types.positive_integer.PositiveInteger"] = None, small_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, large_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, enable_parameters_encryption: Optional[bool] = None, parameters_encryption_key: Optional["aws_sdk_mgn.types.kms_key_arn.KmsKeyArn"] = None) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
+
+    def create(
+        self,
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        post_launch_actions: Optional[
+            "aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"
+        ] = None,
+        enable_map_auto_tagging: Optional[bool] = None,
+        map_auto_tagging_mpe_id: Optional[
+            "aws_sdk_mgn.types.tag_value.TagValue"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+        launch_disposition: Optional[
+            "aws_sdk_mgn.types.launch_disposition.LaunchDisposition"
+        ] = None,
+        target_instance_type_right_sizing_method: Optional[
+            "aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"
+        ] = None,
+        copy_private_ip: Optional[bool] = None,
+        associate_public_ip_address: Optional[bool] = None,
+        copy_tags: Optional[bool] = None,
+        licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None,
+        boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None,
+        small_volume_max_size: Optional[
+            "aws_sdk_mgn.types.positive_integer.PositiveInteger"
+        ] = None,
+        small_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        large_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        enable_parameters_encryption: Optional[bool] = None,
+        parameters_encryption_key: Optional[
+            "aws_sdk_mgn.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
         """<p>Creates a new Launch Configuration Template.</p>
 
         Args:
@@ -70,9 +115,19 @@ class LaunchConfigurationTemplateResource:
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest]') -> OperationResponse["aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.create_launch_configuration_template
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.create_launch_configuration_template.create_launch_configuration_template(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.create_launch_configuration_template.create_launch_configuration_template(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -88,7 +143,9 @@ class LaunchConfigurationTemplateResource:
         if launch_disposition is not None:
             input["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = target_instance_type_right_sizing_method
+            input["target_instance_type_right_sizing_method"] = (
+                target_instance_type_right_sizing_method
+            )
         if copy_private_ip is not None:
             input["copy_private_ip"] = copy_private_ip
         if associate_public_ip_address is not None:
@@ -110,9 +167,48 @@ class LaunchConfigurationTemplateResource:
         if parameters_encryption_key is not None:
             input["parameters_encryption_key"] = parameters_encryption_key
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", *, config_overrides: Optional[mgnClientConfig] = None, post_launch_actions: Optional["aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"] = None, enable_map_auto_tagging: Optional[bool] = None, map_auto_tagging_mpe_id: Optional["aws_sdk_mgn.types.tag_value.TagValue"] = None, launch_disposition: Optional["aws_sdk_mgn.types.launch_disposition.LaunchDisposition"] = None, target_instance_type_right_sizing_method: Optional["aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"] = None, copy_private_ip: Optional[bool] = None, associate_public_ip_address: Optional[bool] = None, copy_tags: Optional[bool] = None, licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None, boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None, small_volume_max_size: Optional["aws_sdk_mgn.types.positive_integer.PositiveInteger"] = None, small_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, large_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, enable_parameters_encryption: Optional[bool] = None, parameters_encryption_key: Optional["aws_sdk_mgn.types.arn.ARN"] = None) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
+
+    def update(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        post_launch_actions: Optional[
+            "aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"
+        ] = None,
+        enable_map_auto_tagging: Optional[bool] = None,
+        map_auto_tagging_mpe_id: Optional[
+            "aws_sdk_mgn.types.tag_value.TagValue"
+        ] = None,
+        launch_disposition: Optional[
+            "aws_sdk_mgn.types.launch_disposition.LaunchDisposition"
+        ] = None,
+        target_instance_type_right_sizing_method: Optional[
+            "aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"
+        ] = None,
+        copy_private_ip: Optional[bool] = None,
+        associate_public_ip_address: Optional[bool] = None,
+        copy_tags: Optional[bool] = None,
+        licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None,
+        boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None,
+        small_volume_max_size: Optional[
+            "aws_sdk_mgn.types.positive_integer.PositiveInteger"
+        ] = None,
+        small_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        large_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        enable_parameters_encryption: Optional[bool] = None,
+        parameters_encryption_key: Optional["aws_sdk_mgn.types.arn.ARN"] = None,
+    ) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
         """<p>Updates an existing Launch Configuration Template by ID.</p>
 
         Args:
@@ -132,9 +228,19 @@ class LaunchConfigurationTemplateResource:
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest]') -> OperationResponse["aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.update_launch_configuration_template
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.update_launch_configuration_template.update_launch_configuration_template(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.update_launch_configuration_template.update_launch_configuration_template(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -149,7 +255,9 @@ class LaunchConfigurationTemplateResource:
         if launch_disposition is not None:
             input["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = target_instance_type_right_sizing_method
+            input["target_instance_type_right_sizing_method"] = (
+                target_instance_type_right_sizing_method
+            )
         if copy_private_ip is not None:
             input["copy_private_ip"] = copy_private_ip
         if associate_public_ip_address is not None:
@@ -171,26 +279,64 @@ class LaunchConfigurationTemplateResource:
         if parameters_encryption_key is not None:
             input["parameters_encryption_key"] = parameters_encryption_key
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse":
+
+    def delete(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse":
         """<p>Deletes a single Launch Configuration Template by ID.</p>
 
         Args:
             launch_configuration_template_id: <p>ID of resource to be deleted.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest]') -> OperationResponse["aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.delete_launch_configuration_template
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.delete_launch_configuration_template.delete_launch_configuration_template(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.delete_launch_configuration_template.delete_launch_configuration_template(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
         input["launch_configuration_template_id"] = launch_configuration_template_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[mgnClientConfig] = None, launch_configuration_template_i_ds: Optional["aws_sdk_mgn.types.launch_configuration_template_i_ds.LaunchConfigurationTemplateIDs"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        launch_configuration_template_i_ds: Optional[
+            "aws_sdk_mgn.types.launch_configuration_template_i_ds.LaunchConfigurationTemplateIDs"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse":
         """<p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
 
         Args:
@@ -198,23 +344,54 @@ class LaunchConfigurationTemplateResource:
             max_results: <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
             next_token: <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest]') -> OperationResponse["aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.describe_launch_configuration_templates
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.describe_launch_configuration_templates.describe_launch_configuration_templates(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.describe_launch_configuration_templates.describe_launch_configuration_templates(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if launch_configuration_template_i_ds is not None:
-            input["launch_configuration_template_i_ds"] = launch_configuration_template_i_ds
+            input["launch_configuration_template_i_ds"] = (
+                launch_configuration_template_i_ds
+            )
         if max_results is not None:
             input["max_results"] = max_results
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_template_actions(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.template_actions_request_filters.TemplateActionsRequestFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse":
+
+    def list_template_actions(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.template_actions_request_filters.TemplateActionsRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse":
         """<p>List template post migration custom actions.</p>
 
         Args:
@@ -223,9 +400,19 @@ class LaunchConfigurationTemplateResource:
             max_results: <p>Maximum amount of items to return when listing template post migration custom actions.</p>
             next_token: <p>Next token to use when listing template post migration custom actions.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_template_actions_request.ListTemplateActionsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_template_actions_request.ListTemplateActionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_template_actions
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_template_actions.list_template_actions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_template_actions.list_template_actions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -238,9 +425,44 @@ class LaunchConfigurationTemplateResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def put_template_action(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", action_name: "aws_sdk_mgn.types.bounded_string.BoundedString", document_identifier: "aws_sdk_mgn.types.bounded_string.BoundedString", order: "aws_sdk_mgn.types.order_type.OrderType", action_id: "aws_sdk_mgn.types.action_id.ActionID", *, config_overrides: Optional[mgnClientConfig] = None, document_version: Optional["aws_sdk_mgn.types.document_version.DocumentVersion"] = None, active: Optional[bool] = None, timeout_seconds: Optional["aws_sdk_mgn.types.strictly_positive_integer.StrictlyPositiveInteger"] = None, must_succeed_for_cutover: Optional[bool] = None, parameters: Optional["aws_sdk_mgn.types.ssm_document_parameters.SsmDocumentParameters"] = None, operating_system: Optional["aws_sdk_mgn.types.operating_system_string.OperatingSystemString"] = None, external_parameters: Optional["aws_sdk_mgn.types.ssm_document_external_parameters.SsmDocumentExternalParameters"] = None, description: Optional["aws_sdk_mgn.types.action_description.ActionDescription"] = None, category: Optional["aws_sdk_mgn.types.action_category.ActionCategory"] = None) -> "aws_sdk_mgn.types.template_action_document.TemplateActionDocument":
+
+    def put_template_action(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        action_name: "aws_sdk_mgn.types.bounded_string.BoundedString",
+        document_identifier: "aws_sdk_mgn.types.bounded_string.BoundedString",
+        order: "aws_sdk_mgn.types.order_type.OrderType",
+        action_id: "aws_sdk_mgn.types.action_id.ActionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        document_version: Optional[
+            "aws_sdk_mgn.types.document_version.DocumentVersion"
+        ] = None,
+        active: Optional[bool] = None,
+        timeout_seconds: Optional[
+            "aws_sdk_mgn.types.strictly_positive_integer.StrictlyPositiveInteger"
+        ] = None,
+        must_succeed_for_cutover: Optional[bool] = None,
+        parameters: Optional[
+            "aws_sdk_mgn.types.ssm_document_parameters.SsmDocumentParameters"
+        ] = None,
+        operating_system: Optional[
+            "aws_sdk_mgn.types.operating_system_string.OperatingSystemString"
+        ] = None,
+        external_parameters: Optional[
+            "aws_sdk_mgn.types.ssm_document_external_parameters.SsmDocumentExternalParameters"
+        ] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.action_description.ActionDescription"
+        ] = None,
+        category: Optional["aws_sdk_mgn.types.action_category.ActionCategory"] = None,
+    ) -> "aws_sdk_mgn.types.template_action_document.TemplateActionDocument":
         """<p>Put template post migration custom action.</p>
 
         Args:
@@ -259,9 +481,19 @@ class LaunchConfigurationTemplateResource:
             description: <p>Template post migration custom action description.</p>
             category: <p>Template post migration custom action category.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.put_template_action_request.PutTemplateActionRequest]') -> OperationResponse["aws_sdk_mgn.types.template_action_document.TemplateActionDocument"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.put_template_action_request.PutTemplateActionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.template_action_document.TemplateActionDocument"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.put_template_action
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.put_template_action.put_template_action(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.put_template_action.put_template_action(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -290,18 +522,41 @@ class LaunchConfigurationTemplateResource:
         if category is not None:
             input["category"] = category
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def remove_template_action(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", action_id: "aws_sdk_mgn.types.action_id.ActionID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse":
+
+    def remove_template_action(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        action_id: "aws_sdk_mgn.types.action_id.ActionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> (
+        "aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse"
+    ):
         """<p>Remove template post migration custom action.</p>
 
         Args:
             launch_configuration_template_id: <p>Launch configuration template ID of the post migration custom action to remove.</p>
             action_id: <p>Template post migration custom action ID to remove.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.remove_template_action_request.RemoveTemplateActionRequest]') -> OperationResponse["aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.remove_template_action_request.RemoveTemplateActionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.remove_template_action
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.remove_template_action.remove_template_action(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.remove_template_action.remove_template_action(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -309,13 +564,55 @@ class LaunchConfigurationTemplateResource:
         input["launch_configuration_template_id"] = launch_configuration_template_id
         input["action_id"] = action_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncLaunchConfigurationTemplateResource:
     def __init__(self, service: AsyncmgnClient) -> None:
         self._service = service
-    async def create(self, *, config_overrides: Optional[AsyncmgnClientConfig] = None, post_launch_actions: Optional["aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"] = None, enable_map_auto_tagging: Optional[bool] = None, map_auto_tagging_mpe_id: Optional["aws_sdk_mgn.types.tag_value.TagValue"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None, launch_disposition: Optional["aws_sdk_mgn.types.launch_disposition.LaunchDisposition"] = None, target_instance_type_right_sizing_method: Optional["aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"] = None, copy_private_ip: Optional[bool] = None, associate_public_ip_address: Optional[bool] = None, copy_tags: Optional[bool] = None, licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None, boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None, small_volume_max_size: Optional["aws_sdk_mgn.types.positive_integer.PositiveInteger"] = None, small_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, large_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, enable_parameters_encryption: Optional[bool] = None, parameters_encryption_key: Optional["aws_sdk_mgn.types.kms_key_arn.KmsKeyArn"] = None) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
+
+    async def create(
+        self,
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        post_launch_actions: Optional[
+            "aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"
+        ] = None,
+        enable_map_auto_tagging: Optional[bool] = None,
+        map_auto_tagging_mpe_id: Optional[
+            "aws_sdk_mgn.types.tag_value.TagValue"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+        launch_disposition: Optional[
+            "aws_sdk_mgn.types.launch_disposition.LaunchDisposition"
+        ] = None,
+        target_instance_type_right_sizing_method: Optional[
+            "aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"
+        ] = None,
+        copy_private_ip: Optional[bool] = None,
+        associate_public_ip_address: Optional[bool] = None,
+        copy_tags: Optional[bool] = None,
+        licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None,
+        boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None,
+        small_volume_max_size: Optional[
+            "aws_sdk_mgn.types.positive_integer.PositiveInteger"
+        ] = None,
+        small_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        large_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        enable_parameters_encryption: Optional[bool] = None,
+        parameters_encryption_key: Optional[
+            "aws_sdk_mgn.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
         """<p>Creates a new Launch Configuration Template.</p>
 
         Args:
@@ -335,9 +632,20 @@ class AsyncLaunchConfigurationTemplateResource:
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.create_launch_configuration_template
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.create_launch_configuration_template.async_create_launch_configuration_template(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.create_launch_configuration_template.async_create_launch_configuration_template(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -353,7 +661,9 @@ class AsyncLaunchConfigurationTemplateResource:
         if launch_disposition is not None:
             input["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = target_instance_type_right_sizing_method
+            input["target_instance_type_right_sizing_method"] = (
+                target_instance_type_right_sizing_method
+            )
         if copy_private_ip is not None:
             input["copy_private_ip"] = copy_private_ip
         if associate_public_ip_address is not None:
@@ -375,9 +685,48 @@ class AsyncLaunchConfigurationTemplateResource:
         if parameters_encryption_key is not None:
             input["parameters_encryption_key"] = parameters_encryption_key
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, post_launch_actions: Optional["aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"] = None, enable_map_auto_tagging: Optional[bool] = None, map_auto_tagging_mpe_id: Optional["aws_sdk_mgn.types.tag_value.TagValue"] = None, launch_disposition: Optional["aws_sdk_mgn.types.launch_disposition.LaunchDisposition"] = None, target_instance_type_right_sizing_method: Optional["aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"] = None, copy_private_ip: Optional[bool] = None, associate_public_ip_address: Optional[bool] = None, copy_tags: Optional[bool] = None, licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None, boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None, small_volume_max_size: Optional["aws_sdk_mgn.types.positive_integer.PositiveInteger"] = None, small_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, large_volume_conf: Optional["aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"] = None, enable_parameters_encryption: Optional[bool] = None, parameters_encryption_key: Optional["aws_sdk_mgn.types.arn.ARN"] = None) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
+
+    async def update(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        post_launch_actions: Optional[
+            "aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"
+        ] = None,
+        enable_map_auto_tagging: Optional[bool] = None,
+        map_auto_tagging_mpe_id: Optional[
+            "aws_sdk_mgn.types.tag_value.TagValue"
+        ] = None,
+        launch_disposition: Optional[
+            "aws_sdk_mgn.types.launch_disposition.LaunchDisposition"
+        ] = None,
+        target_instance_type_right_sizing_method: Optional[
+            "aws_sdk_mgn.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"
+        ] = None,
+        copy_private_ip: Optional[bool] = None,
+        associate_public_ip_address: Optional[bool] = None,
+        copy_tags: Optional[bool] = None,
+        licensing: Optional["aws_sdk_mgn.types.licensing.Licensing"] = None,
+        boot_mode: Optional["aws_sdk_mgn.types.boot_mode.BootMode"] = None,
+        small_volume_max_size: Optional[
+            "aws_sdk_mgn.types.positive_integer.PositiveInteger"
+        ] = None,
+        small_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        large_volume_conf: Optional[
+            "aws_sdk_mgn.types.launch_template_disk_conf.LaunchTemplateDiskConf"
+        ] = None,
+        enable_parameters_encryption: Optional[bool] = None,
+        parameters_encryption_key: Optional["aws_sdk_mgn.types.arn.ARN"] = None,
+    ) -> "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate":
         """<p>Updates an existing Launch Configuration Template by ID.</p>
 
         Args:
@@ -397,9 +746,20 @@ class AsyncLaunchConfigurationTemplateResource:
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.launch_configuration_template.LaunchConfigurationTemplate"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.update_launch_configuration_template
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.update_launch_configuration_template.async_update_launch_configuration_template(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.update_launch_configuration_template.async_update_launch_configuration_template(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -414,7 +774,9 @@ class AsyncLaunchConfigurationTemplateResource:
         if launch_disposition is not None:
             input["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = target_instance_type_right_sizing_method
+            input["target_instance_type_right_sizing_method"] = (
+                target_instance_type_right_sizing_method
+            )
         if copy_private_ip is not None:
             input["copy_private_ip"] = copy_private_ip
         if associate_public_ip_address is not None:
@@ -436,26 +798,65 @@ class AsyncLaunchConfigurationTemplateResource:
         if parameters_encryption_key is not None:
             input["parameters_encryption_key"] = parameters_encryption_key
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse":
+
+    async def delete(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse":
         """<p>Deletes a single Launch Configuration Template by ID.</p>
 
         Args:
             launch_configuration_template_id: <p>ID of resource to be deleted.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.delete_launch_configuration_template_response.DeleteLaunchConfigurationTemplateResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.delete_launch_configuration_template
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.delete_launch_configuration_template.async_delete_launch_configuration_template(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.delete_launch_configuration_template.async_delete_launch_configuration_template(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
         input["launch_configuration_template_id"] = launch_configuration_template_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncmgnClientConfig] = None, launch_configuration_template_i_ds: Optional["aws_sdk_mgn.types.launch_configuration_template_i_ds.LaunchConfigurationTemplateIDs"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        launch_configuration_template_i_ds: Optional[
+            "aws_sdk_mgn.types.launch_configuration_template_i_ds.LaunchConfigurationTemplateIDs"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse":
         """<p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
 
         Args:
@@ -463,23 +864,55 @@ class AsyncLaunchConfigurationTemplateResource:
             max_results: <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
             next_token: <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.describe_launch_configuration_templates_response.DescribeLaunchConfigurationTemplatesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.describe_launch_configuration_templates
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.describe_launch_configuration_templates.async_describe_launch_configuration_templates(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.describe_launch_configuration_templates.async_describe_launch_configuration_templates(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if launch_configuration_template_i_ds is not None:
-            input["launch_configuration_template_i_ds"] = launch_configuration_template_i_ds
+            input["launch_configuration_template_i_ds"] = (
+                launch_configuration_template_i_ds
+            )
         if max_results is not None:
             input["max_results"] = max_results
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_template_actions(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.template_actions_request_filters.TemplateActionsRequestFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse":
+
+    async def list_template_actions(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.template_actions_request_filters.TemplateActionsRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse":
         """<p>List template post migration custom actions.</p>
 
         Args:
@@ -488,9 +921,20 @@ class AsyncLaunchConfigurationTemplateResource:
             max_results: <p>Maximum amount of items to return when listing template post migration custom actions.</p>
             next_token: <p>Next token to use when listing template post migration custom actions.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_template_actions_request.ListTemplateActionsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_template_actions_request.ListTemplateActionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_template_actions_response.ListTemplateActionsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_template_actions
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_template_actions.async_list_template_actions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_template_actions.async_list_template_actions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -503,9 +947,44 @@ class AsyncLaunchConfigurationTemplateResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def put_template_action(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", action_name: "aws_sdk_mgn.types.bounded_string.BoundedString", document_identifier: "aws_sdk_mgn.types.bounded_string.BoundedString", order: "aws_sdk_mgn.types.order_type.OrderType", action_id: "aws_sdk_mgn.types.action_id.ActionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, document_version: Optional["aws_sdk_mgn.types.document_version.DocumentVersion"] = None, active: Optional[bool] = None, timeout_seconds: Optional["aws_sdk_mgn.types.strictly_positive_integer.StrictlyPositiveInteger"] = None, must_succeed_for_cutover: Optional[bool] = None, parameters: Optional["aws_sdk_mgn.types.ssm_document_parameters.SsmDocumentParameters"] = None, operating_system: Optional["aws_sdk_mgn.types.operating_system_string.OperatingSystemString"] = None, external_parameters: Optional["aws_sdk_mgn.types.ssm_document_external_parameters.SsmDocumentExternalParameters"] = None, description: Optional["aws_sdk_mgn.types.action_description.ActionDescription"] = None, category: Optional["aws_sdk_mgn.types.action_category.ActionCategory"] = None) -> "aws_sdk_mgn.types.template_action_document.TemplateActionDocument":
+
+    async def put_template_action(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        action_name: "aws_sdk_mgn.types.bounded_string.BoundedString",
+        document_identifier: "aws_sdk_mgn.types.bounded_string.BoundedString",
+        order: "aws_sdk_mgn.types.order_type.OrderType",
+        action_id: "aws_sdk_mgn.types.action_id.ActionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        document_version: Optional[
+            "aws_sdk_mgn.types.document_version.DocumentVersion"
+        ] = None,
+        active: Optional[bool] = None,
+        timeout_seconds: Optional[
+            "aws_sdk_mgn.types.strictly_positive_integer.StrictlyPositiveInteger"
+        ] = None,
+        must_succeed_for_cutover: Optional[bool] = None,
+        parameters: Optional[
+            "aws_sdk_mgn.types.ssm_document_parameters.SsmDocumentParameters"
+        ] = None,
+        operating_system: Optional[
+            "aws_sdk_mgn.types.operating_system_string.OperatingSystemString"
+        ] = None,
+        external_parameters: Optional[
+            "aws_sdk_mgn.types.ssm_document_external_parameters.SsmDocumentExternalParameters"
+        ] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.action_description.ActionDescription"
+        ] = None,
+        category: Optional["aws_sdk_mgn.types.action_category.ActionCategory"] = None,
+    ) -> "aws_sdk_mgn.types.template_action_document.TemplateActionDocument":
         """<p>Put template post migration custom action.</p>
 
         Args:
@@ -524,9 +1003,20 @@ class AsyncLaunchConfigurationTemplateResource:
             description: <p>Template post migration custom action description.</p>
             category: <p>Template post migration custom action category.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.put_template_action_request.PutTemplateActionRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.template_action_document.TemplateActionDocument"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.put_template_action_request.PutTemplateActionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.template_action_document.TemplateActionDocument"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.put_template_action
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.put_template_action.async_put_template_action(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.put_template_action.async_put_template_action(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -555,18 +1045,42 @@ class AsyncLaunchConfigurationTemplateResource:
         if category is not None:
             input["category"] = category
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def remove_template_action(self, launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID", action_id: "aws_sdk_mgn.types.action_id.ActionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse":
+
+    async def remove_template_action(
+        self,
+        launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID",
+        action_id: "aws_sdk_mgn.types.action_id.ActionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> (
+        "aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse"
+    ):
         """<p>Remove template post migration custom action.</p>
 
         Args:
             launch_configuration_template_id: <p>Launch configuration template ID of the post migration custom action to remove.</p>
             action_id: <p>Template post migration custom action ID to remove.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.remove_template_action_request.RemoveTemplateActionRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.remove_template_action_request.RemoveTemplateActionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.remove_template_action_response.RemoveTemplateActionResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.remove_template_action
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.remove_template_action.async_remove_template_action(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.remove_template_action.async_remove_template_action(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -574,5 +1088,9 @@ class AsyncLaunchConfigurationTemplateResource:
         input["launch_configuration_template_id"] = launch_configuration_template_id
         input["action_id"] = action_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

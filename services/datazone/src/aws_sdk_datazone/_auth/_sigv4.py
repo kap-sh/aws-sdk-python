@@ -23,7 +23,9 @@ import zapros
 from zapros._utils import get_host_header_value
 
 
-def build_sigv4_auth_scheme(signing_name: str, region: str | None) -> dict[str, Any] | None:
+def build_sigv4_auth_scheme(
+    signing_name: str, region: str | None
+) -> dict[str, Any] | None:
     """Return a sigv4 auth scheme dict for the given signing name and region.
 
     Returns None when region is not set so callers can use it in an ``or`` chain.

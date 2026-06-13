@@ -1,22 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AccountAggregation``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_sort_by
     import aws_sdk_inspector2.types.aggregation_finding_type
     import aws_sdk_inspector2.types.aggregation_resource_type
     import aws_sdk_inspector2.types.sort_order
 
+
 class AccountAggregation(TypedDict):
-    finding_type: NotRequired["aws_sdk_inspector2.types.aggregation_finding_type.AggregationFindingType"]
+    finding_type: NotRequired[
+        "aws_sdk_inspector2.types.aggregation_finding_type.AggregationFindingType"
+    ]
     """<p>The type of finding.</p>"""
-    resource_type: NotRequired["aws_sdk_inspector2.types.aggregation_resource_type.AggregationResourceType"]
+    resource_type: NotRequired[
+        "aws_sdk_inspector2.types.aggregation_resource_type.AggregationResourceType"
+    ]
     """<p>The type of resource.</p>"""
     sort_order: NotRequired["aws_sdk_inspector2.types.sort_order.SortOrder"]
     """<p>The sort order (ascending or descending).</p>"""
     sort_by: NotRequired["aws_sdk_inspector2.types.account_sort_by.AccountSortBy"]
     """<p>The value to sort by.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountAggregation) -> dict:

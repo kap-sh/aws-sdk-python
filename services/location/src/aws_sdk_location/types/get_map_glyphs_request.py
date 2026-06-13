@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapGlyphsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
     import aws_sdk_location.types.resource_name
+
 
 class GetMapGlyphsRequest(TypedDict):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -15,6 +18,7 @@ class GetMapGlyphsRequest(TypedDict):
     """<p>A Unicode range of characters to download glyphs for. Each response will contain 256 characters. For example, 0–255 includes all characters from range <code>U+0000</code> to <code>00FF</code>. Must be aligned to multiples of 256.</p>"""
     key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]
     """<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetMapGlyphsRequest) -> dict:

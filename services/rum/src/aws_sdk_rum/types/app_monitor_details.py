@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitorDetails``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class AppMonitorDetails(TypedDict):
     name: NotRequired["str"]
@@ -10,6 +12,7 @@ class AppMonitorDetails(TypedDict):
     """<p>The unique ID of the app monitor.</p>"""
     version: NotRequired["str"]
     """<p>The version of the app monitor.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AppMonitorDetails) -> dict:

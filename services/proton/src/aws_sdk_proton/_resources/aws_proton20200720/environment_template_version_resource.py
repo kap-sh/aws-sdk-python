@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_proton._services.async_proton import ensure_async_iterator
-from aws_sdk_proton._services.proton import ensure_sync_iterator
-from aws_sdk_proton._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_proton._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
-    from aws_sdk_proton._services.async_proton import AsyncProtonClient, AsyncProtonClientConfig
     import aws_sdk_proton.types.client_token
     import aws_sdk_proton.types.create_environment_template_version_input
     import aws_sdk_proton.types.create_environment_template_version_output
@@ -25,11 +30,30 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_status
     import aws_sdk_proton.types.update_environment_template_version_input
     import aws_sdk_proton.types.update_environment_template_version_output
+    from aws_sdk_proton._services.async_proton import (
+        AsyncProtonClient,
+        AsyncProtonClientConfig,
+    )
+    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
+
 
 class EnvironmentTemplateVersionResource:
     def __init__(self, service: ProtonClient) -> None:
         self._service = service
-    def create(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput", *, config_overrides: Optional[ProtonClientConfig] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None) -> "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput":
+
+    def create(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput":
         """<p>Create a new major or minor version of an environment template. A major version of an environment template is a version that <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major version.</p>
 
         Args:
@@ -40,9 +64,19 @@ class EnvironmentTemplateVersionResource:
             source: <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
             tags: <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_environment_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.create_environment_template_version.create_environment_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.create_environment_template_version.create_environment_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -58,9 +92,21 @@ class EnvironmentTemplateVersionResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput":
+
+    def read(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput":
         """<p>Get detailed data for a major or minor version of an environment template.</p>
 
         Args:
@@ -68,9 +114,19 @@ class EnvironmentTemplateVersionResource:
             major_version: <p>To get environment template major version detail data, include <code>major Version</code>.</p>
             minor_version: <p>To get environment template minor version detail data, include <code>minorVersion</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_environment_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.get_environment_template_version.get_environment_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.get_environment_template_version.get_environment_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -79,9 +135,25 @@ class EnvironmentTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[ProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, status: Optional["aws_sdk_proton.types.template_version_status.TemplateVersionStatus"] = None) -> "aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput":
+
+    def update(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        status: Optional[
+            "aws_sdk_proton.types.template_version_status.TemplateVersionStatus"
+        ] = None,
+    ) -> "aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput":
         """<p>Update a major or minor version of an environment template.</p>
 
         Args:
@@ -91,9 +163,19 @@ class EnvironmentTemplateVersionResource:
             description: <p>A description of environment template version to update.</p>
             status: <p>The status of the environment template minor version to update.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_environment_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.update_environment_template_version.update_environment_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.update_environment_template_version.update_environment_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -106,9 +188,21 @@ class EnvironmentTemplateVersionResource:
         if status is not None:
             input["status"] = status
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput":
+
+    def delete(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput":
         """<p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p> <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version of an environment template is a version that's backward compatible.</p>
 
         Args:
@@ -116,9 +210,19 @@ class EnvironmentTemplateVersionResource:
             major_version: <p>The environment template major version to delete.</p>
             minor_version: <p>The environment template minor version to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_environment_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.delete_environment_template_version.delete_environment_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.delete_environment_template_version.delete_environment_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -127,9 +231,26 @@ class EnvironmentTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[ProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None) -> "aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput":
+
+    def list(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput":
         """<p>List major or minor versions of an environment template with detail data.</p>
 
         Args:
@@ -138,9 +259,19 @@ class EnvironmentTemplateVersionResource:
             template_name: <p>The name of the environment template.</p>
             major_version: <p>To view a list of minor of versions under a major version of an environment template, include <code>major Version</code>.</p> <p>To view a list of major versions of an environment template, <i>exclude</i> <code>major Version</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput]') -> OperationResponse["aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_environment_template_versions
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.list_environment_template_versions.list_environment_template_versions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.list_environment_template_versions.list_environment_template_versions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -153,13 +284,31 @@ class EnvironmentTemplateVersionResource:
         if major_version is not None:
             input["major_version"] = major_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncEnvironmentTemplateVersionResource:
     def __init__(self, service: AsyncProtonClient) -> None:
         self._service = service
-    async def create(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput", *, config_overrides: Optional[AsyncProtonClientConfig] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None) -> "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput":
+
+    async def create(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+    ) -> "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput":
         """<p>Create a new major or minor version of an environment template. A major version of an environment template is a version that <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major version.</p>
 
         Args:
@@ -170,9 +319,20 @@ class AsyncEnvironmentTemplateVersionResource:
             source: <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
             tags: <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_environment_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.create_environment_template_version.async_create_environment_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.create_environment_template_version.async_create_environment_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -188,9 +348,21 @@ class AsyncEnvironmentTemplateVersionResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput":
+
+    async def read(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput":
         """<p>Get detailed data for a major or minor version of an environment template.</p>
 
         Args:
@@ -198,9 +370,20 @@ class AsyncEnvironmentTemplateVersionResource:
             major_version: <p>To get environment template major version detail data, include <code>major Version</code>.</p>
             minor_version: <p>To get environment template minor version detail data, include <code>minorVersion</code>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.get_environment_template_version_output.GetEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_environment_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.get_environment_template_version.async_get_environment_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.get_environment_template_version.async_get_environment_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -209,9 +392,25 @@ class AsyncEnvironmentTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[AsyncProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, status: Optional["aws_sdk_proton.types.template_version_status.TemplateVersionStatus"] = None) -> "aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput":
+
+    async def update(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        status: Optional[
+            "aws_sdk_proton.types.template_version_status.TemplateVersionStatus"
+        ] = None,
+    ) -> "aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput":
         """<p>Update a major or minor version of an environment template.</p>
 
         Args:
@@ -221,9 +420,20 @@ class AsyncEnvironmentTemplateVersionResource:
             description: <p>A description of environment template version to update.</p>
             status: <p>The status of the environment template minor version to update.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.update_environment_template_version_output.UpdateEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_environment_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.update_environment_template_version.async_update_environment_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.update_environment_template_version.async_update_environment_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -236,9 +446,21 @@ class AsyncEnvironmentTemplateVersionResource:
         if status is not None:
             input["status"] = status
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput":
+
+    async def delete(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput":
         """<p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p> <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version of an environment template is a version that's backward compatible.</p>
 
         Args:
@@ -246,9 +468,20 @@ class AsyncEnvironmentTemplateVersionResource:
             major_version: <p>The environment template major version to delete.</p>
             minor_version: <p>The environment template minor version to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.delete_environment_template_version_output.DeleteEnvironmentTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_environment_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.delete_environment_template_version.async_delete_environment_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.delete_environment_template_version.async_delete_environment_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -257,9 +490,26 @@ class AsyncEnvironmentTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None) -> "aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput":
+
+    async def list(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput":
         """<p>List major or minor versions of an environment template with detail data.</p>
 
         Args:
@@ -268,9 +518,20 @@ class AsyncEnvironmentTemplateVersionResource:
             template_name: <p>The name of the environment template.</p>
             major_version: <p>To view a list of minor of versions under a major version of an environment template, include <code>major Version</code>.</p> <p>To view a list of major versions of an environment template, <i>exclude</i> <code>major Version</code>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.list_environment_template_versions_output.ListEnvironmentTemplateVersionsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_environment_template_versions
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.list_environment_template_versions.async_list_environment_template_versions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.list_environment_template_versions.async_list_environment_template_versions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -283,5 +544,9 @@ class AsyncEnvironmentTemplateVersionResource:
         if major_version is not None:
             input["major_version"] = major_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

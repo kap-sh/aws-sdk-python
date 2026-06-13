@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#InstanceSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
     import aws_sdk_license_manager_user_subscriptions.types.string_list
+
 
 class InstanceSummary(TypedDict):
     instance_id: "str"
@@ -20,8 +24,11 @@ class InstanceSummary(TypedDict):
     """<p>The status message for an EC2 instance.</p>"""
     owner_account_id: NotRequired["str"]
     """<p>The AWS Account ID of the owner of this resource.</p>"""
-    identity_provider: NotRequired["aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"]
+    identity_provider: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
+    ]
     """<p>The <code>IdentityProvider</code> resource specifies details about the identity provider.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InstanceSummary) -> dict:
@@ -29,7 +36,12 @@ def serialize_json(value: InstanceSummary) -> dict:
     out["InstanceId"] = value["instance_id"]
     out["Status"] = value["status"]
     import aws_sdk_license_manager_user_subscriptions.types.string_list
-    out["Products"] = aws_sdk_license_manager_user_subscriptions.types.string_list.serialize_json(value["products"])
+
+    out["Products"] = (
+        aws_sdk_license_manager_user_subscriptions.types.string_list.serialize_json(
+            value["products"]
+        )
+    )
     if "last_status_check_date" in value:
         out["LastStatusCheckDate"] = value["last_status_check_date"]
     if "status_message" in value:
@@ -38,7 +50,12 @@ def serialize_json(value: InstanceSummary) -> dict:
         out["OwnerAccountId"] = value["owner_account_id"]
     if "identity_provider" in value:
         import aws_sdk_license_manager_user_subscriptions.types.identity_provider
-        out["IdentityProvider"] = aws_sdk_license_manager_user_subscriptions.types.identity_provider.serialize_json(value["identity_provider"])
+
+        out["IdentityProvider"] = (
+            aws_sdk_license_manager_user_subscriptions.types.identity_provider.serialize_json(
+                value["identity_provider"]
+            )
+        )
     return out
 
 
@@ -54,7 +71,12 @@ def deserialize_json(data: dict) -> InstanceSummary:
         raise DeserializationError("InstanceSummary.status required")
     if "Products" in data:
         import aws_sdk_license_manager_user_subscriptions.types.string_list
-        out["products"] = aws_sdk_license_manager_user_subscriptions.types.string_list.deserialize_json(data["Products"])
+
+        out["products"] = (
+            aws_sdk_license_manager_user_subscriptions.types.string_list.deserialize_json(
+                data["Products"]
+            )
+        )
     else:
         raise DeserializationError("InstanceSummary.products required")
     if "LastStatusCheckDate" in data:
@@ -65,5 +87,10 @@ def deserialize_json(data: dict) -> InstanceSummary:
         out["owner_account_id"] = data["OwnerAccountId"]
     if "IdentityProvider" in data:
         import aws_sdk_license_manager_user_subscriptions.types.identity_provider
-        out["identity_provider"] = aws_sdk_license_manager_user_subscriptions.types.identity_provider.deserialize_json(data["IdentityProvider"])
+
+        out["identity_provider"] = (
+            aws_sdk_license_manager_user_subscriptions.types.identity_provider.deserialize_json(
+                data["IdentityProvider"]
+            )
+        )
     return out

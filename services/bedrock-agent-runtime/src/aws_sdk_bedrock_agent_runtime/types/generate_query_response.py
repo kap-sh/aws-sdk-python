@@ -1,20 +1,31 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GenerateQueryResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.generated_queries
 
+
 class GenerateQueryResponse(TypedDict):
-    queries: NotRequired["aws_sdk_bedrock_agent_runtime.types.generated_queries.GeneratedQueries"]
+    queries: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.generated_queries.GeneratedQueries"
+    ]
     """<p>A list of objects, each of which defines a generated query that can correspond to the natural language queries.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GenerateQueryResponse) -> dict:
     out: dict = {}
     if "queries" in value:
         import aws_sdk_bedrock_agent_runtime.types.generated_queries
-        out["queries"] = aws_sdk_bedrock_agent_runtime.types.generated_queries.serialize_json(value["queries"])
+
+        out["queries"] = (
+            aws_sdk_bedrock_agent_runtime.types.generated_queries.serialize_json(
+                value["queries"]
+            )
+        )
     return out
 
 
@@ -22,5 +33,10 @@ def deserialize_json(data: dict) -> GenerateQueryResponse:
     out: GenerateQueryResponse = {}  # type: ignore[typeddict-item]
     if "queries" in data:
         import aws_sdk_bedrock_agent_runtime.types.generated_queries
-        out["queries"] = aws_sdk_bedrock_agent_runtime.types.generated_queries.deserialize_json(data["queries"])
+
+        out["queries"] = (
+            aws_sdk_bedrock_agent_runtime.types.generated_queries.deserialize_json(
+                data["queries"]
+            )
+        )
     return out

@@ -1,14 +1,22 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_runtime._services.async_bedrock_runtime import ensure_async_iterator
-from aws_sdk_bedrock_runtime._services.bedrock_runtime import ensure_sync_iterator
-from aws_sdk_bedrock_runtime._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
-from collections.abc import Iterator
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Iterator
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_runtime._auth._signers
 import aws_sdk_bedrock_runtime._auth._sigv4
+from aws_sdk_bedrock_runtime._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+from aws_sdk_bedrock_runtime._services.async_bedrock_runtime import (
+    ensure_async_iterator,
+)
+from aws_sdk_bedrock_runtime._services.bedrock_runtime import ensure_sync_iterator
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_runtime._services.bedrock_runtime import BedrockRuntimeClient, BedrockRuntimeClientConfig
-    from aws_sdk_bedrock_runtime._services.async_bedrock_runtime import AsyncBedrockRuntimeClient, AsyncBedrockRuntimeClientConfig
     import aws_sdk_bedrock_runtime.types.additional_model_response_field_paths
     import aws_sdk_bedrock_runtime.types.body
     import aws_sdk_bedrock_runtime.types.conversational_model_id
@@ -42,11 +50,58 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.system_content_blocks
     import aws_sdk_bedrock_runtime.types.tool_configuration
     import aws_sdk_bedrock_runtime.types.trace
+    from aws_sdk_bedrock_runtime._services.async_bedrock_runtime import (
+        AsyncBedrockRuntimeClient,
+        AsyncBedrockRuntimeClientConfig,
+    )
+    from aws_sdk_bedrock_runtime._services.bedrock_runtime import (
+        BedrockRuntimeClient,
+        BedrockRuntimeClientConfig,
+    )
+
 
 class InferenceResource:
     def __init__(self, service: BedrockRuntimeClient) -> None:
         self._service = service
-    def converse(self, model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId", *, config_overrides: Optional[BedrockRuntimeClientConfig] = None, messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None, system: Optional["aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"] = None, inference_config: Optional["aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"] = None, tool_config: Optional["aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"] = None, guardrail_config: Optional["aws_sdk_bedrock_runtime.types.guardrail_configuration.GuardrailConfiguration"] = None, additional_model_request_fields: Optional[object] = None, prompt_variables: Optional["aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"] = None, additional_model_response_field_paths: Optional["aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"] = None, performance_config: Optional["aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"] = None, output_config: Optional["aws_sdk_bedrock_runtime.types.output_config.OutputConfig"] = None) -> "aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse":
+
+    def converse(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId",
+        *,
+        config_overrides: Optional[BedrockRuntimeClientConfig] = None,
+        messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None,
+        system: Optional[
+            "aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"
+        ] = None,
+        inference_config: Optional[
+            "aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"
+        ] = None,
+        tool_config: Optional[
+            "aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"
+        ] = None,
+        guardrail_config: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_configuration.GuardrailConfiguration"
+        ] = None,
+        additional_model_request_fields: Optional[object] = None,
+        prompt_variables: Optional[
+            "aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"
+        ] = None,
+        additional_model_response_field_paths: Optional[
+            "aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"
+        ] = None,
+        performance_config: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"
+        ] = None,
+        output_config: Optional[
+            "aws_sdk_bedrock_runtime.types.output_config.OutputConfig"
+        ] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse":
         """<p>Sends messages to the specified Amazon Bedrock model. <code>Converse</code> provides a consistent interface that works with all models that support messages. This allows you to write code once and use it with different models. If a model has unique inference parameters, you can also pass those unique parameters to the model.</p> <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p> <p>You can submit a prompt by including it in the <code>messages</code> field, specifying the <code>modelId</code> of a foundation model or inference profile to run inference on it, and including any other fields that are relevant to your use case.</p> <p>You can also submit a prompt from Prompt management by specifying the ARN of the prompt version and including a map of variables to values in the <code>promptVariables</code> field. You can append more messages to the prompt by using the <code>messages</code> field. If you use a prompt from Prompt management, you can't include the following fields in the request: <code>additionalModelRequestFields</code>, <code>inferenceConfig</code>, <code>system</code>, or <code>toolConfig</code>. Instead, these fields must be defined through Prompt management. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html\">Use a prompt from Prompt management</a>.</p> <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a guardrail, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i> </p> <p>For example code, see <i>Converse API examples</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permission for the <code>bedrock:InvokeModel</code> action. </p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the base inference actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html\">InvokeModel</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html\">InvokeModelWithResponseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>Converse</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -64,9 +119,19 @@ class InferenceResource:
             service_tier: <p>Specifies the processing tier configuration used for serving the request.</p>
             output_config: <p>Output configuration for a model response.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest]') -> OperationResponse["aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse
-            output, http_response = aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse.converse(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse.converse(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -87,7 +152,9 @@ class InferenceResource:
         if prompt_variables is not None:
             input["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = additional_model_response_field_paths
+            input["additional_model_response_field_paths"] = (
+                additional_model_response_field_paths
+            )
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
         if performance_config is not None:
@@ -97,9 +164,53 @@ class InferenceResource:
         if output_config is not None:
             input["output_config"] = output_config
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def converse_stream(self, model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId", *, config_overrides: Optional[BedrockRuntimeClientConfig] = None, messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None, system: Optional["aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"] = None, inference_config: Optional["aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"] = None, tool_config: Optional["aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"] = None, guardrail_config: Optional["aws_sdk_bedrock_runtime.types.guardrail_stream_configuration.GuardrailStreamConfiguration"] = None, additional_model_request_fields: Optional[object] = None, prompt_variables: Optional["aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"] = None, additional_model_response_field_paths: Optional["aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"] = None, performance_config: Optional["aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"] = None, output_config: Optional["aws_sdk_bedrock_runtime.types.output_config.OutputConfig"] = None) -> "aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse":
+
+    def converse_stream(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId",
+        *,
+        config_overrides: Optional[BedrockRuntimeClientConfig] = None,
+        messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None,
+        system: Optional[
+            "aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"
+        ] = None,
+        inference_config: Optional[
+            "aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"
+        ] = None,
+        tool_config: Optional[
+            "aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"
+        ] = None,
+        guardrail_config: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_stream_configuration.GuardrailStreamConfiguration"
+        ] = None,
+        additional_model_request_fields: Optional[object] = None,
+        prompt_variables: Optional[
+            "aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"
+        ] = None,
+        additional_model_response_field_paths: Optional[
+            "aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"
+        ] = None,
+        performance_config: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"
+        ] = None,
+        output_config: Optional[
+            "aws_sdk_bedrock_runtime.types.output_config.OutputConfig"
+        ] = None,
+    ) -> (
+        "aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse"
+    ):
         """<p>Sends messages to the specified Amazon Bedrock model and returns the response in a stream. <code>ConverseStream</code> provides a consistent API that works with all Amazon Bedrock models that support messages. This allows you to write code once and use it with different models. Should a model have unique inference parameters, you can also pass those unique parameters to the model. </p> <p>To find out if a model supports streaming, call <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html\">GetFoundationModel</a> and check the <code>responseStreamingSupported</code> field in the response.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>ConverseStream</code>.</p> </note> <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p> <p>You can submit a prompt by including it in the <code>messages</code> field, specifying the <code>modelId</code> of a foundation model or inference profile to run inference on it, and including any other fields that are relevant to your use case.</p> <p>You can also submit a prompt from Prompt management by specifying the ARN of the prompt version and including a map of variables to values in the <code>promptVariables</code> field. You can append more messages to the prompt by using the <code>messages</code> field. If you use a prompt from Prompt management, you can't include the following fields in the request: <code>additionalModelRequestFields</code>, <code>inferenceConfig</code>, <code>system</code>, or <code>toolConfig</code>. Instead, these fields must be defined through Prompt management. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html\">Use a prompt from Prompt management</a>.</p> <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a guardrail, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i> </p> <p>For example code, see <i>Conversation streaming example</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permission for the <code>bedrock:InvokeModelWithResponseStream</code> action.</p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the base inference actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html\">InvokeModel</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html\">InvokeModelWithResponseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>ConverseStream</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -117,9 +228,19 @@ class InferenceResource:
             service_tier: <p>Specifies the processing tier configuration used for serving the request.</p>
             output_config: <p>Output configuration for a model response.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest]') -> OperationResponse["aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse_stream
-            output, http_response = aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse_stream.converse_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse_stream.converse_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -140,7 +261,9 @@ class InferenceResource:
         if prompt_variables is not None:
             input["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = additional_model_response_field_paths
+            input["additional_model_response_field_paths"] = (
+                additional_model_response_field_paths
+            )
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
         if performance_config is not None:
@@ -150,9 +273,40 @@ class InferenceResource:
         if output_config is not None:
             input["output_config"] = output_config
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def invoke_model(self, model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier", *, config_overrides: Optional[BedrockRuntimeClientConfig] = None, body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None, content_type: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None, guardrail_identifier: Optional["aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"] = None, guardrail_version: Optional["aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"] = None, performance_config_latency: Optional["aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"] = None) -> "aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse":
+
+    def invoke_model(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier",
+        *,
+        config_overrides: Optional[BedrockRuntimeClientConfig] = None,
+        body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_runtime.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None,
+        trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None,
+        guardrail_identifier: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"
+        ] = None,
+        guardrail_version: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"
+        ] = None,
+        performance_config_latency: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"
+        ] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse":
         """<p>Invokes the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body. You use model inference to generate text, images, and embeddings.</p> <p>For example code, see <i>Invoke model code examples</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permission for the <code>bedrock:InvokeModel</code> action.</p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the Converse API actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html\">Converse</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html\">ConverseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>InvokeModel</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -167,9 +321,19 @@ class InferenceResource:
             service_tier: <p>Specifies the processing tier type used for serving the request.</p>
             request_metadata: <p>Key-value pairs that you can use to filter invocation logs.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest]') -> OperationResponse["aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model
-            output, http_response = aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model.invoke_model(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model.invoke_model(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -194,28 +358,80 @@ class InferenceResource:
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def invoke_model_with_bidirectional_stream(self, model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier", body: Iterator[bytes] | bytes, *, config_overrides: Optional[BedrockRuntimeClientConfig] = None) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse":
+
+    def invoke_model_with_bidirectional_stream(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier",
+        body: Iterator[bytes] | bytes,
+        *,
+        config_overrides: Optional[BedrockRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse":
         """<p>Invoke the specified Amazon Bedrock model to run inference using the bidirectional stream. The response is returned in a stream that remains open for 8 minutes. A single session can contain multiple prompts and responses from the model. The prompts to the model are provided as audio files and the model's responses are spoken back to the user and transcribed.</p> <p>It is possible for users to interrupt the model's response with a new prompt, which will halt the response speech. The model will retain contextual awareness of the conversation while pivoting to respond to the new prompt.</p>
 
         Args:
             model_id: <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
             body: <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html\">Run inference</a> in the Bedrock User Guide.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest]') -> OperationResponse["aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_bidirectional_stream
-            output, http_response = aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_bidirectional_stream.invoke_model_with_bidirectional_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_bidirectional_stream.invoke_model_with_bidirectional_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
         input["model_id"] = model_id
-        input["body"] = ensure_sync_iterator(body) # type: ignore
+        input["body"] = ensure_sync_iterator(body)  # type: ignore
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def invoke_model_with_response_stream(self, model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier", *, config_overrides: Optional[BedrockRuntimeClientConfig] = None, body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None, content_type: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None, guardrail_identifier: Optional["aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"] = None, guardrail_version: Optional["aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"] = None, performance_config_latency: Optional["aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"] = None) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse":
+
+    def invoke_model_with_response_stream(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier",
+        *,
+        config_overrides: Optional[BedrockRuntimeClientConfig] = None,
+        body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_runtime.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None,
+        trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None,
+        guardrail_identifier: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"
+        ] = None,
+        guardrail_version: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"
+        ] = None,
+        performance_config_latency: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"
+        ] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse":
         """<p>Invoke the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body. The response is returned in a stream.</p> <p>To see if a model supports streaming, call <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html\">GetFoundationModel</a> and check the <code>responseStreamingSupported</code> field in the response.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>For example code, see <i>Invoke model with streaming code example</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action. </p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the Converse API actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html\">Converse</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html\">ConverseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>InvokeModelWithResponseStream</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -230,9 +446,19 @@ class InferenceResource:
             service_tier: <p>Specifies the processing tier type used for serving the request.</p>
             request_metadata: <p>Key-value pairs that you can use to filter invocation logs.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest]') -> OperationResponse["aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_response_stream
-            output, http_response = aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_response_stream.invoke_model_with_response_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_response_stream.invoke_model_with_response_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -257,13 +483,56 @@ class InferenceResource:
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncInferenceResource:
     def __init__(self, service: AsyncBedrockRuntimeClient) -> None:
         self._service = service
-    async def converse(self, model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId", *, config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None, messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None, system: Optional["aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"] = None, inference_config: Optional["aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"] = None, tool_config: Optional["aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"] = None, guardrail_config: Optional["aws_sdk_bedrock_runtime.types.guardrail_configuration.GuardrailConfiguration"] = None, additional_model_request_fields: Optional[object] = None, prompt_variables: Optional["aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"] = None, additional_model_response_field_paths: Optional["aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"] = None, performance_config: Optional["aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"] = None, output_config: Optional["aws_sdk_bedrock_runtime.types.output_config.OutputConfig"] = None) -> "aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse":
+
+    async def converse(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId",
+        *,
+        config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None,
+        messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None,
+        system: Optional[
+            "aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"
+        ] = None,
+        inference_config: Optional[
+            "aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"
+        ] = None,
+        tool_config: Optional[
+            "aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"
+        ] = None,
+        guardrail_config: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_configuration.GuardrailConfiguration"
+        ] = None,
+        additional_model_request_fields: Optional[object] = None,
+        prompt_variables: Optional[
+            "aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"
+        ] = None,
+        additional_model_response_field_paths: Optional[
+            "aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"
+        ] = None,
+        performance_config: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"
+        ] = None,
+        output_config: Optional[
+            "aws_sdk_bedrock_runtime.types.output_config.OutputConfig"
+        ] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse":
         """<p>Sends messages to the specified Amazon Bedrock model. <code>Converse</code> provides a consistent interface that works with all models that support messages. This allows you to write code once and use it with different models. If a model has unique inference parameters, you can also pass those unique parameters to the model.</p> <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p> <p>You can submit a prompt by including it in the <code>messages</code> field, specifying the <code>modelId</code> of a foundation model or inference profile to run inference on it, and including any other fields that are relevant to your use case.</p> <p>You can also submit a prompt from Prompt management by specifying the ARN of the prompt version and including a map of variables to values in the <code>promptVariables</code> field. You can append more messages to the prompt by using the <code>messages</code> field. If you use a prompt from Prompt management, you can't include the following fields in the request: <code>additionalModelRequestFields</code>, <code>inferenceConfig</code>, <code>system</code>, or <code>toolConfig</code>. Instead, these fields must be defined through Prompt management. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html\">Use a prompt from Prompt management</a>.</p> <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a guardrail, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i> </p> <p>For example code, see <i>Converse API examples</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permission for the <code>bedrock:InvokeModel</code> action. </p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the base inference actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html\">InvokeModel</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html\">InvokeModelWithResponseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>Converse</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -281,9 +550,20 @@ class AsyncInferenceResource:
             service_tier: <p>Specifies the processing tier configuration used for serving the request.</p>
             output_config: <p>Output configuration for a model response.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse
-            output, http_response = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse.async_converse(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse.async_converse(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -304,7 +584,9 @@ class AsyncInferenceResource:
         if prompt_variables is not None:
             input["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = additional_model_response_field_paths
+            input["additional_model_response_field_paths"] = (
+                additional_model_response_field_paths
+            )
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
         if performance_config is not None:
@@ -314,9 +596,53 @@ class AsyncInferenceResource:
         if output_config is not None:
             input["output_config"] = output_config
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def converse_stream(self, model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId", *, config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None, messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None, system: Optional["aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"] = None, inference_config: Optional["aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"] = None, tool_config: Optional["aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"] = None, guardrail_config: Optional["aws_sdk_bedrock_runtime.types.guardrail_stream_configuration.GuardrailStreamConfiguration"] = None, additional_model_request_fields: Optional[object] = None, prompt_variables: Optional["aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"] = None, additional_model_response_field_paths: Optional["aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"] = None, performance_config: Optional["aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"] = None, output_config: Optional["aws_sdk_bedrock_runtime.types.output_config.OutputConfig"] = None) -> "aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse":
+
+    async def converse_stream(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId",
+        *,
+        config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None,
+        messages: Optional["aws_sdk_bedrock_runtime.types.messages.Messages"] = None,
+        system: Optional[
+            "aws_sdk_bedrock_runtime.types.system_content_blocks.SystemContentBlocks"
+        ] = None,
+        inference_config: Optional[
+            "aws_sdk_bedrock_runtime.types.inference_configuration.InferenceConfiguration"
+        ] = None,
+        tool_config: Optional[
+            "aws_sdk_bedrock_runtime.types.tool_configuration.ToolConfiguration"
+        ] = None,
+        guardrail_config: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_stream_configuration.GuardrailStreamConfiguration"
+        ] = None,
+        additional_model_request_fields: Optional[object] = None,
+        prompt_variables: Optional[
+            "aws_sdk_bedrock_runtime.types.prompt_variable_map.PromptVariableMap"
+        ] = None,
+        additional_model_response_field_paths: Optional[
+            "aws_sdk_bedrock_runtime.types.additional_model_response_field_paths.AdditionalModelResponseFieldPaths"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata.RequestMetadata"
+        ] = None,
+        performance_config: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_configuration.PerformanceConfiguration"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier.ServiceTier"
+        ] = None,
+        output_config: Optional[
+            "aws_sdk_bedrock_runtime.types.output_config.OutputConfig"
+        ] = None,
+    ) -> (
+        "aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse"
+    ):
         """<p>Sends messages to the specified Amazon Bedrock model and returns the response in a stream. <code>ConverseStream</code> provides a consistent API that works with all Amazon Bedrock models that support messages. This allows you to write code once and use it with different models. Should a model have unique inference parameters, you can also pass those unique parameters to the model. </p> <p>To find out if a model supports streaming, call <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html\">GetFoundationModel</a> and check the <code>responseStreamingSupported</code> field in the response.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>ConverseStream</code>.</p> </note> <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p> <p>You can submit a prompt by including it in the <code>messages</code> field, specifying the <code>modelId</code> of a foundation model or inference profile to run inference on it, and including any other fields that are relevant to your use case.</p> <p>You can also submit a prompt from Prompt management by specifying the ARN of the prompt version and including a map of variables to values in the <code>promptVariables</code> field. You can append more messages to the prompt by using the <code>messages</code> field. If you use a prompt from Prompt management, you can't include the following fields in the request: <code>additionalModelRequestFields</code>, <code>inferenceConfig</code>, <code>system</code>, or <code>toolConfig</code>. Instead, these fields must be defined through Prompt management. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html\">Use a prompt from Prompt management</a>.</p> <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a guardrail, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i> </p> <p>For example code, see <i>Conversation streaming example</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permission for the <code>bedrock:InvokeModelWithResponseStream</code> action.</p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the base inference actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html\">InvokeModel</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html\">InvokeModelWithResponseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>ConverseStream</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -334,9 +660,20 @@ class AsyncInferenceResource:
             service_tier: <p>Specifies the processing tier configuration used for serving the request.</p>
             output_config: <p>Output configuration for a model response.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_runtime.types.converse_stream_response.ConverseStreamResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse_stream
-            output, http_response = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse_stream.async_converse_stream(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.converse_stream.async_converse_stream(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -357,7 +694,9 @@ class AsyncInferenceResource:
         if prompt_variables is not None:
             input["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = additional_model_response_field_paths
+            input["additional_model_response_field_paths"] = (
+                additional_model_response_field_paths
+            )
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
         if performance_config is not None:
@@ -367,9 +706,40 @@ class AsyncInferenceResource:
         if output_config is not None:
             input["output_config"] = output_config
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def invoke_model(self, model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier", *, config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None, body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None, content_type: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None, guardrail_identifier: Optional["aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"] = None, guardrail_version: Optional["aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"] = None, performance_config_latency: Optional["aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"] = None) -> "aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse":
+
+    async def invoke_model(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier",
+        *,
+        config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None,
+        body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_runtime.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None,
+        trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None,
+        guardrail_identifier: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"
+        ] = None,
+        guardrail_version: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"
+        ] = None,
+        performance_config_latency: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"
+        ] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse":
         """<p>Invokes the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body. You use model inference to generate text, images, and embeddings.</p> <p>For example code, see <i>Invoke model code examples</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permission for the <code>bedrock:InvokeModel</code> action.</p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the Converse API actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html\">Converse</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html\">ConverseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>InvokeModel</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -384,9 +754,20 @@ class AsyncInferenceResource:
             service_tier: <p>Specifies the processing tier type used for serving the request.</p>
             request_metadata: <p>Key-value pairs that you can use to filter invocation logs.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_runtime.types.invoke_model_response.InvokeModelResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model
-            output, http_response = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model.async_invoke_model(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model.async_invoke_model(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -411,28 +792,81 @@ class AsyncInferenceResource:
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def invoke_model_with_bidirectional_stream(self, model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier", body: AsyncIterator[bytes] | bytes, *, config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse":
+
+    async def invoke_model_with_bidirectional_stream(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier",
+        body: AsyncIterator[bytes] | bytes,
+        *,
+        config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse":
         """<p>Invoke the specified Amazon Bedrock model to run inference using the bidirectional stream. The response is returned in a stream that remains open for 8 minutes. A single session can contain multiple prompts and responses from the model. The prompts to the model are provided as audio files and the model's responses are spoken back to the user and transcribed.</p> <p>It is possible for users to interrupt the model's response with a new prompt, which will halt the response speech. The model will retain contextual awareness of the conversation while pivoting to respond to the new prompt.</p>
 
         Args:
             model_id: <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
             body: <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html\">Run inference</a> in the Bedrock User Guide.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_response.InvokeModelWithBidirectionalStreamResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_bidirectional_stream
-            output, http_response = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_bidirectional_stream.async_invoke_model_with_bidirectional_stream(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_bidirectional_stream.async_invoke_model_with_bidirectional_stream(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
         input["model_id"] = model_id
-        input["body"] = ensure_async_iterator(body) # type: ignore
+        input["body"] = ensure_async_iterator(body)  # type: ignore
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def invoke_model_with_response_stream(self, model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier", *, config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None, body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None, content_type: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None, trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None, guardrail_identifier: Optional["aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"] = None, guardrail_version: Optional["aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"] = None, performance_config_latency: Optional["aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"] = None, service_tier: Optional["aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"] = None, request_metadata: Optional["aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"] = None) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse":
+
+    async def invoke_model_with_response_stream(
+        self,
+        model_id: "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier",
+        *,
+        config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None,
+        body: Optional["aws_sdk_bedrock_runtime.types.body.Body"] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_runtime.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_runtime.types.mime_type.MimeType"] = None,
+        trace: Optional["aws_sdk_bedrock_runtime.types.trace.Trace"] = None,
+        guardrail_identifier: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"
+        ] = None,
+        guardrail_version: Optional[
+            "aws_sdk_bedrock_runtime.types.guardrail_version.GuardrailVersion"
+        ] = None,
+        performance_config_latency: Optional[
+            "aws_sdk_bedrock_runtime.types.performance_config_latency.PerformanceConfigLatency"
+        ] = None,
+        service_tier: Optional[
+            "aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"
+        ] = None,
+        request_metadata: Optional[
+            "aws_sdk_bedrock_runtime.types.request_metadata_json.RequestMetadataJson"
+        ] = None,
+    ) -> "aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse":
         """<p>Invoke the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body. The response is returned in a stream.</p> <p>To see if a model supports streaming, call <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html\">GetFoundationModel</a> and check the <code>responseStreamingSupported</code> field in the response.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>For example code, see <i>Invoke model with streaming code example</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action. </p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the Converse API actions (<a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html\">Converse</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html\">ConverseStream</a>). For more information see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference\">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>InvokeModelWithResponseStream</code> API, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html\">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
 
         Args:
@@ -447,9 +881,20 @@ class AsyncInferenceResource:
             service_tier: <p>Specifies the processing tier type used for serving the request.</p>
             request_metadata: <p>Key-value pairs that you can use to filter invocation logs.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_response.InvokeModelWithResponseStreamResponse"
+        ]:
             import aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_response_stream
-            output, http_response = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_response_stream.async_invoke_model_with_response_stream(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_runtime._operations.amazon_bedrock_frontend_service.invoke_model_with_response_stream.async_invoke_model_with_response_stream(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -474,5 +919,9 @@ class AsyncInferenceResource:
         if request_metadata is not None:
             input["request_metadata"] = request_metadata
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

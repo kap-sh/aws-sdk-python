@@ -1,23 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock._services.async_bedrock import ensure_async_iterator
-from aws_sdk_bedrock._services.bedrock import ensure_sync_iterator
-from aws_sdk_bedrock._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock._auth._signers
 import aws_sdk_bedrock._auth._sigv4
+from aws_sdk_bedrock._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
-    from aws_sdk_bedrock._services.async_bedrock import (
-        AsyncBedrockClient,
-        AsyncBedrockClientConfig,
-    )
     import aws_sdk_bedrock.types.create_custom_model_deployment_request
     import aws_sdk_bedrock.types.create_custom_model_deployment_response
     import aws_sdk_bedrock.types.custom_model_arn
@@ -41,6 +35,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
     import aws_sdk_bedrock.types.update_custom_model_deployment_request
     import aws_sdk_bedrock.types.update_custom_model_deployment_response
+    from aws_sdk_bedrock._services.async_bedrock import (
+        AsyncBedrockClient,
+        AsyncBedrockClientConfig,
+    )
+    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
 
 
 class CustomModelDeploymentResource:

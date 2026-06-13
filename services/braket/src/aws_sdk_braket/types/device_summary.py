@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeviceSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_braket.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.device_arn
     import aws_sdk_braket.types.device_status
     import aws_sdk_braket.types.device_type
+
 
 class DeviceSummary(TypedDict):
     device_arn: "aws_sdk_braket.types.device_arn.DeviceArn"
@@ -18,6 +21,7 @@ class DeviceSummary(TypedDict):
     """<p>The type of the device.</p>"""
     device_status: "aws_sdk_braket.types.device_status.DeviceStatus"
     """<p>The status of the device.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeviceSummary) -> dict:

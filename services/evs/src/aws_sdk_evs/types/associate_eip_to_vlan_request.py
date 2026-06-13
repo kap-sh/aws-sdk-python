@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.evs#AssociateEipToVlanRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_evs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_evs.types.allocation_id
     import aws_sdk_evs.types.client_token
     import aws_sdk_evs.types.environment_id
+
 
 class AssociateEipToVlanRequest(TypedDict):
     client_token: NotRequired["aws_sdk_evs.types.client_token.ClientToken"]
@@ -17,6 +21,7 @@ class AssociateEipToVlanRequest(TypedDict):
     """<p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>"""
     allocation_id: "aws_sdk_evs.types.allocation_id.AllocationId"
     """<p>The Elastic IP address allocation ID.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AssociateEipToVlanRequest) -> dict:

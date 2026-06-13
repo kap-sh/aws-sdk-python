@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.braket#ActionMetadata``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_braket.errors import DeserializationError
+
 
 class ActionMetadata(TypedDict):
     action_type: "str"
@@ -11,6 +14,7 @@ class ActionMetadata(TypedDict):
     """<p>The number of programs in a program set. This is only available for a program set.</p>"""
     executable_count: NotRequired["int"]
     """<p>The number of executables in a program set. This is only available for a program set.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ActionMetadata) -> dict:

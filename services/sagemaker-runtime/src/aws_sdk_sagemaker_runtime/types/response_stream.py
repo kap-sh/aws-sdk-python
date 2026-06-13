@@ -16,14 +16,12 @@ class _ResponseStream_PayloadPart(TypedDict):
 
 class _ResponseStream_ModelStreamError(TypedDict):
     ModelStreamError: (
-        "aws_sdk_sagemaker_runtime.errors.model_stream_error.ModelStreamError"
+        "aws_sdk_sagemaker_runtime.errors.model_stream_error.ModelStreamError_"
     )
 
 
 class _ResponseStream_InternalStreamFailure(TypedDict):
-    InternalStreamFailure: (
-        "aws_sdk_sagemaker_runtime.errors.internal_stream_failure.InternalStreamFailure"
-    )
+    InternalStreamFailure: "aws_sdk_sagemaker_runtime.errors.internal_stream_failure.InternalStreamFailure_"
 
 
 ResponseStream: TypeAlias = (

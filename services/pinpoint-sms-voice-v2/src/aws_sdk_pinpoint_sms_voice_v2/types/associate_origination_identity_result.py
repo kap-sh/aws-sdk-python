@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#AssociateOriginationIdentityResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.iso_country_code
+
 
 class AssociateOriginationIdentityResult(TypedDict):
     pool_arn: NotRequired["str"]
@@ -14,8 +17,11 @@ class AssociateOriginationIdentityResult(TypedDict):
     """<p>The PhoneNumberArn or SenderIdArn of the origination identity.</p>"""
     origination_identity: NotRequired["str"]
     """<p>The PhoneNumberId or SenderId of the origination identity.</p>"""
-    iso_country_code: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.iso_country_code.IsoCountryCode"]
+    iso_country_code: NotRequired[
+        "aws_sdk_pinpoint_sms_voice_v2.types.iso_country_code.IsoCountryCode"
+    ]
     """<p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AssociateOriginationIdentityResult) -> dict:

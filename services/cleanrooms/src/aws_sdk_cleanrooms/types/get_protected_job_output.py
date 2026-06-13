@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#GetProtectedJobOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanrooms.types.protected_job
+
+
+class GetProtectedJobOutput(TypedDict):
+    protected_job: "aws_sdk_cleanrooms.types.protected_job.ProtectedJob"
+    """<p> The protected job metadata.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetProtectedJobOutput) -> dict:
+    out: dict = {}
+    import aws_sdk_cleanrooms.types.protected_job
+
+    out["protectedJob"] = aws_sdk_cleanrooms.types.protected_job.serialize_json(
+        value["protected_job"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> GetProtectedJobOutput:
+    out: GetProtectedJobOutput = {}  # type: ignore[typeddict-item]
+    if "protectedJob" in data:
+        import aws_sdk_cleanrooms.types.protected_job
+
+        out["protected_job"] = aws_sdk_cleanrooms.types.protected_job.deserialize_json(
+            data["protectedJob"]
+        )
+    else:
+        raise DeserializationError("GetProtectedJobOutput.protected_job required")
+    return out

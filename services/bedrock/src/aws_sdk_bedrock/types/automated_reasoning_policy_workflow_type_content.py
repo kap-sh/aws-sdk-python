@@ -1,13 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyWorkflowTypeContent``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.automated_reasoning_policy_iterative_refinement_content
+    import aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_document_list
     import aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_repair_content
     import aws_sdk_bedrock.types.automated_reasoning_policy_generate_fidelity_report_content
-    import aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_document_list
+    import aws_sdk_bedrock.types.automated_reasoning_policy_iterative_refinement_content
 
 
 class _AutomatedReasoningPolicyWorkflowTypeContent_documents(TypedDict):

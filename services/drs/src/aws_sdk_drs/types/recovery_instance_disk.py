@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDisk``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
     import aws_sdk_drs.types.ebs_volume_id
     import aws_sdk_drs.types.positive_integer
+
 
 class RecoveryInstanceDisk(TypedDict):
     internal_device_name: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
@@ -14,6 +17,7 @@ class RecoveryInstanceDisk(TypedDict):
     """<p>The amount of storage on the disk in bytes.</p>"""
     ebs_volume_id: NotRequired["aws_sdk_drs.types.ebs_volume_id.EbsVolumeID"]
     """<p>The EBS Volume ID of this disk.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: RecoveryInstanceDisk) -> dict:

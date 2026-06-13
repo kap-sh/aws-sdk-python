@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DeleteJobRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.job_id
+
 
 class DeleteJobRequest(TypedDict):
     job_id: "aws_sdk_drs.types.job_id.JobID"
     """<p>The ID of the Job to be deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteJobRequest) -> dict:

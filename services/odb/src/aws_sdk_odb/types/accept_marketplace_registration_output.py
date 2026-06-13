@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class AcceptMarketplaceRegistrationOutput(TypedDict):
     pass
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AcceptMarketplaceRegistrationOutput) -> dict:

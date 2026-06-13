@@ -1,21 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CountTokens``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_bedrock_runtime._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_bedrock_runtime._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_bedrock_runtime.errors import ServiceError, UnknownServiceError
-from aws_sdk_bedrock_runtime._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_bedrock_runtime._auth._signers
 import aws_sdk_bedrock_runtime._auth._sigv4
-from aws_sdk_bedrock_runtime._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_bedrock_runtime._protocol.errors import parse_error_metadata_json
+from aws_sdk_bedrock_runtime._rule_engine._endpoint_rule_set import (
+    EndpointParams,
+    resolve,
+)
+from aws_sdk_bedrock_runtime._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_bedrock_runtime.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.count_tokens_request
     import aws_sdk_bedrock_runtime.types.count_tokens_response
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,41 +32,86 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_bedrock_runtime.errors.access_denied_exception
-            raise aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "InternalServerException":
             import aws_sdk_bedrock_runtime.errors.internal_server_exception
-            raise aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException.from_json(data)
+
+            raise aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_bedrock_runtime.errors.resource_not_found_exception
-            raise aws_sdk_bedrock_runtime.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_bedrock_runtime.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case "ServiceUnavailableException":
             import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
-            raise aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException.from_json(data)
+
+            raise aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
+                data
+            )
         case "ThrottlingException":
             import aws_sdk_bedrock_runtime.errors.throttling_exception
-            raise aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException.from_json(data)
+
+            raise aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_bedrock_runtime.errors.validation_exception
-            raise aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse:
     import aws_sdk_bedrock_runtime.types.count_tokens_response
-    out: aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse = aws_sdk_bedrock_runtime.types.count_tokens_response.deserialize_json(json.loads(response.read()))
+
+    out: aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse = (
+        aws_sdk_bedrock_runtime.types.count_tokens_response.deserialize_json(
+            json.loads(response.read())
+        )
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_bedrock_runtime._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_bedrock_runtime._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_bedrock_runtime._auth._sigv4.build_sigv4_auth_scheme('bedrock', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_bedrock_runtime._auth._sigv4.build_sigv4_auth_scheme(
+                "bedrock", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_bedrock_runtime._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_bedrock_runtime._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     if options.bearer_provider is not None:
-        return aws_sdk_bedrock_runtime._auth._signers.HttpBearerSigner(options.bearer_provider)
+        return aws_sdk_bedrock_runtime._auth._signers.HttpBearerSigner(
+            options.bearer_provider
+        )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_bedrock_runtime.types.count_tokens_request.CountTokensRequest) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_bedrock_runtime.types.count_tokens_request.CountTokensRequest,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             Region=options.region,
@@ -71,7 +125,10 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_bedrock_runtime.types.count_tokens_request
-    body: bytes | None = json.dumps(aws_sdk_bedrock_runtime.types.count_tokens_request.serialize_json(input)).encode()
+
+    body: bytes | None = json.dumps(
+        aws_sdk_bedrock_runtime.types.count_tokens_request.serialize_json(input)
+    ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -84,7 +141,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def count_tokens(options: OperationOptions, input: aws_sdk_bedrock_runtime.types.count_tokens_request.CountTokensRequest) -> tuple[aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse, zapros.Response]:
+
+def count_tokens(
+    options: OperationOptions,
+    input: aws_sdk_bedrock_runtime.types.count_tokens_request.CountTokensRequest,
+) -> tuple[
+    aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -95,7 +159,14 @@ def count_tokens(options: OperationOptions, input: aws_sdk_bedrock_runtime.types
         response.close()
         raise
 
-async def async_count_tokens(options: AsyncOperationOptions, input: aws_sdk_bedrock_runtime.types.count_tokens_request.CountTokensRequest) -> tuple[aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse, zapros.Response]:
+
+async def async_count_tokens(
+    options: AsyncOperationOptions,
+    input: aws_sdk_bedrock_runtime.types.count_tokens_request.CountTokensRequest,
+) -> tuple[
+    aws_sdk_bedrock_runtime.types.count_tokens_response.CountTokensResponse,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

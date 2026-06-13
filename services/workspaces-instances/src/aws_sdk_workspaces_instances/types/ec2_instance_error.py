@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#EC2InstanceError``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class EC2InstanceError(TypedDict):
     ec2_error_code: NotRequired["str"]
@@ -10,6 +12,7 @@ class EC2InstanceError(TypedDict):
     """<p>Type of exception encountered during EC2 instance operation.</p>"""
     ec2_error_message: NotRequired["str"]
     """<p>Detailed description of the EC2 instance error.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: EC2InstanceError) -> dict:

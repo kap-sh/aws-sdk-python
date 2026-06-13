@@ -1,23 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock._services.async_bedrock import ensure_async_iterator
-from aws_sdk_bedrock._services.bedrock import ensure_sync_iterator
-from aws_sdk_bedrock._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock._auth._signers
 import aws_sdk_bedrock._auth._sigv4
+from aws_sdk_bedrock._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
-    from aws_sdk_bedrock._services.async_bedrock import (
-        AsyncBedrockClient,
-        AsyncBedrockClientConfig,
-    )
     import aws_sdk_bedrock.types.list_tags_for_resource_request
     import aws_sdk_bedrock.types.list_tags_for_resource_response
     import aws_sdk_bedrock.types.tag_key_list
@@ -27,6 +21,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.taggable_resources_arn
     import aws_sdk_bedrock.types.untag_resource_request
     import aws_sdk_bedrock.types.untag_resource_response
+    from aws_sdk_bedrock._services.async_bedrock import (
+        AsyncBedrockClient,
+        AsyncBedrockClientConfig,
+    )
+    from aws_sdk_bedrock._services.bedrock import BedrockClient, BedrockClientConfig
 
 
 class TaggingResource:

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DataReplicationInfoReplicatedDisk``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.positive_integer
+
 
 class DataReplicationInfoReplicatedDisk(TypedDict):
     device_name: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
@@ -17,6 +20,7 @@ class DataReplicationInfoReplicatedDisk(TypedDict):
     """<p>Request to query amount of data rescanned in bytes.</p>"""
     backlogged_storage_bytes: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>Request to query data replication backlog size in bytes.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataReplicationInfoReplicatedDisk) -> dict:

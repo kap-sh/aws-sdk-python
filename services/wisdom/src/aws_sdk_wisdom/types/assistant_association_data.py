@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#AssistantAssociationData``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_wisdom.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.arn
     import aws_sdk_wisdom.types.assistant_association_output_data
     import aws_sdk_wisdom.types.association_type
     import aws_sdk_wisdom.types.tags
     import aws_sdk_wisdom.types.uuid
+
 
 class AssistantAssociationData(TypedDict):
     assistant_association_id: "aws_sdk_wisdom.types.uuid.Uuid"
@@ -26,6 +30,7 @@ class AssistantAssociationData(TypedDict):
     tags: NotRequired["aws_sdk_wisdom.types.tags.Tags"]
     """<p>The tags used to organize, track, or control access for this resource.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AssistantAssociationData) -> dict:
     out: dict = {}
@@ -35,9 +40,15 @@ def serialize_json(value: AssistantAssociationData) -> dict:
     out["assistantArn"] = value["assistant_arn"]
     out["associationType"] = value["association_type"]
     import aws_sdk_wisdom.types.assistant_association_output_data
-    out["associationData"] = aws_sdk_wisdom.types.assistant_association_output_data.serialize_json(value["association_data"])
+
+    out["associationData"] = (
+        aws_sdk_wisdom.types.assistant_association_output_data.serialize_json(
+            value["association_data"]
+        )
+    )
     if "tags" in value:
         import aws_sdk_wisdom.types.tags
+
         out["tags"] = aws_sdk_wisdom.types.tags.serialize_json(value["tags"])
     return out
 
@@ -47,11 +58,15 @@ def deserialize_json(data: dict) -> AssistantAssociationData:
     if "assistantAssociationId" in data:
         out["assistant_association_id"] = data["assistantAssociationId"]
     else:
-        raise DeserializationError("AssistantAssociationData.assistant_association_id required")
+        raise DeserializationError(
+            "AssistantAssociationData.assistant_association_id required"
+        )
     if "assistantAssociationArn" in data:
         out["assistant_association_arn"] = data["assistantAssociationArn"]
     else:
-        raise DeserializationError("AssistantAssociationData.assistant_association_arn required")
+        raise DeserializationError(
+            "AssistantAssociationData.assistant_association_arn required"
+        )
     if "assistantId" in data:
         out["assistant_id"] = data["assistantId"]
     else:
@@ -66,10 +81,16 @@ def deserialize_json(data: dict) -> AssistantAssociationData:
         raise DeserializationError("AssistantAssociationData.association_type required")
     if "associationData" in data:
         import aws_sdk_wisdom.types.assistant_association_output_data
-        out["association_data"] = aws_sdk_wisdom.types.assistant_association_output_data.deserialize_json(data["associationData"])
+
+        out["association_data"] = (
+            aws_sdk_wisdom.types.assistant_association_output_data.deserialize_json(
+                data["associationData"]
+            )
+        )
     else:
         raise DeserializationError("AssistantAssociationData.association_data required")
     if "tags" in data:
         import aws_sdk_wisdom.types.tags
+
         out["tags"] = aws_sdk_wisdom.types.tags.deserialize_json(data["tags"])
     return out

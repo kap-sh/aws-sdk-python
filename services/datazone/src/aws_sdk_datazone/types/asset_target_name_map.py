@@ -2,14 +2,17 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
+
 
 class AssetTargetNameMap(TypedDict):
     asset_id: "aws_sdk_datazone.types.asset_id.AssetId"
     """<p>The identifier of the inventory asset.</p>"""
     target_name: "str"
     """<p>The target name in the asset target name map.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssetTargetNameMap) -> dict:

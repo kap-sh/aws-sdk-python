@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AWSConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_devops_agent.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.monitor_account_type
     import aws_sdk_devops_agent.types.role_arn
+
 
 class AWSConfiguration(TypedDict):
     assumable_role_arn: "aws_sdk_devops_agent.types.role_arn.RoleArn"
@@ -14,13 +17,17 @@ class AWSConfiguration(TypedDict):
     account_type: "aws_sdk_devops_agent.types.monitor_account_type.MonitorAccountType"
     """<p>Account Type 'monitor' for AIDevOps monitoring.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AWSConfiguration) -> dict:
     out: dict = {}
     out["assumableRoleArn"] = value["assumable_role_arn"]
     out["accountId"] = value["account_id"]
     import aws_sdk_devops_agent.types.monitor_account_type
-    out["accountType"] = aws_sdk_devops_agent.types.monitor_account_type.serialize_json(value["account_type"])
+
+    out["accountType"] = aws_sdk_devops_agent.types.monitor_account_type.serialize_json(
+        value["account_type"]
+    )
     return out
 
 
@@ -36,7 +43,12 @@ def deserialize_json(data: dict) -> AWSConfiguration:
         raise DeserializationError("AWSConfiguration.account_id required")
     if "accountType" in data:
         import aws_sdk_devops_agent.types.monitor_account_type
-        out["account_type"] = aws_sdk_devops_agent.types.monitor_account_type.deserialize_json(data["accountType"])
+
+        out["account_type"] = (
+            aws_sdk_devops_agent.types.monitor_account_type.deserialize_json(
+                data["accountType"]
+            )
+        )
     else:
         raise DeserializationError("AWSConfiguration.account_type required")
     return out

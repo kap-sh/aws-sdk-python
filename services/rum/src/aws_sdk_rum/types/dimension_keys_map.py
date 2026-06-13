@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rum#DimensionKeysMap``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.dimension_key
     import aws_sdk_rum.types.dimension_name
 
-DimensionKeysMap: TypeAlias = dict["aws_sdk_rum.types.dimension_key.DimensionKey", "aws_sdk_rum.types.dimension_name.DimensionName"]
+DimensionKeysMap: TypeAlias = dict[
+    "aws_sdk_rum.types.dimension_key.DimensionKey",
+    "aws_sdk_rum.types.dimension_name.DimensionName",
+]
 
 
 # --- restJson1 ser/de ---

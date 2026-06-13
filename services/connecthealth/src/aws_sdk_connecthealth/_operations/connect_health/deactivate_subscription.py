@@ -1,21 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#DeactivateSubscription``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_connecthealth._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_connecthealth._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_connecthealth.errors import ServiceError, UnknownServiceError
-from aws_sdk_connecthealth._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_connecthealth._auth._signers
 import aws_sdk_connecthealth._auth._sigv4
-from aws_sdk_connecthealth._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_connecthealth._protocol.errors import parse_error_metadata_json
+from aws_sdk_connecthealth._rule_engine._endpoint_rule_set import (
+    EndpointParams,
+    resolve,
+)
+from aws_sdk_connecthealth._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_connecthealth.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.deactivate_subscription_input
     import aws_sdk_connecthealth.types.deactivate_subscription_output
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,33 +32,68 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_connecthealth.errors.access_denied_exception
-            raise aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "InternalServerException":
             import aws_sdk_connecthealth.errors.internal_server_exception
-            raise aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException.from_json(data)
+
+            raise aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_connecthealth.errors.resource_not_found_exception
-            raise aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_connecthealth.errors.validation_exception
-            raise aws_sdk_connecthealth.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_connecthealth.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput:
     import aws_sdk_connecthealth.types.deactivate_subscription_output
-    out: aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput = aws_sdk_connecthealth.types.deactivate_subscription_output.deserialize_json(json.loads(response.read()))
+
+    out: aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput = aws_sdk_connecthealth.types.deactivate_subscription_output.deserialize_json(
+        json.loads(response.read())
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_connecthealth._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_connecthealth._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_connecthealth._auth._sigv4.build_sigv4_auth_scheme('health-agent', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_connecthealth._auth._sigv4.build_sigv4_auth_scheme(
+                "health-agent", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_connecthealth._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_connecthealth._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_connecthealth.types.deactivate_subscription_input.DeactivateSubscriptionInput) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_connecthealth.types.deactivate_subscription_input.DeactivateSubscriptionInput,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             UseFIPS=options.use_fips,
@@ -57,7 +101,10 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
             Region=options.region,
         )
     )
-    url = endpoint.url.rstrip("/") + "/domains/{domainId}/subscriptions/{subscriptionId}/deactivate"
+    url = (
+        endpoint.url.rstrip("/")
+        + "/domains/{domainId}/subscriptions/{subscriptionId}/deactivate"
+    )
     url = url.replace("{domainId}", quote(str(input["domain_id"]), safe=""))
     url = url.replace("{subscriptionId}", quote(str(input["subscription_id"]), safe=""))
     params: dict[str, str] = {}
@@ -74,7 +121,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def deactivate_subscription(options: OperationOptions, input: aws_sdk_connecthealth.types.deactivate_subscription_input.DeactivateSubscriptionInput) -> tuple[aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput, zapros.Response]:
+
+def deactivate_subscription(
+    options: OperationOptions,
+    input: aws_sdk_connecthealth.types.deactivate_subscription_input.DeactivateSubscriptionInput,
+) -> tuple[
+    aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -85,7 +139,14 @@ def deactivate_subscription(options: OperationOptions, input: aws_sdk_connecthea
         response.close()
         raise
 
-async def async_deactivate_subscription(options: AsyncOperationOptions, input: aws_sdk_connecthealth.types.deactivate_subscription_input.DeactivateSubscriptionInput) -> tuple[aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput, zapros.Response]:
+
+async def async_deactivate_subscription(
+    options: AsyncOperationOptions,
+    input: aws_sdk_connecthealth.types.deactivate_subscription_input.DeactivateSubscriptionInput,
+) -> tuple[
+    aws_sdk_connecthealth.types.deactivate_subscription_output.DeactivateSubscriptionOutput,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteDefaultMessageTypeRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn
+
+
+class DeleteDefaultMessageTypeRequest(TypedDict):
+    configuration_set_name: "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn.ConfigurationSetNameOrArn"
+    """<p>The name of the configuration set or the configuration set Amazon Resource Name (ARN) to delete the default message type from. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DeleteDefaultMessageTypeRequest) -> dict:
+    out: dict = {}
+    out["ConfigurationSetName"] = value["configuration_set_name"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DeleteDefaultMessageTypeRequest:
+    out: DeleteDefaultMessageTypeRequest = {}  # type: ignore[typeddict-item]
+    if "ConfigurationSetName" in data:
+        out["configuration_set_name"] = data["ConfigurationSetName"]
+    else:
+        raise DeserializationError(
+            "DeleteDefaultMessageTypeRequest.configuration_set_name required"
+        )
+    return out

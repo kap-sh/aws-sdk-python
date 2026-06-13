@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.odb#StopDbNodeOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_odb.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_odb.types.db_node_resource_status
+
+
+class StopDbNodeOutput(TypedDict):
+    db_node_id: "str"
+    """<p>The unique identifier of the DB node that was stopped.</p>"""
+    status: NotRequired[
+        "aws_sdk_odb.types.db_node_resource_status.DbNodeResourceStatus"
+    ]
+    """<p>The current status of the DB node after the stop operation.</p>"""
+    status_reason: NotRequired["str"]
+    """<p>Additional information about the status of the DB node after the stop operation.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: StopDbNodeOutput) -> dict:
+    out: dict = {}
+    out["dbNodeId"] = value["db_node_id"]
+    if "status" in value:
+        import aws_sdk_odb.types.db_node_resource_status
+
+        out["status"] = (
+            aws_sdk_odb.types.db_node_resource_status.serialize_aws_json_1_0(
+                value["status"]
+            )
+        )
+    if "status_reason" in value:
+        out["statusReason"] = value["status_reason"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> StopDbNodeOutput:
+    out: StopDbNodeOutput = {}  # type: ignore[typeddict-item]
+    if "dbNodeId" in data:
+        out["db_node_id"] = data["dbNodeId"]
+    else:
+        raise DeserializationError("StopDbNodeOutput.db_node_id required")
+    if "status" in data:
+        import aws_sdk_odb.types.db_node_resource_status
+
+        out["status"] = (
+            aws_sdk_odb.types.db_node_resource_status.deserialize_aws_json_1_0(
+                data["status"]
+            )
+        )
+    if "statusReason" in data:
+        out["status_reason"] = data["statusReason"]
+    return out

@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#DeleteSubscriptionGrantInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_datazone.types.domain_id
+    import aws_sdk_datazone.types.subscription_grant_id
+
+
+class DeleteSubscriptionGrantInput(TypedDict):
+    domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
+    """<p>The ID of the Amazon DataZone domain where the subscription grant is deleted.</p>"""
+    identifier: "aws_sdk_datazone.types.subscription_grant_id.SubscriptionGrantId"
+    """<p>The ID of the subscription grant that is deleted.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteSubscriptionGrantInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteSubscriptionGrantInput:
+    out: DeleteSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+    return out

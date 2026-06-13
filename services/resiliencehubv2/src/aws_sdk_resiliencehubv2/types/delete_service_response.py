@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehubv2#DeleteServiceResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_resiliencehubv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_resiliencehubv2.types.arn
+
+
+class DeleteServiceResponse(TypedDict):
+    service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteServiceResponse) -> dict:
+    out: dict = {}
+    out["serviceArn"] = value["service_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteServiceResponse:
+    out: DeleteServiceResponse = {}  # type: ignore[typeddict-item]
+    if "serviceArn" in data:
+        out["service_arn"] = data["serviceArn"]
+    else:
+        raise DeserializationError("DeleteServiceResponse.service_arn required")
+    return out

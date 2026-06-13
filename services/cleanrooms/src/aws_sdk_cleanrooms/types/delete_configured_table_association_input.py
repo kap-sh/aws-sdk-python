@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteConfiguredTableAssociationInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanrooms.types.configured_table_association_identifier
+    import aws_sdk_cleanrooms.types.membership_identifier
+
+
+class DeleteConfiguredTableAssociationInput(TypedDict):
+    configured_table_association_identifier: "aws_sdk_cleanrooms.types.configured_table_association_identifier.ConfiguredTableAssociationIdentifier"
+    """<p>The unique ID for the configured table association to be deleted. Currently accepts the configured table ID.</p>"""
+    membership_identifier: (
+        "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
+    )
+    """<p>A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteConfiguredTableAssociationInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteConfiguredTableAssociationInput:
+    out: DeleteConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+    return out

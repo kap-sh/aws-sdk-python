@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
+
 
 class ActionSummary(TypedDict):
     action_identifier: NotRequired["aws_sdk_qbusiness.types.string.String"]
@@ -14,6 +17,7 @@ class ActionSummary(TypedDict):
     """<p>An Amazon Q Business suggested prompt and end user can use to invoke a plugin action. This value can be modified and sent as input to initiate an action. For example:</p> <ul> <li> <p>Create a Jira task</p> </li> <li> <p>Create a chat assistant task to find the root cause of a specific incident</p> </li> </ul>"""
     description: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The description of an Amazon Q Business plugin action.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ActionSummary) -> dict:

@@ -2,8 +2,10 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.edited_value
+
 
 class AcceptChoice(TypedDict):
     prediction_target: NotRequired["str"]
@@ -12,6 +14,7 @@ class AcceptChoice(TypedDict):
     """<p>Specifies the prediction (aka, the automatically generated piece of metadata) that can be accepted.</p>"""
     edited_value: NotRequired["aws_sdk_datazone.types.edited_value.EditedValue"]
     """<p>The edit of the prediction.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AcceptChoice) -> dict:

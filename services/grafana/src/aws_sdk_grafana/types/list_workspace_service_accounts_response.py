@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListWorkspaceServiceAccountsResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_grafana.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.pagination_token
     import aws_sdk_grafana.types.service_account_list
     import aws_sdk_grafana.types.workspace_id
+
 
 class ListWorkspaceServiceAccountsResponse(TypedDict):
     next_token: NotRequired["aws_sdk_grafana.types.pagination_token.PaginationToken"]
@@ -16,13 +20,17 @@ class ListWorkspaceServiceAccountsResponse(TypedDict):
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The workspace to which the service accounts are associated.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ListWorkspaceServiceAccountsResponse) -> dict:
     out: dict = {}
     if "next_token" in value:
         out["nextToken"] = value["next_token"]
     import aws_sdk_grafana.types.service_account_list
-    out["serviceAccounts"] = aws_sdk_grafana.types.service_account_list.serialize_json(value["service_accounts"])
+
+    out["serviceAccounts"] = aws_sdk_grafana.types.service_account_list.serialize_json(
+        value["service_accounts"]
+    )
     out["workspaceId"] = value["workspace_id"]
     return out
 
@@ -33,11 +41,20 @@ def deserialize_json(data: dict) -> ListWorkspaceServiceAccountsResponse:
         out["next_token"] = data["nextToken"]
     if "serviceAccounts" in data:
         import aws_sdk_grafana.types.service_account_list
-        out["service_accounts"] = aws_sdk_grafana.types.service_account_list.deserialize_json(data["serviceAccounts"])
+
+        out["service_accounts"] = (
+            aws_sdk_grafana.types.service_account_list.deserialize_json(
+                data["serviceAccounts"]
+            )
+        )
     else:
-        raise DeserializationError("ListWorkspaceServiceAccountsResponse.service_accounts required")
+        raise DeserializationError(
+            "ListWorkspaceServiceAccountsResponse.service_accounts required"
+        )
     if "workspaceId" in data:
         out["workspace_id"] = data["workspaceId"]
     else:
-        raise DeserializationError("ListWorkspaceServiceAccountsResponse.workspace_id required")
+        raise DeserializationError(
+            "ListWorkspaceServiceAccountsResponse.workspace_id required"
+        )
     return out

@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyDefinitionElement``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.automated_reasoning_policy_definition_type
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_rule
+    import aws_sdk_bedrock.types.automated_reasoning_policy_definition_type
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_variable
 
 

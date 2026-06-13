@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteFastResetInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_neptunedata.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.action
+
 
 class ExecuteFastResetInput(TypedDict):
     action: "aws_sdk_neptunedata.types.action.Action"
@@ -12,10 +16,12 @@ class ExecuteFastResetInput(TypedDict):
     token: NotRequired["str"]
     """<p>The fast-reset token to initiate the reset.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ExecuteFastResetInput) -> dict:
     out: dict = {}
     import aws_sdk_neptunedata.types.action
+
     out["action"] = aws_sdk_neptunedata.types.action.serialize_json(value["action"])
     if "token" in value:
         out["token"] = value["token"]
@@ -26,7 +32,10 @@ def deserialize_json(data: dict) -> ExecuteFastResetInput:
     out: ExecuteFastResetInput = {}  # type: ignore[typeddict-item]
     if "action" in data:
         import aws_sdk_neptunedata.types.action
-        out["action"] = aws_sdk_neptunedata.types.action.deserialize_json(data["action"])
+
+        out["action"] = aws_sdk_neptunedata.types.action.deserialize_json(
+            data["action"]
+        )
     else:
         raise DeserializationError("ExecuteFastResetInput.action required")
     if "token" in data:

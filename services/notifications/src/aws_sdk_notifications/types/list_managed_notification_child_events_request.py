@@ -1,13 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListManagedNotificationChildEventsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_notifications.types.account_id
     import aws_sdk_notifications.types.locale_code
     import aws_sdk_notifications.types.managed_notification_event_arn
     import aws_sdk_notifications.types.next_token
     import aws_sdk_notifications.types.organizational_unit_id
+
 
 class ListManagedNotificationChildEventsRequest(TypedDict):
     aggregate_managed_notification_event_arn: "aws_sdk_notifications.types.managed_notification_event_arn.ManagedNotificationEventArn"
@@ -22,10 +27,13 @@ class ListManagedNotificationChildEventsRequest(TypedDict):
     """<p>The maximum number of results to be returned in this call. Defaults to 20.</p>"""
     related_account: NotRequired["aws_sdk_notifications.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID associated with the Managed Notification Child Events.</p>"""
-    organizational_unit_id: NotRequired["aws_sdk_notifications.types.organizational_unit_id.OrganizationalUnitId"]
+    organizational_unit_id: NotRequired[
+        "aws_sdk_notifications.types.organizational_unit_id.OrganizationalUnitId"
+    ]
     """<p>The identifier of the Amazon Web Services Organizations organizational unit (OU) associated with the Managed Notification Child Events.</p>"""
     next_token: NotRequired["aws_sdk_notifications.types.next_token.NextToken"]
     """<p>The start token for paginated calls. Retrieved from the response of a previous ListManagedNotificationChannelAssociations call. Next token uses Base64 encoding.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListManagedNotificationChildEventsRequest) -> dict:

@@ -1,18 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailTopic``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action
     import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type
 
+
 class GuardrailTopic(TypedDict):
     name: NotRequired["str"]
     """<p>The name details on a specific topic in the Guardrail.</p>"""
-    type: NotRequired["aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type.GuardrailTopicType"]
+    type: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type.GuardrailTopicType"
+    ]
     """<p>The type details on a specific topic in the Guardrail.</p>"""
-    action: NotRequired["aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action.GuardrailTopicPolicyAction"]
+    action: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action.GuardrailTopicPolicyAction"
+    ]
     """<p>The action details on a specific topic in the Guardrail.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GuardrailTopic) -> dict:
@@ -21,10 +29,20 @@ def serialize_json(value: GuardrailTopic) -> dict:
         out["name"] = value["name"]
     if "type" in value:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type
-        out["type"] = aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type.serialize_json(value["type"])
+
+        out["type"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type.serialize_json(
+                value["type"]
+            )
+        )
     if "action" in value:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action
-        out["action"] = aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action.serialize_json(value["action"])
+
+        out["action"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action.serialize_json(
+                value["action"]
+            )
+        )
     return out
 
 
@@ -34,8 +52,18 @@ def deserialize_json(data: dict) -> GuardrailTopic:
         out["name"] = data["name"]
     if "type" in data:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type
-        out["type"] = aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type.deserialize_json(data["type"])
+
+        out["type"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_topic_type.deserialize_json(
+                data["type"]
+            )
+        )
     if "action" in data:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action
-        out["action"] = aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action.deserialize_json(data["action"])
+
+        out["action"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_action.deserialize_json(
+                data["action"]
+            )
+        )
     return out

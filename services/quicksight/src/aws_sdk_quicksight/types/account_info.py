@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AccountInfo``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.edition
     import aws_sdk_quicksight.types.string
+
 
 class AccountInfo(TypedDict):
     account_name: NotRequired["aws_sdk_quicksight.types.string.String"]
@@ -17,8 +20,11 @@ class AccountInfo(TypedDict):
     """<p>The way that your Amazon Quick Sight account is authenticated.</p>"""
     account_subscription_status: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The status of your account subscription.</p>"""
-    iam_identity_center_instance_arn: NotRequired["aws_sdk_quicksight.types.string.String"]
+    iam_identity_center_instance_arn: NotRequired[
+        "aws_sdk_quicksight.types.string.String"
+    ]
     """<p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountInfo) -> dict:
@@ -27,7 +33,10 @@ def serialize_json(value: AccountInfo) -> dict:
         out["AccountName"] = value["account_name"]
     if "edition" in value:
         import aws_sdk_quicksight.types.edition
-        out["Edition"] = aws_sdk_quicksight.types.edition.serialize_json(value["edition"])
+
+        out["Edition"] = aws_sdk_quicksight.types.edition.serialize_json(
+            value["edition"]
+        )
     if "notification_email" in value:
         out["NotificationEmail"] = value["notification_email"]
     if "authentication_type" in value:
@@ -45,7 +54,10 @@ def deserialize_json(data: dict) -> AccountInfo:
         out["account_name"] = data["AccountName"]
     if "Edition" in data:
         import aws_sdk_quicksight.types.edition
-        out["edition"] = aws_sdk_quicksight.types.edition.deserialize_json(data["Edition"])
+
+        out["edition"] = aws_sdk_quicksight.types.edition.deserialize_json(
+            data["Edition"]
+        )
     if "NotificationEmail" in data:
         out["notification_email"] = data["NotificationEmail"]
     if "AuthenticationType" in data:

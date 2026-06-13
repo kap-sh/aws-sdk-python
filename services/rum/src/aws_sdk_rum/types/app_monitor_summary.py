@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitorSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_id
     import aws_sdk_rum.types.app_monitor_name
     import aws_sdk_rum.types.app_monitor_platform
     import aws_sdk_rum.types.iso_timestamp_string
     import aws_sdk_rum.types.state_enum
+
 
 class AppMonitorSummary(TypedDict):
     name: NotRequired["aws_sdk_rum.types.app_monitor_name.AppMonitorName"]
@@ -16,12 +19,15 @@ class AppMonitorSummary(TypedDict):
     """<p>The unique ID of this app monitor.</p>"""
     created: NotRequired["aws_sdk_rum.types.iso_timestamp_string.ISOTimestampString"]
     """<p>The date and time that the app monitor was created.</p>"""
-    last_modified: NotRequired["aws_sdk_rum.types.iso_timestamp_string.ISOTimestampString"]
+    last_modified: NotRequired[
+        "aws_sdk_rum.types.iso_timestamp_string.ISOTimestampString"
+    ]
     """<p>The date and time of the most recent changes to this app monitor's configuration.</p>"""
     state: NotRequired["aws_sdk_rum.types.state_enum.StateEnum"]
     """<p>The current state of this app monitor.</p>"""
     platform: NotRequired["aws_sdk_rum.types.app_monitor_platform.AppMonitorPlatform"]
     """<p>The platform type for this app monitor. Valid values are <code>Web</code> for web applications, <code>Android</code> for Android applications, and <code>iOS</code> for IOS applications.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AppMonitorSummary) -> dict:

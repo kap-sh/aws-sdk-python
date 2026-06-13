@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.rum#GetAppMonitorDataRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_rum.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_name
     import aws_sdk_rum.types.max_query_results
     import aws_sdk_rum.types.query_filters
     import aws_sdk_rum.types.time_range
     import aws_sdk_rum.types.token
+
 
 class GetAppMonitorDataRequest(TypedDict):
     name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
@@ -22,14 +26,19 @@ class GetAppMonitorDataRequest(TypedDict):
     next_token: NotRequired["aws_sdk_rum.types.token.Token"]
     """<p>Use the token returned by the previous operation to request the next page of results.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: GetAppMonitorDataRequest) -> dict:
     out: dict = {}
     import aws_sdk_rum.types.time_range
+
     out["TimeRange"] = aws_sdk_rum.types.time_range.serialize_json(value["time_range"])
     if "filters" in value:
         import aws_sdk_rum.types.query_filters
-        out["Filters"] = aws_sdk_rum.types.query_filters.serialize_json(value["filters"])
+
+        out["Filters"] = aws_sdk_rum.types.query_filters.serialize_json(
+            value["filters"]
+        )
     out["MaxResults"] = value.get("max_results", 0)
     if "next_token" in value:
         out["NextToken"] = value["next_token"]
@@ -40,12 +49,18 @@ def deserialize_json(data: dict) -> GetAppMonitorDataRequest:
     out: GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
     if "TimeRange" in data:
         import aws_sdk_rum.types.time_range
-        out["time_range"] = aws_sdk_rum.types.time_range.deserialize_json(data["TimeRange"])
+
+        out["time_range"] = aws_sdk_rum.types.time_range.deserialize_json(
+            data["TimeRange"]
+        )
     else:
         raise DeserializationError("GetAppMonitorDataRequest.time_range required")
     if "Filters" in data:
         import aws_sdk_rum.types.query_filters
-        out["filters"] = aws_sdk_rum.types.query_filters.deserialize_json(data["Filters"])
+
+        out["filters"] = aws_sdk_rum.types.query_filters.deserialize_json(
+            data["Filters"]
+        )
     if "MaxResults" in data:
         out["max_results"] = data["MaxResults"]
     else:

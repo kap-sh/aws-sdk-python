@@ -7,6 +7,7 @@ from HTTP error responses.
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
+
 from zapros import Response
 
 if TYPE_CHECKING:

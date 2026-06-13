@@ -1,0 +1,299 @@
+from typing import TYPE_CHECKING, Optional
+
+import aws_sdk_sagemaker_geospatial._auth._signers
+import aws_sdk_sagemaker_geospatial._auth._sigv4
+from aws_sdk_sagemaker_geospatial._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_sagemaker_geospatial.types.data_collection_arn
+    import aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_input
+    import aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_output
+    import aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_input
+    import aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_output
+    import aws_sdk_sagemaker_geospatial.types.next_token
+    import aws_sdk_sagemaker_geospatial.types.raster_data_collection_metadata
+    import aws_sdk_sagemaker_geospatial.types.raster_data_collection_query_with_band_filter_input
+    import aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_input
+    import aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output
+    from aws_sdk_sagemaker_geospatial._services.async_sage_maker_geospatial import (
+        AsyncSageMakerGeospatialClient,
+        AsyncSageMakerGeospatialClientConfig,
+    )
+    from aws_sdk_sagemaker_geospatial._services.sage_maker_geospatial import (
+        SageMakerGeospatialClient,
+        SageMakerGeospatialClientConfig,
+    )
+
+
+class RasterDataCollection:
+    def __init__(self, service: SageMakerGeospatialClient) -> None:
+        self._service = service
+
+    def read(
+        self,
+        arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn",
+        *,
+        config_overrides: Optional[SageMakerGeospatialClientConfig] = None,
+    ) -> "aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_output.GetRasterDataCollectionOutput":
+        """<p>Use this operation to get details of a specific raster data collection.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_input.GetRasterDataCollectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_output.GetRasterDataCollectionOutput"
+        ]:
+            import aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.get_raster_data_collection
+
+            output, http_response = (
+                aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.get_raster_data_collection.get_raster_data_collection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_input.GetRasterDataCollectionInput = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[SageMakerGeospatialClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_sagemaker_geospatial.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_output.ListRasterDataCollectionsOutput":
+        """<p>Use this operation to get raster data collections.</p>
+
+        Args:
+            next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+            max_results: <p>The total number of items to return.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_input.ListRasterDataCollectionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_output.ListRasterDataCollectionsOutput"
+        ]:
+            import aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.list_raster_data_collections
+
+            output, http_response = (
+                aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.list_raster_data_collections.list_raster_data_collections(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_input.ListRasterDataCollectionsInput = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def search_raster_data_collection(
+        self,
+        arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn",
+        raster_data_collection_query: "aws_sdk_sagemaker_geospatial.types.raster_data_collection_query_with_band_filter_input.RasterDataCollectionQueryWithBandFilterInput",
+        *,
+        config_overrides: Optional[SageMakerGeospatialClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_sagemaker_geospatial.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output.SearchRasterDataCollectionOutput":
+        """<p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+            raster_data_collection_query: <p>RasterDataCollectionQuery consisting of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html\">AreaOfInterest(AOI)</a>, <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html\">PropertyFilters</a> and <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html\">TimeRangeFilterInput</a> used in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html\">SearchRasterDataCollection</a>.</p>
+            next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_input.SearchRasterDataCollectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output.SearchRasterDataCollectionOutput"
+        ]:
+            import aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.search_raster_data_collection
+
+            output, http_response = (
+                aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.search_raster_data_collection.search_raster_data_collection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_input.SearchRasterDataCollectionInput = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+        input["raster_data_collection_query"] = raster_data_collection_query
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncRasterDataCollection:
+    def __init__(self, service: AsyncSageMakerGeospatialClient) -> None:
+        self._service = service
+
+    async def read(
+        self,
+        arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn",
+        *,
+        config_overrides: Optional[AsyncSageMakerGeospatialClientConfig] = None,
+    ) -> "aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_output.GetRasterDataCollectionOutput":
+        """<p>Use this operation to get details of a specific raster data collection.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_input.GetRasterDataCollectionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_output.GetRasterDataCollectionOutput"
+        ]:
+            import aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.get_raster_data_collection
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.get_raster_data_collection.async_get_raster_data_collection(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_sagemaker_geospatial.types.get_raster_data_collection_input.GetRasterDataCollectionInput = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncSageMakerGeospatialClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_sagemaker_geospatial.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_output.ListRasterDataCollectionsOutput":
+        """<p>Use this operation to get raster data collections.</p>
+
+        Args:
+            next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+            max_results: <p>The total number of items to return.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_input.ListRasterDataCollectionsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_output.ListRasterDataCollectionsOutput"
+        ]:
+            import aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.list_raster_data_collections
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.list_raster_data_collections.async_list_raster_data_collections(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_sagemaker_geospatial.types.list_raster_data_collections_input.ListRasterDataCollectionsInput = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def search_raster_data_collection(
+        self,
+        arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn",
+        raster_data_collection_query: "aws_sdk_sagemaker_geospatial.types.raster_data_collection_query_with_band_filter_input.RasterDataCollectionQueryWithBandFilterInput",
+        *,
+        config_overrides: Optional[AsyncSageMakerGeospatialClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_sagemaker_geospatial.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output.SearchRasterDataCollectionOutput":
+        """<p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+            raster_data_collection_query: <p>RasterDataCollectionQuery consisting of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html\">AreaOfInterest(AOI)</a>, <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html\">PropertyFilters</a> and <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html\">TimeRangeFilterInput</a> used in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html\">SearchRasterDataCollection</a>.</p>
+            next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_input.SearchRasterDataCollectionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output.SearchRasterDataCollectionOutput"
+        ]:
+            import aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.search_raster_data_collection
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_sagemaker_geospatial._operations.sage_maker_geospatial.search_raster_data_collection.async_search_raster_data_collection(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_input.SearchRasterDataCollectionInput = {}  # type: ignore[typeddict-item]
+        input["arn"] = arn
+        input["raster_data_collection_query"] = raster_data_collection_query
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

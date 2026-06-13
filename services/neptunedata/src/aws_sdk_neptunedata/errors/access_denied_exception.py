@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#AccessDeniedException``."""
 
 from typing import TypedDict
-from aws_sdk_neptunedata.errors import DeserializationError
-from aws_sdk_neptunedata.errors import ServiceError
+
+from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
+
 
 class AccessDeniedException_(TypedDict):
     detailed_message: "str"
@@ -11,6 +12,7 @@ class AccessDeniedException_(TypedDict):
     """<p>The ID of the request in question.</p>"""
     code: "str"
     """<p>The HTTP status code returned with the exception.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccessDeniedException_) -> dict:
@@ -40,10 +42,16 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.neptunedata#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

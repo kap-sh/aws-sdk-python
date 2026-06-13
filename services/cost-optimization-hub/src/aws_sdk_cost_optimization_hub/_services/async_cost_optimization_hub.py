@@ -1,0 +1,686 @@
+"""Generated from Smithy shape ``com.amazonaws.costoptimizationhub#CostOptimizationHubService``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
+from aws_sdk_cost_optimization_hub._auth._identity import Credentials
+from aws_sdk_cost_optimization_hub._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_cost_optimization_hub._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cost_optimization_hub._pagination import resolve_path as _resolve_path
+from aws_sdk_cost_optimization_hub._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_cost_optimization_hub.types.account_enrollment_status
+    import aws_sdk_cost_optimization_hub.types.account_id
+    import aws_sdk_cost_optimization_hub.types.efficiency_metrics_by_group
+    import aws_sdk_cost_optimization_hub.types.enrollment_status
+    import aws_sdk_cost_optimization_hub.types.filter
+    import aws_sdk_cost_optimization_hub.types.get_preferences_request
+    import aws_sdk_cost_optimization_hub.types.get_preferences_response
+    import aws_sdk_cost_optimization_hub.types.get_recommendation_request
+    import aws_sdk_cost_optimization_hub.types.get_recommendation_response
+    import aws_sdk_cost_optimization_hub.types.granularity_type
+    import aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_request
+    import aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_response
+    import aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_request
+    import aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_response
+    import aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_request
+    import aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_response
+    import aws_sdk_cost_optimization_hub.types.list_recommendations_request
+    import aws_sdk_cost_optimization_hub.types.list_recommendations_response
+    import aws_sdk_cost_optimization_hub.types.max_results
+    import aws_sdk_cost_optimization_hub.types.member_account_discount_visibility
+    import aws_sdk_cost_optimization_hub.types.order_by
+    import aws_sdk_cost_optimization_hub.types.preferred_commitment
+    import aws_sdk_cost_optimization_hub.types.recommendation
+    import aws_sdk_cost_optimization_hub.types.recommendation_summary
+    import aws_sdk_cost_optimization_hub.types.savings_estimation_mode
+    import aws_sdk_cost_optimization_hub.types.summary_metrics_list
+    import aws_sdk_cost_optimization_hub.types.time_period
+    import aws_sdk_cost_optimization_hub.types.update_enrollment_status_request
+    import aws_sdk_cost_optimization_hub.types.update_enrollment_status_response
+    import aws_sdk_cost_optimization_hub.types.update_preferences_request
+    import aws_sdk_cost_optimization_hub.types.update_preferences_response
+
+
+class AsyncCostOptimizationHubClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        async for chunk in it:
+            yield chunk
+
+
+class AsyncCostOptimizationHubClient:
+    """A client for the ``CostOptimizationHub`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = AsyncCostOptimizationHubClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncCostOptimizationHubClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def get_preferences(
+        self, *, config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None
+    ) -> "aws_sdk_cost_optimization_hub.types.get_preferences_response.GetPreferencesResponse":
+        """<p>Returns a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented—estimated savings after discounts or estimated savings before discounts, for example.</p>"""
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.get_preferences_request.GetPreferencesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.get_preferences_response.GetPreferencesResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.get_preferences
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.get_preferences.async_get_preferences(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.get_preferences_request.GetPreferencesRequest = {}  # type: ignore[typeddict-item]
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_recommendation(
+        self,
+        recommendation_id: str,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.get_recommendation_response.GetRecommendationResponse":
+        """<p>Returns both the current and recommended resource configuration and the estimated cost impact for a recommendation.</p> <p>The <code>recommendationId</code> is only valid for up to a maximum of 24 hours as recommendations are refreshed daily. To retrieve the <code>recommendationId</code>, use the <code>ListRecommendations</code> API.</p>
+
+        Args:
+            recommendation_id: <p>The ID for the recommendation.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.get_recommendation_request.GetRecommendationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.get_recommendation_response.GetRecommendationResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.get_recommendation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.get_recommendation.async_get_recommendation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input["recommendation_id"] = recommendation_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_efficiency_metrics(
+        self,
+        granularity: "aws_sdk_cost_optimization_hub.types.granularity_type.GranularityType",
+        time_period: "aws_sdk_cost_optimization_hub.types.time_period.TimePeriod",
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        group_by: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+        order_by: Optional[
+            "aws_sdk_cost_optimization_hub.types.order_by.OrderBy"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_response.ListEfficiencyMetricsResponse":
+        """<p>Returns cost efficiency metrics aggregated over time and optionally grouped by a specified dimension. The metrics provide insights into your cost optimization progress by tracking estimated savings, spending, and measures how effectively you're optimizing your Cloud resources.</p> <p>The operation supports both daily and monthly time granularities and allows grouping results by account ID, Amazon Web Services Region. Results are returned as time-series data, enabling you to analyze trends in your cost optimization performance over the specified time period.</p>
+
+        Args:
+            group_by: <p>The dimension by which to group the cost efficiency metrics. Valid values include account ID, Amazon Web Services Region. When no grouping is specified, metrics are aggregated across all resources in the specified time period.</p>
+            granularity: <p>The time granularity for the cost efficiency metrics. Specify <code>Daily</code> for metrics aggregated by day, or <code>Monthly</code> for metrics aggregated by month.</p>
+            time_period: <p>The time period for which to retrieve the cost efficiency metrics. The start date is inclusive and the end date is exclusive. Dates can be specified in either YYYY-MM-DD format or YYYY-MM format depending on the desired granularity.</p>
+            max_results: <p>The maximum number of groups to return in the response. Valid values range from 0 to 1000. Use in conjunction with <code>nextToken</code> to paginate through results when the total number of groups exceeds this limit.</p>
+            order_by: <p>The ordering specification for the results. Defines which dimension to sort by and whether to sort in ascending or descending order.</p>
+            next_token: <p>The token to retrieve the next page of results. This value is returned in the response when the number of groups exceeds the specified <code>maxResults</code> value.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_request.ListEfficiencyMetricsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_response.ListEfficiencyMetricsResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_efficiency_metrics
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_efficiency_metrics.async_list_efficiency_metrics(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_request.ListEfficiencyMetricsRequest = {}  # type: ignore[typeddict-item]
+        if group_by is not None:
+            input["group_by"] = group_by
+        input["granularity"] = granularity
+        input["time_period"] = time_period
+        if max_results is not None:
+            input["max_results"] = max_results
+        if order_by is not None:
+            input["order_by"] = order_by
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_efficiency_metrics(
+        self,
+        granularity: "aws_sdk_cost_optimization_hub.types.granularity_type.GranularityType",
+        time_period: "aws_sdk_cost_optimization_hub.types.time_period.TimePeriod",
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        group_by: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+        order_by: Optional[
+            "aws_sdk_cost_optimization_hub.types.order_by.OrderBy"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_cost_optimization_hub.types.efficiency_metrics_by_group.EfficiencyMetricsByGroup]":
+        _token = next_token
+        while True:
+            _response = await self.list_efficiency_metrics(
+                granularity,
+                time_period,
+                config_overrides=config_overrides,
+                group_by=group_by,
+                max_results=max_results,
+                order_by=order_by,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("efficiency_metrics_by_group",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_enrollment_statuses(
+        self,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        include_organization_info: Optional[bool] = None,
+        account_id: Optional[
+            "aws_sdk_cost_optimization_hub.types.account_id.AccountId"
+        ] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_response.ListEnrollmentStatusesResponse":
+        """<p>Retrieves the enrollment status for an account. It can also return the list of accounts that are enrolled under the organization.</p>
+
+        Args:
+            include_organization_info: <p>Indicates whether to return the enrollment status for the organization.</p>
+            account_id: <p>The account ID of a member account in the organization.</p>
+            next_token: <p>The token to retrieve the next set of results.</p>
+            max_results: <p>The maximum number of objects that are returned for the request.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_request.ListEnrollmentStatusesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_response.ListEnrollmentStatusesResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_enrollment_statuses
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_enrollment_statuses.async_list_enrollment_statuses(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_request.ListEnrollmentStatusesRequest = {}  # type: ignore[typeddict-item]
+        if include_organization_info is not None:
+            input["include_organization_info"] = include_organization_info
+        if account_id is not None:
+            input["account_id"] = account_id
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_enrollment_statuses(
+        self,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        include_organization_info: Optional[bool] = None,
+        account_id: Optional[
+            "aws_sdk_cost_optimization_hub.types.account_id.AccountId"
+        ] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_cost_optimization_hub.types.account_enrollment_status.AccountEnrollmentStatus]":
+        _token = next_token
+        while True:
+            _response = await self.list_enrollment_statuses(
+                config_overrides=config_overrides,
+                include_organization_info=include_organization_info,
+                account_id=account_id,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_recommendations(
+        self,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        filter: Optional["aws_sdk_cost_optimization_hub.types.filter.Filter"] = None,
+        order_by: Optional[
+            "aws_sdk_cost_optimization_hub.types.order_by.OrderBy"
+        ] = None,
+        include_all_recommendations: Optional[bool] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.list_recommendations_response.ListRecommendationsResponse":
+        """<p>Returns a list of recommendations.</p>
+
+        Args:
+            filter: <p>The constraints that you want all returned recommendations to match.</p>
+            order_by: <p>The ordering of recommendations by a dimension.</p>
+            include_all_recommendations: <p>List of all recommendations for a resource, or a single recommendation if de-duped by <code>resourceId</code>.</p>
+            max_results: <p>The maximum number of recommendations that are returned for the request.</p>
+            next_token: <p>The token to retrieve the next set of results.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.list_recommendations_request.ListRecommendationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.list_recommendations_response.ListRecommendationsResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_recommendations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_recommendations.async_list_recommendations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        if filter is not None:
+            input["filter"] = filter
+        if order_by is not None:
+            input["order_by"] = order_by
+        if include_all_recommendations is not None:
+            input["include_all_recommendations"] = include_all_recommendations
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_recommendations(
+        self,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        filter: Optional["aws_sdk_cost_optimization_hub.types.filter.Filter"] = None,
+        order_by: Optional[
+            "aws_sdk_cost_optimization_hub.types.order_by.OrderBy"
+        ] = None,
+        include_all_recommendations: Optional[bool] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_cost_optimization_hub.types.recommendation.Recommendation]":
+        _token = next_token
+        while True:
+            _response = await self.list_recommendations(
+                config_overrides=config_overrides,
+                filter=filter,
+                order_by=order_by,
+                include_all_recommendations=include_all_recommendations,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_recommendation_summaries(
+        self,
+        group_by: str,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        filter: Optional["aws_sdk_cost_optimization_hub.types.filter.Filter"] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+        metrics: Optional[
+            "aws_sdk_cost_optimization_hub.types.summary_metrics_list.SummaryMetricsList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_response.ListRecommendationSummariesResponse":
+        """<p>Returns a concise representation of savings estimates for resources. Also returns de-duped savings across different types of recommendations.</p> <note> <p>The following filters are not supported for this API: <code>recommendationIds</code>, <code>resourceArns</code>, and <code>resourceIds</code>.</p> </note>
+
+        Args:
+            group_by: <p>The grouping of recommendations by a dimension.</p>
+            max_results: <p>The maximum number of recommendations to be returned for the request.</p>
+            metrics: <p>Additional metrics to be returned for the request. The only valid value is <code>savingsPercentage</code>.</p>
+            next_token: <p>The token to retrieve the next set of results.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_request.ListRecommendationSummariesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_response.ListRecommendationSummariesResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_recommendation_summaries
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.list_recommendation_summaries.async_list_recommendation_summaries(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_request.ListRecommendationSummariesRequest = {}  # type: ignore[typeddict-item]
+        if filter is not None:
+            input["filter"] = filter
+        input["group_by"] = group_by
+        if max_results is not None:
+            input["max_results"] = max_results
+        if metrics is not None:
+            input["metrics"] = metrics
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_recommendation_summaries(
+        self,
+        group_by: str,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        filter: Optional["aws_sdk_cost_optimization_hub.types.filter.Filter"] = None,
+        max_results: Optional[
+            "aws_sdk_cost_optimization_hub.types.max_results.MaxResults"
+        ] = None,
+        metrics: Optional[
+            "aws_sdk_cost_optimization_hub.types.summary_metrics_list.SummaryMetricsList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_cost_optimization_hub.types.recommendation_summary.RecommendationSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_recommendation_summaries(
+                group_by,
+                config_overrides=config_overrides,
+                filter=filter,
+                max_results=max_results,
+                metrics=metrics,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def update_enrollment_status(
+        self,
+        status: "aws_sdk_cost_optimization_hub.types.enrollment_status.EnrollmentStatus",
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        include_member_accounts: Optional[bool] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.update_enrollment_status_response.UpdateEnrollmentStatusResponse":
+        """<p>Updates the enrollment (opt in and opt out) status of an account to the Cost Optimization Hub service.</p> <p>If the account is a management account of an organization, this action can also be used to enroll member accounts of the organization.</p> <p>You must have the appropriate permissions to opt in to Cost Optimization Hub and to view its recommendations. When you opt in, Cost Optimization Hub automatically creates a service-linked role in your account to access its data.</p>
+
+        Args:
+            status: <p>Sets the account status.</p>
+            include_member_accounts: <p>Indicates whether to enroll member accounts of the organization if the account is the management account or delegated administrator.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.update_enrollment_status_request.UpdateEnrollmentStatusRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.update_enrollment_status_response.UpdateEnrollmentStatusResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.update_enrollment_status
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.update_enrollment_status.async_update_enrollment_status(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.update_enrollment_status_request.UpdateEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input["status"] = status
+        if include_member_accounts is not None:
+            input["include_member_accounts"] = include_member_accounts
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_preferences(
+        self,
+        *,
+        config_overrides: Optional[AsyncCostOptimizationHubClientConfig] = None,
+        savings_estimation_mode: Optional[
+            "aws_sdk_cost_optimization_hub.types.savings_estimation_mode.SavingsEstimationMode"
+        ] = None,
+        member_account_discount_visibility: Optional[
+            "aws_sdk_cost_optimization_hub.types.member_account_discount_visibility.MemberAccountDiscountVisibility"
+        ] = None,
+        preferred_commitment: Optional[
+            "aws_sdk_cost_optimization_hub.types.preferred_commitment.PreferredCommitment"
+        ] = None,
+    ) -> "aws_sdk_cost_optimization_hub.types.update_preferences_response.UpdatePreferencesResponse":
+        """<p>Updates a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented.</p>
+
+        Args:
+            savings_estimation_mode: <p>Sets the \"savings estimation mode\" preference.</p>
+            member_account_discount_visibility: <p>Sets the \"member account discount visibility\" preference.</p>
+            preferred_commitment: <p>Sets the preferences for how Reserved Instances and Savings Plans cost-saving opportunities are prioritized in terms of payment option and term length.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cost_optimization_hub.types.update_preferences_request.UpdatePreferencesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cost_optimization_hub.types.update_preferences_response.UpdatePreferencesResponse"
+        ]:
+            import aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.update_preferences
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cost_optimization_hub._operations.cost_optimization_hub_service.update_preferences.async_update_preferences(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_cost_optimization_hub.types.update_preferences_request.UpdatePreferencesRequest = {}  # type: ignore[typeddict-item]
+        if savings_estimation_mode is not None:
+            input["savings_estimation_mode"] = savings_estimation_mode
+        if member_account_discount_visibility is not None:
+            input["member_account_discount_visibility"] = (
+                member_account_discount_visibility
+            )
+        if preferred_commitment is not None:
+            input["preferred_commitment"] = preferred_commitment
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.securityir#SendFeedbackRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_security_ir.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_security_ir.types.case_id
+    import aws_sdk_security_ir.types.feedback_comment
+    import aws_sdk_security_ir.types.result_id
+    import aws_sdk_security_ir.types.usefulness_rating
+
+
+class SendFeedbackRequest(TypedDict):
+    case_id: "aws_sdk_security_ir.types.case_id.CaseId"
+    """<p>Send feedback based on request caseID</p>"""
+    result_id: "aws_sdk_security_ir.types.result_id.ResultId"
+    """<p>Send feedback based on request result ID</p>"""
+    usefulness: "aws_sdk_security_ir.types.usefulness_rating.UsefulnessRating"
+    """<p>Required enum value indicating user assessment of result q.....</p>"""
+    comment: NotRequired["aws_sdk_security_ir.types.feedback_comment.FeedbackComment"]
+    """<p>Send feedback based on request comments</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SendFeedbackRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_security_ir.types.usefulness_rating
+
+    out["usefulness"] = aws_sdk_security_ir.types.usefulness_rating.serialize_json(
+        value["usefulness"]
+    )
+    if "comment" in value:
+        out["comment"] = value["comment"]
+    return out
+
+
+def deserialize_json(data: dict) -> SendFeedbackRequest:
+    out: SendFeedbackRequest = {}  # type: ignore[typeddict-item]
+    if "usefulness" in data:
+        import aws_sdk_security_ir.types.usefulness_rating
+
+        out["usefulness"] = (
+            aws_sdk_security_ir.types.usefulness_rating.deserialize_json(
+                data["usefulness"]
+            )
+        )
+    else:
+        raise DeserializationError("SendFeedbackRequest.usefulness required")
+    if "comment" in data:
+        out["comment"] = data["comment"]
+    return out

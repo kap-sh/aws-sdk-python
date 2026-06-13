@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreateAccessPointRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3files.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.client_token
     import aws_sdk_s3files.types.file_system_id
     import aws_sdk_s3files.types.posix_user
     import aws_sdk_s3files.types.root_directory
     import aws_sdk_s3files.types.tag_list
+
 
 class CreateAccessPointRequest(TypedDict):
     client_token: NotRequired["aws_sdk_s3files.types.client_token.ClientToken"]
@@ -22,6 +26,7 @@ class CreateAccessPointRequest(TypedDict):
     root_directory: NotRequired["aws_sdk_s3files.types.root_directory.RootDirectory"]
     """<p>The root directory path for the access point, with optional creation permissions for newly created directories.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateAccessPointRequest) -> dict:
     out: dict = {}
@@ -29,14 +34,21 @@ def serialize_json(value: CreateAccessPointRequest) -> dict:
         out["clientToken"] = value["client_token"]
     if "tags" in value:
         import aws_sdk_s3files.types.tag_list
+
         out["tags"] = aws_sdk_s3files.types.tag_list.serialize_json(value["tags"])
     out["fileSystemId"] = value["file_system_id"]
     if "posix_user" in value:
         import aws_sdk_s3files.types.posix_user
-        out["posixUser"] = aws_sdk_s3files.types.posix_user.serialize_json(value["posix_user"])
+
+        out["posixUser"] = aws_sdk_s3files.types.posix_user.serialize_json(
+            value["posix_user"]
+        )
     if "root_directory" in value:
         import aws_sdk_s3files.types.root_directory
-        out["rootDirectory"] = aws_sdk_s3files.types.root_directory.serialize_json(value["root_directory"])
+
+        out["rootDirectory"] = aws_sdk_s3files.types.root_directory.serialize_json(
+            value["root_directory"]
+        )
     return out
 
 
@@ -46,6 +58,7 @@ def deserialize_json(data: dict) -> CreateAccessPointRequest:
         out["client_token"] = data["clientToken"]
     if "tags" in data:
         import aws_sdk_s3files.types.tag_list
+
         out["tags"] = aws_sdk_s3files.types.tag_list.deserialize_json(data["tags"])
     if "fileSystemId" in data:
         out["file_system_id"] = data["fileSystemId"]
@@ -53,8 +66,14 @@ def deserialize_json(data: dict) -> CreateAccessPointRequest:
         raise DeserializationError("CreateAccessPointRequest.file_system_id required")
     if "posixUser" in data:
         import aws_sdk_s3files.types.posix_user
-        out["posix_user"] = aws_sdk_s3files.types.posix_user.deserialize_json(data["posixUser"])
+
+        out["posix_user"] = aws_sdk_s3files.types.posix_user.deserialize_json(
+            data["posixUser"]
+        )
     if "rootDirectory" in data:
         import aws_sdk_s3files.types.root_directory
-        out["root_directory"] = aws_sdk_s3files.types.root_directory.deserialize_json(data["rootDirectory"])
+
+        out["root_directory"] = aws_sdk_s3files.types.root_directory.deserialize_json(
+            data["rootDirectory"]
+        )
     return out

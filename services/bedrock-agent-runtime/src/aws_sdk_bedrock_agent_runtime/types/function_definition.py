@@ -1,23 +1,34 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FunctionDefinition``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.function_description
     import aws_sdk_bedrock_agent_runtime.types.parameter_map
     import aws_sdk_bedrock_agent_runtime.types.require_confirmation
     import aws_sdk_bedrock_agent_runtime.types.resource_name
 
+
 class FunctionDefinition(TypedDict):
     name: "aws_sdk_bedrock_agent_runtime.types.resource_name.ResourceName"
     """<p> A name for the function. </p>"""
-    description: NotRequired["aws_sdk_bedrock_agent_runtime.types.function_description.FunctionDescription"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.function_description.FunctionDescription"
+    ]
     """<p> A description of the function and its purpose. </p>"""
-    parameters: NotRequired["aws_sdk_bedrock_agent_runtime.types.parameter_map.ParameterMap"]
+    parameters: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.parameter_map.ParameterMap"
+    ]
     """<p> The parameters that the agent elicits from the user to fulfill the function. </p>"""
-    require_confirmation: NotRequired["aws_sdk_bedrock_agent_runtime.types.require_confirmation.RequireConfirmation"]
+    require_confirmation: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.require_confirmation.RequireConfirmation"
+    ]
     """<p> Contains information if user confirmation is required to invoke the function. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FunctionDefinition) -> dict:
@@ -27,10 +38,20 @@ def serialize_json(value: FunctionDefinition) -> dict:
         out["description"] = value["description"]
     if "parameters" in value:
         import aws_sdk_bedrock_agent_runtime.types.parameter_map
-        out["parameters"] = aws_sdk_bedrock_agent_runtime.types.parameter_map.serialize_json(value["parameters"])
+
+        out["parameters"] = (
+            aws_sdk_bedrock_agent_runtime.types.parameter_map.serialize_json(
+                value["parameters"]
+            )
+        )
     if "require_confirmation" in value:
         import aws_sdk_bedrock_agent_runtime.types.require_confirmation
-        out["requireConfirmation"] = aws_sdk_bedrock_agent_runtime.types.require_confirmation.serialize_json(value["require_confirmation"])
+
+        out["requireConfirmation"] = (
+            aws_sdk_bedrock_agent_runtime.types.require_confirmation.serialize_json(
+                value["require_confirmation"]
+            )
+        )
     return out
 
 
@@ -44,8 +65,18 @@ def deserialize_json(data: dict) -> FunctionDefinition:
         out["description"] = data["description"]
     if "parameters" in data:
         import aws_sdk_bedrock_agent_runtime.types.parameter_map
-        out["parameters"] = aws_sdk_bedrock_agent_runtime.types.parameter_map.deserialize_json(data["parameters"])
+
+        out["parameters"] = (
+            aws_sdk_bedrock_agent_runtime.types.parameter_map.deserialize_json(
+                data["parameters"]
+            )
+        )
     if "requireConfirmation" in data:
         import aws_sdk_bedrock_agent_runtime.types.require_confirmation
-        out["require_confirmation"] = aws_sdk_bedrock_agent_runtime.types.require_confirmation.deserialize_json(data["requireConfirmation"])
+
+        out["require_confirmation"] = (
+            aws_sdk_bedrock_agent_runtime.types.require_confirmation.deserialize_json(
+                data["requireConfirmation"]
+            )
+        )
     return out

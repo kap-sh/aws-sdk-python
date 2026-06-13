@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import ensure_async_iterator
-from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import ensure_sync_iterator
-from aws_sdk_bedrock_agent_runtime._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agent_runtime._auth._signers
 import aws_sdk_bedrock_agent_runtime._auth._sigv4
+from aws_sdk_bedrock_agent_runtime._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import BedrockAgentRuntimeClient, BedrockAgentRuntimeClientConfig
-    from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import AsyncBedrockAgentRuntimeClient, AsyncBedrockAgentRuntimeClientConfig
     import aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier
     import aws_sdk_bedrock_agent_runtime.types.flow_execution_id
     import aws_sdk_bedrock_agent_runtime.types.flow_identifier
@@ -14,11 +19,35 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.invoke_flow_request
     import aws_sdk_bedrock_agent_runtime.types.invoke_flow_response
     import aws_sdk_bedrock_agent_runtime.types.model_performance_configuration
+    from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import (
+        AsyncBedrockAgentRuntimeClient,
+        AsyncBedrockAgentRuntimeClientConfig,
+    )
+    from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import (
+        BedrockAgentRuntimeClient,
+        BedrockAgentRuntimeClientConfig,
+    )
+
 
 class FlowResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
-    def invoke_flow(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None, enable_trace: Optional[bool] = None, model_performance_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"] = None, execution_id: Optional["aws_sdk_bedrock_agent_runtime.types.flow_execution_id.FlowExecutionId"] = None) -> "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse":
+
+    def invoke_flow(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+        enable_trace: Optional[bool] = None,
+        model_performance_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"
+        ] = None,
+        execution_id: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.flow_execution_id.FlowExecutionId"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse":
         """<p>Invokes an alias of a flow to run the inputs that you specify and return the output of each node as a stream. If there's an error, the error is returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeFlow</code>.</p> </note>
 
         Args:
@@ -29,9 +58,19 @@ class FlowResource:
             model_performance_configuration: <p>Model performance settings for the request.</p>
             execution_id: <p>The unique identifier for the current flow execution. If you don't provide a value, Amazon Bedrock creates the identifier for you. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_flow
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_flow.invoke_flow(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_flow.invoke_flow(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -46,13 +85,33 @@ class FlowResource:
         if execution_id is not None:
             input["execution_id"] = execution_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncFlowResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
-    async def invoke_flow(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None, enable_trace: Optional[bool] = None, model_performance_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"] = None, execution_id: Optional["aws_sdk_bedrock_agent_runtime.types.flow_execution_id.FlowExecutionId"] = None) -> "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse":
+
+    async def invoke_flow(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+        enable_trace: Optional[bool] = None,
+        model_performance_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"
+        ] = None,
+        execution_id: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.flow_execution_id.FlowExecutionId"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse":
         """<p>Invokes an alias of a flow to run the inputs that you specify and return the output of each node as a stream. If there's an error, the error is returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeFlow</code>.</p> </note>
 
         Args:
@@ -63,9 +122,20 @@ class AsyncFlowResource:
             model_performance_configuration: <p>Model performance settings for the request.</p>
             execution_id: <p>The unique identifier for the current flow execution. If you don't provide a value, Amazon Bedrock creates the identifier for you. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_flow
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_flow.async_invoke_flow(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.invoke_flow.async_invoke_flow(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -80,5 +150,9 @@ class AsyncFlowResource:
         if execution_id is not None:
             input["execution_id"] = execution_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

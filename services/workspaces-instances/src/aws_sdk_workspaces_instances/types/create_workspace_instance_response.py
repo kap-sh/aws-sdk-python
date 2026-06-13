@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#CreateWorkspaceInstanceResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.workspace_instance_id
 
+
 class CreateWorkspaceInstanceResponse(TypedDict):
-    workspace_instance_id: NotRequired["aws_sdk_workspaces_instances.types.workspace_instance_id.WorkspaceInstanceId"]
+    workspace_instance_id: NotRequired[
+        "aws_sdk_workspaces_instances.types.workspace_instance_id.WorkspaceInstanceId"
+    ]
     """<p>Unique identifier assigned to the newly created WorkSpaces Instance.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CreateWorkspaceInstanceResponse) -> dict:

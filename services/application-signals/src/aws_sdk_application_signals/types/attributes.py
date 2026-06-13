@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#Attributes``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.key_attribute_name
     import aws_sdk_application_signals.types.key_attribute_value
 
-Attributes: TypeAlias = dict["aws_sdk_application_signals.types.key_attribute_name.KeyAttributeName", "aws_sdk_application_signals.types.key_attribute_value.KeyAttributeValue"]
+Attributes: TypeAlias = dict[
+    "aws_sdk_application_signals.types.key_attribute_name.KeyAttributeName",
+    "aws_sdk_application_signals.types.key_attribute_value.KeyAttributeValue",
+]
 
 
 # --- restJson1 ser/de ---

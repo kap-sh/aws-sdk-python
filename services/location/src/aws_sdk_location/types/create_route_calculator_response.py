@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateRouteCalculatorResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geo_arn
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.timestamp
+
 
 class CreateRouteCalculatorResponse(TypedDict):
     calculator_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -15,13 +18,17 @@ class CreateRouteCalculatorResponse(TypedDict):
     create_time: "aws_sdk_location.types.timestamp.Timestamp"
     """<p>The timestamp when the route calculator resource was created in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> <ul> <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> </ul>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateRouteCalculatorResponse) -> dict:
     out: dict = {}
     out["CalculatorName"] = value["calculator_name"]
     out["CalculatorArn"] = value["calculator_arn"]
     import aws_sdk_location.types.timestamp
-    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["create_time"])
+
+    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["create_time"]
+    )
     return out
 
 
@@ -30,14 +37,21 @@ def deserialize_json(data: dict) -> CreateRouteCalculatorResponse:
     if "CalculatorName" in data:
         out["calculator_name"] = data["CalculatorName"]
     else:
-        raise DeserializationError("CreateRouteCalculatorResponse.calculator_name required")
+        raise DeserializationError(
+            "CreateRouteCalculatorResponse.calculator_name required"
+        )
     if "CalculatorArn" in data:
         out["calculator_arn"] = data["CalculatorArn"]
     else:
-        raise DeserializationError("CreateRouteCalculatorResponse.calculator_arn required")
+        raise DeserializationError(
+            "CreateRouteCalculatorResponse.calculator_arn required"
+        )
     if "CreateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreateTime"])
+
+        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreateTime"]
+        )
     else:
         raise DeserializationError("CreateRouteCalculatorResponse.create_time required")
     return out

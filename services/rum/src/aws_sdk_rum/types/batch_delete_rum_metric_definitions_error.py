@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.rum#BatchDeleteRumMetricDefinitionsError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_rum.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_definition_id
+
 
 class BatchDeleteRumMetricDefinitionsError(TypedDict):
     metric_definition_id: "aws_sdk_rum.types.metric_definition_id.MetricDefinitionId"
@@ -12,6 +15,7 @@ class BatchDeleteRumMetricDefinitionsError(TypedDict):
     """<p>The error code.</p>"""
     error_message: "str"
     """<p>The error message for this metric definition.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchDeleteRumMetricDefinitionsError) -> dict:
@@ -27,13 +31,19 @@ def deserialize_json(data: dict) -> BatchDeleteRumMetricDefinitionsError:
     if "MetricDefinitionId" in data:
         out["metric_definition_id"] = data["MetricDefinitionId"]
     else:
-        raise DeserializationError("BatchDeleteRumMetricDefinitionsError.metric_definition_id required")
+        raise DeserializationError(
+            "BatchDeleteRumMetricDefinitionsError.metric_definition_id required"
+        )
     if "ErrorCode" in data:
         out["error_code"] = data["ErrorCode"]
     else:
-        raise DeserializationError("BatchDeleteRumMetricDefinitionsError.error_code required")
+        raise DeserializationError(
+            "BatchDeleteRumMetricDefinitionsError.error_code required"
+        )
     if "ErrorMessage" in data:
         out["error_message"] = data["ErrorMessage"]
     else:
-        raise DeserializationError("BatchDeleteRumMetricDefinitionsError.error_message required")
+        raise DeserializationError(
+            "BatchDeleteRumMetricDefinitionsError.error_message required"
+        )
     return out

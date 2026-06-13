@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.mailmanager#StartArchiveSearchResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_mailmanager.types.search_id
+
+
+class StartArchiveSearchResponse(TypedDict):
+    search_id: NotRequired["aws_sdk_mailmanager.types.search_id.SearchId"]
+    """<p>The unique identifier for the initiated search job.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: StartArchiveSearchResponse) -> dict:
+    out: dict = {}
+    if "search_id" in value:
+        out["SearchId"] = value["search_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> StartArchiveSearchResponse:
+    out: StartArchiveSearchResponse = {}  # type: ignore[typeddict-item]
+    if "SearchId" in data:
+        out["search_id"] = data["SearchId"]
+    return out

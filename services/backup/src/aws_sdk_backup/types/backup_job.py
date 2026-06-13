@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupJob``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
     import aws_sdk_backup.types.arn
@@ -17,12 +19,15 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
     import aws_sdk_backup.types.timestamp
 
+
 class BackupJob(TypedDict):
     account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]
     """<p>The account ID that owns the backup job.</p>"""
     backup_job_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a request to Backup to back up a resource.</p>"""
-    backup_vault_name: NotRequired["aws_sdk_backup.types.backup_vault_name.BackupVaultName"]
+    backup_vault_name: NotRequired[
+        "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
+    ]
     """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>"""
     backup_vault_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>"""
@@ -53,7 +58,9 @@ class BackupJob(TypedDict):
     """<p>The size, in bytes, of a backup (recovery point).</p> <p>This value can render differently depending on the resource type as Backup pulls in data information from other Amazon Web Services services. For example, the value returned may show a value of <code>0</code>, which may differ from the anticipated value.</p> <p>The expected behavior for values by resource type are described as follows:</p> <ul> <li> <p>Amazon Aurora, Amazon DocumentDB, and Amazon Neptune do not have this value populate from the operation <code>GetBackupJobStatus</code>.</p> </li> <li> <p>For Amazon DynamoDB with advanced features, this value refers to the size of the recovery point (backup).</p> </li> <li> <p>Amazon EC2 and Amazon EBS show volume size (provisioned storage) returned as part of this value. Amazon EBS does not return backup size information; snapshot size will have the same value as the original resource that was backed up.</p> </li> <li> <p>For Amazon EFS, this value refers to the delta bytes transferred during a backup.</p> </li> <li> <p>For Amazon EKS, this value refers to the size of your nested EKS recovery point.</p> </li> <li> <p>Amazon FSx does not populate this value from the operation <code>GetBackupJobStatus</code> for FSx file systems.</p> </li> <li> <p>An Amazon RDS instance will show as <code>0</code>.</p> </li> <li> <p>For virtual machines running VMware, this value is passed to Backup through an asynchronous workflow, which can mean this displayed value can under-represent the actual backup size.</p> </li> </ul>"""
     iam_role_arn: NotRequired["aws_sdk_backup.types.iam_role_arn.IAMRoleArn"]
     """<p>Specifies the IAM role ARN used to create the target recovery point. IAM roles other than the default role must include either <code>AWSBackup</code> or <code>AwsBackup</code> in the role name. For example, <code>arn:aws:iam::123456789012:role/AWSBackupRDSAccess</code>. Role names without those strings lack permissions to perform backup jobs.</p>"""
-    created_by: NotRequired["aws_sdk_backup.types.recovery_point_creator.RecoveryPointCreator"]
+    created_by: NotRequired[
+        "aws_sdk_backup.types.recovery_point_creator.RecoveryPointCreator"
+    ]
     """<p>Contains identifying information about the creation of a backup job, including the <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>, and <code>BackupRuleId</code> of the backup plan used to create it.</p>"""
     expected_completion_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
     """<p>The date and time a job to back up resources is expected to be completed, in Unix format and Coordinated Universal Time (UTC). The value of <code>ExpectedCompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
@@ -78,6 +85,7 @@ class BackupJob(TypedDict):
     message_category: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>This parameter is the job count for the specified message category.</p> <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and <code>INVALIDPARAMETERS</code>. See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of MessageCategory strings.</p> <p>The the value ANY returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BackupJob) -> dict:
     out: dict = {}
@@ -97,7 +105,10 @@ def serialize_json(value: BackupJob) -> dict:
         out["RecoveryPointArn"] = value["recovery_point_arn"]
     if "recovery_point_lifecycle" in value:
         import aws_sdk_backup.types.lifecycle
-        out["RecoveryPointLifecycle"] = aws_sdk_backup.types.lifecycle.serialize_json(value["recovery_point_lifecycle"])
+
+        out["RecoveryPointLifecycle"] = aws_sdk_backup.types.lifecycle.serialize_json(
+            value["recovery_point_lifecycle"]
+        )
     if "encryption_key_arn" in value:
         out["EncryptionKeyArn"] = value["encryption_key_arn"]
     out["IsEncrypted"] = value.get("is_encrypted", False)
@@ -105,13 +116,22 @@ def serialize_json(value: BackupJob) -> dict:
         out["ResourceArn"] = value["resource_arn"]
     if "creation_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["creation_date"])
+
+        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["creation_date"]
+        )
     if "completion_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["CompletionDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["completion_date"])
+
+        out["CompletionDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["completion_date"]
+        )
     if "state" in value:
         import aws_sdk_backup.types.backup_job_state
-        out["State"] = aws_sdk_backup.types.backup_job_state.serialize_json(value["state"])
+
+        out["State"] = aws_sdk_backup.types.backup_job_state.serialize_json(
+            value["state"]
+        )
     if "status_message" in value:
         out["StatusMessage"] = value["status_message"]
     if "percent_done" in value:
@@ -122,20 +142,32 @@ def serialize_json(value: BackupJob) -> dict:
         out["IamRoleArn"] = value["iam_role_arn"]
     if "created_by" in value:
         import aws_sdk_backup.types.recovery_point_creator
-        out["CreatedBy"] = aws_sdk_backup.types.recovery_point_creator.serialize_json(value["created_by"])
+
+        out["CreatedBy"] = aws_sdk_backup.types.recovery_point_creator.serialize_json(
+            value["created_by"]
+        )
     if "expected_completion_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["ExpectedCompletionDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["expected_completion_date"])
+
+        out["ExpectedCompletionDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["expected_completion_date"]
+        )
     if "start_by" in value:
         import aws_sdk_backup.types.timestamp
-        out["StartBy"] = aws_sdk_backup.types.timestamp.serialize_json(value["start_by"])
+
+        out["StartBy"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["start_by"]
+        )
     if "resource_type" in value:
         out["ResourceType"] = value["resource_type"]
     if "bytes_transferred" in value:
         out["BytesTransferred"] = value["bytes_transferred"]
     if "backup_options" in value:
         import aws_sdk_backup.types.backup_options
-        out["BackupOptions"] = aws_sdk_backup.types.backup_options.serialize_json(value["backup_options"])
+
+        out["BackupOptions"] = aws_sdk_backup.types.backup_options.serialize_json(
+            value["backup_options"]
+        )
     if "backup_type" in value:
         out["BackupType"] = value["backup_type"]
     if "parent_job_id" in value:
@@ -145,7 +177,10 @@ def serialize_json(value: BackupJob) -> dict:
         out["ResourceName"] = value["resource_name"]
     if "initiation_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["InitiationDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["initiation_date"])
+
+        out["InitiationDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["initiation_date"]
+        )
     if "message_category" in value:
         out["MessageCategory"] = value["message_category"]
     return out
@@ -169,7 +204,12 @@ def deserialize_json(data: dict) -> BackupJob:
         out["recovery_point_arn"] = data["RecoveryPointArn"]
     if "RecoveryPointLifecycle" in data:
         import aws_sdk_backup.types.lifecycle
-        out["recovery_point_lifecycle"] = aws_sdk_backup.types.lifecycle.deserialize_json(data["RecoveryPointLifecycle"])
+
+        out["recovery_point_lifecycle"] = (
+            aws_sdk_backup.types.lifecycle.deserialize_json(
+                data["RecoveryPointLifecycle"]
+            )
+        )
     if "EncryptionKeyArn" in data:
         out["encryption_key_arn"] = data["EncryptionKeyArn"]
     if "IsEncrypted" in data:
@@ -180,13 +220,22 @@ def deserialize_json(data: dict) -> BackupJob:
         out["resource_arn"] = data["ResourceArn"]
     if "CreationDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["CreationDate"])
+
+        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CreationDate"]
+        )
     if "CompletionDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["completion_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["CompletionDate"])
+
+        out["completion_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CompletionDate"]
+        )
     if "State" in data:
         import aws_sdk_backup.types.backup_job_state
-        out["state"] = aws_sdk_backup.types.backup_job_state.deserialize_json(data["State"])
+
+        out["state"] = aws_sdk_backup.types.backup_job_state.deserialize_json(
+            data["State"]
+        )
     if "StatusMessage" in data:
         out["status_message"] = data["StatusMessage"]
     if "PercentDone" in data:
@@ -197,20 +246,36 @@ def deserialize_json(data: dict) -> BackupJob:
         out["iam_role_arn"] = data["IamRoleArn"]
     if "CreatedBy" in data:
         import aws_sdk_backup.types.recovery_point_creator
-        out["created_by"] = aws_sdk_backup.types.recovery_point_creator.deserialize_json(data["CreatedBy"])
+
+        out["created_by"] = (
+            aws_sdk_backup.types.recovery_point_creator.deserialize_json(
+                data["CreatedBy"]
+            )
+        )
     if "ExpectedCompletionDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["expected_completion_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["ExpectedCompletionDate"])
+
+        out["expected_completion_date"] = (
+            aws_sdk_backup.types.timestamp.deserialize_json(
+                data["ExpectedCompletionDate"]
+            )
+        )
     if "StartBy" in data:
         import aws_sdk_backup.types.timestamp
-        out["start_by"] = aws_sdk_backup.types.timestamp.deserialize_json(data["StartBy"])
+
+        out["start_by"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["StartBy"]
+        )
     if "ResourceType" in data:
         out["resource_type"] = data["ResourceType"]
     if "BytesTransferred" in data:
         out["bytes_transferred"] = data["BytesTransferred"]
     if "BackupOptions" in data:
         import aws_sdk_backup.types.backup_options
-        out["backup_options"] = aws_sdk_backup.types.backup_options.deserialize_json(data["BackupOptions"])
+
+        out["backup_options"] = aws_sdk_backup.types.backup_options.deserialize_json(
+            data["BackupOptions"]
+        )
     if "BackupType" in data:
         out["backup_type"] = data["BackupType"]
     if "ParentJobId" in data:
@@ -223,7 +288,10 @@ def deserialize_json(data: dict) -> BackupJob:
         out["resource_name"] = data["ResourceName"]
     if "InitiationDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["initiation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["InitiationDate"])
+
+        out["initiation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["InitiationDate"]
+        )
     if "MessageCategory" in data:
         out["message_category"] = data["MessageCategory"]
     return out

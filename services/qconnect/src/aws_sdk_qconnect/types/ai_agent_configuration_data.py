@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIAgentConfigurationData``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_qconnect.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_with_qualifier
+
 
 class AIAgentConfigurationData(TypedDict):
     ai_agent_id: "aws_sdk_qconnect.types.uuid_with_qualifier.UuidWithQualifier"
     """<p>The ID of the AI Agent to be configured.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AIAgentConfigurationData) -> dict:

@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ListTaxExemptionsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.max_results
     import aws_sdk_taxsettings.types.pagination_token_string
 
+
 class ListTaxExemptionsRequest(TypedDict):
     max_results: NotRequired["aws_sdk_taxsettings.types.max_results.MaxResults"]
     """<p>The number of results you want in one response. </p>"""
-    next_token: NotRequired["aws_sdk_taxsettings.types.pagination_token_string.PaginationTokenString"]
+    next_token: NotRequired[
+        "aws_sdk_taxsettings.types.pagination_token_string.PaginationTokenString"
+    ]
     """<p>The token to retrieve the next set of results. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListTaxExemptionsRequest) -> dict:

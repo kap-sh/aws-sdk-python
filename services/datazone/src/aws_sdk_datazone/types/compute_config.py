@@ -2,14 +2,17 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.instance_type
+
 
 class ComputeConfig(TypedDict):
     instance_type: NotRequired["aws_sdk_datazone.types.instance_type.InstanceType"]
     """<p>The instance type for the notebook run compute.</p>"""
     environment_version: NotRequired["str"]
     """<p>The environment version for the notebook run compute.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ComputeConfig) -> dict:

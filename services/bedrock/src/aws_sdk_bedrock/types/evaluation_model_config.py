@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationModelConfig``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.evaluation_precomputed_inference_source
     import aws_sdk_bedrock.types.evaluation_bedrock_model
+    import aws_sdk_bedrock.types.evaluation_precomputed_inference_source
 
 
 class _EvaluationModelConfig_bedrockModel(TypedDict):

@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#FileAccessLog``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_app_mesh.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.file_path
     import aws_sdk_app_mesh.types.logging_format
+
 
 class FileAccessLog(TypedDict):
     path: "aws_sdk_app_mesh.types.file_path.FilePath"
@@ -13,13 +17,17 @@ class FileAccessLog(TypedDict):
     format: NotRequired["aws_sdk_app_mesh.types.logging_format.LoggingFormat"]
     """<p>The specified format for the logs. The format is either <code>json_format</code> or <code>text_format</code>.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: FileAccessLog) -> dict:
     out: dict = {}
     out["path"] = value["path"]
     if "format" in value:
         import aws_sdk_app_mesh.types.logging_format
-        out["format"] = aws_sdk_app_mesh.types.logging_format.serialize_json(value["format"])
+
+        out["format"] = aws_sdk_app_mesh.types.logging_format.serialize_json(
+            value["format"]
+        )
     return out
 
 
@@ -31,5 +39,8 @@ def deserialize_json(data: dict) -> FileAccessLog:
         raise DeserializationError("FileAccessLog.path required")
     if "format" in data:
         import aws_sdk_app_mesh.types.logging_format
-        out["format"] = aws_sdk_app_mesh.types.logging_format.deserialize_json(data["format"])
+
+        out["format"] = aws_sdk_app_mesh.types.logging_format.deserialize_json(
+            data["format"]
+        )
     return out

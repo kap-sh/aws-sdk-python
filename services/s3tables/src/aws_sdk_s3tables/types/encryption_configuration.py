@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#EncryptionConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3tables.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.sse_algorithm
+
 
 class EncryptionConfiguration(TypedDict):
     sse_algorithm: "aws_sdk_s3tables.types.sse_algorithm.SSEAlgorithm"
@@ -12,11 +16,15 @@ class EncryptionConfiguration(TypedDict):
     kms_key_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is required only when <code>sseAlgorithm</code> is set to <code>aws:kms</code>.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: EncryptionConfiguration) -> dict:
     out: dict = {}
     import aws_sdk_s3tables.types.sse_algorithm
-    out["sseAlgorithm"] = aws_sdk_s3tables.types.sse_algorithm.serialize_json(value["sse_algorithm"])
+
+    out["sseAlgorithm"] = aws_sdk_s3tables.types.sse_algorithm.serialize_json(
+        value["sse_algorithm"]
+    )
     if "kms_key_arn" in value:
         out["kmsKeyArn"] = value["kms_key_arn"]
     return out
@@ -26,7 +34,10 @@ def deserialize_json(data: dict) -> EncryptionConfiguration:
     out: EncryptionConfiguration = {}  # type: ignore[typeddict-item]
     if "sseAlgorithm" in data:
         import aws_sdk_s3tables.types.sse_algorithm
-        out["sse_algorithm"] = aws_sdk_s3tables.types.sse_algorithm.deserialize_json(data["sseAlgorithm"])
+
+        out["sse_algorithm"] = aws_sdk_s3tables.types.sse_algorithm.deserialize_json(
+            data["sseAlgorithm"]
+        )
     else:
         raise DeserializationError("EncryptionConfiguration.sse_algorithm required")
     if "kmsKeyArn" in data:

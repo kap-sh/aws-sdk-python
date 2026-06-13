@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.drs#PutLaunchActionRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_category
     import aws_sdk_drs.types.launch_action_description
@@ -13,6 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_resource_id
     import aws_sdk_drs.types.launch_action_version
     import aws_sdk_drs.types.ssm_document_name
+
 
 class PutLaunchActionRequest(TypedDict):
     resource_id: "aws_sdk_drs.types.launch_action_resource_id.LaunchActionResourceId"
@@ -27,8 +31,11 @@ class PutLaunchActionRequest(TypedDict):
     name: "aws_sdk_drs.types.launch_action_name.LaunchActionName"
     action_version: "aws_sdk_drs.types.launch_action_version.LaunchActionVersion"
     category: "aws_sdk_drs.types.launch_action_category.LaunchActionCategory"
-    parameters: NotRequired["aws_sdk_drs.types.launch_action_parameters.LaunchActionParameters"]
+    parameters: NotRequired[
+        "aws_sdk_drs.types.launch_action_parameters.LaunchActionParameters"
+    ]
     description: "aws_sdk_drs.types.launch_action_description.LaunchActionDescription"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PutLaunchActionRequest) -> dict:
@@ -44,7 +51,10 @@ def serialize_json(value: PutLaunchActionRequest) -> dict:
     out["category"] = value["category"]
     if "parameters" in value:
         import aws_sdk_drs.types.launch_action_parameters
-        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.serialize_json(value["parameters"])
+
+        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.serialize_json(
+            value["parameters"]
+        )
     out["description"] = value["description"]
     return out
 
@@ -89,7 +99,10 @@ def deserialize_json(data: dict) -> PutLaunchActionRequest:
         raise DeserializationError("PutLaunchActionRequest.category required")
     if "parameters" in data:
         import aws_sdk_drs.types.launch_action_parameters
-        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.deserialize_json(data["parameters"])
+
+        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.deserialize_json(
+            data["parameters"]
+        )
     if "description" in data:
         out["description"] = data["description"]
     else:

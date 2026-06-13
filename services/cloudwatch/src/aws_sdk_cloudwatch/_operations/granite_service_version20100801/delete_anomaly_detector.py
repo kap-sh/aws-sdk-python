@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import urlencode
 
 import zapros
 

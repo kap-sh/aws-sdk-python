@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#CreateIdNamespaceInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_entityresolution.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.description
     import aws_sdk_entityresolution.types.entity_name
@@ -12,14 +15,19 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.role_arn
     import aws_sdk_entityresolution.types.tag_map
 
+
 class CreateIdNamespaceInput(TypedDict):
     id_namespace_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the ID namespace.</p>"""
     description: NotRequired["aws_sdk_entityresolution.types.description.Description"]
     """<p>The description of the ID namespace.</p>"""
-    input_source_config: NotRequired["aws_sdk_entityresolution.types.id_namespace_input_source_config.IdNamespaceInputSourceConfig"]
+    input_source_config: NotRequired[
+        "aws_sdk_entityresolution.types.id_namespace_input_source_config.IdNamespaceInputSourceConfig"
+    ]
     """<p>A list of <code>InputSource</code> objects, which have the fields <code>InputSourceARN</code> and <code>SchemaName</code>.</p>"""
-    id_mapping_workflow_properties: NotRequired["aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list.IdNamespaceIdMappingWorkflowPropertiesList"]
+    id_mapping_workflow_properties: NotRequired[
+        "aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list.IdNamespaceIdMappingWorkflowPropertiesList"
+    ]
     """<p>Determines the properties of <code>IdMappingWorflow</code> where this <code>IdNamespace</code> can be used as a <code>Source</code> or a <code>Target</code>.</p>"""
     type: "aws_sdk_entityresolution.types.id_namespace_type.IdNamespaceType"
     """<p>The type of ID namespace. There are two types: <code>SOURCE</code> and <code>TARGET</code>. </p> <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will be processed in an ID mapping workflow. </p> <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all <code>sourceIds</code> will resolve to.</p>"""
@@ -27,6 +35,7 @@ class CreateIdNamespaceInput(TypedDict):
     """<p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access the resources defined in this <code>IdNamespace</code> on your behalf as part of the workflow run.</p>"""
     tags: NotRequired["aws_sdk_entityresolution.types.tag_map.TagMap"]
     """<p>The tags used to organize, track, or control access for this resource.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateIdNamespaceInput) -> dict:
@@ -36,17 +45,33 @@ def serialize_json(value: CreateIdNamespaceInput) -> dict:
         out["description"] = value["description"]
     if "input_source_config" in value:
         import aws_sdk_entityresolution.types.id_namespace_input_source_config
-        out["inputSourceConfig"] = aws_sdk_entityresolution.types.id_namespace_input_source_config.serialize_json(value["input_source_config"])
+
+        out["inputSourceConfig"] = (
+            aws_sdk_entityresolution.types.id_namespace_input_source_config.serialize_json(
+                value["input_source_config"]
+            )
+        )
     if "id_mapping_workflow_properties" in value:
         import aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list
-        out["idMappingWorkflowProperties"] = aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list.serialize_json(value["id_mapping_workflow_properties"])
+
+        out["idMappingWorkflowProperties"] = (
+            aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list.serialize_json(
+                value["id_mapping_workflow_properties"]
+            )
+        )
     import aws_sdk_entityresolution.types.id_namespace_type
-    out["type"] = aws_sdk_entityresolution.types.id_namespace_type.serialize_json(value["type"])
+
+    out["type"] = aws_sdk_entityresolution.types.id_namespace_type.serialize_json(
+        value["type"]
+    )
     if "role_arn" in value:
         out["roleArn"] = value["role_arn"]
     if "tags" in value:
         import aws_sdk_entityresolution.types.tag_map
-        out["tags"] = aws_sdk_entityresolution.types.tag_map.serialize_json(value["tags"])
+
+        out["tags"] = aws_sdk_entityresolution.types.tag_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -60,18 +85,34 @@ def deserialize_json(data: dict) -> CreateIdNamespaceInput:
         out["description"] = data["description"]
     if "inputSourceConfig" in data:
         import aws_sdk_entityresolution.types.id_namespace_input_source_config
-        out["input_source_config"] = aws_sdk_entityresolution.types.id_namespace_input_source_config.deserialize_json(data["inputSourceConfig"])
+
+        out["input_source_config"] = (
+            aws_sdk_entityresolution.types.id_namespace_input_source_config.deserialize_json(
+                data["inputSourceConfig"]
+            )
+        )
     if "idMappingWorkflowProperties" in data:
         import aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list
-        out["id_mapping_workflow_properties"] = aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list.deserialize_json(data["idMappingWorkflowProperties"])
+
+        out["id_mapping_workflow_properties"] = (
+            aws_sdk_entityresolution.types.id_namespace_id_mapping_workflow_properties_list.deserialize_json(
+                data["idMappingWorkflowProperties"]
+            )
+        )
     if "type" in data:
         import aws_sdk_entityresolution.types.id_namespace_type
-        out["type"] = aws_sdk_entityresolution.types.id_namespace_type.deserialize_json(data["type"])
+
+        out["type"] = aws_sdk_entityresolution.types.id_namespace_type.deserialize_json(
+            data["type"]
+        )
     else:
         raise DeserializationError("CreateIdNamespaceInput.type required")
     if "roleArn" in data:
         out["role_arn"] = data["roleArn"]
     if "tags" in data:
         import aws_sdk_entityresolution.types.tag_map
-        out["tags"] = aws_sdk_entityresolution.types.tag_map.deserialize_json(data["tags"])
+
+        out["tags"] = aws_sdk_entityresolution.types.tag_map.deserialize_json(
+            data["tags"]
+        )
     return out

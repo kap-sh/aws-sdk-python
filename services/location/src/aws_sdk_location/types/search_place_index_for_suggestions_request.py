@@ -1,0 +1,124 @@
+"""Generated from Smithy shape ``com.amazonaws.location#SearchPlaceIndexForSuggestionsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_location.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_location.types.api_key
+    import aws_sdk_location.types.bounding_box
+    import aws_sdk_location.types.country_code_list
+    import aws_sdk_location.types.filter_place_category_list
+    import aws_sdk_location.types.language_tag
+    import aws_sdk_location.types.position
+    import aws_sdk_location.types.resource_name
+    import aws_sdk_location.types.sensitive_string
+
+
+class SearchPlaceIndexForSuggestionsRequest(TypedDict):
+    index_name: "aws_sdk_location.types.resource_name.ResourceName"
+    """<p>The name of the place index resource you want to use for the search.</p>"""
+    text: "aws_sdk_location.types.sensitive_string.SensitiveString"
+    """<p>The free-form partial text to use to generate place suggestions. For example, <code>eiffel tow</code>.</p>"""
+    bias_position: NotRequired["aws_sdk_location.types.position.Position"]
+    """<p>An optional parameter that indicates a preference for place suggestions that are closer to a specified position.</p> <p> If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p> <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p> <note> <p> <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options results in an error. </p> </note>"""
+    filter_b_box: NotRequired["aws_sdk_location.types.bounding_box.BoundingBox"]
+    """<p>An optional parameter that limits the search results by returning only suggestions within a specified bounding box.</p> <p> If provided, this parameter must contain a total of four consecutive numbers in two pairs. The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the northeast corner of the bounding box.</p> <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p> <note> <p> <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error. </p> </note>"""
+    filter_countries: NotRequired[
+        "aws_sdk_location.types.country_code_list.CountryCodeList"
+    ]
+    """<p>An optional parameter that limits the search results by returning only suggestions within the provided list of countries.</p> <ul> <li> <p>Use the <a href=\"https://www.iso.org/iso-3166-country-codes.html\">ISO 3166</a> 3-digit country code. For example, Australia uses three upper-case characters: <code>AUS</code>.</p> </li> </ul>"""
+    max_results: NotRequired["int"]
+    """<p>An optional parameter. The maximum number of results returned per request. </p> <p>The default: <code>5</code> </p>"""
+    language: NotRequired["aws_sdk_location.types.language_tag.LanguageTag"]
+    """<p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code> to get suggestions with the <code>language</code> parameter set to <code>en</code>. The results found will most likely be returned as <code>Athens, Greece</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα, Ελλάδα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>"""
+    filter_categories: NotRequired[
+        "aws_sdk_location.types.filter_place_category_list.FilterPlaceCategoryList"
+    ]
+    """<p>A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match <i>any</i> of the categories listed.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>"""
+    key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]
+    """<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SearchPlaceIndexForSuggestionsRequest) -> dict:
+    out: dict = {}
+    out["Text"] = value["text"]
+    if "bias_position" in value:
+        import aws_sdk_location.types.position
+
+        out["BiasPosition"] = aws_sdk_location.types.position.serialize_json(
+            value["bias_position"]
+        )
+    if "filter_b_box" in value:
+        import aws_sdk_location.types.bounding_box
+
+        out["FilterBBox"] = aws_sdk_location.types.bounding_box.serialize_json(
+            value["filter_b_box"]
+        )
+    if "filter_countries" in value:
+        import aws_sdk_location.types.country_code_list
+
+        out["FilterCountries"] = (
+            aws_sdk_location.types.country_code_list.serialize_json(
+                value["filter_countries"]
+            )
+        )
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    if "language" in value:
+        out["Language"] = value["language"]
+    if "filter_categories" in value:
+        import aws_sdk_location.types.filter_place_category_list
+
+        out["FilterCategories"] = (
+            aws_sdk_location.types.filter_place_category_list.serialize_json(
+                value["filter_categories"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> SearchPlaceIndexForSuggestionsRequest:
+    out: SearchPlaceIndexForSuggestionsRequest = {}  # type: ignore[typeddict-item]
+    if "Text" in data:
+        out["text"] = data["Text"]
+    else:
+        raise DeserializationError(
+            "SearchPlaceIndexForSuggestionsRequest.text required"
+        )
+    if "BiasPosition" in data:
+        import aws_sdk_location.types.position
+
+        out["bias_position"] = aws_sdk_location.types.position.deserialize_json(
+            data["BiasPosition"]
+        )
+    if "FilterBBox" in data:
+        import aws_sdk_location.types.bounding_box
+
+        out["filter_b_box"] = aws_sdk_location.types.bounding_box.deserialize_json(
+            data["FilterBBox"]
+        )
+    if "FilterCountries" in data:
+        import aws_sdk_location.types.country_code_list
+
+        out["filter_countries"] = (
+            aws_sdk_location.types.country_code_list.deserialize_json(
+                data["FilterCountries"]
+            )
+        )
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    if "Language" in data:
+        out["language"] = data["Language"]
+    if "FilterCategories" in data:
+        import aws_sdk_location.types.filter_place_category_list
+
+        out["filter_categories"] = (
+            aws_sdk_location.types.filter_place_category_list.deserialize_json(
+                data["FilterCategories"]
+            )
+        )
+    return out

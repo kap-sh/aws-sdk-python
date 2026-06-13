@@ -1,23 +1,34 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#LicenseManagerUserSubscriptions``."""
 
-from aws_sdk_license_manager_user_subscriptions._auth._signers import SigV4Signer
-from aws_sdk_license_manager_user_subscriptions._auth._sigv4 import presign_sigv4
-from collections.abc import AsyncIterator
-from aws_sdk_license_manager_user_subscriptions._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, AsyncBaseHandler, AsyncClient
-from aws_sdk_license_manager_user_subscriptions._auth._zapros_handler import AuthMiddleware
-from aws_sdk_license_manager_user_subscriptions._services._pipeline import AsyncInterceptor, AsyncOperationOptions, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline, aretry
-from aws_sdk_license_manager_user_subscriptions._async import anysleep
-import time
-from aws_sdk_license_manager_user_subscriptions.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
 import aws_sdk_license_manager_user_subscriptions._auth._signers
 import aws_sdk_license_manager_user_subscriptions._auth._sigv4
 from aws_sdk_license_manager_user_subscriptions._auth._identity import Credentials
-from aws_sdk_license_manager_user_subscriptions._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_license_manager_user_subscriptions._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_license_manager_user_subscriptions._auth._zapros_handler import (
+    AuthMiddleware,
+)
+from aws_sdk_license_manager_user_subscriptions._pagination import (
+    resolve_path as _resolve_path,
+)
+from aws_sdk_license_manager_user_subscriptions._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.arn
     import aws_sdk_license_manager_user_subscriptions.types.associate_user_request
@@ -70,6 +81,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_response
     import aws_sdk_license_manager_user_subscriptions.types.update_settings
 
+
 class AsyncLicenseManagerUserSubscriptionsClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int
@@ -79,14 +91,19 @@ class AsyncLicenseManagerUserSubscriptionsClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
-async def ensure_async_iterator(it: AsyncIterator[bytes] | bytes) -> AsyncIterator[bytes]:
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
     if isinstance(it, bytes):
         yield it
     else:
         async for chunk in it:
             yield chunk
+
 
 class AsyncLicenseManagerUserSubscriptionsClient:
     """A client for the ``LicenseManagerUserSubscriptions`` service.
@@ -102,19 +119,89 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: AsyncBaseHandler | None = None, operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = AsyncClient(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncLicenseManagerUserSubscriptionsClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
-        overrides: AsyncLicenseManagerUserSubscriptionsClientConfig = config_overrides or {}
-        interceptors_: list[AsyncInterceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), aretry()]
-        options_: AsyncOperationOptions = AsyncOperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        self.config = AsyncLicenseManagerUserSubscriptionsClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncLicenseManagerUserSubscriptionsClientConfig = (
+            config_overrides or {}
+        )
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    async def associate_user(self, username: str, instance_id: str, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, domain: Optional[str] = None, tags: Optional["aws_sdk_license_manager_user_subscriptions.types.tags.Tags"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.associate_user_response.AssociateUserResponse":
+
+    async def associate_user(
+        self,
+        username: str,
+        instance_id: str,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        domain: Optional[str] = None,
+        tags: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.tags.Tags"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.associate_user_response.AssociateUserResponse":
         """<p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p> <note> <p>Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html\">Viewing your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p> </note>
 
         Args:
@@ -124,9 +211,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             domain: <p>The domain name of the Active Directory that contains information for the user to associate.</p>
             tags: <p>The tags that apply for the user association.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.associate_user_request.AssociateUserRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.associate_user_response.AssociateUserResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.associate_user_request.AssociateUserRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.associate_user_response.AssociateUserResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.associate_user
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.associate_user.async_associate_user(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.associate_user.async_associate_user(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -139,9 +237,25 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def create_license_server_endpoint(self, identity_provider_arn: "aws_sdk_license_manager_user_subscriptions.types.arn.Arn", license_server_settings: "aws_sdk_license_manager_user_subscriptions.types.license_server_settings.LicenseServerSettings", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, tags: Optional["aws_sdk_license_manager_user_subscriptions.types.tags.Tags"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_response.CreateLicenseServerEndpointResponse":
+
+    async def create_license_server_endpoint(
+        self,
+        identity_provider_arn: "aws_sdk_license_manager_user_subscriptions.types.arn.Arn",
+        license_server_settings: "aws_sdk_license_manager_user_subscriptions.types.license_server_settings.LicenseServerSettings",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        tags: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.tags.Tags"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_response.CreateLicenseServerEndpointResponse":
         """<p>Creates a network endpoint for the Remote Desktop Services (RDS) license server.</p>
 
         Args:
@@ -149,9 +263,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             license_server_settings: <p>The <code>LicenseServerSettings</code> resource to create for the endpoint. The settings include the type of license server and the Secrets Manager secret that enables administrators to add or remove users associated with the license server.</p>
             tags: <p>The tags that apply for the license server endpoint.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_request.CreateLicenseServerEndpointRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_response.CreateLicenseServerEndpointResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_request.CreateLicenseServerEndpointRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_response.CreateLicenseServerEndpointResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.create_license_server_endpoint
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.create_license_server_endpoint.async_create_license_server_endpoint(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.create_license_server_endpoint.async_create_license_server_endpoint(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -161,18 +286,42 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_license_server_endpoint(self, license_server_endpoint_arn: "aws_sdk_license_manager_user_subscriptions.types.arn.Arn", server_type: "aws_sdk_license_manager_user_subscriptions.types.server_type.ServerType", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None) -> "aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_response.DeleteLicenseServerEndpointResponse":
+
+    async def delete_license_server_endpoint(
+        self,
+        license_server_endpoint_arn: "aws_sdk_license_manager_user_subscriptions.types.arn.Arn",
+        server_type: "aws_sdk_license_manager_user_subscriptions.types.server_type.ServerType",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_response.DeleteLicenseServerEndpointResponse":
         """<p>Deletes a <code>LicenseServerEndpoint</code> resource.</p>
 
         Args:
             license_server_endpoint_arn: <p>The Amazon Resource Name (ARN) that identifies the <code>LicenseServerEndpoint</code> resource to delete.</p>
             server_type: <p>The type of License Server that the delete request refers to.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_request.DeleteLicenseServerEndpointRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_response.DeleteLicenseServerEndpointResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_request.DeleteLicenseServerEndpointRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_response.DeleteLicenseServerEndpointResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.delete_license_server_endpoint
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.delete_license_server_endpoint.async_delete_license_server_endpoint(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.delete_license_server_endpoint.async_delete_license_server_endpoint(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -180,9 +329,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         input["license_server_endpoint_arn"] = license_server_endpoint_arn
         input["server_type"] = server_type
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def deregister_identity_provider(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, identity_provider: Optional["aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"] = None, product: Optional[str] = None, identity_provider_arn: Optional["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_response.DeregisterIdentityProviderResponse":
+
+    async def deregister_identity_provider(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        identity_provider: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
+        ] = None,
+        product: Optional[str] = None,
+        identity_provider_arn: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_response.DeregisterIdentityProviderResponse":
         """<p>Deregisters the Active Directory identity provider from License Manager user-based subscriptions.</p>
 
         Args:
@@ -190,9 +357,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             product: <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
             identity_provider_arn: <p>The Amazon Resource Name (ARN) that identifies the identity provider to deregister.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_request.DeregisterIdentityProviderRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_response.DeregisterIdentityProviderResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_request.DeregisterIdentityProviderRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_response.DeregisterIdentityProviderResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.deregister_identity_provider
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.deregister_identity_provider.async_deregister_identity_provider(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.deregister_identity_provider.async_deregister_identity_provider(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -204,9 +382,29 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if identity_provider_arn is not None:
             input["identity_provider_arn"] = identity_provider_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_user(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, username: Optional[str] = None, instance_id: Optional[str] = None, identity_provider: Optional["aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"] = None, instance_user_arn: Optional["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"] = None, domain: Optional[str] = None) -> "aws_sdk_license_manager_user_subscriptions.types.disassociate_user_response.DisassociateUserResponse":
+
+    async def disassociate_user(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        username: Optional[str] = None,
+        instance_id: Optional[str] = None,
+        identity_provider: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
+        ] = None,
+        instance_user_arn: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+        ] = None,
+        domain: Optional[str] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.disassociate_user_response.DisassociateUserResponse":
         """<p>Disassociates the user from an EC2 instance providing user-based subscriptions.</p>
 
         Args:
@@ -216,9 +414,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             instance_user_arn: <p>The Amazon Resource Name (ARN) of the user to disassociate from the EC2 instance.</p>
             domain: <p>The domain name of the Active Directory that contains information for the user to disassociate.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.disassociate_user_request.DisassociateUserRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.disassociate_user_response.DisassociateUserResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.disassociate_user_request.DisassociateUserRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.disassociate_user_response.DisassociateUserResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.disassociate_user
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.disassociate_user.async_disassociate_user(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.disassociate_user.async_disassociate_user(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -234,9 +443,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if domain is not None:
             input["domain"] = domain
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_identity_providers(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_response.ListIdentityProvidersResponse":
+
+    async def list_identity_providers(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_response.ListIdentityProvidersResponse":
         """<p>Lists the Active Directory identity providers for user-based subscriptions.</p>
 
         Args:
@@ -244,9 +471,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Product</p> </li> <li> <p>DirectoryId</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_request.ListIdentityProvidersRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_response.ListIdentityProvidersResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_request.ListIdentityProvidersRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_response.ListIdentityProvidersResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_identity_providers
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_identity_providers.async_list_identity_providers(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_identity_providers.async_list_identity_providers(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -258,9 +496,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_identity_providers(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.identity_provider_summary.IdentityProviderSummary]":
+
+    async def iter_list_identity_providers(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.identity_provider_summary.IdentityProviderSummary]":
         _token = next_token
         while True:
             _response = await self.list_identity_providers(
@@ -269,13 +525,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
                 filters=filters,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('identity_provider_summaries',))
+            _page = _resolve_path(_response, ("identity_provider_summaries",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def list_instances(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, next_token: Optional[str] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.list_instances_response.ListInstancesResponse":
+
+    async def list_instances(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        next_token: Optional[str] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.list_instances_response.ListInstancesResponse":
         """<p>Lists the EC2 instances providing user-based subscriptions.</p>
 
         Args:
@@ -283,9 +553,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>InstanceId</p> </li> </ul>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_instances_request.ListInstancesRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.list_instances_response.ListInstancesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_instances_request.ListInstancesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.list_instances_response.ListInstancesResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_instances
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_instances.async_list_instances(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_instances.async_list_instances(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -297,9 +578,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if filters is not None:
             input["filters"] = filters
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_instances(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, next_token: Optional[str] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.instance_summary.InstanceSummary]":
+
+    async def iter_list_instances(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        next_token: Optional[str] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+    ) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.instance_summary.InstanceSummary]":
         _token = next_token
         while True:
             _response = await self.list_instances(
@@ -308,13 +607,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
                 next_token=_token,
                 filters=filters,
             )
-            _page = _resolve_path(_response, ('instance_summaries',))
+            _page = _resolve_path(_response, ("instance_summaries",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def list_license_server_endpoints(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_response.ListLicenseServerEndpointsResponse":
+
+    async def list_license_server_endpoints(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_response.ListLicenseServerEndpointsResponse":
         """<p>List the Remote Desktop Services (RDS) License Server endpoints </p>
 
         Args:
@@ -322,9 +635,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>IdentityProviderArn</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_request.ListLicenseServerEndpointsRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_response.ListLicenseServerEndpointsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_request.ListLicenseServerEndpointsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_response.ListLicenseServerEndpointsResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_license_server_endpoints
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_license_server_endpoints.async_list_license_server_endpoints(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_license_server_endpoints.async_list_license_server_endpoints(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -336,9 +660,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_license_server_endpoints(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint.LicenseServerEndpoint]":
+
+    async def iter_list_license_server_endpoints(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint.LicenseServerEndpoint]":
         _token = next_token
         while True:
             _response = await self.list_license_server_endpoints(
@@ -347,13 +689,29 @@ class AsyncLicenseManagerUserSubscriptionsClient:
                 filters=filters,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('license_server_endpoints',))
+            _page = _resolve_path(_response, ("license_server_endpoints",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def list_product_subscriptions(self, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, product: Optional[str] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_response.ListProductSubscriptionsResponse":
+
+    async def list_product_subscriptions(
+        self,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        product: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_response.ListProductSubscriptionsResponse":
         """<p>Lists the user-based subscription products available from an identity provider.</p>
 
         Args:
@@ -363,9 +721,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>Username</p> </li> <li> <p>Domain</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_request.ListProductSubscriptionsRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_response.ListProductSubscriptionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_request.ListProductSubscriptionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_response.ListProductSubscriptionsResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_product_subscriptions
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_product_subscriptions.async_list_product_subscriptions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_product_subscriptions.async_list_product_subscriptions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -380,9 +749,29 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_product_subscriptions(self, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, product: Optional[str] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.product_user_summary.ProductUserSummary]":
+
+    async def iter_list_product_subscriptions(
+        self,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        product: Optional[str] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.product_user_summary.ProductUserSummary]":
         _token = next_token
         while True:
             _response = await self.list_product_subscriptions(
@@ -393,30 +782,69 @@ class AsyncLicenseManagerUserSubscriptionsClient:
                 filters=filters,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('product_user_summaries',))
+            _page = _resolve_path(_response, ("product_user_summaries",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def list_tags_for_resource(self, resource_arn: "aws_sdk_license_manager_user_subscriptions.types.resource_arn.ResourceArn", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None) -> "aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+
+    async def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_license_manager_user_subscriptions.types.resource_arn.ResourceArn",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         """<p>Returns the list of tags for the specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_response.ListTagsForResourceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_tags_for_resource
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_tags_for_resource.async_list_tags_for_resource(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_user_associations(self, instance_id: str, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "aws_sdk_license_manager_user_subscriptions.types.list_user_associations_response.ListUserAssociationsResponse":
+
+    async def list_user_associations(
+        self,
+        instance_id: str,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.list_user_associations_response.ListUserAssociationsResponse":
         """<p>Lists user associations for an identity provider.</p>
 
         Args:
@@ -426,9 +854,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>Username</p> </li> <li> <p>Domain</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_user_associations_request.ListUserAssociationsRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.list_user_associations_response.ListUserAssociationsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.list_user_associations_request.ListUserAssociationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.list_user_associations_response.ListUserAssociationsResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_user_associations
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_user_associations.async_list_user_associations(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.list_user_associations.async_list_user_associations(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -442,9 +881,29 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_user_associations(self, instance_id: str, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, max_results: Optional["aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"] = None, filters: Optional["aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"] = None, next_token: Optional[str] = None) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.instance_user_summary.InstanceUserSummary]":
+
+    async def iter_list_user_associations(
+        self,
+        instance_id: str,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.box_integer.BoxInteger"
+        ] = None,
+        filters: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.filter_list.FilterList"
+        ] = None,
+        next_token: Optional[str] = None,
+    ) -> "AsyncIterator[aws_sdk_license_manager_user_subscriptions.types.instance_user_summary.InstanceUserSummary]":
         _token = next_token
         while True:
             _response = await self.list_user_associations(
@@ -455,13 +914,28 @@ class AsyncLicenseManagerUserSubscriptionsClient:
                 filters=filters,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('instance_user_summaries',))
+            _page = _resolve_path(_response, ("instance_user_summaries",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def register_identity_provider(self, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", product: str, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, settings: Optional["aws_sdk_license_manager_user_subscriptions.types.settings.Settings"] = None, tags: Optional["aws_sdk_license_manager_user_subscriptions.types.tags.Tags"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_response.RegisterIdentityProviderResponse":
+
+    async def register_identity_provider(
+        self,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        product: str,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        settings: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.settings.Settings"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.tags.Tags"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_response.RegisterIdentityProviderResponse":
         """<p>Registers an identity provider for user-based subscriptions.</p>
 
         Args:
@@ -470,9 +944,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             settings: <p>The registered identity provider’s product related configuration settings such as the subnets to provision VPC endpoints.</p>
             tags: <p>The tags that apply to the identity provider's registration.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_request.RegisterIdentityProviderRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_response.RegisterIdentityProviderResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_request.RegisterIdentityProviderRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_response.RegisterIdentityProviderResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.register_identity_provider
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.register_identity_provider.async_register_identity_provider(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.register_identity_provider.async_register_identity_provider(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -484,9 +969,27 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_product_subscription(self, username: str, identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider", product: str, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, domain: Optional[str] = None, tags: Optional["aws_sdk_license_manager_user_subscriptions.types.tags.Tags"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_response.StartProductSubscriptionResponse":
+
+    async def start_product_subscription(
+        self,
+        username: str,
+        identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider",
+        product: str,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        domain: Optional[str] = None,
+        tags: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.tags.Tags"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_response.StartProductSubscriptionResponse":
         """<p>Starts a product subscription for a user with the specified identity provider.</p> <note> <p>Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html\">Viewing your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p> </note>
 
         Args:
@@ -496,9 +999,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             domain: <p>The domain name of the Active Directory that contains the user for whom to start the product subscription.</p>
             tags: <p>The tags that apply to the product subscription.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_request.StartProductSubscriptionRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_response.StartProductSubscriptionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_request.StartProductSubscriptionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_response.StartProductSubscriptionResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.start_product_subscription
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.start_product_subscription.async_start_product_subscription(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.start_product_subscription.async_start_product_subscription(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -511,9 +1025,29 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def stop_product_subscription(self, *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, username: Optional[str] = None, identity_provider: Optional["aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"] = None, product: Optional[str] = None, product_user_arn: Optional["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"] = None, domain: Optional[str] = None) -> "aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_response.StopProductSubscriptionResponse":
+
+    async def stop_product_subscription(
+        self,
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        username: Optional[str] = None,
+        identity_provider: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
+        ] = None,
+        product: Optional[str] = None,
+        product_user_arn: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+        ] = None,
+        domain: Optional[str] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_response.StopProductSubscriptionResponse":
         """<p>Stops a product subscription for a user with the specified identity provider.</p>
 
         Args:
@@ -523,9 +1057,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             product_user_arn: <p>The Amazon Resource Name (ARN) of the product user.</p>
             domain: <p>The domain name of the Active Directory that contains the user for whom to stop the product subscription.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_request.StopProductSubscriptionRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_response.StopProductSubscriptionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_request.StopProductSubscriptionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_response.StopProductSubscriptionResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.stop_product_subscription
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.stop_product_subscription.async_stop_product_subscription(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.stop_product_subscription.async_stop_product_subscription(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -541,18 +1086,42 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         if domain is not None:
             input["domain"] = domain
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def tag_resource(self, resource_arn: "aws_sdk_license_manager_user_subscriptions.types.resource_arn.ResourceArn", tags: "aws_sdk_license_manager_user_subscriptions.types.tags.Tags", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None) -> "aws_sdk_license_manager_user_subscriptions.types.tag_resource_response.TagResourceResponse":
+
+    async def tag_resource(
+        self,
+        resource_arn: "aws_sdk_license_manager_user_subscriptions.types.resource_arn.ResourceArn",
+        tags: "aws_sdk_license_manager_user_subscriptions.types.tags.Tags",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.tag_resource_response.TagResourceResponse":
         """<p>Adds tags to a resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>The tags to apply to the specified resource.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.tag_resource_request.TagResourceRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.tag_resource_response.TagResourceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.tag_resource_response.TagResourceResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.tag_resource
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.tag_resource.async_tag_resource(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -560,18 +1129,42 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         input["resource_arn"] = resource_arn
         input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def untag_resource(self, resource_arn: "aws_sdk_license_manager_user_subscriptions.types.resource_arn.ResourceArn", tag_keys: "aws_sdk_license_manager_user_subscriptions.types.tag_key_list.TagKeyList", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None) -> "aws_sdk_license_manager_user_subscriptions.types.untag_resource_response.UntagResourceResponse":
+
+    async def untag_resource(
+        self,
+        resource_arn: "aws_sdk_license_manager_user_subscriptions.types.resource_arn.ResourceArn",
+        tag_keys: "aws_sdk_license_manager_user_subscriptions.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes tags from a resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
             tag_keys: <p>The tag keys to remove from the resource.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.untag_resource_request.UntagResourceRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.untag_resource_response.UntagResourceResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.untag_resource_response.UntagResourceResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.untag_resource
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.untag_resource.async_untag_resource(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -579,9 +1172,28 @@ class AsyncLicenseManagerUserSubscriptionsClient:
         input["resource_arn"] = resource_arn
         input["tag_keys"] = tag_keys
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_identity_provider_settings(self, update_settings: "aws_sdk_license_manager_user_subscriptions.types.update_settings.UpdateSettings", *, config_overrides: Optional[AsyncLicenseManagerUserSubscriptionsClientConfig] = None, identity_provider: Optional["aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"] = None, product: Optional[str] = None, identity_provider_arn: Optional["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"] = None) -> "aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_response.UpdateIdentityProviderSettingsResponse":
+
+    async def update_identity_provider_settings(
+        self,
+        update_settings: "aws_sdk_license_manager_user_subscriptions.types.update_settings.UpdateSettings",
+        *,
+        config_overrides: Optional[
+            AsyncLicenseManagerUserSubscriptionsClientConfig
+        ] = None,
+        identity_provider: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
+        ] = None,
+        product: Optional[str] = None,
+        identity_provider_arn: Optional[
+            "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+        ] = None,
+    ) -> "aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_response.UpdateIdentityProviderSettingsResponse":
         """<p>Updates additional product configuration settings for the registered identity provider.</p>
 
         Args:
@@ -589,9 +1201,20 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             identity_provider_arn: <p>The Amazon Resource Name (ARN) of the identity provider to update.</p>
             update_settings: <p>Updates the registered identity provider’s product related configuration settings. You can update any combination of settings in a single operation such as the:</p> <ul> <li> <p>Subnets which you want to add to provision VPC endpoints.</p> </li> <li> <p>Subnets which you want to remove the VPC endpoints from.</p> </li> <li> <p>Security group ID which permits traffic to the VPC endpoints.</p> </li> </ul>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_request.UpdateIdentityProviderSettingsRequest]') -> AsyncOperationResponse["aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_response.UpdateIdentityProviderSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_request.UpdateIdentityProviderSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_response.UpdateIdentityProviderSettingsResponse"
+        ]:
             import aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.update_identity_provider_settings
-            output, http_response = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.update_identity_provider_settings.async_update_identity_provider_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_license_manager_user_subscriptions._operations.license_manager_user_subscriptions.update_identity_provider_settings.async_update_identity_provider_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -604,9 +1227,15 @@ class AsyncLicenseManagerUserSubscriptionsClient:
             input["identity_provider_arn"] = identity_provider_arn
         input["update_settings"] = update_settings
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     async def __aenter__(self) -> Self:
         return self
+
     async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
         await self._client.aclose()

@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#ScopeSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_networkflowmonitor.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.arn
     import aws_sdk_networkflowmonitor.types.scope_id
     import aws_sdk_networkflowmonitor.types.scope_status
+
 
 class ScopeSummary(TypedDict):
     scope_id: "aws_sdk_networkflowmonitor.types.scope_id.ScopeId"
@@ -15,12 +18,16 @@ class ScopeSummary(TypedDict):
     scope_arn: "aws_sdk_networkflowmonitor.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the scope.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ScopeSummary) -> dict:
     out: dict = {}
     out["scopeId"] = value["scope_id"]
     import aws_sdk_networkflowmonitor.types.scope_status
-    out["status"] = aws_sdk_networkflowmonitor.types.scope_status.serialize_json(value["status"])
+
+    out["status"] = aws_sdk_networkflowmonitor.types.scope_status.serialize_json(
+        value["status"]
+    )
     out["scopeArn"] = value["scope_arn"]
     return out
 
@@ -33,7 +40,10 @@ def deserialize_json(data: dict) -> ScopeSummary:
         raise DeserializationError("ScopeSummary.scope_id required")
     if "status" in data:
         import aws_sdk_networkflowmonitor.types.scope_status
-        out["status"] = aws_sdk_networkflowmonitor.types.scope_status.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_networkflowmonitor.types.scope_status.deserialize_json(
+            data["status"]
+        )
     else:
         raise DeserializationError("ScopeSummary.status required")
     if "scopeArn" in data:

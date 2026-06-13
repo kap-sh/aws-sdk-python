@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchPutTaxRegistrationError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_taxsettings.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_id
     import aws_sdk_taxsettings.types.error_code
     import aws_sdk_taxsettings.types.error_message
+
 
 class BatchPutTaxRegistrationError(TypedDict):
     account_id: "aws_sdk_taxsettings.types.account_id.AccountId"
@@ -15,6 +19,7 @@ class BatchPutTaxRegistrationError(TypedDict):
     """<p> The error message for an individual failure in the <code>BatchPutTaxRegistration</code> operation. </p>"""
     code: NotRequired["aws_sdk_taxsettings.types.error_code.ErrorCode"]
     """<p> The error code for an individual failure in the <code>BatchPutTaxRegistration</code> operation. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchPutTaxRegistrationError) -> dict:

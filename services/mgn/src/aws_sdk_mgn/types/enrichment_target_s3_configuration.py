@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#EnrichmentTargetS3Configuration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_mgn.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.s3_bucket_name
     import aws_sdk_mgn.types.s3_key_name
+
 
 class EnrichmentTargetS3Configuration(TypedDict):
     s3_bucket: "aws_sdk_mgn.types.s3_bucket_name.S3BucketName"
@@ -14,6 +17,7 @@ class EnrichmentTargetS3Configuration(TypedDict):
     """<p>The AWS account ID of the target S3 bucket owner.</p>"""
     s3_key: "aws_sdk_mgn.types.s3_key_name.S3KeyName"
     """<p>The S3 key (path) where the enriched import file will be stored.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EnrichmentTargetS3Configuration) -> dict:
@@ -33,7 +37,9 @@ def deserialize_json(data: dict) -> EnrichmentTargetS3Configuration:
     if "s3BucketOwner" in data:
         out["s3_bucket_owner"] = data["s3BucketOwner"]
     else:
-        raise DeserializationError("EnrichmentTargetS3Configuration.s3_bucket_owner required")
+        raise DeserializationError(
+            "EnrichmentTargetS3Configuration.s3_bucket_owner required"
+        )
     if "s3Key" in data:
         out["s3_key"] = data["s3Key"]
     else:

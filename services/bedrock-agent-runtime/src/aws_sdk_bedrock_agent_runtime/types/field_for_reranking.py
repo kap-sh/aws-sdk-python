@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FieldForReranking``."""
 
 from typing import TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 
 class FieldForReranking(TypedDict):
     field_name: "str"
     """<p>The name of a metadata field to include in or exclude from consideration when reranking.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FieldForReranking) -> dict:

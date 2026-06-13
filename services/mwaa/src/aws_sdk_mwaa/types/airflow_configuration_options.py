@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#AirflowConfigurationOptions``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.config_key
     import aws_sdk_mwaa.types.config_value
 
-AirflowConfigurationOptions: TypeAlias = dict["aws_sdk_mwaa.types.config_key.ConfigKey", "aws_sdk_mwaa.types.config_value.ConfigValue"]
+AirflowConfigurationOptions: TypeAlias = dict[
+    "aws_sdk_mwaa.types.config_key.ConfigKey",
+    "aws_sdk_mwaa.types.config_value.ConfigValue",
+]
 
 
 # --- restJson1 ser/de ---

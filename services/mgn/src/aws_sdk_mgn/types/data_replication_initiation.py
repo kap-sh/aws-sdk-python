@@ -1,18 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DataReplicationInitiation``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.data_replication_initiation_steps
     import aws_sdk_mgn.types.iso8601_datetime_string
 
+
 class DataReplicationInitiation(TypedDict):
-    start_date_time: NotRequired["aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    start_date_time: NotRequired[
+        "aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>Request to query data initiation start date and time.</p>"""
-    next_attempt_date_time: NotRequired["aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    next_attempt_date_time: NotRequired[
+        "aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>Request to query next data initiation date and time.</p>"""
-    steps: NotRequired["aws_sdk_mgn.types.data_replication_initiation_steps.DataReplicationInitiationSteps"]
+    steps: NotRequired[
+        "aws_sdk_mgn.types.data_replication_initiation_steps.DataReplicationInitiationSteps"
+    ]
     """<p>Request to query data initiation steps.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataReplicationInitiation) -> dict:
@@ -23,7 +33,12 @@ def serialize_json(value: DataReplicationInitiation) -> dict:
         out["nextAttemptDateTime"] = value["next_attempt_date_time"]
     if "steps" in value:
         import aws_sdk_mgn.types.data_replication_initiation_steps
-        out["steps"] = aws_sdk_mgn.types.data_replication_initiation_steps.serialize_json(value["steps"])
+
+        out["steps"] = (
+            aws_sdk_mgn.types.data_replication_initiation_steps.serialize_json(
+                value["steps"]
+            )
+        )
     return out
 
 
@@ -35,5 +50,10 @@ def deserialize_json(data: dict) -> DataReplicationInitiation:
         out["next_attempt_date_time"] = data["nextAttemptDateTime"]
     if "steps" in data:
         import aws_sdk_mgn.types.data_replication_initiation_steps
-        out["steps"] = aws_sdk_mgn.types.data_replication_initiation_steps.deserialize_json(data["steps"])
+
+        out["steps"] = (
+            aws_sdk_mgn.types.data_replication_initiation_steps.deserialize_json(
+                data["steps"]
+            )
+        )
     return out

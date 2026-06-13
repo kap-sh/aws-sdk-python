@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.location#ApiKeyActionList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key_action
 

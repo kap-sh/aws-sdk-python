@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_dsql._services.async_dsql import ensure_async_iterator
-from aws_sdk_dsql._services.dsql import ensure_sync_iterator
-from aws_sdk_dsql._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_dsql._auth._signers
 import aws_sdk_dsql._auth._sigv4
+from aws_sdk_dsql._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_dsql._services.dsql import DSQLClient, DSQLClientConfig
-    from aws_sdk_dsql._services.async_dsql import AsyncDSQLClient, AsyncDSQLClientConfig
     import aws_sdk_dsql.types.client_token
     import aws_sdk_dsql.types.cluster_id
     import aws_sdk_dsql.types.create_stream_input
@@ -25,11 +30,25 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.stream_summary
     import aws_sdk_dsql.types.tag_map
     import aws_sdk_dsql.types.target_definition
+    from aws_sdk_dsql._services.async_dsql import AsyncDSQLClient, AsyncDSQLClientConfig
+    from aws_sdk_dsql._services.dsql import DSQLClient, DSQLClientConfig
+
 
 class Stream:
     def __init__(self, service: DSQLClient) -> None:
         self._service = service
-    def create(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", target_definition: "aws_sdk_dsql.types.target_definition.TargetDefinition", ordering: "aws_sdk_dsql.types.stream_ordering.StreamOrdering", format: "aws_sdk_dsql.types.stream_format.StreamFormat", *, config_overrides: Optional[DSQLClientConfig] = None, tags: Optional["aws_sdk_dsql.types.tag_map.TagMap"] = None, client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None) -> "aws_sdk_dsql.types.create_stream_output.CreateStreamOutput":
+
+    def create(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        target_definition: "aws_sdk_dsql.types.target_definition.TargetDefinition",
+        ordering: "aws_sdk_dsql.types.stream_ordering.StreamOrdering",
+        format: "aws_sdk_dsql.types.stream_format.StreamFormat",
+        *,
+        config_overrides: Optional[DSQLClientConfig] = None,
+        tags: Optional["aws_sdk_dsql.types.tag_map.TagMap"] = None,
+        client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_dsql.types.create_stream_output.CreateStreamOutput":
         """<p>Creates a new change data capture (CDC) stream for a cluster. The stream captures database changes and delivers them to the specified target destination.</p> <p> <b>Required permissions</b> </p> <dl> <dt>dsql:CreateStream</dt> <dd> <p>Permission to create a new stream.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/cluster-id</code> </p> </dd> <dt>iam:PassRole</dt> <dd> <p>Permission to pass the IAM role specified in the target definition to the service.</p> <p>Resources: ARN of the IAM role specified in <code>targetDefinition.kinesis.roleArn</code> </p> </dd> <dt>kms:Decrypt</dt> <dd> <p>Required when the cluster uses a customer managed KMS key (CMK). Permission to decrypt data using the cluster's CMK.</p> <p>Resources: ARN of the KMS key used by the cluster</p> </dd> </dl>
 
         Args:
@@ -40,9 +59,19 @@ class Stream:
             tags: <p>A map of key and value pairs to use to tag your stream.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_dsql.types.create_stream_input.CreateStreamInput]') -> OperationResponse["aws_sdk_dsql.types.create_stream_output.CreateStreamOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_dsql.types.create_stream_input.CreateStreamInput]",
+        ) -> OperationResponse[
+            "aws_sdk_dsql.types.create_stream_output.CreateStreamOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.create_stream
-            output, http_response = aws_sdk_dsql._operations.dsql.create_stream.create_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_dsql._operations.dsql.create_stream.create_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -56,18 +85,35 @@ class Stream:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId", *, config_overrides: Optional[DSQLClientConfig] = None) -> "aws_sdk_dsql.types.get_stream_output.GetStreamOutput":
+
+    def read(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId",
+        *,
+        config_overrides: Optional[DSQLClientConfig] = None,
+    ) -> "aws_sdk_dsql.types.get_stream_output.GetStreamOutput":
         """<p>Retrieves information about a stream.</p>
 
         Args:
             cluster_identifier: <p>The ID of the cluster containing the stream to retrieve.</p>
             stream_identifier: <p>The ID of the stream to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_dsql.types.get_stream_input.GetStreamInput]') -> OperationResponse["aws_sdk_dsql.types.get_stream_output.GetStreamOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_dsql.types.get_stream_input.GetStreamInput]",
+        ) -> OperationResponse["aws_sdk_dsql.types.get_stream_output.GetStreamOutput"]:
             import aws_sdk_dsql._operations.dsql.get_stream
-            output, http_response = aws_sdk_dsql._operations.dsql.get_stream.get_stream(req.options, req.input)
+
+            output, http_response = aws_sdk_dsql._operations.dsql.get_stream.get_stream(
+                req.options, req.input
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -75,9 +121,21 @@ class Stream:
         input["cluster_identifier"] = cluster_identifier
         input["stream_identifier"] = stream_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId", *, config_overrides: Optional[DSQLClientConfig] = None, client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None) -> "aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput":
+
+    def delete(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId",
+        *,
+        config_overrides: Optional[DSQLClientConfig] = None,
+        client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput":
         """<p>Deletes a stream from a cluster.</p>
 
         Args:
@@ -85,9 +143,19 @@ class Stream:
             stream_identifier: <p>The ID of the stream to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput]') -> OperationResponse["aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput]",
+        ) -> OperationResponse[
+            "aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.delete_stream
-            output, http_response = aws_sdk_dsql._operations.dsql.delete_stream.delete_stream(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_dsql._operations.dsql.delete_stream.delete_stream(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -97,9 +165,21 @@ class Stream:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", *, config_overrides: Optional[DSQLClientConfig] = None, max_results: Optional["aws_sdk_dsql.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_dsql.types.next_token.NextToken"] = None) -> "aws_sdk_dsql.types.list_streams_output.ListStreamsOutput":
+
+    def list(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[DSQLClientConfig] = None,
+        max_results: Optional["aws_sdk_dsql.types.max_results.MaxResults"] = None,
+        next_token: Optional["aws_sdk_dsql.types.next_token.NextToken"] = None,
+    ) -> "aws_sdk_dsql.types.list_streams_output.ListStreamsOutput":
         """<p>Retrieves information about a list of streams for a cluster.</p>
 
         Args:
@@ -107,9 +187,19 @@ class Stream:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.</p>
             next_token: <p>If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_dsql.types.list_streams_input.ListStreamsInput]') -> OperationResponse["aws_sdk_dsql.types.list_streams_output.ListStreamsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_dsql.types.list_streams_input.ListStreamsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_dsql.types.list_streams_output.ListStreamsOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.list_streams
-            output, http_response = aws_sdk_dsql._operations.dsql.list_streams.list_streams(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_dsql._operations.dsql.list_streams.list_streams(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -120,13 +210,29 @@ class Stream:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncStream:
     def __init__(self, service: AsyncDSQLClient) -> None:
         self._service = service
-    async def create(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", target_definition: "aws_sdk_dsql.types.target_definition.TargetDefinition", ordering: "aws_sdk_dsql.types.stream_ordering.StreamOrdering", format: "aws_sdk_dsql.types.stream_format.StreamFormat", *, config_overrides: Optional[AsyncDSQLClientConfig] = None, tags: Optional["aws_sdk_dsql.types.tag_map.TagMap"] = None, client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None) -> "aws_sdk_dsql.types.create_stream_output.CreateStreamOutput":
+
+    async def create(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        target_definition: "aws_sdk_dsql.types.target_definition.TargetDefinition",
+        ordering: "aws_sdk_dsql.types.stream_ordering.StreamOrdering",
+        format: "aws_sdk_dsql.types.stream_format.StreamFormat",
+        *,
+        config_overrides: Optional[AsyncDSQLClientConfig] = None,
+        tags: Optional["aws_sdk_dsql.types.tag_map.TagMap"] = None,
+        client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_dsql.types.create_stream_output.CreateStreamOutput":
         """<p>Creates a new change data capture (CDC) stream for a cluster. The stream captures database changes and delivers them to the specified target destination.</p> <p> <b>Required permissions</b> </p> <dl> <dt>dsql:CreateStream</dt> <dd> <p>Permission to create a new stream.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/cluster-id</code> </p> </dd> <dt>iam:PassRole</dt> <dd> <p>Permission to pass the IAM role specified in the target definition to the service.</p> <p>Resources: ARN of the IAM role specified in <code>targetDefinition.kinesis.roleArn</code> </p> </dd> <dt>kms:Decrypt</dt> <dd> <p>Required when the cluster uses a customer managed KMS key (CMK). Permission to decrypt data using the cluster's CMK.</p> <p>Resources: ARN of the KMS key used by the cluster</p> </dd> </dl>
 
         Args:
@@ -137,9 +243,20 @@ class AsyncStream:
             tags: <p>A map of key and value pairs to use to tag your stream.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_dsql.types.create_stream_input.CreateStreamInput]') -> AsyncOperationResponse["aws_sdk_dsql.types.create_stream_output.CreateStreamOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dsql.types.create_stream_input.CreateStreamInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dsql.types.create_stream_output.CreateStreamOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.create_stream
-            output, http_response = await aws_sdk_dsql._operations.dsql.create_stream.async_create_stream(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dsql._operations.dsql.create_stream.async_create_stream(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -153,18 +270,40 @@ class AsyncStream:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId", *, config_overrides: Optional[AsyncDSQLClientConfig] = None) -> "aws_sdk_dsql.types.get_stream_output.GetStreamOutput":
+
+    async def read(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId",
+        *,
+        config_overrides: Optional[AsyncDSQLClientConfig] = None,
+    ) -> "aws_sdk_dsql.types.get_stream_output.GetStreamOutput":
         """<p>Retrieves information about a stream.</p>
 
         Args:
             cluster_identifier: <p>The ID of the cluster containing the stream to retrieve.</p>
             stream_identifier: <p>The ID of the stream to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_dsql.types.get_stream_input.GetStreamInput]') -> AsyncOperationResponse["aws_sdk_dsql.types.get_stream_output.GetStreamOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dsql.types.get_stream_input.GetStreamInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dsql.types.get_stream_output.GetStreamOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.get_stream
-            output, http_response = await aws_sdk_dsql._operations.dsql.get_stream.async_get_stream(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dsql._operations.dsql.get_stream.async_get_stream(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -172,9 +311,21 @@ class AsyncStream:
         input["cluster_identifier"] = cluster_identifier
         input["stream_identifier"] = stream_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId", *, config_overrides: Optional[AsyncDSQLClientConfig] = None, client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None) -> "aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput":
+
+    async def delete(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId",
+        *,
+        config_overrides: Optional[AsyncDSQLClientConfig] = None,
+        client_token: Optional["aws_sdk_dsql.types.client_token.ClientToken"] = None,
+    ) -> "aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput":
         """<p>Deletes a stream from a cluster.</p>
 
         Args:
@@ -182,9 +333,20 @@ class AsyncStream:
             stream_identifier: <p>The ID of the stream to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput]') -> AsyncOperationResponse["aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dsql.types.delete_stream_output.DeleteStreamOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.delete_stream
-            output, http_response = await aws_sdk_dsql._operations.dsql.delete_stream.async_delete_stream(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dsql._operations.dsql.delete_stream.async_delete_stream(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -194,9 +356,21 @@ class AsyncStream:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId", *, config_overrides: Optional[AsyncDSQLClientConfig] = None, max_results: Optional["aws_sdk_dsql.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_dsql.types.next_token.NextToken"] = None) -> "aws_sdk_dsql.types.list_streams_output.ListStreamsOutput":
+
+    async def list(
+        self,
+        cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId",
+        *,
+        config_overrides: Optional[AsyncDSQLClientConfig] = None,
+        max_results: Optional["aws_sdk_dsql.types.max_results.MaxResults"] = None,
+        next_token: Optional["aws_sdk_dsql.types.next_token.NextToken"] = None,
+    ) -> "aws_sdk_dsql.types.list_streams_output.ListStreamsOutput":
         """<p>Retrieves information about a list of streams for a cluster.</p>
 
         Args:
@@ -204,9 +378,20 @@ class AsyncStream:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.</p>
             next_token: <p>If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_dsql.types.list_streams_input.ListStreamsInput]') -> AsyncOperationResponse["aws_sdk_dsql.types.list_streams_output.ListStreamsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_dsql.types.list_streams_input.ListStreamsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_dsql.types.list_streams_output.ListStreamsOutput"
+        ]:
             import aws_sdk_dsql._operations.dsql.list_streams
-            output, http_response = await aws_sdk_dsql._operations.dsql.list_streams.async_list_streams(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_dsql._operations.dsql.list_streams.async_list_streams(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -217,5 +402,9 @@ class AsyncStream:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

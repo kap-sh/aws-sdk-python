@@ -1,21 +1,27 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FailureTrace``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.failure_reason_string
     import aws_sdk_bedrock_agent_runtime.types.metadata
     import aws_sdk_bedrock_agent_runtime.types.trace_id
 
+
 class FailureTrace(TypedDict):
     trace_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.trace_id.TraceId"]
     """<p>The unique identifier of the trace.</p>"""
-    failure_reason: NotRequired["aws_sdk_bedrock_agent_runtime.types.failure_reason_string.FailureReasonString"]
+    failure_reason: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.failure_reason_string.FailureReasonString"
+    ]
     """<p>The reason the interaction failed.</p>"""
     failure_code: NotRequired["int"]
     """<p>The failure code for the trace.</p>"""
     metadata: NotRequired["aws_sdk_bedrock_agent_runtime.types.metadata.Metadata"]
     """<p>Information about the failure that occurred.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FailureTrace) -> dict:
@@ -28,7 +34,10 @@ def serialize_json(value: FailureTrace) -> dict:
         out["failureCode"] = value["failure_code"]
     if "metadata" in value:
         import aws_sdk_bedrock_agent_runtime.types.metadata
-        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.serialize_json(value["metadata"])
+
+        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.serialize_json(
+            value["metadata"]
+        )
     return out
 
 
@@ -42,5 +51,8 @@ def deserialize_json(data: dict) -> FailureTrace:
         out["failure_code"] = data["failureCode"]
     if "metadata" in data:
         import aws_sdk_bedrock_agent_runtime.types.metadata
-        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.deserialize_json(data["metadata"])
+
+        out["metadata"] = aws_sdk_bedrock_agent_runtime.types.metadata.deserialize_json(
+            data["metadata"]
+        )
     return out

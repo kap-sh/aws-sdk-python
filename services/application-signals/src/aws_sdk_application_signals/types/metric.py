@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationsignals#Metric``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_application_signals.types.dimensions
+    import aws_sdk_application_signals.types.metric_name
+    import aws_sdk_application_signals.types.namespace
+
+
+class Metric(TypedDict):
+    namespace: NotRequired["aws_sdk_application_signals.types.namespace.Namespace"]
+    """<p>The namespace of the metric. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace\">Namespaces</a>.</p>"""
+    metric_name: NotRequired["aws_sdk_application_signals.types.metric_name.MetricName"]
+    """<p>The name of the metric to use.</p>"""
+    dimensions: NotRequired["aws_sdk_application_signals.types.dimensions.Dimensions"]
+    """<p>An array of one or more dimensions to use to define the metric that you want to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension\">Dimensions</a>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Metric) -> dict:
+    out: dict = {}
+    if "namespace" in value:
+        out["Namespace"] = value["namespace"]
+    if "metric_name" in value:
+        out["MetricName"] = value["metric_name"]
+    if "dimensions" in value:
+        import aws_sdk_application_signals.types.dimensions
+
+        out["Dimensions"] = aws_sdk_application_signals.types.dimensions.serialize_json(
+            value["dimensions"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> Metric:
+    out: Metric = {}  # type: ignore[typeddict-item]
+    if "Namespace" in data:
+        out["namespace"] = data["Namespace"]
+    if "MetricName" in data:
+        out["metric_name"] = data["MetricName"]
+    if "Dimensions" in data:
+        import aws_sdk_application_signals.types.dimensions
+
+        out["dimensions"] = (
+            aws_sdk_application_signals.types.dimensions.deserialize_json(
+                data["Dimensions"]
+            )
+        )
+    return out

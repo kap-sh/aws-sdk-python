@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultS3Location``."""
+
+from typing import TypedDict
+
+from typing_extensions import NotRequired
+
+
+class RetrievalResultS3Location(TypedDict):
+    uri: NotRequired["str"]
+    """<p>The S3 URI for the data source location.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RetrievalResultS3Location) -> dict:
+    out: dict = {}
+    if "uri" in value:
+        out["uri"] = value["uri"]
+    return out
+
+
+def deserialize_json(data: dict) -> RetrievalResultS3Location:
+    out: RetrievalResultS3Location = {}  # type: ignore[typeddict-item]
+    if "uri" in data:
+        out["uri"] = data["uri"]
+    return out

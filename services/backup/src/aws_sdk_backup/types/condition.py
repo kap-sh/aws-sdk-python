@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#Condition``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_backup.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.condition_key
     import aws_sdk_backup.types.condition_type
     import aws_sdk_backup.types.condition_value
+
 
 class Condition(TypedDict):
     condition_type: "aws_sdk_backup.types.condition_type.ConditionType"
@@ -15,11 +18,15 @@ class Condition(TypedDict):
     condition_value: "aws_sdk_backup.types.condition_value.ConditionValue"
     """<p>The value in a key-value pair. For example, in the tag <code>Department: Accounting</code>, <code>Accounting</code> is the value.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: Condition) -> dict:
     out: dict = {}
     import aws_sdk_backup.types.condition_type
-    out["ConditionType"] = aws_sdk_backup.types.condition_type.serialize_json(value["condition_type"])
+
+    out["ConditionType"] = aws_sdk_backup.types.condition_type.serialize_json(
+        value["condition_type"]
+    )
     out["ConditionKey"] = value["condition_key"]
     out["ConditionValue"] = value["condition_value"]
     return out
@@ -29,7 +36,10 @@ def deserialize_json(data: dict) -> Condition:
     out: Condition = {}  # type: ignore[typeddict-item]
     if "ConditionType" in data:
         import aws_sdk_backup.types.condition_type
-        out["condition_type"] = aws_sdk_backup.types.condition_type.deserialize_json(data["ConditionType"])
+
+        out["condition_type"] = aws_sdk_backup.types.condition_type.deserialize_json(
+            data["ConditionType"]
+        )
     else:
         raise DeserializationError("Condition.condition_type required")
     if "ConditionKey" in data:

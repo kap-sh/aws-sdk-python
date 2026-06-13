@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#DeploymentConditionalField``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class DeploymentConditionalField(TypedDict):
     name: NotRequired["str"]
@@ -10,6 +12,7 @@ class DeploymentConditionalField(TypedDict):
     """<p>The value of the condition.</p>"""
     comparator: NotRequired["str"]
     """<p>The comparator of the condition.</p> <p>Valid values: <code>Equal | NotEqual</code> </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeploymentConditionalField) -> dict:

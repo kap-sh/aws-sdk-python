@@ -2,9 +2,11 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.parameter_store_path
     import aws_sdk_datazone.types.aws_account_id
+    import aws_sdk_datazone.types.parameter_store_path
+
 
 class _AwsAccount_awsAccountId(TypedDict):
     awsAccountId: "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
@@ -13,7 +15,9 @@ class _AwsAccount_awsAccountId(TypedDict):
 class _AwsAccount_awsAccountIdPath(TypedDict):
     awsAccountIdPath: "aws_sdk_datazone.types.parameter_store_path.ParameterStorePath"
 
+
 AwsAccount: TypeAlias = _AwsAccount_awsAccountId | _AwsAccount_awsAccountIdPath
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsAccount) -> dict:

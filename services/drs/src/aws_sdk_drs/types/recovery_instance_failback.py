@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceFailback``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
     import aws_sdk_drs.types.failback_launch_type
@@ -9,27 +11,41 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
     import aws_sdk_drs.types.job_id
 
+
 class RecoveryInstanceFailback(TypedDict):
     failback_client_id: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>The ID of the failback client that this Recovery Instance is associated with.</p>"""
     failback_job_id: NotRequired["aws_sdk_drs.types.job_id.JobID"]
     """<p>The Job ID of the last failback log for this Recovery Instance.</p>"""
-    failback_initiation_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    failback_initiation_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time that the failback initiation started.</p>"""
     state: NotRequired["aws_sdk_drs.types.failback_state.FailbackState"]
     """<p>The state of the failback process that this Recovery Instance is in.</p>"""
-    agent_last_seen_by_service_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    agent_last_seen_by_service_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time the agent on the Recovery Instance was last seen by the service.</p>"""
-    failback_client_last_seen_by_service_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    failback_client_last_seen_by_service_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time that the failback client was last seen by the service.</p>"""
     failback_to_original_server: NotRequired["bool"]
     """<p>Whether we are failing back to the original Source Server for this Recovery Instance.</p>"""
-    first_byte_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    first_byte_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time of the first byte that was replicated from the Recovery Instance.</p>"""
-    elapsed_replication_duration: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    elapsed_replication_duration: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The amount of time that the Recovery Instance has been replicating for.</p>"""
-    failback_launch_type: NotRequired["aws_sdk_drs.types.failback_launch_type.FailbackLaunchType"]
+    failback_launch_type: NotRequired[
+        "aws_sdk_drs.types.failback_launch_type.FailbackLaunchType"
+    ]
     """<p>The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: RecoveryInstanceFailback) -> dict:
@@ -43,9 +59,13 @@ def serialize_json(value: RecoveryInstanceFailback) -> dict:
     if "state" in value:
         out["state"] = value["state"]
     if "agent_last_seen_by_service_date_time" in value:
-        out["agentLastSeenByServiceDateTime"] = value["agent_last_seen_by_service_date_time"]
+        out["agentLastSeenByServiceDateTime"] = value[
+            "agent_last_seen_by_service_date_time"
+        ]
     if "failback_client_last_seen_by_service_date_time" in value:
-        out["failbackClientLastSeenByServiceDateTime"] = value["failback_client_last_seen_by_service_date_time"]
+        out["failbackClientLastSeenByServiceDateTime"] = value[
+            "failback_client_last_seen_by_service_date_time"
+        ]
     if "failback_to_original_server" in value:
         out["failbackToOriginalServer"] = value["failback_to_original_server"]
     if "first_byte_date_time" in value:
@@ -68,9 +88,13 @@ def deserialize_json(data: dict) -> RecoveryInstanceFailback:
     if "state" in data:
         out["state"] = data["state"]
     if "agentLastSeenByServiceDateTime" in data:
-        out["agent_last_seen_by_service_date_time"] = data["agentLastSeenByServiceDateTime"]
+        out["agent_last_seen_by_service_date_time"] = data[
+            "agentLastSeenByServiceDateTime"
+        ]
     if "failbackClientLastSeenByServiceDateTime" in data:
-        out["failback_client_last_seen_by_service_date_time"] = data["failbackClientLastSeenByServiceDateTime"]
+        out["failback_client_last_seen_by_service_date_time"] = data[
+            "failbackClientLastSeenByServiceDateTime"
+        ]
     if "failbackToOriginalServer" in data:
         out["failback_to_original_server"] = data["failbackToOriginalServer"]
     if "firstByteDateTime" in data:

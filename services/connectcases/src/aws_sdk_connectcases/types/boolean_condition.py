@@ -1,13 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BooleanCondition``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.boolean_operands
     import aws_sdk_connectcases.types.compound_condition
-    import aws_sdk_connectcases.types.compound_condition
-    import aws_sdk_connectcases.types.boolean_operands
 
 
 class _BooleanCondition_equalTo(TypedDict):

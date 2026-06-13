@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BrazilAdditionalInfo``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.ccm_code
     import aws_sdk_taxsettings.types.legal_nature_code
 
+
 class BrazilAdditionalInfo(TypedDict):
     ccm_code: NotRequired["aws_sdk_taxsettings.types.ccm_code.CcmCode"]
     """<p>The Cadastro de Contribuintes Mobiliários (CCM) code for your TRN in Brazil. This only applies for a CNPJ tax type for the São Paulo municipality.</p>"""
-    legal_nature_code: NotRequired["aws_sdk_taxsettings.types.legal_nature_code.LegalNatureCode"]
+    legal_nature_code: NotRequired[
+        "aws_sdk_taxsettings.types.legal_nature_code.LegalNatureCode"
+    ]
     """<p>Legal nature of business, based on your TRN in Brazil. This only applies for a CNPJ tax type.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BrazilAdditionalInfo) -> dict:

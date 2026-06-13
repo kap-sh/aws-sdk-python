@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourcePaymentTokenRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_bedrock_agentcore.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.credential_provider_name
+    import aws_sdk_bedrock_agentcore.types.payment_token_request_input
+    import aws_sdk_bedrock_agentcore.types.workload_identity_token_type
+
+class GetResourcePaymentTokenRequest(TypedDict):
+    workload_identity_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType"
+    """<p>Workload access token for authorization.</p>"""
+    resource_credential_provider_name: "aws_sdk_bedrock_agentcore.types.credential_provider_name.CredentialProviderName"
+    """<p>Name of the payment credential provider to use.</p>"""
+    payment_token_request: "aws_sdk_bedrock_agentcore.types.payment_token_request_input.PaymentTokenRequestInput"
+    """<p>Vendor-specific token request input. Contains all request parameters in a type-safe, vendor-specific structure.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetResourcePaymentTokenRequest) -> dict:
+    out: dict = {}
+    out["workloadIdentityToken"] = value["workload_identity_token"]
+    out["resourceCredentialProviderName"] = value["resource_credential_provider_name"]
+    import aws_sdk_bedrock_agentcore.types.payment_token_request_input
+    out["paymentTokenRequest"] = aws_sdk_bedrock_agentcore.types.payment_token_request_input.serialize_json(value["payment_token_request"])
+    return out
+
+
+def deserialize_json(data: dict) -> GetResourcePaymentTokenRequest:
+    out: GetResourcePaymentTokenRequest = {}  # type: ignore[typeddict-item]
+    if "workloadIdentityToken" in data:
+        out["workload_identity_token"] = data["workloadIdentityToken"]
+    else:
+        raise DeserializationError("GetResourcePaymentTokenRequest.workload_identity_token required")
+    if "resourceCredentialProviderName" in data:
+        out["resource_credential_provider_name"] = data["resourceCredentialProviderName"]
+    else:
+        raise DeserializationError("GetResourcePaymentTokenRequest.resource_credential_provider_name required")
+    if "paymentTokenRequest" in data:
+        import aws_sdk_bedrock_agentcore.types.payment_token_request_input
+        out["payment_token_request"] = aws_sdk_bedrock_agentcore.types.payment_token_request_input.deserialize_json(data["paymentTokenRequest"])
+    else:
+        raise DeserializationError("GetResourcePaymentTokenRequest.payment_token_request required")
+    return out

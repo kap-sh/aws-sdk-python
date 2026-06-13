@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.arcregionswitch#S3ReportOutputConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_arc_region_switch.types.account_id
+
+
+class S3ReportOutputConfiguration(TypedDict):
+    bucket_path: NotRequired["str"]
+    """<p>The S3 bucket name and optional prefix where reports are stored. Format: bucket-name or bucket-name/prefix.</p>"""
+    bucket_owner: NotRequired["aws_sdk_arc_region_switch.types.account_id.AccountId"]
+    """<p>The Amazon Web Services account ID that owns the S3 bucket. Required to ensure the bucket is still owned by the same expected owner at generation time.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: S3ReportOutputConfiguration) -> dict:
+    out: dict = {}
+    if "bucket_path" in value:
+        out["bucketPath"] = value["bucket_path"]
+    if "bucket_owner" in value:
+        out["bucketOwner"] = value["bucket_owner"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> S3ReportOutputConfiguration:
+    out: S3ReportOutputConfiguration = {}  # type: ignore[typeddict-item]
+    if "bucketPath" in data:
+        out["bucket_path"] = data["bucketPath"]
+    if "bucketOwner" in data:
+        out["bucket_owner"] = data["bucketOwner"]
+    return out

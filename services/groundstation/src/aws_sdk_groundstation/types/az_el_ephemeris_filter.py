@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AzElEphemerisFilter``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_groundstation.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
+
 
 class AzElEphemerisFilter(TypedDict):
     id: "aws_sdk_groundstation.types.uuid.Uuid"
     """<p>Unique identifier of the azimuth elevation ephemeris.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AzElEphemerisFilter) -> dict:

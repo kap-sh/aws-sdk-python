@@ -1,16 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.drs#InternalServerException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_drs.errors import DeserializationError
-from aws_sdk_drs.errors import ServiceError
+
+from aws_sdk_drs.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.large_bounded_string
     import aws_sdk_drs.types.positive_integer
+
 
 class InternalServerException_(TypedDict):
     message: "aws_sdk_drs.types.large_bounded_string.LargeBoundedString"
     retry_after_seconds: "aws_sdk_drs.types.positive_integer.PositiveInteger"
     """<p>The number of seconds after which the request should be safe to retry.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InternalServerException_) -> dict:
@@ -30,10 +33,16 @@ def deserialize_json(data: dict) -> InternalServerException_:
 
 class InternalServerException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.drs#InternalServerException``."""
-    code: str | None = 'InternalServerException'
+
+    code: str | None = "InternalServerException"
 
     def __init__(self, data: InternalServerException_):
-        super().__init__('server', is_throttling_error=False, is_retryable=False, code='InternalServerException')
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InternalServerException",
+        )
         self.data = data
 
     @classmethod

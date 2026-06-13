@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#GetTaxRegistrationDocumentResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.destination_file_path
     import aws_sdk_taxsettings.types.url
 
+
 class GetTaxRegistrationDocumentResponse(TypedDict):
-    destination_file_path: NotRequired["aws_sdk_taxsettings.types.destination_file_path.DestinationFilePath"]
+    destination_file_path: NotRequired[
+        "aws_sdk_taxsettings.types.destination_file_path.DestinationFilePath"
+    ]
     """<p>The file path of the Amazon S3 bucket where you want to download your tax document to.</p>"""
     presigned_s3_url: NotRequired["aws_sdk_taxsettings.types.url.Url"]
     """<p>The Amazon S3 presigned URL of the tax registration document. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetTaxRegistrationDocumentResponse) -> dict:

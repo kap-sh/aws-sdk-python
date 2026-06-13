@@ -1,16 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildResultAssets``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.automated_reasoning_policy_definition_quality_report
-    import aws_sdk_bedrock.types.automated_reasoning_policy_fidelity_report
-    import aws_sdk_bedrock.types.automated_reasoning_policy_definition
-    import aws_sdk_bedrock.types.automated_reasoning_policy_scenarios
-    import aws_sdk_bedrock.types.automated_reasoning_policy_generated_test_cases
     import aws_sdk_bedrock.types.automated_reasoning_policy_build_log
     import aws_sdk_bedrock.types.automated_reasoning_policy_build_result_asset_manifest
+    import aws_sdk_bedrock.types.automated_reasoning_policy_definition
+    import aws_sdk_bedrock.types.automated_reasoning_policy_definition_quality_report
+    import aws_sdk_bedrock.types.automated_reasoning_policy_fidelity_report
+    import aws_sdk_bedrock.types.automated_reasoning_policy_generated_test_cases
+    import aws_sdk_bedrock.types.automated_reasoning_policy_scenarios
     import aws_sdk_bedrock.types.automated_reasoning_policy_source_document
 
 

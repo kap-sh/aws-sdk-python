@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeleteRouterNetworkInterfaceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
+
 
 class DeleteRouterNetworkInterfaceRequest(TypedDict):
     arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
     """<p>The Amazon Resource Name (ARN) of the router network interface that you want to delete.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteRouterNetworkInterfaceRequest) -> dict:

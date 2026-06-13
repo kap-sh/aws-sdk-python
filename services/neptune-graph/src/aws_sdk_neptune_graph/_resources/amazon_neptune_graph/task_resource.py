@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_neptune_graph._services.async_neptune_graph import ensure_async_iterator
-from aws_sdk_neptune_graph._services.neptune_graph import ensure_sync_iterator
-from aws_sdk_neptune_graph._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_neptune_graph._auth._signers
 import aws_sdk_neptune_graph._auth._sigv4
+from aws_sdk_neptune_graph._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_neptune_graph._services.neptune_graph import NeptuneGraphClient, NeptuneGraphClientConfig
-    from aws_sdk_neptune_graph._services.async_neptune_graph import AsyncNeptuneGraphClient, AsyncNeptuneGraphClientConfig
     import aws_sdk_neptune_graph.types.blank_node_handling
     import aws_sdk_neptune_graph.types.cancel_export_task_input
     import aws_sdk_neptune_graph.types.cancel_export_task_output
@@ -45,45 +50,131 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.tag_map
     import aws_sdk_neptune_graph.types.task_id
     import aws_sdk_neptune_graph.types.vector_search_configuration
+    from aws_sdk_neptune_graph._services.async_neptune_graph import (
+        AsyncNeptuneGraphClient,
+        AsyncNeptuneGraphClientConfig,
+    )
+    from aws_sdk_neptune_graph._services.neptune_graph import (
+        NeptuneGraphClient,
+        NeptuneGraphClientConfig,
+    )
+
 
 class TaskResource:
     def __init__(self, service: NeptuneGraphClient) -> None:
         self._service = service
-    def cancel_export_task(self, task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId", *, config_overrides: Optional[NeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput":
+
+    def cancel_export_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput":
         """<p>Cancel the specified export task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_export_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_export_task.cancel_export_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_export_task.cancel_export_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def cancel_import_task(self, task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId", *, config_overrides: Optional[NeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput":
+
+    def cancel_import_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput":
         """<p>Deletes the specified import task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_import_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_import_task.cancel_import_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_import_task.cancel_import_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_graph_using_import_task(self, graph_name: "aws_sdk_neptune_graph.types.graph_name.GraphName", source: str, role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn", *, config_overrides: Optional[NeptuneGraphClientConfig] = None, tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None, public_connectivity: Optional[bool] = None, kms_key_identifier: Optional["aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn"] = None, vector_search_configuration: Optional["aws_sdk_neptune_graph.types.vector_search_configuration.VectorSearchConfiguration"] = None, replica_count: Optional["aws_sdk_neptune_graph.types.replica_count.ReplicaCount"] = None, deletion_protection: Optional[bool] = None, import_options: Optional["aws_sdk_neptune_graph.types.import_options.ImportOptions"] = None, max_provisioned_memory: Optional["aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"] = None, min_provisioned_memory: Optional["aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"] = None, fail_on_error: Optional[bool] = None, format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None, parquet_type: Optional["aws_sdk_neptune_graph.types.parquet_type.ParquetType"] = None, blank_node_handling: Optional["aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"] = None) -> "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput":
+
+    def create_graph_using_import_task(
+        self,
+        graph_name: "aws_sdk_neptune_graph.types.graph_name.GraphName",
+        source: str,
+        role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None,
+        public_connectivity: Optional[bool] = None,
+        kms_key_identifier: Optional[
+            "aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+        vector_search_configuration: Optional[
+            "aws_sdk_neptune_graph.types.vector_search_configuration.VectorSearchConfiguration"
+        ] = None,
+        replica_count: Optional[
+            "aws_sdk_neptune_graph.types.replica_count.ReplicaCount"
+        ] = None,
+        deletion_protection: Optional[bool] = None,
+        import_options: Optional[
+            "aws_sdk_neptune_graph.types.import_options.ImportOptions"
+        ] = None,
+        max_provisioned_memory: Optional[
+            "aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"
+        ] = None,
+        min_provisioned_memory: Optional[
+            "aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"
+        ] = None,
+        fail_on_error: Optional[bool] = None,
+        format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None,
+        parquet_type: Optional[
+            "aws_sdk_neptune_graph.types.parquet_type.ParquetType"
+        ] = None,
+        blank_node_handling: Optional[
+            "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput":
         """<p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html\">Gremlin CSV format</a> or the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html\">openCypher load format</a>.</p>
 
         Args:
@@ -104,9 +195,19 @@ class TaskResource:
             blank_node_handling: <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_using_import_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_using_import_task.create_graph_using_import_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_using_import_task.create_graph_using_import_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -141,43 +242,101 @@ class TaskResource:
             input["blank_node_handling"] = blank_node_handling
         input["role_arn"] = role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_export_task(self, task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId", *, config_overrides: Optional[NeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput":
+
+    def get_export_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput":
         """<p>Retrieves a specified export task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_export_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_export_task.get_export_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_export_task.get_export_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_import_task(self, task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId", *, config_overrides: Optional[NeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput":
+
+    def get_import_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput":
         """<p>Retrieves a specified import task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_import_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_import_task.get_import_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_import_task.get_import_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_export_tasks(self, *, config_overrides: Optional[NeptuneGraphClientConfig] = None, graph_identifier: Optional["aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"] = None, next_token: Optional["aws_sdk_neptune_graph.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_neptune_graph.types.max_results.MaxResults"] = None) -> "aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput":
+
+    def list_export_tasks(
+        self,
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        graph_identifier: Optional[
+            "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_neptune_graph.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_neptune_graph.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput":
         """<p>Retrieves a list of export tasks.</p>
 
         Args:
@@ -185,9 +344,19 @@ class TaskResource:
             next_token: <p>Pagination token used to paginate input.</p>
             max_results: <p>The maximum number of export tasks to return.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput]') -> OperationResponse["aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_export_tasks
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_export_tasks.list_export_tasks(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_export_tasks.list_export_tasks(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -199,18 +368,43 @@ class TaskResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_import_tasks(self, *, config_overrides: Optional[NeptuneGraphClientConfig] = None, next_token: Optional["aws_sdk_neptune_graph.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_neptune_graph.types.max_results.MaxResults"] = None) -> "aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput":
+
+    def list_import_tasks(
+        self,
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_neptune_graph.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_neptune_graph.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput":
         """<p>Lists import tasks.</p>
 
         Args:
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput]') -> OperationResponse["aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_import_tasks
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_import_tasks.list_import_tasks(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_import_tasks.list_import_tasks(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -220,9 +414,30 @@ class TaskResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_export_task(self, graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier", role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn", format: "aws_sdk_neptune_graph.types.export_format.ExportFormat", destination: str, kms_key_identifier: "aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn", *, config_overrides: Optional[NeptuneGraphClientConfig] = None, parquet_type: Optional["aws_sdk_neptune_graph.types.parquet_type.ParquetType"] = None, export_filter: Optional["aws_sdk_neptune_graph.types.export_filter.ExportFilter"] = None, tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None) -> "aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput":
+
+    def start_export_task(
+        self,
+        graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier",
+        role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn",
+        format: "aws_sdk_neptune_graph.types.export_format.ExportFormat",
+        destination: str,
+        kms_key_identifier: "aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        parquet_type: Optional[
+            "aws_sdk_neptune_graph.types.parquet_type.ParquetType"
+        ] = None,
+        export_filter: Optional[
+            "aws_sdk_neptune_graph.types.export_filter.ExportFilter"
+        ] = None,
+        tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput":
         """<p>Export data from an existing Neptune Analytics graph to Amazon S3. The graph state should be <code>AVAILABLE</code>.</p>
 
         Args:
@@ -235,9 +450,19 @@ class TaskResource:
             export_filter: <p>The export filter of the export task.</p>
             tags: <p>Tags to be applied to the export task.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_export_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_export_task.start_export_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_export_task.start_export_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -254,9 +479,32 @@ class TaskResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_import_task(self, source: str, graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier", role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn", *, config_overrides: Optional[NeptuneGraphClientConfig] = None, import_options: Optional["aws_sdk_neptune_graph.types.import_options.ImportOptions"] = None, fail_on_error: Optional[bool] = None, format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None, parquet_type: Optional["aws_sdk_neptune_graph.types.parquet_type.ParquetType"] = None, blank_node_handling: Optional["aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"] = None) -> "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput":
+
+    def start_import_task(
+        self,
+        source: str,
+        graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier",
+        role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        import_options: Optional[
+            "aws_sdk_neptune_graph.types.import_options.ImportOptions"
+        ] = None,
+        fail_on_error: Optional[bool] = None,
+        format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None,
+        parquet_type: Optional[
+            "aws_sdk_neptune_graph.types.parquet_type.ParquetType"
+        ] = None,
+        blank_node_handling: Optional[
+            "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput":
         """<p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
 
         Args:
@@ -268,9 +516,19 @@ class TaskResource:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput]') -> OperationResponse["aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_import_task
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_import_task.start_import_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_import_task.start_import_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -289,47 +547,131 @@ class TaskResource:
         input["graph_identifier"] = graph_identifier
         input["role_arn"] = role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncTaskResource:
     def __init__(self, service: AsyncNeptuneGraphClient) -> None:
         self._service = service
-    async def cancel_export_task(self, task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput":
+
+    async def cancel_export_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput":
         """<p>Cancel the specified export task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.cancel_export_task_output.CancelExportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_export_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_export_task.async_cancel_export_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_export_task.async_cancel_export_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def cancel_import_task(self, task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput":
+
+    async def cancel_import_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput":
         """<p>Deletes the specified import task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.cancel_import_task_output.CancelImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_import_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_import_task.async_cancel_import_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.cancel_import_task.async_cancel_import_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def create_graph_using_import_task(self, graph_name: "aws_sdk_neptune_graph.types.graph_name.GraphName", source: str, role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None, public_connectivity: Optional[bool] = None, kms_key_identifier: Optional["aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn"] = None, vector_search_configuration: Optional["aws_sdk_neptune_graph.types.vector_search_configuration.VectorSearchConfiguration"] = None, replica_count: Optional["aws_sdk_neptune_graph.types.replica_count.ReplicaCount"] = None, deletion_protection: Optional[bool] = None, import_options: Optional["aws_sdk_neptune_graph.types.import_options.ImportOptions"] = None, max_provisioned_memory: Optional["aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"] = None, min_provisioned_memory: Optional["aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"] = None, fail_on_error: Optional[bool] = None, format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None, parquet_type: Optional["aws_sdk_neptune_graph.types.parquet_type.ParquetType"] = None, blank_node_handling: Optional["aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"] = None) -> "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput":
+
+    async def create_graph_using_import_task(
+        self,
+        graph_name: "aws_sdk_neptune_graph.types.graph_name.GraphName",
+        source: str,
+        role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None,
+        public_connectivity: Optional[bool] = None,
+        kms_key_identifier: Optional[
+            "aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+        vector_search_configuration: Optional[
+            "aws_sdk_neptune_graph.types.vector_search_configuration.VectorSearchConfiguration"
+        ] = None,
+        replica_count: Optional[
+            "aws_sdk_neptune_graph.types.replica_count.ReplicaCount"
+        ] = None,
+        deletion_protection: Optional[bool] = None,
+        import_options: Optional[
+            "aws_sdk_neptune_graph.types.import_options.ImportOptions"
+        ] = None,
+        max_provisioned_memory: Optional[
+            "aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"
+        ] = None,
+        min_provisioned_memory: Optional[
+            "aws_sdk_neptune_graph.types.provisioned_memory.ProvisionedMemory"
+        ] = None,
+        fail_on_error: Optional[bool] = None,
+        format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None,
+        parquet_type: Optional[
+            "aws_sdk_neptune_graph.types.parquet_type.ParquetType"
+        ] = None,
+        blank_node_handling: Optional[
+            "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput":
         """<p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html\">Gremlin CSV format</a> or the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html\">openCypher load format</a>.</p>
 
         Args:
@@ -350,9 +692,20 @@ class AsyncTaskResource:
             blank_node_handling: <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_using_import_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_using_import_task.async_create_graph_using_import_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_using_import_task.async_create_graph_using_import_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -387,43 +740,103 @@ class AsyncTaskResource:
             input["blank_node_handling"] = blank_node_handling
         input["role_arn"] = role_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_export_task(self, task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput":
+
+    async def get_export_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput":
         """<p>Retrieves a specified export task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.get_export_task_output.GetExportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_export_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_export_task.async_get_export_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_export_task.async_get_export_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_import_task(self, task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput":
+
+    async def get_import_task(
+        self,
+        task_identifier: "aws_sdk_neptune_graph.types.task_id.TaskId",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput":
         """<p>Retrieves a specified import task.</p>
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.get_import_task_output.GetImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_import_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_import_task.async_get_import_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_import_task.async_get_import_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput = {}  # type: ignore[typeddict-item]
         input["task_identifier"] = task_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_export_tasks(self, *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, graph_identifier: Optional["aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"] = None, next_token: Optional["aws_sdk_neptune_graph.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_neptune_graph.types.max_results.MaxResults"] = None) -> "aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput":
+
+    async def list_export_tasks(
+        self,
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        graph_identifier: Optional[
+            "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_neptune_graph.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_neptune_graph.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput":
         """<p>Retrieves a list of export tasks.</p>
 
         Args:
@@ -431,9 +844,20 @@ class AsyncTaskResource:
             next_token: <p>Pagination token used to paginate input.</p>
             max_results: <p>The maximum number of export tasks to return.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.list_export_tasks_output.ListExportTasksOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_export_tasks
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_export_tasks.async_list_export_tasks(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_export_tasks.async_list_export_tasks(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -445,18 +869,44 @@ class AsyncTaskResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_import_tasks(self, *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, next_token: Optional["aws_sdk_neptune_graph.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_neptune_graph.types.max_results.MaxResults"] = None) -> "aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput":
+
+    async def list_import_tasks(
+        self,
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_neptune_graph.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_neptune_graph.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput":
         """<p>Lists import tasks.</p>
 
         Args:
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.list_import_tasks_output.ListImportTasksOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_import_tasks
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_import_tasks.async_list_import_tasks(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_import_tasks.async_list_import_tasks(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -466,9 +916,30 @@ class AsyncTaskResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_export_task(self, graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier", role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn", format: "aws_sdk_neptune_graph.types.export_format.ExportFormat", destination: str, kms_key_identifier: "aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, parquet_type: Optional["aws_sdk_neptune_graph.types.parquet_type.ParquetType"] = None, export_filter: Optional["aws_sdk_neptune_graph.types.export_filter.ExportFilter"] = None, tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None) -> "aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput":
+
+    async def start_export_task(
+        self,
+        graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier",
+        role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn",
+        format: "aws_sdk_neptune_graph.types.export_format.ExportFormat",
+        destination: str,
+        kms_key_identifier: "aws_sdk_neptune_graph.types.kms_key_arn.KmsKeyArn",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        parquet_type: Optional[
+            "aws_sdk_neptune_graph.types.parquet_type.ParquetType"
+        ] = None,
+        export_filter: Optional[
+            "aws_sdk_neptune_graph.types.export_filter.ExportFilter"
+        ] = None,
+        tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput":
         """<p>Export data from an existing Neptune Analytics graph to Amazon S3. The graph state should be <code>AVAILABLE</code>.</p>
 
         Args:
@@ -481,9 +952,20 @@ class AsyncTaskResource:
             export_filter: <p>The export filter of the export task.</p>
             tags: <p>Tags to be applied to the export task.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.start_export_task_output.StartExportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_export_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_export_task.async_start_export_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_export_task.async_start_export_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -500,9 +982,32 @@ class AsyncTaskResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_import_task(self, source: str, graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier", role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, import_options: Optional["aws_sdk_neptune_graph.types.import_options.ImportOptions"] = None, fail_on_error: Optional[bool] = None, format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None, parquet_type: Optional["aws_sdk_neptune_graph.types.parquet_type.ParquetType"] = None, blank_node_handling: Optional["aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"] = None) -> "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput":
+
+    async def start_import_task(
+        self,
+        source: str,
+        graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier",
+        role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        import_options: Optional[
+            "aws_sdk_neptune_graph.types.import_options.ImportOptions"
+        ] = None,
+        fail_on_error: Optional[bool] = None,
+        format: Optional["aws_sdk_neptune_graph.types.format.Format"] = None,
+        parquet_type: Optional[
+            "aws_sdk_neptune_graph.types.parquet_type.ParquetType"
+        ] = None,
+        blank_node_handling: Optional[
+            "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput":
         """<p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
 
         Args:
@@ -514,9 +1019,20 @@ class AsyncTaskResource:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_import_task
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_import_task.async_start_import_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.start_import_task.async_start_import_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -535,5 +1051,9 @@ class AsyncTaskResource:
         input["graph_identifier"] = graph_identifier
         input["role_arn"] = role_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

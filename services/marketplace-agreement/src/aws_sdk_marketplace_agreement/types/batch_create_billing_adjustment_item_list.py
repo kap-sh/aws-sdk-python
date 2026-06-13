@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplaceagreement#BatchCreateBillingAdjustmentItemList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item
+
+BatchCreateBillingAdjustmentItemList: TypeAlias = list[
+    "aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item.BatchCreateBillingAdjustmentItem"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: BatchCreateBillingAdjustmentItemList) -> list:
+    import aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> BatchCreateBillingAdjustmentItemList:
+    import aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item
+
+    out: BatchCreateBillingAdjustmentItemList = []
+    for item in data:
+        out.append(
+            aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

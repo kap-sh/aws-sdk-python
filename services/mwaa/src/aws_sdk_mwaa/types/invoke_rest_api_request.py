@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#InvokeRestApiRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mwaa.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.environment_name
     import aws_sdk_mwaa.types.rest_api_method
     import aws_sdk_mwaa.types.rest_api_path
     import aws_sdk_mwaa.types.rest_api_request_body
+
 
 class InvokeRestApiRequest(TypedDict):
     name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
@@ -20,6 +24,7 @@ class InvokeRestApiRequest(TypedDict):
     """<p>Query parameters to be included in the Apache Airflow REST API call, provided as a JSON object. </p>"""
     body: NotRequired["aws_sdk_mwaa.types.rest_api_request_body.RestApiRequestBody"]
     """<p>The request body for the Apache Airflow REST API call, provided as a JSON object.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InvokeRestApiRequest) -> dict:

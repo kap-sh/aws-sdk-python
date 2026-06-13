@@ -1,15 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.rum#GetResourcePolicyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.policy_revision_id
+
 
 class GetResourcePolicyResponse(TypedDict):
     policy_document: NotRequired["str"]
     """<p>The JSON policy document that you requested.</p>"""
-    policy_revision_id: NotRequired["aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"]
+    policy_revision_id: NotRequired[
+        "aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"
+    ]
     """<p>The revision ID information for this version of the policy document that you requested.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetResourcePolicyResponse) -> dict:

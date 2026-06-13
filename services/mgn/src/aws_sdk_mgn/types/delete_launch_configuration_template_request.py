@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DeleteLaunchConfigurationTemplateRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_mgn.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.launch_configuration_template_id
+
 
 class DeleteLaunchConfigurationTemplateRequest(TypedDict):
     launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID"
     """<p>ID of resource to be deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteLaunchConfigurationTemplateRequest) -> dict:
@@ -21,5 +25,7 @@ def deserialize_json(data: dict) -> DeleteLaunchConfigurationTemplateRequest:
     if "launchConfigurationTemplateID" in data:
         out["launch_configuration_template_id"] = data["launchConfigurationTemplateID"]
     else:
-        raise DeserializationError("DeleteLaunchConfigurationTemplateRequest.launch_configuration_template_id required")
+        raise DeserializationError(
+            "DeleteLaunchConfigurationTemplateRequest.launch_configuration_template_id required"
+        )
     return out

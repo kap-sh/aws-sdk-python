@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplaceagreement#UsageBasedRateCardItem``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_marketplace_agreement.types.rate_card_list
+
+
+class UsageBasedRateCardItem(TypedDict):
+    rate_card: NotRequired[
+        "aws_sdk_marketplace_agreement.types.rate_card_list.RateCardList"
+    ]
+    """<p>Defines the per unit rates for product dimensions.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UsageBasedRateCardItem) -> dict:
+    out: dict = {}
+    if "rate_card" in value:
+        import aws_sdk_marketplace_agreement.types.rate_card_list
+
+        out["rateCard"] = (
+            aws_sdk_marketplace_agreement.types.rate_card_list.serialize_aws_json_1_0(
+                value["rate_card"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UsageBasedRateCardItem:
+    out: UsageBasedRateCardItem = {}  # type: ignore[typeddict-item]
+    if "rateCard" in data:
+        import aws_sdk_marketplace_agreement.types.rate_card_list
+
+        out["rate_card"] = (
+            aws_sdk_marketplace_agreement.types.rate_card_list.deserialize_aws_json_1_0(
+                data["rateCard"]
+            )
+        )
+    return out

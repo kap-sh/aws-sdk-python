@@ -1,17 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DeleteJobRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mgn.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.job_id
+
 
 class DeleteJobRequest(TypedDict):
     job_id: "aws_sdk_mgn.types.job_id.JobID"
     """<p>Request to delete Job from service by Job ID.</p>"""
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Request to delete Job from service by Account ID.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteJobRequest) -> dict:

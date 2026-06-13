@@ -1,22 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#AmazonMWAA``."""
 
-from aws_sdk_mwaa._auth._signers import SigV4Signer
-from aws_sdk_mwaa._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from aws_sdk_mwaa._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_mwaa._auth._zapros_handler import AuthMiddleware
-from aws_sdk_mwaa._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_mwaa.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_mwaa._auth._signers
 import aws_sdk_mwaa._auth._sigv4
 from aws_sdk_mwaa._auth._identity import Credentials
-from aws_sdk_mwaa._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_mwaa._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_mwaa._auth._zapros_handler import AuthMiddleware
+from aws_sdk_mwaa._pagination import resolve_path as _resolve_path
+from aws_sdk_mwaa._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.airflow_configuration_options
     import aws_sdk_mwaa.types.airflow_version
@@ -72,6 +80,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.weekly_maintenance_window_start
     import aws_sdk_mwaa.types.worker_replacement_strategy
 
+
 class MWAAClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -81,7 +90,9 @@ class MWAAClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -89,6 +100,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class MWAAClient:
     """A client for the ``MWAA`` service.
@@ -104,36 +116,167 @@ class MWAAClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = MWAAClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[MWAAClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = MWAAClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[MWAAClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: MWAAClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def create_cli_token(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.create_cli_token_response.CreateCliTokenResponse":
+
+    def create_cli_token(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.create_cli_token_response.CreateCliTokenResponse":
         """<p>Creates a CLI token for the Airflow CLI. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html\">Creating an Apache Airflow CLI token</a>.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.create_cli_token_request.CreateCliTokenRequest]') -> OperationResponse["aws_sdk_mwaa.types.create_cli_token_response.CreateCliTokenResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.create_cli_token_request.CreateCliTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.create_cli_token_response.CreateCliTokenResponse"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.create_cli_token
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.create_cli_token.create_cli_token(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.create_cli_token.create_cli_token(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_mwaa.types.create_cli_token_request.CreateCliTokenRequest = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_environment(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", execution_role_arn: "aws_sdk_mwaa.types.iam_role_arn.IamRoleArn", source_bucket_arn: "aws_sdk_mwaa.types.s3_bucket_arn.S3BucketArn", dag_s3_path: "aws_sdk_mwaa.types.relative_path.RelativePath", network_configuration: "aws_sdk_mwaa.types.network_configuration.NetworkConfiguration", *, config_overrides: Optional[MWAAClientConfig] = None, plugins_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, plugins_s3_object_version: Optional["aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"] = None, requirements_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, requirements_s3_object_version: Optional["aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"] = None, startup_script_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, startup_script_s3_object_version: Optional["aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"] = None, airflow_configuration_options: Optional["aws_sdk_mwaa.types.airflow_configuration_options.AirflowConfigurationOptions"] = None, environment_class: Optional["aws_sdk_mwaa.types.environment_class.EnvironmentClass"] = None, max_workers: Optional["aws_sdk_mwaa.types.max_workers.MaxWorkers"] = None, kms_key: Optional["aws_sdk_mwaa.types.kms_key.KmsKey"] = None, airflow_version: Optional["aws_sdk_mwaa.types.airflow_version.AirflowVersion"] = None, logging_configuration: Optional["aws_sdk_mwaa.types.logging_configuration_input.LoggingConfigurationInput"] = None, weekly_maintenance_window_start: Optional["aws_sdk_mwaa.types.weekly_maintenance_window_start.WeeklyMaintenanceWindowStart"] = None, tags: Optional["aws_sdk_mwaa.types.tag_map.TagMap"] = None, webserver_access_mode: Optional["aws_sdk_mwaa.types.webserver_access_mode.WebserverAccessMode"] = None, min_workers: Optional["aws_sdk_mwaa.types.min_workers.MinWorkers"] = None, schedulers: Optional["aws_sdk_mwaa.types.schedulers.Schedulers"] = None, endpoint_management: Optional["aws_sdk_mwaa.types.endpoint_management.EndpointManagement"] = None, min_webservers: Optional["aws_sdk_mwaa.types.min_webservers.MinWebservers"] = None, max_webservers: Optional["aws_sdk_mwaa.types.max_webservers.MaxWebservers"] = None) -> "aws_sdk_mwaa.types.create_environment_output.CreateEnvironmentOutput":
+
+    def create_environment(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        execution_role_arn: "aws_sdk_mwaa.types.iam_role_arn.IamRoleArn",
+        source_bucket_arn: "aws_sdk_mwaa.types.s3_bucket_arn.S3BucketArn",
+        dag_s3_path: "aws_sdk_mwaa.types.relative_path.RelativePath",
+        network_configuration: "aws_sdk_mwaa.types.network_configuration.NetworkConfiguration",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+        plugins_s3_path: Optional[
+            "aws_sdk_mwaa.types.relative_path.RelativePath"
+        ] = None,
+        plugins_s3_object_version: Optional[
+            "aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"
+        ] = None,
+        requirements_s3_path: Optional[
+            "aws_sdk_mwaa.types.relative_path.RelativePath"
+        ] = None,
+        requirements_s3_object_version: Optional[
+            "aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"
+        ] = None,
+        startup_script_s3_path: Optional[
+            "aws_sdk_mwaa.types.relative_path.RelativePath"
+        ] = None,
+        startup_script_s3_object_version: Optional[
+            "aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"
+        ] = None,
+        airflow_configuration_options: Optional[
+            "aws_sdk_mwaa.types.airflow_configuration_options.AirflowConfigurationOptions"
+        ] = None,
+        environment_class: Optional[
+            "aws_sdk_mwaa.types.environment_class.EnvironmentClass"
+        ] = None,
+        max_workers: Optional["aws_sdk_mwaa.types.max_workers.MaxWorkers"] = None,
+        kms_key: Optional["aws_sdk_mwaa.types.kms_key.KmsKey"] = None,
+        airflow_version: Optional[
+            "aws_sdk_mwaa.types.airflow_version.AirflowVersion"
+        ] = None,
+        logging_configuration: Optional[
+            "aws_sdk_mwaa.types.logging_configuration_input.LoggingConfigurationInput"
+        ] = None,
+        weekly_maintenance_window_start: Optional[
+            "aws_sdk_mwaa.types.weekly_maintenance_window_start.WeeklyMaintenanceWindowStart"
+        ] = None,
+        tags: Optional["aws_sdk_mwaa.types.tag_map.TagMap"] = None,
+        webserver_access_mode: Optional[
+            "aws_sdk_mwaa.types.webserver_access_mode.WebserverAccessMode"
+        ] = None,
+        min_workers: Optional["aws_sdk_mwaa.types.min_workers.MinWorkers"] = None,
+        schedulers: Optional["aws_sdk_mwaa.types.schedulers.Schedulers"] = None,
+        endpoint_management: Optional[
+            "aws_sdk_mwaa.types.endpoint_management.EndpointManagement"
+        ] = None,
+        min_webservers: Optional[
+            "aws_sdk_mwaa.types.min_webservers.MinWebservers"
+        ] = None,
+        max_webservers: Optional[
+            "aws_sdk_mwaa.types.max_webservers.MaxWebservers"
+        ] = None,
+    ) -> "aws_sdk_mwaa.types.create_environment_output.CreateEnvironmentOutput":
         """<p>Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.</p>
 
         Args:
@@ -163,9 +306,19 @@ class MWAAClient:
             min_webservers: <p> The minimum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code> when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>. </p> <p>Valid values: For environments larger than mw1.micro, accepts values from <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment sizes except mw1.micro, which defaults to <code>1</code>.</p>
             max_webservers: <p> The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code> when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>. </p> <p>Valid values: For environments larger than mw1.micro, accepts values from <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment sizes except mw1.micro, which defaults to <code>1</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.create_environment_input.CreateEnvironmentInput]') -> OperationResponse["aws_sdk_mwaa.types.create_environment_output.CreateEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.create_environment_input.CreateEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.create_environment_output.CreateEnvironmentOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.create_environment
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.create_environment.create_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.create_environment.create_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -216,60 +369,138 @@ class MWAAClient:
         if max_webservers is not None:
             input["max_webservers"] = max_webservers
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_web_login_token(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.create_web_login_token_response.CreateWebLoginTokenResponse":
+
+    def create_web_login_token(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> (
+        "aws_sdk_mwaa.types.create_web_login_token_response.CreateWebLoginTokenResponse"
+    ):
         """<p>Creates a web login token for the Airflow Web UI. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html\">Creating an Apache Airflow web login token</a>.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.create_web_login_token_request.CreateWebLoginTokenRequest]') -> OperationResponse["aws_sdk_mwaa.types.create_web_login_token_response.CreateWebLoginTokenResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.create_web_login_token_request.CreateWebLoginTokenRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.create_web_login_token_response.CreateWebLoginTokenResponse"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.create_web_login_token
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.create_web_login_token.create_web_login_token(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.create_web_login_token.create_web_login_token(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_mwaa.types.create_web_login_token_request.CreateWebLoginTokenRequest = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_environment(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.delete_environment_output.DeleteEnvironmentOutput":
+
+    def delete_environment(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.delete_environment_output.DeleteEnvironmentOutput":
         """<p>Deletes an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.delete_environment_input.DeleteEnvironmentInput]') -> OperationResponse["aws_sdk_mwaa.types.delete_environment_output.DeleteEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.delete_environment_input.DeleteEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.delete_environment_output.DeleteEnvironmentOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.delete_environment
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.delete_environment.delete_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.delete_environment.delete_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_mwaa.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_environment(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.get_environment_output.GetEnvironmentOutput":
+
+    def get_environment(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.get_environment_output.GetEnvironmentOutput":
         """<p>Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.get_environment_input.GetEnvironmentInput]') -> OperationResponse["aws_sdk_mwaa.types.get_environment_output.GetEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.get_environment_input.GetEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.get_environment_output.GetEnvironmentOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.get_environment
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.get_environment.get_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.get_environment.get_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_mwaa.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def invoke_rest_api(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", path: "aws_sdk_mwaa.types.rest_api_path.RestApiPath", method: "aws_sdk_mwaa.types.rest_api_method.RestApiMethod", *, config_overrides: Optional[MWAAClientConfig] = None, query_parameters: Optional[object] = None, body: Optional["aws_sdk_mwaa.types.rest_api_request_body.RestApiRequestBody"] = None) -> "aws_sdk_mwaa.types.invoke_rest_api_response.InvokeRestApiResponse":
+
+    def invoke_rest_api(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        path: "aws_sdk_mwaa.types.rest_api_path.RestApiPath",
+        method: "aws_sdk_mwaa.types.rest_api_method.RestApiMethod",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+        query_parameters: Optional[object] = None,
+        body: Optional[
+            "aws_sdk_mwaa.types.rest_api_request_body.RestApiRequestBody"
+        ] = None,
+    ) -> "aws_sdk_mwaa.types.invoke_rest_api_response.InvokeRestApiResponse":
         """<p>Invokes the Apache Airflow REST API on the webserver with the specified inputs. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html\">Using the Apache Airflow REST API</a> </p>
 
         Args:
@@ -284,9 +515,19 @@ class MWAAClient:
 
             >>> client.invoke_rest_api(name='MyEnvironment', path='/variables', method='GET')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.invoke_rest_api_request.InvokeRestApiRequest]') -> OperationResponse["aws_sdk_mwaa.types.invoke_rest_api_response.InvokeRestApiResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.invoke_rest_api_request.InvokeRestApiRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.invoke_rest_api_response.InvokeRestApiResponse"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.invoke_rest_api
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.invoke_rest_api.invoke_rest_api(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.invoke_rest_api.invoke_rest_api(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -299,18 +540,39 @@ class MWAAClient:
         if body is not None:
             input["body"] = body
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_environments(self, *, config_overrides: Optional[MWAAClientConfig] = None, next_token: Optional["aws_sdk_mwaa.types.next_token.NextToken"] = None, max_results: Optional[int] = None) -> "aws_sdk_mwaa.types.list_environments_output.ListEnvironmentsOutput":
+
+    def list_environments(
+        self,
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+        next_token: Optional["aws_sdk_mwaa.types.next_token.NextToken"] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_mwaa.types.list_environments_output.ListEnvironmentsOutput":
         """<p>Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.</p>
 
         Args:
             next_token: <p>Retrieves the next page of the results.</p>
             max_results: <p>The maximum number of results to retrieve per page. For example, <code>5</code> environments per page.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.list_environments_input.ListEnvironmentsInput]') -> OperationResponse["aws_sdk_mwaa.types.list_environments_output.ListEnvironmentsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.list_environments_input.ListEnvironmentsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.list_environments_output.ListEnvironmentsOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.list_environments
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.list_environments.list_environments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.list_environments.list_environments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -320,9 +582,20 @@ class MWAAClient:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_environments(self, *, config_overrides: Optional[MWAAClientConfig] = None, next_token: Optional["aws_sdk_mwaa.types.next_token.NextToken"] = None, max_results: Optional[int] = None) -> "Iterator[aws_sdk_mwaa.types.environment_name.EnvironmentName]":
+
+    def iter_list_environments(
+        self,
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+        next_token: Optional["aws_sdk_mwaa.types.next_token.NextToken"] = None,
+        max_results: Optional[int] = None,
+    ) -> "Iterator[aws_sdk_mwaa.types.environment_name.EnvironmentName]":
         _token = next_token
         while True:
             _response = self.list_environments(
@@ -330,39 +603,76 @@ class MWAAClient:
                 next_token=_token,
                 max_results=max_results,
             )
-            _page = _resolve_path(_response, ('environments',))
+            _page = _resolve_path(_response, ("environments",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_tags_for_resource(self, resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.list_tags_for_resource_output.ListTagsForResourceOutput":
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.list_tags_for_resource_output.ListTagsForResourceOutput":
         """<p>Lists the key-value tag pairs associated to the Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>\"Environment\": \"Staging\"</code>. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.list_tags_for_resource_input.ListTagsForResourceInput]') -> OperationResponse["aws_sdk_mwaa.types.list_tags_for_resource_output.ListTagsForResourceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.list_tags_for_resource_input.ListTagsForResourceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.list_tags_for_resource_output.ListTagsForResourceOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.list_tags_for_resource
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.list_tags_for_resource.list_tags_for_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_mwaa.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def publish_metrics(self, environment_name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", metric_data: "aws_sdk_mwaa.types.metric_data.MetricData", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.publish_metrics_output.PublishMetricsOutput":
+
+    def publish_metrics(
+        self,
+        environment_name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        metric_data: "aws_sdk_mwaa.types.metric_data.MetricData",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.publish_metrics_output.PublishMetricsOutput":
         """<p> <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
 
         Args:
             environment_name: <p> <b>Internal only</b>. The name of the environment.</p>
             metric_data: <p> <b>Internal only</b>. Publishes metrics to Amazon CloudWatch. To learn more about the metrics published to Amazon CloudWatch, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html\">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.publish_metrics_input.PublishMetricsInput]') -> OperationResponse["aws_sdk_mwaa.types.publish_metrics_output.PublishMetricsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.publish_metrics_input.PublishMetricsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.publish_metrics_output.PublishMetricsOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.publish_metrics
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.publish_metrics.publish_metrics(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.publish_metrics.publish_metrics(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -370,18 +680,39 @@ class MWAAClient:
         input["environment_name"] = environment_name
         input["metric_data"] = metric_data
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def tag_resource(self, resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn", tags: "aws_sdk_mwaa.types.tag_map.TagMap", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.tag_resource_output.TagResourceOutput":
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn",
+        tags: "aws_sdk_mwaa.types.tag_map.TagMap",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.tag_resource_output.TagResourceOutput":
         """<p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
             tags: <p>The key-value tag pairs you want to associate to your environment. For example, <code>\"Environment\": \"Staging\"</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.tag_resource_input.TagResourceInput]') -> OperationResponse["aws_sdk_mwaa.types.tag_resource_output.TagResourceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.tag_resource_input.TagResourceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.tag_resource_output.TagResourceOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.tag_resource
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.tag_resource.tag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -389,18 +720,39 @@ class MWAAClient:
         input["resource_arn"] = resource_arn
         input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def untag_resource(self, resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn", tag_keys: "aws_sdk_mwaa.types.tag_key_list.TagKeyList", *, config_overrides: Optional[MWAAClientConfig] = None) -> "aws_sdk_mwaa.types.untag_resource_output.UntagResourceOutput":
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn",
+        tag_keys: "aws_sdk_mwaa.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+    ) -> "aws_sdk_mwaa.types.untag_resource_output.UntagResourceOutput":
         """<p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>\"Environment\": \"Staging\"</code>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
             tag_keys: <p>The key-value tag pair you want to remove. For example, <code>\"Environment\": \"Staging\"</code>. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.untag_resource_input.UntagResourceInput]') -> OperationResponse["aws_sdk_mwaa.types.untag_resource_output.UntagResourceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.untag_resource_input.UntagResourceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.untag_resource_output.UntagResourceOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.untag_resource
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.untag_resource.untag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -408,9 +760,77 @@ class MWAAClient:
         input["resource_arn"] = resource_arn
         input["tag_keys"] = tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_environment(self, name: "aws_sdk_mwaa.types.environment_name.EnvironmentName", *, config_overrides: Optional[MWAAClientConfig] = None, execution_role_arn: Optional["aws_sdk_mwaa.types.iam_role_arn.IamRoleArn"] = None, airflow_configuration_options: Optional["aws_sdk_mwaa.types.airflow_configuration_options.AirflowConfigurationOptions"] = None, airflow_version: Optional["aws_sdk_mwaa.types.airflow_version.AirflowVersion"] = None, dag_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, environment_class: Optional["aws_sdk_mwaa.types.environment_class.EnvironmentClass"] = None, logging_configuration: Optional["aws_sdk_mwaa.types.logging_configuration_input.LoggingConfigurationInput"] = None, max_workers: Optional["aws_sdk_mwaa.types.max_workers.MaxWorkers"] = None, min_workers: Optional["aws_sdk_mwaa.types.min_workers.MinWorkers"] = None, max_webservers: Optional["aws_sdk_mwaa.types.max_webservers.MaxWebservers"] = None, min_webservers: Optional["aws_sdk_mwaa.types.min_webservers.MinWebservers"] = None, worker_replacement_strategy: Optional["aws_sdk_mwaa.types.worker_replacement_strategy.WorkerReplacementStrategy"] = None, network_configuration: Optional["aws_sdk_mwaa.types.update_network_configuration_input.UpdateNetworkConfigurationInput"] = None, plugins_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, plugins_s3_object_version: Optional["aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"] = None, requirements_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, requirements_s3_object_version: Optional["aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"] = None, schedulers: Optional["aws_sdk_mwaa.types.schedulers.Schedulers"] = None, source_bucket_arn: Optional["aws_sdk_mwaa.types.s3_bucket_arn.S3BucketArn"] = None, startup_script_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None, startup_script_s3_object_version: Optional["aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"] = None, webserver_access_mode: Optional["aws_sdk_mwaa.types.webserver_access_mode.WebserverAccessMode"] = None, weekly_maintenance_window_start: Optional["aws_sdk_mwaa.types.weekly_maintenance_window_start.WeeklyMaintenanceWindowStart"] = None) -> "aws_sdk_mwaa.types.update_environment_output.UpdateEnvironmentOutput":
+
+    def update_environment(
+        self,
+        name: "aws_sdk_mwaa.types.environment_name.EnvironmentName",
+        *,
+        config_overrides: Optional[MWAAClientConfig] = None,
+        execution_role_arn: Optional[
+            "aws_sdk_mwaa.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        airflow_configuration_options: Optional[
+            "aws_sdk_mwaa.types.airflow_configuration_options.AirflowConfigurationOptions"
+        ] = None,
+        airflow_version: Optional[
+            "aws_sdk_mwaa.types.airflow_version.AirflowVersion"
+        ] = None,
+        dag_s3_path: Optional["aws_sdk_mwaa.types.relative_path.RelativePath"] = None,
+        environment_class: Optional[
+            "aws_sdk_mwaa.types.environment_class.EnvironmentClass"
+        ] = None,
+        logging_configuration: Optional[
+            "aws_sdk_mwaa.types.logging_configuration_input.LoggingConfigurationInput"
+        ] = None,
+        max_workers: Optional["aws_sdk_mwaa.types.max_workers.MaxWorkers"] = None,
+        min_workers: Optional["aws_sdk_mwaa.types.min_workers.MinWorkers"] = None,
+        max_webservers: Optional[
+            "aws_sdk_mwaa.types.max_webservers.MaxWebservers"
+        ] = None,
+        min_webservers: Optional[
+            "aws_sdk_mwaa.types.min_webservers.MinWebservers"
+        ] = None,
+        worker_replacement_strategy: Optional[
+            "aws_sdk_mwaa.types.worker_replacement_strategy.WorkerReplacementStrategy"
+        ] = None,
+        network_configuration: Optional[
+            "aws_sdk_mwaa.types.update_network_configuration_input.UpdateNetworkConfigurationInput"
+        ] = None,
+        plugins_s3_path: Optional[
+            "aws_sdk_mwaa.types.relative_path.RelativePath"
+        ] = None,
+        plugins_s3_object_version: Optional[
+            "aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"
+        ] = None,
+        requirements_s3_path: Optional[
+            "aws_sdk_mwaa.types.relative_path.RelativePath"
+        ] = None,
+        requirements_s3_object_version: Optional[
+            "aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"
+        ] = None,
+        schedulers: Optional["aws_sdk_mwaa.types.schedulers.Schedulers"] = None,
+        source_bucket_arn: Optional[
+            "aws_sdk_mwaa.types.s3_bucket_arn.S3BucketArn"
+        ] = None,
+        startup_script_s3_path: Optional[
+            "aws_sdk_mwaa.types.relative_path.RelativePath"
+        ] = None,
+        startup_script_s3_object_version: Optional[
+            "aws_sdk_mwaa.types.s3_object_version.S3ObjectVersion"
+        ] = None,
+        webserver_access_mode: Optional[
+            "aws_sdk_mwaa.types.webserver_access_mode.WebserverAccessMode"
+        ] = None,
+        weekly_maintenance_window_start: Optional[
+            "aws_sdk_mwaa.types.weekly_maintenance_window_start.WeeklyMaintenanceWindowStart"
+        ] = None,
+    ) -> "aws_sdk_mwaa.types.update_environment_output.UpdateEnvironmentOutput":
         """<p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
 
         Args:
@@ -438,9 +858,19 @@ class MWAAClient:
             webserver_access_mode: <p>The Apache Airflow <i>Web server</i> access mode. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html\">Apache Airflow access modes</a>.</p> <p>If set to <code>PUBLIC_AND_PRIVATE</code>, creates both a public network load balancer (NLB) for browser access and a private VPC endpoint (VPCE) for worker-to-webserver communication. This mode is only available for Apache Airflow version 3.2 and later.</p>
             weekly_maintenance_window_start: <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time to start weekly maintenance updates of your environment in the following format: <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>. You can specify a start time in 30 minute increments only.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mwaa.types.update_environment_input.UpdateEnvironmentInput]') -> OperationResponse["aws_sdk_mwaa.types.update_environment_output.UpdateEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mwaa.types.update_environment_input.UpdateEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_mwaa.types.update_environment_output.UpdateEnvironmentOutput"
+        ]:
             import aws_sdk_mwaa._operations.amazon_mwaa.update_environment
-            output, http_response = aws_sdk_mwaa._operations.amazon_mwaa.update_environment.update_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mwaa._operations.amazon_mwaa.update_environment.update_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -491,9 +921,15 @@ class MWAAClient:
         if weekly_maintenance_window_start is not None:
             input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

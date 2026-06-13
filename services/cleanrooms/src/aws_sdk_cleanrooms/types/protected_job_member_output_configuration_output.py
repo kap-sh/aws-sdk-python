@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobMemberOutputConfigurationOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanrooms.types.account_id
+
+
+class ProtectedJobMemberOutputConfigurationOutput(TypedDict):
+    account_id: "aws_sdk_cleanrooms.types.account_id.AccountId"
+    """<p> The account ID.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ProtectedJobMemberOutputConfigurationOutput) -> dict:
+    out: dict = {}
+    out["accountId"] = value["account_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> ProtectedJobMemberOutputConfigurationOutput:
+    out: ProtectedJobMemberOutputConfigurationOutput = {}  # type: ignore[typeddict-item]
+    if "accountId" in data:
+        out["account_id"] = data["accountId"]
+    else:
+        raise DeserializationError(
+            "ProtectedJobMemberOutputConfigurationOutput.account_id required"
+        )
+    return out

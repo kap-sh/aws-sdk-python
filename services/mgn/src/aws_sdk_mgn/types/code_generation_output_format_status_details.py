@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#CodeGenerationOutputFormatStatusDetails``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.code_generation_output_format_status
     import aws_sdk_mgn.types.large_bounded_string
 
+
 class CodeGenerationOutputFormatStatusDetails(TypedDict):
-    status: NotRequired["aws_sdk_mgn.types.code_generation_output_format_status.CodeGenerationOutputFormatStatus"]
+    status: NotRequired[
+        "aws_sdk_mgn.types.code_generation_output_format_status.CodeGenerationOutputFormatStatus"
+    ]
     """<p>The status of the code generation for this output format.</p>"""
-    status_detail_list: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
+    status_detail_list: NotRequired[
+        "aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"
+    ]
     """<p>A list of detailed status information for the code generation.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CodeGenerationOutputFormatStatusDetails) -> dict:

@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CancelJobResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_braket.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.cancellation_status
     import aws_sdk_braket.types.job_arn
+
 
 class CancelJobResponse(TypedDict):
     job_arn: "aws_sdk_braket.types.job_arn.JobArn"
     """<p>The ARN of the Amazon Braket job.</p>"""
     cancellation_status: "aws_sdk_braket.types.cancellation_status.CancellationStatus"
     """<p>The status of the hybrid job.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelJobResponse) -> dict:

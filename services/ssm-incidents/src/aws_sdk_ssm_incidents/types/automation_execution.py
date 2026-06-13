@@ -1,14 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#AutomationExecution``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.arn
+
 
 class _AutomationExecution_ssmExecutionArn(TypedDict):
     ssmExecutionArn: "aws_sdk_ssm_incidents.types.arn.Arn"
 
+
 AutomationExecution: TypeAlias = _AutomationExecution_ssmExecutionArn
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AutomationExecution) -> dict:

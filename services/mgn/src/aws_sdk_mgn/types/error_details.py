@@ -1,20 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ErrorDetails``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.large_bounded_string
+
 
 class ErrorDetails(TypedDict):
     message: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
     """<p>Error details message.</p>"""
     code: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
     """<p>Error details code.</p>"""
-    resource_id: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
+    resource_id: NotRequired[
+        "aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"
+    ]
     """<p>Error details resourceId.</p>"""
-    resource_type: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
+    resource_type: NotRequired[
+        "aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"
+    ]
     """<p>Error details resourceType.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ErrorDetails) -> dict:

@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateReplicationConfigurationTemplateRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.arn
     import aws_sdk_drs.types.ec2_instance_type
@@ -16,6 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.subnet_id
     import aws_sdk_drs.types.tags_map
 
+
 class CreateReplicationConfigurationTemplateRequest(TypedDict):
     staging_area_subnet_id: "aws_sdk_drs.types.subnet_id.SubnetID"
     """<p>The subnet to be used by the replication staging area.</p>"""
@@ -23,11 +27,15 @@ class CreateReplicationConfigurationTemplateRequest(TypedDict):
     """<p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>"""
     replication_servers_security_groups_i_ds: "aws_sdk_drs.types.replication_servers_security_groups_i_ds.ReplicationServersSecurityGroupsIDs"
     """<p>The security group IDs that will be used by the replication server.</p>"""
-    replication_server_instance_type: NotRequired["aws_sdk_drs.types.ec2_instance_type.EC2InstanceType"]
+    replication_server_instance_type: NotRequired[
+        "aws_sdk_drs.types.ec2_instance_type.EC2InstanceType"
+    ]
     """<p>The instance type to be used for the replication server.</p>"""
     use_dedicated_replication_server: NotRequired["bool"]
     """<p>Whether to use a dedicated Replication Server in the replication staging area.</p>"""
-    default_large_staging_disk_type: NotRequired["aws_sdk_drs.types.replication_configuration_default_large_staging_disk_type.ReplicationConfigurationDefaultLargeStagingDiskType"]
+    default_large_staging_disk_type: NotRequired[
+        "aws_sdk_drs.types.replication_configuration_default_large_staging_disk_type.ReplicationConfigurationDefaultLargeStagingDiskType"
+    ]
     """<p>The Staging Disk EBS volume type to be used during replication.</p>"""
     ebs_encryption: "aws_sdk_drs.types.replication_configuration_ebs_encryption.ReplicationConfigurationEbsEncryption"
     """<p>The type of EBS encryption to be used during replication.</p>"""
@@ -35,7 +43,9 @@ class CreateReplicationConfigurationTemplateRequest(TypedDict):
     """<p>The ARN of the EBS encryption key to be used during replication.</p>"""
     bandwidth_throttling: "aws_sdk_drs.types.positive_integer.PositiveInteger"
     """<p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>"""
-    data_plane_routing: NotRequired["aws_sdk_drs.types.replication_configuration_data_plane_routing.ReplicationConfigurationDataPlaneRouting"]
+    data_plane_routing: NotRequired[
+        "aws_sdk_drs.types.replication_configuration_data_plane_routing.ReplicationConfigurationDataPlaneRouting"
+    ]
     """<p>The data plane routing mechanism that will be used for replication.</p>"""
     create_public_ip: NotRequired["bool"]
     """<p>Whether to create a Public IP for the Recovery Instance by default.</p>"""
@@ -47,8 +57,11 @@ class CreateReplicationConfigurationTemplateRequest(TypedDict):
     """<p>A set of tags to be associated with the Replication Configuration Template resource.</p>"""
     auto_replicate_new_disks: NotRequired["bool"]
     """<p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>"""
-    internet_protocol: NotRequired["aws_sdk_drs.types.internet_protocol.InternetProtocol"]
+    internet_protocol: NotRequired[
+        "aws_sdk_drs.types.internet_protocol.InternetProtocol"
+    ]
     """<p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateReplicationConfigurationTemplateRequest) -> dict:
@@ -57,7 +70,12 @@ def serialize_json(value: CreateReplicationConfigurationTemplateRequest) -> dict
     if "associate_default_security_group" in value:
         out["associateDefaultSecurityGroup"] = value["associate_default_security_group"]
     import aws_sdk_drs.types.replication_servers_security_groups_i_ds
-    out["replicationServersSecurityGroupsIDs"] = aws_sdk_drs.types.replication_servers_security_groups_i_ds.serialize_json(value["replication_servers_security_groups_i_ds"])
+
+    out["replicationServersSecurityGroupsIDs"] = (
+        aws_sdk_drs.types.replication_servers_security_groups_i_ds.serialize_json(
+            value["replication_servers_security_groups_i_ds"]
+        )
+    )
     if "replication_server_instance_type" in value:
         out["replicationServerInstanceType"] = value["replication_server_instance_type"]
     if "use_dedicated_replication_server" in value:
@@ -73,11 +91,16 @@ def serialize_json(value: CreateReplicationConfigurationTemplateRequest) -> dict
     if "create_public_ip" in value:
         out["createPublicIP"] = value["create_public_ip"]
     import aws_sdk_drs.types.tags_map
-    out["stagingAreaTags"] = aws_sdk_drs.types.tags_map.serialize_json(value["staging_area_tags"])
+
+    out["stagingAreaTags"] = aws_sdk_drs.types.tags_map.serialize_json(
+        value["staging_area_tags"]
+    )
     import aws_sdk_drs.types.pit_policy
+
     out["pitPolicy"] = aws_sdk_drs.types.pit_policy.serialize_json(value["pit_policy"])
     if "tags" in value:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.serialize_json(value["tags"])
     if "auto_replicate_new_disks" in value:
         out["autoReplicateNewDisks"] = value["auto_replicate_new_disks"]
@@ -91,14 +114,23 @@ def deserialize_json(data: dict) -> CreateReplicationConfigurationTemplateReques
     if "stagingAreaSubnetId" in data:
         out["staging_area_subnet_id"] = data["stagingAreaSubnetId"]
     else:
-        raise DeserializationError("CreateReplicationConfigurationTemplateRequest.staging_area_subnet_id required")
+        raise DeserializationError(
+            "CreateReplicationConfigurationTemplateRequest.staging_area_subnet_id required"
+        )
     if "associateDefaultSecurityGroup" in data:
         out["associate_default_security_group"] = data["associateDefaultSecurityGroup"]
     if "replicationServersSecurityGroupsIDs" in data:
         import aws_sdk_drs.types.replication_servers_security_groups_i_ds
-        out["replication_servers_security_groups_i_ds"] = aws_sdk_drs.types.replication_servers_security_groups_i_ds.deserialize_json(data["replicationServersSecurityGroupsIDs"])
+
+        out["replication_servers_security_groups_i_ds"] = (
+            aws_sdk_drs.types.replication_servers_security_groups_i_ds.deserialize_json(
+                data["replicationServersSecurityGroupsIDs"]
+            )
+        )
     else:
-        raise DeserializationError("CreateReplicationConfigurationTemplateRequest.replication_servers_security_groups_i_ds required")
+        raise DeserializationError(
+            "CreateReplicationConfigurationTemplateRequest.replication_servers_security_groups_i_ds required"
+        )
     if "replicationServerInstanceType" in data:
         out["replication_server_instance_type"] = data["replicationServerInstanceType"]
     if "useDedicatedReplicationServer" in data:
@@ -108,7 +140,9 @@ def deserialize_json(data: dict) -> CreateReplicationConfigurationTemplateReques
     if "ebsEncryption" in data:
         out["ebs_encryption"] = data["ebsEncryption"]
     else:
-        raise DeserializationError("CreateReplicationConfigurationTemplateRequest.ebs_encryption required")
+        raise DeserializationError(
+            "CreateReplicationConfigurationTemplateRequest.ebs_encryption required"
+        )
     if "ebsEncryptionKeyArn" in data:
         out["ebs_encryption_key_arn"] = data["ebsEncryptionKeyArn"]
     if "bandwidthThrottling" in data:
@@ -121,16 +155,27 @@ def deserialize_json(data: dict) -> CreateReplicationConfigurationTemplateReques
         out["create_public_ip"] = data["createPublicIP"]
     if "stagingAreaTags" in data:
         import aws_sdk_drs.types.tags_map
-        out["staging_area_tags"] = aws_sdk_drs.types.tags_map.deserialize_json(data["stagingAreaTags"])
+
+        out["staging_area_tags"] = aws_sdk_drs.types.tags_map.deserialize_json(
+            data["stagingAreaTags"]
+        )
     else:
-        raise DeserializationError("CreateReplicationConfigurationTemplateRequest.staging_area_tags required")
+        raise DeserializationError(
+            "CreateReplicationConfigurationTemplateRequest.staging_area_tags required"
+        )
     if "pitPolicy" in data:
         import aws_sdk_drs.types.pit_policy
-        out["pit_policy"] = aws_sdk_drs.types.pit_policy.deserialize_json(data["pitPolicy"])
+
+        out["pit_policy"] = aws_sdk_drs.types.pit_policy.deserialize_json(
+            data["pitPolicy"]
+        )
     else:
-        raise DeserializationError("CreateReplicationConfigurationTemplateRequest.pit_policy required")
+        raise DeserializationError(
+            "CreateReplicationConfigurationTemplateRequest.pit_policy required"
+        )
     if "tags" in data:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.deserialize_json(data["tags"])
     if "autoReplicateNewDisks" in data:
         out["auto_replicate_new_disks"] = data["autoReplicateNewDisks"]

@@ -1,20 +1,27 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DnsServiceDiscovery``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_app_mesh.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.dns_response_type
     import aws_sdk_app_mesh.types.hostname
     import aws_sdk_app_mesh.types.ip_preference
 
+
 class DnsServiceDiscovery(TypedDict):
     hostname: "aws_sdk_app_mesh.types.hostname.Hostname"
     """<p>Specifies the DNS service discovery hostname for the virtual node. </p>"""
-    response_type: NotRequired["aws_sdk_app_mesh.types.dns_response_type.DnsResponseType"]
+    response_type: NotRequired[
+        "aws_sdk_app_mesh.types.dns_response_type.DnsResponseType"
+    ]
     """<p>Specifies the DNS response type for the virtual node.</p>"""
     ip_preference: NotRequired["aws_sdk_app_mesh.types.ip_preference.IpPreference"]
     """<p>The preferred IP version that this virtual node uses. Setting the IP preference on the virtual node only overrides the IP preference set for the mesh on this specific node.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DnsServiceDiscovery) -> dict:

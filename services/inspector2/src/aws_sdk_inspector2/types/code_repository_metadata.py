@@ -1,0 +1,104 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#CodeRepositoryMetadata``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_inspector2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_inspector2.types.code_repository_integration_arn
+    import aws_sdk_inspector2.types.code_repository_on_demand_scan
+    import aws_sdk_inspector2.types.commit_id
+    import aws_sdk_inspector2.types.project_code_security_scan_configuration
+
+
+class CodeRepositoryMetadata(TypedDict):
+    project_name: "str"
+    """<p>The name of the project in the code repository.</p>"""
+    integration_arn: NotRequired[
+        "aws_sdk_inspector2.types.code_repository_integration_arn.CodeRepositoryIntegrationArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the code security integration associated with the repository.</p>"""
+    provider_type: "str"
+    """<p>The type of repository provider (such as GitHub, GitLab, etc.).</p>"""
+    provider_type_visibility: "str"
+    """<p>The visibility setting of the repository (public or private).</p>"""
+    last_scanned_commit_id: NotRequired["aws_sdk_inspector2.types.commit_id.CommitId"]
+    """<p>The ID of the last commit that was scanned in the repository.</p>"""
+    scan_configuration: NotRequired[
+        "aws_sdk_inspector2.types.project_code_security_scan_configuration.ProjectCodeSecurityScanConfiguration"
+    ]
+    """<p>The scan configuration settings applied to the code repository.</p>"""
+    on_demand_scan: NotRequired[
+        "aws_sdk_inspector2.types.code_repository_on_demand_scan.CodeRepositoryOnDemandScan"
+    ]
+    """<p>Information about on-demand scans performed on the repository.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CodeRepositoryMetadata) -> dict:
+    out: dict = {}
+    out["projectName"] = value["project_name"]
+    if "integration_arn" in value:
+        out["integrationArn"] = value["integration_arn"]
+    out["providerType"] = value["provider_type"]
+    out["providerTypeVisibility"] = value["provider_type_visibility"]
+    if "last_scanned_commit_id" in value:
+        out["lastScannedCommitId"] = value["last_scanned_commit_id"]
+    if "scan_configuration" in value:
+        import aws_sdk_inspector2.types.project_code_security_scan_configuration
+
+        out["scanConfiguration"] = (
+            aws_sdk_inspector2.types.project_code_security_scan_configuration.serialize_json(
+                value["scan_configuration"]
+            )
+        )
+    if "on_demand_scan" in value:
+        import aws_sdk_inspector2.types.code_repository_on_demand_scan
+
+        out["onDemandScan"] = (
+            aws_sdk_inspector2.types.code_repository_on_demand_scan.serialize_json(
+                value["on_demand_scan"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CodeRepositoryMetadata:
+    out: CodeRepositoryMetadata = {}  # type: ignore[typeddict-item]
+    if "projectName" in data:
+        out["project_name"] = data["projectName"]
+    else:
+        raise DeserializationError("CodeRepositoryMetadata.project_name required")
+    if "integrationArn" in data:
+        out["integration_arn"] = data["integrationArn"]
+    if "providerType" in data:
+        out["provider_type"] = data["providerType"]
+    else:
+        raise DeserializationError("CodeRepositoryMetadata.provider_type required")
+    if "providerTypeVisibility" in data:
+        out["provider_type_visibility"] = data["providerTypeVisibility"]
+    else:
+        raise DeserializationError(
+            "CodeRepositoryMetadata.provider_type_visibility required"
+        )
+    if "lastScannedCommitId" in data:
+        out["last_scanned_commit_id"] = data["lastScannedCommitId"]
+    if "scanConfiguration" in data:
+        import aws_sdk_inspector2.types.project_code_security_scan_configuration
+
+        out["scan_configuration"] = (
+            aws_sdk_inspector2.types.project_code_security_scan_configuration.deserialize_json(
+                data["scanConfiguration"]
+            )
+        )
+    if "onDemandScan" in data:
+        import aws_sdk_inspector2.types.code_repository_on_demand_scan
+
+        out["on_demand_scan"] = (
+            aws_sdk_inspector2.types.code_repository_on_demand_scan.deserialize_json(
+                data["onDemandScan"]
+            )
+        )
+    return out

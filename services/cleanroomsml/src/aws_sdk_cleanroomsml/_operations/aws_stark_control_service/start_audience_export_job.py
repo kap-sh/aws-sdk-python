@@ -1,20 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#StartAudienceExportJob``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_cleanroomsml._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_cleanroomsml._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_cleanroomsml.errors import ServiceError, UnknownServiceError
-from aws_sdk_cleanroomsml._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
 import aws_sdk_cleanroomsml._auth._signers
 import aws_sdk_cleanroomsml._auth._sigv4
-from aws_sdk_cleanroomsml._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_cleanroomsml._protocol.errors import parse_error_metadata_json
+from aws_sdk_cleanroomsml._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from aws_sdk_cleanroomsml._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_cleanroomsml.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.start_audience_export_job_request
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -22,31 +27,63 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_cleanroomsml.errors.access_denied_exception
-            raise aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "ConflictException":
             import aws_sdk_cleanroomsml.errors.conflict_exception
-            raise aws_sdk_cleanroomsml.errors.conflict_exception.ConflictException.from_json(data)
+
+            raise aws_sdk_cleanroomsml.errors.conflict_exception.ConflictException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_cleanroomsml.errors.resource_not_found_exception
-            raise aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case "ServiceQuotaExceededException":
             import aws_sdk_cleanroomsml.errors.service_quota_exceeded_exception
-            raise aws_sdk_cleanroomsml.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(data)
+
+            raise aws_sdk_cleanroomsml.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_cleanroomsml.errors.validation_exception
-            raise aws_sdk_cleanroomsml.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_cleanroomsml.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_cleanroomsml._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_cleanroomsml._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_cleanroomsml._auth._sigv4.build_sigv4_auth_scheme('cleanrooms-ml', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_cleanroomsml._auth._sigv4.build_sigv4_auth_scheme(
+                "cleanrooms-ml", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_cleanroomsml._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_cleanroomsml._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             Region=options.region,
@@ -59,7 +96,12 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_cleanroomsml.types.start_audience_export_job_request
-    body: bytes | None = json.dumps(aws_sdk_cleanroomsml.types.start_audience_export_job_request.serialize_json(input)).encode()
+
+    body: bytes | None = json.dumps(
+        aws_sdk_cleanroomsml.types.start_audience_export_job_request.serialize_json(
+            input
+        )
+    ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -72,7 +114,11 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def start_audience_export_job(options: OperationOptions, input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest) -> tuple[None, zapros.Response]:
+
+def start_audience_export_job(
+    options: OperationOptions,
+    input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest,
+) -> tuple[None, zapros.Response]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -83,7 +129,11 @@ def start_audience_export_job(options: OperationOptions, input: aws_sdk_cleanroo
         response.close()
         raise
 
-async def async_start_audience_export_job(options: AsyncOperationOptions, input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest) -> tuple[None, zapros.Response]:
+
+async def async_start_audience_export_job(
+    options: AsyncOperationOptions,
+    input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest,
+) -> tuple[None, zapros.Response]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

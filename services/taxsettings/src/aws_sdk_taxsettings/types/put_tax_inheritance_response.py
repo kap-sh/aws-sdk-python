@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class PutTaxInheritanceResponse(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PutTaxInheritanceResponse) -> dict:

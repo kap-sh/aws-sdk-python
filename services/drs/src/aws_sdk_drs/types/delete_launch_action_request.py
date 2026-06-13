@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DeleteLaunchActionRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_id
     import aws_sdk_drs.types.launch_action_resource_id
 
+
 class DeleteLaunchActionRequest(TypedDict):
     resource_id: "aws_sdk_drs.types.launch_action_resource_id.LaunchActionResourceId"
     action_id: "aws_sdk_drs.types.launch_action_id.LaunchActionId"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteLaunchActionRequest) -> dict:

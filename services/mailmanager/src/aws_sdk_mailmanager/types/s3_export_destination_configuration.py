@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.mailmanager#S3ExportDestinationConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_mailmanager.types.s3_location
+
+
+class S3ExportDestinationConfiguration(TypedDict):
+    s3_location: NotRequired["aws_sdk_mailmanager.types.s3_location.S3Location"]
+    """<p>The S3 location to deliver the exported email data.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: S3ExportDestinationConfiguration) -> dict:
+    out: dict = {}
+    if "s3_location" in value:
+        out["S3Location"] = value["s3_location"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> S3ExportDestinationConfiguration:
+    out: S3ExportDestinationConfiguration = {}  # type: ignore[typeddict-item]
+    if "S3Location" in data:
+        out["s3_location"] = data["S3Location"]
+    return out

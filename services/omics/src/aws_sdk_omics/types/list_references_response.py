@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.omics#ListReferencesResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_omics.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_omics.types.next_token
+    import aws_sdk_omics.types.reference_list
+
+
+class ListReferencesResponse(TypedDict):
+    next_token: NotRequired["aws_sdk_omics.types.next_token.NextToken"]
+    """<p>A pagination token that's included if more results are available.</p>"""
+    references: "aws_sdk_omics.types.reference_list.ReferenceList"
+    """<p>A list of references.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListReferencesResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    import aws_sdk_omics.types.reference_list
+
+    out["references"] = aws_sdk_omics.types.reference_list.serialize_json(
+        value["references"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> ListReferencesResponse:
+    out: ListReferencesResponse = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "references" in data:
+        import aws_sdk_omics.types.reference_list
+
+        out["references"] = aws_sdk_omics.types.reference_list.deserialize_json(
+            data["references"]
+        )
+    else:
+        raise DeserializationError("ListReferencesResponse.references required")
+    return out

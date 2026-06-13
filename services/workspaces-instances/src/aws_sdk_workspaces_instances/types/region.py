@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#Region``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.region_name
 
+
 class Region(TypedDict):
-    region_name: NotRequired["aws_sdk_workspaces_instances.types.region_name.RegionName"]
+    region_name: NotRequired[
+        "aws_sdk_workspaces_instances.types.region_name.RegionName"
+    ]
     """<p>Name of the AWS region.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: Region) -> dict:

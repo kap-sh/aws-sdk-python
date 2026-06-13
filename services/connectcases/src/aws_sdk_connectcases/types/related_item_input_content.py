@@ -1,15 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemInputContent``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_connectcases.types.connect_case_input_content
-    import aws_sdk_connectcases.types.custom_input_content
-    import aws_sdk_connectcases.types.sla_input_content
     import aws_sdk_connectcases.types.comment_content
+    import aws_sdk_connectcases.types.connect_case_input_content
     import aws_sdk_connectcases.types.contact
+    import aws_sdk_connectcases.types.custom_input_content
     import aws_sdk_connectcases.types.file_content
+    import aws_sdk_connectcases.types.sla_input_content
 
 
 class _RelatedItemInputContent_contact(TypedDict):

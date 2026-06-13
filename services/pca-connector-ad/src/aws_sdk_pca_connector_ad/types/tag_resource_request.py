@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.pcaconnectorad#TagResourceRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_pca_connector_ad.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_pca_connector_ad.types.tags
+
+
+class TagResourceRequest(TypedDict):
+    resource_arn: "str"
+    """<p>The Amazon Resource Name (ARN) that was returned when you created the resource. </p>"""
+    tags: "aws_sdk_pca_connector_ad.types.tags.Tags"
+    """<p>Metadata assigned to a directory registration consisting of a key-value pair.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TagResourceRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_pca_connector_ad.types.tags
+
+    out["Tags"] = aws_sdk_pca_connector_ad.types.tags.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> TagResourceRequest:
+    out: TagResourceRequest = {}  # type: ignore[typeddict-item]
+    if "Tags" in data:
+        import aws_sdk_pca_connector_ad.types.tags
+
+        out["tags"] = aws_sdk_pca_connector_ad.types.tags.deserialize_json(data["Tags"])
+    else:
+        raise DeserializationError("TagResourceRequest.tags required")
+    return out

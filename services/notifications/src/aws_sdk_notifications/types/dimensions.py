@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#Dimensions``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.dimension
 
@@ -10,6 +11,7 @@ Dimensions: TypeAlias = list["aws_sdk_notifications.types.dimension.Dimension"]
 # --- restJson1 ser/de ---
 def serialize_json(value: Dimensions) -> list:
     import aws_sdk_notifications.types.dimension
+
     out: list = []
     for item in value:
         out.append(aws_sdk_notifications.types.dimension.serialize_json(item))
@@ -18,6 +20,7 @@ def serialize_json(value: Dimensions) -> list:
 
 def deserialize_json(data: list) -> Dimensions:
     import aws_sdk_notifications.types.dimension
+
     out: Dimensions = []
     for item in data:
         out.append(aws_sdk_notifications.types.dimension.deserialize_json(item))

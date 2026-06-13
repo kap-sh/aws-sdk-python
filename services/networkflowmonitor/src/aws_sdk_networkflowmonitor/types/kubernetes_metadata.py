@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#KubernetesMetadata``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class KubernetesMetadata(TypedDict):
     local_service_name: NotRequired["str"]
@@ -16,6 +18,7 @@ class KubernetesMetadata(TypedDict):
     """<p>The name of the pod for a remote resource.</p>"""
     remote_pod_namespace: NotRequired["str"]
     """<p>The namespace of the pod for a remote resource.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: KubernetesMetadata) -> dict:

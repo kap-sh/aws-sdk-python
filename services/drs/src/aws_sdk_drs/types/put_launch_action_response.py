@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#PutLaunchActionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_category
     import aws_sdk_drs.types.launch_action_description
@@ -14,8 +16,11 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_version
     import aws_sdk_drs.types.ssm_document_name
 
+
 class PutLaunchActionResponse(TypedDict):
-    resource_id: NotRequired["aws_sdk_drs.types.launch_action_resource_id.LaunchActionResourceId"]
+    resource_id: NotRequired[
+        "aws_sdk_drs.types.launch_action_resource_id.LaunchActionResourceId"
+    ]
     action_id: NotRequired["aws_sdk_drs.types.launch_action_id.LaunchActionId"]
     action_code: NotRequired["aws_sdk_drs.types.ssm_document_name.SsmDocumentName"]
     """<p>Launch action code.</p>"""
@@ -25,12 +30,21 @@ class PutLaunchActionResponse(TypedDict):
     active: NotRequired["bool"]
     """<p>Whether the launch action is active.</p>"""
     order: NotRequired["aws_sdk_drs.types.launch_action_order.LaunchActionOrder"]
-    action_version: NotRequired["aws_sdk_drs.types.launch_action_version.LaunchActionVersion"]
+    action_version: NotRequired[
+        "aws_sdk_drs.types.launch_action_version.LaunchActionVersion"
+    ]
     optional: NotRequired["bool"]
     """<p>Whether the launch will not be marked as failed if this action fails.</p>"""
-    parameters: NotRequired["aws_sdk_drs.types.launch_action_parameters.LaunchActionParameters"]
-    description: NotRequired["aws_sdk_drs.types.launch_action_description.LaunchActionDescription"]
-    category: NotRequired["aws_sdk_drs.types.launch_action_category.LaunchActionCategory"]
+    parameters: NotRequired[
+        "aws_sdk_drs.types.launch_action_parameters.LaunchActionParameters"
+    ]
+    description: NotRequired[
+        "aws_sdk_drs.types.launch_action_description.LaunchActionDescription"
+    ]
+    category: NotRequired[
+        "aws_sdk_drs.types.launch_action_category.LaunchActionCategory"
+    ]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PutLaunchActionResponse) -> dict:
@@ -55,7 +69,10 @@ def serialize_json(value: PutLaunchActionResponse) -> dict:
         out["optional"] = value["optional"]
     if "parameters" in value:
         import aws_sdk_drs.types.launch_action_parameters
-        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.serialize_json(value["parameters"])
+
+        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.serialize_json(
+            value["parameters"]
+        )
     if "description" in value:
         out["description"] = value["description"]
     if "category" in value:
@@ -85,7 +102,10 @@ def deserialize_json(data: dict) -> PutLaunchActionResponse:
         out["optional"] = data["optional"]
     if "parameters" in data:
         import aws_sdk_drs.types.launch_action_parameters
-        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.deserialize_json(data["parameters"])
+
+        out["parameters"] = aws_sdk_drs.types.launch_action_parameters.deserialize_json(
+            data["parameters"]
+        )
     if "description" in data:
         out["description"] = data["description"]
     if "category" in data:

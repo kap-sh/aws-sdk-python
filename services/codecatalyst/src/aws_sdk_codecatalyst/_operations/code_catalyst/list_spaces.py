@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Any, Never
 import zapros
 
 import aws_sdk_codecatalyst._auth._signers
+import aws_sdk_codecatalyst._auth._sigv4
 from aws_sdk_codecatalyst._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecatalyst._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecatalyst._services._pipeline import (

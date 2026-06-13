@@ -1,18 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AgentCollaboratorInvocationInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_arn
     import aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload
 
+
 class AgentCollaboratorInvocationInput(TypedDict):
     agent_collaborator_name: NotRequired["str"]
     """<p>The collaborator's name.</p>"""
-    agent_collaborator_alias_arn: NotRequired["aws_sdk_bedrock_agent_runtime.types.agent_alias_arn.AgentAliasArn"]
+    agent_collaborator_alias_arn: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.agent_alias_arn.AgentAliasArn"
+    ]
     """<p>The collaborator's alias ARN.</p>"""
-    input: NotRequired["aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload.AgentCollaboratorInputPayload"]
+    input: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload.AgentCollaboratorInputPayload"
+    ]
     """<p>Text or action invocation result input for the collaborator.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AgentCollaboratorInvocationInput) -> dict:
@@ -23,7 +31,12 @@ def serialize_json(value: AgentCollaboratorInvocationInput) -> dict:
         out["agentCollaboratorAliasArn"] = value["agent_collaborator_alias_arn"]
     if "input" in value:
         import aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload
-        out["input"] = aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload.serialize_json(value["input"])
+
+        out["input"] = (
+            aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload.serialize_json(
+                value["input"]
+            )
+        )
     return out
 
 
@@ -35,5 +48,10 @@ def deserialize_json(data: dict) -> AgentCollaboratorInvocationInput:
         out["agent_collaborator_alias_arn"] = data["agentCollaboratorAliasArn"]
     if "input" in data:
         import aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload
-        out["input"] = aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload.deserialize_json(data["input"])
+
+        out["input"] = (
+            aws_sdk_bedrock_agent_runtime.types.agent_collaborator_input_payload.deserialize_json(
+                data["input"]
+            )
+        )
     return out

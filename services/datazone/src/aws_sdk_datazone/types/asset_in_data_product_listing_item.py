@@ -3,6 +3,7 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class AssetInDataProductListingItem(TypedDict):
     entity_id: NotRequired["str"]
     """<p>The entity ID of the listing of the asset in a data product.</p>"""
@@ -10,6 +11,7 @@ class AssetInDataProductListingItem(TypedDict):
     """<p>The entity revision of the listing of the asset in a data product.</p>"""
     entity_type: NotRequired["str"]
     """<p>The entity type of the listing of the asset in a data product.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssetInDataProductListingItem) -> dict:

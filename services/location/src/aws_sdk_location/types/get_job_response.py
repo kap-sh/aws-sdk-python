@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetJobResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geo_arn
     import aws_sdk_location.types.iam_role_arn
@@ -17,10 +20,13 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.tag_map
     import aws_sdk_location.types.timestamp
 
+
 class GetJobResponse(TypedDict):
     action: "aws_sdk_location.types.job_action.JobAction"
     """<p>Action performed by the job.</p>"""
-    action_options: NotRequired["aws_sdk_location.types.job_action_options.JobActionOptions"]
+    action_options: NotRequired[
+        "aws_sdk_location.types.job_action_options.JobActionOptions"
+    ]
     """<p>Additional options for configuring job action parameters.</p>"""
     created_at: "aws_sdk_location.types.timestamp.Timestamp"
     """<p>Job creation time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
@@ -47,35 +53,56 @@ class GetJobResponse(TypedDict):
     tags: NotRequired["aws_sdk_location.types.tag_map.TagMap"]
     """<p>Tags and corresponding values associated with the specified job.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: GetJobResponse) -> dict:
     out: dict = {}
     out["Action"] = value["action"]
     if "action_options" in value:
         import aws_sdk_location.types.job_action_options
-        out["ActionOptions"] = aws_sdk_location.types.job_action_options.serialize_json(value["action_options"])
+
+        out["ActionOptions"] = aws_sdk_location.types.job_action_options.serialize_json(
+            value["action_options"]
+        )
     import aws_sdk_location.types.timestamp
-    out["CreatedAt"] = aws_sdk_location.types.timestamp.serialize_json(value["created_at"])
+
+    out["CreatedAt"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["created_at"]
+    )
     if "ended_at" in value:
         import aws_sdk_location.types.timestamp
-        out["EndedAt"] = aws_sdk_location.types.timestamp.serialize_json(value["ended_at"])
+
+        out["EndedAt"] = aws_sdk_location.types.timestamp.serialize_json(
+            value["ended_at"]
+        )
     if "error" in value:
         import aws_sdk_location.types.job_error
+
         out["Error"] = aws_sdk_location.types.job_error.serialize_json(value["error"])
     out["ExecutionRoleArn"] = value["execution_role_arn"]
     import aws_sdk_location.types.job_input_options
-    out["InputOptions"] = aws_sdk_location.types.job_input_options.serialize_json(value["input_options"])
+
+    out["InputOptions"] = aws_sdk_location.types.job_input_options.serialize_json(
+        value["input_options"]
+    )
     out["JobArn"] = value["job_arn"]
     out["JobId"] = value["job_id"]
     if "name" in value:
         out["Name"] = value["name"]
     import aws_sdk_location.types.job_output_options
-    out["OutputOptions"] = aws_sdk_location.types.job_output_options.serialize_json(value["output_options"])
+
+    out["OutputOptions"] = aws_sdk_location.types.job_output_options.serialize_json(
+        value["output_options"]
+    )
     out["Status"] = value["status"]
     import aws_sdk_location.types.timestamp
-    out["UpdatedAt"] = aws_sdk_location.types.timestamp.serialize_json(value["updated_at"])
+
+    out["UpdatedAt"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["updated_at"]
+    )
     if "tags" in value:
         import aws_sdk_location.types.tag_map
+
         out["Tags"] = aws_sdk_location.types.tag_map.serialize_json(value["tags"])
     return out
 
@@ -88,17 +115,29 @@ def deserialize_json(data: dict) -> GetJobResponse:
         raise DeserializationError("GetJobResponse.action required")
     if "ActionOptions" in data:
         import aws_sdk_location.types.job_action_options
-        out["action_options"] = aws_sdk_location.types.job_action_options.deserialize_json(data["ActionOptions"])
+
+        out["action_options"] = (
+            aws_sdk_location.types.job_action_options.deserialize_json(
+                data["ActionOptions"]
+            )
+        )
     if "CreatedAt" in data:
         import aws_sdk_location.types.timestamp
-        out["created_at"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreatedAt"])
+
+        out["created_at"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreatedAt"]
+        )
     else:
         raise DeserializationError("GetJobResponse.created_at required")
     if "EndedAt" in data:
         import aws_sdk_location.types.timestamp
-        out["ended_at"] = aws_sdk_location.types.timestamp.deserialize_json(data["EndedAt"])
+
+        out["ended_at"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["EndedAt"]
+        )
     if "Error" in data:
         import aws_sdk_location.types.job_error
+
         out["error"] = aws_sdk_location.types.job_error.deserialize_json(data["Error"])
     if "ExecutionRoleArn" in data:
         out["execution_role_arn"] = data["ExecutionRoleArn"]
@@ -106,7 +145,12 @@ def deserialize_json(data: dict) -> GetJobResponse:
         raise DeserializationError("GetJobResponse.execution_role_arn required")
     if "InputOptions" in data:
         import aws_sdk_location.types.job_input_options
-        out["input_options"] = aws_sdk_location.types.job_input_options.deserialize_json(data["InputOptions"])
+
+        out["input_options"] = (
+            aws_sdk_location.types.job_input_options.deserialize_json(
+                data["InputOptions"]
+            )
+        )
     else:
         raise DeserializationError("GetJobResponse.input_options required")
     if "JobArn" in data:
@@ -121,7 +165,12 @@ def deserialize_json(data: dict) -> GetJobResponse:
         out["name"] = data["Name"]
     if "OutputOptions" in data:
         import aws_sdk_location.types.job_output_options
-        out["output_options"] = aws_sdk_location.types.job_output_options.deserialize_json(data["OutputOptions"])
+
+        out["output_options"] = (
+            aws_sdk_location.types.job_output_options.deserialize_json(
+                data["OutputOptions"]
+            )
+        )
     else:
         raise DeserializationError("GetJobResponse.output_options required")
     if "Status" in data:
@@ -130,10 +179,14 @@ def deserialize_json(data: dict) -> GetJobResponse:
         raise DeserializationError("GetJobResponse.status required")
     if "UpdatedAt" in data:
         import aws_sdk_location.types.timestamp
-        out["updated_at"] = aws_sdk_location.types.timestamp.deserialize_json(data["UpdatedAt"])
+
+        out["updated_at"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["UpdatedAt"]
+        )
     else:
         raise DeserializationError("GetJobResponse.updated_at required")
     if "Tags" in data:
         import aws_sdk_location.types.tag_map
+
         out["tags"] = aws_sdk_location.types.tag_map.deserialize_json(data["Tags"])
     return out

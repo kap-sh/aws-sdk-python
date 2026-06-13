@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.evs#UpdateEnvironmentConnectorRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_evs.types.appliance_fqdn
+    import aws_sdk_evs.types.client_token
+    import aws_sdk_evs.types.connector_id
+    import aws_sdk_evs.types.environment_id
+    import aws_sdk_evs.types.secret_identifier
+
+
+class UpdateEnvironmentConnectorRequest(TypedDict):
+    client_token: NotRequired["aws_sdk_evs.types.client_token.ClientToken"]
+    """<note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the connector update request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>"""
+    environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId"
+    """<p>A unique ID for the environment that the connector belongs to.</p>"""
+    connector_id: "aws_sdk_evs.types.connector_id.ConnectorId"
+    """<p>A unique ID for the connector to update.</p>"""
+    appliance_fqdn: NotRequired["aws_sdk_evs.types.appliance_fqdn.ApplianceFqdn"]
+    """<p>The new fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>"""
+    secret_identifier: NotRequired[
+        "aws_sdk_evs.types.secret_identifier.SecretIdentifier"
+    ]
+    """<p>The new ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateEnvironmentConnectorRequest) -> dict:
+    out: dict = {}
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    if "appliance_fqdn" in value:
+        out["applianceFqdn"] = value["appliance_fqdn"]
+    if "secret_identifier" in value:
+        out["secretIdentifier"] = value["secret_identifier"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateEnvironmentConnectorRequest:
+    out: UpdateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    if "applianceFqdn" in data:
+        out["appliance_fqdn"] = data["applianceFqdn"]
+    if "secretIdentifier" in data:
+        out["secret_identifier"] = data["secretIdentifier"]
+    return out

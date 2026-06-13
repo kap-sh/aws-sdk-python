@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_mgn._services.async_mgn import ensure_async_iterator
-from aws_sdk_mgn._services.mgn import ensure_sync_iterator
-from aws_sdk_mgn._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_mgn._auth._signers
 import aws_sdk_mgn._auth._sigv4
+from aws_sdk_mgn._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
-    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
     import aws_sdk_mgn.types.client_idempotency_token
     import aws_sdk_mgn.types.import_id
     import aws_sdk_mgn.types.import_task
@@ -22,11 +27,24 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.start_import_request
     import aws_sdk_mgn.types.start_import_response
     import aws_sdk_mgn.types.tags_map
+    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
+    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
+
 
 class ImportResource:
     def __init__(self, service: mgnClient) -> None:
         self._service = service
-    def create(self, s3_bucket_source: "aws_sdk_mgn.types.s3_bucket_source.S3BucketSource", *, config_overrides: Optional[mgnClientConfig] = None, client_token: Optional["aws_sdk_mgn.types.client_idempotency_token.ClientIdempotencyToken"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None) -> "aws_sdk_mgn.types.start_import_response.StartImportResponse":
+
+    def create(
+        self,
+        s3_bucket_source: "aws_sdk_mgn.types.s3_bucket_source.S3BucketSource",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_mgn.types.client_idempotency_token.ClientIdempotencyToken"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.start_import_response.StartImportResponse":
         """<p>Start import.</p>
 
         Args:
@@ -34,9 +52,19 @@ class ImportResource:
             s3_bucket_source: <p>Start import request s3 bucket source.</p>
             tags: <p>Start import request tags.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.start_import_request.StartImportRequest]') -> OperationResponse["aws_sdk_mgn.types.start_import_response.StartImportResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.start_import_request.StartImportRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.start_import_response.StartImportResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_import
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.start_import.start_import(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.start_import.start_import(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -47,9 +75,27 @@ class ImportResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_imports_request_filters.ListImportsRequestFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_imports_response.ListImportsResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_imports_request_filters.ListImportsRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_imports_response.ListImportsResponse":
         """<p>List imports.</p>
 
         Args:
@@ -57,9 +103,19 @@ class ImportResource:
             max_results: <p>List imports request max results.</p>
             next_token: <p>List imports request next token.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_imports_request.ListImportsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_imports_response.ListImportsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_imports_request.ListImportsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_imports_response.ListImportsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_imports
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_imports.list_imports(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_imports.list_imports(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -71,9 +127,25 @@ class ImportResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_import_errors(self, import_id: "aws_sdk_mgn.types.import_id.ImportID", *, config_overrides: Optional[mgnClientConfig] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse":
+
+    def list_import_errors(
+        self,
+        import_id: "aws_sdk_mgn.types.import_id.ImportID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse":
         """<p>List import errors.</p>
 
         Args:
@@ -81,9 +153,19 @@ class ImportResource:
             max_results: <p>List import errors request max results.</p>
             next_token: <p>List import errors request next token.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_import_errors_request.ListImportErrorsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_import_errors_request.ListImportErrorsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_import_errors
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_import_errors.list_import_errors(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_import_errors.list_import_errors(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -94,13 +176,28 @@ class ImportResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncImportResource:
     def __init__(self, service: AsyncmgnClient) -> None:
         self._service = service
-    async def create(self, s3_bucket_source: "aws_sdk_mgn.types.s3_bucket_source.S3BucketSource", *, config_overrides: Optional[AsyncmgnClientConfig] = None, client_token: Optional["aws_sdk_mgn.types.client_idempotency_token.ClientIdempotencyToken"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None) -> "aws_sdk_mgn.types.start_import_response.StartImportResponse":
+
+    async def create(
+        self,
+        s3_bucket_source: "aws_sdk_mgn.types.s3_bucket_source.S3BucketSource",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_mgn.types.client_idempotency_token.ClientIdempotencyToken"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.start_import_response.StartImportResponse":
         """<p>Start import.</p>
 
         Args:
@@ -108,9 +205,20 @@ class AsyncImportResource:
             s3_bucket_source: <p>Start import request s3 bucket source.</p>
             tags: <p>Start import request tags.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.start_import_request.StartImportRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.start_import_response.StartImportResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.start_import_request.StartImportRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.start_import_response.StartImportResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_import
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.start_import.async_start_import(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.start_import.async_start_import(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -121,9 +229,27 @@ class AsyncImportResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_imports_request_filters.ListImportsRequestFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_imports_response.ListImportsResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_imports_request_filters.ListImportsRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_imports_response.ListImportsResponse":
         """<p>List imports.</p>
 
         Args:
@@ -131,9 +257,20 @@ class AsyncImportResource:
             max_results: <p>List imports request max results.</p>
             next_token: <p>List imports request next token.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_imports_request.ListImportsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_imports_response.ListImportsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_imports_request.ListImportsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_imports_response.ListImportsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_imports
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_imports.async_list_imports(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_imports.async_list_imports(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -145,9 +282,25 @@ class AsyncImportResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_import_errors(self, import_id: "aws_sdk_mgn.types.import_id.ImportID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse":
+
+    async def list_import_errors(
+        self,
+        import_id: "aws_sdk_mgn.types.import_id.ImportID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse":
         """<p>List import errors.</p>
 
         Args:
@@ -155,9 +308,20 @@ class AsyncImportResource:
             max_results: <p>List import errors request max results.</p>
             next_token: <p>List import errors request next token.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_import_errors_request.ListImportErrorsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_import_errors_request.ListImportErrorsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_import_errors_response.ListImportErrorsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_import_errors
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_import_errors.async_list_import_errors(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_import_errors.async_list_import_errors(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -168,5 +332,9 @@ class AsyncImportResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

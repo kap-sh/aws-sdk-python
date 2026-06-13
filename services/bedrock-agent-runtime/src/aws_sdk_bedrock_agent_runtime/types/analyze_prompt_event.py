@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AnalyzePromptEvent``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class AnalyzePromptEvent(TypedDict):
     message: NotRequired["str"]
     """<p>A message describing the analysis of the prompt.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AnalyzePromptEvent) -> dict:

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#ValidationStrategy``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.validation_strategy_mode
+
+
+class ValidationStrategy(TypedDict):
+    mode: "aws_sdk_quicksight.types.validation_strategy_mode.ValidationStrategyMode"
+    """<p>The mode of validation for the asset to be created or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ValidationStrategy) -> dict:
+    out: dict = {}
+    import aws_sdk_quicksight.types.validation_strategy_mode
+
+    out["Mode"] = aws_sdk_quicksight.types.validation_strategy_mode.serialize_json(
+        value["mode"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> ValidationStrategy:
+    out: ValidationStrategy = {}  # type: ignore[typeddict-item]
+    if "Mode" in data:
+        import aws_sdk_quicksight.types.validation_strategy_mode
+
+        out["mode"] = (
+            aws_sdk_quicksight.types.validation_strategy_mode.deserialize_json(
+                data["Mode"]
+            )
+        )
+    else:
+        raise DeserializationError("ValidationStrategy.mode required")
+    return out

@@ -4,6 +4,7 @@ from typing import TypedDict
 from typing_extensions import NotRequired
 from aws_sdk_datazone.errors import DeserializationError
 
+
 class AmazonQPropertiesPatch(TypedDict):
     is_enabled: "bool"
     """<p>Specifies whether Amazon Q is enabled for the connection.</p>"""
@@ -11,6 +12,7 @@ class AmazonQPropertiesPatch(TypedDict):
     """<p>The profile ARN of the connection's Amazon Q properties.</p>"""
     auth_mode: NotRequired["str"]
     """<p>The authentication mode of the connection's Amazon Q properties.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AmazonQPropertiesPatch) -> dict:

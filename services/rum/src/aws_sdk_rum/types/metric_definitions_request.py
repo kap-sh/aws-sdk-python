@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.rum#MetricDefinitionsRequest``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_definition_request
 
-MetricDefinitionsRequest: TypeAlias = list["aws_sdk_rum.types.metric_definition_request.MetricDefinitionRequest"]
+MetricDefinitionsRequest: TypeAlias = list[
+    "aws_sdk_rum.types.metric_definition_request.MetricDefinitionRequest"
+]
 
 
 # --- restJson1 ser/de ---
 def serialize_json(value: MetricDefinitionsRequest) -> list:
     import aws_sdk_rum.types.metric_definition_request
+
     out: list = []
     for item in value:
         out.append(aws_sdk_rum.types.metric_definition_request.serialize_json(item))
@@ -18,6 +22,7 @@ def serialize_json(value: MetricDefinitionsRequest) -> list:
 
 def deserialize_json(data: list) -> MetricDefinitionsRequest:
     import aws_sdk_rum.types.metric_definition_request
+
     out: MetricDefinitionsRequest = []
     for item in data:
         out.append(aws_sdk_rum.types.metric_definition_request.deserialize_json(item))

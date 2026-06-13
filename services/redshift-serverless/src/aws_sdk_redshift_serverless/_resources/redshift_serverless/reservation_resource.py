@@ -1,0 +1,463 @@
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_redshift_serverless._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_redshift_serverless.types.capacity
+    import aws_sdk_redshift_serverless.types.create_reservation_request
+    import aws_sdk_redshift_serverless.types.create_reservation_response
+    import aws_sdk_redshift_serverless.types.get_reservation_offering_request
+    import aws_sdk_redshift_serverless.types.get_reservation_offering_response
+    import aws_sdk_redshift_serverless.types.get_reservation_request
+    import aws_sdk_redshift_serverless.types.get_reservation_response
+    import aws_sdk_redshift_serverless.types.list_reservation_offerings_request
+    import aws_sdk_redshift_serverless.types.list_reservation_offerings_response
+    import aws_sdk_redshift_serverless.types.list_reservations_request
+    import aws_sdk_redshift_serverless.types.list_reservations_response
+    import aws_sdk_redshift_serverless.types.offering_id
+    import aws_sdk_redshift_serverless.types.pagination_token
+    import aws_sdk_redshift_serverless.types.reservation
+    import aws_sdk_redshift_serverless.types.reservation_id
+    import aws_sdk_redshift_serverless.types.reservation_offering
+    from aws_sdk_redshift_serverless._services.async_redshift_serverless import (
+        AsyncRedshiftServerlessClient,
+        AsyncRedshiftServerlessClientConfig,
+    )
+    from aws_sdk_redshift_serverless._services.redshift_serverless import (
+        RedshiftServerlessClient,
+        RedshiftServerlessClientConfig,
+    )
+
+
+class ReservationResource:
+    def __init__(self, service: RedshiftServerlessClient) -> None:
+        self._service = service
+
+    def create_reservation(
+        self,
+        capacity: "aws_sdk_redshift_serverless.types.capacity.Capacity",
+        offering_id: "aws_sdk_redshift_serverless.types.offering_id.OfferingId",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+        client_token: Optional[str] = None,
+    ) -> "aws_sdk_redshift_serverless.types.create_reservation_response.CreateReservationResponse":
+        """<p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+
+        Args:
+            capacity: <p>The number of Redshift Processing Units (RPUs) to reserve.</p>
+            offering_id: <p>The ID of the offering associated with the reservation. The offering determines the payment schedule for the reservation.</p>
+            client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. This token must be a valid UUIDv4 value. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\"> Making retries safe with idempotent APIs </a>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.create_reservation_response.CreateReservationResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.create_reservation
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.create_reservation.create_reservation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest = {}  # type: ignore[typeddict-item]
+        input["capacity"] = capacity
+        input["offering_id"] = offering_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_reservation(
+        self,
+        reservation_id: "aws_sdk_redshift_serverless.types.reservation_id.ReservationId",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.get_reservation_response.GetReservationResponse":
+        """<p>Gets an Amazon Redshift Serverless reservation. A reservation gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+
+        Args:
+            reservation_id: <p>The ID of the reservation to retrieve.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.get_reservation_response.GetReservationResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation.get_reservation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest = {}  # type: ignore[typeddict-item]
+        input["reservation_id"] = reservation_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_reservation_offering(
+        self,
+        offering_id: "aws_sdk_redshift_serverless.types.offering_id.OfferingId",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.get_reservation_offering_response.GetReservationOfferingResponse":
+        """<p>Returns the reservation offering. The offering determines the payment schedule for the reservation.</p>
+
+        Args:
+            offering_id: <p>The identifier for the offering..</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.get_reservation_offering_response.GetReservationOfferingResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation_offering
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation_offering.get_reservation_offering(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest = {}  # type: ignore[typeddict-item]
+        input["offering_id"] = offering_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_reservation_offerings(
+        self,
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_redshift_serverless.types.list_reservation_offerings_response.ListReservationOfferingsResponse":
+        """<p>Returns the current reservation offerings in your account.</p>
+
+        Args:
+            next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+            max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.list_reservation_offerings_response.ListReservationOfferingsResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservation_offerings
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservation_offerings.list_reservation_offerings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_reservations(
+        self,
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_redshift_serverless.types.list_reservations_response.ListReservationsResponse":
+        """<p>Returns a list of Reservation objects.</p>
+
+        Args:
+            next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+            max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.list_reservations_response.ListReservationsResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservations
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservations.list_reservations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncReservationResource:
+    def __init__(self, service: AsyncRedshiftServerlessClient) -> None:
+        self._service = service
+
+    async def create_reservation(
+        self,
+        capacity: "aws_sdk_redshift_serverless.types.capacity.Capacity",
+        offering_id: "aws_sdk_redshift_serverless.types.offering_id.OfferingId",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+        client_token: Optional[str] = None,
+    ) -> "aws_sdk_redshift_serverless.types.create_reservation_response.CreateReservationResponse":
+        """<p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+
+        Args:
+            capacity: <p>The number of Redshift Processing Units (RPUs) to reserve.</p>
+            offering_id: <p>The ID of the offering associated with the reservation. The offering determines the payment schedule for the reservation.</p>
+            client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. This token must be a valid UUIDv4 value. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\"> Making retries safe with idempotent APIs </a>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.create_reservation_response.CreateReservationResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.create_reservation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.create_reservation.async_create_reservation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest = {}  # type: ignore[typeddict-item]
+        input["capacity"] = capacity
+        input["offering_id"] = offering_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_reservation(
+        self,
+        reservation_id: "aws_sdk_redshift_serverless.types.reservation_id.ReservationId",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.get_reservation_response.GetReservationResponse":
+        """<p>Gets an Amazon Redshift Serverless reservation. A reservation gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+
+        Args:
+            reservation_id: <p>The ID of the reservation to retrieve.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.get_reservation_response.GetReservationResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation.async_get_reservation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest = {}  # type: ignore[typeddict-item]
+        input["reservation_id"] = reservation_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_reservation_offering(
+        self,
+        offering_id: "aws_sdk_redshift_serverless.types.offering_id.OfferingId",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.get_reservation_offering_response.GetReservationOfferingResponse":
+        """<p>Returns the reservation offering. The offering determines the payment schedule for the reservation.</p>
+
+        Args:
+            offering_id: <p>The identifier for the offering..</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.get_reservation_offering_response.GetReservationOfferingResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation_offering
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.get_reservation_offering.async_get_reservation_offering(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest = {}  # type: ignore[typeddict-item]
+        input["offering_id"] = offering_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_reservation_offerings(
+        self,
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_redshift_serverless.types.list_reservation_offerings_response.ListReservationOfferingsResponse":
+        """<p>Returns the current reservation offerings in your account.</p>
+
+        Args:
+            next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+            max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.list_reservation_offerings_response.ListReservationOfferingsResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservation_offerings
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservation_offerings.async_list_reservation_offerings(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_reservations(
+        self,
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_redshift_serverless.types.list_reservations_response.ListReservationsResponse":
+        """<p>Returns a list of Reservation objects.</p>
+
+        Args:
+            next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+            max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.list_reservations_response.ListReservationsResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.list_reservations.async_list_reservations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

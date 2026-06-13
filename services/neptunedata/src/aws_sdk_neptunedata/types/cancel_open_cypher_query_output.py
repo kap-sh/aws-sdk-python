@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelOpenCypherQueryOutput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CancelOpenCypherQueryOutput(TypedDict):
     status: NotRequired["str"]
     """<p>The cancellation status of the openCypher query.</p>"""
     payload: NotRequired["bool"]
     """<p>The cancelation payload for the openCypher query.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelOpenCypherQueryOutput) -> dict:

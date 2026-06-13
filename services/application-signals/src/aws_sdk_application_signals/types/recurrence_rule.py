@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationsignals#RecurrenceRule``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_application_signals.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_application_signals.types.expression
+
+
+class RecurrenceRule(TypedDict):
+    expression: "aws_sdk_application_signals.types.expression.Expression"
+    """<p>A cron or rate expression that specifies the schedule for the exclusion window.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RecurrenceRule) -> dict:
+    out: dict = {}
+    out["Expression"] = value["expression"]
+    return out
+
+
+def deserialize_json(data: dict) -> RecurrenceRule:
+    out: RecurrenceRule = {}  # type: ignore[typeddict-item]
+    if "Expression" in data:
+        out["expression"] = data["Expression"]
+    else:
+        raise DeserializationError("RecurrenceRule.expression required")
+    return out

@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#InternalServerException``."""
 
 from typing import TypedDict
-from aws_sdk_marketplace_deployment.errors import DeserializationError
-from aws_sdk_marketplace_deployment.errors import ServiceError
+
+from aws_sdk_marketplace_deployment.errors import DeserializationError, ServiceError
+
 
 class InternalServerException_(TypedDict):
     message: "str"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InternalServerException_) -> dict:
@@ -25,10 +27,16 @@ def deserialize_json(data: dict) -> InternalServerException_:
 
 class InternalServerException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.marketplacedeployment#InternalServerException``."""
-    code: str | None = 'InternalServerException'
+
+    code: str | None = "InternalServerException"
 
     def __init__(self, data: InternalServerException_):
-        super().__init__('server', is_throttling_error=False, is_retryable=True, code='InternalServerException')
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=True,
+            code="InternalServerException",
+        )
         self.data = data
 
     @classmethod

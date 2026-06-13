@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#CancelTaskOutput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CancelTaskOutput(TypedDict):
     task_id: NotRequired["str"]
     """<p>The ID of the task that you are attempting to cancel.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelTaskOutput) -> dict:

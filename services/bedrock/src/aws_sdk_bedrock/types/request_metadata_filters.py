@@ -1,11 +1,10 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RequestMetadataFilters``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.request_metadata_map
-    import aws_sdk_bedrock.types.request_metadata_filters_list
     import aws_sdk_bedrock.types.request_metadata_filters_list
     import aws_sdk_bedrock.types.request_metadata_map
 

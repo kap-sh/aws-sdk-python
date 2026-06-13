@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceCondition``."""
 
 from typing import TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 
 class FlowTraceCondition(TypedDict):
     condition_name: "str"
     """<p>The name of the condition.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FlowTraceCondition) -> dict:

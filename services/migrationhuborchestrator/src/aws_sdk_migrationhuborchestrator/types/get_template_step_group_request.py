@@ -1,0 +1,25 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#GetTemplateStepGroupRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+if TYPE_CHECKING:
+    import aws_sdk_migrationhuborchestrator.types.step_group_id
+    import aws_sdk_migrationhuborchestrator.types.template_id
+
+
+class GetTemplateStepGroupRequest(TypedDict):
+    template_id: "aws_sdk_migrationhuborchestrator.types.template_id.TemplateId"
+    """<p>The ID of the template.</p>"""
+    id: "aws_sdk_migrationhuborchestrator.types.step_group_id.StepGroupId"
+    """<p>The ID of the step group.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetTemplateStepGroupRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetTemplateStepGroupRequest:
+    out: GetTemplateStepGroupRequest = {}  # type: ignore[typeddict-item]
+    return out

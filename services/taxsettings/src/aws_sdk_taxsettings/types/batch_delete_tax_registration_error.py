@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchDeleteTaxRegistrationError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_taxsettings.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_id
     import aws_sdk_taxsettings.types.error_code
     import aws_sdk_taxsettings.types.error_message
+
 
 class BatchDeleteTaxRegistrationError(TypedDict):
     account_id: "aws_sdk_taxsettings.types.account_id.AccountId"
@@ -15,6 +19,7 @@ class BatchDeleteTaxRegistrationError(TypedDict):
     """<p> The error message for an individual failure in the <code>BatchDeleteTaxRegistration</code> operation. </p>"""
     code: NotRequired["aws_sdk_taxsettings.types.error_code.ErrorCode"]
     """<p> The error code for an individual failure in BatchDeleteTaxRegistration operation. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchDeleteTaxRegistrationError) -> dict:
@@ -31,7 +36,9 @@ def deserialize_json(data: dict) -> BatchDeleteTaxRegistrationError:
     if "accountId" in data:
         out["account_id"] = data["accountId"]
     else:
-        raise DeserializationError("BatchDeleteTaxRegistrationError.account_id required")
+        raise DeserializationError(
+            "BatchDeleteTaxRegistrationError.account_id required"
+        )
     if "message" in data:
         out["message"] = data["message"]
     else:

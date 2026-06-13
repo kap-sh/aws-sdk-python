@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#AWSAccountIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.aws_account_id
 

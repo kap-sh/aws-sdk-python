@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#APIKeyConnectionMetadata``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_quicksight.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.api_key
     import aws_sdk_quicksight.types.email
     import aws_sdk_quicksight.types.endpoint
+
 
 class APIKeyConnectionMetadata(TypedDict):
     base_endpoint: "aws_sdk_quicksight.types.endpoint.Endpoint"
@@ -15,6 +19,7 @@ class APIKeyConnectionMetadata(TypedDict):
     """<p>The API key used for authentication.</p>"""
     email: NotRequired["aws_sdk_quicksight.types.email.Email"]
     """<p>The email address associated with the API key, if required.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: APIKeyConnectionMetadata) -> dict:

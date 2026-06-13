@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.drs#EbsSnapshotsList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.ebs_snapshot
 

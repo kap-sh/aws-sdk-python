@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CreatePaymentInstrumentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_bedrock_agentcore.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.client_token
+    import aws_sdk_bedrock_agentcore.types.payment_agent_name
+    import aws_sdk_bedrock_agentcore.types.payment_connector_id
+    import aws_sdk_bedrock_agentcore.types.payment_instrument_details
+    import aws_sdk_bedrock_agentcore.types.payment_instrument_type
+    import aws_sdk_bedrock_agentcore.types.payment_manager_arn
+    import aws_sdk_bedrock_agentcore.types.user_id
+
+class CreatePaymentInstrumentRequest(TypedDict):
+    user_id: NotRequired["aws_sdk_bedrock_agentcore.types.user_id.UserId"]
+    """<p>The user ID associated with this payment instrument.</p>"""
+    agent_name: NotRequired["aws_sdk_bedrock_agentcore.types.payment_agent_name.PaymentAgentName"]
+    """<p>The agent name associated with this request, used for observability.</p>"""
+    payment_manager_arn: "aws_sdk_bedrock_agentcore.types.payment_manager_arn.PaymentManagerArn"
+    """<p>The ARN of the payment manager that owns this payment instrument.</p>"""
+    payment_connector_id: "aws_sdk_bedrock_agentcore.types.payment_connector_id.PaymentConnectorId"
+    """<p>The ID of the payment connector to use for this instrument.</p>"""
+    payment_instrument_type: "aws_sdk_bedrock_agentcore.types.payment_instrument_type.PaymentInstrumentType"
+    """<p>The type of payment instrument being created.</p>"""
+    payment_instrument_details: "aws_sdk_bedrock_agentcore.types.payment_instrument_details.PaymentInstrumentDetails"
+    """<p>The details of the payment instrument.</p>"""
+    client_token: NotRequired["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"]
+    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreatePaymentInstrumentRequest) -> dict:
+    out: dict = {}
+    out["paymentManagerArn"] = value["payment_manager_arn"]
+    out["paymentConnectorId"] = value["payment_connector_id"]
+    import aws_sdk_bedrock_agentcore.types.payment_instrument_type
+    out["paymentInstrumentType"] = aws_sdk_bedrock_agentcore.types.payment_instrument_type.serialize_json(value["payment_instrument_type"])
+    import aws_sdk_bedrock_agentcore.types.payment_instrument_details
+    out["paymentInstrumentDetails"] = aws_sdk_bedrock_agentcore.types.payment_instrument_details.serialize_json(value["payment_instrument_details"])
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreatePaymentInstrumentRequest:
+    out: CreatePaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+    if "paymentManagerArn" in data:
+        out["payment_manager_arn"] = data["paymentManagerArn"]
+    else:
+        raise DeserializationError("CreatePaymentInstrumentRequest.payment_manager_arn required")
+    if "paymentConnectorId" in data:
+        out["payment_connector_id"] = data["paymentConnectorId"]
+    else:
+        raise DeserializationError("CreatePaymentInstrumentRequest.payment_connector_id required")
+    if "paymentInstrumentType" in data:
+        import aws_sdk_bedrock_agentcore.types.payment_instrument_type
+        out["payment_instrument_type"] = aws_sdk_bedrock_agentcore.types.payment_instrument_type.deserialize_json(data["paymentInstrumentType"])
+    else:
+        raise DeserializationError("CreatePaymentInstrumentRequest.payment_instrument_type required")
+    if "paymentInstrumentDetails" in data:
+        import aws_sdk_bedrock_agentcore.types.payment_instrument_details
+        out["payment_instrument_details"] = aws_sdk_bedrock_agentcore.types.payment_instrument_details.deserialize_json(data["paymentInstrumentDetails"])
+    else:
+        raise DeserializationError("CreatePaymentInstrumentRequest.payment_instrument_details required")
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

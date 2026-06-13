@@ -3,9 +3,11 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class AthenaPropertiesPatch(TypedDict):
     workgroup_name: NotRequired["str"]
     """<p>The Amazon Athena workgroup name of a connection.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AthenaPropertiesPatch) -> dict:

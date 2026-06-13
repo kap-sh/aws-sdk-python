@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ListStreamsOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_dsql.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.next_token
     import aws_sdk_dsql.types.stream_list
+
 
 class ListStreamsOutput(TypedDict):
     next_token: NotRequired["aws_sdk_dsql.types.next_token.NextToken"]
@@ -13,12 +17,14 @@ class ListStreamsOutput(TypedDict):
     streams: "aws_sdk_dsql.types.stream_list.StreamList"
     """<p>An array of the returned streams.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ListStreamsOutput) -> dict:
     out: dict = {}
     if "next_token" in value:
         out["nextToken"] = value["next_token"]
     import aws_sdk_dsql.types.stream_list
+
     out["streams"] = aws_sdk_dsql.types.stream_list.serialize_json(value["streams"])
     return out
 
@@ -29,7 +35,10 @@ def deserialize_json(data: dict) -> ListStreamsOutput:
         out["next_token"] = data["nextToken"]
     if "streams" in data:
         import aws_sdk_dsql.types.stream_list
-        out["streams"] = aws_sdk_dsql.types.stream_list.deserialize_json(data["streams"])
+
+        out["streams"] = aws_sdk_dsql.types.stream_list.deserialize_json(
+            data["streams"]
+        )
     else:
         raise DeserializationError("ListStreamsOutput.streams required")
     return out

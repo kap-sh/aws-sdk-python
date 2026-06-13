@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PhilippinesAdditionalInfo``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class PhilippinesAdditionalInfo(TypedDict):
     is_vat_registered: NotRequired["bool"]
     """<p>Indicates whether the account is VAT-registered with the Philippines Bureau of Internal Revenue (BIR).</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PhilippinesAdditionalInfo) -> dict:

@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#InternalServerException``."""
+
+from typing import TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_pinpoint_sms_voice_v2.errors import ServiceError
+
+
+class InternalServerException_(TypedDict):
+    message: NotRequired["str"]
+    request_id: NotRequired["str"]
+    """<p>The unique identifier of the request.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: InternalServerException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    if "request_id" in value:
+        out["RequestId"] = value["request_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> InternalServerException_:
+    out: InternalServerException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    if "RequestId" in data:
+        out["request_id"] = data["RequestId"]
+    return out
+
+
+class InternalServerException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.pinpointsmsvoicev2#InternalServerException``."""
+
+    code: str | None = "InternalServerException"
+
+    def __init__(self, data: InternalServerException_):
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=True,
+            code="InternalServerException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "InternalServerException":
+        return cls(deserialize_aws_json_1_0(data))

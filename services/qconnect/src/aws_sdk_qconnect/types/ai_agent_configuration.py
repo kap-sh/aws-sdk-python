@@ -1,17 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIAgentConfiguration``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
-    import aws_sdk_qconnect.types.case_summarization_ai_agent_configuration
-    import aws_sdk_qconnect.types.email_response_ai_agent_configuration
-    import aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration
     import aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration
-    import aws_sdk_qconnect.types.orchestration_ai_agent_configuration
+    import aws_sdk_qconnect.types.case_summarization_ai_agent_configuration
+    import aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration
     import aws_sdk_qconnect.types.email_overview_ai_agent_configuration
+    import aws_sdk_qconnect.types.email_response_ai_agent_configuration
     import aws_sdk_qconnect.types.manual_search_ai_agent_configuration
-    import aws_sdk_qconnect.types.self_service_ai_agent_configuration
     import aws_sdk_qconnect.types.note_taking_ai_agent_configuration
+    import aws_sdk_qconnect.types.orchestration_ai_agent_configuration
+    import aws_sdk_qconnect.types.self_service_ai_agent_configuration
+
 
 class _AIAgentConfiguration_manualSearchAIAgentConfiguration(TypedDict):
     manualSearchAIAgentConfiguration: "aws_sdk_qconnect.types.manual_search_ai_agent_configuration.ManualSearchAIAgentConfiguration"
@@ -48,37 +51,94 @@ class _AIAgentConfiguration_noteTakingAIAgentConfiguration(TypedDict):
 class _AIAgentConfiguration_caseSummarizationAIAgentConfiguration(TypedDict):
     caseSummarizationAIAgentConfiguration: "aws_sdk_qconnect.types.case_summarization_ai_agent_configuration.CaseSummarizationAIAgentConfiguration"
 
-AIAgentConfiguration: TypeAlias = _AIAgentConfiguration_manualSearchAIAgentConfiguration | _AIAgentConfiguration_answerRecommendationAIAgentConfiguration | _AIAgentConfiguration_selfServiceAIAgentConfiguration | _AIAgentConfiguration_emailResponseAIAgentConfiguration | _AIAgentConfiguration_emailOverviewAIAgentConfiguration | _AIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration | _AIAgentConfiguration_orchestrationAIAgentConfiguration | _AIAgentConfiguration_noteTakingAIAgentConfiguration | _AIAgentConfiguration_caseSummarizationAIAgentConfiguration
+
+AIAgentConfiguration: TypeAlias = (
+    _AIAgentConfiguration_manualSearchAIAgentConfiguration
+    | _AIAgentConfiguration_answerRecommendationAIAgentConfiguration
+    | _AIAgentConfiguration_selfServiceAIAgentConfiguration
+    | _AIAgentConfiguration_emailResponseAIAgentConfiguration
+    | _AIAgentConfiguration_emailOverviewAIAgentConfiguration
+    | _AIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration
+    | _AIAgentConfiguration_orchestrationAIAgentConfiguration
+    | _AIAgentConfiguration_noteTakingAIAgentConfiguration
+    | _AIAgentConfiguration_caseSummarizationAIAgentConfiguration
+)
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AIAgentConfiguration) -> dict:
     if "manualSearchAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.manual_search_ai_agent_configuration
-        return {"manualSearchAIAgentConfiguration": aws_sdk_qconnect.types.manual_search_ai_agent_configuration.serialize_json(value["manualSearchAIAgentConfiguration"])}
+
+        return {
+            "manualSearchAIAgentConfiguration": aws_sdk_qconnect.types.manual_search_ai_agent_configuration.serialize_json(
+                value["manualSearchAIAgentConfiguration"]
+            )
+        }
     elif "answerRecommendationAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration
-        return {"answerRecommendationAIAgentConfiguration": aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration.serialize_json(value["answerRecommendationAIAgentConfiguration"])}
+
+        return {
+            "answerRecommendationAIAgentConfiguration": aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration.serialize_json(
+                value["answerRecommendationAIAgentConfiguration"]
+            )
+        }
     elif "selfServiceAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.self_service_ai_agent_configuration
-        return {"selfServiceAIAgentConfiguration": aws_sdk_qconnect.types.self_service_ai_agent_configuration.serialize_json(value["selfServiceAIAgentConfiguration"])}
+
+        return {
+            "selfServiceAIAgentConfiguration": aws_sdk_qconnect.types.self_service_ai_agent_configuration.serialize_json(
+                value["selfServiceAIAgentConfiguration"]
+            )
+        }
     elif "emailResponseAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.email_response_ai_agent_configuration
-        return {"emailResponseAIAgentConfiguration": aws_sdk_qconnect.types.email_response_ai_agent_configuration.serialize_json(value["emailResponseAIAgentConfiguration"])}
+
+        return {
+            "emailResponseAIAgentConfiguration": aws_sdk_qconnect.types.email_response_ai_agent_configuration.serialize_json(
+                value["emailResponseAIAgentConfiguration"]
+            )
+        }
     elif "emailOverviewAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.email_overview_ai_agent_configuration
-        return {"emailOverviewAIAgentConfiguration": aws_sdk_qconnect.types.email_overview_ai_agent_configuration.serialize_json(value["emailOverviewAIAgentConfiguration"])}
+
+        return {
+            "emailOverviewAIAgentConfiguration": aws_sdk_qconnect.types.email_overview_ai_agent_configuration.serialize_json(
+                value["emailOverviewAIAgentConfiguration"]
+            )
+        }
     elif "emailGenerativeAnswerAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration
-        return {"emailGenerativeAnswerAIAgentConfiguration": aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration.serialize_json(value["emailGenerativeAnswerAIAgentConfiguration"])}
+
+        return {
+            "emailGenerativeAnswerAIAgentConfiguration": aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration.serialize_json(
+                value["emailGenerativeAnswerAIAgentConfiguration"]
+            )
+        }
     elif "orchestrationAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.orchestration_ai_agent_configuration
-        return {"orchestrationAIAgentConfiguration": aws_sdk_qconnect.types.orchestration_ai_agent_configuration.serialize_json(value["orchestrationAIAgentConfiguration"])}
+
+        return {
+            "orchestrationAIAgentConfiguration": aws_sdk_qconnect.types.orchestration_ai_agent_configuration.serialize_json(
+                value["orchestrationAIAgentConfiguration"]
+            )
+        }
     elif "noteTakingAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.note_taking_ai_agent_configuration
-        return {"noteTakingAIAgentConfiguration": aws_sdk_qconnect.types.note_taking_ai_agent_configuration.serialize_json(value["noteTakingAIAgentConfiguration"])}
+
+        return {
+            "noteTakingAIAgentConfiguration": aws_sdk_qconnect.types.note_taking_ai_agent_configuration.serialize_json(
+                value["noteTakingAIAgentConfiguration"]
+            )
+        }
     elif "caseSummarizationAIAgentConfiguration" in value:
         import aws_sdk_qconnect.types.case_summarization_ai_agent_configuration
-        return {"caseSummarizationAIAgentConfiguration": aws_sdk_qconnect.types.case_summarization_ai_agent_configuration.serialize_json(value["caseSummarizationAIAgentConfiguration"])}
+
+        return {
+            "caseSummarizationAIAgentConfiguration": aws_sdk_qconnect.types.case_summarization_ai_agent_configuration.serialize_json(
+                value["caseSummarizationAIAgentConfiguration"]
+            )
+        }
     else:
         raise SerializationError("AIAgentConfiguration: no variant present")
 
@@ -86,30 +146,75 @@ def serialize_json(value: AIAgentConfiguration) -> dict:
 def deserialize_json(data: dict) -> AIAgentConfiguration:
     if "manualSearchAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.manual_search_ai_agent_configuration
-        return {"manualSearchAIAgentConfiguration": aws_sdk_qconnect.types.manual_search_ai_agent_configuration.deserialize_json(data["manualSearchAIAgentConfiguration"])}
+
+        return {
+            "manualSearchAIAgentConfiguration": aws_sdk_qconnect.types.manual_search_ai_agent_configuration.deserialize_json(
+                data["manualSearchAIAgentConfiguration"]
+            )
+        }
     elif "answerRecommendationAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration
-        return {"answerRecommendationAIAgentConfiguration": aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration.deserialize_json(data["answerRecommendationAIAgentConfiguration"])}
+
+        return {
+            "answerRecommendationAIAgentConfiguration": aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration.deserialize_json(
+                data["answerRecommendationAIAgentConfiguration"]
+            )
+        }
     elif "selfServiceAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.self_service_ai_agent_configuration
-        return {"selfServiceAIAgentConfiguration": aws_sdk_qconnect.types.self_service_ai_agent_configuration.deserialize_json(data["selfServiceAIAgentConfiguration"])}
+
+        return {
+            "selfServiceAIAgentConfiguration": aws_sdk_qconnect.types.self_service_ai_agent_configuration.deserialize_json(
+                data["selfServiceAIAgentConfiguration"]
+            )
+        }
     elif "emailResponseAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.email_response_ai_agent_configuration
-        return {"emailResponseAIAgentConfiguration": aws_sdk_qconnect.types.email_response_ai_agent_configuration.deserialize_json(data["emailResponseAIAgentConfiguration"])}
+
+        return {
+            "emailResponseAIAgentConfiguration": aws_sdk_qconnect.types.email_response_ai_agent_configuration.deserialize_json(
+                data["emailResponseAIAgentConfiguration"]
+            )
+        }
     elif "emailOverviewAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.email_overview_ai_agent_configuration
-        return {"emailOverviewAIAgentConfiguration": aws_sdk_qconnect.types.email_overview_ai_agent_configuration.deserialize_json(data["emailOverviewAIAgentConfiguration"])}
+
+        return {
+            "emailOverviewAIAgentConfiguration": aws_sdk_qconnect.types.email_overview_ai_agent_configuration.deserialize_json(
+                data["emailOverviewAIAgentConfiguration"]
+            )
+        }
     elif "emailGenerativeAnswerAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration
-        return {"emailGenerativeAnswerAIAgentConfiguration": aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration.deserialize_json(data["emailGenerativeAnswerAIAgentConfiguration"])}
+
+        return {
+            "emailGenerativeAnswerAIAgentConfiguration": aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration.deserialize_json(
+                data["emailGenerativeAnswerAIAgentConfiguration"]
+            )
+        }
     elif "orchestrationAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.orchestration_ai_agent_configuration
-        return {"orchestrationAIAgentConfiguration": aws_sdk_qconnect.types.orchestration_ai_agent_configuration.deserialize_json(data["orchestrationAIAgentConfiguration"])}
+
+        return {
+            "orchestrationAIAgentConfiguration": aws_sdk_qconnect.types.orchestration_ai_agent_configuration.deserialize_json(
+                data["orchestrationAIAgentConfiguration"]
+            )
+        }
     elif "noteTakingAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.note_taking_ai_agent_configuration
-        return {"noteTakingAIAgentConfiguration": aws_sdk_qconnect.types.note_taking_ai_agent_configuration.deserialize_json(data["noteTakingAIAgentConfiguration"])}
+
+        return {
+            "noteTakingAIAgentConfiguration": aws_sdk_qconnect.types.note_taking_ai_agent_configuration.deserialize_json(
+                data["noteTakingAIAgentConfiguration"]
+            )
+        }
     elif "caseSummarizationAIAgentConfiguration" in data:
         import aws_sdk_qconnect.types.case_summarization_ai_agent_configuration
-        return {"caseSummarizationAIAgentConfiguration": aws_sdk_qconnect.types.case_summarization_ai_agent_configuration.deserialize_json(data["caseSummarizationAIAgentConfiguration"])}
+
+        return {
+            "caseSummarizationAIAgentConfiguration": aws_sdk_qconnect.types.case_summarization_ai_agent_configuration.deserialize_json(
+                data["caseSummarizationAIAgentConfiguration"]
+            )
+        }
     else:
         raise DeserializationError("AIAgentConfiguration: no recognized variant key")

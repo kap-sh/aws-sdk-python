@@ -10,14 +10,19 @@ from aws_sdk_datazone._auth._identity import Credentials, Identity
 from aws_sdk_datazone._auth._providers import IdentityProvider
 
 IdentityT = TypeVar("IdentityT", bound="Identity")
+
+
 class Signer(ABC, Generic[IdentityT]):
     """Per-request request signer. Holds an IdentityProvider plus static config."""
+
     def __init__(self, provider: IdentityProvider[IdentityT]) -> None:
         self.provider = provider
+
     @abstractmethod
     async def asign(self, req: Request) -> Request: ...
     @abstractmethod
     def sign(self, req: Request) -> Request: ...
+
 
 class SigV4Signer(Signer[Credentials]):
     """aws.auth#sigv4 — AWS Signature Version 4.
@@ -27,12 +32,23 @@ class SigV4Signer(Signer[Credentials]):
     endpoint rule-set's ``authSchemes`` property or built by the generated
     ``get_signer`` from operation defaults.
     """
-    def __init__(self, provider: IdentityProvider[Credentials], *, auth_scheme: dict[str, Any]) -> None:
+
+    def __init__(
+        self, provider: IdentityProvider[Credentials], *, auth_scheme: dict[str, Any]
+    ) -> None:
         super().__init__(provider)
         self._auth_scheme = auth_scheme
+
     async def asign(self, req: Request) -> Request:
         creds = self.provider.resolve_identity()
-        ctx: SigV4AuthContext = {"type": "sig_v4", "access_key_id": creds["access_key"], "secret_access_key": creds["secret_key"], "session_token": creds.get("session_token"), "signing_region": self._auth_scheme["signingRegion"], "signing_name": self._auth_scheme["signingName"]}
+        ctx: SigV4AuthContext = {
+            "type": "sig_v4",
+            "access_key_id": creds["access_key"],
+            "secret_access_key": creds["secret_key"],
+            "session_token": creds.get("session_token"),
+            "signing_region": self._auth_scheme["signingRegion"],
+            "signing_name": self._auth_scheme["signingName"],
+        }
         if req.body is None:
             body: bytes | None = b""
         elif isinstance(req.body, bytes):
@@ -44,9 +60,17 @@ class SigV4Signer(Signer[Credentials]):
         if "accept-encoding" in req.headers:
             del req.headers["Accept-Encoding"]
         return sign_sigv4(req, ctx, body)
+
     def sign(self, req: Request) -> Request:
         creds = self.provider.resolve_identity()
-        ctx: SigV4AuthContext = {"type": "sig_v4", "access_key_id": creds["access_key"], "secret_access_key": creds["secret_key"], "session_token": creds.get("session_token"), "signing_region": self._auth_scheme["signingRegion"], "signing_name": self._auth_scheme["signingName"]}
+        ctx: SigV4AuthContext = {
+            "type": "sig_v4",
+            "access_key_id": creds["access_key"],
+            "secret_access_key": creds["secret_key"],
+            "session_token": creds.get("session_token"),
+            "signing_region": self._auth_scheme["signingRegion"],
+            "signing_name": self._auth_scheme["signingName"],
+        }
         if req.body is None:
             body: bytes | None = b""
         elif isinstance(req.body, bytes):

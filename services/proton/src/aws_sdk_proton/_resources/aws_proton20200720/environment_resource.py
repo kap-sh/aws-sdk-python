@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_proton._services.async_proton import ensure_async_iterator
-from aws_sdk_proton._services.proton import ensure_sync_iterator
-from aws_sdk_proton._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_proton._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
-    from aws_sdk_proton._services.async_proton import AsyncProtonClient, AsyncProtonClientConfig
     import aws_sdk_proton.types.arn
     import aws_sdk_proton.types.create_environment_input
     import aws_sdk_proton.types.create_environment_output
@@ -29,11 +34,40 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_part
     import aws_sdk_proton.types.update_environment_input
     import aws_sdk_proton.types.update_environment_output
+    from aws_sdk_proton._services.async_proton import (
+        AsyncProtonClient,
+        AsyncProtonClientConfig,
+    )
+    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
+
 
 class EnvironmentResource:
     def __init__(self, service: ProtonClient) -> None:
         self._service = service
-    def put(self, name: "aws_sdk_proton.types.resource_name.ResourceName", template_name: "aws_sdk_proton.types.resource_name.ResourceName", template_major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", spec: "aws_sdk_proton.types.spec_contents.SpecContents", *, config_overrides: Optional[ProtonClientConfig] = None, template_minor_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None, environment_account_connection_id: Optional["aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None, provisioning_repository: Optional["aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"] = None, component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None, codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None) -> "aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput":
+
+    def put(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        template_major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        spec: "aws_sdk_proton.types.spec_contents.SpecContents",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        template_minor_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None,
+        environment_account_connection_id: Optional[
+            "aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+        provisioning_repository: Optional[
+            "aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"
+        ] = None,
+        component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+        codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+    ) -> "aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput":
         """<p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be shared across services.</p> <p class=\"title\"> <b>You can provision environments using the following methods:</b> </p> <ul> <li> <p>Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.</p> </li> <li> <p>Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC engine uses to provision resources.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html\">Environments</a> and <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html\">Provisioning methods</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -50,9 +84,19 @@ class EnvironmentResource:
             component_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It determines the scope of infrastructure that a component can provision.</p> <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with this environment.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
             codebuild_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your behalf.</p> <p>To use CodeBuild-based provisioning for the environment or for any service instance running in the environment, specify either the <code>environmentAccountConnectionId</code> or <code>codebuildRoleArn</code> parameter.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput]') -> OperationResponse["aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_environment
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.create_environment.create_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.create_environment.create_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -68,7 +112,9 @@ class EnvironmentResource:
         if proton_service_role_arn is not None:
             input["proton_service_role_arn"] = proton_service_role_arn
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = environment_account_connection_id
+            input["environment_account_connection_id"] = (
+                environment_account_connection_id
+            )
         if tags is not None:
             input["tags"] = tags
         if provisioning_repository is not None:
@@ -78,26 +124,74 @@ class EnvironmentResource:
         if codebuild_role_arn is not None:
             input["codebuild_role_arn"] = codebuild_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput":
+
+    def read(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput":
         """<p>Get detailed data for an environment.</p>
 
         Args:
             name: <p>The name of the environment that you want to get the detailed data for.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.get_environment_input.GetEnvironmentInput]') -> OperationResponse["aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.get_environment_input.GetEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_environment
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.get_environment.get_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.get_environment.get_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, name: "aws_sdk_proton.types.resource_name.ResourceName", deployment_type: "aws_sdk_proton.types.deployment_update_type.DeploymentUpdateType", *, config_overrides: Optional[ProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None, template_major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, template_minor_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None, environment_account_connection_id: Optional["aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"] = None, provisioning_repository: Optional["aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"] = None, component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None, codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None) -> "aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput":
+
+    def update(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        deployment_type: "aws_sdk_proton.types.deployment_update_type.DeploymentUpdateType",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None,
+        template_major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        template_minor_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None,
+        environment_account_connection_id: Optional[
+            "aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"
+        ] = None,
+        provisioning_repository: Optional[
+            "aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"
+        ] = None,
+        component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+        codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+    ) -> "aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput":
         """<p>Update an environment.</p> <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p> <p>You can only update to a new environment account connection if that connection was created in the same environment account that the current environment account connection was created in. The account connection must also be associated with the current environment.</p> <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include the <code>environmentAccountConnectionId</code> parameter. You <i>can't</i> update or connect the environment to an environment account connection if it <i>isn't</i> already associated with an environment connection.</p> <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t update both.</p> <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p> <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html\">Environments</a> and <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html\">Provisioning methods</a> in the <i>Proton User Guide</i>.</p> <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p> <dl> <dt/> <dd> <p> <code>NONE</code> </p> <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p> </dd> <dt/> <dd> <p> <code>CURRENT_VERSION</code> </p> <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated. <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p> </dd> <dt/> <dd> <p> <code>MINOR_VERSION</code> </p> <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version in use, by default. You can also specify a different minor version of the current major version in use.</p> </dd> <dt/> <dd> <p> <code>MAJOR_VERSION</code> </p> <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template, by default. You can also specify a different major version that's higher than the major version in use and a minor version.</p> </dd> </dl>
 
         Args:
@@ -113,9 +207,19 @@ class EnvironmentResource:
             component_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It determines the scope of infrastructure that a component can provision.</p> <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
             codebuild_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your behalf.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput]') -> OperationResponse["aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_environment
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.update_environment.update_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.update_environment.update_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -133,7 +237,9 @@ class EnvironmentResource:
             input["proton_service_role_arn"] = proton_service_role_arn
         input["deployment_type"] = deployment_type
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = environment_account_connection_id
+            input["environment_account_connection_id"] = (
+                environment_account_connection_id
+            )
         if provisioning_repository is not None:
             input["provisioning_repository"] = provisioning_repository
         if component_role_arn is not None:
@@ -141,26 +247,62 @@ class EnvironmentResource:
         if codebuild_role_arn is not None:
             input["codebuild_role_arn"] = codebuild_role_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput":
+
+    def delete(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput":
         """<p>Delete an environment.</p>
 
         Args:
             name: <p>The name of the environment to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput]') -> OperationResponse["aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_environment
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.delete_environment.delete_environment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.delete_environment.delete_environment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[ProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None, environment_templates: Optional["aws_sdk_proton.types.environment_template_filter_list.EnvironmentTemplateFilterList"] = None) -> "aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+        environment_templates: Optional[
+            "aws_sdk_proton.types.environment_template_filter_list.EnvironmentTemplateFilterList"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput":
         """<p>List environments with detail data summaries.</p>
 
         Args:
@@ -168,9 +310,19 @@ class EnvironmentResource:
             max_results: <p>The maximum number of environments to list.</p>
             environment_templates: <p>An array of the versions of the environment template.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput]') -> OperationResponse["aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_environments
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.list_environments.list_environments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.list_environments.list_environments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -182,13 +334,41 @@ class EnvironmentResource:
         if environment_templates is not None:
             input["environment_templates"] = environment_templates
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncEnvironmentResource:
     def __init__(self, service: AsyncProtonClient) -> None:
         self._service = service
-    async def put(self, name: "aws_sdk_proton.types.resource_name.ResourceName", template_name: "aws_sdk_proton.types.resource_name.ResourceName", template_major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", spec: "aws_sdk_proton.types.spec_contents.SpecContents", *, config_overrides: Optional[AsyncProtonClientConfig] = None, template_minor_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None, environment_account_connection_id: Optional["aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None, provisioning_repository: Optional["aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"] = None, component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None, codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None) -> "aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput":
+
+    async def put(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        template_major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        spec: "aws_sdk_proton.types.spec_contents.SpecContents",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        template_minor_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None,
+        environment_account_connection_id: Optional[
+            "aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+        provisioning_repository: Optional[
+            "aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"
+        ] = None,
+        component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+        codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+    ) -> "aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput":
         """<p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be shared across services.</p> <p class=\"title\"> <b>You can provision environments using the following methods:</b> </p> <ul> <li> <p>Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.</p> </li> <li> <p>Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC engine uses to provision resources.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html\">Environments</a> and <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html\">Provisioning methods</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
@@ -205,9 +385,20 @@ class AsyncEnvironmentResource:
             component_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It determines the scope of infrastructure that a component can provision.</p> <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with this environment.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
             codebuild_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your behalf.</p> <p>To use CodeBuild-based provisioning for the environment or for any service instance running in the environment, specify either the <code>environmentAccountConnectionId</code> or <code>codebuildRoleArn</code> parameter.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.create_environment_output.CreateEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_environment
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.create_environment.async_create_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.create_environment.async_create_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -223,7 +414,9 @@ class AsyncEnvironmentResource:
         if proton_service_role_arn is not None:
             input["proton_service_role_arn"] = proton_service_role_arn
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = environment_account_connection_id
+            input["environment_account_connection_id"] = (
+                environment_account_connection_id
+            )
         if tags is not None:
             input["tags"] = tags
         if provisioning_repository is not None:
@@ -233,26 +426,75 @@ class AsyncEnvironmentResource:
         if codebuild_role_arn is not None:
             input["codebuild_role_arn"] = codebuild_role_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput":
+
+    async def read(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput":
         """<p>Get detailed data for an environment.</p>
 
         Args:
             name: <p>The name of the environment that you want to get the detailed data for.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.get_environment_input.GetEnvironmentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.get_environment_input.GetEnvironmentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.get_environment_output.GetEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_environment
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.get_environment.async_get_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.get_environment.async_get_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, name: "aws_sdk_proton.types.resource_name.ResourceName", deployment_type: "aws_sdk_proton.types.deployment_update_type.DeploymentUpdateType", *, config_overrides: Optional[AsyncProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None, template_major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, template_minor_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None, environment_account_connection_id: Optional["aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"] = None, provisioning_repository: Optional["aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"] = None, component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None, codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None) -> "aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput":
+
+    async def update(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        deployment_type: "aws_sdk_proton.types.deployment_update_type.DeploymentUpdateType",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None,
+        template_major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        template_minor_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        proton_service_role_arn: Optional["aws_sdk_proton.types.arn.Arn"] = None,
+        environment_account_connection_id: Optional[
+            "aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"
+        ] = None,
+        provisioning_repository: Optional[
+            "aws_sdk_proton.types.repository_branch_input.RepositoryBranchInput"
+        ] = None,
+        component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+        codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
+    ) -> "aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput":
         """<p>Update an environment.</p> <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p> <p>You can only update to a new environment account connection if that connection was created in the same environment account that the current environment account connection was created in. The account connection must also be associated with the current environment.</p> <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include the <code>environmentAccountConnectionId</code> parameter. You <i>can't</i> update or connect the environment to an environment account connection if it <i>isn't</i> already associated with an environment connection.</p> <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t update both.</p> <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p> <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html\">Environments</a> and <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html\">Provisioning methods</a> in the <i>Proton User Guide</i>.</p> <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p> <dl> <dt/> <dd> <p> <code>NONE</code> </p> <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p> </dd> <dt/> <dd> <p> <code>CURRENT_VERSION</code> </p> <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated. <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p> </dd> <dt/> <dd> <p> <code>MINOR_VERSION</code> </p> <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version in use, by default. You can also specify a different minor version of the current major version in use.</p> </dd> <dt/> <dd> <p> <code>MAJOR_VERSION</code> </p> <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template, by default. You can also specify a different major version that's higher than the major version in use and a minor version.</p> </dd> </dl>
 
         Args:
@@ -268,9 +510,20 @@ class AsyncEnvironmentResource:
             component_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It determines the scope of infrastructure that a component can provision.</p> <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
             codebuild_role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your behalf.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.update_environment_output.UpdateEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_environment
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.update_environment.async_update_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.update_environment.async_update_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -288,7 +541,9 @@ class AsyncEnvironmentResource:
             input["proton_service_role_arn"] = proton_service_role_arn
         input["deployment_type"] = deployment_type
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = environment_account_connection_id
+            input["environment_account_connection_id"] = (
+                environment_account_connection_id
+            )
         if provisioning_repository is not None:
             input["provisioning_repository"] = provisioning_repository
         if component_role_arn is not None:
@@ -296,26 +551,63 @@ class AsyncEnvironmentResource:
         if codebuild_role_arn is not None:
             input["codebuild_role_arn"] = codebuild_role_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput":
+
+    async def delete(
+        self,
+        name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput":
         """<p>Delete an environment.</p>
 
         Args:
             name: <p>The name of the environment to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.delete_environment_output.DeleteEnvironmentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_environment
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.delete_environment.async_delete_environment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.delete_environment.async_delete_environment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
         input["name"] = name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None, environment_templates: Optional["aws_sdk_proton.types.environment_template_filter_list.EnvironmentTemplateFilterList"] = None) -> "aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+        environment_templates: Optional[
+            "aws_sdk_proton.types.environment_template_filter_list.EnvironmentTemplateFilterList"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput":
         """<p>List environments with detail data summaries.</p>
 
         Args:
@@ -323,9 +615,20 @@ class AsyncEnvironmentResource:
             max_results: <p>The maximum number of environments to list.</p>
             environment_templates: <p>An array of the versions of the environment template.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.list_environments_output.ListEnvironmentsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_environments
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.list_environments.async_list_environments(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.list_environments.async_list_environments(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -337,5 +640,9 @@ class AsyncEnvironmentResource:
         if environment_templates is not None:
             input["environment_templates"] = environment_templates
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

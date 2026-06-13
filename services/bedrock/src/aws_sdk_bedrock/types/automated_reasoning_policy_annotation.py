@@ -1,22 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyAnnotation``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_from_scenario_feedback_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_variable_annotation
     import aws_sdk_bedrock.types.automated_reasoning_policy_add_rule_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_annotation
     import aws_sdk_bedrock.types.automated_reasoning_policy_add_rule_from_natural_language_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_add_variable_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_rule_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_from_rule_feedback_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_ingest_content_annotation
     import aws_sdk_bedrock.types.automated_reasoning_policy_add_type_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_add_variable_annotation
     import aws_sdk_bedrock.types.automated_reasoning_policy_delete_rule_annotation
-    import aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_delete_variable_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_ingest_content_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_from_rule_feedback_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_from_scenario_feedback_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_rule_annotation
     import aws_sdk_bedrock.types.automated_reasoning_policy_update_type_annotation
+    import aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_annotation
 
 
 class _AutomatedReasoningPolicyAnnotation_addType(TypedDict):

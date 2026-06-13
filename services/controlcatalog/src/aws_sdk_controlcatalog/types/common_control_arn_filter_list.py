@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#CommonControlArnFilterList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.common_control_arn
 
-CommonControlArnFilterList: TypeAlias = list["aws_sdk_controlcatalog.types.common_control_arn.CommonControlArn"]
+CommonControlArnFilterList: TypeAlias = list[
+    "aws_sdk_controlcatalog.types.common_control_arn.CommonControlArn"
+]
 
 
 # --- restJson1 ser/de ---

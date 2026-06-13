@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#DeleteStatisticsValueMap``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class DeleteStatisticsValueMap(TypedDict):
     active: NotRequired["bool"]
     """<p>The current status of the statistics.</p>"""
     statistics_id: NotRequired["str"]
     """<p>The ID of the statistics generation run that is currently occurring.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteStatisticsValueMap) -> dict:

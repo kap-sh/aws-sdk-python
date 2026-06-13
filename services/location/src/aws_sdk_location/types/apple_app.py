@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.location#AppleApp``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.apple_bundle_id
+
 
 class AppleApp(TypedDict):
     bundle_id: "aws_sdk_location.types.apple_bundle_id.AppleBundleId"
     """<p>The unique identifier of the app across all Apple platforms (iOS, macOS, tvOS and watchOS).</p> <p>Example: <code>com.mydomain.appname</code> </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AppleApp) -> dict:

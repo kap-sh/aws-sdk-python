@@ -1,15 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#InstanceIpv6Address``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.ipv6_address
 
+
 class InstanceIpv6Address(TypedDict):
-    ipv6_address: NotRequired["aws_sdk_workspaces_instances.types.ipv6_address.Ipv6Address"]
+    ipv6_address: NotRequired[
+        "aws_sdk_workspaces_instances.types.ipv6_address.Ipv6Address"
+    ]
     """<p>Specific IPv6 address assigned to the instance.</p>"""
     is_primary_ipv6: NotRequired["bool"]
     """<p>Indicates if this is the primary IPv6 address for the instance.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: InstanceIpv6Address) -> dict:

@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#EoCloudCoverInput``."""
 
 from typing import TypedDict
+
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
+
 
 class EoCloudCoverInput(TypedDict):
     lower_bound: "float"
     """<p>Lower bound for EoCloudCover.</p>"""
     upper_bound: "float"
     """<p>Upper bound for EoCloudCover.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EoCloudCoverInput) -> dict:

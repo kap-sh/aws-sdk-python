@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataSource``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_id
     import aws_sdk_qbusiness.types.data_source_name
     import aws_sdk_qbusiness.types.data_source_status
     import aws_sdk_qbusiness.types.string
     import aws_sdk_qbusiness.types.timestamp
+
 
 class DataSource(TypedDict):
     display_name: NotRequired["aws_sdk_qbusiness.types.data_source_name.DataSourceName"]
@@ -23,6 +26,7 @@ class DataSource(TypedDict):
     status: NotRequired["aws_sdk_qbusiness.types.data_source_status.DataSourceStatus"]
     """<p>The status of the Amazon Q Business data source.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DataSource) -> dict:
     out: dict = {}
@@ -34,13 +38,22 @@ def serialize_json(value: DataSource) -> dict:
         out["type"] = value["type"]
     if "created_at" in value:
         import aws_sdk_qbusiness.types.timestamp
-        out["createdAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(value["created_at"])
+
+        out["createdAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(
+            value["created_at"]
+        )
     if "updated_at" in value:
         import aws_sdk_qbusiness.types.timestamp
-        out["updatedAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(value["updated_at"])
+
+        out["updatedAt"] = aws_sdk_qbusiness.types.timestamp.serialize_json(
+            value["updated_at"]
+        )
     if "status" in value:
         import aws_sdk_qbusiness.types.data_source_status
-        out["status"] = aws_sdk_qbusiness.types.data_source_status.serialize_json(value["status"])
+
+        out["status"] = aws_sdk_qbusiness.types.data_source_status.serialize_json(
+            value["status"]
+        )
     return out
 
 
@@ -54,11 +67,20 @@ def deserialize_json(data: dict) -> DataSource:
         out["type"] = data["type"]
     if "createdAt" in data:
         import aws_sdk_qbusiness.types.timestamp
-        out["created_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(
+            data["createdAt"]
+        )
     if "updatedAt" in data:
         import aws_sdk_qbusiness.types.timestamp
-        out["updated_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(data["updatedAt"])
+
+        out["updated_at"] = aws_sdk_qbusiness.types.timestamp.deserialize_json(
+            data["updatedAt"]
+        )
     if "status" in data:
         import aws_sdk_qbusiness.types.data_source_status
-        out["status"] = aws_sdk_qbusiness.types.data_source_status.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_qbusiness.types.data_source_status.deserialize_json(
+            data["status"]
+        )
     return out

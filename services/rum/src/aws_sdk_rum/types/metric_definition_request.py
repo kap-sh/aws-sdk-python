@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rum#MetricDefinitionRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_rum.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.dimension_keys_map
     import aws_sdk_rum.types.event_pattern
@@ -10,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.namespace
     import aws_sdk_rum.types.unit_label
     import aws_sdk_rum.types.value_key
+
 
 class MetricDefinitionRequest(TypedDict):
     name: "aws_sdk_rum.types.metric_name.MetricName"
@@ -25,6 +29,7 @@ class MetricDefinitionRequest(TypedDict):
     namespace: NotRequired["aws_sdk_rum.types.namespace.Namespace"]
     """<p>If this structure is for a custom metric instead of an extended metrics, use this parameter to define the metric namespace for that custom metric. Do not specify this parameter if this structure is for an extended metric.</p> <p>You cannot use any string that starts with <code>AWS/</code> for your namespace.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: MetricDefinitionRequest) -> dict:
     out: dict = {}
@@ -35,7 +40,10 @@ def serialize_json(value: MetricDefinitionRequest) -> dict:
         out["UnitLabel"] = value["unit_label"]
     if "dimension_keys" in value:
         import aws_sdk_rum.types.dimension_keys_map
-        out["DimensionKeys"] = aws_sdk_rum.types.dimension_keys_map.serialize_json(value["dimension_keys"])
+
+        out["DimensionKeys"] = aws_sdk_rum.types.dimension_keys_map.serialize_json(
+            value["dimension_keys"]
+        )
     if "event_pattern" in value:
         out["EventPattern"] = value["event_pattern"]
     if "namespace" in value:
@@ -55,7 +63,10 @@ def deserialize_json(data: dict) -> MetricDefinitionRequest:
         out["unit_label"] = data["UnitLabel"]
     if "DimensionKeys" in data:
         import aws_sdk_rum.types.dimension_keys_map
-        out["dimension_keys"] = aws_sdk_rum.types.dimension_keys_map.deserialize_json(data["DimensionKeys"])
+
+        out["dimension_keys"] = aws_sdk_rum.types.dimension_keys_map.deserialize_json(
+            data["DimensionKeys"]
+        )
     if "EventPattern" in data:
         out["event_pattern"] = data["EventPattern"]
     if "Namespace" in data:

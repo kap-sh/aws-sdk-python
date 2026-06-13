@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#Checksum``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.encryption_algorithm
     import aws_sdk_mgn.types.hash
 
+
 class Checksum(TypedDict):
-    encryption_algorithm: NotRequired["aws_sdk_mgn.types.encryption_algorithm.EncryptionAlgorithm"]
+    encryption_algorithm: NotRequired[
+        "aws_sdk_mgn.types.encryption_algorithm.EncryptionAlgorithm"
+    ]
     """<p>The encryption algorithm used to generate the checksum.</p>"""
     hash: NotRequired["aws_sdk_mgn.types.hash.Hash"]
     """<p>The hash value of the checksum.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Checksum) -> dict:

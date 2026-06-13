@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ServiceAccountSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_grafana.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.role
+
 
 class ServiceAccountSummary(TypedDict):
     id: "str"
@@ -14,6 +17,7 @@ class ServiceAccountSummary(TypedDict):
     """<p>Returns true if the service account is disabled. Service accounts can be disabled and enabled in the Amazon Managed Grafana console.</p>"""
     grafana_role: "aws_sdk_grafana.types.role.Role"
     """<p>The role of the service account, which sets the permission level used when calling Grafana APIs.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ServiceAccountSummary) -> dict:

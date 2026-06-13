@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ItalyAdditionalInfo``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.cig_number
     import aws_sdk_taxsettings.types.cup_number
     import aws_sdk_taxsettings.types.customer_type
     import aws_sdk_taxsettings.types.sdi_account_id
     import aws_sdk_taxsettings.types.tax_code
+
 
 class ItalyAdditionalInfo(TypedDict):
     sdi_account_id: NotRequired["aws_sdk_taxsettings.types.sdi_account_id.SdiAccountId"]
@@ -20,6 +23,7 @@ class ItalyAdditionalInfo(TypedDict):
     """<p>List of service tax codes for your TRN in Italy. You can use your customer tax code as part of a VAT Group. </p>"""
     customer_type: NotRequired["aws_sdk_taxsettings.types.customer_type.CustomerType"]
     """<p>The customer type for tax registration in Italy. Valid values are <code>Business</code> or <code>Individual</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ItalyAdditionalInfo) -> dict:
@@ -34,7 +38,10 @@ def serialize_json(value: ItalyAdditionalInfo) -> dict:
         out["taxCode"] = value["tax_code"]
     if "customer_type" in value:
         import aws_sdk_taxsettings.types.customer_type
-        out["customerType"] = aws_sdk_taxsettings.types.customer_type.serialize_json(value["customer_type"])
+
+        out["customerType"] = aws_sdk_taxsettings.types.customer_type.serialize_json(
+            value["customer_type"]
+        )
     return out
 
 
@@ -50,5 +57,8 @@ def deserialize_json(data: dict) -> ItalyAdditionalInfo:
         out["tax_code"] = data["taxCode"]
     if "customerType" in data:
         import aws_sdk_taxsettings.types.customer_type
-        out["customer_type"] = aws_sdk_taxsettings.types.customer_type.deserialize_json(data["customerType"])
+
+        out["customer_type"] = aws_sdk_taxsettings.types.customer_type.deserialize_json(
+            data["customerType"]
+        )
     return out

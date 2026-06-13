@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CopyJob``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
     import aws_sdk_backup.types.arn
@@ -15,6 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_type
     import aws_sdk_backup.types.string
     import aws_sdk_backup.types.timestamp
+
 
 class CopyJob(TypedDict):
     account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]
@@ -35,7 +38,9 @@ class CopyJob(TypedDict):
     """<p>An ARN that uniquely identifies a destination recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>"""
     destination_encryption_key_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the copied backup in the destination vault. This can be a customer-managed key or an Amazon Web Services managed key.</p>"""
-    destination_recovery_point_lifecycle: NotRequired["aws_sdk_backup.types.lifecycle.Lifecycle"]
+    destination_recovery_point_lifecycle: NotRequired[
+        "aws_sdk_backup.types.lifecycle.Lifecycle"
+    ]
     resource_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>The Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>"""
     creation_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
@@ -50,7 +55,9 @@ class CopyJob(TypedDict):
     """<p>The size, in bytes, of a copy job.</p>"""
     iam_role_arn: NotRequired["aws_sdk_backup.types.iam_role_arn.IAMRoleArn"]
     """<p>Specifies the IAM role ARN used to copy the target recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>"""
-    created_by: NotRequired["aws_sdk_backup.types.recovery_point_creator.RecoveryPointCreator"]
+    created_by: NotRequired[
+        "aws_sdk_backup.types.recovery_point_creator.RecoveryPointCreator"
+    ]
     created_by_backup_job_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The backup job ID that initiated this copy job. Only applicable to scheduled copy jobs and automatic copy jobs to logically air-gapped vault.</p>"""
     resource_type: NotRequired["aws_sdk_backup.types.resource_type.ResourceType"]
@@ -63,12 +70,15 @@ class CopyJob(TypedDict):
     """<p>The identifier of a resource within a composite group, such as nested (child) recovery point belonging to a composite (parent) stack. The ID is transferred from the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax\"> logical ID</a> within a stack.</p>"""
     number_of_child_jobs: NotRequired["aws_sdk_backup.types.long.Long"]
     """<p>The number of child (nested) copy jobs.</p>"""
-    child_jobs_in_state: NotRequired["aws_sdk_backup.types.copy_job_child_jobs_in_state.CopyJobChildJobsInState"]
+    child_jobs_in_state: NotRequired[
+        "aws_sdk_backup.types.copy_job_child_jobs_in_state.CopyJobChildJobsInState"
+    ]
     """<p>This returns the statistics of the included child (nested) copy jobs.</p>"""
     resource_name: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The non-unique name of the resource that belongs to the specified backup.</p>"""
     message_category: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>This parameter is the job count for the specified message category.</p> <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and <code>InvalidParameters</code>. See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of MessageCategory strings.</p> <p>The the value ANY returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CopyJob) -> dict:
@@ -93,18 +103,32 @@ def serialize_json(value: CopyJob) -> dict:
         out["DestinationEncryptionKeyArn"] = value["destination_encryption_key_arn"]
     if "destination_recovery_point_lifecycle" in value:
         import aws_sdk_backup.types.lifecycle
-        out["DestinationRecoveryPointLifecycle"] = aws_sdk_backup.types.lifecycle.serialize_json(value["destination_recovery_point_lifecycle"])
+
+        out["DestinationRecoveryPointLifecycle"] = (
+            aws_sdk_backup.types.lifecycle.serialize_json(
+                value["destination_recovery_point_lifecycle"]
+            )
+        )
     if "resource_arn" in value:
         out["ResourceArn"] = value["resource_arn"]
     if "creation_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["creation_date"])
+
+        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["creation_date"]
+        )
     if "completion_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["CompletionDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["completion_date"])
+
+        out["CompletionDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["completion_date"]
+        )
     if "state" in value:
         import aws_sdk_backup.types.copy_job_state
-        out["State"] = aws_sdk_backup.types.copy_job_state.serialize_json(value["state"])
+
+        out["State"] = aws_sdk_backup.types.copy_job_state.serialize_json(
+            value["state"]
+        )
     if "status_message" in value:
         out["StatusMessage"] = value["status_message"]
     if "backup_size_in_bytes" in value:
@@ -113,7 +137,10 @@ def serialize_json(value: CopyJob) -> dict:
         out["IamRoleArn"] = value["iam_role_arn"]
     if "created_by" in value:
         import aws_sdk_backup.types.recovery_point_creator
-        out["CreatedBy"] = aws_sdk_backup.types.recovery_point_creator.serialize_json(value["created_by"])
+
+        out["CreatedBy"] = aws_sdk_backup.types.recovery_point_creator.serialize_json(
+            value["created_by"]
+        )
     if "created_by_backup_job_id" in value:
         out["CreatedByBackupJobId"] = value["created_by_backup_job_id"]
     if "resource_type" in value:
@@ -127,7 +154,12 @@ def serialize_json(value: CopyJob) -> dict:
         out["NumberOfChildJobs"] = value["number_of_child_jobs"]
     if "child_jobs_in_state" in value:
         import aws_sdk_backup.types.copy_job_child_jobs_in_state
-        out["ChildJobsInState"] = aws_sdk_backup.types.copy_job_child_jobs_in_state.serialize_json(value["child_jobs_in_state"])
+
+        out["ChildJobsInState"] = (
+            aws_sdk_backup.types.copy_job_child_jobs_in_state.serialize_json(
+                value["child_jobs_in_state"]
+            )
+        )
     if "resource_name" in value:
         out["ResourceName"] = value["resource_name"]
     if "message_category" in value:
@@ -157,18 +189,32 @@ def deserialize_json(data: dict) -> CopyJob:
         out["destination_encryption_key_arn"] = data["DestinationEncryptionKeyArn"]
     if "DestinationRecoveryPointLifecycle" in data:
         import aws_sdk_backup.types.lifecycle
-        out["destination_recovery_point_lifecycle"] = aws_sdk_backup.types.lifecycle.deserialize_json(data["DestinationRecoveryPointLifecycle"])
+
+        out["destination_recovery_point_lifecycle"] = (
+            aws_sdk_backup.types.lifecycle.deserialize_json(
+                data["DestinationRecoveryPointLifecycle"]
+            )
+        )
     if "ResourceArn" in data:
         out["resource_arn"] = data["ResourceArn"]
     if "CreationDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["CreationDate"])
+
+        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CreationDate"]
+        )
     if "CompletionDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["completion_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["CompletionDate"])
+
+        out["completion_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CompletionDate"]
+        )
     if "State" in data:
         import aws_sdk_backup.types.copy_job_state
-        out["state"] = aws_sdk_backup.types.copy_job_state.deserialize_json(data["State"])
+
+        out["state"] = aws_sdk_backup.types.copy_job_state.deserialize_json(
+            data["State"]
+        )
     if "StatusMessage" in data:
         out["status_message"] = data["StatusMessage"]
     if "BackupSizeInBytes" in data:
@@ -177,7 +223,12 @@ def deserialize_json(data: dict) -> CopyJob:
         out["iam_role_arn"] = data["IamRoleArn"]
     if "CreatedBy" in data:
         import aws_sdk_backup.types.recovery_point_creator
-        out["created_by"] = aws_sdk_backup.types.recovery_point_creator.deserialize_json(data["CreatedBy"])
+
+        out["created_by"] = (
+            aws_sdk_backup.types.recovery_point_creator.deserialize_json(
+                data["CreatedBy"]
+            )
+        )
     if "CreatedByBackupJobId" in data:
         out["created_by_backup_job_id"] = data["CreatedByBackupJobId"]
     if "ResourceType" in data:
@@ -194,7 +245,12 @@ def deserialize_json(data: dict) -> CopyJob:
         out["number_of_child_jobs"] = data["NumberOfChildJobs"]
     if "ChildJobsInState" in data:
         import aws_sdk_backup.types.copy_job_child_jobs_in_state
-        out["child_jobs_in_state"] = aws_sdk_backup.types.copy_job_child_jobs_in_state.deserialize_json(data["ChildJobsInState"])
+
+        out["child_jobs_in_state"] = (
+            aws_sdk_backup.types.copy_job_child_jobs_in_state.deserialize_json(
+                data["ChildJobsInState"]
+            )
+        )
     if "ResourceName" in data:
         out["resource_name"] = data["ResourceName"]
     if "MessageCategory" in data:

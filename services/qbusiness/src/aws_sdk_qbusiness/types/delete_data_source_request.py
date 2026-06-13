@@ -1,10 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteDataSourceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.data_source_id
     import aws_sdk_qbusiness.types.index_id
+
 
 class DeleteDataSourceRequest(TypedDict):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
@@ -13,6 +15,7 @@ class DeleteDataSourceRequest(TypedDict):
     """<p>The identifier of the index used with the data source connector.</p>"""
     data_source_id: "aws_sdk_qbusiness.types.data_source_id.DataSourceId"
     """<p>The identifier of the data source connector that you want to delete. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteDataSourceRequest) -> dict:

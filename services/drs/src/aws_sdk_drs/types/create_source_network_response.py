@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateSourceNetworkResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_network_id
 
+
 class CreateSourceNetworkResponse(TypedDict):
-    source_network_id: NotRequired["aws_sdk_drs.types.source_network_id.SourceNetworkID"]
+    source_network_id: NotRequired[
+        "aws_sdk_drs.types.source_network_id.SourceNetworkID"
+    ]
     """<p>ID of the created Source Network.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateSourceNetworkResponse) -> dict:

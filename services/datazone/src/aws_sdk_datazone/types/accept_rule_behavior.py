@@ -9,11 +9,19 @@ import base64
 from email.utils import format_datetime as _fmt_http
 from email.utils import parsedate_to_datetime as _parse_http
 
-AcceptRuleBehavior: TypeAlias = Literal["ALL", "NONE",]
+AcceptRuleBehavior: TypeAlias = Literal[
+    "ALL",
+    "NONE",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("ALL", "NONE",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ALL",
+        "NONE",
+    )
+)
 
 
 def serialize_json(value: AcceptRuleBehavior) -> str:

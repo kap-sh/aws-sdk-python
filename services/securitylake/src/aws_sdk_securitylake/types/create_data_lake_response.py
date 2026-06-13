@@ -1,20 +1,31 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CreateDataLakeResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.data_lake_resource_list
 
+
 class CreateDataLakeResponse(TypedDict):
-    data_lakes: NotRequired["aws_sdk_securitylake.types.data_lake_resource_list.DataLakeResourceList"]
+    data_lakes: NotRequired[
+        "aws_sdk_securitylake.types.data_lake_resource_list.DataLakeResourceList"
+    ]
     """<p>The created Security Lake configuration object.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateDataLakeResponse) -> dict:
     out: dict = {}
     if "data_lakes" in value:
         import aws_sdk_securitylake.types.data_lake_resource_list
-        out["dataLakes"] = aws_sdk_securitylake.types.data_lake_resource_list.serialize_json(value["data_lakes"])
+
+        out["dataLakes"] = (
+            aws_sdk_securitylake.types.data_lake_resource_list.serialize_json(
+                value["data_lakes"]
+            )
+        )
     return out
 
 
@@ -22,5 +33,10 @@ def deserialize_json(data: dict) -> CreateDataLakeResponse:
     out: CreateDataLakeResponse = {}  # type: ignore[typeddict-item]
     if "dataLakes" in data:
         import aws_sdk_securitylake.types.data_lake_resource_list
-        out["data_lakes"] = aws_sdk_securitylake.types.data_lake_resource_list.deserialize_json(data["dataLakes"])
+
+        out["data_lakes"] = (
+            aws_sdk_securitylake.types.data_lake_resource_list.deserialize_json(
+                data["dataLakes"]
+            )
+        )
     return out

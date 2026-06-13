@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BridgeFlowOutput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class BridgeFlowOutput(TypedDict):
     flow_arn: NotRequired["str"]
@@ -10,6 +12,7 @@ class BridgeFlowOutput(TypedDict):
     """<p> The Amazon Resource Number (ARN) of the flow source.</p>"""
     name: NotRequired["str"]
     """<p> The name of the bridge's output.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BridgeFlowOutput) -> dict:

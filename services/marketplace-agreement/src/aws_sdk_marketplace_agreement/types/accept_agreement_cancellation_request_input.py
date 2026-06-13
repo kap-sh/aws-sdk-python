@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#AcceptAgreementCancellationRequestInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_marketplace_agreement.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_cancellation_request_id
     import aws_sdk_marketplace_agreement.types.agreement_id
+
 
 class AcceptAgreementCancellationRequestInput(TypedDict):
     agreement_id: "aws_sdk_marketplace_agreement.types.agreement_id.AgreementId"
     """<p>The unique identifier of the agreement associated with the cancellation request.</p>"""
     agreement_cancellation_request_id: "aws_sdk_marketplace_agreement.types.agreement_cancellation_request_id.AgreementCancellationRequestId"
     """<p>The unique identifier of the cancellation request to accept.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AcceptAgreementCancellationRequestInput) -> dict:
@@ -25,9 +29,15 @@ def deserialize_aws_json_1_0(data: dict) -> AcceptAgreementCancellationRequestIn
     if "agreementId" in data:
         out["agreement_id"] = data["agreementId"]
     else:
-        raise DeserializationError("AcceptAgreementCancellationRequestInput.agreement_id required")
+        raise DeserializationError(
+            "AcceptAgreementCancellationRequestInput.agreement_id required"
+        )
     if "agreementCancellationRequestId" in data:
-        out["agreement_cancellation_request_id"] = data["agreementCancellationRequestId"]
+        out["agreement_cancellation_request_id"] = data[
+            "agreementCancellationRequestId"
+        ]
     else:
-        raise DeserializationError("AcceptAgreementCancellationRequestInput.agreement_cancellation_request_id required")
+        raise DeserializationError(
+            "AcceptAgreementCancellationRequestInput.agreement_cancellation_request_id required"
+        )
     return out

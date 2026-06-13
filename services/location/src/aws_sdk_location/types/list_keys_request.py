@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.location#ListKeysRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_location.types.api_key_filter
+    import aws_sdk_location.types.token
+
+
+class ListKeysRequest(TypedDict):
+    max_results: NotRequired["int"]
+    """<p>An optional limit for the number of resources returned in a single call. </p> <p>Default value: <code>100</code> </p>"""
+    next_token: NotRequired["aws_sdk_location.types.token.Token"]
+    """<p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p> <p>Default value: <code>null</code> </p>"""
+    filter: NotRequired["aws_sdk_location.types.api_key_filter.ApiKeyFilter"]
+    """<p>Optionally filter the list to only <code>Active</code> or <code>Expired</code> API keys.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListKeysRequest) -> dict:
+    out: dict = {}
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "filter" in value:
+        import aws_sdk_location.types.api_key_filter
+
+        out["Filter"] = aws_sdk_location.types.api_key_filter.serialize_json(
+            value["filter"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListKeysRequest:
+    out: ListKeysRequest = {}  # type: ignore[typeddict-item]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Filter" in data:
+        import aws_sdk_location.types.api_key_filter
+
+        out["filter"] = aws_sdk_location.types.api_key_filter.deserialize_json(
+            data["Filter"]
+        )
+    return out

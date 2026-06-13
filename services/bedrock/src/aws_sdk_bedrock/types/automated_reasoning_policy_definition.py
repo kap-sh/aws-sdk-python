@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyDefinition``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

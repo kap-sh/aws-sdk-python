@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddFlowOutputs420Exception``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mediaconnect.errors import ServiceError
+
 
 class AddFlowOutputs420Exception_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AddFlowOutputs420Exception_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> AddFlowOutputs420Exception_:
 
 class AddFlowOutputs420Exception(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.mediaconnect#AddFlowOutputs420Exception``."""
-    code: str | None = 'AddFlowOutputs420Exception'
+
+    code: str | None = "AddFlowOutputs420Exception"
 
     def __init__(self, data: AddFlowOutputs420Exception_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AddFlowOutputs420Exception')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AddFlowOutputs420Exception",
+        )
         self.data = data
 
     @classmethod

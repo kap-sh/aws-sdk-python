@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CheckDocumentAccessRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.data_source_id
     import aws_sdk_qbusiness.types.document_id
     import aws_sdk_qbusiness.types.index_id
     import aws_sdk_qbusiness.types.string
+
 
 class CheckDocumentAccessRequest(TypedDict):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
@@ -20,6 +23,7 @@ class CheckDocumentAccessRequest(TypedDict):
     """<p>The unique identifier of the document. Specifies which document's access permissions are being checked.</p>"""
     data_source_id: NotRequired["aws_sdk_qbusiness.types.data_source_id.DataSourceId"]
     """<p>The unique identifier of the data source. Identifies the specific data source from which the document originates. Should not be used when a document is uploaded directly with BatchPutDocument, as no dataSourceId is available or necessary. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CheckDocumentAccessRequest) -> dict:

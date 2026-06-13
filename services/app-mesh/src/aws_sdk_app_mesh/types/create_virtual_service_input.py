@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#CreateVirtualServiceInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_app_mesh.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.account_id
     import aws_sdk_app_mesh.types.resource_name
     import aws_sdk_app_mesh.types.service_name
     import aws_sdk_app_mesh.types.tag_list
     import aws_sdk_app_mesh.types.virtual_service_spec
+
 
 class CreateVirtualServiceInput(TypedDict):
     virtual_service_name: "aws_sdk_app_mesh.types.service_name.ServiceName"
@@ -24,14 +28,19 @@ class CreateVirtualServiceInput(TypedDict):
     mesh_owner: NotRequired["aws_sdk_app_mesh.types.account_id.AccountId"]
     """<p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html\">Working with shared meshes</a>.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateVirtualServiceInput) -> dict:
     out: dict = {}
     out["virtualServiceName"] = value["virtual_service_name"]
     import aws_sdk_app_mesh.types.virtual_service_spec
-    out["spec"] = aws_sdk_app_mesh.types.virtual_service_spec.serialize_json(value["spec"])
+
+    out["spec"] = aws_sdk_app_mesh.types.virtual_service_spec.serialize_json(
+        value["spec"]
+    )
     if "tags" in value:
         import aws_sdk_app_mesh.types.tag_list
+
         out["tags"] = aws_sdk_app_mesh.types.tag_list.serialize_json(value["tags"])
     if "client_token" in value:
         out["clientToken"] = value["client_token"]
@@ -43,14 +52,20 @@ def deserialize_json(data: dict) -> CreateVirtualServiceInput:
     if "virtualServiceName" in data:
         out["virtual_service_name"] = data["virtualServiceName"]
     else:
-        raise DeserializationError("CreateVirtualServiceInput.virtual_service_name required")
+        raise DeserializationError(
+            "CreateVirtualServiceInput.virtual_service_name required"
+        )
     if "spec" in data:
         import aws_sdk_app_mesh.types.virtual_service_spec
-        out["spec"] = aws_sdk_app_mesh.types.virtual_service_spec.deserialize_json(data["spec"])
+
+        out["spec"] = aws_sdk_app_mesh.types.virtual_service_spec.deserialize_json(
+            data["spec"]
+        )
     else:
         raise DeserializationError("CreateVirtualServiceInput.spec required")
     if "tags" in data:
         import aws_sdk_app_mesh.types.tag_list
+
         out["tags"] = aws_sdk_app_mesh.types.tag_list.deserialize_json(data["tags"])
     if "clientToken" in data:
         out["client_token"] = data["clientToken"]

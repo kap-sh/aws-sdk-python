@@ -1,15 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#DeleteNamespaceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.namespace_name
     import aws_sdk_s3tables.types.table_bucket_arn
+
 
 class DeleteNamespaceRequest(TypedDict):
     table_bucket_arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
     """<p>The Amazon Resource Name (ARN) of the table bucket associated with the namespace.</p>"""
     namespace: "aws_sdk_s3tables.types.namespace_name.NamespaceName"
     """<p>The name of the namespace.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteNamespaceRequest) -> dict:

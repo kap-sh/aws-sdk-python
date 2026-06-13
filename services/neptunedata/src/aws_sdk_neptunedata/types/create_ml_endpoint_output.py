@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CreateMLEndpointOutput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CreateMLEndpointOutput(TypedDict):
     id: NotRequired["str"]
@@ -10,6 +12,7 @@ class CreateMLEndpointOutput(TypedDict):
     """<p>The ARN for the new inference endpoint.</p>"""
     creation_time_in_millis: NotRequired["int"]
     """<p>The endpoint creation time, in milliseconds.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateMLEndpointOutput) -> dict:

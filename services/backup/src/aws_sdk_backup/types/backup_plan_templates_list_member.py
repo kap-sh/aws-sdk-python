@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupPlanTemplatesListMember``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
+
 
 class BackupPlanTemplatesListMember(TypedDict):
     backup_plan_template_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a stored backup plan template.</p>"""
     backup_plan_template_name: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The optional display name of a backup plan template.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BackupPlanTemplatesListMember) -> dict:

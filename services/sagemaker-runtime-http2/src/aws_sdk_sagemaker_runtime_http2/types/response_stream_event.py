@@ -19,12 +19,12 @@ class _ResponseStreamEvent_PayloadPart(TypedDict):
 
 class _ResponseStreamEvent_ModelStreamError(TypedDict):
     ModelStreamError: (
-        "aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.ModelStreamError"
+        "aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.ModelStreamError_"
     )
 
 
 class _ResponseStreamEvent_InternalStreamFailure(TypedDict):
-    InternalStreamFailure: "aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.InternalStreamFailure"
+    InternalStreamFailure: "aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.InternalStreamFailure_"
 
 
 ResponseStreamEvent: TypeAlias = (

@@ -1,20 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AccountAggregationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id
     import aws_sdk_inspector2.types.severity_counts
 
+
 class AccountAggregationResponse(TypedDict):
     account_id: NotRequired["aws_sdk_inspector2.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID.</p>"""
-    severity_counts: NotRequired["aws_sdk_inspector2.types.severity_counts.SeverityCounts"]
+    severity_counts: NotRequired[
+        "aws_sdk_inspector2.types.severity_counts.SeverityCounts"
+    ]
     """<p>The number of findings by severity.</p>"""
     exploit_available_count: NotRequired["int"]
     """<p> The number of findings that have an exploit available. </p>"""
     fix_available_count: NotRequired["int"]
     """<p> Details about the number of fixes. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountAggregationResponse) -> dict:
@@ -23,7 +29,10 @@ def serialize_json(value: AccountAggregationResponse) -> dict:
         out["accountId"] = value["account_id"]
     if "severity_counts" in value:
         import aws_sdk_inspector2.types.severity_counts
-        out["severityCounts"] = aws_sdk_inspector2.types.severity_counts.serialize_json(value["severity_counts"])
+
+        out["severityCounts"] = aws_sdk_inspector2.types.severity_counts.serialize_json(
+            value["severity_counts"]
+        )
     if "exploit_available_count" in value:
         out["exploitAvailableCount"] = value["exploit_available_count"]
     if "fix_available_count" in value:
@@ -37,7 +46,12 @@ def deserialize_json(data: dict) -> AccountAggregationResponse:
         out["account_id"] = data["accountId"]
     if "severityCounts" in data:
         import aws_sdk_inspector2.types.severity_counts
-        out["severity_counts"] = aws_sdk_inspector2.types.severity_counts.deserialize_json(data["severityCounts"])
+
+        out["severity_counts"] = (
+            aws_sdk_inspector2.types.severity_counts.deserialize_json(
+                data["severityCounts"]
+            )
+        )
     if "exploitAvailableCount" in data:
         out["exploit_available_count"] = data["exploitAvailableCount"]
     if "fixAvailableCount" in data:

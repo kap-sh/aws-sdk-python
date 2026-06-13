@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ClusterSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_dsql.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_arn
     import aws_sdk_dsql.types.cluster_id
+
 
 class ClusterSummary(TypedDict):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster.</p>"""
     arn: "aws_sdk_dsql.types.cluster_arn.ClusterArn"
     """<p>The ARN of the cluster.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ClusterSummary) -> dict:

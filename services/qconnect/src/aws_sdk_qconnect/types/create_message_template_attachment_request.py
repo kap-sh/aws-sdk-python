@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#CreateMessageTemplateAttachmentRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_qconnect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_qconnect.types.attachment_file_name
+    import aws_sdk_qconnect.types.client_token
+    import aws_sdk_qconnect.types.content_disposition
+    import aws_sdk_qconnect.types.non_empty_unlimited_string
+    import aws_sdk_qconnect.types.uuid_or_arn
+    import aws_sdk_qconnect.types.uuid_or_arn_or_either_with_qualifier
+
+
+class CreateMessageTemplateAttachmentRequest(TypedDict):
+    knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
+    """<p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
+    message_template_id: "aws_sdk_qconnect.types.uuid_or_arn_or_either_with_qualifier.UuidOrArnOrEitherWithQualifier"
+    """<p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>"""
+    content_disposition: "aws_sdk_qconnect.types.content_disposition.ContentDisposition"
+    """<p>The presentation information for the attachment file.</p>"""
+    name: "aws_sdk_qconnect.types.attachment_file_name.AttachmentFileName"
+    """<p>The name of the attachment file being uploaded. The name should include the file extension.</p>"""
+    body: "aws_sdk_qconnect.types.non_empty_unlimited_string.NonEmptyUnlimitedString"
+    """<p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>"""
+    client_token: NotRequired["aws_sdk_qconnect.types.client_token.ClientToken"]
+    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateMessageTemplateAttachmentRequest) -> dict:
+    out: dict = {}
+    out["contentDisposition"] = value["content_disposition"]
+    out["name"] = value["name"]
+    out["body"] = value["body"]
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateMessageTemplateAttachmentRequest:
+    out: CreateMessageTemplateAttachmentRequest = {}  # type: ignore[typeddict-item]
+    if "contentDisposition" in data:
+        out["content_disposition"] = data["contentDisposition"]
+    else:
+        raise DeserializationError(
+            "CreateMessageTemplateAttachmentRequest.content_disposition required"
+        )
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError(
+            "CreateMessageTemplateAttachmentRequest.name required"
+        )
+    if "body" in data:
+        out["body"] = data["body"]
+    else:
+        raise DeserializationError(
+            "CreateMessageTemplateAttachmentRequest.body required"
+        )
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

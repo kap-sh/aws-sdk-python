@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeRecoveryInstancesResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.describe_recovery_instances_items
     import aws_sdk_drs.types.pagination_token
 
+
 class DescribeRecoveryInstancesResponse(TypedDict):
     next_token: NotRequired["aws_sdk_drs.types.pagination_token.PaginationToken"]
     """<p>The token of the next Recovery Instance to retrieve.</p>"""
-    items: NotRequired["aws_sdk_drs.types.describe_recovery_instances_items.DescribeRecoveryInstancesItems"]
+    items: NotRequired[
+        "aws_sdk_drs.types.describe_recovery_instances_items.DescribeRecoveryInstancesItems"
+    ]
     """<p>An array of Recovery Instances.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeRecoveryInstancesResponse) -> dict:
@@ -19,7 +25,12 @@ def serialize_json(value: DescribeRecoveryInstancesResponse) -> dict:
         out["nextToken"] = value["next_token"]
     if "items" in value:
         import aws_sdk_drs.types.describe_recovery_instances_items
-        out["items"] = aws_sdk_drs.types.describe_recovery_instances_items.serialize_json(value["items"])
+
+        out["items"] = (
+            aws_sdk_drs.types.describe_recovery_instances_items.serialize_json(
+                value["items"]
+            )
+        )
     return out
 
 
@@ -29,5 +40,10 @@ def deserialize_json(data: dict) -> DescribeRecoveryInstancesResponse:
         out["next_token"] = data["nextToken"]
     if "items" in data:
         import aws_sdk_drs.types.describe_recovery_instances_items
-        out["items"] = aws_sdk_drs.types.describe_recovery_instances_items.deserialize_json(data["items"])
+
+        out["items"] = (
+            aws_sdk_drs.types.describe_recovery_instances_items.deserialize_json(
+                data["items"]
+            )
+        )
     return out

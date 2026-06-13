@@ -1,18 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailManagedWord``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type
     import aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action
 
+
 class GuardrailManagedWord(TypedDict):
     match: NotRequired["str"]
     """<p>The match details for the managed word filter in the Guardrail.</p>"""
-    type: NotRequired["aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type.GuardrailManagedWordType"]
+    type: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type.GuardrailManagedWordType"
+    ]
     """<p>The type details for the managed word filter in the Guardrail.</p>"""
-    action: NotRequired["aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action.GuardrailWordPolicyAction"]
+    action: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action.GuardrailWordPolicyAction"
+    ]
     """<p>The action details for the managed word filter in the Guardrail.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GuardrailManagedWord) -> dict:
@@ -21,10 +29,20 @@ def serialize_json(value: GuardrailManagedWord) -> dict:
         out["match"] = value["match"]
     if "type" in value:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type
-        out["type"] = aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type.serialize_json(value["type"])
+
+        out["type"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type.serialize_json(
+                value["type"]
+            )
+        )
     if "action" in value:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action
-        out["action"] = aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action.serialize_json(value["action"])
+
+        out["action"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action.serialize_json(
+                value["action"]
+            )
+        )
     return out
 
 
@@ -34,8 +52,18 @@ def deserialize_json(data: dict) -> GuardrailManagedWord:
         out["match"] = data["match"]
     if "type" in data:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type
-        out["type"] = aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type.deserialize_json(data["type"])
+
+        out["type"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type.deserialize_json(
+                data["type"]
+            )
+        )
     if "action" in data:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action
-        out["action"] = aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action.deserialize_json(data["action"])
+
+        out["action"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action.deserialize_json(
+                data["action"]
+            )
+        )
     return out

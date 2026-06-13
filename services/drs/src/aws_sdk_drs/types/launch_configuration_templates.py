@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchConfigurationTemplates``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_configuration_template
 
-LaunchConfigurationTemplates: TypeAlias = list["aws_sdk_drs.types.launch_configuration_template.LaunchConfigurationTemplate"]
+LaunchConfigurationTemplates: TypeAlias = list[
+    "aws_sdk_drs.types.launch_configuration_template.LaunchConfigurationTemplate"
+]
 
 
 # --- restJson1 ser/de ---
 def serialize_json(value: LaunchConfigurationTemplates) -> list:
     import aws_sdk_drs.types.launch_configuration_template
+
     out: list = []
     for item in value:
         out.append(aws_sdk_drs.types.launch_configuration_template.serialize_json(item))
@@ -18,7 +22,10 @@ def serialize_json(value: LaunchConfigurationTemplates) -> list:
 
 def deserialize_json(data: list) -> LaunchConfigurationTemplates:
     import aws_sdk_drs.types.launch_configuration_template
+
     out: LaunchConfigurationTemplates = []
     for item in data:
-        out.append(aws_sdk_drs.types.launch_configuration_template.deserialize_json(item))
+        out.append(
+            aws_sdk_drs.types.launch_configuration_template.deserialize_json(item)
+        )
     return out

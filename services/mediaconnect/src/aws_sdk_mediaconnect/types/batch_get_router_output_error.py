@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BatchGetRouterOutputError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_mediaconnect.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_output_arn
+
 
 class BatchGetRouterOutputError(TypedDict):
     arn: "aws_sdk_mediaconnect.types.router_output_arn.RouterOutputArn"
@@ -12,6 +15,7 @@ class BatchGetRouterOutputError(TypedDict):
     """<p>The error code associated with the error.</p>"""
     message: "str"
     """<p>A message describing the error.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchGetRouterOutputError) -> dict:

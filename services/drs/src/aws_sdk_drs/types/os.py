@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.drs#OS``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
+
 
 class OS(TypedDict):
     full_string: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>The long name of the Operating System.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: OS) -> dict:

@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#PutMetadataFlagBody``."""
+
+from typing import TypedDict
+
+from aws_sdk_amplifyuibuilder.errors import DeserializationError
+
+
+class PutMetadataFlagBody(TypedDict):
+    new_value: "str"
+    """<p>The new information to store.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutMetadataFlagBody) -> dict:
+    out: dict = {}
+    out["newValue"] = value["new_value"]
+    return out
+
+
+def deserialize_json(data: dict) -> PutMetadataFlagBody:
+    out: PutMetadataFlagBody = {}  # type: ignore[typeddict-item]
+    if "newValue" in data:
+        out["new_value"] = data["newValue"]
+    else:
+        raise DeserializationError("PutMetadataFlagBody.new_value required")
+    return out

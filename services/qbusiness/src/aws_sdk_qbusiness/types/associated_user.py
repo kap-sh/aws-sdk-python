@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AssociatedUser``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.membership_type
     import aws_sdk_qbusiness.types.string
+
 
 class AssociatedUser(TypedDict):
     id: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The unique identifier of the associated user. This is used to identify the user in access control decisions.</p>"""
     type: NotRequired["aws_sdk_qbusiness.types.membership_type.MembershipType"]
     """<p>The type of the associated user. This indicates the scope of the user's association.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociatedUser) -> dict:
@@ -19,7 +23,10 @@ def serialize_json(value: AssociatedUser) -> dict:
         out["id"] = value["id"]
     if "type" in value:
         import aws_sdk_qbusiness.types.membership_type
-        out["type"] = aws_sdk_qbusiness.types.membership_type.serialize_json(value["type"])
+
+        out["type"] = aws_sdk_qbusiness.types.membership_type.serialize_json(
+            value["type"]
+        )
     return out
 
 
@@ -29,5 +36,8 @@ def deserialize_json(data: dict) -> AssociatedUser:
         out["id"] = data["id"]
     if "type" in data:
         import aws_sdk_qbusiness.types.membership_type
-        out["type"] = aws_sdk_qbusiness.types.membership_type.deserialize_json(data["type"])
+
+        out["type"] = aws_sdk_qbusiness.types.membership_type.deserialize_json(
+            data["type"]
+        )
     return out

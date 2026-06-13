@@ -21,26 +21,26 @@ class _TranscriptResultStream_TranscriptEvent(TypedDict):
 
 class _TranscriptResultStream_BadRequestException(TypedDict):
     BadRequestException: (
-        "aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException"
+        "aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException_"
     )
 
 
 class _TranscriptResultStream_LimitExceededException(TypedDict):
-    LimitExceededException: "aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException"
+    LimitExceededException: "aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException_"
 
 
 class _TranscriptResultStream_InternalFailureException(TypedDict):
-    InternalFailureException: "aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException"
+    InternalFailureException: "aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException_"
 
 
 class _TranscriptResultStream_ConflictException(TypedDict):
     ConflictException: (
-        "aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException"
+        "aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException_"
     )
 
 
 class _TranscriptResultStream_ServiceUnavailableException(TypedDict):
-    ServiceUnavailableException: "aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException"
+    ServiceUnavailableException: "aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 
 TranscriptResultStream: TypeAlias = (

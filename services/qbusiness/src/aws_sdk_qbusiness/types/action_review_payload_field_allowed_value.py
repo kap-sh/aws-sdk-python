@@ -1,15 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionReviewPayloadFieldAllowedValue``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_payload_field_value
 
+
 class ActionReviewPayloadFieldAllowedValue(TypedDict):
-    value: NotRequired["aws_sdk_qbusiness.types.action_payload_field_value.ActionPayloadFieldValue"]
+    value: NotRequired[
+        "aws_sdk_qbusiness.types.action_payload_field_value.ActionPayloadFieldValue"
+    ]
     """<p>The field value.</p>"""
-    display_value: NotRequired["aws_sdk_qbusiness.types.action_payload_field_value.ActionPayloadFieldValue"]
+    display_value: NotRequired[
+        "aws_sdk_qbusiness.types.action_payload_field_value.ActionPayloadFieldValue"
+    ]
     """<p>The name of the field.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ActionReviewPayloadFieldAllowedValue) -> dict:

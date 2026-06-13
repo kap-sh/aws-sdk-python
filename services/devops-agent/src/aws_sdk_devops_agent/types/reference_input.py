@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.devopsagent#ReferenceInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_devops_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_devops_agent.types.resource_id
+
+
+class ReferenceInput(TypedDict):
+    system: "str"
+    """<p>The name of the external system</p>"""
+    title: NotRequired["str"]
+    """<p>Optional title for the reference</p>"""
+    reference_id: "aws_sdk_devops_agent.types.resource_id.ResourceId"
+    """<p>The unique identifier in the external system</p>"""
+    reference_url: "str"
+    """<p>URL to access the reference in the external system</p>"""
+    association_id: "aws_sdk_devops_agent.types.resource_id.ResourceId"
+    """<p>Association identifier of the external system</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ReferenceInput) -> dict:
+    out: dict = {}
+    out["system"] = value["system"]
+    if "title" in value:
+        out["title"] = value["title"]
+    out["referenceId"] = value["reference_id"]
+    out["referenceUrl"] = value["reference_url"]
+    out["associationId"] = value["association_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> ReferenceInput:
+    out: ReferenceInput = {}  # type: ignore[typeddict-item]
+    if "system" in data:
+        out["system"] = data["system"]
+    else:
+        raise DeserializationError("ReferenceInput.system required")
+    if "title" in data:
+        out["title"] = data["title"]
+    if "referenceId" in data:
+        out["reference_id"] = data["referenceId"]
+    else:
+        raise DeserializationError("ReferenceInput.reference_id required")
+    if "referenceUrl" in data:
+        out["reference_url"] = data["referenceUrl"]
+    else:
+        raise DeserializationError("ReferenceInput.reference_url required")
+    if "associationId" in data:
+        out["association_id"] = data["associationId"]
+    else:
+        raise DeserializationError("ReferenceInput.association_id required")
+    return out

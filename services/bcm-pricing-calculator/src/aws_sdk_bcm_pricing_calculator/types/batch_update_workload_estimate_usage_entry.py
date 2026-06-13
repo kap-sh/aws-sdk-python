@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchUpdateWorkloadEstimateUsageEntry``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.resource_id
     import aws_sdk_bcm_pricing_calculator.types.usage_group
+
 
 class BatchUpdateWorkloadEstimateUsageEntry(TypedDict):
     id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
@@ -14,6 +18,7 @@ class BatchUpdateWorkloadEstimateUsageEntry(TypedDict):
     """<p> The updated group identifier for the usage estimate. </p>"""
     amount: NotRequired["float"]
     """<p> The updated estimated usage amount. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: BatchUpdateWorkloadEstimateUsageEntry) -> dict:

@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#GetStreamOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_keyspacesstreams.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.date
     import aws_sdk_keyspacesstreams.types.keyspace_name
@@ -12,6 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.stream_status
     import aws_sdk_keyspacesstreams.types.stream_view_type
     import aws_sdk_keyspacesstreams.types.table_name
+
 
 class GetStreamOutput(TypedDict):
     stream_arn: "aws_sdk_keyspacesstreams.types.stream_arn.StreamArn"
@@ -28,10 +32,15 @@ class GetStreamOutput(TypedDict):
     """<p> The name of the keyspace containing the table associated with this stream. The keyspace name is part of the table's hierarchical identifier in Amazon Keyspaces. </p>"""
     table_name: "aws_sdk_keyspacesstreams.types.table_name.TableName"
     """<p> The name of the table associated with this stream. The stream captures changes to rows in this Amazon Keyspaces table. </p>"""
-    shards: NotRequired["aws_sdk_keyspacesstreams.types.shard_description_list.ShardDescriptionList"]
+    shards: NotRequired[
+        "aws_sdk_keyspacesstreams.types.shard_description_list.ShardDescriptionList"
+    ]
     """<p> An array of shard objects associated with this stream. Each shard contains a subset of the stream's data records and has its own unique identifier. The collection of shards represents the complete stream data. </p>"""
-    next_token: NotRequired["aws_sdk_keyspacesstreams.types.shard_id_token.ShardIdToken"]
+    next_token: NotRequired[
+        "aws_sdk_keyspacesstreams.types.shard_id_token.ShardIdToken"
+    ]
     """<p> A pagination token that can be used in a subsequent <code>GetStream</code> request. This token is returned if the response contains more shards than can be returned in a single response. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: GetStreamOutput) -> dict:
@@ -39,16 +48,36 @@ def serialize_aws_json_1_0(value: GetStreamOutput) -> dict:
     out["streamArn"] = value["stream_arn"]
     out["streamLabel"] = value["stream_label"]
     import aws_sdk_keyspacesstreams.types.stream_status
-    out["streamStatus"] = aws_sdk_keyspacesstreams.types.stream_status.serialize_aws_json_1_0(value["stream_status"])
+
+    out["streamStatus"] = (
+        aws_sdk_keyspacesstreams.types.stream_status.serialize_aws_json_1_0(
+            value["stream_status"]
+        )
+    )
     import aws_sdk_keyspacesstreams.types.stream_view_type
-    out["streamViewType"] = aws_sdk_keyspacesstreams.types.stream_view_type.serialize_aws_json_1_0(value["stream_view_type"])
+
+    out["streamViewType"] = (
+        aws_sdk_keyspacesstreams.types.stream_view_type.serialize_aws_json_1_0(
+            value["stream_view_type"]
+        )
+    )
     import aws_sdk_keyspacesstreams.types.date
-    out["creationRequestDateTime"] = aws_sdk_keyspacesstreams.types.date.serialize_aws_json_1_0(value["creation_request_date_time"])
+
+    out["creationRequestDateTime"] = (
+        aws_sdk_keyspacesstreams.types.date.serialize_aws_json_1_0(
+            value["creation_request_date_time"]
+        )
+    )
     out["keyspaceName"] = value["keyspace_name"]
     out["tableName"] = value["table_name"]
     if "shards" in value:
         import aws_sdk_keyspacesstreams.types.shard_description_list
-        out["shards"] = aws_sdk_keyspacesstreams.types.shard_description_list.serialize_aws_json_1_0(value["shards"])
+
+        out["shards"] = (
+            aws_sdk_keyspacesstreams.types.shard_description_list.serialize_aws_json_1_0(
+                value["shards"]
+            )
+        )
     if "next_token" in value:
         out["nextToken"] = value["next_token"]
     return out
@@ -66,19 +95,36 @@ def deserialize_aws_json_1_0(data: dict) -> GetStreamOutput:
         raise DeserializationError("GetStreamOutput.stream_label required")
     if "streamStatus" in data:
         import aws_sdk_keyspacesstreams.types.stream_status
-        out["stream_status"] = aws_sdk_keyspacesstreams.types.stream_status.deserialize_aws_json_1_0(data["streamStatus"])
+
+        out["stream_status"] = (
+            aws_sdk_keyspacesstreams.types.stream_status.deserialize_aws_json_1_0(
+                data["streamStatus"]
+            )
+        )
     else:
         raise DeserializationError("GetStreamOutput.stream_status required")
     if "streamViewType" in data:
         import aws_sdk_keyspacesstreams.types.stream_view_type
-        out["stream_view_type"] = aws_sdk_keyspacesstreams.types.stream_view_type.deserialize_aws_json_1_0(data["streamViewType"])
+
+        out["stream_view_type"] = (
+            aws_sdk_keyspacesstreams.types.stream_view_type.deserialize_aws_json_1_0(
+                data["streamViewType"]
+            )
+        )
     else:
         raise DeserializationError("GetStreamOutput.stream_view_type required")
     if "creationRequestDateTime" in data:
         import aws_sdk_keyspacesstreams.types.date
-        out["creation_request_date_time"] = aws_sdk_keyspacesstreams.types.date.deserialize_aws_json_1_0(data["creationRequestDateTime"])
+
+        out["creation_request_date_time"] = (
+            aws_sdk_keyspacesstreams.types.date.deserialize_aws_json_1_0(
+                data["creationRequestDateTime"]
+            )
+        )
     else:
-        raise DeserializationError("GetStreamOutput.creation_request_date_time required")
+        raise DeserializationError(
+            "GetStreamOutput.creation_request_date_time required"
+        )
     if "keyspaceName" in data:
         out["keyspace_name"] = data["keyspaceName"]
     else:
@@ -89,7 +135,12 @@ def deserialize_aws_json_1_0(data: dict) -> GetStreamOutput:
         raise DeserializationError("GetStreamOutput.table_name required")
     if "shards" in data:
         import aws_sdk_keyspacesstreams.types.shard_description_list
-        out["shards"] = aws_sdk_keyspacesstreams.types.shard_description_list.deserialize_aws_json_1_0(data["shards"])
+
+        out["shards"] = (
+            aws_sdk_keyspacesstreams.types.shard_description_list.deserialize_aws_json_1_0(
+                data["shards"]
+            )
+        )
     if "nextToken" in data:
         out["next_token"] = data["nextToken"]
     return out

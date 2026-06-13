@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.arn
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
     import aws_sdk_license_manager_user_subscriptions.types.settings
+
 
 class IdentityProviderSummary(TypedDict):
     identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
@@ -17,20 +21,33 @@ class IdentityProviderSummary(TypedDict):
     """<p>The name of the user-based subscription product.</p>"""
     status: "str"
     """<p>The status of the identity provider.</p>"""
-    identity_provider_arn: NotRequired["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"]
+    identity_provider_arn: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+    ]
     """<p>The Amazon Resource Name (ARN) of the identity provider.</p>"""
     failure_message: NotRequired["str"]
     """<p>The failure message associated with an identity provider.</p>"""
     owner_account_id: NotRequired["str"]
     """<p>The AWS Account ID of the owner of this resource.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: IdentityProviderSummary) -> dict:
     out: dict = {}
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
-    out["IdentityProvider"] = aws_sdk_license_manager_user_subscriptions.types.identity_provider.serialize_json(value["identity_provider"])
+
+    out["IdentityProvider"] = (
+        aws_sdk_license_manager_user_subscriptions.types.identity_provider.serialize_json(
+            value["identity_provider"]
+        )
+    )
     import aws_sdk_license_manager_user_subscriptions.types.settings
-    out["Settings"] = aws_sdk_license_manager_user_subscriptions.types.settings.serialize_json(value["settings"])
+
+    out["Settings"] = (
+        aws_sdk_license_manager_user_subscriptions.types.settings.serialize_json(
+            value["settings"]
+        )
+    )
     out["Product"] = value["product"]
     out["Status"] = value["status"]
     if "identity_provider_arn" in value:
@@ -46,12 +63,22 @@ def deserialize_json(data: dict) -> IdentityProviderSummary:
     out: IdentityProviderSummary = {}  # type: ignore[typeddict-item]
     if "IdentityProvider" in data:
         import aws_sdk_license_manager_user_subscriptions.types.identity_provider
-        out["identity_provider"] = aws_sdk_license_manager_user_subscriptions.types.identity_provider.deserialize_json(data["IdentityProvider"])
+
+        out["identity_provider"] = (
+            aws_sdk_license_manager_user_subscriptions.types.identity_provider.deserialize_json(
+                data["IdentityProvider"]
+            )
+        )
     else:
         raise DeserializationError("IdentityProviderSummary.identity_provider required")
     if "Settings" in data:
         import aws_sdk_license_manager_user_subscriptions.types.settings
-        out["settings"] = aws_sdk_license_manager_user_subscriptions.types.settings.deserialize_json(data["Settings"])
+
+        out["settings"] = (
+            aws_sdk_license_manager_user_subscriptions.types.settings.deserialize_json(
+                data["Settings"]
+            )
+        )
     else:
         raise DeserializationError("IdentityProviderSummary.settings required")
     if "Product" in data:

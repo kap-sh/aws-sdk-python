@@ -1,15 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AccountCustomization``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
+
 
 class AccountCustomization(TypedDict):
     default_theme: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The default theme for this Quick Sight subscription.</p>"""
-    default_email_customization_template: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
+    default_email_customization_template: NotRequired[
+        "aws_sdk_quicksight.types.arn.Arn"
+    ]
     """<p>The default email customization template.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountCustomization) -> dict:
@@ -17,7 +23,9 @@ def serialize_json(value: AccountCustomization) -> dict:
     if "default_theme" in value:
         out["DefaultTheme"] = value["default_theme"]
     if "default_email_customization_template" in value:
-        out["DefaultEmailCustomizationTemplate"] = value["default_email_customization_template"]
+        out["DefaultEmailCustomizationTemplate"] = value[
+            "default_email_customization_template"
+        ]
     return out
 
 
@@ -26,5 +34,7 @@ def deserialize_json(data: dict) -> AccountCustomization:
     if "DefaultTheme" in data:
         out["default_theme"] = data["DefaultTheme"]
     if "DefaultEmailCustomizationTemplate" in data:
-        out["default_email_customization_template"] = data["DefaultEmailCustomizationTemplate"]
+        out["default_email_customization_template"] = data[
+            "DefaultEmailCustomizationTemplate"
+        ]
     return out

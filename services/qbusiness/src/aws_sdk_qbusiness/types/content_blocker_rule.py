@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ContentBlockerRule``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.system_message_override
 
+
 class ContentBlockerRule(TypedDict):
-    system_message_override: NotRequired["aws_sdk_qbusiness.types.system_message_override.SystemMessageOverride"]
+    system_message_override: NotRequired[
+        "aws_sdk_qbusiness.types.system_message_override.SystemMessageOverride"
+    ]
     """<p>The configured custom message displayed to an end user informing them that they've used a blocked phrase during chat.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ContentBlockerRule) -> dict:

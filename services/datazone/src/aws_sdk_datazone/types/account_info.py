@@ -3,25 +3,33 @@
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_account_id
     import aws_sdk_datazone.types.aws_account_name
     import aws_sdk_datazone.types.aws_region_list
+
 
 class AccountInfo(TypedDict):
     aws_account_id: "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
     """<p>The account ID.</p>"""
     supported_regions: "aws_sdk_datazone.types.aws_region_list.AwsRegionList"
     """<p>The regions supported for an account within an account pool. </p>"""
-    aws_account_name: NotRequired["aws_sdk_datazone.types.aws_account_name.AwsAccountName"]
+    aws_account_name: NotRequired[
+        "aws_sdk_datazone.types.aws_account_name.AwsAccountName"
+    ]
     """<p>The account name.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccountInfo) -> dict:
     out: dict = {}
     out["awsAccountId"] = value["aws_account_id"]
     import aws_sdk_datazone.types.aws_region_list
-    out["supportedRegions"] = aws_sdk_datazone.types.aws_region_list.serialize_json(value["supported_regions"])
+
+    out["supportedRegions"] = aws_sdk_datazone.types.aws_region_list.serialize_json(
+        value["supported_regions"]
+    )
     if "aws_account_name" in value:
         out["awsAccountName"] = value["aws_account_name"]
     return out
@@ -35,7 +43,12 @@ def deserialize_json(data: dict) -> AccountInfo:
         raise DeserializationError("AccountInfo.aws_account_id required")
     if "supportedRegions" in data:
         import aws_sdk_datazone.types.aws_region_list
-        out["supported_regions"] = aws_sdk_datazone.types.aws_region_list.deserialize_json(data["supportedRegions"])
+
+        out["supported_regions"] = (
+            aws_sdk_datazone.types.aws_region_list.deserialize_json(
+                data["supportedRegions"]
+            )
+        )
     else:
         raise DeserializationError("AccountInfo.supported_regions required")
     if "awsAccountName" in data:

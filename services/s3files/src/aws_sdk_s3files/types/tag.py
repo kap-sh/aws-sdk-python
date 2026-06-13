@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.s3files#Tag``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_s3files.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_s3files.types.tag_key
+    import aws_sdk_s3files.types.tag_value
+
+
+class Tag(TypedDict):
+    key: "aws_sdk_s3files.types.tag_key.TagKey"
+    """<p>The tag key. The key can't start with <code>aws:</code>.</p>"""
+    value: "aws_sdk_s3files.types.tag_value.TagValue"
+    """<p>The tag value.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Tag) -> dict:
+    out: dict = {}
+    out["key"] = value["key"]
+    out["value"] = value["value"]
+    return out
+
+
+def deserialize_json(data: dict) -> Tag:
+    out: Tag = {}  # type: ignore[typeddict-item]
+    if "key" in data:
+        out["key"] = data["key"]
+    else:
+        raise DeserializationError("Tag.key required")
+    if "value" in data:
+        out["value"] = data["value"]
+    else:
+        raise DeserializationError("Tag.value required")
+    return out

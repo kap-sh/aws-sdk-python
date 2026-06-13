@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#AssertionAttributes``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.assertion_attribute
+
 
 class AssertionAttributes(TypedDict):
     name: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
@@ -18,6 +21,7 @@ class AssertionAttributes(TypedDict):
     """<p>The name of the attribute within the SAML assertion to use as the user roles.</p>"""
     org: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
     """<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for the users' organizations.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssertionAttributes) -> dict:

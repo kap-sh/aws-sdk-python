@@ -101,6 +101,7 @@ def delete_bucket_analytics_configuration(
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -116,6 +117,7 @@ async def async_delete_bucket_analytics_configuration(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

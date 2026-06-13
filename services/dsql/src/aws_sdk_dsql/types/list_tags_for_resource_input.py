@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ListTagsForResourceInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.arn
+
 
 class ListTagsForResourceInput(TypedDict):
     resource_arn: "aws_sdk_dsql.types.arn.Arn"
     """<p>The ARN of the resource for which you want to list the tags.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListTagsForResourceInput) -> dict:

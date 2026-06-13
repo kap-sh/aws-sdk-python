@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#GetQueryResultsMonitorTopContributorsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.resource_name
+
 
 class GetQueryResultsMonitorTopContributorsInput(TypedDict):
     monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName"
@@ -14,6 +17,7 @@ class GetQueryResultsMonitorTopContributorsInput(TypedDict):
     """<p>The token for the next set of results. You receive this token from a previous call.</p>"""
     max_results: NotRequired["int"]
     """<p>The number of query results that you want to return with this call.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetQueryResultsMonitorTopContributorsInput) -> dict:

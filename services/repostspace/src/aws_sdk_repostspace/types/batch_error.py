@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#BatchError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_repostspace.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_repostspace.types.accessor_id
     import aws_sdk_repostspace.types.error_code
     import aws_sdk_repostspace.types.error_message
+
 
 class BatchError(TypedDict):
     accessor_id: "aws_sdk_repostspace.types.accessor_id.AccessorId"
@@ -14,6 +17,7 @@ class BatchError(TypedDict):
     """<p>The error code.</p>"""
     message: "aws_sdk_repostspace.types.error_message.ErrorMessage"
     """<p>Description of the error.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchError) -> dict:

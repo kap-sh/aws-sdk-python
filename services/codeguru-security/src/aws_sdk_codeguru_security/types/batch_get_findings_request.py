@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.codegurusecurity#BatchGetFindingsRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_codeguru_security.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_codeguru_security.types.finding_identifiers
+
+
+class BatchGetFindingsRequest(TypedDict):
+    finding_identifiers: (
+        "aws_sdk_codeguru_security.types.finding_identifiers.FindingIdentifiers"
+    )
+    """<p>A list of finding identifiers. Each identifier consists of a <code>scanName</code> and a <code>findingId</code>. You retrieve the <code>findingId</code> when you call <code>GetFindings</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchGetFindingsRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_codeguru_security.types.finding_identifiers
+
+    out["findingIdentifiers"] = (
+        aws_sdk_codeguru_security.types.finding_identifiers.serialize_json(
+            value["finding_identifiers"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> BatchGetFindingsRequest:
+    out: BatchGetFindingsRequest = {}  # type: ignore[typeddict-item]
+    if "findingIdentifiers" in data:
+        import aws_sdk_codeguru_security.types.finding_identifiers
+
+        out["finding_identifiers"] = (
+            aws_sdk_codeguru_security.types.finding_identifiers.deserialize_json(
+                data["findingIdentifiers"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "BatchGetFindingsRequest.finding_identifiers required"
+        )
+    return out

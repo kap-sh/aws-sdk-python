@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateGeofenceCollectionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.arn
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.timestamp
+
 
 class CreateGeofenceCollectionResponse(TypedDict):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -15,13 +18,17 @@ class CreateGeofenceCollectionResponse(TypedDict):
     create_time: "aws_sdk_location.types.timestamp.Timestamp"
     """<p>The timestamp for when the geofence collection was created in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateGeofenceCollectionResponse) -> dict:
     out: dict = {}
     out["CollectionName"] = value["collection_name"]
     out["CollectionArn"] = value["collection_arn"]
     import aws_sdk_location.types.timestamp
-    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["create_time"])
+
+    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["create_time"]
+    )
     return out
 
 
@@ -30,14 +37,23 @@ def deserialize_json(data: dict) -> CreateGeofenceCollectionResponse:
     if "CollectionName" in data:
         out["collection_name"] = data["CollectionName"]
     else:
-        raise DeserializationError("CreateGeofenceCollectionResponse.collection_name required")
+        raise DeserializationError(
+            "CreateGeofenceCollectionResponse.collection_name required"
+        )
     if "CollectionArn" in data:
         out["collection_arn"] = data["CollectionArn"]
     else:
-        raise DeserializationError("CreateGeofenceCollectionResponse.collection_arn required")
+        raise DeserializationError(
+            "CreateGeofenceCollectionResponse.collection_arn required"
+        )
     if "CreateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreateTime"])
+
+        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreateTime"]
+        )
     else:
-        raise DeserializationError("CreateGeofenceCollectionResponse.create_time required")
+        raise DeserializationError(
+            "CreateGeofenceCollectionResponse.create_time required"
+        )
     return out

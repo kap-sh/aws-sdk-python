@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#SecurityGroupNames``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.security_group_name
 
-SecurityGroupNames: TypeAlias = list["aws_sdk_workspaces_instances.types.security_group_name.SecurityGroupName"]
+SecurityGroupNames: TypeAlias = list[
+    "aws_sdk_workspaces_instances.types.security_group_name.SecurityGroupName"
+]
 
 
 # --- awsJson1_0 ser/de ---

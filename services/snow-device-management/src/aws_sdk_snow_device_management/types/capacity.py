@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#Capacity``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class Capacity(TypedDict):
     name: NotRequired["str"]
@@ -14,6 +16,7 @@ class Capacity(TypedDict):
     """<p>The amount of capacity used on the device.</p>"""
     available: NotRequired["int"]
     """<p>The amount of capacity available for use on the device.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Capacity) -> dict:

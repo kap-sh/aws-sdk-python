@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#DeleteEarthObservationJobInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn
+
 
 class DeleteEarthObservationJobInput(TypedDict):
     arn: "aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn.EarthObservationJobArn"
     """<p>The Amazon Resource Name (ARN) of the Earth Observation job being deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteEarthObservationJobInput) -> dict:

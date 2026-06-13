@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelledByUserException``."""
 
 from typing import TypedDict
-from aws_sdk_neptunedata.errors import DeserializationError
-from aws_sdk_neptunedata.errors import ServiceError
+
+from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
+
 
 class CancelledByUserException_(TypedDict):
     detailed_message: "str"
@@ -11,6 +12,7 @@ class CancelledByUserException_(TypedDict):
     """<p>The ID of the request in question.</p>"""
     code: "str"
     """<p>The HTTP status code returned with the exception.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelledByUserException_) -> dict:
@@ -26,7 +28,9 @@ def deserialize_json(data: dict) -> CancelledByUserException_:
     if "detailedMessage" in data:
         out["detailed_message"] = data["detailedMessage"]
     else:
-        raise DeserializationError("CancelledByUserException_.detailed_message required")
+        raise DeserializationError(
+            "CancelledByUserException_.detailed_message required"
+        )
     if "requestId" in data:
         out["request_id"] = data["requestId"]
     else:
@@ -40,10 +44,16 @@ def deserialize_json(data: dict) -> CancelledByUserException_:
 
 class CancelledByUserException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.neptunedata#CancelledByUserException``."""
-    code: str | None = 'CancelledByUserException'
+
+    code: str | None = "CancelledByUserException"
 
     def __init__(self, data: CancelledByUserException_):
-        super().__init__('server', is_throttling_error=False, is_retryable=False, code='CancelledByUserException')
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="CancelledByUserException",
+        )
         self.data = data
 
     @classmethod

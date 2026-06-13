@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconnect#EncodingParameters``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_mediaconnect.types.encoder_profile
+
+
+class EncodingParameters(TypedDict):
+    compression_factor: NotRequired["float"]
+    """<p> A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>"""
+    encoder_profile: NotRequired[
+        "aws_sdk_mediaconnect.types.encoder_profile.EncoderProfile"
+    ]
+    """<p> A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EncodingParameters) -> dict:
+    out: dict = {}
+    if "compression_factor" in value:
+        out["compressionFactor"] = value["compression_factor"]
+    if "encoder_profile" in value:
+        import aws_sdk_mediaconnect.types.encoder_profile
+
+        out["encoderProfile"] = (
+            aws_sdk_mediaconnect.types.encoder_profile.serialize_json(
+                value["encoder_profile"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EncodingParameters:
+    out: EncodingParameters = {}  # type: ignore[typeddict-item]
+    if "compressionFactor" in data:
+        out["compression_factor"] = data["compressionFactor"]
+    if "encoderProfile" in data:
+        import aws_sdk_mediaconnect.types.encoder_profile
+
+        out["encoder_profile"] = (
+            aws_sdk_mediaconnect.types.encoder_profile.deserialize_json(
+                data["encoderProfile"]
+            )
+        )
+    return out

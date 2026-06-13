@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CreateSpendingLimitResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_braket.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.spending_limit_arn
+
 
 class CreateSpendingLimitResponse(TypedDict):
     spending_limit_arn: "aws_sdk_braket.types.spending_limit_arn.SpendingLimitArn"
     """<p>The Amazon Resource Name (ARN) of the created spending limit.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateSpendingLimitResponse) -> dict:
@@ -21,5 +25,7 @@ def deserialize_json(data: dict) -> CreateSpendingLimitResponse:
     if "spendingLimitArn" in data:
         out["spending_limit_arn"] = data["spendingLimitArn"]
     else:
-        raise DeserializationError("CreateSpendingLimitResponse.spending_limit_arn required")
+        raise DeserializationError(
+            "CreateSpendingLimitResponse.spending_limit_arn required"
+        )
     return out

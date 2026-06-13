@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.groundstation#EphemerisIdResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_groundstation.types.uuid
+
+
+class EphemerisIdResponse(TypedDict):
+    ephemeris_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
+    """<p>The AWS Ground Station ephemeris ID.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EphemerisIdResponse) -> dict:
+    out: dict = {}
+    if "ephemeris_id" in value:
+        out["ephemerisId"] = value["ephemeris_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> EphemerisIdResponse:
+    out: EphemerisIdResponse = {}  # type: ignore[typeddict-item]
+    if "ephemerisId" in data:
+        out["ephemeris_id"] = data["ephemerisId"]
+    return out

@@ -1,19 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LifeCycleLastLaunchInitiated``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
     import aws_sdk_drs.types.job_id
     import aws_sdk_drs.types.last_launch_type
 
+
 class LifeCycleLastLaunchInitiated(TypedDict):
-    api_call_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    api_call_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time the last Source Server launch was initiated.</p>"""
     job_id: NotRequired["aws_sdk_drs.types.job_id.JobID"]
     """<p>The ID of the Job that was used to last launch the Source Server.</p>"""
     type: NotRequired["aws_sdk_drs.types.last_launch_type.LastLaunchType"]
     """<p>The Job type that was used to last launch the Source Server.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: LifeCycleLastLaunchInitiated) -> dict:

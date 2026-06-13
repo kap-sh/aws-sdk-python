@@ -3,12 +3,14 @@
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute_entity_type
     import aws_sdk_datazone.types.attributes
     import aws_sdk_datazone.types.client_token
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.entity_id
+
 
 class BatchPutAttributesMetadataInput(TypedDict):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
@@ -22,13 +24,17 @@ class BatchPutAttributesMetadataInput(TypedDict):
     attributes: "aws_sdk_datazone.types.attributes.Attributes"
     """<p>The attributes of the metadata.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchPutAttributesMetadataInput) -> dict:
     out: dict = {}
     if "client_token" in value:
         out["clientToken"] = value["client_token"]
     import aws_sdk_datazone.types.attributes
-    out["attributes"] = aws_sdk_datazone.types.attributes.serialize_json(value["attributes"])
+
+    out["attributes"] = aws_sdk_datazone.types.attributes.serialize_json(
+        value["attributes"]
+    )
     return out
 
 
@@ -38,7 +44,12 @@ def deserialize_json(data: dict) -> BatchPutAttributesMetadataInput:
         out["client_token"] = data["clientToken"]
     if "attributes" in data:
         import aws_sdk_datazone.types.attributes
-        out["attributes"] = aws_sdk_datazone.types.attributes.deserialize_json(data["attributes"])
+
+        out["attributes"] = aws_sdk_datazone.types.attributes.deserialize_json(
+            data["attributes"]
+        )
     else:
-        raise DeserializationError("BatchPutAttributesMetadataInput.attributes required")
+        raise DeserializationError(
+            "BatchPutAttributesMetadataInput.attributes required"
+        )
     return out

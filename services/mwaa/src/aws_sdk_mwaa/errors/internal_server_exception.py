@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#InternalServerException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mwaa.errors import ServiceError
+
 
 class InternalServerException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InternalServerException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> InternalServerException_:
 
 class InternalServerException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.mwaa#InternalServerException``."""
-    code: str | None = 'InternalServerException'
+
+    code: str | None = "InternalServerException"
 
     def __init__(self, data: InternalServerException_):
-        super().__init__('server', is_throttling_error=False, is_retryable=False, code='InternalServerException')
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InternalServerException",
+        )
         self.data = data
 
     @classmethod

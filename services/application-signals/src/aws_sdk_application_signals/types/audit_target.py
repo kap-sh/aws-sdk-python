@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#AuditTarget``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_application_signals.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.audit_target_entity
+
 
 class AuditTarget(TypedDict):
     type: "str"
@@ -11,12 +14,16 @@ class AuditTarget(TypedDict):
     data: "aws_sdk_application_signals.types.audit_target_entity.AuditTargetEntity"
     """<p>The specific data identifying the audit target entity.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AuditTarget) -> dict:
     out: dict = {}
     out["Type"] = value["type"]
     import aws_sdk_application_signals.types.audit_target_entity
-    out["Data"] = aws_sdk_application_signals.types.audit_target_entity.serialize_json(value["data"])
+
+    out["Data"] = aws_sdk_application_signals.types.audit_target_entity.serialize_json(
+        value["data"]
+    )
     return out
 
 
@@ -28,7 +35,12 @@ def deserialize_json(data: dict) -> AuditTarget:
         raise DeserializationError("AuditTarget.type required")
     if "Data" in data:
         import aws_sdk_application_signals.types.audit_target_entity
-        out["data"] = aws_sdk_application_signals.types.audit_target_entity.deserialize_json(data["Data"])
+
+        out["data"] = (
+            aws_sdk_application_signals.types.audit_target_entity.deserialize_json(
+                data["Data"]
+            )
+        )
     else:
         raise DeserializationError("AuditTarget.data required")
     return out

@@ -1,17 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupSelectionsListMember``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_selection_name
     import aws_sdk_backup.types.iam_role_arn
     import aws_sdk_backup.types.string
     import aws_sdk_backup.types.timestamp
 
+
 class BackupSelectionsListMember(TypedDict):
     selection_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a request to assign a set of resources to a backup plan.</p>"""
-    selection_name: NotRequired["aws_sdk_backup.types.backup_selection_name.BackupSelectionName"]
+    selection_name: NotRequired[
+        "aws_sdk_backup.types.backup_selection_name.BackupSelectionName"
+    ]
     """<p>The display name of a resource selection document.</p>"""
     backup_plan_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a backup plan.</p>"""
@@ -21,6 +26,7 @@ class BackupSelectionsListMember(TypedDict):
     """<p>A unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. This parameter is optional.</p> <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
     iam_role_arn: NotRequired["aws_sdk_backup.types.iam_role_arn.IAMRoleArn"]
     """<p>Specifies the IAM role Amazon Resource Name (ARN) to create the target recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BackupSelectionsListMember) -> dict:
@@ -33,7 +39,10 @@ def serialize_json(value: BackupSelectionsListMember) -> dict:
         out["BackupPlanId"] = value["backup_plan_id"]
     if "creation_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["creation_date"])
+
+        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["creation_date"]
+        )
     if "creator_request_id" in value:
         out["CreatorRequestId"] = value["creator_request_id"]
     if "iam_role_arn" in value:
@@ -51,7 +60,10 @@ def deserialize_json(data: dict) -> BackupSelectionsListMember:
         out["backup_plan_id"] = data["BackupPlanId"]
     if "CreationDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["CreationDate"])
+
+        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CreationDate"]
+        )
     if "CreatorRequestId" in data:
         out["creator_request_id"] = data["CreatorRequestId"]
     if "IamRoleArn" in data:

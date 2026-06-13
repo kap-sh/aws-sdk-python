@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListOrganizationalUnitsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.next_token
     import aws_sdk_notifications.types.notification_configuration_arn
+
 
 class ListOrganizationalUnitsRequest(TypedDict):
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"
@@ -13,6 +16,7 @@ class ListOrganizationalUnitsRequest(TypedDict):
     """<p>The maximum number of organizational units to return in a single call. Valid values are 1-100.</p>"""
     next_token: NotRequired["aws_sdk_notifications.types.next_token.NextToken"]
     """<p>The token for the next page of results. Use the value returned in the previous response.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListOrganizationalUnitsRequest) -> dict:

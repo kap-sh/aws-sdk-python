@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#DeploymentParameterInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_marketplace_deployment.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.deployment_parameter_name
     import aws_sdk_marketplace_deployment.types.secret_string
+
 
 class DeploymentParameterInput(TypedDict):
     name: "aws_sdk_marketplace_deployment.types.deployment_parameter_name.DeploymentParameterName"
     """<p>The desired name of the deployment parameter. This is the identifier on which deployment parameters are keyed for a given buyer and product. If this name matches an existing deployment parameter, this request will update the existing resource.</p>"""
     secret_string: "aws_sdk_marketplace_deployment.types.secret_string.SecretString"
     """<p>The text to encrypt and store in the secret.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeploymentParameterInput) -> dict:

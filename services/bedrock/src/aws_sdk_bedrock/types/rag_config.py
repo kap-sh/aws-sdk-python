@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RAGConfig``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.knowledge_base_config
     import aws_sdk_bedrock.types.evaluation_precomputed_rag_source_config
+    import aws_sdk_bedrock.types.knowledge_base_config
 
 
 class _RAGConfig_knowledgeBaseConfig(TypedDict):

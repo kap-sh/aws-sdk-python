@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreateAccessPointResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3files.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.access_point_arn
     import aws_sdk_s3files.types.access_point_id
@@ -14,6 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.root_directory
     import aws_sdk_s3files.types.tag_list
     import aws_sdk_s3files.types.tag_value
+
 
 class CreateAccessPointResponse(TypedDict):
     access_point_arn: "aws_sdk_s3files.types.access_point_arn.AccessPointArn"
@@ -37,6 +41,7 @@ class CreateAccessPointResponse(TypedDict):
     name: NotRequired["aws_sdk_s3files.types.tag_value.TagValue"]
     """<p>The name of the access point.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateAccessPointResponse) -> dict:
     out: dict = {}
@@ -45,16 +50,26 @@ def serialize_json(value: CreateAccessPointResponse) -> dict:
     out["clientToken"] = value["client_token"]
     out["fileSystemId"] = value["file_system_id"]
     import aws_sdk_s3files.types.life_cycle_state
-    out["status"] = aws_sdk_s3files.types.life_cycle_state.serialize_json(value["status"])
+
+    out["status"] = aws_sdk_s3files.types.life_cycle_state.serialize_json(
+        value["status"]
+    )
     out["ownerId"] = value["owner_id"]
     if "posix_user" in value:
         import aws_sdk_s3files.types.posix_user
-        out["posixUser"] = aws_sdk_s3files.types.posix_user.serialize_json(value["posix_user"])
+
+        out["posixUser"] = aws_sdk_s3files.types.posix_user.serialize_json(
+            value["posix_user"]
+        )
     if "root_directory" in value:
         import aws_sdk_s3files.types.root_directory
-        out["rootDirectory"] = aws_sdk_s3files.types.root_directory.serialize_json(value["root_directory"])
+
+        out["rootDirectory"] = aws_sdk_s3files.types.root_directory.serialize_json(
+            value["root_directory"]
+        )
     if "tags" in value:
         import aws_sdk_s3files.types.tag_list
+
         out["tags"] = aws_sdk_s3files.types.tag_list.serialize_json(value["tags"])
     if "name" in value:
         out["name"] = value["name"]
@@ -66,7 +81,9 @@ def deserialize_json(data: dict) -> CreateAccessPointResponse:
     if "accessPointArn" in data:
         out["access_point_arn"] = data["accessPointArn"]
     else:
-        raise DeserializationError("CreateAccessPointResponse.access_point_arn required")
+        raise DeserializationError(
+            "CreateAccessPointResponse.access_point_arn required"
+        )
     if "accessPointId" in data:
         out["access_point_id"] = data["accessPointId"]
     else:
@@ -81,7 +98,10 @@ def deserialize_json(data: dict) -> CreateAccessPointResponse:
         raise DeserializationError("CreateAccessPointResponse.file_system_id required")
     if "status" in data:
         import aws_sdk_s3files.types.life_cycle_state
-        out["status"] = aws_sdk_s3files.types.life_cycle_state.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_s3files.types.life_cycle_state.deserialize_json(
+            data["status"]
+        )
     else:
         raise DeserializationError("CreateAccessPointResponse.status required")
     if "ownerId" in data:
@@ -90,12 +110,19 @@ def deserialize_json(data: dict) -> CreateAccessPointResponse:
         raise DeserializationError("CreateAccessPointResponse.owner_id required")
     if "posixUser" in data:
         import aws_sdk_s3files.types.posix_user
-        out["posix_user"] = aws_sdk_s3files.types.posix_user.deserialize_json(data["posixUser"])
+
+        out["posix_user"] = aws_sdk_s3files.types.posix_user.deserialize_json(
+            data["posixUser"]
+        )
     if "rootDirectory" in data:
         import aws_sdk_s3files.types.root_directory
-        out["root_directory"] = aws_sdk_s3files.types.root_directory.deserialize_json(data["rootDirectory"])
+
+        out["root_directory"] = aws_sdk_s3files.types.root_directory.deserialize_json(
+            data["rootDirectory"]
+        )
     if "tags" in data:
         import aws_sdk_s3files.types.tag_list
+
         out["tags"] = aws_sdk_s3files.types.tag_list.deserialize_json(data["tags"])
     if "name" in data:
         out["name"] = data["name"]

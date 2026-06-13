@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#TableAggregatedFieldWells``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.dimension_field_list
+    import aws_sdk_quicksight.types.measure_field_list
+
+
+class TableAggregatedFieldWells(TypedDict):
+    group_by: NotRequired[
+        "aws_sdk_quicksight.types.dimension_field_list.DimensionFieldList"
+    ]
+    """<p>The group by field well for a pivot table. Values are grouped by group by fields.</p>"""
+    values: NotRequired["aws_sdk_quicksight.types.measure_field_list.MeasureFieldList"]
+    """<p>The values field well for a pivot table. Values are aggregated based on group by fields.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TableAggregatedFieldWells) -> dict:
+    out: dict = {}
+    if "group_by" in value:
+        import aws_sdk_quicksight.types.dimension_field_list
+
+        out["GroupBy"] = aws_sdk_quicksight.types.dimension_field_list.serialize_json(
+            value["group_by"]
+        )
+    if "values" in value:
+        import aws_sdk_quicksight.types.measure_field_list
+
+        out["Values"] = aws_sdk_quicksight.types.measure_field_list.serialize_json(
+            value["values"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TableAggregatedFieldWells:
+    out: TableAggregatedFieldWells = {}  # type: ignore[typeddict-item]
+    if "GroupBy" in data:
+        import aws_sdk_quicksight.types.dimension_field_list
+
+        out["group_by"] = (
+            aws_sdk_quicksight.types.dimension_field_list.deserialize_json(
+                data["GroupBy"]
+            )
+        )
+    if "Values" in data:
+        import aws_sdk_quicksight.types.measure_field_list
+
+        out["values"] = aws_sdk_quicksight.types.measure_field_list.deserialize_json(
+            data["Values"]
+        )
+    return out

@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateDataSourceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_qbusiness.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.client_token
@@ -17,6 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.sync_schedule
     import aws_sdk_qbusiness.types.tags
 
+
 class CreateDataSourceRequest(TypedDict):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p> The identifier of the Amazon Q Business application the data source will be attached to.</p>"""
@@ -24,9 +28,13 @@ class CreateDataSourceRequest(TypedDict):
     """<p>The identifier of the index that you want to use with the data source connector.</p>"""
     display_name: "aws_sdk_qbusiness.types.data_source_name.DataSourceName"
     """<p>A name for the data source connector.</p>"""
-    configuration: "aws_sdk_qbusiness.types.data_source_configuration.DataSourceConfiguration"
+    configuration: (
+        "aws_sdk_qbusiness.types.data_source_configuration.DataSourceConfiguration"
+    )
     """<p>Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration information specific to your data source connector.</p> <p>Each data source has a JSON schema provided by Amazon Q Business that you must use. For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html\">Amazon S3 JSON schema</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html\">Web Crawler JSON schema</a> </p> </li> </ul> <p>You can find configuration templates for your specific data source using the following steps:</p> <ol> <li> <p>Navigate to the <a href=\"https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html\">Supported connectors</a> page in the Amazon Q Business User Guide, and select the data source of your choice.</p> </li> <li> <p>Then, from your specific data source connector page, select <b>Using the API</b>. You will find the JSON schema for your data source, including parameter descriptions, in this section.</p> </li> </ol>"""
-    vpc_configuration: NotRequired["aws_sdk_qbusiness.types.data_source_vpc_configuration.DataSourceVpcConfiguration"]
+    vpc_configuration: NotRequired[
+        "aws_sdk_qbusiness.types.data_source_vpc_configuration.DataSourceVpcConfiguration"
+    ]
     """<p>Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html\">Using Amazon VPC with Amazon Q Business connectors</a>.</p>"""
     description: NotRequired["aws_sdk_qbusiness.types.description.Description"]
     """<p>A description for the data source connector.</p>"""
@@ -38,9 +46,14 @@ class CreateDataSourceRequest(TypedDict):
     """<p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.</p>"""
     client_token: NotRequired["aws_sdk_qbusiness.types.client_token.ClientToken"]
     """<p>A token you provide to identify a request to create a data source connector. Multiple calls to the <code>CreateDataSource</code> API with the same client token will create only one data source connector. </p>"""
-    document_enrichment_configuration: NotRequired["aws_sdk_qbusiness.types.document_enrichment_configuration.DocumentEnrichmentConfiguration"]
-    media_extraction_configuration: NotRequired["aws_sdk_qbusiness.types.media_extraction_configuration.MediaExtractionConfiguration"]
+    document_enrichment_configuration: NotRequired[
+        "aws_sdk_qbusiness.types.document_enrichment_configuration.DocumentEnrichmentConfiguration"
+    ]
+    media_extraction_configuration: NotRequired[
+        "aws_sdk_qbusiness.types.media_extraction_configuration.MediaExtractionConfiguration"
+    ]
     """<p>The configuration for extracting information from media in documents during ingestion.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateDataSourceRequest) -> dict:
@@ -49,11 +62,17 @@ def serialize_json(value: CreateDataSourceRequest) -> dict:
     out["configuration"] = value["configuration"]
     if "vpc_configuration" in value:
         import aws_sdk_qbusiness.types.data_source_vpc_configuration
-        out["vpcConfiguration"] = aws_sdk_qbusiness.types.data_source_vpc_configuration.serialize_json(value["vpc_configuration"])
+
+        out["vpcConfiguration"] = (
+            aws_sdk_qbusiness.types.data_source_vpc_configuration.serialize_json(
+                value["vpc_configuration"]
+            )
+        )
     if "description" in value:
         out["description"] = value["description"]
     if "tags" in value:
         import aws_sdk_qbusiness.types.tags
+
         out["tags"] = aws_sdk_qbusiness.types.tags.serialize_json(value["tags"])
     if "sync_schedule" in value:
         out["syncSchedule"] = value["sync_schedule"]
@@ -63,10 +82,20 @@ def serialize_json(value: CreateDataSourceRequest) -> dict:
         out["clientToken"] = value["client_token"]
     if "document_enrichment_configuration" in value:
         import aws_sdk_qbusiness.types.document_enrichment_configuration
-        out["documentEnrichmentConfiguration"] = aws_sdk_qbusiness.types.document_enrichment_configuration.serialize_json(value["document_enrichment_configuration"])
+
+        out["documentEnrichmentConfiguration"] = (
+            aws_sdk_qbusiness.types.document_enrichment_configuration.serialize_json(
+                value["document_enrichment_configuration"]
+            )
+        )
     if "media_extraction_configuration" in value:
         import aws_sdk_qbusiness.types.media_extraction_configuration
-        out["mediaExtractionConfiguration"] = aws_sdk_qbusiness.types.media_extraction_configuration.serialize_json(value["media_extraction_configuration"])
+
+        out["mediaExtractionConfiguration"] = (
+            aws_sdk_qbusiness.types.media_extraction_configuration.serialize_json(
+                value["media_extraction_configuration"]
+            )
+        )
     return out
 
 
@@ -82,11 +111,17 @@ def deserialize_json(data: dict) -> CreateDataSourceRequest:
         raise DeserializationError("CreateDataSourceRequest.configuration required")
     if "vpcConfiguration" in data:
         import aws_sdk_qbusiness.types.data_source_vpc_configuration
-        out["vpc_configuration"] = aws_sdk_qbusiness.types.data_source_vpc_configuration.deserialize_json(data["vpcConfiguration"])
+
+        out["vpc_configuration"] = (
+            aws_sdk_qbusiness.types.data_source_vpc_configuration.deserialize_json(
+                data["vpcConfiguration"]
+            )
+        )
     if "description" in data:
         out["description"] = data["description"]
     if "tags" in data:
         import aws_sdk_qbusiness.types.tags
+
         out["tags"] = aws_sdk_qbusiness.types.tags.deserialize_json(data["tags"])
     if "syncSchedule" in data:
         out["sync_schedule"] = data["syncSchedule"]
@@ -96,8 +131,18 @@ def deserialize_json(data: dict) -> CreateDataSourceRequest:
         out["client_token"] = data["clientToken"]
     if "documentEnrichmentConfiguration" in data:
         import aws_sdk_qbusiness.types.document_enrichment_configuration
-        out["document_enrichment_configuration"] = aws_sdk_qbusiness.types.document_enrichment_configuration.deserialize_json(data["documentEnrichmentConfiguration"])
+
+        out["document_enrichment_configuration"] = (
+            aws_sdk_qbusiness.types.document_enrichment_configuration.deserialize_json(
+                data["documentEnrichmentConfiguration"]
+            )
+        )
     if "mediaExtractionConfiguration" in data:
         import aws_sdk_qbusiness.types.media_extraction_configuration
-        out["media_extraction_configuration"] = aws_sdk_qbusiness.types.media_extraction_configuration.deserialize_json(data["mediaExtractionConfiguration"])
+
+        out["media_extraction_configuration"] = (
+            aws_sdk_qbusiness.types.media_extraction_configuration.deserialize_json(
+                data["mediaExtractionConfiguration"]
+            )
+        )
     return out

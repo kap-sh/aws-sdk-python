@@ -1,0 +1,8343 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#DataZone``."""
+
+from aws_sdk_datazone._auth._signers import SigV4Signer
+from aws_sdk_datazone._auth._sigv4 import presign_sigv4
+import datetime
+from collections.abc import Iterator
+from collections.abc import Generator
+from contextlib import contextmanager
+from aws_sdk_datazone._pagination import resolve_path as _resolve_path
+from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
+from typing_extensions import Self
+from typing import Optional
+from zapros import URL, BaseHandler, Client
+from aws_sdk_datazone._auth._zapros_handler import AuthMiddleware
+from aws_sdk_datazone._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+import time
+from aws_sdk_datazone.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
+import warnings
+import aws_sdk_datazone._auth._signers
+import aws_sdk_datazone._auth._sigv4
+from aws_sdk_datazone._auth._identity import Credentials
+from aws_sdk_datazone._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_datazone._auth._providers import (
+    BearerTokenProvider,
+    StaticBearerTokenProvider,
+)
+from aws_sdk_datazone._auth._providers import (
+    BasicCredentialsProvider,
+    StaticBasicCredentialsProvider,
+)
+from aws_sdk_datazone._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+
+if TYPE_CHECKING:
+    import aws_sdk_datazone.types.accept_choices
+    import aws_sdk_datazone.types.accept_predictions_input
+    import aws_sdk_datazone.types.accept_predictions_output
+    import aws_sdk_datazone.types.accept_rule
+    import aws_sdk_datazone.types.accept_subscription_request_input
+    import aws_sdk_datazone.types.accept_subscription_request_output
+    import aws_sdk_datazone.types.accepted_asset_scopes
+    import aws_sdk_datazone.types.account_info
+    import aws_sdk_datazone.types.account_pool_id
+    import aws_sdk_datazone.types.account_pool_name
+    import aws_sdk_datazone.types.account_pool_summary
+    import aws_sdk_datazone.types.account_source
+    import aws_sdk_datazone.types.action_parameters
+    import aws_sdk_datazone.types.add_entity_owner_input
+    import aws_sdk_datazone.types.add_entity_owner_output
+    import aws_sdk_datazone.types.add_policy_grant_input
+    import aws_sdk_datazone.types.add_policy_grant_output
+    import aws_sdk_datazone.types.additional_attributes
+    import aws_sdk_datazone.types.aggregation_list
+    import aws_sdk_datazone.types.applicable_asset_types
+    import aws_sdk_datazone.types.asset_filter_configuration
+    import aws_sdk_datazone.types.asset_filter_summary
+    import aws_sdk_datazone.types.asset_id
+    import aws_sdk_datazone.types.asset_identifier
+    import aws_sdk_datazone.types.asset_permissions
+    import aws_sdk_datazone.types.asset_target_names
+    import aws_sdk_datazone.types.associate_environment_role_input
+    import aws_sdk_datazone.types.associate_environment_role_output
+    import aws_sdk_datazone.types.associate_governed_terms_input
+    import aws_sdk_datazone.types.associate_governed_terms_output
+    import aws_sdk_datazone.types.attribute_entity_type
+    import aws_sdk_datazone.types.attributes
+    import aws_sdk_datazone.types.attributes_list
+    import aws_sdk_datazone.types.authorized_principal_identifiers
+    import aws_sdk_datazone.types.aws_account_id
+    import aws_sdk_datazone.types.aws_location
+    import aws_sdk_datazone.types.aws_region
+    import aws_sdk_datazone.types.batch_get_attributes_metadata_input
+    import aws_sdk_datazone.types.batch_get_attributes_metadata_output
+    import aws_sdk_datazone.types.batch_put_attributes_metadata_input
+    import aws_sdk_datazone.types.batch_put_attributes_metadata_output
+    import aws_sdk_datazone.types.cancel_subscription_input
+    import aws_sdk_datazone.types.cancel_subscription_output
+    import aws_sdk_datazone.types.change_action
+    import aws_sdk_datazone.types.client_token
+    import aws_sdk_datazone.types.configurations
+    import aws_sdk_datazone.types.connection_id
+    import aws_sdk_datazone.types.connection_name
+    import aws_sdk_datazone.types.connection_properties_input
+    import aws_sdk_datazone.types.connection_properties_patch
+    import aws_sdk_datazone.types.connection_scope
+    import aws_sdk_datazone.types.connection_summary
+    import aws_sdk_datazone.types.connection_type
+    import aws_sdk_datazone.types.create_account_pool_input
+    import aws_sdk_datazone.types.create_account_pool_output
+    import aws_sdk_datazone.types.create_asset_filter_input
+    import aws_sdk_datazone.types.create_asset_filter_output
+    import aws_sdk_datazone.types.create_connection_input
+    import aws_sdk_datazone.types.create_connection_output
+    import aws_sdk_datazone.types.create_environment_action_input
+    import aws_sdk_datazone.types.create_environment_action_output
+    import aws_sdk_datazone.types.create_environment_blueprint_input
+    import aws_sdk_datazone.types.create_environment_blueprint_output
+    import aws_sdk_datazone.types.create_environment_input
+    import aws_sdk_datazone.types.create_environment_output
+    import aws_sdk_datazone.types.create_environment_profile_input
+    import aws_sdk_datazone.types.create_environment_profile_output
+    import aws_sdk_datazone.types.create_group_profile_input
+    import aws_sdk_datazone.types.create_group_profile_output
+    import aws_sdk_datazone.types.create_listing_change_set_input
+    import aws_sdk_datazone.types.create_listing_change_set_output
+    import aws_sdk_datazone.types.create_project_input
+    import aws_sdk_datazone.types.create_project_membership_input
+    import aws_sdk_datazone.types.create_project_membership_output
+    import aws_sdk_datazone.types.create_project_output
+    import aws_sdk_datazone.types.create_project_profile_input
+    import aws_sdk_datazone.types.create_project_profile_output
+    import aws_sdk_datazone.types.create_subscription_grant_input
+    import aws_sdk_datazone.types.create_subscription_grant_output
+    import aws_sdk_datazone.types.create_subscription_request_input
+    import aws_sdk_datazone.types.create_subscription_request_output
+    import aws_sdk_datazone.types.create_subscription_target_input
+    import aws_sdk_datazone.types.create_subscription_target_output
+    import aws_sdk_datazone.types.create_user_profile_input
+    import aws_sdk_datazone.types.create_user_profile_output
+    import aws_sdk_datazone.types.custom_parameter_list
+    import aws_sdk_datazone.types.data_asset_activity_status
+    import aws_sdk_datazone.types.data_product_id
+    import aws_sdk_datazone.types.data_product_revision
+    import aws_sdk_datazone.types.data_source_run_activity
+    import aws_sdk_datazone.types.data_source_run_id
+    import aws_sdk_datazone.types.data_zone_entity_type
+    import aws_sdk_datazone.types.decision_comment
+    import aws_sdk_datazone.types.delete_account_pool_input
+    import aws_sdk_datazone.types.delete_account_pool_output
+    import aws_sdk_datazone.types.delete_asset_filter_input
+    import aws_sdk_datazone.types.delete_connection_input
+    import aws_sdk_datazone.types.delete_connection_output
+    import aws_sdk_datazone.types.delete_data_export_configuration_input
+    import aws_sdk_datazone.types.delete_data_export_configuration_output
+    import aws_sdk_datazone.types.delete_environment_action_input
+    import aws_sdk_datazone.types.delete_environment_blueprint_input
+    import aws_sdk_datazone.types.delete_environment_input
+    import aws_sdk_datazone.types.delete_environment_profile_input
+    import aws_sdk_datazone.types.delete_project_input
+    import aws_sdk_datazone.types.delete_project_membership_input
+    import aws_sdk_datazone.types.delete_project_membership_output
+    import aws_sdk_datazone.types.delete_project_output
+    import aws_sdk_datazone.types.delete_project_profile_input
+    import aws_sdk_datazone.types.delete_project_profile_output
+    import aws_sdk_datazone.types.delete_subscription_grant_input
+    import aws_sdk_datazone.types.delete_subscription_grant_output
+    import aws_sdk_datazone.types.delete_subscription_request_input
+    import aws_sdk_datazone.types.delete_subscription_target_input
+    import aws_sdk_datazone.types.delete_time_series_data_points_input
+    import aws_sdk_datazone.types.delete_time_series_data_points_output
+    import aws_sdk_datazone.types.description
+    import aws_sdk_datazone.types.disassociate_environment_role_input
+    import aws_sdk_datazone.types.disassociate_environment_role_output
+    import aws_sdk_datazone.types.disassociate_governed_terms_input
+    import aws_sdk_datazone.types.disassociate_governed_terms_output
+    import aws_sdk_datazone.types.domain_id
+    import aws_sdk_datazone.types.domain_unit_id
+    import aws_sdk_datazone.types.edge_direction
+    import aws_sdk_datazone.types.encryption_configuration
+    import aws_sdk_datazone.types.entity_id
+    import aws_sdk_datazone.types.entity_identifier
+    import aws_sdk_datazone.types.entity_type
+    import aws_sdk_datazone.types.environment_action_summary
+    import aws_sdk_datazone.types.environment_blueprint_id
+    import aws_sdk_datazone.types.environment_blueprint_name
+    import aws_sdk_datazone.types.environment_blueprint_summary
+    import aws_sdk_datazone.types.environment_configuration_name
+    import aws_sdk_datazone.types.environment_configuration_user_parameters_list
+    import aws_sdk_datazone.types.environment_configurations_list
+    import aws_sdk_datazone.types.environment_deployment_details
+    import aws_sdk_datazone.types.environment_id
+    import aws_sdk_datazone.types.environment_parameters_list
+    import aws_sdk_datazone.types.environment_profile_id
+    import aws_sdk_datazone.types.environment_profile_name
+    import aws_sdk_datazone.types.environment_profile_summary
+    import aws_sdk_datazone.types.environment_status
+    import aws_sdk_datazone.types.environment_summary
+    import aws_sdk_datazone.types.failure_cause
+    import aws_sdk_datazone.types.filter_clause
+    import aws_sdk_datazone.types.filter_id
+    import aws_sdk_datazone.types.filter_name
+    import aws_sdk_datazone.types.filter_status
+    import aws_sdk_datazone.types.get_account_pool_input
+    import aws_sdk_datazone.types.get_account_pool_output
+    import aws_sdk_datazone.types.get_asset_filter_input
+    import aws_sdk_datazone.types.get_asset_filter_output
+    import aws_sdk_datazone.types.get_connection_input
+    import aws_sdk_datazone.types.get_connection_output
+    import aws_sdk_datazone.types.get_data_export_configuration_input
+    import aws_sdk_datazone.types.get_data_export_configuration_output
+    import aws_sdk_datazone.types.get_environment_action_input
+    import aws_sdk_datazone.types.get_environment_action_output
+    import aws_sdk_datazone.types.get_environment_blueprint_input
+    import aws_sdk_datazone.types.get_environment_blueprint_output
+    import aws_sdk_datazone.types.get_environment_credentials_input
+    import aws_sdk_datazone.types.get_environment_credentials_output
+    import aws_sdk_datazone.types.get_environment_input
+    import aws_sdk_datazone.types.get_environment_output
+    import aws_sdk_datazone.types.get_environment_profile_input
+    import aws_sdk_datazone.types.get_environment_profile_output
+    import aws_sdk_datazone.types.get_group_profile_input
+    import aws_sdk_datazone.types.get_group_profile_output
+    import aws_sdk_datazone.types.get_iam_portal_login_url_input
+    import aws_sdk_datazone.types.get_iam_portal_login_url_output
+    import aws_sdk_datazone.types.get_job_run_input
+    import aws_sdk_datazone.types.get_job_run_output
+    import aws_sdk_datazone.types.get_lineage_event_input
+    import aws_sdk_datazone.types.get_lineage_event_output
+    import aws_sdk_datazone.types.get_lineage_node_input
+    import aws_sdk_datazone.types.get_lineage_node_output
+    import aws_sdk_datazone.types.get_project_input
+    import aws_sdk_datazone.types.get_project_output
+    import aws_sdk_datazone.types.get_project_profile_input
+    import aws_sdk_datazone.types.get_project_profile_output
+    import aws_sdk_datazone.types.get_subscription_grant_input
+    import aws_sdk_datazone.types.get_subscription_grant_output
+    import aws_sdk_datazone.types.get_subscription_input
+    import aws_sdk_datazone.types.get_subscription_output
+    import aws_sdk_datazone.types.get_subscription_request_details_input
+    import aws_sdk_datazone.types.get_subscription_request_details_output
+    import aws_sdk_datazone.types.get_subscription_target_input
+    import aws_sdk_datazone.types.get_subscription_target_output
+    import aws_sdk_datazone.types.get_time_series_data_point_input
+    import aws_sdk_datazone.types.get_time_series_data_point_output
+    import aws_sdk_datazone.types.get_user_profile_input
+    import aws_sdk_datazone.types.get_user_profile_output
+    import aws_sdk_datazone.types.glossary_terms
+    import aws_sdk_datazone.types.governed_entity_type
+    import aws_sdk_datazone.types.governed_glossary_terms
+    import aws_sdk_datazone.types.grant_identifier
+    import aws_sdk_datazone.types.granted_entity_input
+    import aws_sdk_datazone.types.group_identifier
+    import aws_sdk_datazone.types.group_profile_id
+    import aws_sdk_datazone.types.group_profile_status
+    import aws_sdk_datazone.types.group_profile_summary
+    import aws_sdk_datazone.types.group_search_text
+    import aws_sdk_datazone.types.group_search_type
+    import aws_sdk_datazone.types.iam_principal_arn
+    import aws_sdk_datazone.types.iam_role_arn
+    import aws_sdk_datazone.types.inventory_search_scope
+    import aws_sdk_datazone.types.job_run_status
+    import aws_sdk_datazone.types.job_run_summary
+    import aws_sdk_datazone.types.lineage_event
+    import aws_sdk_datazone.types.lineage_event_identifier
+    import aws_sdk_datazone.types.lineage_event_processing_status
+    import aws_sdk_datazone.types.lineage_event_summary
+    import aws_sdk_datazone.types.lineage_node_identifier
+    import aws_sdk_datazone.types.lineage_node_summary
+    import aws_sdk_datazone.types.list_account_pools_input
+    import aws_sdk_datazone.types.list_account_pools_output
+    import aws_sdk_datazone.types.list_accounts_in_account_pool_input
+    import aws_sdk_datazone.types.list_accounts_in_account_pool_output
+    import aws_sdk_datazone.types.list_asset_filters_input
+    import aws_sdk_datazone.types.list_asset_filters_output
+    import aws_sdk_datazone.types.list_asset_revisions_input
+    import aws_sdk_datazone.types.list_asset_revisions_output
+    import aws_sdk_datazone.types.list_connections_input
+    import aws_sdk_datazone.types.list_connections_output
+    import aws_sdk_datazone.types.list_data_product_revisions_input
+    import aws_sdk_datazone.types.list_data_product_revisions_output
+    import aws_sdk_datazone.types.list_data_source_run_activities_input
+    import aws_sdk_datazone.types.list_data_source_run_activities_output
+    import aws_sdk_datazone.types.list_entity_owners_input
+    import aws_sdk_datazone.types.list_entity_owners_output
+    import aws_sdk_datazone.types.list_environment_actions_input
+    import aws_sdk_datazone.types.list_environment_actions_output
+    import aws_sdk_datazone.types.list_environment_blueprints_input
+    import aws_sdk_datazone.types.list_environment_blueprints_output
+    import aws_sdk_datazone.types.list_environment_profiles_input
+    import aws_sdk_datazone.types.list_environment_profiles_output
+    import aws_sdk_datazone.types.list_environments_input
+    import aws_sdk_datazone.types.list_environments_output
+    import aws_sdk_datazone.types.list_job_runs_input
+    import aws_sdk_datazone.types.list_job_runs_output
+    import aws_sdk_datazone.types.list_lineage_events_input
+    import aws_sdk_datazone.types.list_lineage_events_output
+    import aws_sdk_datazone.types.list_lineage_node_history_input
+    import aws_sdk_datazone.types.list_lineage_node_history_output
+    import aws_sdk_datazone.types.list_notifications_input
+    import aws_sdk_datazone.types.list_notifications_output
+    import aws_sdk_datazone.types.list_policy_grants_input
+    import aws_sdk_datazone.types.list_policy_grants_output
+    import aws_sdk_datazone.types.list_project_memberships_input
+    import aws_sdk_datazone.types.list_project_memberships_output
+    import aws_sdk_datazone.types.list_project_profiles_input
+    import aws_sdk_datazone.types.list_project_profiles_output
+    import aws_sdk_datazone.types.list_projects_input
+    import aws_sdk_datazone.types.list_projects_output
+    import aws_sdk_datazone.types.list_subscription_grants_input
+    import aws_sdk_datazone.types.list_subscription_grants_output
+    import aws_sdk_datazone.types.list_subscription_requests_input
+    import aws_sdk_datazone.types.list_subscription_requests_output
+    import aws_sdk_datazone.types.list_subscription_targets_input
+    import aws_sdk_datazone.types.list_subscription_targets_output
+    import aws_sdk_datazone.types.list_subscriptions_input
+    import aws_sdk_datazone.types.list_subscriptions_output
+    import aws_sdk_datazone.types.list_tags_for_resource_request
+    import aws_sdk_datazone.types.list_tags_for_resource_response
+    import aws_sdk_datazone.types.list_time_series_data_points_input
+    import aws_sdk_datazone.types.list_time_series_data_points_output
+    import aws_sdk_datazone.types.listing_id
+    import aws_sdk_datazone.types.managed_policy_type
+    import aws_sdk_datazone.types.match_clauses
+    import aws_sdk_datazone.types.max_results
+    import aws_sdk_datazone.types.max_results_for_list_domains
+    import aws_sdk_datazone.types.member
+    import aws_sdk_datazone.types.metadata_form_inputs
+    import aws_sdk_datazone.types.notebook_name
+    import aws_sdk_datazone.types.notification_output
+    import aws_sdk_datazone.types.notification_subjects
+    import aws_sdk_datazone.types.notification_type
+    import aws_sdk_datazone.types.owner_properties
+    import aws_sdk_datazone.types.owner_properties_output
+    import aws_sdk_datazone.types.pagination_token
+    import aws_sdk_datazone.types.policy_grant_detail
+    import aws_sdk_datazone.types.policy_grant_member
+    import aws_sdk_datazone.types.policy_grant_principal
+    import aws_sdk_datazone.types.post_lineage_event_input
+    import aws_sdk_datazone.types.post_lineage_event_output
+    import aws_sdk_datazone.types.post_time_series_data_points_input
+    import aws_sdk_datazone.types.post_time_series_data_points_output
+    import aws_sdk_datazone.types.project_id
+    import aws_sdk_datazone.types.project_member
+    import aws_sdk_datazone.types.project_membership_assignments
+    import aws_sdk_datazone.types.project_name
+    import aws_sdk_datazone.types.project_profile_id
+    import aws_sdk_datazone.types.project_profile_name
+    import aws_sdk_datazone.types.project_profile_summary
+    import aws_sdk_datazone.types.project_resource_tag_parameters
+    import aws_sdk_datazone.types.project_summary
+    import aws_sdk_datazone.types.provisioning_properties
+    import aws_sdk_datazone.types.put_data_export_configuration_input
+    import aws_sdk_datazone.types.put_data_export_configuration_output
+    import aws_sdk_datazone.types.query_graph_input
+    import aws_sdk_datazone.types.query_graph_output
+    import aws_sdk_datazone.types.reject_choices
+    import aws_sdk_datazone.types.reject_predictions_input
+    import aws_sdk_datazone.types.reject_predictions_output
+    import aws_sdk_datazone.types.reject_rule
+    import aws_sdk_datazone.types.reject_subscription_request_input
+    import aws_sdk_datazone.types.reject_subscription_request_output
+    import aws_sdk_datazone.types.remove_entity_owner_input
+    import aws_sdk_datazone.types.remove_entity_owner_output
+    import aws_sdk_datazone.types.remove_policy_grant_input
+    import aws_sdk_datazone.types.remove_policy_grant_output
+    import aws_sdk_datazone.types.request_reason
+    import aws_sdk_datazone.types.resolution_strategy
+    import aws_sdk_datazone.types.result_item
+    import aws_sdk_datazone.types.revision
+    import aws_sdk_datazone.types.revoke_subscription_input
+    import aws_sdk_datazone.types.revoke_subscription_output
+    import aws_sdk_datazone.types.role_arn
+    import aws_sdk_datazone.types.run_identifier
+    import aws_sdk_datazone.types.search_group_profiles_input
+    import aws_sdk_datazone.types.search_group_profiles_output
+    import aws_sdk_datazone.types.search_in_list
+    import aws_sdk_datazone.types.search_input
+    import aws_sdk_datazone.types.search_inventory_result_item
+    import aws_sdk_datazone.types.search_listings_input
+    import aws_sdk_datazone.types.search_listings_output
+    import aws_sdk_datazone.types.search_output
+    import aws_sdk_datazone.types.search_output_additional_attributes
+    import aws_sdk_datazone.types.search_result_item
+    import aws_sdk_datazone.types.search_sort
+    import aws_sdk_datazone.types.search_text
+    import aws_sdk_datazone.types.search_types_input
+    import aws_sdk_datazone.types.search_types_output
+    import aws_sdk_datazone.types.search_types_result_item
+    import aws_sdk_datazone.types.search_user_profiles_input
+    import aws_sdk_datazone.types.search_user_profiles_output
+    import aws_sdk_datazone.types.sort_field_account_pool
+    import aws_sdk_datazone.types.sort_field_connection
+    import aws_sdk_datazone.types.sort_field_project
+    import aws_sdk_datazone.types.sort_key
+    import aws_sdk_datazone.types.sort_order
+    import aws_sdk_datazone.types.source_location
+    import aws_sdk_datazone.types.start_notebook_import_input
+    import aws_sdk_datazone.types.start_notebook_import_output
+    import aws_sdk_datazone.types.status
+    import aws_sdk_datazone.types.subscribed_listing_inputs
+    import aws_sdk_datazone.types.subscribed_principal_inputs
+    import aws_sdk_datazone.types.subscription_grant_creation_mode
+    import aws_sdk_datazone.types.subscription_grant_id
+    import aws_sdk_datazone.types.subscription_grant_status
+    import aws_sdk_datazone.types.subscription_grant_summary
+    import aws_sdk_datazone.types.subscription_id
+    import aws_sdk_datazone.types.subscription_request_id
+    import aws_sdk_datazone.types.subscription_request_status
+    import aws_sdk_datazone.types.subscription_request_summary
+    import aws_sdk_datazone.types.subscription_status
+    import aws_sdk_datazone.types.subscription_summary
+    import aws_sdk_datazone.types.subscription_target_forms
+    import aws_sdk_datazone.types.subscription_target_id
+    import aws_sdk_datazone.types.subscription_target_name
+    import aws_sdk_datazone.types.subscription_target_summary
+    import aws_sdk_datazone.types.tag_key_list
+    import aws_sdk_datazone.types.tag_resource_request
+    import aws_sdk_datazone.types.tag_resource_response
+    import aws_sdk_datazone.types.tags
+    import aws_sdk_datazone.types.target_entity_type
+    import aws_sdk_datazone.types.task_status
+    import aws_sdk_datazone.types.time_series_data_point_form_input_list
+    import aws_sdk_datazone.types.time_series_data_point_identifier
+    import aws_sdk_datazone.types.time_series_data_point_summary_form_output
+    import aws_sdk_datazone.types.time_series_entity_type
+    import aws_sdk_datazone.types.time_series_form_name
+    import aws_sdk_datazone.types.types_search_scope
+    import aws_sdk_datazone.types.untag_resource_request
+    import aws_sdk_datazone.types.untag_resource_response
+    import aws_sdk_datazone.types.update_account_pool_input
+    import aws_sdk_datazone.types.update_account_pool_output
+    import aws_sdk_datazone.types.update_asset_filter_input
+    import aws_sdk_datazone.types.update_asset_filter_output
+    import aws_sdk_datazone.types.update_connection_input
+    import aws_sdk_datazone.types.update_connection_output
+    import aws_sdk_datazone.types.update_environment_action_input
+    import aws_sdk_datazone.types.update_environment_action_output
+    import aws_sdk_datazone.types.update_environment_blueprint_input
+    import aws_sdk_datazone.types.update_environment_blueprint_output
+    import aws_sdk_datazone.types.update_environment_input
+    import aws_sdk_datazone.types.update_environment_output
+    import aws_sdk_datazone.types.update_environment_profile_input
+    import aws_sdk_datazone.types.update_environment_profile_output
+    import aws_sdk_datazone.types.update_group_profile_input
+    import aws_sdk_datazone.types.update_group_profile_output
+    import aws_sdk_datazone.types.update_project_input
+    import aws_sdk_datazone.types.update_project_output
+    import aws_sdk_datazone.types.update_project_profile_input
+    import aws_sdk_datazone.types.update_project_profile_output
+    import aws_sdk_datazone.types.update_root_domain_unit_owner_input
+    import aws_sdk_datazone.types.update_root_domain_unit_owner_output
+    import aws_sdk_datazone.types.update_subscription_grant_status_input
+    import aws_sdk_datazone.types.update_subscription_grant_status_output
+    import aws_sdk_datazone.types.update_subscription_request_input
+    import aws_sdk_datazone.types.update_subscription_request_output
+    import aws_sdk_datazone.types.update_subscription_target_input
+    import aws_sdk_datazone.types.update_subscription_target_output
+    import aws_sdk_datazone.types.update_user_profile_input
+    import aws_sdk_datazone.types.update_user_profile_output
+    import aws_sdk_datazone.types.user_designation
+    import aws_sdk_datazone.types.user_identifier
+    import aws_sdk_datazone.types.user_profile_id
+    import aws_sdk_datazone.types.user_profile_status
+    import aws_sdk_datazone.types.user_profile_summary
+    import aws_sdk_datazone.types.user_profile_type
+    import aws_sdk_datazone.types.user_search_text
+    import aws_sdk_datazone.types.user_search_type
+    import aws_sdk_datazone.types.user_type
+
+
+class DataZoneClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    region: str | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class DataZoneClient:
+    """A client for the ``DataZone`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = DataZoneClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[DataZoneClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: DataZoneClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def accept_predictions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.asset_identifier.AssetIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        revision: Optional["aws_sdk_datazone.types.revision.Revision"] = None,
+        accept_rule: Optional["aws_sdk_datazone.types.accept_rule.AcceptRule"] = None,
+        accept_choices: Optional[
+            "aws_sdk_datazone.types.accept_choices.AcceptChoices"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.accept_predictions_output.AcceptPredictionsOutput":
+        """<p>Accepts automatically generated business-friendly metadata for your Amazon DataZone assets.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            identifier: <p>The identifier of the asset.</p>
+            revision: <p>The revision that is to be made to the asset.</p>
+            accept_rule: <p>Specifies the rule (or the conditions) under which a prediction can be accepted.</p>
+            accept_choices: <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.accept_predictions_input.AcceptPredictionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.accept_predictions_output.AcceptPredictionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.accept_predictions
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.accept_predictions.accept_predictions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.accept_predictions_input.AcceptPredictionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if revision is not None:
+            input["revision"] = revision
+        if accept_rule is not None:
+            input["accept_rule"] = accept_rule
+        if accept_choices is not None:
+            input["accept_choices"] = accept_choices
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def accept_subscription_request(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        decision_comment: Optional[
+            "aws_sdk_datazone.types.decision_comment.DecisionComment"
+        ] = None,
+        asset_scopes: Optional[
+            "aws_sdk_datazone.types.accepted_asset_scopes.AcceptedAssetScopes"
+        ] = None,
+        asset_permissions: Optional[
+            "aws_sdk_datazone.types.asset_permissions.AssetPermissions"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.accept_subscription_request_output.AcceptSubscriptionRequestOutput":
+        """<p>Accepts a subscription request to a specific asset. </p>
+
+        Args:
+            domain_identifier: <p>The Amazon DataZone domain where the specified subscription request is being accepted.</p>
+            identifier: <p>The unique identifier of the subscription request that is to be accepted.</p>
+            decision_comment: <p>A description that specifies the reason for accepting the specified subscription request.</p>
+            asset_scopes: <p>The asset scopes of the accept subscription request.</p>
+            asset_permissions: <p>The asset permissions of the accept subscription request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.accept_subscription_request_input.AcceptSubscriptionRequestInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.accept_subscription_request_output.AcceptSubscriptionRequestOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.accept_subscription_request
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.accept_subscription_request.accept_subscription_request(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.accept_subscription_request_input.AcceptSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if decision_comment is not None:
+            input["decision_comment"] = decision_comment
+        if asset_scopes is not None:
+            input["asset_scopes"] = asset_scopes
+        if asset_permissions is not None:
+            input["asset_permissions"] = asset_permissions
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def add_entity_owner(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.data_zone_entity_type.DataZoneEntityType",
+        entity_identifier: str,
+        owner: "aws_sdk_datazone.types.owner_properties.OwnerProperties",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.add_entity_owner_output.AddEntityOwnerOutput":
+        """<p>Adds the owner of an entity (a domain unit).</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain in which you want to add the entity owner.</p>
+            entity_type: <p>The type of an entity.</p>
+            entity_identifier: <p>The ID of the entity to which you want to add an owner.</p>
+            owner: <p>The owner that you want to add to the entity.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.add_entity_owner_input.AddEntityOwnerInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.add_entity_owner_output.AddEntityOwnerOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.add_entity_owner
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.add_entity_owner.add_entity_owner(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.add_entity_owner_input.AddEntityOwnerInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        input["owner"] = owner
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def add_policy_grant(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.target_entity_type.TargetEntityType",
+        entity_identifier: str,
+        policy_type: "aws_sdk_datazone.types.managed_policy_type.ManagedPolicyType",
+        principal: "aws_sdk_datazone.types.policy_grant_principal.PolicyGrantPrincipal",
+        detail: "aws_sdk_datazone.types.policy_grant_detail.PolicyGrantDetail",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.add_policy_grant_output.AddPolicyGrantOutput":
+        """<p>Adds a policy grant (an authorization policy) to a specified entity, including domain units, environment blueprint configurations, or environment profiles.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to add a policy grant.</p>
+            entity_type: <p>The type of entity (resource) to which the grant is added.</p>
+            entity_identifier: <p>The ID of the entity (resource) to which you want to add a policy grant.</p>
+            policy_type: <p>The type of policy that you want to grant.</p>
+            principal: <p>The principal to whom the permissions are granted.</p>
+            detail: <p>The details of the policy grant.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.add_policy_grant_input.AddPolicyGrantInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.add_policy_grant_output.AddPolicyGrantOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.add_policy_grant
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.add_policy_grant.add_policy_grant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.add_policy_grant_input.AddPolicyGrantInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        input["policy_type"] = policy_type
+        input["principal"] = principal
+        input["detail"] = detail
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def associate_environment_role(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        environment_role_arn: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.associate_environment_role_output.AssociateEnvironmentRoleOutput":
+        """<p>Associates the environment role in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the environment role is associated.</p>
+            environment_identifier: <p>The ID of the Amazon DataZone environment.</p>
+            environment_role_arn: <p>The ARN of the environment role.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.associate_environment_role_input.AssociateEnvironmentRoleInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.associate_environment_role_output.AssociateEnvironmentRoleOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.associate_environment_role
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.associate_environment_role.associate_environment_role(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.associate_environment_role_input.AssociateEnvironmentRoleInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["environment_role_arn"] = environment_role_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def associate_governed_terms(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.governed_entity_type.GovernedEntityType",
+        governed_glossary_terms: "aws_sdk_datazone.types.governed_glossary_terms.GovernedGlossaryTerms",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.associate_governed_terms_output.AssociateGovernedTermsOutput":
+        """<p>Associates governed terms with an asset.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where governed terms are to be associated with an asset.</p>
+            entity_identifier: <p>The ID of the asset with which you want to associate a governed term.</p>
+            entity_type: <p>The type of the asset with which you want to associate a governed term.</p>
+            governed_glossary_terms: <p>The glossary terms in a restricted glossary.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.associate_governed_terms_input.AssociateGovernedTermsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.associate_governed_terms_output.AssociateGovernedTermsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.associate_governed_terms
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.associate_governed_terms.associate_governed_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.associate_governed_terms_input.AssociateGovernedTermsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        input["governed_glossary_terms"] = governed_glossary_terms
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def batch_get_attributes_metadata(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.attribute_entity_type.AttributeEntityType",
+        entity_identifier: "aws_sdk_datazone.types.entity_id.EntityId",
+        attribute_identifiers: "aws_sdk_datazone.types.attributes_list.AttributesList",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        entity_revision: Optional["aws_sdk_datazone.types.revision.Revision"] = None,
+    ) -> "aws_sdk_datazone.types.batch_get_attributes_metadata_output.BatchGetAttributesMetadataOutput":
+        """<p>Gets the attribute metadata.</p>
+
+        Args:
+            domain_identifier: <p>The domain ID where you want to get the attribute metadata.</p>
+            entity_type: <p>The entity type for which you want to get attribute metadata.</p>
+            entity_identifier: <p>The entity ID for which you want to get attribute metadata.</p>
+            entity_revision: <p>The entity revision for which you want to get attribute metadata.</p>
+            attribute_identifiers: <p>The attribute identifier.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.batch_get_attributes_metadata_input.BatchGetAttributesMetadataInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.batch_get_attributes_metadata_output.BatchGetAttributesMetadataOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.batch_get_attributes_metadata
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.batch_get_attributes_metadata.batch_get_attributes_metadata(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.batch_get_attributes_metadata_input.BatchGetAttributesMetadataInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        if entity_revision is not None:
+            input["entity_revision"] = entity_revision
+        input["attribute_identifiers"] = attribute_identifiers
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def batch_put_attributes_metadata(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.attribute_entity_type.AttributeEntityType",
+        entity_identifier: "aws_sdk_datazone.types.entity_id.EntityId",
+        attributes: "aws_sdk_datazone.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.batch_put_attributes_metadata_output.BatchPutAttributesMetadataOutput":
+        """<p>Writes the attribute metadata.</p>
+
+        Args:
+            domain_identifier: <p>The domain ID where you want to write the attribute metadata.</p>
+            entity_type: <p>The entity type for which you want to write the attribute metadata.</p>
+            entity_identifier: <p>The entity ID for which you want to write the attribute metadata.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+            attributes: <p>The attributes of the metadata.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.batch_put_attributes_metadata_input.BatchPutAttributesMetadataInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.batch_put_attributes_metadata_output.BatchPutAttributesMetadataOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.batch_put_attributes_metadata
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.batch_put_attributes_metadata.batch_put_attributes_metadata(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.batch_put_attributes_metadata_input.BatchPutAttributesMetadataInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["attributes"] = attributes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def cancel_subscription(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_id.SubscriptionId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.cancel_subscription_output.CancelSubscriptionOutput":
+        """<p>Cancels the subscription to the specified asset.</p>
+
+        Args:
+            domain_identifier: <p>The unique identifier of the Amazon DataZone domain where the subscription request is being cancelled.</p>
+            identifier: <p>The unique identifier of the subscription that is being cancelled.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.cancel_subscription_input.CancelSubscriptionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.cancel_subscription_output.CancelSubscriptionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.cancel_subscription
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.cancel_subscription.cancel_subscription(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.cancel_subscription_input.CancelSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_account_pool(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: "aws_sdk_datazone.types.account_pool_name.AccountPoolName",
+        resolution_strategy: "aws_sdk_datazone.types.resolution_strategy.ResolutionStrategy",
+        account_source: "aws_sdk_datazone.types.account_source.AccountSource",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+    ) -> "aws_sdk_datazone.types.create_account_pool_output.CreateAccountPoolOutput":
+        """<p>Creates an account pool. </p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where the account pool is created.</p>
+            name: <p>The name of the account pool.</p>
+            description: <p>The description of the account pool.</p>
+            resolution_strategy: <p>The mechanism used to resolve the account selection from the account pool.</p>
+            account_source: <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_account_pool_input.CreateAccountPoolInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_account_pool_output.CreateAccountPoolOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_account_pool
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_account_pool.create_account_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_account_pool_input.CreateAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["resolution_strategy"] = resolution_strategy
+        input["account_source"] = account_source
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_asset_filter(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        name: "aws_sdk_datazone.types.filter_name.FilterName",
+        configuration: "aws_sdk_datazone.types.asset_filter_configuration.AssetFilterConfiguration",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        client_token: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.create_asset_filter_output.CreateAssetFilterOutput":
+        """<p>Creates a data asset filter.</p> <p>Asset filters provide a sophisticated way to create controlled views of data assets by selecting specific columns or applying row-level filters. This capability is crucial for organizations that need to share data while maintaining security and privacy controls. For example, your database might be filtered to show only non-PII fields to certain users, or sales data might be filtered by region for different regional teams. Asset filters enable fine-grained access control while maintaining a single source of truth.</p> <p>Prerequisites:</p> <ul> <li> <p>A valid domain (<code>--domain-identifier</code>) must exist. </p> </li> <li> <p>A data asset (<code>--asset-identifier</code>) must already be created under that domain.</p> </li> <li> <p>The asset must have the referenced columns available in its schema for column-based filtering.</p> </li> <li> <p>You cannot specify both (<code>columnConfiguration</code>, <code>rowConfiguration</code>)at the same time.</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The ID of the domain in which you want to create an asset filter.</p>
+            asset_identifier: <p>The ID of the data asset.</p>
+            name: <p>The name of the asset filter.</p>
+            description: <p>The description of the asset filter.</p>
+            configuration: <p>The configuration of the asset filter.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_asset_filter_input.CreateAssetFilterInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_asset_filter_output.CreateAssetFilterOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_asset_filter
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_asset_filter.create_asset_filter(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_asset_filter_input.CreateAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["asset_identifier"] = asset_identifier
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["configuration"] = configuration
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_connection(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: "aws_sdk_datazone.types.connection_name.ConnectionName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        aws_location: Optional[
+            "aws_sdk_datazone.types.aws_location.AwsLocation"
+        ] = None,
+        client_token: Optional[str] = None,
+        configurations: Optional[
+            "aws_sdk_datazone.types.configurations.Configurations"
+        ] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        environment_identifier: Optional[
+            "aws_sdk_datazone.types.environment_id.EnvironmentId"
+        ] = None,
+        props: Optional[
+            "aws_sdk_datazone.types.connection_properties_input.ConnectionPropertiesInput"
+        ] = None,
+        enable_trusted_identity_propagation: Optional[bool] = None,
+        scope: Optional[
+            "aws_sdk_datazone.types.connection_scope.ConnectionScope"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_connection_output.CreateConnectionOutput":
+        """<p>Creates a new connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
+
+        Args:
+            aws_location: <p>The location where the connection is created.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+            configurations: <p>The configurations of the connection.</p>
+            description: <p>A connection description.</p>
+            domain_identifier: <p>The ID of the domain where the connection is created.</p>
+            environment_identifier: <p>The ID of the environment where the connection is created.</p>
+            name: <p>The connection name.</p>
+            props: <p>The connection props.</p>
+            enable_trusted_identity_propagation: <p>Specifies whether the trusted identity propagation is enabled.</p>
+            scope: <p>The scope of the connection.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_connection_input.CreateConnectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_connection_output.CreateConnectionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_connection
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_connection.create_connection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_connection_input.CreateConnectionInput = {}  # type: ignore[typeddict-item]
+        if aws_location is not None:
+            input["aws_location"] = aws_location
+        if client_token is not None:
+            input["client_token"] = client_token
+        if configurations is not None:
+            input["configurations"] = configurations
+        if description is not None:
+            input["description"] = description
+        input["domain_identifier"] = domain_identifier
+        if environment_identifier is not None:
+            input["environment_identifier"] = environment_identifier
+        input["name"] = name
+        if props is not None:
+            input["props"] = props
+        if enable_trusted_identity_propagation is not None:
+            input["enable_trusted_identity_propagation"] = (
+                enable_trusted_identity_propagation
+            )
+        if scope is not None:
+            input["scope"] = scope
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_environment(
+        self,
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional[str] = None,
+        environment_profile_identifier: Optional[
+            "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId"
+        ] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.environment_parameters_list.EnvironmentParametersList"
+        ] = None,
+        glossary_terms: Optional[
+            "aws_sdk_datazone.types.glossary_terms.GlossaryTerms"
+        ] = None,
+        environment_account_identifier: Optional[str] = None,
+        environment_account_region: Optional[str] = None,
+        environment_blueprint_identifier: Optional[str] = None,
+        deployment_order: Optional[int] = None,
+        environment_configuration_id: Optional[str] = None,
+        environment_configuration_name: Optional[
+            "aws_sdk_datazone.types.environment_configuration_name.EnvironmentConfigurationName"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_environment_output.CreateEnvironmentOutput":
+        """<p>Create an Amazon DataZone environment.</p>
+
+        Args:
+            project_identifier: <p>The identifier of the Amazon DataZone project in which this environment is created.</p>
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which the environment is created.</p>
+            description: <p>The description of the Amazon DataZone environment.</p>
+            name: <p>The name of the Amazon DataZone environment.</p>
+            environment_profile_identifier: <p>The identifier of the environment profile that is used to create this Amazon DataZone environment.</p>
+            user_parameters: <p>The user parameters of this Amazon DataZone environment.</p>
+            glossary_terms: <p>The glossary terms that can be used in this Amazon DataZone environment.</p>
+            environment_account_identifier: <p>The ID of the account in which the environment is being created.</p>
+            environment_account_region: <p>The region of the account in which the environment is being created.</p>
+            environment_blueprint_identifier: <p>The ID of the blueprint with which the environment is being created.</p>
+            deployment_order: <p>The deployment order of the environment.</p>
+            environment_configuration_id: <p>The configuration ID of the environment.</p>
+            environment_configuration_name: <p>The configuration name of the environment.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_environment_input.CreateEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_environment_output.CreateEnvironmentOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_environment
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_environment.create_environment(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input["project_identifier"] = project_identifier
+        input["domain_identifier"] = domain_identifier
+        if description is not None:
+            input["description"] = description
+        input["name"] = name
+        if environment_profile_identifier is not None:
+            input["environment_profile_identifier"] = environment_profile_identifier
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+        if glossary_terms is not None:
+            input["glossary_terms"] = glossary_terms
+        if environment_account_identifier is not None:
+            input["environment_account_identifier"] = environment_account_identifier
+        if environment_account_region is not None:
+            input["environment_account_region"] = environment_account_region
+        if environment_blueprint_identifier is not None:
+            input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        if deployment_order is not None:
+            input["deployment_order"] = deployment_order
+        if environment_configuration_id is not None:
+            input["environment_configuration_id"] = environment_configuration_id
+        if environment_configuration_name is not None:
+            input["environment_configuration_name"] = environment_configuration_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_environment_action(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        name: str,
+        parameters: "aws_sdk_datazone.types.action_parameters.ActionParameters",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.create_environment_action_output.CreateEnvironmentActionOutput":
+        """<p>Creates an action for the environment, for example, creates a console link for an analytics tool that is available in this environment.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the environment action is created.</p>
+            environment_identifier: <p>The ID of the environment in which the environment action is created.</p>
+            name: <p>The name of the environment action.</p>
+            parameters: <p>The parameters of the environment action.</p>
+            description: <p>The description of the environment action that is being created in the environment.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_environment_action_input.CreateEnvironmentActionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_environment_action_output.CreateEnvironmentActionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_environment_action
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_environment_action.create_environment_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_environment_action_input.CreateEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["name"] = name
+        input["parameters"] = parameters
+        if description is not None:
+            input["description"] = description
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_environment_blueprint(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: "aws_sdk_datazone.types.environment_blueprint_name.EnvironmentBlueprintName",
+        provisioning_properties: "aws_sdk_datazone.types.provisioning_properties.ProvisioningProperties",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.custom_parameter_list.CustomParameterList"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_environment_blueprint_output.CreateEnvironmentBlueprintOutput":
+        """<p>Creates a Amazon DataZone blueprint.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the domain in which this blueprint is created.</p>
+            name: <p>The name of this Amazon DataZone blueprint.</p>
+            description: <p>The description of the Amazon DataZone blueprint.</p>
+            provisioning_properties: <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+            user_parameters: <p>The user parameters of this Amazon DataZone blueprint.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_environment_blueprint_input.CreateEnvironmentBlueprintInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_environment_blueprint_output.CreateEnvironmentBlueprintOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_environment_blueprint
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_environment_blueprint.create_environment_blueprint(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_environment_blueprint_input.CreateEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["provisioning_properties"] = provisioning_properties
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_environment_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: "aws_sdk_datazone.types.environment_profile_name.EnvironmentProfileName",
+        environment_blueprint_identifier: "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.environment_parameters_list.EnvironmentParametersList"
+        ] = None,
+        aws_account_id: Optional[
+            "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
+        ] = None,
+        aws_account_region: Optional[
+            "aws_sdk_datazone.types.aws_region.AwsRegion"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_environment_profile_output.CreateEnvironmentProfileOutput":
+        """<p>Creates an Amazon DataZone environment profile.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which this environment profile is created.</p>
+            name: <p>The name of this Amazon DataZone environment profile.</p>
+            description: <p>The description of this Amazon DataZone environment profile.</p>
+            environment_blueprint_identifier: <p>The ID of the blueprint with which this environment profile is created.</p>
+            project_identifier: <p>The identifier of the project in which to create the environment profile.</p>
+            user_parameters: <p>The user parameters of this Amazon DataZone environment profile.</p>
+            aws_account_id: <p>The Amazon Web Services account in which the Amazon DataZone environment is created.</p>
+            aws_account_region: <p>The Amazon Web Services region in which this environment profile is created.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_environment_profile_input.CreateEnvironmentProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_environment_profile_output.CreateEnvironmentProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_environment_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_environment_profile.create_environment_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_environment_profile_input.CreateEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input["project_identifier"] = project_identifier
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+        if aws_account_id is not None:
+            input["aws_account_id"] = aws_account_id
+        if aws_account_region is not None:
+            input["aws_account_region"] = aws_account_region
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_group_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        group_identifier: Optional[
+            "aws_sdk_datazone.types.group_identifier.GroupIdentifier"
+        ] = None,
+        role_principal_arn: Optional[str] = None,
+        client_token: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.create_group_profile_output.CreateGroupProfileOutput":
+        """<p>Creates a group profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which the group profile is created.</p>
+            group_identifier: <p>The identifier of the group for which the group profile is created.</p>
+            role_principal_arn: <p>The ARN of the IAM role that will be associated with the group profile. This role defines the permissions that group members will assume when accessing Amazon DataZone resources.</p>
+            client_token: <p> A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_group_profile_input.CreateGroupProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_group_profile_output.CreateGroupProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_group_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_group_profile.create_group_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_group_profile_input.CreateGroupProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if group_identifier is not None:
+            input["group_identifier"] = group_identifier
+        if role_principal_arn is not None:
+            input["role_principal_arn"] = role_principal_arn
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_listing_change_set(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.entity_type.EntityType",
+        action: "aws_sdk_datazone.types.change_action.ChangeAction",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        entity_revision: Optional["aws_sdk_datazone.types.revision.Revision"] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_listing_change_set_output.CreateListingChangeSetOutput":
+        """<p>Publishes a listing (a record of an asset at a given time) or removes a listing from the catalog. </p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain.</p>
+            entity_identifier: <p>The ID of the asset.</p>
+            entity_type: <p>The type of an entity.</p>
+            entity_revision: <p>The revision of an asset.</p>
+            action: <p>Specifies whether to publish or unpublish a listing.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_listing_change_set_input.CreateListingChangeSetInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_listing_change_set_output.CreateListingChangeSetOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_listing_change_set
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_listing_change_set.create_listing_change_set(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_listing_change_set_input.CreateListingChangeSetInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        if entity_revision is not None:
+            input["entity_revision"] = entity_revision
+        input["action"] = action
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_project(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: "aws_sdk_datazone.types.project_name.ProjectName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        resource_tags: Optional["aws_sdk_datazone.types.tags.Tags"] = None,
+        glossary_terms: Optional[
+            "aws_sdk_datazone.types.glossary_terms.GlossaryTerms"
+        ] = None,
+        domain_unit_id: Optional[
+            "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
+        ] = None,
+        project_profile_id: Optional[
+            "aws_sdk_datazone.types.project_profile_id.ProjectProfileId"
+        ] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.environment_configuration_user_parameters_list.EnvironmentConfigurationUserParametersList"
+        ] = None,
+        project_category: Optional[str] = None,
+        project_execution_role: Optional[
+            "aws_sdk_datazone.types.role_arn.RoleArn"
+        ] = None,
+        membership_assignments: Optional[
+            "aws_sdk_datazone.types.project_membership_assignments.ProjectMembershipAssignments"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_project_output.CreateProjectOutput":
+        """<p>Creates an Amazon DataZone project.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which this project is created.</p>
+            name: <p>The name of the Amazon DataZone project.</p>
+            description: <p>The description of the Amazon DataZone project.</p>
+            resource_tags: <p>The resource tags of the project.</p>
+            glossary_terms: <p>The glossary terms that can be used in this Amazon DataZone project.</p>
+            domain_unit_id: <p>The ID of the domain unit. This parameter is not required and if it is not specified, then the project is created at the root domain unit level.</p>
+            project_profile_id: <p>The ID of the project profile.</p>
+            user_parameters: <p>The user parameters of the project.</p>
+            project_category: <p>The category of the project. Set to 'ADMIN' designates this as an administrative project for the Amazon DataZone domain.</p>
+            project_execution_role: <p>The default project IAM role that is used to access project resources and run computes such as Glue and Sagemaker.</p>
+            membership_assignments: <p>The members to be assigned to the project.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_project_input.CreateProjectInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_project_output.CreateProjectOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_project
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_project.create_project(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if resource_tags is not None:
+            input["resource_tags"] = resource_tags
+        if glossary_terms is not None:
+            input["glossary_terms"] = glossary_terms
+        if domain_unit_id is not None:
+            input["domain_unit_id"] = domain_unit_id
+        if project_profile_id is not None:
+            input["project_profile_id"] = project_profile_id
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+        if project_category is not None:
+            input["project_category"] = project_category
+        if project_execution_role is not None:
+            input["project_execution_role"] = project_execution_role
+        if membership_assignments is not None:
+            input["membership_assignments"] = membership_assignments
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_project_membership(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        member: "aws_sdk_datazone.types.member.Member",
+        designation: "aws_sdk_datazone.types.user_designation.UserDesignation",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.create_project_membership_output.CreateProjectMembershipOutput":
+        """<p>Creates a project membership in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which project membership is created.</p>
+            project_identifier: <p>The ID of the project for which this project membership was created.</p>
+            member: <p>The project member whose project membership was created.</p>
+            designation: <p>The designation of the project membership.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_project_membership_input.CreateProjectMembershipInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_project_membership_output.CreateProjectMembershipOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_project_membership
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_project_membership.create_project_membership(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_project_membership_input.CreateProjectMembershipInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["project_identifier"] = project_identifier
+        input["member"] = member
+        input["designation"] = designation
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_project_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        name: "aws_sdk_datazone.types.project_profile_name.ProjectProfileName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        status: Optional["aws_sdk_datazone.types.status.Status"] = None,
+        project_resource_tags: Optional[
+            "aws_sdk_datazone.types.project_resource_tag_parameters.ProjectResourceTagParameters"
+        ] = None,
+        allow_custom_project_resource_tags: Optional[bool] = None,
+        project_resource_tags_description: Optional[
+            "aws_sdk_datazone.types.description.Description"
+        ] = None,
+        environment_configurations: Optional[
+            "aws_sdk_datazone.types.environment_configurations_list.EnvironmentConfigurationsList"
+        ] = None,
+        domain_unit_identifier: Optional[
+            "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_project_profile_output.CreateProjectProfileOutput":
+        """<p>Creates a project profile.</p>
+
+        Args:
+            domain_identifier: <p>A domain ID of the project profile.</p>
+            name: <p>Project profile name.</p>
+            description: <p>A description of a project profile.</p>
+            status: <p>Project profile status.</p>
+            project_resource_tags: <p>The resource tags of the project profile.</p>
+            allow_custom_project_resource_tags: <p>Specifies whether custom project resource tags are supported.</p>
+            project_resource_tags_description: <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+            environment_configurations: <p>Environment configurations of the project profile.</p>
+            domain_unit_identifier: <p>A domain unit ID of the project profile.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_project_profile_input.CreateProjectProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_project_profile_output.CreateProjectProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_project_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_project_profile.create_project_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_project_profile_input.CreateProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if status is not None:
+            input["status"] = status
+        if project_resource_tags is not None:
+            input["project_resource_tags"] = project_resource_tags
+        if allow_custom_project_resource_tags is not None:
+            input["allow_custom_project_resource_tags"] = (
+                allow_custom_project_resource_tags
+            )
+        if project_resource_tags_description is not None:
+            input["project_resource_tags_description"] = (
+                project_resource_tags_description
+            )
+        if environment_configurations is not None:
+            input["environment_configurations"] = environment_configurations
+        if domain_unit_identifier is not None:
+            input["domain_unit_identifier"] = domain_unit_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_subscription_grant(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        granted_entity: "aws_sdk_datazone.types.granted_entity_input.GrantedEntityInput",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        subscription_target_identifier: Optional[
+            "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId"
+        ] = None,
+        asset_target_names: Optional[
+            "aws_sdk_datazone.types.asset_target_names.AssetTargetNames"
+        ] = None,
+        client_token: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.create_subscription_grant_output.CreateSubscriptionGrantOutput":
+        """<p>Creates a subsscription grant in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+            environment_identifier: <p>The ID of the environment in which the subscription grant is created.</p>
+            subscription_target_identifier: <p>The ID of the subscription target for which the subscription grant is created.</p>
+            granted_entity: <p>The entity to which the subscription is to be granted.</p>
+            asset_target_names: <p>The names of the assets for which the subscription grant is created.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_subscription_grant_input.CreateSubscriptionGrantInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_subscription_grant_output.CreateSubscriptionGrantOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_subscription_grant
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_subscription_grant.create_subscription_grant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_subscription_grant_input.CreateSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        if subscription_target_identifier is not None:
+            input["subscription_target_identifier"] = subscription_target_identifier
+        input["granted_entity"] = granted_entity
+        if asset_target_names is not None:
+            input["asset_target_names"] = asset_target_names
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_subscription_request(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        subscribed_principals: "aws_sdk_datazone.types.subscribed_principal_inputs.SubscribedPrincipalInputs",
+        subscribed_listings: "aws_sdk_datazone.types.subscribed_listing_inputs.SubscribedListingInputs",
+        request_reason: "aws_sdk_datazone.types.request_reason.RequestReason",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[str] = None,
+        metadata_forms: Optional[
+            "aws_sdk_datazone.types.metadata_form_inputs.MetadataFormInputs"
+        ] = None,
+        asset_permissions: Optional[
+            "aws_sdk_datazone.types.asset_permissions.AssetPermissions"
+        ] = None,
+        asset_scopes: Optional[
+            "aws_sdk_datazone.types.accepted_asset_scopes.AcceptedAssetScopes"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_subscription_request_output.CreateSubscriptionRequestOutput":
+        """<p>Creates a subscription request in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription request is created.</p>
+            subscribed_principals: <p>The Amazon DataZone principals for whom the subscription request is created.</p>
+            subscribed_listings: <p>The published asset for which the subscription grant is to be created.</p>
+            request_reason: <p>The reason for the subscription request.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+            metadata_forms: <p>The metadata form included in the subscription request.</p>
+            asset_permissions: <p>The asset permissions of the subscription request.</p>
+            asset_scopes: <p>The asset scopes of the subscription request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_subscription_request_input.CreateSubscriptionRequestInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_subscription_request_output.CreateSubscriptionRequestOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_subscription_request
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_subscription_request.create_subscription_request(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_subscription_request_input.CreateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["subscribed_principals"] = subscribed_principals
+        input["subscribed_listings"] = subscribed_listings
+        input["request_reason"] = request_reason
+        if client_token is not None:
+            input["client_token"] = client_token
+        if metadata_forms is not None:
+            input["metadata_forms"] = metadata_forms
+        if asset_permissions is not None:
+            input["asset_permissions"] = asset_permissions
+        if asset_scopes is not None:
+            input["asset_scopes"] = asset_scopes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_subscription_target(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        name: "aws_sdk_datazone.types.subscription_target_name.SubscriptionTargetName",
+        type: str,
+        subscription_target_config: "aws_sdk_datazone.types.subscription_target_forms.SubscriptionTargetForms",
+        authorized_principals: "aws_sdk_datazone.types.authorized_principal_identifiers.AuthorizedPrincipalIdentifiers",
+        manage_access_role: "aws_sdk_datazone.types.iam_role_arn.IamRoleArn",
+        applicable_asset_types: "aws_sdk_datazone.types.applicable_asset_types.ApplicableAssetTypes",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        provider: Optional[str] = None,
+        client_token: Optional[str] = None,
+        subscription_grant_creation_mode: Optional[
+            "aws_sdk_datazone.types.subscription_grant_creation_mode.SubscriptionGrantCreationMode"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.create_subscription_target_output.CreateSubscriptionTargetOutput":
+        """<p>Creates a subscription target in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which subscription target is created.</p>
+            environment_identifier: <p>The ID of the environment in which subscription target is created.</p>
+            name: <p>The name of the subscription target.</p>
+            type: <p>The type of the subscription target.</p>
+            subscription_target_config: <p>The configuration of the subscription target.</p>
+            authorized_principals: <p>The authorized principals of the subscription target.</p>
+            manage_access_role: <p>The manage access role that is used to create the subscription target.</p>
+            applicable_asset_types: <p>The asset types that can be included in the subscription target.</p>
+            provider: <p>The provider of the subscription target.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+            subscription_grant_creation_mode: <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_subscription_target_input.CreateSubscriptionTargetInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_subscription_target_output.CreateSubscriptionTargetOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_subscription_target
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_subscription_target.create_subscription_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_subscription_target_input.CreateSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["name"] = name
+        input["type"] = type
+        input["subscription_target_config"] = subscription_target_config
+        input["authorized_principals"] = authorized_principals
+        input["manage_access_role"] = manage_access_role
+        input["applicable_asset_types"] = applicable_asset_types
+        if provider is not None:
+            input["provider"] = provider
+        if client_token is not None:
+            input["client_token"] = client_token
+        if subscription_grant_creation_mode is not None:
+            input["subscription_grant_creation_mode"] = subscription_grant_creation_mode
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        user_identifier: "aws_sdk_datazone.types.user_identifier.UserIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        user_type: Optional["aws_sdk_datazone.types.user_type.UserType"] = None,
+        session_name: Optional[str] = None,
+        client_token: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.create_user_profile_output.CreateUserProfileOutput":
+        """<p>Creates a user profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+            user_identifier: <p>The identifier of the user for which the user profile is created.</p>
+            user_type: <p>The user type of the user for which the user profile is created.</p>
+            session_name: <p>The session name for IAM role sessions.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.create_user_profile_input.CreateUserProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.create_user_profile_output.CreateUserProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.create_user_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.create_user_profile.create_user_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.create_user_profile_input.CreateUserProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["user_identifier"] = user_identifier
+        if user_type is not None:
+            input["user_type"] = user_type
+        if session_name is not None:
+            input["session_name"] = session_name
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_account_pool(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.delete_account_pool_output.DeleteAccountPoolOutput":
+        """<p>Deletes an account pool.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where the account pool is deleted.</p>
+            identifier: <p>The ID of the account pool to be deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_account_pool_input.DeleteAccountPoolInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_account_pool_output.DeleteAccountPoolOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_account_pool
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_account_pool.delete_account_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_account_pool_input.DeleteAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_asset_filter(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        identifier: "aws_sdk_datazone.types.filter_id.FilterId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes an asset filter.</p> <p>Prerequisites:</p> <ul> <li> <p>The asset filter must exist. </p> </li> <li> <p>The domain and asset must not have been deleted.</p> </li> <li> <p>Ensure the --identifier refers to a valid filter ID.</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to delete an asset filter.</p>
+            asset_identifier: <p>The ID of the data asset.</p>
+            identifier: <p>The ID of the asset filter that you want to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_asset_filter_input.DeleteAssetFilterInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_asset_filter
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_asset_filter.delete_asset_filter(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_asset_filter_input.DeleteAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["asset_identifier"] = asset_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_connection(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.connection_id.ConnectionId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.delete_connection_output.DeleteConnectionOutput":
+        """<p>Deletes and connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where the connection is deleted.</p>
+            identifier: <p>The ID of the connection that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_connection_input.DeleteConnectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_connection_output.DeleteConnectionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_connection
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_connection.delete_connection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_connection_input.DeleteConnectionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_data_export_configuration(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.delete_data_export_configuration_output.DeleteDataExportConfigurationOutput":
+        """<p>Deletes data export configuration for a domain.</p> <p>This operation does not delete the S3 table created by the PutDataExportConfiguration operation.</p> <p>To temporarily disable export without deleting the configuration, use the PutDataExportConfiguration operation with the <code>--no-enable-export</code> flag instead. This allows you to re-enable export for the same domain using the <code>--enable-export</code> flag without deleting S3 table.</p>
+
+        Args:
+            domain_identifier: <p>The domain ID for which you want to delete the data export configuration.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_data_export_configuration_input.DeleteDataExportConfigurationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_data_export_configuration_output.DeleteDataExportConfigurationOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_data_export_configuration
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_data_export_configuration.delete_data_export_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_data_export_configuration_input.DeleteDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_environment(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes an environment in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the environment is deleted.</p>
+            identifier: <p>The identifier of the environment that is to be deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_environment_input.DeleteEnvironmentInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_environment
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_environment.delete_environment(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_environment_action(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes an action for the environment, for example, deletes a console link for an analytics tool that is available in this environment.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which an environment action is deleted.</p>
+            environment_identifier: <p>The ID of the environment where an environment action is deleted.</p>
+            identifier: <p>The ID of the environment action that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_environment_action_input.DeleteEnvironmentActionInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_environment_action
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_environment_action.delete_environment_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_environment_action_input.DeleteEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_environment_blueprint(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a blueprint in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the blueprint is deleted.</p>
+            identifier: <p>The ID of the blueprint that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_environment_blueprint_input.DeleteEnvironmentBlueprintInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_environment_blueprint
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_environment_blueprint.delete_environment_blueprint(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_environment_blueprint_input.DeleteEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_environment_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes an environment profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the environment profile is deleted.</p>
+            identifier: <p>The ID of the environment profile that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_environment_profile_input.DeleteEnvironmentProfileInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_environment_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_environment_profile.delete_environment_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_environment_profile_input.DeleteEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_project(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        skip_deletion_check: Optional[bool] = None,
+    ) -> "aws_sdk_datazone.types.delete_project_output.DeleteProjectOutput":
+        """<p>Deletes a project in Amazon DataZone. </p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the project is deleted.</p>
+            identifier: <p>The identifier of the project that is to be deleted.</p>
+            skip_deletion_check: <p>Specifies the optional flag to delete all child entities within the project.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_project_input.DeleteProjectInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_project_output.DeleteProjectOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_project
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_project.delete_project(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if skip_deletion_check is not None:
+            input["skip_deletion_check"] = skip_deletion_check
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_project_membership(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        member: "aws_sdk_datazone.types.member.Member",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.delete_project_membership_output.DeleteProjectMembershipOutput":
+        """<p>Deletes project membership in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain where project membership is deleted.</p>
+            project_identifier: <p>The ID of the Amazon DataZone project the membership to which is deleted.</p>
+            member: <p>The project member whose project membership is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_project_membership_input.DeleteProjectMembershipInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_project_membership_output.DeleteProjectMembershipOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_project_membership
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_project_membership.delete_project_membership(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_project_membership_input.DeleteProjectMembershipInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["project_identifier"] = project_identifier
+        input["member"] = member
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_project_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.project_profile_id.ProjectProfileId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.delete_project_profile_output.DeleteProjectProfileOutput":
+        """<p>Deletes a project profile.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where a project profile is deleted.</p>
+            identifier: <p>The ID of the project profile that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_project_profile_input.DeleteProjectProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_project_profile_output.DeleteProjectProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_project_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_project_profile.delete_project_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_project_profile_input.DeleteProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_subscription_grant(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_grant_id.SubscriptionGrantId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.delete_subscription_grant_output.DeleteSubscriptionGrantOutput":
+        """<p>Deletes and subscription grant in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain where the subscription grant is deleted.</p>
+            identifier: <p>The ID of the subscription grant that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_subscription_grant_input.DeleteSubscriptionGrantInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_subscription_grant_output.DeleteSubscriptionGrantOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_subscription_grant
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_subscription_grant.delete_subscription_grant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_subscription_grant_input.DeleteSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_subscription_request(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a subscription request in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription request is deleted.</p>
+            identifier: <p>The ID of the subscription request that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_subscription_request_input.DeleteSubscriptionRequestInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_subscription_request
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_subscription_request.delete_subscription_request(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_subscription_request_input.DeleteSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_subscription_target(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        identifier: "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a subscription target in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription target is deleted.</p>
+            environment_identifier: <p>The ID of the Amazon DataZone environment in which the subscription target is deleted.</p>
+            identifier: <p>The ID of the subscription target that is deleted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_subscription_target_input.DeleteSubscriptionTargetInput]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_datazone._operations.data_zone.delete_subscription_target
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_subscription_target.delete_subscription_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_subscription_target_input.DeleteSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_time_series_data_points(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.time_series_entity_type.TimeSeriesEntityType",
+        form_name: "aws_sdk_datazone.types.time_series_form_name.TimeSeriesFormName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.delete_time_series_data_points_output.DeleteTimeSeriesDataPointsOutput":
+        """<p>Deletes the specified time series form for the specified asset. </p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain that houses the asset for which you want to delete a time series form.</p>
+            entity_identifier: <p>The ID of the asset for which you want to delete a time series form.</p>
+            entity_type: <p>The type of the asset for which you want to delete a time series form.</p>
+            form_name: <p>The name of the time series form that you want to delete.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.delete_time_series_data_points_input.DeleteTimeSeriesDataPointsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.delete_time_series_data_points_output.DeleteTimeSeriesDataPointsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.delete_time_series_data_points
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.delete_time_series_data_points.delete_time_series_data_points(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.delete_time_series_data_points_input.DeleteTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        input["form_name"] = form_name
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def disassociate_environment_role(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        environment_role_arn: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.disassociate_environment_role_output.DisassociateEnvironmentRoleOutput":
+        """<p>Disassociates the environment role in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which an environment role is disassociated.</p>
+            environment_identifier: <p>The ID of the environment.</p>
+            environment_role_arn: <p>The ARN of the environment role.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.disassociate_environment_role_input.DisassociateEnvironmentRoleInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.disassociate_environment_role_output.DisassociateEnvironmentRoleOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.disassociate_environment_role
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.disassociate_environment_role.disassociate_environment_role(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.disassociate_environment_role_input.DisassociateEnvironmentRoleInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["environment_role_arn"] = environment_role_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def disassociate_governed_terms(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.governed_entity_type.GovernedEntityType",
+        governed_glossary_terms: "aws_sdk_datazone.types.governed_glossary_terms.GovernedGlossaryTerms",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.disassociate_governed_terms_output.DisassociateGovernedTermsOutput":
+        """<p>Disassociates restricted terms from an asset.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to disassociate restricted terms from an asset.</p>
+            entity_identifier: <p>The ID of an asset from which you want to disassociate restricted terms.</p>
+            entity_type: <p>The type of the asset from which you want to disassociate restricted terms.</p>
+            governed_glossary_terms: <p>The restricted glossary terms that you want to disassociate from an asset.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.disassociate_governed_terms_input.DisassociateGovernedTermsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.disassociate_governed_terms_output.DisassociateGovernedTermsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.disassociate_governed_terms
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.disassociate_governed_terms.disassociate_governed_terms(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.disassociate_governed_terms_input.DisassociateGovernedTermsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        input["governed_glossary_terms"] = governed_glossary_terms
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_account_pool(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_account_pool_output.GetAccountPoolOutput":
+        """<p>Gets the details of the account pool.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain in which the account pool lives whose details are to be displayed.</p>
+            identifier: <p>The ID of the account pool whose details are to be displayed.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_account_pool_input.GetAccountPoolInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_account_pool_output.GetAccountPoolOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_account_pool
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_account_pool.get_account_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_account_pool_input.GetAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_asset_filter(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        identifier: "aws_sdk_datazone.types.filter_id.FilterId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_asset_filter_output.GetAssetFilterOutput":
+        """<p>Gets an asset filter.</p> <p>Prerequisites:</p> <ul> <li> <p>Domain (<code>--domain-identifier</code>), asset (<code>--asset-identifier</code>), and filter (<code>--identifier</code>) must all exist. </p> </li> <li> <p>The asset filter should not have been deleted.</p> </li> <li> <p>The asset must still exist (since the filter is linked to it).</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to get an asset filter.</p>
+            asset_identifier: <p>The ID of the data asset.</p>
+            identifier: <p>The ID of the asset filter.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_asset_filter_input.GetAssetFilterInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_asset_filter_output.GetAssetFilterOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_asset_filter
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_asset_filter.get_asset_filter(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_asset_filter_input.GetAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["asset_identifier"] = asset_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_connection(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.connection_id.ConnectionId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        with_secret: Optional[bool] = None,
+    ) -> "aws_sdk_datazone.types.get_connection_output.GetConnectionOutput":
+        """<p>Gets a connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where we get the connection.</p>
+            identifier: <p>The connection ID.</p>
+            with_secret: <p>Specifies whether a connection has a secret.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_connection_input.GetConnectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_connection_output.GetConnectionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_connection
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_connection.get_connection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_connection_input.GetConnectionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if with_secret is not None:
+            input["with_secret"] = with_secret
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_data_export_configuration(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_data_export_configuration_output.GetDataExportConfigurationOutput":
+        """<p>Gets data export configuration details.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to get the data export configuration details.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_data_export_configuration_input.GetDataExportConfigurationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_data_export_configuration_output.GetDataExportConfigurationOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_data_export_configuration
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_data_export_configuration.get_data_export_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_data_export_configuration_input.GetDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_environment(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_environment_output.GetEnvironmentOutput":
+        """<p>Gets an Amazon DataZone environment.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain where the environment exists.</p>
+            identifier: <p>The ID of the Amazon DataZone environment.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_environment_input.GetEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_environment_output.GetEnvironmentOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_environment
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_environment.get_environment(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_environment_action(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_environment_action_output.GetEnvironmentActionOutput":
+        """<p>Gets the specified environment action.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the <code>GetEnvironmentAction</code> API is invoked. </p>
+            environment_identifier: <p>The environment ID of the environment action.</p>
+            identifier: <p>The ID of the environment action</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_environment_action_input.GetEnvironmentActionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_environment_action_output.GetEnvironmentActionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_environment_action
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_environment_action.get_environment_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_environment_action_input.GetEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_environment_blueprint(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_environment_blueprint_output.GetEnvironmentBlueprintOutput":
+        """<p>Gets an Amazon DataZone blueprint.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the domain in which this blueprint exists.</p>
+            identifier: <p>The ID of this Amazon DataZone blueprint.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_environment_blueprint_input.GetEnvironmentBlueprintInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_environment_blueprint_output.GetEnvironmentBlueprintOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_environment_blueprint
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_environment_blueprint.get_environment_blueprint(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_environment_blueprint_input.GetEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_environment_credentials(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_environment_credentials_output.GetEnvironmentCredentialsOutput":
+        """<p>Gets the credentials of an environment in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which this environment and its credentials exist.</p>
+            environment_identifier: <p>The ID of the environment whose credentials this operation gets.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_environment_credentials_input.GetEnvironmentCredentialsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_environment_credentials_output.GetEnvironmentCredentialsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_environment_credentials
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_environment_credentials.get_environment_credentials(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_environment_credentials_input.GetEnvironmentCredentialsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_environment_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_environment_profile_output.GetEnvironmentProfileOutput":
+        """<p>Gets an evinronment profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which this environment profile exists.</p>
+            identifier: <p>The ID of the environment profile.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_environment_profile_input.GetEnvironmentProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_environment_profile_output.GetEnvironmentProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_environment_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_environment_profile.get_environment_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_environment_profile_input.GetEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_group_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        group_identifier: "aws_sdk_datazone.types.group_identifier.GroupIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_group_profile_output.GetGroupProfileOutput":
+        """<p>Gets a group profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which the group profile exists.</p>
+            group_identifier: <p>The identifier of the group profile.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_group_profile_input.GetGroupProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_group_profile_output.GetGroupProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_group_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_group_profile.get_group_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_group_profile_input.GetGroupProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["group_identifier"] = group_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_iam_portal_login_url(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_iam_portal_login_url_output.GetIamPortalLoginUrlOutput":
+        """<p>Gets the data portal URL for the specified Amazon DataZone domain.</p>
+
+        Args:
+            domain_identifier: <p>the ID of the Amazon DataZone domain the data portal of which you want to get.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_iam_portal_login_url_input.GetIamPortalLoginUrlInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_iam_portal_login_url_output.GetIamPortalLoginUrlOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_iam_portal_login_url
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_iam_portal_login_url.get_iam_portal_login_url(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_iam_portal_login_url_input.GetIamPortalLoginUrlInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_job_run(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.run_identifier.RunIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_job_run_output.GetJobRunOutput":
+        """<p>The details of the job run.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain.</p>
+            identifier: <p>The ID of the job run.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_job_run_input.GetJobRunInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_job_run_output.GetJobRunOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_job_run
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_job_run.get_job_run(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_job_run_input.GetJobRunInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_lineage_event(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.lineage_event_identifier.LineageEventIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_lineage_event_output.GetLineageEventOutput":
+        """<p>Describes the lineage event.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain.</p>
+            identifier: <p>The ID of the lineage event.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_lineage_event_input.GetLineageEventInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_lineage_event_output.GetLineageEventOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_lineage_event
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_lineage_event.get_lineage_event(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_lineage_event_input.GetLineageEventInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_lineage_node(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.lineage_node_identifier.LineageNodeIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        event_timestamp: Optional[datetime.datetime] = None,
+    ) -> "aws_sdk_datazone.types.get_lineage_node_output.GetLineageNodeOutput":
+        """<p>Gets the data lineage node.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain in which you want to get the data lineage node.</p>
+            identifier: <p>The ID of the data lineage node that you want to get.</p> <p>Both, a lineage node identifier generated by Amazon DataZone and a <code>sourceIdentifier</code> of the lineage node are supported. If <code>sourceIdentifier</code> is greater than 1800 characters, you can use lineage node identifier generated by Amazon DataZone to get the node details.</p>
+            event_timestamp: <p>The event time stamp for which you want to get the data lineage node.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_lineage_node_input.GetLineageNodeInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_lineage_node_output.GetLineageNodeOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_lineage_node
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_lineage_node.get_lineage_node(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_lineage_node_input.GetLineageNodeInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if event_timestamp is not None:
+            input["event_timestamp"] = event_timestamp
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_project(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_project_output.GetProjectOutput":
+        """<p>Gets a project in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the project exists.</p>
+            identifier: <p>The ID of the project.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_project_input.GetProjectInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_project_output.GetProjectOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_project
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_project.get_project(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_project_input.GetProjectInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_project_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.project_profile_id.ProjectProfileId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_project_profile_output.GetProjectProfileOutput":
+        """<p>The details of the project profile.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain.</p>
+            identifier: <p>The ID of the project profile.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_project_profile_input.GetProjectProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_project_profile_output.GetProjectProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_project_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_project_profile.get_project_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_project_profile_input.GetProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_subscription(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_id.SubscriptionId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_subscription_output.GetSubscriptionOutput":
+        """<p>Gets a subscription in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription exists.</p>
+            identifier: <p>The ID of the subscription.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_subscription_input.GetSubscriptionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_subscription_output.GetSubscriptionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_subscription
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_subscription.get_subscription(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_subscription_input.GetSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_subscription_grant(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_grant_id.SubscriptionGrantId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_subscription_grant_output.GetSubscriptionGrantOutput":
+        """<p>Gets the subscription grant in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription grant exists.</p>
+            identifier: <p>The ID of the subscription grant.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_subscription_grant_input.GetSubscriptionGrantInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_subscription_grant_output.GetSubscriptionGrantOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_subscription_grant
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_subscription_grant.get_subscription_grant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_subscription_grant_input.GetSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_subscription_request_details(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_subscription_request_details_output.GetSubscriptionRequestDetailsOutput":
+        """<p>Gets the details of the specified subscription request.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which to get the subscription request details.</p>
+            identifier: <p>The identifier of the subscription request the details of which to get.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_subscription_request_details_input.GetSubscriptionRequestDetailsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_subscription_request_details_output.GetSubscriptionRequestDetailsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_subscription_request_details
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_subscription_request_details.get_subscription_request_details(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_subscription_request_details_input.GetSubscriptionRequestDetailsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_subscription_target(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        identifier: "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_subscription_target_output.GetSubscriptionTargetOutput":
+        """<p>Gets the subscription target in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the subscription target exists.</p>
+            environment_identifier: <p>The ID of the environment associated with the subscription target.</p>
+            identifier: <p>The ID of the subscription target.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_subscription_target_input.GetSubscriptionTargetInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_subscription_target_output.GetSubscriptionTargetOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_subscription_target
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_subscription_target.get_subscription_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_subscription_target_input.GetSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["identifier"] = identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_time_series_data_point(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.time_series_entity_type.TimeSeriesEntityType",
+        identifier: "aws_sdk_datazone.types.time_series_data_point_identifier.TimeSeriesDataPointIdentifier",
+        form_name: "aws_sdk_datazone.types.time_series_form_name.TimeSeriesFormName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.get_time_series_data_point_output.GetTimeSeriesDataPointOutput":
+        """<p>Gets the existing data point for the asset.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain that houses the asset for which you want to get the data point.</p>
+            entity_identifier: <p>The ID of the asset for which you want to get the data point.</p>
+            entity_type: <p>The type of the asset for which you want to get the data point.</p>
+            identifier: <p>The ID of the data point that you want to get.</p>
+            form_name: <p>The name of the time series form that houses the data point that you want to get.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_time_series_data_point_input.GetTimeSeriesDataPointInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_time_series_data_point_output.GetTimeSeriesDataPointOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_time_series_data_point
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_time_series_data_point.get_time_series_data_point(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_time_series_data_point_input.GetTimeSeriesDataPointInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        input["identifier"] = identifier
+        input["form_name"] = form_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_user_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        user_identifier: "aws_sdk_datazone.types.user_identifier.UserIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        type: Optional[
+            "aws_sdk_datazone.types.user_profile_type.UserProfileType"
+        ] = None,
+        session_name: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.get_user_profile_output.GetUserProfileOutput":
+        """<p>Gets a user profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>the ID of the Amazon DataZone domain the data portal of which you want to get.</p>
+            user_identifier: <p>The identifier of the user for which you want to get the user profile.</p>
+            type: <p>The type of the user profile.</p>
+            session_name: <p>The session name for IAM role sessions.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.get_user_profile_input.GetUserProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.get_user_profile_output.GetUserProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.get_user_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.get_user_profile.get_user_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.get_user_profile_input.GetUserProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["user_identifier"] = user_identifier
+        if type is not None:
+            input["type"] = type
+        if session_name is not None:
+            input["session_name"] = session_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_account_pools(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.account_pool_name.AccountPoolName"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_account_pool.SortFieldAccountPool"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_account_pools_output.ListAccountPoolsOutput":
+        """<p>Lists existing account pools.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where exsting account pools are to be listed.</p>
+            name: <p>The name of the account pool to be listed.</p>
+            sort_by: <p>The sort by mechanism in which the existing account pools are to be listed.</p>
+            sort_order: <p>The sort order in which the existing account pools are to be listed.</p>
+            next_token: <p>When the number of account pools is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of account pools, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAccountPools to list the next set of account pools.</p>
+            max_results: <p>The maximum number of account pools to return in a single call to ListAccountPools. When the number of account pools to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListAccountPools to list the next set of account pools.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_account_pools_input.ListAccountPoolsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_account_pools_output.ListAccountPoolsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_account_pools
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_account_pools.list_account_pools(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_account_pools_input.ListAccountPoolsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if name is not None:
+            input["name"] = name
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_account_pools(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.account_pool_name.AccountPoolName"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_account_pool.SortFieldAccountPool"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.account_pool_summary.AccountPoolSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_account_pools(
+                domain_identifier,
+                config_overrides=config_overrides,
+                name=name,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_accounts_in_account_pool(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_accounts_in_account_pool_output.ListAccountsInAccountPoolOutput":
+        """<p>Lists the accounts in the specified account pool.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain in which the accounts in the specified account pool are to be listed.</p>
+            identifier: <p>The ID of the account pool whose accounts are to be listed.</p>
+            next_token: <p>When the number of accounts is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of accounts, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAccountsInAccountPool to list the next set of accounts.</p>
+            max_results: <p>The maximum number of accounts to return in a single call to ListAccountsInAccountPool. When the number of accounts to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListAccountsInAccountPool to list the next set of accounts.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_accounts_in_account_pool_input.ListAccountsInAccountPoolInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_accounts_in_account_pool_output.ListAccountsInAccountPoolOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_accounts_in_account_pool
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_accounts_in_account_pool.list_accounts_in_account_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_accounts_in_account_pool_input.ListAccountsInAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_accounts_in_account_pool(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.account_info.AccountInfo]":
+        _token = next_token
+        while True:
+            _response = self.list_accounts_in_account_pool(
+                domain_identifier,
+                identifier,
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_asset_filters(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional["aws_sdk_datazone.types.filter_status.FilterStatus"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_asset_filters_output.ListAssetFiltersOutput":
+        """<p>Lists asset filters.</p> <p>Prerequisites:</p> <ul> <li> <p>A valid domain and asset must exist. </p> </li> <li> <p>The asset must have at least one filter created to return results. </p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list asset filters.</p>
+            asset_identifier: <p>The ID of the data asset.</p>
+            status: <p>The status of the asset filter.</p>
+            next_token: <p>When the number of asset filters is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of asset filters, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to list the next set of asset filters.</p>
+            max_results: <p>The maximum number of asset filters to return in a single call to <code>ListAssetFilters</code>. When the number of asset filters to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListAssetFilters</code> to list the next set of asset filters.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_asset_filters_input.ListAssetFiltersInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_asset_filters_output.ListAssetFiltersOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_asset_filters
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_asset_filters.list_asset_filters(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_asset_filters_input.ListAssetFiltersInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["asset_identifier"] = asset_identifier
+        if status is not None:
+            input["status"] = status
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_asset_filters(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional["aws_sdk_datazone.types.filter_status.FilterStatus"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.asset_filter_summary.AssetFilterSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_asset_filters(
+                domain_identifier,
+                asset_identifier,
+                config_overrides=config_overrides,
+                status=status,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_asset_revisions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.asset_identifier.AssetIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_asset_revisions_output.ListAssetRevisionsOutput":
+        """<p>Lists the revisions for the asset.</p> <p>Prerequisites:</p> <ul> <li> <p>The asset must exist in the domain. </p> </li> <li> <p>There must be at least one revision of the asset (which happens automatically after creation).</p> </li> <li> <p>The domain must be valid and active.</p> </li> <li> <p>User must have permissions on the asset and domain.</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The identifier of the domain.</p>
+            identifier: <p>The identifier of the asset.</p>
+            next_token: <p>When the number of revisions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of revisions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to list the next set of revisions.</p>
+            max_results: <p>The maximum number of revisions to return in a single call to <code>ListAssetRevisions</code>. When the number of revisions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListAssetRevisions</code> to list the next set of revisions.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_asset_revisions_input.ListAssetRevisionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_asset_revisions_output.ListAssetRevisionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_asset_revisions
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_asset_revisions.list_asset_revisions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_asset_revisions_input.ListAssetRevisionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_connections(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_connection.SortFieldConnection"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        name: Optional["aws_sdk_datazone.types.connection_name.ConnectionName"] = None,
+        environment_identifier: Optional[
+            "aws_sdk_datazone.types.environment_id.EnvironmentId"
+        ] = None,
+        project_identifier: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        type: Optional["aws_sdk_datazone.types.connection_type.ConnectionType"] = None,
+        scope: Optional[
+            "aws_sdk_datazone.types.connection_scope.ConnectionScope"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_connections_output.ListConnectionsOutput":
+        """<p>Lists connections. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list connections.</p>
+            max_results: <p>The maximum number of connections to return in a single call to ListConnections. When the number of connections to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListConnections to list the next set of connections.</p>
+            next_token: <p>When the number of connections is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of connections, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListConnections to list the next set of connections.</p>
+            sort_by: <p>Specifies how you want to sort the listed connections.</p>
+            sort_order: <p>Specifies the sort order for the listed connections.</p>
+            name: <p>The name of the connection.</p>
+            environment_identifier: <p>The ID of the environment where you want to list connections.</p>
+            project_identifier: <p>The ID of the project where you want to list connections.</p>
+            type: <p>The type of connection.</p>
+            scope: <p>The scope of the connection.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_connections_input.ListConnectionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_connections_output.ListConnectionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_connections
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_connections.list_connections(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_connections_input.ListConnectionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if name is not None:
+            input["name"] = name
+        if environment_identifier is not None:
+            input["environment_identifier"] = environment_identifier
+        if project_identifier is not None:
+            input["project_identifier"] = project_identifier
+        if type is not None:
+            input["type"] = type
+        if scope is not None:
+            input["scope"] = scope
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_connections(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_connection.SortFieldConnection"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        name: Optional["aws_sdk_datazone.types.connection_name.ConnectionName"] = None,
+        environment_identifier: Optional[
+            "aws_sdk_datazone.types.environment_id.EnvironmentId"
+        ] = None,
+        project_identifier: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        type: Optional["aws_sdk_datazone.types.connection_type.ConnectionType"] = None,
+        scope: Optional[
+            "aws_sdk_datazone.types.connection_scope.ConnectionScope"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.connection_summary.ConnectionSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_connections(
+                domain_identifier,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                name=name,
+                environment_identifier=environment_identifier,
+                project_identifier=project_identifier,
+                type=type,
+                scope=scope,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_data_product_revisions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.data_product_id.DataProductId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_data_product_revisions_output.ListDataProductRevisionsOutput":
+        """<p>Lists data product revisions.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product ID must exist within the domain. </p> </li> <li> <p>User must have view permissions on the data product.</p> </li> <li> <p>The domain must be in a valid and accessible state.</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The ID of the domain of the data product revisions that you want to list.</p>
+            identifier: <p>The ID of the data product revision.</p>
+            max_results: <p>The maximum number of asset filters to return in a single call to <code>ListDataProductRevisions</code>. When the number of data product revisions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDataProductRevisions</code> to list the next set of data product revisions.</p>
+            next_token: <p>When the number of data product revisions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of data product revisions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataProductRevisions</code> to list the next set of data product revisions.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_data_product_revisions_input.ListDataProductRevisionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_data_product_revisions_output.ListDataProductRevisionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_data_product_revisions
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_data_product_revisions.list_data_product_revisions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_data_product_revisions_input.ListDataProductRevisionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_data_product_revisions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.data_product_id.DataProductId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.data_product_revision.DataProductRevision]":
+        _token = next_token
+        while True:
+            _response = self.list_data_product_revisions(
+                domain_identifier,
+                identifier,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_data_source_run_activities(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.data_source_run_id.DataSourceRunId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.data_asset_activity_status.DataAssetActivityStatus"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_data_source_run_activities_output.ListDataSourceRunActivitiesOutput":
+        """<p>Lists data source run activities.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which to list data source run activities.</p>
+            identifier: <p>The identifier of the data source run.</p>
+            status: <p>The status of the data source run.</p>
+            next_token: <p>When the number of activities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of activities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+            max_results: <p>The maximum number of activities to return in a single call to <code>ListDataSourceRunActivities</code>. When the number of activities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_data_source_run_activities_input.ListDataSourceRunActivitiesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_data_source_run_activities_output.ListDataSourceRunActivitiesOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_data_source_run_activities
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_data_source_run_activities.list_data_source_run_activities(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_data_source_run_activities_input.ListDataSourceRunActivitiesInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if status is not None:
+            input["status"] = status
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_data_source_run_activities(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.data_source_run_id.DataSourceRunId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.data_asset_activity_status.DataAssetActivityStatus"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.data_source_run_activity.DataSourceRunActivity]":
+        _token = next_token
+        while True:
+            _response = self.list_data_source_run_activities(
+                domain_identifier,
+                identifier,
+                config_overrides=config_overrides,
+                status=status,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_entity_owners(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.data_zone_entity_type.DataZoneEntityType",
+        entity_identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_datazone.types.max_results_for_list_domains.MaxResultsForListDomains"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_entity_owners_output.ListEntityOwnersOutput":
+        """<p>Lists the entity (domain units) owners.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list entity owners.</p>
+            entity_type: <p>The type of the entity that you want to list.</p>
+            entity_identifier: <p>The ID of the entity that you want to list.</p>
+            max_results: <p>The maximum number of entities to return in a single call to <code>ListEntityOwners</code>. When the number of entities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEntityOwners</code> to list the next set of entities.</p>
+            next_token: <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEntityOwners</code> to list the next set of entities.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_entity_owners_input.ListEntityOwnersInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_entity_owners_output.ListEntityOwnersOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_entity_owners
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_entity_owners.list_entity_owners(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_entity_owners_input.ListEntityOwnersInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_entity_owners(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.data_zone_entity_type.DataZoneEntityType",
+        entity_identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_datazone.types.max_results_for_list_domains.MaxResultsForListDomains"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> (
+        "Iterator[aws_sdk_datazone.types.owner_properties_output.OwnerPropertiesOutput]"
+    ):
+        _token = next_token
+        while True:
+            _response = self.list_entity_owners(
+                domain_identifier,
+                entity_type,
+                entity_identifier,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("owners",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_environment_actions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_environment_actions_output.ListEnvironmentActionsOutput":
+        """<p>Lists existing environment actions.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which the environment actions are listed.</p>
+            environment_identifier: <p>The ID of the envrironment whose environment actions are listed.</p>
+            next_token: <p>When the number of environment actions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environment actions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
+            max_results: <p>The maximum number of environment actions to return in a single call to <code>ListEnvironmentActions</code>. When the number of environment actions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_environment_actions_input.ListEnvironmentActionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_environment_actions_output.ListEnvironmentActionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_environment_actions
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_environment_actions.list_environment_actions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_environment_actions_input.ListEnvironmentActionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_environment_actions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.environment_action_summary.EnvironmentActionSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_environment_actions(
+                domain_identifier,
+                environment_identifier,
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_environment_blueprints(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.environment_blueprint_name.EnvironmentBlueprintName"
+        ] = None,
+        managed: Optional[bool] = None,
+    ) -> "aws_sdk_datazone.types.list_environment_blueprints_output.ListEnvironmentBlueprintsOutput":
+        """<p>Lists blueprints in an Amazon DataZone environment.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            max_results: <p>The maximum number of blueprints to return in a single call to <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
+            next_token: <p>When the number of blueprints in the environment is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of blueprints in the environment, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+            name: <p>The name of the Amazon DataZone environment.</p>
+            managed: <p>Specifies whether the environment blueprint is managed by Amazon DataZone.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_environment_blueprints_input.ListEnvironmentBlueprintsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_environment_blueprints_output.ListEnvironmentBlueprintsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_environment_blueprints
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_environment_blueprints.list_environment_blueprints(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_environment_blueprints_input.ListEnvironmentBlueprintsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if name is not None:
+            input["name"] = name
+        if managed is not None:
+            input["managed"] = managed
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_environment_blueprints(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.environment_blueprint_name.EnvironmentBlueprintName"
+        ] = None,
+        managed: Optional[bool] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.environment_blueprint_summary.EnvironmentBlueprintSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_environment_blueprints(
+                domain_identifier,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                name=name,
+                managed=managed,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_environment_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        aws_account_id: Optional[
+            "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
+        ] = None,
+        aws_account_region: Optional[
+            "aws_sdk_datazone.types.aws_region.AwsRegion"
+        ] = None,
+        environment_blueprint_identifier: Optional[
+            "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId"
+        ] = None,
+        project_identifier: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.environment_profile_name.EnvironmentProfileName"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_environment_profiles_output.ListEnvironmentProfilesOutput":
+        """<p>Lists Amazon DataZone environment profiles.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            aws_account_id: <p>The identifier of the Amazon Web Services account where you want to list environment profiles.</p>
+            aws_account_region: <p>The Amazon Web Services region where you want to list environment profiles.</p>
+            environment_blueprint_identifier: <p>The identifier of the blueprint that was used to create the environment profiles that you want to list.</p>
+            project_identifier: <p>The identifier of the Amazon DataZone project.</p>
+            name: <p/>
+            next_token: <p>When the number of environment profiles is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environment profiles, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentProfiles</code> to list the next set of environment profiles.</p>
+            max_results: <p>The maximum number of environment profiles to return in a single call to <code>ListEnvironmentProfiles</code>. When the number of environment profiles to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentProfiles</code> to list the next set of environment profiles.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_environment_profiles_input.ListEnvironmentProfilesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_environment_profiles_output.ListEnvironmentProfilesOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_environment_profiles
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_environment_profiles.list_environment_profiles(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_environment_profiles_input.ListEnvironmentProfilesInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if aws_account_id is not None:
+            input["aws_account_id"] = aws_account_id
+        if aws_account_region is not None:
+            input["aws_account_region"] = aws_account_region
+        if environment_blueprint_identifier is not None:
+            input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        if project_identifier is not None:
+            input["project_identifier"] = project_identifier
+        if name is not None:
+            input["name"] = name
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_environment_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        aws_account_id: Optional[
+            "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
+        ] = None,
+        aws_account_region: Optional[
+            "aws_sdk_datazone.types.aws_region.AwsRegion"
+        ] = None,
+        environment_blueprint_identifier: Optional[
+            "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId"
+        ] = None,
+        project_identifier: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.environment_profile_name.EnvironmentProfileName"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.environment_profile_summary.EnvironmentProfileSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_environment_profiles(
+                domain_identifier,
+                config_overrides=config_overrides,
+                aws_account_id=aws_account_id,
+                aws_account_region=aws_account_region,
+                environment_blueprint_identifier=environment_blueprint_identifier,
+                project_identifier=project_identifier,
+                name=name,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_environments(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        aws_account_id: Optional[
+            "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
+        ] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.environment_status.EnvironmentStatus"
+        ] = None,
+        aws_account_region: Optional[
+            "aws_sdk_datazone.types.aws_region.AwsRegion"
+        ] = None,
+        environment_profile_identifier: Optional[
+            "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId"
+        ] = None,
+        environment_blueprint_identifier: Optional[
+            "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId"
+        ] = None,
+        provider: Optional[str] = None,
+        name: Optional[str] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_environments_output.ListEnvironmentsOutput":
+        """<p>Lists Amazon DataZone environments.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            aws_account_id: <p>The identifier of the Amazon Web Services account where you want to list environments.</p>
+            status: <p>The status of the environments that you want to list.</p>
+            aws_account_region: <p>The Amazon Web Services region where you want to list environments.</p>
+            project_identifier: <p>The identifier of the Amazon DataZone project.</p>
+            environment_profile_identifier: <p>The identifier of the environment profile.</p>
+            environment_blueprint_identifier: <p>The identifier of the Amazon DataZone blueprint.</p>
+            provider: <p>The provider of the environment.</p>
+            name: <p>The name of the environment.</p>
+            max_results: <p>The maximum number of environments to return in a single call to <code>ListEnvironments</code>. When the number of environments to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironments</code> to list the next set of environments.</p>
+            next_token: <p>When the number of environments is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environments, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to list the next set of environments.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_environments_input.ListEnvironmentsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_environments_output.ListEnvironmentsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_environments
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_environments.list_environments(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if aws_account_id is not None:
+            input["aws_account_id"] = aws_account_id
+        if status is not None:
+            input["status"] = status
+        if aws_account_region is not None:
+            input["aws_account_region"] = aws_account_region
+        input["project_identifier"] = project_identifier
+        if environment_profile_identifier is not None:
+            input["environment_profile_identifier"] = environment_profile_identifier
+        if environment_blueprint_identifier is not None:
+            input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        if provider is not None:
+            input["provider"] = provider
+        if name is not None:
+            input["name"] = name
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_environments(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        aws_account_id: Optional[
+            "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
+        ] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.environment_status.EnvironmentStatus"
+        ] = None,
+        aws_account_region: Optional[
+            "aws_sdk_datazone.types.aws_region.AwsRegion"
+        ] = None,
+        environment_profile_identifier: Optional[
+            "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId"
+        ] = None,
+        environment_blueprint_identifier: Optional[
+            "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId"
+        ] = None,
+        provider: Optional[str] = None,
+        name: Optional[str] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.environment_summary.EnvironmentSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_environments(
+                domain_identifier,
+                project_identifier,
+                config_overrides=config_overrides,
+                aws_account_id=aws_account_id,
+                status=status,
+                aws_account_region=aws_account_region,
+                environment_profile_identifier=environment_profile_identifier,
+                environment_blueprint_identifier=environment_blueprint_identifier,
+                provider=provider,
+                name=name,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_job_runs(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        job_identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional["aws_sdk_datazone.types.job_run_status.JobRunStatus"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_job_runs_output.ListJobRunsOutput":
+        """<p>Lists job runs.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list job runs.</p>
+            job_identifier: <p>The ID of the job run.</p>
+            status: <p>The status of a job run.</p>
+            sort_order: <p>Specifies the order in which job runs are to be sorted.</p>
+            next_token: <p>When the number of job runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of job runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListJobRuns to list the next set of job runs.</p>
+            max_results: <p>The maximum number of job runs to return in a single call to ListJobRuns. When the number of job runs to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListJobRuns to list the next set of job runs.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_job_runs_input.ListJobRunsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_job_runs_output.ListJobRunsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_job_runs
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_job_runs.list_job_runs(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_job_runs_input.ListJobRunsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["job_identifier"] = job_identifier
+        if status is not None:
+            input["status"] = status
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_job_runs(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        job_identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional["aws_sdk_datazone.types.job_run_status.JobRunStatus"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.job_run_summary.JobRunSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_job_runs(
+                domain_identifier,
+                job_identifier,
+                config_overrides=config_overrides,
+                status=status,
+                sort_order=sort_order,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_lineage_events(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        timestamp_after: Optional[datetime.datetime] = None,
+        timestamp_before: Optional[datetime.datetime] = None,
+        processing_status: Optional[
+            "aws_sdk_datazone.types.lineage_event_processing_status.LineageEventProcessingStatus"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_lineage_events_output.ListLineageEventsOutput":
+        """<p>Lists lineage events.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list lineage events.</p>
+            max_results: <p>The maximum number of lineage events to return in a single call to ListLineageEvents. When the number of lineage events to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListLineageEvents to list the next set of lineage events.</p>
+            timestamp_after: <p>The after timestamp of a lineage event.</p>
+            timestamp_before: <p>The before timestamp of a lineage event.</p>
+            processing_status: <p>The processing status of a lineage event.</p>
+            sort_order: <p>The sort order of the lineage events.</p>
+            next_token: <p>When the number of lineage events is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of lineage events, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageEvents to list the next set of lineage events.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_lineage_events_input.ListLineageEventsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_lineage_events_output.ListLineageEventsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_lineage_events
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_lineage_events.list_lineage_events(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_lineage_events_input.ListLineageEventsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if timestamp_after is not None:
+            input["timestamp_after"] = timestamp_after
+        if timestamp_before is not None:
+            input["timestamp_before"] = timestamp_before
+        if processing_status is not None:
+            input["processing_status"] = processing_status
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_lineage_events(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        timestamp_after: Optional[datetime.datetime] = None,
+        timestamp_before: Optional[datetime.datetime] = None,
+        processing_status: Optional[
+            "aws_sdk_datazone.types.lineage_event_processing_status.LineageEventProcessingStatus"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.lineage_event_summary.LineageEventSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_lineage_events(
+                domain_identifier,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                timestamp_after=timestamp_after,
+                timestamp_before=timestamp_before,
+                processing_status=processing_status,
+                sort_order=sort_order,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_lineage_node_history(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.lineage_node_identifier.LineageNodeIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        direction: Optional[
+            "aws_sdk_datazone.types.edge_direction.EdgeDirection"
+        ] = None,
+        event_timestamp_gte: Optional[datetime.datetime] = None,
+        event_timestamp_lte: Optional[datetime.datetime] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+    ) -> "aws_sdk_datazone.types.list_lineage_node_history_output.ListLineageNodeHistoryOutput":
+        """<p>Lists the history of the specified data lineage node.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list the history of the specified data lineage node.</p>
+            max_results: <p>The maximum number of history items to return in a single call to ListLineageNodeHistory. When the number of memberships to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListLineageNodeHistory to list the next set of items.</p>
+            next_token: <p>When the number of history items is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of items, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of items.</p>
+            identifier: <p>The ID of the data lineage node whose history you want to list.</p>
+            direction: <p>The direction of the data lineage node refers to the lineage node having neighbors in that direction. For example, if direction is <code>UPSTREAM</code>, the <code>ListLineageNodeHistory</code> API responds with historical versions with upstream neighbors only.</p>
+            event_timestamp_gte: <p>Specifies whether the action is to return data lineage node history from the time after the event timestamp.</p>
+            event_timestamp_lte: <p>Specifies whether the action is to return data lineage node history from the time prior of the event timestamp.</p>
+            sort_order: <p>The order by which you want data lineage node history to be sorted.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_lineage_node_history_output.ListLineageNodeHistoryOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_lineage_node_history
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_lineage_node_history.list_lineage_node_history(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["identifier"] = identifier
+        if direction is not None:
+            input["direction"] = direction
+        if event_timestamp_gte is not None:
+            input["event_timestamp_gte"] = event_timestamp_gte
+        if event_timestamp_lte is not None:
+            input["event_timestamp_lte"] = event_timestamp_lte
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_lineage_node_history(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.lineage_node_identifier.LineageNodeIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        direction: Optional[
+            "aws_sdk_datazone.types.edge_direction.EdgeDirection"
+        ] = None,
+        event_timestamp_gte: Optional[datetime.datetime] = None,
+        event_timestamp_lte: Optional[datetime.datetime] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.lineage_node_summary.LineageNodeSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_lineage_node_history(
+                domain_identifier,
+                identifier,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                direction=direction,
+                event_timestamp_gte=event_timestamp_gte,
+                event_timestamp_lte=event_timestamp_lte,
+                sort_order=sort_order,
+            )
+            _page = _resolve_path(_response, ("nodes",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_notifications(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        type: "aws_sdk_datazone.types.notification_type.NotificationType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        after_timestamp: Optional[datetime.datetime] = None,
+        before_timestamp: Optional[datetime.datetime] = None,
+        subjects: Optional[
+            "aws_sdk_datazone.types.notification_subjects.NotificationSubjects"
+        ] = None,
+        task_status: Optional["aws_sdk_datazone.types.task_status.TaskStatus"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_notifications_output.ListNotificationsOutput":
+        """<p>Lists all Amazon DataZone notifications.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            type: <p>The type of notifications.</p>
+            after_timestamp: <p>The time after which you want to list notifications.</p>
+            before_timestamp: <p>The time before which you want to list notifications.</p>
+            subjects: <p>The subjects of notifications.</p>
+            task_status: <p>The task status of notifications.</p>
+            max_results: <p>The maximum number of notifications to return in a single call to <code>ListNotifications</code>. When the number of notifications to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListNotifications</code> to list the next set of notifications.</p>
+            next_token: <p>When the number of notifications is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notifications, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to list the next set of notifications.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_notifications_output.ListNotificationsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_notifications
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_notifications.list_notifications(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["type"] = type
+        if after_timestamp is not None:
+            input["after_timestamp"] = after_timestamp
+        if before_timestamp is not None:
+            input["before_timestamp"] = before_timestamp
+        if subjects is not None:
+            input["subjects"] = subjects
+        if task_status is not None:
+            input["task_status"] = task_status
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_notifications(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        type: "aws_sdk_datazone.types.notification_type.NotificationType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        after_timestamp: Optional[datetime.datetime] = None,
+        before_timestamp: Optional[datetime.datetime] = None,
+        subjects: Optional[
+            "aws_sdk_datazone.types.notification_subjects.NotificationSubjects"
+        ] = None,
+        task_status: Optional["aws_sdk_datazone.types.task_status.TaskStatus"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.notification_output.NotificationOutput]":
+        _token = next_token
+        while True:
+            _response = self.list_notifications(
+                domain_identifier,
+                type,
+                config_overrides=config_overrides,
+                after_timestamp=after_timestamp,
+                before_timestamp=before_timestamp,
+                subjects=subjects,
+                task_status=task_status,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("notifications",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_policy_grants(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.target_entity_type.TargetEntityType",
+        entity_identifier: str,
+        policy_type: "aws_sdk_datazone.types.managed_policy_type.ManagedPolicyType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_datazone.types.max_results_for_list_domains.MaxResultsForListDomains"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_policy_grants_output.ListPolicyGrantsOutput":
+        """<p>Lists policy grants.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list policy grants.</p>
+            entity_type: <p>The type of entity for which you want to list policy grants.</p>
+            entity_identifier: <p>The ID of the entity for which you want to list policy grants.</p>
+            policy_type: <p>The type of policy that you want to list.</p>
+            max_results: <p>The maximum number of grants to return in a single call to <code>ListPolicyGrants</code>. When the number of grants to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListPolicyGrants</code> to list the next set of grants.</p>
+            next_token: <p>When the number of grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListPolicyGrants</code> to list the next set of grants.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_policy_grants_input.ListPolicyGrantsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_policy_grants_output.ListPolicyGrantsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_policy_grants
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_policy_grants.list_policy_grants(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_policy_grants_input.ListPolicyGrantsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        input["policy_type"] = policy_type
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_policy_grants(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.target_entity_type.TargetEntityType",
+        entity_identifier: str,
+        policy_type: "aws_sdk_datazone.types.managed_policy_type.ManagedPolicyType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_datazone.types.max_results_for_list_domains.MaxResultsForListDomains"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.policy_grant_member.PolicyGrantMember]":
+        _token = next_token
+        while True:
+            _response = self.list_policy_grants(
+                domain_identifier,
+                entity_type,
+                entity_identifier,
+                policy_type,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("grant_list",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_project_memberships(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_project.SortFieldProject"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_project_memberships_output.ListProjectMembershipsOutput":
+        """<p>Lists all members of the specified project.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which you want to list project memberships.</p>
+            project_identifier: <p>The identifier of the project whose memberships you want to list.</p>
+            sort_by: <p>The method by which you want to sort the project memberships.</p>
+            sort_order: <p>The sort order of the project memberships.</p>
+            next_token: <p>When the number of memberships is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of memberships, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code> to list the next set of memberships.</p>
+            max_results: <p>The maximum number of memberships to return in a single call to <code>ListProjectMemberships</code>. When the number of memberships to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListProjectMemberships</code> to list the next set of memberships.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_project_memberships_input.ListProjectMembershipsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_project_memberships_output.ListProjectMembershipsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_project_memberships
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_project_memberships.list_project_memberships(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_project_memberships_input.ListProjectMembershipsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["project_identifier"] = project_identifier
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_project_memberships(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_project.SortFieldProject"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.project_member.ProjectMember]":
+        _token = next_token
+        while True:
+            _response = self.list_project_memberships(
+                domain_identifier,
+                project_identifier,
+                config_overrides=config_overrides,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("members",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_project_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.project_profile_name.ProjectProfileName"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_project.SortFieldProject"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> (
+        "aws_sdk_datazone.types.list_project_profiles_output.ListProjectProfilesOutput"
+    ):
+        """<p>Lists project profiles.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to list project profiles.</p>
+            name: <p>The name of a project profile.</p>
+            sort_by: <p>Specifies by what to sort project profiles.</p>
+            sort_order: <p>Specifies the sort order of the project profiles.</p>
+            next_token: <p>When the number of project profiles is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of project profiles, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListProjectProfiles to list the next set of project profiles.</p>
+            max_results: <p>The maximum number of project profiles to return in a single call to ListProjectProfiles. When the number of project profiles to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListProjectProfiles to list the next set of project profiles.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_project_profiles_input.ListProjectProfilesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_project_profiles_output.ListProjectProfilesOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_project_profiles
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_project_profiles.list_project_profiles(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_project_profiles_input.ListProjectProfilesInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if name is not None:
+            input["name"] = name
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_project_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.project_profile_name.ProjectProfileName"
+        ] = None,
+        sort_by: Optional[
+            "aws_sdk_datazone.types.sort_field_project.SortFieldProject"
+        ] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> (
+        "Iterator[aws_sdk_datazone.types.project_profile_summary.ProjectProfileSummary]"
+    ):
+        _token = next_token
+        while True:
+            _response = self.list_project_profiles(
+                domain_identifier,
+                config_overrides=config_overrides,
+                name=name,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_projects(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        user_identifier: Optional[str] = None,
+        group_identifier: Optional[str] = None,
+        name: Optional["aws_sdk_datazone.types.project_name.ProjectName"] = None,
+        project_category: Optional[str] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_projects_output.ListProjectsOutput":
+        """<p>Lists Amazon DataZone projects.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            user_identifier: <p>The identifier of the Amazon DataZone user.</p>
+            group_identifier: <p>The identifier of a group.</p>
+            name: <p>The name of the project.</p>
+            project_category: <p>A parameter to filter projects by their category.</p>
+            next_token: <p>When the number of projects is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of projects, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list the next set of projects.</p>
+            max_results: <p>The maximum number of projects to return in a single call to <code>ListProjects</code>. When the number of projects to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListProjects</code> to list the next set of projects.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_projects_input.ListProjectsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_projects_output.ListProjectsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_projects
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_projects.list_projects(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if user_identifier is not None:
+            input["user_identifier"] = user_identifier
+        if group_identifier is not None:
+            input["group_identifier"] = group_identifier
+        if name is not None:
+            input["name"] = name
+        if project_category is not None:
+            input["project_category"] = project_category
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_projects(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        user_identifier: Optional[str] = None,
+        group_identifier: Optional[str] = None,
+        name: Optional["aws_sdk_datazone.types.project_name.ProjectName"] = None,
+        project_category: Optional[str] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.project_summary.ProjectSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_projects(
+                domain_identifier,
+                config_overrides=config_overrides,
+                user_identifier=user_identifier,
+                group_identifier=group_identifier,
+                name=name,
+                project_category=project_category,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_subscription_grants(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        environment_id: Optional[
+            "aws_sdk_datazone.types.environment_id.EnvironmentId"
+        ] = None,
+        subscription_target_id: Optional[
+            "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId"
+        ] = None,
+        subscribed_listing_id: Optional[
+            "aws_sdk_datazone.types.listing_id.ListingId"
+        ] = None,
+        subscription_id: Optional[
+            "aws_sdk_datazone.types.subscription_id.SubscriptionId"
+        ] = None,
+        owning_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_iam_principal_arn: Optional[
+            "aws_sdk_datazone.types.iam_principal_arn.IamPrincipalArn"
+        ] = None,
+        owning_user_id: Optional[
+            "aws_sdk_datazone.types.user_profile_id.UserProfileId"
+        ] = None,
+        owning_group_id: Optional[
+            "aws_sdk_datazone.types.group_profile_id.GroupProfileId"
+        ] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_subscription_grants_output.ListSubscriptionGrantsOutput":
+        """<p>Lists subscription grants.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            environment_id: <p>The identifier of the Amazon DataZone environment.</p>
+            subscription_target_id: <p>The identifier of the subscription target.</p>
+            subscribed_listing_id: <p>The identifier of the subscribed listing.</p>
+            subscription_id: <p>The identifier of the subscription.</p>
+            owning_project_id: <p>The ID of the owning project of the subscription grants.</p>
+            owning_iam_principal_arn: <p>The ARN of the owning IAM principal.</p>
+            owning_user_id: <p>The ID of the owning user.</p>
+            owning_group_id: <p>The ID of the owning group.</p>
+            sort_by: <p>Specifies the way of sorting the results of this action.</p>
+            sort_order: <p>Specifies the sort order of this action.</p>
+            max_results: <p>The maximum number of subscription grants to return in a single call to <code>ListSubscriptionGrants</code>. When the number of subscription grants to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
+            next_token: <p>When the number of subscription grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_subscription_grants_input.ListSubscriptionGrantsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_subscription_grants_output.ListSubscriptionGrantsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_subscription_grants
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_subscription_grants.list_subscription_grants(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_subscription_grants_input.ListSubscriptionGrantsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if environment_id is not None:
+            input["environment_id"] = environment_id
+        if subscription_target_id is not None:
+            input["subscription_target_id"] = subscription_target_id
+        if subscribed_listing_id is not None:
+            input["subscribed_listing_id"] = subscribed_listing_id
+        if subscription_id is not None:
+            input["subscription_id"] = subscription_id
+        if owning_project_id is not None:
+            input["owning_project_id"] = owning_project_id
+        if owning_iam_principal_arn is not None:
+            input["owning_iam_principal_arn"] = owning_iam_principal_arn
+        if owning_user_id is not None:
+            input["owning_user_id"] = owning_user_id
+        if owning_group_id is not None:
+            input["owning_group_id"] = owning_group_id
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_subscription_grants(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        environment_id: Optional[
+            "aws_sdk_datazone.types.environment_id.EnvironmentId"
+        ] = None,
+        subscription_target_id: Optional[
+            "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId"
+        ] = None,
+        subscribed_listing_id: Optional[
+            "aws_sdk_datazone.types.listing_id.ListingId"
+        ] = None,
+        subscription_id: Optional[
+            "aws_sdk_datazone.types.subscription_id.SubscriptionId"
+        ] = None,
+        owning_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_iam_principal_arn: Optional[
+            "aws_sdk_datazone.types.iam_principal_arn.IamPrincipalArn"
+        ] = None,
+        owning_user_id: Optional[
+            "aws_sdk_datazone.types.user_profile_id.UserProfileId"
+        ] = None,
+        owning_group_id: Optional[
+            "aws_sdk_datazone.types.group_profile_id.GroupProfileId"
+        ] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.subscription_grant_summary.SubscriptionGrantSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_subscription_grants(
+                domain_identifier,
+                config_overrides=config_overrides,
+                environment_id=environment_id,
+                subscription_target_id=subscription_target_id,
+                subscribed_listing_id=subscribed_listing_id,
+                subscription_id=subscription_id,
+                owning_project_id=owning_project_id,
+                owning_iam_principal_arn=owning_iam_principal_arn,
+                owning_user_id=owning_user_id,
+                owning_group_id=owning_group_id,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_subscription_requests(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.subscription_request_status.SubscriptionRequestStatus"
+        ] = None,
+        subscribed_listing_id: Optional[
+            "aws_sdk_datazone.types.listing_id.ListingId"
+        ] = None,
+        owning_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_iam_principal_arn: Optional[
+            "aws_sdk_datazone.types.iam_principal_arn.IamPrincipalArn"
+        ] = None,
+        approver_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_user_id: Optional[
+            "aws_sdk_datazone.types.user_profile_id.UserProfileId"
+        ] = None,
+        owning_group_id: Optional[
+            "aws_sdk_datazone.types.group_profile_id.GroupProfileId"
+        ] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_subscription_requests_output.ListSubscriptionRequestsOutput":
+        """<p>Lists Amazon DataZone subscription requests.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            status: <p>Specifies the status of the subscription requests.</p> <note> <p>This is not a required parameter, but if not specified, by default, Amazon DataZone returns only <code>PENDING</code> subscription requests. </p> </note>
+            subscribed_listing_id: <p>The identifier of the subscribed listing.</p>
+            owning_project_id: <p>The identifier of the project for the subscription requests.</p>
+            owning_iam_principal_arn: <p>The ARN of the owning IAM principal.</p>
+            approver_project_id: <p>The identifier of the subscription request approver's project.</p>
+            owning_user_id: <p>The ID of the owning user.</p>
+            owning_group_id: <p>The ID of the owning group.</p>
+            sort_by: <p>Specifies the way to sort the results of this action.</p>
+            sort_order: <p>Specifies the sort order for the results of this action.</p>
+            max_results: <p>The maximum number of subscription requests to return in a single call to <code>ListSubscriptionRequests</code>. When the number of subscription requests to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
+            next_token: <p>When the number of subscription requests is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription requests, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_subscription_requests_input.ListSubscriptionRequestsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_subscription_requests_output.ListSubscriptionRequestsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_subscription_requests
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_subscription_requests.list_subscription_requests(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_subscription_requests_input.ListSubscriptionRequestsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if status is not None:
+            input["status"] = status
+        if subscribed_listing_id is not None:
+            input["subscribed_listing_id"] = subscribed_listing_id
+        if owning_project_id is not None:
+            input["owning_project_id"] = owning_project_id
+        if owning_iam_principal_arn is not None:
+            input["owning_iam_principal_arn"] = owning_iam_principal_arn
+        if approver_project_id is not None:
+            input["approver_project_id"] = approver_project_id
+        if owning_user_id is not None:
+            input["owning_user_id"] = owning_user_id
+        if owning_group_id is not None:
+            input["owning_group_id"] = owning_group_id
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_subscription_requests(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.subscription_request_status.SubscriptionRequestStatus"
+        ] = None,
+        subscribed_listing_id: Optional[
+            "aws_sdk_datazone.types.listing_id.ListingId"
+        ] = None,
+        owning_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_iam_principal_arn: Optional[
+            "aws_sdk_datazone.types.iam_principal_arn.IamPrincipalArn"
+        ] = None,
+        approver_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_user_id: Optional[
+            "aws_sdk_datazone.types.user_profile_id.UserProfileId"
+        ] = None,
+        owning_group_id: Optional[
+            "aws_sdk_datazone.types.group_profile_id.GroupProfileId"
+        ] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.subscription_request_summary.SubscriptionRequestSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_subscription_requests(
+                domain_identifier,
+                config_overrides=config_overrides,
+                status=status,
+                subscribed_listing_id=subscribed_listing_id,
+                owning_project_id=owning_project_id,
+                owning_iam_principal_arn=owning_iam_principal_arn,
+                approver_project_id=approver_project_id,
+                owning_user_id=owning_user_id,
+                owning_group_id=owning_group_id,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_subscriptions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        subscription_request_identifier: Optional[
+            "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId"
+        ] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.subscription_status.SubscriptionStatus"
+        ] = None,
+        subscribed_listing_id: Optional[
+            "aws_sdk_datazone.types.listing_id.ListingId"
+        ] = None,
+        owning_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_iam_principal_arn: Optional[
+            "aws_sdk_datazone.types.iam_principal_arn.IamPrincipalArn"
+        ] = None,
+        owning_user_id: Optional[
+            "aws_sdk_datazone.types.user_profile_id.UserProfileId"
+        ] = None,
+        owning_group_id: Optional[
+            "aws_sdk_datazone.types.group_profile_id.GroupProfileId"
+        ] = None,
+        approver_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_subscriptions_output.ListSubscriptionsOutput":
+        """<p>Lists subscriptions in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            subscription_request_identifier: <p>The identifier of the subscription request for the subscriptions that you want to list.</p>
+            status: <p>The status of the subscriptions that you want to list.</p> <note> <p>This is not a required parameter, but if not provided, by default, Amazon DataZone returns only <code>APPROVED</code> subscriptions. </p> </note>
+            subscribed_listing_id: <p>The identifier of the subscribed listing for the subscriptions that you want to list.</p>
+            owning_project_id: <p>The identifier of the owning project.</p>
+            owning_iam_principal_arn: <p>The ARN of the owning IAM principal.</p>
+            owning_user_id: <p>The ID of the owning user.</p>
+            owning_group_id: <p>The ID of the owning group.</p>
+            approver_project_id: <p>The identifier of the project for the subscription's approver.</p>
+            sort_by: <p>Specifies the way in which the results of this action are to be sorted.</p>
+            sort_order: <p>Specifies the sort order for the results of this action.</p>
+            max_results: <p>The maximum number of subscriptions to return in a single call to <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the next set of Subscriptions. </p>
+            next_token: <p>When the number of subscriptions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscriptions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to list the next set of subscriptions.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_subscriptions_input.ListSubscriptionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_subscriptions_output.ListSubscriptionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_subscriptions
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_subscriptions.list_subscriptions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_subscriptions_input.ListSubscriptionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if subscription_request_identifier is not None:
+            input["subscription_request_identifier"] = subscription_request_identifier
+        if status is not None:
+            input["status"] = status
+        if subscribed_listing_id is not None:
+            input["subscribed_listing_id"] = subscribed_listing_id
+        if owning_project_id is not None:
+            input["owning_project_id"] = owning_project_id
+        if owning_iam_principal_arn is not None:
+            input["owning_iam_principal_arn"] = owning_iam_principal_arn
+        if owning_user_id is not None:
+            input["owning_user_id"] = owning_user_id
+        if owning_group_id is not None:
+            input["owning_group_id"] = owning_group_id
+        if approver_project_id is not None:
+            input["approver_project_id"] = approver_project_id
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_subscriptions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        subscription_request_identifier: Optional[
+            "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId"
+        ] = None,
+        status: Optional[
+            "aws_sdk_datazone.types.subscription_status.SubscriptionStatus"
+        ] = None,
+        subscribed_listing_id: Optional[
+            "aws_sdk_datazone.types.listing_id.ListingId"
+        ] = None,
+        owning_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        owning_iam_principal_arn: Optional[
+            "aws_sdk_datazone.types.iam_principal_arn.IamPrincipalArn"
+        ] = None,
+        owning_user_id: Optional[
+            "aws_sdk_datazone.types.user_profile_id.UserProfileId"
+        ] = None,
+        owning_group_id: Optional[
+            "aws_sdk_datazone.types.group_profile_id.GroupProfileId"
+        ] = None,
+        approver_project_id: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.subscription_summary.SubscriptionSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_subscriptions(
+                domain_identifier,
+                config_overrides=config_overrides,
+                subscription_request_identifier=subscription_request_identifier,
+                status=status,
+                subscribed_listing_id=subscribed_listing_id,
+                owning_project_id=owning_project_id,
+                owning_iam_principal_arn=owning_iam_principal_arn,
+                owning_user_id=owning_user_id,
+                owning_group_id=owning_group_id,
+                approver_project_id=approver_project_id,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_subscription_targets(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.list_subscription_targets_output.ListSubscriptionTargetsOutput":
+        """<p>Lists subscription targets in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain where you want to list subscription targets.</p>
+            environment_identifier: <p>The identifier of the environment where you want to list subscription targets.</p>
+            sort_by: <p>Specifies the way in which the results of this action are to be sorted.</p>
+            sort_order: <p>Specifies the sort order for the results of this action.</p>
+            max_results: <p>The maximum number of subscription targets to return in a single call to <code>ListSubscriptionTargets</code>. When the number of subscription targets to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets. </p>
+            next_token: <p>When the number of subscription targets is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription targets, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_subscription_targets_input.ListSubscriptionTargetsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_subscription_targets_output.ListSubscriptionTargetsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_subscription_targets
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_subscription_targets.list_subscription_targets(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_subscription_targets_input.ListSubscriptionTargetsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        if sort_by is not None:
+            input["sort_by"] = sort_by
+        if sort_order is not None:
+            input["sort_order"] = sort_order
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_subscription_targets(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        sort_by: Optional["aws_sdk_datazone.types.sort_key.SortKey"] = None,
+        sort_order: Optional["aws_sdk_datazone.types.sort_order.SortOrder"] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.subscription_target_summary.SubscriptionTargetSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_subscription_targets(
+                domain_identifier,
+                environment_identifier,
+                config_overrides=config_overrides,
+                sort_by=sort_by,
+                sort_order=sort_order,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists tags for the specified resource in Amazon DataZone.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource whose tags you want to list.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_tags_for_resource
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_time_series_data_points(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.time_series_entity_type.TimeSeriesEntityType",
+        form_name: "aws_sdk_datazone.types.time_series_form_name.TimeSeriesFormName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        started_at: Optional[datetime.datetime] = None,
+        ended_at: Optional[datetime.datetime] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "aws_sdk_datazone.types.list_time_series_data_points_output.ListTimeSeriesDataPointsOutput":
+        """<p>Lists time series data points.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain that houses the assets for which you want to list time series data points.</p>
+            entity_identifier: <p>The ID of the asset for which you want to list data points.</p>
+            entity_type: <p>The type of the asset for which you want to list data points.</p>
+            form_name: <p>The name of the time series data points form.</p>
+            started_at: <p>The timestamp at which the data points that you want to list started.</p>
+            ended_at: <p>The timestamp at which the data points that you wanted to list ended.</p>
+            next_token: <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+            max_results: <p>The maximum number of data points to return in a single call to ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.list_time_series_data_points_input.ListTimeSeriesDataPointsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.list_time_series_data_points_output.ListTimeSeriesDataPointsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.list_time_series_data_points
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.list_time_series_data_points.list_time_series_data_points(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.list_time_series_data_points_input.ListTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        input["form_name"] = form_name
+        if started_at is not None:
+            input["started_at"] = started_at
+        if ended_at is not None:
+            input["ended_at"] = ended_at
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_time_series_data_points(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.time_series_entity_type.TimeSeriesEntityType",
+        form_name: "aws_sdk_datazone.types.time_series_form_name.TimeSeriesFormName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        started_at: Optional[datetime.datetime] = None,
+        ended_at: Optional[datetime.datetime] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.time_series_data_point_summary_form_output.TimeSeriesDataPointSummaryFormOutput]":
+        _token = next_token
+        while True:
+            _response = self.list_time_series_data_points(
+                domain_identifier,
+                entity_identifier,
+                entity_type,
+                form_name,
+                config_overrides=config_overrides,
+                started_at=started_at,
+                ended_at=ended_at,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def post_lineage_event(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        event: "aws_sdk_datazone.types.lineage_event.LineageEvent",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.post_lineage_event_output.PostLineageEventOutput":
+        """<p>Posts a data lineage event.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to post a data lineage event.</p>
+            event: <p>The data lineage event that you want to post. Only open-lineage run event are supported as events. </p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.post_lineage_event_input.PostLineageEventInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.post_lineage_event_output.PostLineageEventOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.post_lineage_event
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.post_lineage_event.post_lineage_event(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.post_lineage_event_input.PostLineageEventInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["event"] = event
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def post_time_series_data_points(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier",
+        entity_type: "aws_sdk_datazone.types.time_series_entity_type.TimeSeriesEntityType",
+        forms: "aws_sdk_datazone.types.time_series_data_point_form_input_list.TimeSeriesDataPointFormInputList",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.post_time_series_data_points_output.PostTimeSeriesDataPointsOutput":
+        """<p>Posts time series data points to Amazon DataZone for the specified asset.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
+            entity_identifier: <p>The ID of the asset for which you want to post time series data points.</p>
+            entity_type: <p>The type of the asset for which you want to post data points.</p>
+            forms: <p>The forms that contain the data points that you want to post.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.post_time_series_data_points_input.PostTimeSeriesDataPointsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.post_time_series_data_points_output.PostTimeSeriesDataPointsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.post_time_series_data_points
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.post_time_series_data_points.post_time_series_data_points(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.post_time_series_data_points_input.PostTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_identifier"] = entity_identifier
+        input["entity_type"] = entity_type
+        input["forms"] = forms
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def put_data_export_configuration(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        enable_export: bool,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        encryption_configuration: Optional[
+            "aws_sdk_datazone.types.encryption_configuration.EncryptionConfiguration"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.put_data_export_configuration_output.PutDataExportConfigurationOutput":
+        """<p>Creates data export configuration details.</p> <p>If you want to temporarily disable export and later re-enable it for the same domain, use the <code>--no-enable-export</code> flag to disable and the <code>--enable-export</code> flag to re-enable. This preserves the configuration and allows you to re-enable export without deleting S3 table.</p> <note> <p>You can enable asset metadata export for only one domain per account per Region. To enable export for a different domain, complete the following steps:</p> <ol> <li> <p>Delete the export configuration for the currently enabled domain using the DeleteDataExportConfiguration operation.</p> </li> <li> <p>Delete the asset S3 table under the aws-sagemaker-catalog S3 table bucket. We recommend backing up the S3 table before deletion.</p> </li> <li> <p>Call the PutDataExportConfiguration API to enable export for the new domain.</p> </li> </ol> </note>
+
+        Args:
+            domain_identifier: <p>The domain ID for which you want to create data export configuration details.</p>
+            enable_export: <p>Specifies that the export is to be enabled as part of creating data export configuration details.</p>
+            encryption_configuration: <p>The encryption configuration as part of creating data export configuration details.</p> <p>The KMS key provided here as part of encryptionConfiguration must have the required permissions as described in <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.html\">KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio</a>.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.put_data_export_configuration_input.PutDataExportConfigurationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.put_data_export_configuration_output.PutDataExportConfigurationOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.put_data_export_configuration
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.put_data_export_configuration.put_data_export_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.put_data_export_configuration_input.PutDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["enable_export"] = enable_export
+        if encryption_configuration is not None:
+            input["encryption_configuration"] = encryption_configuration
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def query_graph(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        match: "aws_sdk_datazone.types.match_clauses.MatchClauses",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        additional_attributes: Optional[
+            "aws_sdk_datazone.types.additional_attributes.AdditionalAttributes"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.query_graph_output.QueryGraphOutput":
+        """<p>Queries entities in the graph store.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            match: <p>List of query match clauses.</p>
+            max_results: <p>The maximum number of entities to return in a single call to <code>QueryGraph</code>. When the number of entities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+            next_token: <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+            additional_attributes: <p>Additional details on the queried entity that can be requested in the response.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.query_graph_input.QueryGraphInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.query_graph_output.QueryGraphOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.query_graph
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.query_graph.query_graph(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.query_graph_input.QueryGraphInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["match"] = match
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if additional_attributes is not None:
+            input["additional_attributes"] = additional_attributes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_query_graph(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        match: "aws_sdk_datazone.types.match_clauses.MatchClauses",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        additional_attributes: Optional[
+            "aws_sdk_datazone.types.additional_attributes.AdditionalAttributes"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.result_item.ResultItem]":
+        _token = next_token
+        while True:
+            _response = self.query_graph(
+                domain_identifier,
+                match,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                additional_attributes=additional_attributes,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def reject_predictions(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.asset_identifier.AssetIdentifier",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        revision: Optional["aws_sdk_datazone.types.revision.Revision"] = None,
+        reject_rule: Optional["aws_sdk_datazone.types.reject_rule.RejectRule"] = None,
+        reject_choices: Optional[
+            "aws_sdk_datazone.types.reject_choices.RejectChoices"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.reject_predictions_output.RejectPredictionsOutput":
+        """<p>Rejects automatically generated business-friendly metadata for your Amazon DataZone assets.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            identifier: <p>The identifier of the prediction.</p>
+            revision: <p>The revision that is to be made to the asset.</p>
+            reject_rule: <p>Specifies the rule (or the conditions) under which a prediction can be rejected.</p>
+            reject_choices: <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be rejected.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.reject_predictions_input.RejectPredictionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.reject_predictions_output.RejectPredictionsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.reject_predictions
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.reject_predictions.reject_predictions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.reject_predictions_input.RejectPredictionsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if revision is not None:
+            input["revision"] = revision
+        if reject_rule is not None:
+            input["reject_rule"] = reject_rule
+        if reject_choices is not None:
+            input["reject_choices"] = reject_choices
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def reject_subscription_request(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        decision_comment: Optional[
+            "aws_sdk_datazone.types.decision_comment.DecisionComment"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.reject_subscription_request_output.RejectSubscriptionRequestOutput":
+        """<p>Rejects the specified subscription request.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
+            identifier: <p>The identifier of the subscription request that was rejected.</p>
+            decision_comment: <p>The decision comment of the rejected subscription request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.reject_subscription_request_input.RejectSubscriptionRequestInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.reject_subscription_request_output.RejectSubscriptionRequestOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.reject_subscription_request
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.reject_subscription_request.reject_subscription_request(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.reject_subscription_request_input.RejectSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if decision_comment is not None:
+            input["decision_comment"] = decision_comment
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def remove_entity_owner(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.data_zone_entity_type.DataZoneEntityType",
+        entity_identifier: str,
+        owner: "aws_sdk_datazone.types.owner_properties.OwnerProperties",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.remove_entity_owner_output.RemoveEntityOwnerOutput":
+        """<p>Removes an owner from an entity.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to remove an owner from an entity.</p>
+            entity_type: <p>The type of the entity from which you want to remove an owner.</p>
+            entity_identifier: <p>The ID of the entity from which you want to remove an owner.</p>
+            owner: <p>The owner that you want to remove from an entity.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.remove_entity_owner_input.RemoveEntityOwnerInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.remove_entity_owner_output.RemoveEntityOwnerOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.remove_entity_owner
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.remove_entity_owner.remove_entity_owner(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.remove_entity_owner_input.RemoveEntityOwnerInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        input["owner"] = owner
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def remove_policy_grant(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        entity_type: "aws_sdk_datazone.types.target_entity_type.TargetEntityType",
+        entity_identifier: str,
+        policy_type: "aws_sdk_datazone.types.managed_policy_type.ManagedPolicyType",
+        principal: "aws_sdk_datazone.types.policy_grant_principal.PolicyGrantPrincipal",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        grant_identifier: Optional[
+            "aws_sdk_datazone.types.grant_identifier.GrantIdentifier"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.remove_policy_grant_output.RemovePolicyGrantOutput":
+        """<p>Removes a policy grant.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to remove a policy grant.</p>
+            entity_type: <p>The type of the entity from which you want to remove a policy grant.</p>
+            entity_identifier: <p>The ID of the entity from which you want to remove a policy grant.</p>
+            policy_type: <p>The type of the policy that you want to remove.</p>
+            principal: <p>The principal from which you want to remove a policy grant.</p>
+            grant_identifier: <p>The ID of the policy grant that is to be removed from a specified entity.</p>
+            client_token: <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.remove_policy_grant_input.RemovePolicyGrantInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.remove_policy_grant_output.RemovePolicyGrantOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.remove_policy_grant
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.remove_policy_grant.remove_policy_grant(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.remove_policy_grant_input.RemovePolicyGrantInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["entity_type"] = entity_type
+        input["entity_identifier"] = entity_identifier
+        input["policy_type"] = policy_type
+        input["principal"] = principal
+        if grant_identifier is not None:
+            input["grant_identifier"] = grant_identifier
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def revoke_subscription(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_id.SubscriptionId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        retain_permissions: Optional[bool] = None,
+    ) -> "aws_sdk_datazone.types.revoke_subscription_output.RevokeSubscriptionOutput":
+        """<p>Revokes a specified subscription in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+            identifier: <p>The identifier of the revoked subscription.</p>
+            retain_permissions: <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.revoke_subscription_input.RevokeSubscriptionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.revoke_subscription_output.RevokeSubscriptionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.revoke_subscription
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.revoke_subscription.revoke_subscription(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.revoke_subscription_input.RevokeSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if retain_permissions is not None:
+            input["retain_permissions"] = retain_permissions
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def search(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        search_scope: "aws_sdk_datazone.types.inventory_search_scope.InventorySearchScope",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        owning_project_identifier: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        search_text: Optional["aws_sdk_datazone.types.search_text.SearchText"] = None,
+        search_in: Optional[
+            "aws_sdk_datazone.types.search_in_list.SearchInList"
+        ] = None,
+        filters: Optional["aws_sdk_datazone.types.filter_clause.FilterClause"] = None,
+        sort: Optional["aws_sdk_datazone.types.search_sort.SearchSort"] = None,
+        additional_attributes: Optional[
+            "aws_sdk_datazone.types.search_output_additional_attributes.SearchOutputAdditionalAttributes"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.search_output.SearchOutput":
+        """<p>Searches for assets in Amazon DataZone.</p> <p>Search in Amazon DataZone is a powerful capability that enables users to discover and explore data assets, glossary terms, and data products across their organization. It provides both basic and advanced search functionality, allowing users to find resources based on names, descriptions, metadata, and other attributes. Search can be scoped to specific types of resources (like assets, glossary terms, or data products) and can be filtered using various criteria such as creation date, owner, or status. The search functionality is essential for making the wealth of data resources in an organization discoverable and usable, helping users find the right data for their needs quickly and efficiently.</p> <p>Many search commands in Amazon DataZone are paginated, including <code>search</code> and <code>search-types</code>. When the result set is large, Amazon DataZone returns a <code>nextToken</code> in the response. This token can be used to retrieve the next page of results. </p> <p>Prerequisites:</p> <ul> <li> <p>The --domain-identifier must refer to an existing Amazon DataZone domain. </p> </li> <li> <p>--search-scope must be one of: ASSET, GLOSSARY_TERM, DATA_PRODUCT, or GLOSSARY.</p> </li> <li> <p>The user must have search permissions in the specified domain.</p> </li> <li> <p>If using --filters, ensure that the JSON is well-formed and that each filter includes valid attribute and value keys. </p> </li> <li> <p>For paginated results, be prepared to use --next-token to fetch additional pages.</p> </li> </ul> <p>To run a standard free-text search, the <code>searchText</code> parameter must be supplied. By default, all searchable fields are indexed for semantic search and will return semantic matches for SearchListings queries. To prevent semantic search indexing for a custom form attribute, see the <a href=\"https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html\">CreateFormType API documentation</a>. To run a lexical search query, enclose the query with double quotes (\"\"). This will disable semantic search even for fields that have semantic search enabled and will only return results that contain the keywords wrapped by double quotes (order of tokens in the query is not enforced). Free-text search is supported for all attributes annotated with @amazon.datazone#searchable.</p> <p>To run a filtered search, provide filter clause using the <code>filters</code> parameter. To filter on glossary terms, use the special attribute <code>__DataZoneGlossaryTerms</code>. To filter on an indexed numeric attribute (i.e., a numeric attribute annotated with <code>@amazon.datazone#sortable</code>), provide a filter using the <code>intValue</code> parameter. The filters parameter can also be used to run more advanced free-text searches that target specific attributes (attributes must be annotated with <code>@amazon.datazone#searchable</code> for free-text search). Create/update timestamp filtering is supported using the special <code>creationTime</code>/<code>lastUpdatedTime</code> attributes. Filter types can be mixed and matched to power complex queries.</p> <p> To find out whether an attribute has been annotated and indexed for a given search type, use the GetFormType API to retrieve the form containing the attribute.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain.</p>
+            owning_project_identifier: <p>The identifier of the owning project specified for the search.</p>
+            max_results: <p>The maximum number of results to return in a single call to <code>Search</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>Search</code> to list the next set of results.</p>
+            next_token: <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+            search_scope: <p>The scope of the search.</p>
+            search_text: <p>Specifies the text for which to search.</p>
+            search_in: <p>The details of the search.</p>
+            filters: <p>Specifies the search filters.</p>
+            sort: <p>Specifies the way in which the search results are to be sorted.</p>
+            additional_attributes: <p>Specifies additional attributes for the <code>Search</code> action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.search_input.SearchInput]",
+        ) -> OperationResponse["aws_sdk_datazone.types.search_output.SearchOutput"]:
+            import aws_sdk_datazone._operations.data_zone.search
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.search.search(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.search_input.SearchInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if owning_project_identifier is not None:
+            input["owning_project_identifier"] = owning_project_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["search_scope"] = search_scope
+        if search_text is not None:
+            input["search_text"] = search_text
+        if search_in is not None:
+            input["search_in"] = search_in
+        if filters is not None:
+            input["filters"] = filters
+        if sort is not None:
+            input["sort"] = sort
+        if additional_attributes is not None:
+            input["additional_attributes"] = additional_attributes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_search(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        search_scope: "aws_sdk_datazone.types.inventory_search_scope.InventorySearchScope",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        owning_project_identifier: Optional[
+            "aws_sdk_datazone.types.project_id.ProjectId"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        search_text: Optional["aws_sdk_datazone.types.search_text.SearchText"] = None,
+        search_in: Optional[
+            "aws_sdk_datazone.types.search_in_list.SearchInList"
+        ] = None,
+        filters: Optional["aws_sdk_datazone.types.filter_clause.FilterClause"] = None,
+        sort: Optional["aws_sdk_datazone.types.search_sort.SearchSort"] = None,
+        additional_attributes: Optional[
+            "aws_sdk_datazone.types.search_output_additional_attributes.SearchOutputAdditionalAttributes"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.search_inventory_result_item.SearchInventoryResultItem]":
+        _token = next_token
+        while True:
+            _response = self.search(
+                domain_identifier,
+                search_scope,
+                config_overrides=config_overrides,
+                owning_project_identifier=owning_project_identifier,
+                max_results=max_results,
+                next_token=_token,
+                search_text=search_text,
+                search_in=search_in,
+                filters=filters,
+                sort=sort,
+                additional_attributes=additional_attributes,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def search_group_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        group_type: "aws_sdk_datazone.types.group_search_type.GroupSearchType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_datazone.types.group_search_text.GroupSearchText"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> (
+        "aws_sdk_datazone.types.search_group_profiles_output.SearchGroupProfilesOutput"
+    ):
+        """<p>Searches group profiles in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which you want to search group profiles.</p>
+            group_type: <p>The group type for which to search.</p>
+            search_text: <p>Specifies the text for which to search.</p>
+            max_results: <p>The maximum number of results to return in a single call to <code>SearchGroupProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results. </p>
+            next_token: <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.search_group_profiles_input.SearchGroupProfilesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.search_group_profiles_output.SearchGroupProfilesOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.search_group_profiles
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.search_group_profiles.search_group_profiles(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.search_group_profiles_input.SearchGroupProfilesInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["group_type"] = group_type
+        if search_text is not None:
+            input["search_text"] = search_text
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_search_group_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        group_type: "aws_sdk_datazone.types.group_search_type.GroupSearchType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_datazone.types.group_search_text.GroupSearchText"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.group_profile_summary.GroupProfileSummary]":
+        _token = next_token
+        while True:
+            _response = self.search_group_profiles(
+                domain_identifier,
+                group_type,
+                config_overrides=config_overrides,
+                search_text=search_text,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def search_listings(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        search_text: Optional[str] = None,
+        search_in: Optional[
+            "aws_sdk_datazone.types.search_in_list.SearchInList"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        filters: Optional["aws_sdk_datazone.types.filter_clause.FilterClause"] = None,
+        aggregations: Optional[
+            "aws_sdk_datazone.types.aggregation_list.AggregationList"
+        ] = None,
+        sort: Optional["aws_sdk_datazone.types.search_sort.SearchSort"] = None,
+        additional_attributes: Optional[
+            "aws_sdk_datazone.types.search_output_additional_attributes.SearchOutputAdditionalAttributes"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.search_listings_output.SearchListingsOutput":
+        """<p>Searches listings in Amazon DataZone.</p> <p>SearchListings is a powerful capability that enables users to discover and explore published assets and data products across their organization. It provides both basic and advanced search functionality, allowing users to find resources based on names, descriptions, metadata, and other attributes. SearchListings also supports filtering using various criteria such as creation date, owner, or status. This API is essential for making the wealth of data resources in an organization discoverable and usable, helping users find the right data for their needs quickly and efficiently.</p> <p>SearchListings returns results in a paginated format. When the result set is large, the response will include a nextToken, which can be used to retrieve the next page of results.</p> <p>The SearchListings API gives users flexibility in specifying what kind of search is run.</p> <p>To run a standard free-text search, the <code>searchText</code> parameter must be supplied. By default, all searchable fields are indexed for semantic search and will return semantic matches for SearchListings queries. To prevent semantic search indexing for a custom form attribute, see the <a href=\"https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html\">CreateFormType API documentation</a>. To run a lexical search query, enclose the query with double quotes (\"\"). This will disable semantic search even for fields that have semantic search enabled and will only return results that contain the keywords wrapped by double quotes (order of tokens in the query is not enforced). Free-text search is supported for all attributes annotated with @amazon.datazone#searchable.</p> <p>To run a filtered search, provide filter clause using the <code>filters</code> parameter. To filter on glossary terms, use the special attribute <code>__DataZoneGlossaryTerms</code>. To filter on an indexed numeric attribute (i.e., a numeric attribute annotated with <code>@amazon.datazone#sortable</code>), provide a filter using the <code>intValue</code> parameter. The filters parameter can also be used to run more advanced free-text searches that target specific attributes (attributes must be annotated with <code>@amazon.datazone#searchable</code> for free-text search). Create/update timestamp filtering is supported using the special <code>creationTime</code>/<code>lastUpdatedTime</code> attributes. Filter types can be mixed and matched to power complex queries.</p> <p> To find out whether an attribute has been annotated and indexed for a given search type, use the GetFormType API to retrieve the form containing the attribute.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the domain in which to search listings.</p>
+            search_text: <p>Specifies the text for which to search.</p>
+            search_in: <p>The details of the search.</p>
+            max_results: <p>The maximum number of results to return in a single call to <code>SearchListings</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchListings</code> to list the next set of results. </p>
+            next_token: <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchListings</code> to list the next set of results.</p>
+            filters: <p>Specifies the filters for the search of listings.</p>
+            aggregations: <p>Enables you to specify one or more attributes to compute and return counts grouped by field values.</p>
+            sort: <p>Specifies the way for sorting the search results.</p>
+            additional_attributes: <p>Specifies additional attributes for the search.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.search_listings_input.SearchListingsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.search_listings_output.SearchListingsOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.search_listings
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.search_listings.search_listings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.search_listings_input.SearchListingsInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if search_text is not None:
+            input["search_text"] = search_text
+        if search_in is not None:
+            input["search_in"] = search_in
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if filters is not None:
+            input["filters"] = filters
+        if aggregations is not None:
+            input["aggregations"] = aggregations
+        if sort is not None:
+            input["sort"] = sort
+        if additional_attributes is not None:
+            input["additional_attributes"] = additional_attributes
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_search_listings(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        search_text: Optional[str] = None,
+        search_in: Optional[
+            "aws_sdk_datazone.types.search_in_list.SearchInList"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        filters: Optional["aws_sdk_datazone.types.filter_clause.FilterClause"] = None,
+        aggregations: Optional[
+            "aws_sdk_datazone.types.aggregation_list.AggregationList"
+        ] = None,
+        sort: Optional["aws_sdk_datazone.types.search_sort.SearchSort"] = None,
+        additional_attributes: Optional[
+            "aws_sdk_datazone.types.search_output_additional_attributes.SearchOutputAdditionalAttributes"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.search_result_item.SearchResultItem]":
+        _token = next_token
+        while True:
+            _response = self.search_listings(
+                domain_identifier,
+                config_overrides=config_overrides,
+                search_text=search_text,
+                search_in=search_in,
+                max_results=max_results,
+                next_token=_token,
+                filters=filters,
+                aggregations=aggregations,
+                sort=sort,
+                additional_attributes=additional_attributes,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def search_types(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        search_scope: "aws_sdk_datazone.types.types_search_scope.TypesSearchScope",
+        managed: bool,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        search_text: Optional["aws_sdk_datazone.types.search_text.SearchText"] = None,
+        search_in: Optional[
+            "aws_sdk_datazone.types.search_in_list.SearchInList"
+        ] = None,
+        filters: Optional["aws_sdk_datazone.types.filter_clause.FilterClause"] = None,
+        sort: Optional["aws_sdk_datazone.types.search_sort.SearchSort"] = None,
+    ) -> "aws_sdk_datazone.types.search_types_output.SearchTypesOutput":
+        """<p>Searches for types in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The --domain-identifier must refer to an existing Amazon DataZone domain. </p> </li> <li> <p>--search-scope must be one of the valid values including: ASSET_TYPE, GLOSSARY_TERM_TYPE, DATA_PRODUCT_TYPE.</p> </li> <li> <p>The --managed flag must be present without a value.</p> </li> <li> <p>The user must have permissions for form or asset types in the domain.</p> </li> <li> <p>If using --filters, ensure that the JSON is valid.</p> </li> <li> <p>Filters contain correct structure (attribute, value, operator).</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which to invoke the <code>SearchTypes</code> action.</p>
+            max_results: <p>The maximum number of results to return in a single call to <code>SearchTypes</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchTypes</code> to list the next set of results. </p>
+            next_token: <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
+            search_scope: <p>Specifies the scope of the search for types.</p>
+            search_text: <p>Specifies the text for which to search.</p>
+            search_in: <p>The details of the search.</p>
+            filters: <p>The filters for the <code>SearchTypes</code> action.</p>
+            sort: <p>The specifies the way to sort the <code>SearchTypes</code> results.</p>
+            managed: <p>Specifies whether the search is managed.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.search_types_input.SearchTypesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.search_types_output.SearchTypesOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.search_types
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.search_types.search_types(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.search_types_input.SearchTypesInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["search_scope"] = search_scope
+        if search_text is not None:
+            input["search_text"] = search_text
+        if search_in is not None:
+            input["search_in"] = search_in
+        if filters is not None:
+            input["filters"] = filters
+        if sort is not None:
+            input["sort"] = sort
+        input["managed"] = managed
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_search_types(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        search_scope: "aws_sdk_datazone.types.types_search_scope.TypesSearchScope",
+        managed: bool,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+        search_text: Optional["aws_sdk_datazone.types.search_text.SearchText"] = None,
+        search_in: Optional[
+            "aws_sdk_datazone.types.search_in_list.SearchInList"
+        ] = None,
+        filters: Optional["aws_sdk_datazone.types.filter_clause.FilterClause"] = None,
+        sort: Optional["aws_sdk_datazone.types.search_sort.SearchSort"] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.search_types_result_item.SearchTypesResultItem]":
+        _token = next_token
+        while True:
+            _response = self.search_types(
+                domain_identifier,
+                search_scope,
+                managed,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                search_text=search_text,
+                search_in=search_in,
+                filters=filters,
+                sort=sort,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def search_user_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        user_type: "aws_sdk_datazone.types.user_search_type.UserSearchType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_datazone.types.user_search_text.UserSearchText"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.search_user_profiles_output.SearchUserProfilesOutput":
+        """<p>Searches user profiles in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which you want to search user profiles.</p>
+            user_type: <p>Specifies the user type for the <code>SearchUserProfiles</code> action.</p>
+            search_text: <p>Specifies the text for which to search.</p>
+            max_results: <p>The maximum number of results to return in a single call to <code>SearchUserProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results. </p>
+            next_token: <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.search_user_profiles_input.SearchUserProfilesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.search_user_profiles_output.SearchUserProfilesOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.search_user_profiles
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.search_user_profiles.search_user_profiles(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.search_user_profiles_input.SearchUserProfilesInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["user_type"] = user_type
+        if search_text is not None:
+            input["search_text"] = search_text
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_search_user_profiles(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        user_type: "aws_sdk_datazone.types.user_search_type.UserSearchType",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        search_text: Optional[
+            "aws_sdk_datazone.types.user_search_text.UserSearchText"
+        ] = None,
+        max_results: Optional["aws_sdk_datazone.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_datazone.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_datazone.types.user_profile_summary.UserProfileSummary]":
+        _token = next_token
+        while True:
+            _response = self.search_user_profiles(
+                domain_identifier,
+                user_type,
+                config_overrides=config_overrides,
+                search_text=search_text,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("items",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def start_notebook_import(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        owning_project_identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        source_location: "aws_sdk_datazone.types.source_location.SourceLocation",
+        name: "aws_sdk_datazone.types.notebook_name.NotebookName",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> (
+        "aws_sdk_datazone.types.start_notebook_import_output.StartNotebookImportOutput"
+    ):
+        """<p>Starts a notebook import in Amazon SageMaker Unified Studio. This operation imports a notebook from an Amazon Simple Storage Service location into a project.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to import the notebook.</p>
+            owning_project_identifier: <p>The identifier of the project that will own the imported notebook.</p>
+            source_location: <p>The source location of the notebook to import. This specifies the Amazon Simple Storage Service URI of the notebook file.</p>
+            name: <p>The name of the imported notebook. The name must be between 1 and 256 characters.</p>
+            description: <p>The description of the imported notebook.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.start_notebook_import_input.StartNotebookImportInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.start_notebook_import_output.StartNotebookImportOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.start_notebook_import
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.start_notebook_import.start_notebook_import(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.start_notebook_import_input.StartNotebookImportInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["owning_project_identifier"] = owning_project_identifier
+        input["source_location"] = source_location
+        input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_arn: str,
+        tags: "aws_sdk_datazone.types.tags.Tags",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.tag_resource_response.TagResourceResponse":
+        """<p>Tags a resource in Amazon DataZone.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to be tagged in Amazon DataZone.</p>
+            tags: <p>Specifies the tags for the <code>TagResource</code> action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.tag_resource
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_arn: str,
+        tag_keys: "aws_sdk_datazone.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.untag_resource_response.UntagResourceResponse":
+        """<p>Untags a resource in Amazon DataZone.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to be untagged in Amazon DataZone.</p>
+            tag_keys: <p>Specifies the tag keys for the <code>UntagResource</code> action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.untag_resource
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_arn"] = resource_arn
+        input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_account_pool(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.account_pool_name.AccountPoolName"
+        ] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        resolution_strategy: Optional[
+            "aws_sdk_datazone.types.resolution_strategy.ResolutionStrategy"
+        ] = None,
+        account_source: Optional[
+            "aws_sdk_datazone.types.account_source.AccountSource"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_account_pool_output.UpdateAccountPoolOutput":
+        """<p>Updates the account pool.</p>
+
+        Args:
+            domain_identifier: <p>The domain ID where the account pool that is to be updated lives.</p>
+            identifier: <p>The ID of the account pool that is to be updated.</p>
+            name: <p>The name of the account pool that is to be updated.</p>
+            description: <p>The description of the account pool that is to be udpated.</p>
+            resolution_strategy: <p>The mechanism used to resolve the account selection from the account pool.</p>
+            account_source: <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_account_pool_input.UpdateAccountPoolInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_account_pool_output.UpdateAccountPoolOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_account_pool
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_account_pool.update_account_pool(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_account_pool_input.UpdateAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if resolution_strategy is not None:
+            input["resolution_strategy"] = resolution_strategy
+        if account_source is not None:
+            input["account_source"] = account_source
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_asset_filter(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        identifier: "aws_sdk_datazone.types.filter_id.FilterId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[str] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        configuration: Optional[
+            "aws_sdk_datazone.types.asset_filter_configuration.AssetFilterConfiguration"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_asset_filter_output.UpdateAssetFilterOutput":
+        """<p>Updates an asset filter.</p> <p>Prerequisites:</p> <ul> <li> <p>The domain, asset, and asset filter identifier must all exist. </p> </li> <li> <p>The asset must contain the columns being referenced in the update.</p> </li> <li> <p>If applying a row filter, ensure the column referenced in the expression exists in the asset schema.</p> </li> </ul>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where you want to update an asset filter.</p>
+            asset_identifier: <p>The ID of the data asset.</p>
+            identifier: <p>The ID of the asset filter.</p>
+            name: <p>The name of the asset filter.</p>
+            description: <p>The description of the asset filter.</p>
+            configuration: <p>The configuration of the asset filter.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_asset_filter_input.UpdateAssetFilterInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_asset_filter_output.UpdateAssetFilterOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_asset_filter
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_asset_filter.update_asset_filter(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_asset_filter_input.UpdateAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["asset_identifier"] = asset_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if configuration is not None:
+            input["configuration"] = configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_connection(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.connection_id.ConnectionId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        configurations: Optional[
+            "aws_sdk_datazone.types.configurations.Configurations"
+        ] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        aws_location: Optional[
+            "aws_sdk_datazone.types.aws_location.AwsLocation"
+        ] = None,
+        props: Optional[
+            "aws_sdk_datazone.types.connection_properties_patch.ConnectionPropertiesPatch"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_connection_output.UpdateConnectionOutput":
+        """<p>Updates a connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
+
+        Args:
+            configurations: <p>The configurations of the connection.</p>
+            domain_identifier: <p>The ID of the domain where a connection is to be updated.</p>
+            identifier: <p>The ID of the connection to be updated.</p>
+            description: <p>The description of a connection.</p>
+            aws_location: <p>The location where a connection is to be updated.</p>
+            props: <p>The connection props.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_connection_input.UpdateConnectionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_connection_output.UpdateConnectionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_connection
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_connection.update_connection(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_connection_input.UpdateConnectionInput = {}  # type: ignore[typeddict-item]
+        if configurations is not None:
+            input["configurations"] = configurations
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if description is not None:
+            input["description"] = description
+        if aws_location is not None:
+            input["aws_location"] = aws_location
+        if props is not None:
+            input["props"] = props
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_environment(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        glossary_terms: Optional[
+            "aws_sdk_datazone.types.glossary_terms.GlossaryTerms"
+        ] = None,
+        blueprint_version: Optional[str] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.environment_parameters_list.EnvironmentParametersList"
+        ] = None,
+        environment_configuration_name: Optional[
+            "aws_sdk_datazone.types.environment_configuration_name.EnvironmentConfigurationName"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_environment_output.UpdateEnvironmentOutput":
+        """<p>Updates the specified environment in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the domain in which the environment is to be updated.</p>
+            identifier: <p>The identifier of the environment that is to be updated.</p>
+            name: <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+            description: <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+            glossary_terms: <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+            blueprint_version: <p>The blueprint version to which the environment should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
+            user_parameters: <p>The user parameters of the environment.</p>
+            environment_configuration_name: <p>The configuration name of the environment.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_environment_input.UpdateEnvironmentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_environment_output.UpdateEnvironmentOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_environment
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_environment.update_environment(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if glossary_terms is not None:
+            input["glossary_terms"] = glossary_terms
+        if blueprint_version is not None:
+            input["blueprint_version"] = blueprint_version
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+        if environment_configuration_name is not None:
+            input["environment_configuration_name"] = environment_configuration_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_environment_action(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        identifier: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        parameters: Optional[
+            "aws_sdk_datazone.types.action_parameters.ActionParameters"
+        ] = None,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.update_environment_action_output.UpdateEnvironmentActionOutput":
+        """<p>Updates an environment action.</p>
+
+        Args:
+            domain_identifier: <p>The domain ID of the environment action.</p>
+            environment_identifier: <p>The environment ID of the environment action.</p>
+            identifier: <p>The ID of the environment action.</p>
+            parameters: <p>The parameters of the environment action.</p>
+            name: <p>The name of the environment action.</p>
+            description: <p>The description of the environment action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_environment_action_input.UpdateEnvironmentActionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_environment_action_output.UpdateEnvironmentActionOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_environment_action
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_environment_action.update_environment_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_environment_action_input.UpdateEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["identifier"] = identifier
+        if parameters is not None:
+            input["parameters"] = parameters
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_environment_blueprint(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        description: Optional[str] = None,
+        provisioning_properties: Optional[
+            "aws_sdk_datazone.types.provisioning_properties.ProvisioningProperties"
+        ] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.custom_parameter_list.CustomParameterList"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_environment_blueprint_output.UpdateEnvironmentBlueprintOutput":
+        """<p>Updates an environment blueprint in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which an environment blueprint is to be updated.</p>
+            identifier: <p>The identifier of the environment blueprint to be updated.</p>
+            description: <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+            provisioning_properties: <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+            user_parameters: <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_environment_blueprint_input.UpdateEnvironmentBlueprintInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_environment_blueprint_output.UpdateEnvironmentBlueprintOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_environment_blueprint
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_environment_blueprint.update_environment_blueprint(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_environment_blueprint_input.UpdateEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if description is not None:
+            input["description"] = description
+        if provisioning_properties is not None:
+            input["provisioning_properties"] = provisioning_properties
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_environment_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.environment_profile_name.EnvironmentProfileName"
+        ] = None,
+        description: Optional[str] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.environment_parameters_list.EnvironmentParametersList"
+        ] = None,
+        aws_account_id: Optional[
+            "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
+        ] = None,
+        aws_account_region: Optional[
+            "aws_sdk_datazone.types.aws_region.AwsRegion"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_environment_profile_output.UpdateEnvironmentProfileOutput":
+        """<p>Updates the specified environment profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which an environment profile is to be updated.</p>
+            identifier: <p>The identifier of the environment profile that is to be updated.</p>
+            name: <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+            description: <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+            user_parameters: <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+            aws_account_id: <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
+            aws_account_region: <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_environment_profile_input.UpdateEnvironmentProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_environment_profile_output.UpdateEnvironmentProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_environment_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_environment_profile.update_environment_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_environment_profile_input.UpdateEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+        if aws_account_id is not None:
+            input["aws_account_id"] = aws_account_id
+        if aws_account_region is not None:
+            input["aws_account_region"] = aws_account_region
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_group_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        group_identifier: "aws_sdk_datazone.types.group_identifier.GroupIdentifier",
+        status: "aws_sdk_datazone.types.group_profile_status.GroupProfileStatus",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.update_group_profile_output.UpdateGroupProfileOutput":
+        """<p>Updates the specified group profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+            group_identifier: <p>The identifier of the group profile that is updated.</p>
+            status: <p>The status of the group profile that is updated.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_group_profile_input.UpdateGroupProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_group_profile_output.UpdateGroupProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_group_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_group_profile.update_group_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_group_profile_input.UpdateGroupProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["group_identifier"] = group_identifier
+        input["status"] = status
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_project(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.project_id.ProjectId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional["aws_sdk_datazone.types.project_name.ProjectName"] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        resource_tags: Optional["aws_sdk_datazone.types.tags.Tags"] = None,
+        glossary_terms: Optional[
+            "aws_sdk_datazone.types.glossary_terms.GlossaryTerms"
+        ] = None,
+        domain_unit_id: Optional[
+            "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
+        ] = None,
+        environment_deployment_details: Optional[
+            "aws_sdk_datazone.types.environment_deployment_details.EnvironmentDeploymentDetails"
+        ] = None,
+        user_parameters: Optional[
+            "aws_sdk_datazone.types.environment_configuration_user_parameters_list.EnvironmentConfigurationUserParametersList"
+        ] = None,
+        project_profile_version: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.update_project_output.UpdateProjectOutput":
+        """<p>Updates the specified project in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the Amazon DataZone domain where a project is being updated.</p>
+            identifier: <p>The identifier of the project that is to be updated.</p>
+            name: <p>The name to be updated as part of the <code>UpdateProject</code> action.</p>
+            description: <p>The description to be updated as part of the <code>UpdateProject</code> action.</p>
+            resource_tags: <p>The resource tags of the project.</p>
+            glossary_terms: <p>The glossary terms to be updated as part of the <code>UpdateProject</code> action.</p>
+            domain_unit_id: <p>The ID of the domain unit.</p>
+            environment_deployment_details: <p>The environment deployment details of the project.</p>
+            user_parameters: <p>The user parameters of the project.</p>
+            project_profile_version: <p>The project profile version to which the project should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_project_input.UpdateProjectInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_project_output.UpdateProjectOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_project
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_project.update_project(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if resource_tags is not None:
+            input["resource_tags"] = resource_tags
+        if glossary_terms is not None:
+            input["glossary_terms"] = glossary_terms
+        if domain_unit_id is not None:
+            input["domain_unit_id"] = domain_unit_id
+        if environment_deployment_details is not None:
+            input["environment_deployment_details"] = environment_deployment_details
+        if user_parameters is not None:
+            input["user_parameters"] = user_parameters
+        if project_profile_version is not None:
+            input["project_profile_version"] = project_profile_version
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_project_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.project_profile_id.ProjectProfileId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.project_profile_name.ProjectProfileName"
+        ] = None,
+        description: Optional["aws_sdk_datazone.types.description.Description"] = None,
+        status: Optional["aws_sdk_datazone.types.status.Status"] = None,
+        project_resource_tags: Optional[
+            "aws_sdk_datazone.types.project_resource_tag_parameters.ProjectResourceTagParameters"
+        ] = None,
+        allow_custom_project_resource_tags: Optional[bool] = None,
+        project_resource_tags_description: Optional[
+            "aws_sdk_datazone.types.description.Description"
+        ] = None,
+        environment_configurations: Optional[
+            "aws_sdk_datazone.types.environment_configurations_list.EnvironmentConfigurationsList"
+        ] = None,
+        domain_unit_identifier: Optional[
+            "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_project_profile_output.UpdateProjectProfileOutput":
+        """<p>Updates a project profile.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where a project profile is to be updated.</p>
+            identifier: <p>The ID of a project profile that is to be updated.</p>
+            name: <p>The name of a project profile.</p>
+            description: <p>The description of a project profile.</p>
+            status: <p>The status of a project profile.</p>
+            project_resource_tags: <p>The resource tags of the project profile.</p>
+            allow_custom_project_resource_tags: <p>Specifies whether custom project resource tags are supported.</p>
+            project_resource_tags_description: <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+            environment_configurations: <p>The environment configurations of a project profile.</p>
+            domain_unit_identifier: <p>The ID of the domain unit where a project profile is to be updated.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_project_profile_input.UpdateProjectProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_project_profile_output.UpdateProjectProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_project_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_project_profile.update_project_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_project_profile_input.UpdateProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if description is not None:
+            input["description"] = description
+        if status is not None:
+            input["status"] = status
+        if project_resource_tags is not None:
+            input["project_resource_tags"] = project_resource_tags
+        if allow_custom_project_resource_tags is not None:
+            input["allow_custom_project_resource_tags"] = (
+                allow_custom_project_resource_tags
+            )
+        if project_resource_tags_description is not None:
+            input["project_resource_tags_description"] = (
+                project_resource_tags_description
+            )
+        if environment_configurations is not None:
+            input["environment_configurations"] = environment_configurations
+        if domain_unit_identifier is not None:
+            input["domain_unit_identifier"] = domain_unit_identifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_root_domain_unit_owner(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        current_owner: "aws_sdk_datazone.types.user_identifier.UserIdentifier",
+        new_owner: str,
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_datazone.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_root_domain_unit_owner_output.UpdateRootDomainUnitOwnerOutput":
+        """<p>Updates the owner of the root domain unit.</p>
+
+        Args:
+            domain_identifier: <p>The ID of the domain where the root domain unit owner is to be updated.</p>
+            current_owner: <p>The current owner of the root domain unit.</p>
+            new_owner: <p>The new owner of the root domain unit.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_root_domain_unit_owner_input.UpdateRootDomainUnitOwnerInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_root_domain_unit_owner_output.UpdateRootDomainUnitOwnerOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_root_domain_unit_owner
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_root_domain_unit_owner.update_root_domain_unit_owner(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_root_domain_unit_owner_input.UpdateRootDomainUnitOwnerInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["current_owner"] = current_owner
+        input["new_owner"] = new_owner
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_subscription_grant_status(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_grant_id.SubscriptionGrantId",
+        asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId",
+        status: "aws_sdk_datazone.types.subscription_grant_status.SubscriptionGrantStatus",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        failure_cause: Optional[
+            "aws_sdk_datazone.types.failure_cause.FailureCause"
+        ] = None,
+        target_name: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.update_subscription_grant_status_output.UpdateSubscriptionGrantStatusOutput":
+        """<p>Updates the status of the specified subscription grant status in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.</p>
+            identifier: <p>The identifier of the subscription grant the status of which is to be updated.</p>
+            asset_identifier: <p>The identifier of the asset the subscription grant status of which is to be updated.</p>
+            status: <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
+            failure_cause: <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+            target_name: <p>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_subscription_grant_status_input.UpdateSubscriptionGrantStatusInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_subscription_grant_status_output.UpdateSubscriptionGrantStatusOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_subscription_grant_status
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_subscription_grant_status.update_subscription_grant_status(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_subscription_grant_status_input.UpdateSubscriptionGrantStatusInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        input["asset_identifier"] = asset_identifier
+        input["status"] = status
+        if failure_cause is not None:
+            input["failure_cause"] = failure_cause
+        if target_name is not None:
+            input["target_name"] = target_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_subscription_request(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId",
+        request_reason: "aws_sdk_datazone.types.request_reason.RequestReason",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+    ) -> "aws_sdk_datazone.types.update_subscription_request_output.UpdateSubscriptionRequestOutput":
+        """<p>Updates a specified subscription request in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>
+            identifier: <p>The identifier of the subscription request that is to be updated.</p>
+            request_reason: <p>The reason for the <code>UpdateSubscriptionRequest</code> action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_subscription_request_input.UpdateSubscriptionRequestInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_subscription_request_output.UpdateSubscriptionRequestOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_subscription_request
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_subscription_request.update_subscription_request(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_subscription_request_input.UpdateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["identifier"] = identifier
+        input["request_reason"] = request_reason
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_subscription_target(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId",
+        identifier: "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        name: Optional[
+            "aws_sdk_datazone.types.subscription_target_name.SubscriptionTargetName"
+        ] = None,
+        authorized_principals: Optional[
+            "aws_sdk_datazone.types.authorized_principal_identifiers.AuthorizedPrincipalIdentifiers"
+        ] = None,
+        applicable_asset_types: Optional[
+            "aws_sdk_datazone.types.applicable_asset_types.ApplicableAssetTypes"
+        ] = None,
+        subscription_target_config: Optional[
+            "aws_sdk_datazone.types.subscription_target_forms.SubscriptionTargetForms"
+        ] = None,
+        manage_access_role: Optional[
+            "aws_sdk_datazone.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        provider: Optional[str] = None,
+        subscription_grant_creation_mode: Optional[
+            "aws_sdk_datazone.types.subscription_grant_creation_mode.SubscriptionGrantCreationMode"
+        ] = None,
+    ) -> "aws_sdk_datazone.types.update_subscription_target_output.UpdateSubscriptionTargetOutput":
+        """<p>Updates the specified subscription target in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which a subscription target is to be updated.</p>
+            environment_identifier: <p>The identifier of the environment in which a subscription target is to be updated.</p>
+            identifier: <p>Identifier of the subscription target that is to be updated.</p>
+            name: <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+            authorized_principals: <p>The authorized principals to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+            applicable_asset_types: <p>The applicable asset types to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+            subscription_target_config: <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+            manage_access_role: <p>The manage access role to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+            provider: <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+            subscription_grant_creation_mode: <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_subscription_target_input.UpdateSubscriptionTargetInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_subscription_target_output.UpdateSubscriptionTargetOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_subscription_target
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_subscription_target.update_subscription_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_subscription_target_input.UpdateSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["environment_identifier"] = environment_identifier
+        input["identifier"] = identifier
+        if name is not None:
+            input["name"] = name
+        if authorized_principals is not None:
+            input["authorized_principals"] = authorized_principals
+        if applicable_asset_types is not None:
+            input["applicable_asset_types"] = applicable_asset_types
+        if subscription_target_config is not None:
+            input["subscription_target_config"] = subscription_target_config
+        if manage_access_role is not None:
+            input["manage_access_role"] = manage_access_role
+        if provider is not None:
+            input["provider"] = provider
+        if subscription_grant_creation_mode is not None:
+            input["subscription_grant_creation_mode"] = subscription_grant_creation_mode
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_profile(
+        self,
+        domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId",
+        user_identifier: "aws_sdk_datazone.types.user_identifier.UserIdentifier",
+        status: "aws_sdk_datazone.types.user_profile_status.UserProfileStatus",
+        *,
+        config_overrides: Optional[DataZoneClientConfig] = None,
+        type: Optional[
+            "aws_sdk_datazone.types.user_profile_type.UserProfileType"
+        ] = None,
+        session_name: Optional[str] = None,
+    ) -> "aws_sdk_datazone.types.update_user_profile_output.UpdateUserProfileOutput":
+        """<p>Updates the specified user profile in Amazon DataZone.</p>
+
+        Args:
+            domain_identifier: <p>The identifier of the Amazon DataZone domain in which a user profile is updated.</p>
+            user_identifier: <p>The identifier of the user whose user profile is to be updated.</p>
+            type: <p>The type of the user profile that are to be updated.</p>
+            status: <p>The status of the user profile that are to be updated.</p>
+            session_name: <p>The session name for IAM role sessions.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_datazone.types.update_user_profile_input.UpdateUserProfileInput]",
+        ) -> OperationResponse[
+            "aws_sdk_datazone.types.update_user_profile_output.UpdateUserProfileOutput"
+        ]:
+            import aws_sdk_datazone._operations.data_zone.update_user_profile
+
+            output, http_response = (
+                aws_sdk_datazone._operations.data_zone.update_user_profile.update_user_profile(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_datazone.types.update_user_profile_input.UpdateUserProfileInput = {}  # type: ignore[typeddict-item]
+        input["domain_identifier"] = domain_identifier
+        input["user_identifier"] = user_identifier
+        if type is not None:
+            input["type"] = type
+        input["status"] = status
+        if session_name is not None:
+            input["session_name"] = session_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

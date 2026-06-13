@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ClientIdsForOIDC``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.client_id_for_oidc
 
-ClientIdsForOIDC: TypeAlias = list["aws_sdk_qbusiness.types.client_id_for_oidc.ClientIdForOIDC"]
+ClientIdsForOIDC: TypeAlias = list[
+    "aws_sdk_qbusiness.types.client_id_for_oidc.ClientIdForOIDC"
+]
 
 
 # --- restJson1 ser/de ---

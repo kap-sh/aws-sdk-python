@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#DeleteMLEndpointInput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class DeleteMLEndpointInput(TypedDict):
     id: "str"
@@ -10,6 +12,7 @@ class DeleteMLEndpointInput(TypedDict):
     """<p>The ARN of an IAM role providing Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will be thrown.</p>"""
     clean: NotRequired["bool"]
     """<p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteMLEndpointInput) -> dict:

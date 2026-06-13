@@ -1,20 +1,27 @@
 """Generated from Smithy shape ``com.amazonaws.backup#AssociateBackupVaultMpaApprovalTeamInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_backup.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
     import aws_sdk_backup.types.backup_vault_name
     import aws_sdk_backup.types.requester_comment
+
 
 class AssociateBackupVaultMpaApprovalTeamInput(TypedDict):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of the backup vault to associate with the MPA approval team.</p>"""
     mpa_approval_team_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault.</p>"""
-    requester_comment: NotRequired["aws_sdk_backup.types.requester_comment.RequesterComment"]
+    requester_comment: NotRequired[
+        "aws_sdk_backup.types.requester_comment.RequesterComment"
+    ]
     """<p>A comment provided by the requester explaining the association request.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociateBackupVaultMpaApprovalTeamInput) -> dict:
@@ -30,7 +37,9 @@ def deserialize_json(data: dict) -> AssociateBackupVaultMpaApprovalTeamInput:
     if "MpaApprovalTeamArn" in data:
         out["mpa_approval_team_arn"] = data["MpaApprovalTeamArn"]
     else:
-        raise DeserializationError("AssociateBackupVaultMpaApprovalTeamInput.mpa_approval_team_arn required")
+        raise DeserializationError(
+            "AssociateBackupVaultMpaApprovalTeamInput.mpa_approval_team_arn required"
+        )
     if "RequesterComment" in data:
         out["requester_comment"] = data["RequesterComment"]
     return out

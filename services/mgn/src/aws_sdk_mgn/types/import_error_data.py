@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ImportErrorData``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.application_id
@@ -11,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.source_server_id
     import aws_sdk_mgn.types.wave_id
 
+
 class ImportErrorData(TypedDict):
     source_server_id: NotRequired["aws_sdk_mgn.types.source_server_id.SourceServerID"]
     """<p>Import error data source server ID.</p>"""
@@ -18,7 +21,9 @@ class ImportErrorData(TypedDict):
     """<p>Import error data application ID.</p>"""
     wave_id: NotRequired["aws_sdk_mgn.types.wave_id.WaveID"]
     """<p>Import error data wave id.</p>"""
-    ec2_launch_template_id: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
+    ec2_launch_template_id: NotRequired[
+        "aws_sdk_mgn.types.bounded_string.BoundedString"
+    ]
     """<p>Import error data ec2 LaunchTemplate ID.</p>"""
     row_number: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>Import error data row number.</p>"""
@@ -26,6 +31,7 @@ class ImportErrorData(TypedDict):
     """<p>Import error data raw error.</p>"""
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Import error data source account ID.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ImportErrorData) -> dict:

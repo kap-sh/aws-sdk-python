@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.emr#Credentials``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_emr.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:

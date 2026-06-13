@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ResourceNotFoundException``."""
 
 from typing import TypedDict
-from aws_sdk_connectcases.errors import DeserializationError
-from aws_sdk_connectcases.errors import ServiceError
+
+from aws_sdk_connectcases.errors import DeserializationError, ServiceError
 
 
 class ResourceNotFoundException_(TypedDict):

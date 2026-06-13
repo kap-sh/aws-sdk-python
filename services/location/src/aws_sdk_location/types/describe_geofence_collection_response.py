@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#DescribeGeofenceCollectionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.arn
     import aws_sdk_location.types.kms_key_id
@@ -11,6 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.tag_map
     import aws_sdk_location.types.timestamp
+
 
 class DescribeGeofenceCollectionResponse(TypedDict):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -34,6 +38,7 @@ class DescribeGeofenceCollectionResponse(TypedDict):
     geofence_count: NotRequired["int"]
     """<p>The number of geofences in the geofence collection.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeGeofenceCollectionResponse) -> dict:
     out: dict = {}
@@ -48,11 +53,18 @@ def serialize_json(value: DescribeGeofenceCollectionResponse) -> dict:
         out["KmsKeyId"] = value["kms_key_id"]
     if "tags" in value:
         import aws_sdk_location.types.tag_map
+
         out["Tags"] = aws_sdk_location.types.tag_map.serialize_json(value["tags"])
     import aws_sdk_location.types.timestamp
-    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["create_time"])
+
+    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["create_time"]
+    )
     import aws_sdk_location.types.timestamp
-    out["UpdateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["update_time"])
+
+    out["UpdateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["update_time"]
+    )
     if "geofence_count" in value:
         out["GeofenceCount"] = value["geofence_count"]
     return out
@@ -63,15 +75,21 @@ def deserialize_json(data: dict) -> DescribeGeofenceCollectionResponse:
     if "CollectionName" in data:
         out["collection_name"] = data["CollectionName"]
     else:
-        raise DeserializationError("DescribeGeofenceCollectionResponse.collection_name required")
+        raise DeserializationError(
+            "DescribeGeofenceCollectionResponse.collection_name required"
+        )
     if "CollectionArn" in data:
         out["collection_arn"] = data["CollectionArn"]
     else:
-        raise DeserializationError("DescribeGeofenceCollectionResponse.collection_arn required")
+        raise DeserializationError(
+            "DescribeGeofenceCollectionResponse.collection_arn required"
+        )
     if "Description" in data:
         out["description"] = data["Description"]
     else:
-        raise DeserializationError("DescribeGeofenceCollectionResponse.description required")
+        raise DeserializationError(
+            "DescribeGeofenceCollectionResponse.description required"
+        )
     if "PricingPlan" in data:
         out["pricing_plan"] = data["PricingPlan"]
     if "PricingPlanDataSource" in data:
@@ -80,17 +98,28 @@ def deserialize_json(data: dict) -> DescribeGeofenceCollectionResponse:
         out["kms_key_id"] = data["KmsKeyId"]
     if "Tags" in data:
         import aws_sdk_location.types.tag_map
+
         out["tags"] = aws_sdk_location.types.tag_map.deserialize_json(data["Tags"])
     if "CreateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreateTime"])
+
+        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreateTime"]
+        )
     else:
-        raise DeserializationError("DescribeGeofenceCollectionResponse.create_time required")
+        raise DeserializationError(
+            "DescribeGeofenceCollectionResponse.create_time required"
+        )
     if "UpdateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["update_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["UpdateTime"])
+
+        out["update_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["UpdateTime"]
+        )
     else:
-        raise DeserializationError("DescribeGeofenceCollectionResponse.update_time required")
+        raise DeserializationError(
+            "DescribeGeofenceCollectionResponse.update_time required"
+        )
     if "GeofenceCount" in data:
         out["geofence_count"] = data["GeofenceCount"]
     return out

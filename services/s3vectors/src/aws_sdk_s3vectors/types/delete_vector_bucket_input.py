@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#DeleteVectorBucketInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_bucket_arn
     import aws_sdk_s3vectors.types.vector_bucket_name
 
+
 class DeleteVectorBucketInput(TypedDict):
-    vector_bucket_name: NotRequired["aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"]
+    vector_bucket_name: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"
+    ]
     """<p>The name of the vector bucket to delete.</p>"""
-    vector_bucket_arn: NotRequired["aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"]
+    vector_bucket_arn: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"
+    ]
     """<p>The ARN of the vector bucket to delete.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteVectorBucketInput) -> dict:

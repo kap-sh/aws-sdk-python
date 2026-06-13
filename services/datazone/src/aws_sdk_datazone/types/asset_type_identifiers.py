@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetTypeIdentifiers``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_type_identifier
 
-AssetTypeIdentifiers: TypeAlias = list["aws_sdk_datazone.types.asset_type_identifier.AssetTypeIdentifier"]
+AssetTypeIdentifiers: TypeAlias = list[
+    "aws_sdk_datazone.types.asset_type_identifier.AssetTypeIdentifier"
+]
 
 
 # --- restJson1 ser/de ---

@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEc2InstanceDetails``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.date_time_timestamp
     import aws_sdk_inspector2.types.ip_v4_address_list
@@ -9,27 +11,37 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.non_empty_string
     import aws_sdk_inspector2.types.platform
 
+
 class AwsEc2InstanceDetails(TypedDict):
     type: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]
     """<p>The type of the Amazon EC2 instance.</p>"""
     image_id: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]
     """<p>The image ID of the Amazon EC2 instance.</p>"""
-    ip_v4_addresses: NotRequired["aws_sdk_inspector2.types.ip_v4_address_list.IpV4AddressList"]
+    ip_v4_addresses: NotRequired[
+        "aws_sdk_inspector2.types.ip_v4_address_list.IpV4AddressList"
+    ]
     """<p>The IPv4 addresses of the Amazon EC2 instance.</p>"""
-    ip_v6_addresses: NotRequired["aws_sdk_inspector2.types.ip_v6_address_list.IpV6AddressList"]
+    ip_v6_addresses: NotRequired[
+        "aws_sdk_inspector2.types.ip_v6_address_list.IpV6AddressList"
+    ]
     """<p>The IPv6 addresses of the Amazon EC2 instance.</p>"""
     key_name: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]
     """<p>The name of the key pair used to launch the Amazon EC2 instance.</p>"""
-    iam_instance_profile_arn: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]
+    iam_instance_profile_arn: NotRequired[
+        "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
+    ]
     """<p>The IAM instance profile ARN of the Amazon EC2 instance.</p>"""
     vpc_id: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]
     """<p>The VPC ID of the Amazon EC2 instance.</p>"""
     subnet_id: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]
     """<p>The subnet ID of the Amazon EC2 instance.</p>"""
-    launched_at: NotRequired["aws_sdk_inspector2.types.date_time_timestamp.DateTimeTimestamp"]
+    launched_at: NotRequired[
+        "aws_sdk_inspector2.types.date_time_timestamp.DateTimeTimestamp"
+    ]
     """<p>The date and time the Amazon EC2 instance was launched at.</p>"""
     platform: NotRequired["aws_sdk_inspector2.types.platform.Platform"]
     """<p>The platform of the Amazon EC2 instance.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsEc2InstanceDetails) -> dict:
@@ -40,10 +52,20 @@ def serialize_json(value: AwsEc2InstanceDetails) -> dict:
         out["imageId"] = value["image_id"]
     if "ip_v4_addresses" in value:
         import aws_sdk_inspector2.types.ip_v4_address_list
-        out["ipV4Addresses"] = aws_sdk_inspector2.types.ip_v4_address_list.serialize_json(value["ip_v4_addresses"])
+
+        out["ipV4Addresses"] = (
+            aws_sdk_inspector2.types.ip_v4_address_list.serialize_json(
+                value["ip_v4_addresses"]
+            )
+        )
     if "ip_v6_addresses" in value:
         import aws_sdk_inspector2.types.ip_v6_address_list
-        out["ipV6Addresses"] = aws_sdk_inspector2.types.ip_v6_address_list.serialize_json(value["ip_v6_addresses"])
+
+        out["ipV6Addresses"] = (
+            aws_sdk_inspector2.types.ip_v6_address_list.serialize_json(
+                value["ip_v6_addresses"]
+            )
+        )
     if "key_name" in value:
         out["keyName"] = value["key_name"]
     if "iam_instance_profile_arn" in value:
@@ -54,7 +76,10 @@ def serialize_json(value: AwsEc2InstanceDetails) -> dict:
         out["subnetId"] = value["subnet_id"]
     if "launched_at" in value:
         import aws_sdk_inspector2.types.date_time_timestamp
-        out["launchedAt"] = aws_sdk_inspector2.types.date_time_timestamp.serialize_json(value["launched_at"])
+
+        out["launchedAt"] = aws_sdk_inspector2.types.date_time_timestamp.serialize_json(
+            value["launched_at"]
+        )
     if "platform" in value:
         out["platform"] = value["platform"]
     return out
@@ -68,10 +93,20 @@ def deserialize_json(data: dict) -> AwsEc2InstanceDetails:
         out["image_id"] = data["imageId"]
     if "ipV4Addresses" in data:
         import aws_sdk_inspector2.types.ip_v4_address_list
-        out["ip_v4_addresses"] = aws_sdk_inspector2.types.ip_v4_address_list.deserialize_json(data["ipV4Addresses"])
+
+        out["ip_v4_addresses"] = (
+            aws_sdk_inspector2.types.ip_v4_address_list.deserialize_json(
+                data["ipV4Addresses"]
+            )
+        )
     if "ipV6Addresses" in data:
         import aws_sdk_inspector2.types.ip_v6_address_list
-        out["ip_v6_addresses"] = aws_sdk_inspector2.types.ip_v6_address_list.deserialize_json(data["ipV6Addresses"])
+
+        out["ip_v6_addresses"] = (
+            aws_sdk_inspector2.types.ip_v6_address_list.deserialize_json(
+                data["ipV6Addresses"]
+            )
+        )
     if "keyName" in data:
         out["key_name"] = data["keyName"]
     if "iamInstanceProfileArn" in data:
@@ -82,7 +117,12 @@ def deserialize_json(data: dict) -> AwsEc2InstanceDetails:
         out["subnet_id"] = data["subnetId"]
     if "launchedAt" in data:
         import aws_sdk_inspector2.types.date_time_timestamp
-        out["launched_at"] = aws_sdk_inspector2.types.date_time_timestamp.deserialize_json(data["launchedAt"])
+
+        out["launched_at"] = (
+            aws_sdk_inspector2.types.date_time_timestamp.deserialize_json(
+                data["launchedAt"]
+            )
+        )
     if "platform" in data:
         out["platform"] = data["platform"]
     return out

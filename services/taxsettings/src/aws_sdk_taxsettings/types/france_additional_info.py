@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#FranceAdditionalInfo``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_taxsettings.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.siren_number
+
 
 class FranceAdditionalInfo(TypedDict):
     siren_number: "aws_sdk_taxsettings.types.siren_number.SirenNumber"
     """<p>The SIREN number for the company in France. Must be a 9-digit number.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FranceAdditionalInfo) -> dict:

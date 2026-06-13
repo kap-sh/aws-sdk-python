@@ -1,26 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_connectcases._services.async_connect_cases import ensure_async_iterator
-from aws_sdk_connectcases._services.connect_cases import ensure_sync_iterator
-from aws_sdk_connectcases._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_connectcases._auth._signers
 import aws_sdk_connectcases._auth._sigv4
+from aws_sdk_connectcases._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_connectcases._services.connect_cases import (
-        ConnectCasesClient,
-        ConnectCasesClientConfig,
-    )
-    from aws_sdk_connectcases._services.async_connect_cases import (
-        AsyncConnectCasesClient,
-        AsyncConnectCasesClientConfig,
-    )
     import aws_sdk_connectcases.types.create_domain_request
     import aws_sdk_connectcases.types.create_domain_response
     import aws_sdk_connectcases.types.delete_domain_request
@@ -43,6 +34,14 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.search_all_related_items_response
     import aws_sdk_connectcases.types.search_all_related_items_response_item
     import aws_sdk_connectcases.types.search_all_related_items_sort_list
+    from aws_sdk_connectcases._services.async_connect_cases import (
+        AsyncConnectCasesClient,
+        AsyncConnectCasesClientConfig,
+    )
+    from aws_sdk_connectcases._services.connect_cases import (
+        ConnectCasesClient,
+        ConnectCasesClientConfig,
+    )
 
 
 class Domain:

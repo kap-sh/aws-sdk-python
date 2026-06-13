@@ -1,0 +1,132 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#CreateConfiguredTableInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanrooms.types.allowed_column_list
+    import aws_sdk_cleanrooms.types.analysis_method
+    import aws_sdk_cleanrooms.types.display_name
+    import aws_sdk_cleanrooms.types.selected_analysis_methods
+    import aws_sdk_cleanrooms.types.table_description
+    import aws_sdk_cleanrooms.types.table_reference
+    import aws_sdk_cleanrooms.types.tag_map
+
+
+class CreateConfiguredTableInput(TypedDict):
+    name: "aws_sdk_cleanrooms.types.display_name.DisplayName"
+    """<p>The name of the configured table.</p>"""
+    description: NotRequired[
+        "aws_sdk_cleanrooms.types.table_description.TableDescription"
+    ]
+    """<p>A description for the configured table.</p>"""
+    table_reference: "aws_sdk_cleanrooms.types.table_reference.TableReference"
+    """<p>A reference to the table being configured.</p>"""
+    allowed_columns: "aws_sdk_cleanrooms.types.allowed_column_list.AllowedColumnList"
+    """<p>The columns of the underlying table that can be used by collaborations or analysis rules.</p>"""
+    analysis_method: "aws_sdk_cleanrooms.types.analysis_method.AnalysisMethod"
+    """<p>The analysis method allowed for the configured tables.</p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>"""
+    selected_analysis_methods: NotRequired[
+        "aws_sdk_cleanrooms.types.selected_analysis_methods.SelectedAnalysisMethods"
+    ]
+    """<p> The analysis methods to enable for the configured table. When configured, you must specify at least two analysis methods.</p>"""
+    tags: NotRequired["aws_sdk_cleanrooms.types.tag_map.TagMap"]
+    """<p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateConfiguredTableInput) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    import aws_sdk_cleanrooms.types.table_reference
+
+    out["tableReference"] = aws_sdk_cleanrooms.types.table_reference.serialize_json(
+        value["table_reference"]
+    )
+    import aws_sdk_cleanrooms.types.allowed_column_list
+
+    out["allowedColumns"] = aws_sdk_cleanrooms.types.allowed_column_list.serialize_json(
+        value["allowed_columns"]
+    )
+    import aws_sdk_cleanrooms.types.analysis_method
+
+    out["analysisMethod"] = aws_sdk_cleanrooms.types.analysis_method.serialize_json(
+        value["analysis_method"]
+    )
+    if "selected_analysis_methods" in value:
+        import aws_sdk_cleanrooms.types.selected_analysis_methods
+
+        out["selectedAnalysisMethods"] = (
+            aws_sdk_cleanrooms.types.selected_analysis_methods.serialize_json(
+                value["selected_analysis_methods"]
+            )
+        )
+    if "tags" in value:
+        import aws_sdk_cleanrooms.types.tag_map
+
+        out["tags"] = aws_sdk_cleanrooms.types.tag_map.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> CreateConfiguredTableInput:
+    out: CreateConfiguredTableInput = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("CreateConfiguredTableInput.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "tableReference" in data:
+        import aws_sdk_cleanrooms.types.table_reference
+
+        out["table_reference"] = (
+            aws_sdk_cleanrooms.types.table_reference.deserialize_json(
+                data["tableReference"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateConfiguredTableInput.table_reference required"
+        )
+    if "allowedColumns" in data:
+        import aws_sdk_cleanrooms.types.allowed_column_list
+
+        out["allowed_columns"] = (
+            aws_sdk_cleanrooms.types.allowed_column_list.deserialize_json(
+                data["allowedColumns"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateConfiguredTableInput.allowed_columns required"
+        )
+    if "analysisMethod" in data:
+        import aws_sdk_cleanrooms.types.analysis_method
+
+        out["analysis_method"] = (
+            aws_sdk_cleanrooms.types.analysis_method.deserialize_json(
+                data["analysisMethod"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateConfiguredTableInput.analysis_method required"
+        )
+    if "selectedAnalysisMethods" in data:
+        import aws_sdk_cleanrooms.types.selected_analysis_methods
+
+        out["selected_analysis_methods"] = (
+            aws_sdk_cleanrooms.types.selected_analysis_methods.deserialize_json(
+                data["selectedAnalysisMethods"]
+            )
+        )
+    if "tags" in data:
+        import aws_sdk_cleanrooms.types.tag_map
+
+        out["tags"] = aws_sdk_cleanrooms.types.tag_map.deserialize_json(data["tags"])
+    return out

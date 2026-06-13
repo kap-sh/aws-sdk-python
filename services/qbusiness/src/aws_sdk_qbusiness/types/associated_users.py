@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AssociatedUsers``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.associated_user
 
-AssociatedUsers: TypeAlias = list["aws_sdk_qbusiness.types.associated_user.AssociatedUser"]
+AssociatedUsers: TypeAlias = list[
+    "aws_sdk_qbusiness.types.associated_user.AssociatedUser"
+]
 
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociatedUsers) -> list:
     import aws_sdk_qbusiness.types.associated_user
+
     out: list = []
     for item in value:
         out.append(aws_sdk_qbusiness.types.associated_user.serialize_json(item))
@@ -18,6 +22,7 @@ def serialize_json(value: AssociatedUsers) -> list:
 
 def deserialize_json(data: list) -> AssociatedUsers:
     import aws_sdk_qbusiness.types.associated_user
+
     out: AssociatedUsers = []
     for item in data:
         out.append(aws_sdk_qbusiness.types.associated_user.deserialize_json(item))

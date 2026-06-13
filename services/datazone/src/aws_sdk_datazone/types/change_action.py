@@ -9,11 +9,19 @@ import base64
 from email.utils import format_datetime as _fmt_http
 from email.utils import parsedate_to_datetime as _parse_http
 
-ChangeAction: TypeAlias = Literal["PUBLISH", "UNPUBLISH",]
+ChangeAction: TypeAlias = Literal[
+    "PUBLISH",
+    "UNPUBLISH",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("PUBLISH", "UNPUBLISH",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "PUBLISH",
+        "UNPUBLISH",
+    )
+)
 
 
 def serialize_json(value: ChangeAction) -> str:

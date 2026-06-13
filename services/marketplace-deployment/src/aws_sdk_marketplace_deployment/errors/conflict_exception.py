@@ -1,15 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#ConflictException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_marketplace_deployment.errors import DeserializationError
-from aws_sdk_marketplace_deployment.errors import ServiceError
+
+from aws_sdk_marketplace_deployment.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.resource_id
+
 
 class ConflictException_(TypedDict):
     message: "str"
     resource_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId"
     """<p>The unique identifier for the resource associated with the error.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConflictException_) -> dict:
@@ -34,10 +37,16 @@ def deserialize_json(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.marketplacedeployment#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

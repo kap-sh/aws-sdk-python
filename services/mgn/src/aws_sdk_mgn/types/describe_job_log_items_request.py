@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DescribeJobLogItemsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mgn.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.job_id
     import aws_sdk_mgn.types.max_results_type
     import aws_sdk_mgn.types.pagination_token
+
 
 class DescribeJobLogItemsRequest(TypedDict):
     job_id: "aws_sdk_mgn.types.job_id.JobID"
@@ -18,6 +22,7 @@ class DescribeJobLogItemsRequest(TypedDict):
     """<p>Request to describe Job log next token.</p>"""
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Request to describe Job log Account ID.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeJobLogItemsRequest) -> dict:

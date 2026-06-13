@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#ExecutionReference``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bcm_data_exports.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.execution_status
     import aws_sdk_bcm_data_exports.types.generic_string
+
 
 class ExecutionReference(TypedDict):
     execution_id: "aws_sdk_bcm_data_exports.types.generic_string.GenericString"
@@ -12,12 +15,18 @@ class ExecutionReference(TypedDict):
     execution_status: "aws_sdk_bcm_data_exports.types.execution_status.ExecutionStatus"
     """<p>The status of this specific execution.</p>"""
 
+
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: ExecutionReference) -> dict:
     out: dict = {}
     out["ExecutionId"] = value["execution_id"]
     import aws_sdk_bcm_data_exports.types.execution_status
-    out["ExecutionStatus"] = aws_sdk_bcm_data_exports.types.execution_status.serialize_aws_json_1_1(value["execution_status"])
+
+    out["ExecutionStatus"] = (
+        aws_sdk_bcm_data_exports.types.execution_status.serialize_aws_json_1_1(
+            value["execution_status"]
+        )
+    )
     return out
 
 
@@ -29,7 +38,12 @@ def deserialize_aws_json_1_1(data: dict) -> ExecutionReference:
         raise DeserializationError("ExecutionReference.execution_id required")
     if "ExecutionStatus" in data:
         import aws_sdk_bcm_data_exports.types.execution_status
-        out["execution_status"] = aws_sdk_bcm_data_exports.types.execution_status.deserialize_aws_json_1_1(data["ExecutionStatus"])
+
+        out["execution_status"] = (
+            aws_sdk_bcm_data_exports.types.execution_status.deserialize_aws_json_1_1(
+                data["ExecutionStatus"]
+            )
+        )
     else:
         raise DeserializationError("ExecutionReference.execution_status required")
     return out

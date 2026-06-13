@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#NotificationDestinationsList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.notification_destination_type
 
-NotificationDestinationsList: TypeAlias = list["aws_sdk_grafana.types.notification_destination_type.NotificationDestinationType"]
+NotificationDestinationsList: TypeAlias = list[
+    "aws_sdk_grafana.types.notification_destination_type.NotificationDestinationType"
+]
 
 
 # --- restJson1 ser/de ---

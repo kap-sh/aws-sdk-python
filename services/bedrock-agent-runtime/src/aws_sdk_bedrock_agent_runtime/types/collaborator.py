@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Collaborator``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_action_groups
     import aws_sdk_bedrock_agent_runtime.types.agent_collaboration
@@ -16,29 +19,49 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration
     import aws_sdk_bedrock_agent_runtime.types.session_ttl
 
+
 class Collaborator(TypedDict):
-    customer_encryption_key_arn: NotRequired["aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"]
+    customer_encryption_key_arn: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
+    ]
     """<p> The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the inline collaborator. </p>"""
-    foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier"
+    foundation_model: (
+        "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier"
+    )
     """<p> The foundation model used by the inline collaborator agent. </p>"""
     instruction: "aws_sdk_bedrock_agent_runtime.types.instruction.Instruction"
     """<p> Instruction that tell the inline collaborator agent what it should do and how it should interact with users. </p>"""
-    idle_session_ttl_in_seconds: NotRequired["aws_sdk_bedrock_agent_runtime.types.session_ttl.SessionTTL"]
+    idle_session_ttl_in_seconds: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.session_ttl.SessionTTL"
+    ]
     """<p> The number of seconds for which the Amazon Bedrock keeps information about the user's conversation with the inline collaborator agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout. </p>"""
-    action_groups: NotRequired["aws_sdk_bedrock_agent_runtime.types.agent_action_groups.AgentActionGroups"]
+    action_groups: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.agent_action_groups.AgentActionGroups"
+    ]
     """<p> List of action groups with each action group defining tasks the inline collaborator agent needs to carry out. </p>"""
-    knowledge_bases: NotRequired["aws_sdk_bedrock_agent_runtime.types.knowledge_bases.KnowledgeBases"]
+    knowledge_bases: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.knowledge_bases.KnowledgeBases"
+    ]
     """<p> Knowledge base associated with the inline collaborator agent. </p>"""
-    guardrail_configuration: NotRequired["aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.GuardrailConfigurationWithArn"]
+    guardrail_configuration: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.GuardrailConfigurationWithArn"
+    ]
     """<p> Details of the guardwrail associated with the inline collaborator. </p>"""
-    prompt_override_configuration: NotRequired["aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.PromptOverrideConfiguration"]
+    prompt_override_configuration: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.PromptOverrideConfiguration"
+    ]
     """<p> Contains configurations to override prompt templates in different parts of an inline collaborator sequence. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>. </p>"""
-    agent_collaboration: NotRequired["aws_sdk_bedrock_agent_runtime.types.agent_collaboration.AgentCollaboration"]
+    agent_collaboration: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.agent_collaboration.AgentCollaboration"
+    ]
     """<p> Defines how the inline supervisor agent handles information across multiple collaborator agents to coordinate a final response. </p>"""
-    collaborator_configurations: NotRequired["aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.CollaboratorConfigurations"]
+    collaborator_configurations: NotRequired[
+        "aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.CollaboratorConfigurations"
+    ]
     """<p> Settings of the collaborator agent. </p>"""
     agent_name: NotRequired["aws_sdk_bedrock_agent_runtime.types.name.Name"]
     """<p> Name of the inline collaborator agent which must be the same name as specified for <code>collaboratorName</code>. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Collaborator) -> dict:
@@ -51,22 +74,52 @@ def serialize_json(value: Collaborator) -> dict:
         out["idleSessionTTLInSeconds"] = value["idle_session_ttl_in_seconds"]
     if "action_groups" in value:
         import aws_sdk_bedrock_agent_runtime.types.agent_action_groups
-        out["actionGroups"] = aws_sdk_bedrock_agent_runtime.types.agent_action_groups.serialize_json(value["action_groups"])
+
+        out["actionGroups"] = (
+            aws_sdk_bedrock_agent_runtime.types.agent_action_groups.serialize_json(
+                value["action_groups"]
+            )
+        )
     if "knowledge_bases" in value:
         import aws_sdk_bedrock_agent_runtime.types.knowledge_bases
-        out["knowledgeBases"] = aws_sdk_bedrock_agent_runtime.types.knowledge_bases.serialize_json(value["knowledge_bases"])
+
+        out["knowledgeBases"] = (
+            aws_sdk_bedrock_agent_runtime.types.knowledge_bases.serialize_json(
+                value["knowledge_bases"]
+            )
+        )
     if "guardrail_configuration" in value:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn
-        out["guardrailConfiguration"] = aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.serialize_json(value["guardrail_configuration"])
+
+        out["guardrailConfiguration"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.serialize_json(
+                value["guardrail_configuration"]
+            )
+        )
     if "prompt_override_configuration" in value:
         import aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration
-        out["promptOverrideConfiguration"] = aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.serialize_json(value["prompt_override_configuration"])
+
+        out["promptOverrideConfiguration"] = (
+            aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.serialize_json(
+                value["prompt_override_configuration"]
+            )
+        )
     if "agent_collaboration" in value:
         import aws_sdk_bedrock_agent_runtime.types.agent_collaboration
-        out["agentCollaboration"] = aws_sdk_bedrock_agent_runtime.types.agent_collaboration.serialize_json(value["agent_collaboration"])
+
+        out["agentCollaboration"] = (
+            aws_sdk_bedrock_agent_runtime.types.agent_collaboration.serialize_json(
+                value["agent_collaboration"]
+            )
+        )
     if "collaborator_configurations" in value:
         import aws_sdk_bedrock_agent_runtime.types.collaborator_configurations
-        out["collaboratorConfigurations"] = aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.serialize_json(value["collaborator_configurations"])
+
+        out["collaboratorConfigurations"] = (
+            aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.serialize_json(
+                value["collaborator_configurations"]
+            )
+        )
     if "agent_name" in value:
         out["agentName"] = value["agent_name"]
     return out
@@ -88,22 +141,52 @@ def deserialize_json(data: dict) -> Collaborator:
         out["idle_session_ttl_in_seconds"] = data["idleSessionTTLInSeconds"]
     if "actionGroups" in data:
         import aws_sdk_bedrock_agent_runtime.types.agent_action_groups
-        out["action_groups"] = aws_sdk_bedrock_agent_runtime.types.agent_action_groups.deserialize_json(data["actionGroups"])
+
+        out["action_groups"] = (
+            aws_sdk_bedrock_agent_runtime.types.agent_action_groups.deserialize_json(
+                data["actionGroups"]
+            )
+        )
     if "knowledgeBases" in data:
         import aws_sdk_bedrock_agent_runtime.types.knowledge_bases
-        out["knowledge_bases"] = aws_sdk_bedrock_agent_runtime.types.knowledge_bases.deserialize_json(data["knowledgeBases"])
+
+        out["knowledge_bases"] = (
+            aws_sdk_bedrock_agent_runtime.types.knowledge_bases.deserialize_json(
+                data["knowledgeBases"]
+            )
+        )
     if "guardrailConfiguration" in data:
         import aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn
-        out["guardrail_configuration"] = aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.deserialize_json(data["guardrailConfiguration"])
+
+        out["guardrail_configuration"] = (
+            aws_sdk_bedrock_agent_runtime.types.guardrail_configuration_with_arn.deserialize_json(
+                data["guardrailConfiguration"]
+            )
+        )
     if "promptOverrideConfiguration" in data:
         import aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration
-        out["prompt_override_configuration"] = aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.deserialize_json(data["promptOverrideConfiguration"])
+
+        out["prompt_override_configuration"] = (
+            aws_sdk_bedrock_agent_runtime.types.prompt_override_configuration.deserialize_json(
+                data["promptOverrideConfiguration"]
+            )
+        )
     if "agentCollaboration" in data:
         import aws_sdk_bedrock_agent_runtime.types.agent_collaboration
-        out["agent_collaboration"] = aws_sdk_bedrock_agent_runtime.types.agent_collaboration.deserialize_json(data["agentCollaboration"])
+
+        out["agent_collaboration"] = (
+            aws_sdk_bedrock_agent_runtime.types.agent_collaboration.deserialize_json(
+                data["agentCollaboration"]
+            )
+        )
     if "collaboratorConfigurations" in data:
         import aws_sdk_bedrock_agent_runtime.types.collaborator_configurations
-        out["collaborator_configurations"] = aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.deserialize_json(data["collaboratorConfigurations"])
+
+        out["collaborator_configurations"] = (
+            aws_sdk_bedrock_agent_runtime.types.collaborator_configurations.deserialize_json(
+                data["collaboratorConfigurations"]
+            )
+        )
     if "agentName" in data:
         out["agent_name"] = data["agentName"]
     return out

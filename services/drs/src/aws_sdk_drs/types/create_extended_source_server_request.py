@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateExtendedSourceServerRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_arn
     import aws_sdk_drs.types.tags_map
+
 
 class CreateExtendedSourceServerRequest(TypedDict):
     source_server_arn: "aws_sdk_drs.types.source_server_arn.SourceServerARN"
@@ -13,12 +17,14 @@ class CreateExtendedSourceServerRequest(TypedDict):
     tags: NotRequired["aws_sdk_drs.types.tags_map.TagsMap"]
     """<p>A list of tags associated with the extended source server.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateExtendedSourceServerRequest) -> dict:
     out: dict = {}
     out["sourceServerArn"] = value["source_server_arn"]
     if "tags" in value:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.serialize_json(value["tags"])
     return out
 
@@ -28,8 +34,11 @@ def deserialize_json(data: dict) -> CreateExtendedSourceServerRequest:
     if "sourceServerArn" in data:
         out["source_server_arn"] = data["sourceServerArn"]
     else:
-        raise DeserializationError("CreateExtendedSourceServerRequest.source_server_arn required")
+        raise DeserializationError(
+            "CreateExtendedSourceServerRequest.source_server_arn required"
+        )
     if "tags" in data:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.deserialize_json(data["tags"])
     return out

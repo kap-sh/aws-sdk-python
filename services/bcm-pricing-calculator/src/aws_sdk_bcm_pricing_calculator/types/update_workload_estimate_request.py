@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#UpdateWorkloadEstimateRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_bcm_pricing_calculator.types.resource_id
+    import aws_sdk_bcm_pricing_calculator.types.workload_estimate_name
+
+
+class UpdateWorkloadEstimateRequest(TypedDict):
+    identifier: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
+    """<p> The unique identifier of the workload estimate to update. </p>"""
+    name: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.workload_estimate_name.WorkloadEstimateName"
+    ]
+    """<p> The new name for the workload estimate. </p>"""
+    expires_at: NotRequired["datetime.datetime"]
+    """<p> The new expiration date for the workload estimate. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateWorkloadEstimateRequest) -> dict:
+    out: dict = {}
+    out["identifier"] = value["identifier"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "expires_at" in value:
+        import aws_sdk_bcm_pricing_calculator.types._prelude.timestamp
+
+        out["expiresAt"] = (
+            aws_sdk_bcm_pricing_calculator.types._prelude.timestamp.serialize_aws_json_1_0(
+                value["expires_at"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateWorkloadEstimateRequest:
+    out: UpdateWorkloadEstimateRequest = {}  # type: ignore[typeddict-item]
+    if "identifier" in data:
+        out["identifier"] = data["identifier"]
+    else:
+        raise DeserializationError("UpdateWorkloadEstimateRequest.identifier required")
+    if "name" in data:
+        out["name"] = data["name"]
+    if "expiresAt" in data:
+        import aws_sdk_bcm_pricing_calculator.types._prelude.timestamp
+
+        out["expires_at"] = (
+            aws_sdk_bcm_pricing_calculator.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["expiresAt"]
+            )
+        )
+    return out

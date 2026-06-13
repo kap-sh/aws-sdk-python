@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#Address``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_taxsettings.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.address_line1
     import aws_sdk_taxsettings.types.address_line2
@@ -12,6 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.district
     import aws_sdk_taxsettings.types.postal_code
     import aws_sdk_taxsettings.types.state
+
 
 class Address(TypedDict):
     address_line1: "aws_sdk_taxsettings.types.address_line1.AddressLine1"
@@ -31,17 +35,18 @@ class Address(TypedDict):
     country_code: "aws_sdk_taxsettings.types.country_code.CountryCode"
     """<p>The country code for the country that the address is in. </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: Address) -> dict:
     out: dict = {}
-    out["addressLine1"] = value.get("address_line1", 'Unknown')
+    out["addressLine1"] = value.get("address_line1", "Unknown")
     if "address_line2" in value:
         out["addressLine2"] = value["address_line2"]
     if "address_line3" in value:
         out["addressLine3"] = value["address_line3"]
     if "district_or_county" in value:
         out["districtOrCounty"] = value["district_or_county"]
-    out["city"] = value.get("city", 'Unknown')
+    out["city"] = value.get("city", "Unknown")
     if "state_or_region" in value:
         out["stateOrRegion"] = value["state_or_region"]
     out["postalCode"] = value["postal_code"]
@@ -54,7 +59,7 @@ def deserialize_json(data: dict) -> Address:
     if "addressLine1" in data:
         out["address_line1"] = data["addressLine1"]
     else:
-        out["address_line1"] = 'Unknown'
+        out["address_line1"] = "Unknown"
     if "addressLine2" in data:
         out["address_line2"] = data["addressLine2"]
     if "addressLine3" in data:
@@ -64,7 +69,7 @@ def deserialize_json(data: dict) -> Address:
     if "city" in data:
         out["city"] = data["city"]
     else:
-        out["city"] = 'Unknown'
+        out["city"] = "Unknown"
     if "stateOrRegion" in data:
         out["state_or_region"] = data["stateOrRegion"]
     if "postalCode" in data:

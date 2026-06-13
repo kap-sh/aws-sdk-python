@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#AllowedOrganizations``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.allowed_organization
 
-AllowedOrganizations: TypeAlias = list["aws_sdk_grafana.types.allowed_organization.AllowedOrganization"]
+AllowedOrganizations: TypeAlias = list[
+    "aws_sdk_grafana.types.allowed_organization.AllowedOrganization"
+]
 
 
 # --- restJson1 ser/de ---

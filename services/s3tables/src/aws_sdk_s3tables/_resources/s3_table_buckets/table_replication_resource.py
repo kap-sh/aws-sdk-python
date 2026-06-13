@@ -1,0 +1,357 @@
+from typing import TYPE_CHECKING, Optional
+
+import aws_sdk_s3tables._auth._signers
+import aws_sdk_s3tables._auth._sigv4
+from aws_sdk_s3tables._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_s3tables.types.delete_table_replication_request
+    import aws_sdk_s3tables.types.get_table_replication_request
+    import aws_sdk_s3tables.types.get_table_replication_response
+    import aws_sdk_s3tables.types.get_table_replication_status_request
+    import aws_sdk_s3tables.types.get_table_replication_status_response
+    import aws_sdk_s3tables.types.put_table_replication_request
+    import aws_sdk_s3tables.types.put_table_replication_response
+    import aws_sdk_s3tables.types.table_arn
+    import aws_sdk_s3tables.types.table_replication_configuration
+    from aws_sdk_s3tables._services.async_s3_tables import (
+        AsyncS3TablesClient,
+        AsyncS3TablesClientConfig,
+    )
+    from aws_sdk_s3tables._services.s3_tables import (
+        S3TablesClient,
+        S3TablesClientConfig,
+    )
+
+
+class TableReplicationResource:
+    def __init__(self, service: S3TablesClient) -> None:
+        self._service = service
+
+    def delete_table_replication(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        version_token: str,
+        *,
+        config_overrides: Optional[S3TablesClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the replication configuration for a specific table. After deletion, new updates to this table will no longer be replicated to destination tables, though existing replicated copies will remain in destination buckets.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableReplication</code> permission to use this operation.</p> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the table.</p>
+            version_token: <p>A version token from a previous GetTableReplication call. Use this token to ensure you're deleting the expected version of the configuration.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.delete_table_replication
+
+            output, http_response = (
+                aws_sdk_s3tables._operations.s3_table_buckets.delete_table_replication.delete_table_replication(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+        input["version_token"] = version_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_table_replication(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        *,
+        config_overrides: Optional[S3TablesClientConfig] = None,
+    ) -> "aws_sdk_s3tables.types.get_table_replication_response.GetTableReplicationResponse":
+        """<p>Retrieves the replication configuration for a specific table.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableReplication</code> permission to use this operation.</p> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the table.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3tables.types.get_table_replication_response.GetTableReplicationResponse"
+        ]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication
+
+            output, http_response = (
+                aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication.get_table_replication(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_table_replication_status(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        *,
+        config_overrides: Optional[S3TablesClientConfig] = None,
+    ) -> "aws_sdk_s3tables.types.get_table_replication_status_response.GetTableReplicationStatusResponse":
+        """<p>Retrieves the replication status for a table, including the status of replication to each destination. This operation provides visibility into replication health and progress.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableReplicationStatus</code> permission to use this operation.</p> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the table.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3tables.types.get_table_replication_status_response.GetTableReplicationStatusResponse"
+        ]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication_status
+
+            output, http_response = (
+                aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication_status.get_table_replication_status(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def put_table_replication(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        configuration: "aws_sdk_s3tables.types.table_replication_configuration.TableReplicationConfiguration",
+        *,
+        config_overrides: Optional[S3TablesClientConfig] = None,
+        version_token: Optional[str] = None,
+    ) -> "aws_sdk_s3tables.types.put_table_replication_response.PutTableReplicationResponse":
+        """<p>Creates or updates the replication configuration for a specific table. This operation allows you to define table-level replication independently of bucket-level replication, providing granular control over which tables are replicated and where.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:PutTableReplication</code> permission to use this operation. The IAM role specified in the configuration must have permissions to read from the source table and write to all destination tables.</p> </li> <li> <p>You must also have the following permissions:</p> <ul> <li> <p> <code>s3tables:GetTable</code> permission on the source table being replicated.</p> </li> <li> <p> <code>s3tables:CreateTable</code> permission for the destination.</p> </li> <li> <p> <code>s3tables:CreateNamespace</code> permission for the destination.</p> </li> <li> <p> <code>s3tables:GetTableMaintenanceConfig</code> permission for the source table.</p> </li> <li> <p> <code>s3tables:PutTableMaintenanceConfig</code> permission for the destination table.</p> </li> </ul> </li> <li> <p>You must have <code>iam:PassRole</code> permission with condition allowing roles to be passed to <code>replication.s3tables.amazonaws.com</code>.</p> </li> </ul> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the source table.</p>
+            version_token: <p>A version token from a previous GetTableReplication call. Use this token to ensure you're updating the expected version of the configuration.</p>
+            configuration: <p>The replication configuration to apply to the table, including the IAM role and replication rules.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3tables.types.put_table_replication_response.PutTableReplicationResponse"
+        ]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.put_table_replication
+
+            output, http_response = (
+                aws_sdk_s3tables._operations.s3_table_buckets.put_table_replication.put_table_replication(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+        if version_token is not None:
+            input["version_token"] = version_token
+        input["configuration"] = configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncTableReplicationResource:
+    def __init__(self, service: AsyncS3TablesClient) -> None:
+        self._service = service
+
+    async def delete_table_replication(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        version_token: str,
+        *,
+        config_overrides: Optional[AsyncS3TablesClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the replication configuration for a specific table. After deletion, new updates to this table will no longer be replicated to destination tables, though existing replicated copies will remain in destination buckets.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableReplication</code> permission to use this operation.</p> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the table.</p>
+            version_token: <p>A version token from a previous GetTableReplication call. Use this token to ensure you're deleting the expected version of the configuration.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.delete_table_replication
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_s3tables._operations.s3_table_buckets.delete_table_replication.async_delete_table_replication(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+        input["version_token"] = version_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_table_replication(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        *,
+        config_overrides: Optional[AsyncS3TablesClientConfig] = None,
+    ) -> "aws_sdk_s3tables.types.get_table_replication_response.GetTableReplicationResponse":
+        """<p>Retrieves the replication configuration for a specific table.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableReplication</code> permission to use this operation.</p> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the table.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_s3tables.types.get_table_replication_response.GetTableReplicationResponse"
+        ]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication.async_get_table_replication(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_table_replication_status(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        *,
+        config_overrides: Optional[AsyncS3TablesClientConfig] = None,
+    ) -> "aws_sdk_s3tables.types.get_table_replication_status_response.GetTableReplicationStatusResponse":
+        """<p>Retrieves the replication status for a table, including the status of replication to each destination. This operation provides visibility into replication health and progress.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableReplicationStatus</code> permission to use this operation.</p> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the table.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_s3tables.types.get_table_replication_status_response.GetTableReplicationStatusResponse"
+        ]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication_status
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_s3tables._operations.s3_table_buckets.get_table_replication_status.async_get_table_replication_status(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def put_table_replication(
+        self,
+        table_arn: "aws_sdk_s3tables.types.table_arn.TableARN",
+        configuration: "aws_sdk_s3tables.types.table_replication_configuration.TableReplicationConfiguration",
+        *,
+        config_overrides: Optional[AsyncS3TablesClientConfig] = None,
+        version_token: Optional[str] = None,
+    ) -> "aws_sdk_s3tables.types.put_table_replication_response.PutTableReplicationResponse":
+        """<p>Creates or updates the replication configuration for a specific table. This operation allows you to define table-level replication independently of bucket-level replication, providing granular control over which tables are replicated and where.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:PutTableReplication</code> permission to use this operation. The IAM role specified in the configuration must have permissions to read from the source table and write to all destination tables.</p> </li> <li> <p>You must also have the following permissions:</p> <ul> <li> <p> <code>s3tables:GetTable</code> permission on the source table being replicated.</p> </li> <li> <p> <code>s3tables:CreateTable</code> permission for the destination.</p> </li> <li> <p> <code>s3tables:CreateNamespace</code> permission for the destination.</p> </li> <li> <p> <code>s3tables:GetTableMaintenanceConfig</code> permission for the source table.</p> </li> <li> <p> <code>s3tables:PutTableMaintenanceConfig</code> permission for the destination table.</p> </li> </ul> </li> <li> <p>You must have <code>iam:PassRole</code> permission with condition allowing roles to be passed to <code>replication.s3tables.amazonaws.com</code>.</p> </li> </ul> </dd> </dl>
+
+        Args:
+            table_arn: <p>The Amazon Resource Name (ARN) of the source table.</p>
+            version_token: <p>A version token from a previous GetTableReplication call. Use this token to ensure you're updating the expected version of the configuration.</p>
+            configuration: <p>The replication configuration to apply to the table, including the IAM role and replication rules.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_s3tables.types.put_table_replication_response.PutTableReplicationResponse"
+        ]:
+            import aws_sdk_s3tables._operations.s3_table_buckets.put_table_replication
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_s3tables._operations.s3_table_buckets.put_table_replication.async_put_table_replication(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input["table_arn"] = table_arn
+        if version_token is not None:
+            input["version_token"] = version_token
+        input["configuration"] = configuration
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

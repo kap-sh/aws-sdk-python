@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#TopicSortClause``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.identifier
+    import aws_sdk_quicksight.types.topic_sort_direction
+
+
+class TopicSortClause(TypedDict):
+    operand: NotRequired["aws_sdk_quicksight.types.identifier.Identifier"]
+    """<p>The operand for a <code>TopicSortClause</code>.</p>"""
+    sort_direction: NotRequired[
+        "aws_sdk_quicksight.types.topic_sort_direction.TopicSortDirection"
+    ]
+    """<p>The sort direction for the <code>TopicSortClause</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TopicSortClause) -> dict:
+    out: dict = {}
+    if "operand" in value:
+        import aws_sdk_quicksight.types.identifier
+
+        out["Operand"] = aws_sdk_quicksight.types.identifier.serialize_json(
+            value["operand"]
+        )
+    if "sort_direction" in value:
+        import aws_sdk_quicksight.types.topic_sort_direction
+
+        out["SortDirection"] = (
+            aws_sdk_quicksight.types.topic_sort_direction.serialize_json(
+                value["sort_direction"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TopicSortClause:
+    out: TopicSortClause = {}  # type: ignore[typeddict-item]
+    if "Operand" in data:
+        import aws_sdk_quicksight.types.identifier
+
+        out["operand"] = aws_sdk_quicksight.types.identifier.deserialize_json(
+            data["Operand"]
+        )
+    if "SortDirection" in data:
+        import aws_sdk_quicksight.types.topic_sort_direction
+
+        out["sort_direction"] = (
+            aws_sdk_quicksight.types.topic_sort_direction.deserialize_json(
+                data["SortDirection"]
+            )
+        )
+    return out

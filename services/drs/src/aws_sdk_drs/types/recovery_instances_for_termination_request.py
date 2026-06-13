@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstancesForTerminationRequest``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_instance_id
 
-RecoveryInstancesForTerminationRequest: TypeAlias = list["aws_sdk_drs.types.recovery_instance_id.RecoveryInstanceID"]
+RecoveryInstancesForTerminationRequest: TypeAlias = list[
+    "aws_sdk_drs.types.recovery_instance_id.RecoveryInstanceID"
+]
 
 
 # --- restJson1 ser/de ---

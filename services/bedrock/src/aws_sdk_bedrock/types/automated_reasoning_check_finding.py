@@ -1,16 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningCheckFinding``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_bedrock.types.automated_reasoning_check_satisfiable_finding
-    import aws_sdk_bedrock.types.automated_reasoning_check_translation_ambiguous_finding
     import aws_sdk_bedrock.types.automated_reasoning_check_impossible_finding
-    import aws_sdk_bedrock.types.automated_reasoning_check_valid_finding
-    import aws_sdk_bedrock.types.automated_reasoning_check_too_complex_finding
     import aws_sdk_bedrock.types.automated_reasoning_check_invalid_finding
     import aws_sdk_bedrock.types.automated_reasoning_check_no_translations_finding
+    import aws_sdk_bedrock.types.automated_reasoning_check_satisfiable_finding
+    import aws_sdk_bedrock.types.automated_reasoning_check_too_complex_finding
+    import aws_sdk_bedrock.types.automated_reasoning_check_translation_ambiguous_finding
+    import aws_sdk_bedrock.types.automated_reasoning_check_valid_finding
 
 
 class _AutomatedReasoningCheckFinding_valid(TypedDict):

@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#UpdateSubscriptionRequestInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_datazone.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_datazone.types.domain_id
+    import aws_sdk_datazone.types.request_reason
+    import aws_sdk_datazone.types.subscription_request_id
+
+
+class UpdateSubscriptionRequestInput(TypedDict):
+    domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
+    """<p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>"""
+    identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId"
+    """<p>The identifier of the subscription request that is to be updated.</p>"""
+    request_reason: "aws_sdk_datazone.types.request_reason.RequestReason"
+    """<p>The reason for the <code>UpdateSubscriptionRequest</code> action.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateSubscriptionRequestInput) -> dict:
+    out: dict = {}
+    out["requestReason"] = value["request_reason"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateSubscriptionRequestInput:
+    out: UpdateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+    if "requestReason" in data:
+        out["request_reason"] = data["requestReason"]
+    else:
+        raise DeserializationError(
+            "UpdateSubscriptionRequestInput.request_reason required"
+        )
+    return out

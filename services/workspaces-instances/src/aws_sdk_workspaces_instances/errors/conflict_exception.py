@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ConflictException``."""
 
 from typing import TypedDict
-from aws_sdk_workspaces_instances.errors import DeserializationError
-from aws_sdk_workspaces_instances.errors import ServiceError
+
+from aws_sdk_workspaces_instances.errors import DeserializationError, ServiceError
+
 
 class ConflictException_(TypedDict):
     message: "str"
@@ -11,6 +12,7 @@ class ConflictException_(TypedDict):
     """<p>Identifier of the conflicting resource.</p>"""
     resource_type: "str"
     """<p>Type of the conflicting resource.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: ConflictException_) -> dict:
@@ -40,10 +42,16 @@ def deserialize_aws_json_1_0(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.workspacesinstances#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

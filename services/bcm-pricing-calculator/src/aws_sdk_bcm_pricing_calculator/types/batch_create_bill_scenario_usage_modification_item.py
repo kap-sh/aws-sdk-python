@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateBillScenarioUsageModificationItem``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.account_id
     import aws_sdk_bcm_pricing_calculator.types.availability_zone
@@ -15,6 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.usage_quantities
     import aws_sdk_bcm_pricing_calculator.types.usage_type
 
+
 class BatchCreateBillScenarioUsageModificationItem(TypedDict):
     service_code: "aws_sdk_bcm_pricing_calculator.types.service_code.ServiceCode"
     """<p> The Amazon Web Services service code for this usage modification. </p>"""
@@ -24,20 +28,29 @@ class BatchCreateBillScenarioUsageModificationItem(TypedDict):
     """<p> The specific operation associated with this usage modification. </p>"""
     location: NotRequired["str"]
     """<p> The location associated with this usage modification. </p>"""
-    availability_zone: NotRequired["aws_sdk_bcm_pricing_calculator.types.availability_zone.AvailabilityZone"]
+    availability_zone: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.availability_zone.AvailabilityZone"
+    ]
     """<p> The availability zone associated with this usage modification, if applicable. </p>"""
     id: NotRequired["aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"]
     """<p> The unique identifier assigned to the created usage modification. </p>"""
     group: NotRequired["aws_sdk_bcm_pricing_calculator.types.usage_group.UsageGroup"]
     """<p> The group identifier for the created usage modification. </p>"""
-    usage_account_id: NotRequired["aws_sdk_bcm_pricing_calculator.types.account_id.AccountId"]
+    usage_account_id: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.account_id.AccountId"
+    ]
     """<p> The Amazon Web Services account ID associated with the created usage modification. </p>"""
-    quantities: NotRequired["aws_sdk_bcm_pricing_calculator.types.usage_quantities.UsageQuantities"]
+    quantities: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.usage_quantities.UsageQuantities"
+    ]
     """<p> The modified usage quantities. </p>"""
-    historical_usage: NotRequired["aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.HistoricalUsageEntity"]
+    historical_usage: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.HistoricalUsageEntity"
+    ]
     """<p> Historical usage data associated with this modification, if available. </p>"""
     key: NotRequired["aws_sdk_bcm_pricing_calculator.types.key.Key"]
     """<p> The key of the successfully created entry. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: BatchCreateBillScenarioUsageModificationItem) -> dict:
@@ -57,29 +70,47 @@ def serialize_aws_json_1_0(value: BatchCreateBillScenarioUsageModificationItem) 
         out["usageAccountId"] = value["usage_account_id"]
     if "quantities" in value:
         import aws_sdk_bcm_pricing_calculator.types.usage_quantities
-        out["quantities"] = aws_sdk_bcm_pricing_calculator.types.usage_quantities.serialize_aws_json_1_0(value["quantities"])
+
+        out["quantities"] = (
+            aws_sdk_bcm_pricing_calculator.types.usage_quantities.serialize_aws_json_1_0(
+                value["quantities"]
+            )
+        )
     if "historical_usage" in value:
         import aws_sdk_bcm_pricing_calculator.types.historical_usage_entity
-        out["historicalUsage"] = aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.serialize_aws_json_1_0(value["historical_usage"])
+
+        out["historicalUsage"] = (
+            aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.serialize_aws_json_1_0(
+                value["historical_usage"]
+            )
+        )
     if "key" in value:
         out["key"] = value["key"]
     return out
 
 
-def deserialize_aws_json_1_0(data: dict) -> BatchCreateBillScenarioUsageModificationItem:
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> BatchCreateBillScenarioUsageModificationItem:
     out: BatchCreateBillScenarioUsageModificationItem = {}  # type: ignore[typeddict-item]
     if "serviceCode" in data:
         out["service_code"] = data["serviceCode"]
     else:
-        raise DeserializationError("BatchCreateBillScenarioUsageModificationItem.service_code required")
+        raise DeserializationError(
+            "BatchCreateBillScenarioUsageModificationItem.service_code required"
+        )
     if "usageType" in data:
         out["usage_type"] = data["usageType"]
     else:
-        raise DeserializationError("BatchCreateBillScenarioUsageModificationItem.usage_type required")
+        raise DeserializationError(
+            "BatchCreateBillScenarioUsageModificationItem.usage_type required"
+        )
     if "operation" in data:
         out["operation"] = data["operation"]
     else:
-        raise DeserializationError("BatchCreateBillScenarioUsageModificationItem.operation required")
+        raise DeserializationError(
+            "BatchCreateBillScenarioUsageModificationItem.operation required"
+        )
     if "location" in data:
         out["location"] = data["location"]
     if "availabilityZone" in data:
@@ -92,10 +123,20 @@ def deserialize_aws_json_1_0(data: dict) -> BatchCreateBillScenarioUsageModifica
         out["usage_account_id"] = data["usageAccountId"]
     if "quantities" in data:
         import aws_sdk_bcm_pricing_calculator.types.usage_quantities
-        out["quantities"] = aws_sdk_bcm_pricing_calculator.types.usage_quantities.deserialize_aws_json_1_0(data["quantities"])
+
+        out["quantities"] = (
+            aws_sdk_bcm_pricing_calculator.types.usage_quantities.deserialize_aws_json_1_0(
+                data["quantities"]
+            )
+        )
     if "historicalUsage" in data:
         import aws_sdk_bcm_pricing_calculator.types.historical_usage_entity
-        out["historical_usage"] = aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.deserialize_aws_json_1_0(data["historicalUsage"])
+
+        out["historical_usage"] = (
+            aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.deserialize_aws_json_1_0(
+                data["historicalUsage"]
+            )
+        )
     if "key" in data:
         out["key"] = data["key"]
     return out

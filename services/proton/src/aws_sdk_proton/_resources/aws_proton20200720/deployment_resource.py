@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_proton._services.async_proton import ensure_async_iterator
-from aws_sdk_proton._services.proton import ensure_sync_iterator
-from aws_sdk_proton._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_proton._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
-    from aws_sdk_proton._services.async_proton import AsyncProtonClient, AsyncProtonClientConfig
     import aws_sdk_proton.types.delete_deployment_input
     import aws_sdk_proton.types.delete_deployment_output
     import aws_sdk_proton.types.deployment_id
@@ -16,11 +21,35 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.max_page_results
     import aws_sdk_proton.types.next_token
     import aws_sdk_proton.types.resource_name
+    from aws_sdk_proton._services.async_proton import (
+        AsyncProtonClient,
+        AsyncProtonClientConfig,
+    )
+    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
+
 
 class DeploymentResource:
     def __init__(self, service: ProtonClient) -> None:
         self._service = service
-    def read(self, id: "aws_sdk_proton.types.deployment_id.DeploymentId", *, config_overrides: Optional[ProtonClientConfig] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, component_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None) -> "aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput":
+
+    def read(
+        self,
+        id: "aws_sdk_proton.types.deployment_id.DeploymentId",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        component_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+    ) -> "aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput":
         """<p>Get detailed data for a deployment.</p>
 
         Args:
@@ -30,9 +59,19 @@ class DeploymentResource:
             service_instance_name: <p>The name of the service instance associated with the given deployment ID. <code>serviceName</code> must be specified to identify the service instance.</p>
             component_name: <p>The name of a component that you want to get the detailed data for.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.get_deployment_input.GetDeploymentInput]') -> OperationResponse["aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.get_deployment_input.GetDeploymentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_deployment
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.get_deployment.get_deployment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.get_deployment.get_deployment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -47,26 +86,71 @@ class DeploymentResource:
         if component_name is not None:
             input["component_name"] = component_name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, id: "aws_sdk_proton.types.deployment_id.DeploymentId", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput":
+
+    def delete(
+        self,
+        id: "aws_sdk_proton.types.deployment_id.DeploymentId",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput":
         """<p>Delete the deployment.</p>
 
         Args:
             id: <p>The ID of the deployment to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput]') -> OperationResponse["aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_deployment
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.delete_deployment.delete_deployment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.delete_deployment.delete_deployment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
         input["id"] = id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[ProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, component_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None) -> "aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        component_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput":
         """<p>List deployments. You can filter the result list by environment, service, or a single service instance.</p>
 
         Args:
@@ -77,9 +161,19 @@ class DeploymentResource:
             component_name: <p>The name of a component for result list filtering. Proton returns deployments associated with that component.</p>
             max_results: <p>The maximum number of deployments to list.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput]') -> OperationResponse["aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_deployments
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.list_deployments.list_deployments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.list_deployments.list_deployments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -97,13 +191,36 @@ class DeploymentResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncDeploymentResource:
     def __init__(self, service: AsyncProtonClient) -> None:
         self._service = service
-    async def read(self, id: "aws_sdk_proton.types.deployment_id.DeploymentId", *, config_overrides: Optional[AsyncProtonClientConfig] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, component_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None) -> "aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput":
+
+    async def read(
+        self,
+        id: "aws_sdk_proton.types.deployment_id.DeploymentId",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        component_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+    ) -> "aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput":
         """<p>Get detailed data for a deployment.</p>
 
         Args:
@@ -113,9 +230,20 @@ class AsyncDeploymentResource:
             service_instance_name: <p>The name of the service instance associated with the given deployment ID. <code>serviceName</code> must be specified to identify the service instance.</p>
             component_name: <p>The name of a component that you want to get the detailed data for.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.get_deployment_input.GetDeploymentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.get_deployment_input.GetDeploymentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.get_deployment_output.GetDeploymentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_deployment
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.get_deployment.async_get_deployment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.get_deployment.async_get_deployment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -130,26 +258,72 @@ class AsyncDeploymentResource:
         if component_name is not None:
             input["component_name"] = component_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, id: "aws_sdk_proton.types.deployment_id.DeploymentId", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput":
+
+    async def delete(
+        self,
+        id: "aws_sdk_proton.types.deployment_id.DeploymentId",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput":
         """<p>Delete the deployment.</p>
 
         Args:
             id: <p>The ID of the deployment to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput]') -> AsyncOperationResponse["aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.delete_deployment_output.DeleteDeploymentOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_deployment
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.delete_deployment.async_delete_deployment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.delete_deployment.async_delete_deployment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
         input["id"] = id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, environment_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, service_instance_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, component_name: Optional["aws_sdk_proton.types.resource_name.ResourceName"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None) -> "aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        environment_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        service_instance_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        component_name: Optional[
+            "aws_sdk_proton.types.resource_name.ResourceName"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput":
         """<p>List deployments. You can filter the result list by environment, service, or a single service instance.</p>
 
         Args:
@@ -160,9 +334,20 @@ class AsyncDeploymentResource:
             component_name: <p>The name of a component for result list filtering. Proton returns deployments associated with that component.</p>
             max_results: <p>The maximum number of deployments to list.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.list_deployments_output.ListDeploymentsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_deployments
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.list_deployments.async_list_deployments(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.list_deployments.async_list_deployments(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -180,5 +365,9 @@ class AsyncDeploymentResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

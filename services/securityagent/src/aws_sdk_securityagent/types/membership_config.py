@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.securityagent#MembershipConfig``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_securityagent.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_securityagent.types.user_config
+
+
+class _MembershipConfig_user(TypedDict):
+    user: "aws_sdk_securityagent.types.user_config.UserConfig"
+
+
+MembershipConfig: TypeAlias = _MembershipConfig_user
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MembershipConfig) -> dict:
+    if "user" in value:
+        import aws_sdk_securityagent.types.user_config
+
+        return {
+            "user": aws_sdk_securityagent.types.user_config.serialize_json(
+                value["user"]
+            )
+        }
+    else:
+        raise SerializationError("MembershipConfig: no variant present")
+
+
+def deserialize_json(data: dict) -> MembershipConfig:
+    if "user" in data:
+        import aws_sdk_securityagent.types.user_config
+
+        return {
+            "user": aws_sdk_securityagent.types.user_config.deserialize_json(
+                data["user"]
+            )
+        }
+    else:
+        raise DeserializationError("MembershipConfig: no recognized variant key")

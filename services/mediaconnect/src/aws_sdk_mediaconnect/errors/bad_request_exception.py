@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BadRequestException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mediaconnect.errors import ServiceError
+
 
 class BadRequestException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BadRequestException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> BadRequestException_:
 
 class BadRequestException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.mediaconnect#BadRequestException``."""
-    code: str | None = 'BadRequestException'
+
+    code: str | None = "BadRequestException"
 
     def __init__(self, data: BadRequestException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='BadRequestException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="BadRequestException",
+        )
         self.data = data
 
     @classmethod

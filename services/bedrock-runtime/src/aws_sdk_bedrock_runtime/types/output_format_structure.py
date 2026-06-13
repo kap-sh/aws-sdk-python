@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#OutputFormatStructure``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_runtime.types.json_schema_definition
+
+
+class _OutputFormatStructure_jsonSchema(TypedDict):
+    jsonSchema: (
+        "aws_sdk_bedrock_runtime.types.json_schema_definition.JsonSchemaDefinition"
+    )
+
+
+OutputFormatStructure: TypeAlias = _OutputFormatStructure_jsonSchema
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: OutputFormatStructure) -> dict:
+    if "jsonSchema" in value:
+        import aws_sdk_bedrock_runtime.types.json_schema_definition
+
+        return {
+            "jsonSchema": aws_sdk_bedrock_runtime.types.json_schema_definition.serialize_json(
+                value["jsonSchema"]
+            )
+        }
+    else:
+        raise SerializationError("OutputFormatStructure: no variant present")
+
+
+def deserialize_json(data: dict) -> OutputFormatStructure:
+    if "jsonSchema" in data:
+        import aws_sdk_bedrock_runtime.types.json_schema_definition
+
+        return {
+            "jsonSchema": aws_sdk_bedrock_runtime.types.json_schema_definition.deserialize_json(
+                data["jsonSchema"]
+            )
+        }
+    else:
+        raise DeserializationError("OutputFormatStructure: no recognized variant key")

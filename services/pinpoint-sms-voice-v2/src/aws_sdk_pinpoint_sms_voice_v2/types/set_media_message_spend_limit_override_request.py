@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SetMediaMessageSpendLimitOverrideRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_pinpoint_sms_voice_v2.types.monthly_limit
+
+
+class SetMediaMessageSpendLimitOverrideRequest(TypedDict):
+    monthly_limit: "aws_sdk_pinpoint_sms_voice_v2.types.monthly_limit.MonthlyLimit"
+    """<p>The new monthly limit to enforce on text messages.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: SetMediaMessageSpendLimitOverrideRequest) -> dict:
+    out: dict = {}
+    out["MonthlyLimit"] = value["monthly_limit"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> SetMediaMessageSpendLimitOverrideRequest:
+    out: SetMediaMessageSpendLimitOverrideRequest = {}  # type: ignore[typeddict-item]
+    if "MonthlyLimit" in data:
+        out["monthly_limit"] = data["MonthlyLimit"]
+    else:
+        raise DeserializationError(
+            "SetMediaMessageSpendLimitOverrideRequest.monthly_limit required"
+        )
+    return out

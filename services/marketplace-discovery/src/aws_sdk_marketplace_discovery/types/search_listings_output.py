@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplacediscovery#SearchListingsOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_marketplace_discovery.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_marketplace_discovery.types.listing_summary_list
+    import aws_sdk_marketplace_discovery.types.next_token
+    import aws_sdk_marketplace_discovery.types.non_negative_count
+
+
+class SearchListingsOutput(TypedDict):
+    total_results: (
+        "aws_sdk_marketplace_discovery.types.non_negative_count.NonNegativeCount"
+    )
+    """<p>The total number of listings matching the search criteria.</p>"""
+    listing_summaries: (
+        "aws_sdk_marketplace_discovery.types.listing_summary_list.ListingSummaryList"
+    )
+    """<p>The listing summaries matching the search criteria. Each summary includes the listing name, description, badges, categories, pricing models, reviews, and associated products.</p>"""
+    next_token: NotRequired["aws_sdk_marketplace_discovery.types.next_token.NextToken"]
+    """<p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SearchListingsOutput) -> dict:
+    out: dict = {}
+    out["totalResults"] = value["total_results"]
+    import aws_sdk_marketplace_discovery.types.listing_summary_list
+
+    out["listingSummaries"] = (
+        aws_sdk_marketplace_discovery.types.listing_summary_list.serialize_json(
+            value["listing_summaries"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> SearchListingsOutput:
+    out: SearchListingsOutput = {}  # type: ignore[typeddict-item]
+    if "totalResults" in data:
+        out["total_results"] = data["totalResults"]
+    else:
+        raise DeserializationError("SearchListingsOutput.total_results required")
+    if "listingSummaries" in data:
+        import aws_sdk_marketplace_discovery.types.listing_summary_list
+
+        out["listing_summaries"] = (
+            aws_sdk_marketplace_discovery.types.listing_summary_list.deserialize_json(
+                data["listingSummaries"]
+            )
+        )
+    else:
+        raise DeserializationError("SearchListingsOutput.listing_summaries required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#CreateScopeOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_networkflowmonitor.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.arn
     import aws_sdk_networkflowmonitor.types.scope_id
     import aws_sdk_networkflowmonitor.types.scope_status
     import aws_sdk_networkflowmonitor.types.tag_map
+
 
 class CreateScopeOutput(TypedDict):
     scope_id: "aws_sdk_networkflowmonitor.types.scope_id.ScopeId"
@@ -19,16 +23,23 @@ class CreateScopeOutput(TypedDict):
     tags: NotRequired["aws_sdk_networkflowmonitor.types.tag_map.TagMap"]
     """<p>The tags for a scope.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateScopeOutput) -> dict:
     out: dict = {}
     out["scopeId"] = value["scope_id"]
     import aws_sdk_networkflowmonitor.types.scope_status
-    out["status"] = aws_sdk_networkflowmonitor.types.scope_status.serialize_json(value["status"])
+
+    out["status"] = aws_sdk_networkflowmonitor.types.scope_status.serialize_json(
+        value["status"]
+    )
     out["scopeArn"] = value["scope_arn"]
     if "tags" in value:
         import aws_sdk_networkflowmonitor.types.tag_map
-        out["tags"] = aws_sdk_networkflowmonitor.types.tag_map.serialize_json(value["tags"])
+
+        out["tags"] = aws_sdk_networkflowmonitor.types.tag_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -40,7 +51,10 @@ def deserialize_json(data: dict) -> CreateScopeOutput:
         raise DeserializationError("CreateScopeOutput.scope_id required")
     if "status" in data:
         import aws_sdk_networkflowmonitor.types.scope_status
-        out["status"] = aws_sdk_networkflowmonitor.types.scope_status.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_networkflowmonitor.types.scope_status.deserialize_json(
+            data["status"]
+        )
     else:
         raise DeserializationError("CreateScopeOutput.status required")
     if "scopeArn" in data:
@@ -49,5 +63,8 @@ def deserialize_json(data: dict) -> CreateScopeOutput:
         raise DeserializationError("CreateScopeOutput.scope_arn required")
     if "tags" in data:
         import aws_sdk_networkflowmonitor.types.tag_map
-        out["tags"] = aws_sdk_networkflowmonitor.types.tag_map.deserialize_json(data["tags"])
+
+        out["tags"] = aws_sdk_networkflowmonitor.types.tag_map.deserialize_json(
+            data["tags"]
+        )
     return out

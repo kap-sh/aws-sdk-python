@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeleteBridgeResponse``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class DeleteBridgeResponse(TypedDict):
     bridge_arn: NotRequired["str"]
     """<p> The ARN of the deleted bridge.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteBridgeResponse) -> dict:

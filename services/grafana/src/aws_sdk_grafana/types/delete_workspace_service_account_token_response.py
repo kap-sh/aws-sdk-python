@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DeleteWorkspaceServiceAccountTokenResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_grafana.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
+
 
 class DeleteWorkspaceServiceAccountTokenResponse(TypedDict):
     token_id: "str"
@@ -12,6 +15,7 @@ class DeleteWorkspaceServiceAccountTokenResponse(TypedDict):
     """<p>The ID of the service account where the token was deleted.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace where the token was deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteWorkspaceServiceAccountTokenResponse) -> dict:
@@ -27,13 +31,19 @@ def deserialize_json(data: dict) -> DeleteWorkspaceServiceAccountTokenResponse:
     if "tokenId" in data:
         out["token_id"] = data["tokenId"]
     else:
-        raise DeserializationError("DeleteWorkspaceServiceAccountTokenResponse.token_id required")
+        raise DeserializationError(
+            "DeleteWorkspaceServiceAccountTokenResponse.token_id required"
+        )
     if "serviceAccountId" in data:
         out["service_account_id"] = data["serviceAccountId"]
     else:
-        raise DeserializationError("DeleteWorkspaceServiceAccountTokenResponse.service_account_id required")
+        raise DeserializationError(
+            "DeleteWorkspaceServiceAccountTokenResponse.service_account_id required"
+        )
     if "workspaceId" in data:
         out["workspace_id"] = data["workspaceId"]
     else:
-        raise DeserializationError("DeleteWorkspaceServiceAccountTokenResponse.workspace_id required")
+        raise DeserializationError(
+            "DeleteWorkspaceServiceAccountTokenResponse.workspace_id required"
+        )
     return out

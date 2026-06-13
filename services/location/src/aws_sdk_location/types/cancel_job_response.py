@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#CancelJobResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.geo_arn
     import aws_sdk_location.types.job_id
     import aws_sdk_location.types.job_status
+
 
 class CancelJobResponse(TypedDict):
     job_arn: "aws_sdk_location.types.geo_arn.GeoArn"
@@ -14,6 +17,7 @@ class CancelJobResponse(TypedDict):
     """<p>Unique job identifier.</p>"""
     status: "aws_sdk_location.types.job_status.JobStatus"
     """<p>Job status after cancellation request.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CancelJobResponse) -> dict:

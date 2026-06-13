@@ -1,21 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#AWSMPDeploymentParametersService``."""
 
-from aws_sdk_marketplace_deployment._auth._signers import SigV4Signer
-from aws_sdk_marketplace_deployment._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_marketplace_deployment._auth._zapros_handler import AuthMiddleware
-from aws_sdk_marketplace_deployment._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_marketplace_deployment.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_marketplace_deployment._auth._signers
 import aws_sdk_marketplace_deployment._auth._sigv4
 from aws_sdk_marketplace_deployment._auth._identity import Credentials
-from aws_sdk_marketplace_deployment._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_marketplace_deployment._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_marketplace_deployment._auth._zapros_handler import AuthMiddleware
+from aws_sdk_marketplace_deployment._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.list_tags_for_resource_request
     import aws_sdk_marketplace_deployment.types.list_tags_for_resource_response
@@ -26,6 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.untag_resource_request
     import aws_sdk_marketplace_deployment.types.untag_resource_response
 
+
 class MarketplaceDeploymentClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -35,7 +44,9 @@ class MarketplaceDeploymentClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -43,6 +54,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class MarketplaceDeploymentClient:
     """A client for the ``MarketplaceDeployment`` service.
@@ -58,19 +70,76 @@ class MarketplaceDeploymentClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = MarketplaceDeploymentClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[MarketplaceDeploymentClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = MarketplaceDeploymentClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[MarketplaceDeploymentClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: MarketplaceDeploymentClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def list_tags_for_resource(self, resource_arn: str, *, config_overrides: Optional[MarketplaceDeploymentClientConfig] = None) -> "aws_sdk_marketplace_deployment.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: str,
+        *,
+        config_overrides: Optional[MarketplaceDeploymentClientConfig] = None,
+    ) -> "aws_sdk_marketplace_deployment.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         """<p>Lists all tags that have been added to a deployment parameter resource.</p>
 
         Args:
@@ -82,18 +151,41 @@ class MarketplaceDeploymentClient:
 
             >>> client.list_tags_for_resource(resource_arn='arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_marketplace_deployment.types.list_tags_for_resource_request.ListTagsForResourceRequest]') -> OperationResponse["aws_sdk_marketplace_deployment.types.list_tags_for_resource_response.ListTagsForResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_marketplace_deployment.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_marketplace_deployment.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
             import aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.list_tags_for_resource
-            output, http_response = aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.list_tags_for_resource.list_tags_for_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_marketplace_deployment.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def tag_resource(self, resource_arn: str, *, config_overrides: Optional[MarketplaceDeploymentClientConfig] = None, tags: Optional["aws_sdk_marketplace_deployment.types.tags.Tags"] = None) -> "aws_sdk_marketplace_deployment.types.tag_resource_response.TagResourceResponse":
+
+    def tag_resource(
+        self,
+        resource_arn: str,
+        *,
+        config_overrides: Optional[MarketplaceDeploymentClientConfig] = None,
+        tags: Optional["aws_sdk_marketplace_deployment.types.tags.Tags"] = None,
+    ) -> (
+        "aws_sdk_marketplace_deployment.types.tag_resource_response.TagResourceResponse"
+    ):
         """<p>Tags a resource.</p>
 
         Args:
@@ -106,9 +198,19 @@ class MarketplaceDeploymentClient:
 
             >>> client.tag_resource(resource_arn='arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier', tags={'FooKey': 'BarValue', 'HelloKey': 'WorldValue'})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_marketplace_deployment.types.tag_resource_request.TagResourceRequest]') -> OperationResponse["aws_sdk_marketplace_deployment.types.tag_resource_response.TagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_marketplace_deployment.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_marketplace_deployment.types.tag_resource_response.TagResourceResponse"
+        ]:
             import aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.tag_resource
-            output, http_response = aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.tag_resource.tag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -117,9 +219,20 @@ class MarketplaceDeploymentClient:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def untag_resource(self, resource_arn: str, tag_keys: "aws_sdk_marketplace_deployment.types.string_list.StringList", *, config_overrides: Optional[MarketplaceDeploymentClientConfig] = None) -> "aws_sdk_marketplace_deployment.types.untag_resource_response.UntagResourceResponse":
+
+    def untag_resource(
+        self,
+        resource_arn: str,
+        tag_keys: "aws_sdk_marketplace_deployment.types.string_list.StringList",
+        *,
+        config_overrides: Optional[MarketplaceDeploymentClientConfig] = None,
+    ) -> "aws_sdk_marketplace_deployment.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes a tag or list of tags from a resource.</p>
 
         Args:
@@ -132,9 +245,19 @@ class MarketplaceDeploymentClient:
 
             >>> client.untag_resource(resource_arn='arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier', tag_keys=['FooKey', 'HelloKey'])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_marketplace_deployment.types.untag_resource_request.UntagResourceRequest]') -> OperationResponse["aws_sdk_marketplace_deployment.types.untag_resource_response.UntagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_marketplace_deployment.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_marketplace_deployment.types.untag_resource_response.UntagResourceResponse"
+        ]:
             import aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.untag_resource
-            output, http_response = aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.untag_resource.untag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -142,9 +265,15 @@ class MarketplaceDeploymentClient:
         input["resource_arn"] = resource_arn
         input["tag_keys"] = tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

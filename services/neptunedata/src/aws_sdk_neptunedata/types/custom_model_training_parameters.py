@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CustomModelTrainingParameters``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_neptunedata.errors import DeserializationError
+
 
 class CustomModelTrainingParameters(TypedDict):
     source_s3_directory_path: "str"
@@ -11,6 +14,7 @@ class CustomModelTrainingParameters(TypedDict):
     """<p>The name of the entry point in your module of a script that performs model training and takes hyperparameters as command-line arguments, including fixed hyperparameters. The default is <code>training.py</code>.</p>"""
     transform_entry_point_script: NotRequired["str"]
     """<p>The name of the entry point in your module of a script that should be run after the best model from the hyperparameter search has been identified, to compute the model artifacts necessary for model deployment. It should be able to run with no command-line arguments.The default is <code>transform.py</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomModelTrainingParameters) -> dict:
@@ -28,7 +32,9 @@ def deserialize_json(data: dict) -> CustomModelTrainingParameters:
     if "sourceS3DirectoryPath" in data:
         out["source_s3_directory_path"] = data["sourceS3DirectoryPath"]
     else:
-        raise DeserializationError("CustomModelTrainingParameters.source_s3_directory_path required")
+        raise DeserializationError(
+            "CustomModelTrainingParameters.source_s3_directory_path required"
+        )
     if "trainingEntryPointScript" in data:
         out["training_entry_point_script"] = data["trainingEntryPointScript"]
     if "transformEntryPointScript" in data:

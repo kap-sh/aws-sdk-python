@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ApiParameter``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class ApiParameter(TypedDict):
     name: NotRequired["str"]
@@ -10,6 +12,7 @@ class ApiParameter(TypedDict):
     """<p>The data type for the parameter.</p>"""
     value: NotRequired["str"]
     """<p>The value of the parameter.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ApiParameter) -> dict:

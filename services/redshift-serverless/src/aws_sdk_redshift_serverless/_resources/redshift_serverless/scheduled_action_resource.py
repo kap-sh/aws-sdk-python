@@ -1,0 +1,568 @@
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_redshift_serverless._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_redshift_serverless.types.create_scheduled_action_request
+    import aws_sdk_redshift_serverless.types.create_scheduled_action_response
+    import aws_sdk_redshift_serverless.types.delete_scheduled_action_request
+    import aws_sdk_redshift_serverless.types.delete_scheduled_action_response
+    import aws_sdk_redshift_serverless.types.get_scheduled_action_request
+    import aws_sdk_redshift_serverless.types.get_scheduled_action_response
+    import aws_sdk_redshift_serverless.types.iam_role_arn
+    import aws_sdk_redshift_serverless.types.list_scheduled_actions_request
+    import aws_sdk_redshift_serverless.types.list_scheduled_actions_response
+    import aws_sdk_redshift_serverless.types.namespace_name
+    import aws_sdk_redshift_serverless.types.pagination_token
+    import aws_sdk_redshift_serverless.types.schedule
+    import aws_sdk_redshift_serverless.types.scheduled_action_association
+    import aws_sdk_redshift_serverless.types.scheduled_action_name
+    import aws_sdk_redshift_serverless.types.target_action
+    import aws_sdk_redshift_serverless.types.update_scheduled_action_request
+    import aws_sdk_redshift_serverless.types.update_scheduled_action_response
+    from aws_sdk_redshift_serverless._services.async_redshift_serverless import (
+        AsyncRedshiftServerlessClient,
+        AsyncRedshiftServerlessClientConfig,
+    )
+    from aws_sdk_redshift_serverless._services.redshift_serverless import (
+        RedshiftServerlessClient,
+        RedshiftServerlessClientConfig,
+    )
+
+
+class ScheduledActionResource:
+    def __init__(self, service: RedshiftServerlessClient) -> None:
+        self._service = service
+
+    def create_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        target_action: "aws_sdk_redshift_serverless.types.target_action.TargetAction",
+        schedule: "aws_sdk_redshift_serverless.types.schedule.Schedule",
+        role_arn: "aws_sdk_redshift_serverless.types.iam_role_arn.IamRoleArn",
+        namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+        enabled: Optional[bool] = None,
+        scheduled_action_description: Optional[str] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+    ) -> "aws_sdk_redshift_serverless.types.create_scheduled_action_response.CreateScheduledActionResponse":
+        """<p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action.</p>
+            schedule: <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>\"(0 10 ? * MON *)\"</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions\">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
+            role_arn: <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html\">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+            namespace_name: <p>The name of the namespace for which to create a scheduled action.</p>
+            enabled: <p>Indicates whether the schedule is enabled. If false, the scheduled action does not trigger. For more information about <code>state</code> of the scheduled action, see <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html\">ScheduledAction</a>.</p>
+            scheduled_action_description: <p>The description of the scheduled action.</p>
+            start_time: <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
+            end_time: <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.create_scheduled_action_response.CreateScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.create_scheduled_action
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.create_scheduled_action.create_scheduled_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+        input["target_action"] = target_action
+        input["schedule"] = schedule
+        input["role_arn"] = role_arn
+        input["namespace_name"] = namespace_name
+        if enabled is not None:
+            input["enabled"] = enabled
+        if scheduled_action_description is not None:
+            input["scheduled_action_description"] = scheduled_action_description
+        if start_time is not None:
+            input["start_time"] = start_time
+        if end_time is not None:
+            input["end_time"] = end_time
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.delete_scheduled_action_response.DeleteScheduledActionResponse":
+        """<p>Deletes a scheduled action.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.delete_scheduled_action_response.DeleteScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.delete_scheduled_action
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.delete_scheduled_action.delete_scheduled_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.get_scheduled_action_response.GetScheduledActionResponse":
+        """<p>Returns information about a scheduled action.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.get_scheduled_action_response.GetScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.get_scheduled_action
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.get_scheduled_action.get_scheduled_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_scheduled_actions(
+        self,
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[int] = None,
+        namespace_name: Optional[
+            "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"
+        ] = None,
+    ) -> "aws_sdk_redshift_serverless.types.list_scheduled_actions_response.ListScheduledActionsResponse":
+        """<p>Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions.</p>
+
+        Args:
+            next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+            max_results: <p>An optional parameter that specifies the maximum number of results to return. Use <code>nextToken</code> to display the next page of results.</p>
+            namespace_name: <p>The name of namespace associated with the scheduled action to retrieve.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.list_scheduled_actions_response.ListScheduledActionsResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.list_scheduled_actions
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.list_scheduled_actions.list_scheduled_actions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if namespace_name is not None:
+            input["namespace_name"] = namespace_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        *,
+        config_overrides: Optional[RedshiftServerlessClientConfig] = None,
+        target_action: Optional[
+            "aws_sdk_redshift_serverless.types.target_action.TargetAction"
+        ] = None,
+        schedule: Optional[
+            "aws_sdk_redshift_serverless.types.schedule.Schedule"
+        ] = None,
+        role_arn: Optional[
+            "aws_sdk_redshift_serverless.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        enabled: Optional[bool] = None,
+        scheduled_action_description: Optional[str] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+    ) -> "aws_sdk_redshift_serverless.types.update_scheduled_action_response.UpdateScheduledActionResponse":
+        """<p>Updates a scheduled action.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action to update to.</p>
+            schedule: <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>\"(0 10 ? * MON *)\"</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions\">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
+            role_arn: <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html\">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+            enabled: <p>Specifies whether to enable the scheduled action.</p>
+            scheduled_action_description: <p>The descripion of the scheduled action to update to.</p>
+            start_time: <p>The start time in UTC of the scheduled action to update to.</p>
+            end_time: <p>The end time in UTC of the scheduled action to update.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_redshift_serverless.types.update_scheduled_action_response.UpdateScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.update_scheduled_action
+
+            output, http_response = (
+                aws_sdk_redshift_serverless._operations.redshift_serverless.update_scheduled_action.update_scheduled_action(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+        if target_action is not None:
+            input["target_action"] = target_action
+        if schedule is not None:
+            input["schedule"] = schedule
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if enabled is not None:
+            input["enabled"] = enabled
+        if scheduled_action_description is not None:
+            input["scheduled_action_description"] = scheduled_action_description
+        if start_time is not None:
+            input["start_time"] = start_time
+        if end_time is not None:
+            input["end_time"] = end_time
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncScheduledActionResource:
+    def __init__(self, service: AsyncRedshiftServerlessClient) -> None:
+        self._service = service
+
+    async def create_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        target_action: "aws_sdk_redshift_serverless.types.target_action.TargetAction",
+        schedule: "aws_sdk_redshift_serverless.types.schedule.Schedule",
+        role_arn: "aws_sdk_redshift_serverless.types.iam_role_arn.IamRoleArn",
+        namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+        enabled: Optional[bool] = None,
+        scheduled_action_description: Optional[str] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+    ) -> "aws_sdk_redshift_serverless.types.create_scheduled_action_response.CreateScheduledActionResponse":
+        """<p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action.</p>
+            schedule: <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>\"(0 10 ? * MON *)\"</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions\">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
+            role_arn: <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html\">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+            namespace_name: <p>The name of the namespace for which to create a scheduled action.</p>
+            enabled: <p>Indicates whether the schedule is enabled. If false, the scheduled action does not trigger. For more information about <code>state</code> of the scheduled action, see <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html\">ScheduledAction</a>.</p>
+            scheduled_action_description: <p>The description of the scheduled action.</p>
+            start_time: <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
+            end_time: <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.create_scheduled_action_response.CreateScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.create_scheduled_action
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.create_scheduled_action.async_create_scheduled_action(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+        input["target_action"] = target_action
+        input["schedule"] = schedule
+        input["role_arn"] = role_arn
+        input["namespace_name"] = namespace_name
+        if enabled is not None:
+            input["enabled"] = enabled
+        if scheduled_action_description is not None:
+            input["scheduled_action_description"] = scheduled_action_description
+        if start_time is not None:
+            input["start_time"] = start_time
+        if end_time is not None:
+            input["end_time"] = end_time
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.delete_scheduled_action_response.DeleteScheduledActionResponse":
+        """<p>Deletes a scheduled action.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action to delete.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.delete_scheduled_action_response.DeleteScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.delete_scheduled_action
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.delete_scheduled_action.async_delete_scheduled_action(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+    ) -> "aws_sdk_redshift_serverless.types.get_scheduled_action_response.GetScheduledActionResponse":
+        """<p>Returns information about a scheduled action.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.get_scheduled_action_response.GetScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.get_scheduled_action
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.get_scheduled_action.async_get_scheduled_action(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_scheduled_actions(
+        self,
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[int] = None,
+        namespace_name: Optional[
+            "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"
+        ] = None,
+    ) -> "aws_sdk_redshift_serverless.types.list_scheduled_actions_response.ListScheduledActionsResponse":
+        """<p>Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions.</p>
+
+        Args:
+            next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+            max_results: <p>An optional parameter that specifies the maximum number of results to return. Use <code>nextToken</code> to display the next page of results.</p>
+            namespace_name: <p>The name of namespace associated with the scheduled action to retrieve.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.list_scheduled_actions_response.ListScheduledActionsResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.list_scheduled_actions
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.list_scheduled_actions.async_list_scheduled_actions(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input["next_token"] = next_token
+        if max_results is not None:
+            input["max_results"] = max_results
+        if namespace_name is not None:
+            input["namespace_name"] = namespace_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_scheduled_action(
+        self,
+        scheduled_action_name: "aws_sdk_redshift_serverless.types.scheduled_action_name.ScheduledActionName",
+        *,
+        config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
+        target_action: Optional[
+            "aws_sdk_redshift_serverless.types.target_action.TargetAction"
+        ] = None,
+        schedule: Optional[
+            "aws_sdk_redshift_serverless.types.schedule.Schedule"
+        ] = None,
+        role_arn: Optional[
+            "aws_sdk_redshift_serverless.types.iam_role_arn.IamRoleArn"
+        ] = None,
+        enabled: Optional[bool] = None,
+        scheduled_action_description: Optional[str] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+    ) -> "aws_sdk_redshift_serverless.types.update_scheduled_action_response.UpdateScheduledActionResponse":
+        """<p>Updates a scheduled action.</p>
+
+        Args:
+            scheduled_action_name: <p>The name of the scheduled action to update to.</p>
+            schedule: <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>\"(0 10 ? * MON *)\"</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions\">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
+            role_arn: <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html\">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+            enabled: <p>Specifies whether to enable the scheduled action.</p>
+            scheduled_action_description: <p>The descripion of the scheduled action to update to.</p>
+            start_time: <p>The start time in UTC of the scheduled action to update to.</p>
+            end_time: <p>The end time in UTC of the scheduled action to update.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_redshift_serverless.types.update_scheduled_action_response.UpdateScheduledActionResponse"
+        ]:
+            import aws_sdk_redshift_serverless._operations.redshift_serverless.update_scheduled_action
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_redshift_serverless._operations.redshift_serverless.update_scheduled_action.async_update_scheduled_action(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input["scheduled_action_name"] = scheduled_action_name
+        if target_action is not None:
+            input["target_action"] = target_action
+        if schedule is not None:
+            input["schedule"] = schedule
+        if role_arn is not None:
+            input["role_arn"] = role_arn
+        if enabled is not None:
+            input["enabled"] = enabled
+        if scheduled_action_description is not None:
+            input["scheduled_action_description"] = scheduled_action_description
+        if start_time is not None:
+            input["start_time"] = start_time
+        if end_time is not None:
+            input["end_time"] = end_time
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

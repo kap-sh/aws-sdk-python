@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeviceOfflineException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_braket.errors import ServiceError
+
 
 class DeviceOfflineException_(TypedDict):
     message: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeviceOfflineException_) -> dict:
@@ -24,10 +28,16 @@ def deserialize_json(data: dict) -> DeviceOfflineException_:
 
 class DeviceOfflineException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.braket#DeviceOfflineException``."""
-    code: str | None = 'DeviceOfflineException'
+
+    code: str | None = "DeviceOfflineException"
 
     def __init__(self, data: DeviceOfflineException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='DeviceOfflineException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="DeviceOfflineException",
+        )
         self.data = data
 
     @classmethod

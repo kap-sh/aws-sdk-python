@@ -1,0 +1,66 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaLiveTransitEncryption``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_mediaconnect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_mediaconnect.types.media_live_transit_encryption_key_configuration
+    import aws_sdk_mediaconnect.types.media_live_transit_encryption_key_type
+
+
+class MediaLiveTransitEncryption(TypedDict):
+    encryption_key_type: NotRequired[
+        "aws_sdk_mediaconnect.types.media_live_transit_encryption_key_type.MediaLiveTransitEncryptionKeyType"
+    ]
+    """<p>The type of encryption key to use for MediaLive transit encryption.</p>"""
+    encryption_key_configuration: "aws_sdk_mediaconnect.types.media_live_transit_encryption_key_configuration.MediaLiveTransitEncryptionKeyConfiguration"
+    """<p>The configuration details for the MediaLive encryption key.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MediaLiveTransitEncryption) -> dict:
+    out: dict = {}
+    if "encryption_key_type" in value:
+        import aws_sdk_mediaconnect.types.media_live_transit_encryption_key_type
+
+        out["encryptionKeyType"] = (
+            aws_sdk_mediaconnect.types.media_live_transit_encryption_key_type.serialize_json(
+                value["encryption_key_type"]
+            )
+        )
+    import aws_sdk_mediaconnect.types.media_live_transit_encryption_key_configuration
+
+    out["encryptionKeyConfiguration"] = (
+        aws_sdk_mediaconnect.types.media_live_transit_encryption_key_configuration.serialize_json(
+            value["encryption_key_configuration"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> MediaLiveTransitEncryption:
+    out: MediaLiveTransitEncryption = {}  # type: ignore[typeddict-item]
+    if "encryptionKeyType" in data:
+        import aws_sdk_mediaconnect.types.media_live_transit_encryption_key_type
+
+        out["encryption_key_type"] = (
+            aws_sdk_mediaconnect.types.media_live_transit_encryption_key_type.deserialize_json(
+                data["encryptionKeyType"]
+            )
+        )
+    if "encryptionKeyConfiguration" in data:
+        import aws_sdk_mediaconnect.types.media_live_transit_encryption_key_configuration
+
+        out["encryption_key_configuration"] = (
+            aws_sdk_mediaconnect.types.media_live_transit_encryption_key_configuration.deserialize_json(
+                data["encryptionKeyConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "MediaLiveTransitEncryption.encryption_key_configuration required"
+        )
+    return out

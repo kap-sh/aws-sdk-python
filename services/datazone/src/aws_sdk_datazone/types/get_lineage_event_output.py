@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#GetLineageEventOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_datazone.types.created_at
+    import aws_sdk_datazone.types.created_by
+    import aws_sdk_datazone.types.domain_id
+    import aws_sdk_datazone.types.lineage_event
+    import aws_sdk_datazone.types.lineage_event_identifier
+    import aws_sdk_datazone.types.lineage_event_processing_status
+    import datetime
+
+
+class GetLineageEventOutput(TypedDict):
+    domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
+    """<p>The ID of the domain.</p>"""
+    id: NotRequired[
+        "aws_sdk_datazone.types.lineage_event_identifier.LineageEventIdentifier"
+    ]
+    """<p>The ID of the lineage event.</p>"""
+    event: NotRequired["aws_sdk_datazone.types.lineage_event.LineageEvent"]
+    """<p>The lineage event details.</p>"""
+    created_by: NotRequired["aws_sdk_datazone.types.created_by.CreatedBy"]
+    """<p>The user who created the lineage event.</p>"""
+    processing_status: NotRequired[
+        "aws_sdk_datazone.types.lineage_event_processing_status.LineageEventProcessingStatus"
+    ]
+    """<p>The progressing status of the lineage event.</p>"""
+    event_time: NotRequired["datetime.datetime"]
+    """<p>The time of the lineage event.</p>"""
+    created_at: NotRequired["aws_sdk_datazone.types.created_at.CreatedAt"]
+    """<p>The timestamp of when the lineage event was created.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetLineageEventOutput) -> dict:
+    out: dict = {}
+    if "event" in value:
+        import aws_sdk_datazone.types.lineage_event
+
+        out["event"] = aws_sdk_datazone.types.lineage_event.serialize_json(
+            value["event"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetLineageEventOutput:
+    out: GetLineageEventOutput = {}  # type: ignore[typeddict-item]
+    if "event" in data:
+        import aws_sdk_datazone.types.lineage_event
+
+        out["event"] = aws_sdk_datazone.types.lineage_event.deserialize_json(
+            data["event"]
+        )
+    return out

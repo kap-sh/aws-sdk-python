@@ -1,15 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#InvokeRestApiResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.rest_api_response
+
 
 class InvokeRestApiResponse(TypedDict):
     rest_api_status_code: NotRequired["int"]
     """<p>The HTTP status code returned by the Apache Airflow REST API call.</p>"""
-    rest_api_response: NotRequired["aws_sdk_mwaa.types.rest_api_response.RestApiResponse"]
+    rest_api_response: NotRequired[
+        "aws_sdk_mwaa.types.rest_api_response.RestApiResponse"
+    ]
     """<p>The response data from the Apache Airflow REST API call, provided as a JSON object.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InvokeRestApiResponse) -> dict:

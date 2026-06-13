@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#AddPolicyStatementOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_entityresolution.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.policy_document
     import aws_sdk_entityresolution.types.policy_token
     import aws_sdk_entityresolution.types.venice_global_arn
+
 
 class AddPolicyStatementOutput(TypedDict):
     arn: "aws_sdk_entityresolution.types.venice_global_arn.VeniceGlobalArn"
@@ -15,6 +19,7 @@ class AddPolicyStatementOutput(TypedDict):
     """<p>A unique identifier for the current revision of the policy.</p>"""
     policy: NotRequired["aws_sdk_entityresolution.types.policy_document.PolicyDocument"]
     """<p>The resource-based policy.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AddPolicyStatementOutput) -> dict:

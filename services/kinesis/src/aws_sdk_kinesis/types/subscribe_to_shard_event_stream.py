@@ -25,53 +25,53 @@ class _SubscribeToShardEventStream_SubscribeToShardEvent(TypedDict):
 
 class _SubscribeToShardEventStream_ResourceNotFoundException(TypedDict):
     ResourceNotFoundException: (
-        "aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException"
+        "aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException_"
     )
 
 
 class _SubscribeToShardEventStream_ResourceInUseException(TypedDict):
     ResourceInUseException: (
-        "aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException"
+        "aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException_"
     )
 
 
 class _SubscribeToShardEventStream_KMSDisabledException(TypedDict):
     KMSDisabledException: (
-        "aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException"
+        "aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException_"
     )
 
 
 class _SubscribeToShardEventStream_KMSInvalidStateException(TypedDict):
     KMSInvalidStateException: (
-        "aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException"
+        "aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException_"
     )
 
 
 class _SubscribeToShardEventStream_KMSAccessDeniedException(TypedDict):
     KMSAccessDeniedException: (
-        "aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException"
+        "aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException_"
     )
 
 
 class _SubscribeToShardEventStream_KMSNotFoundException(TypedDict):
     KMSNotFoundException: (
-        "aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException"
+        "aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException_"
     )
 
 
 class _SubscribeToShardEventStream_KMSOptInRequired(TypedDict):
-    KMSOptInRequired: "aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired"
+    KMSOptInRequired: "aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired_"
 
 
 class _SubscribeToShardEventStream_KMSThrottlingException(TypedDict):
     KMSThrottlingException: (
-        "aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException"
+        "aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException_"
     )
 
 
 class _SubscribeToShardEventStream_InternalFailureException(TypedDict):
     InternalFailureException: (
-        "aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException"
+        "aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException_"
     )
 
 

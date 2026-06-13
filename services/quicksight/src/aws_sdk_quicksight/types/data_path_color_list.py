@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#DataPathColorList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.data_path_color
+
+DataPathColorList: TypeAlias = list[
+    "aws_sdk_quicksight.types.data_path_color.DataPathColor"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataPathColorList) -> list:
+    import aws_sdk_quicksight.types.data_path_color
+
+    out: list = []
+    for item in value:
+        out.append(aws_sdk_quicksight.types.data_path_color.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> DataPathColorList:
+    import aws_sdk_quicksight.types.data_path_color
+
+    out: DataPathColorList = []
+    for item in data:
+        out.append(aws_sdk_quicksight.types.data_path_color.deserialize_json(item))
+    return out

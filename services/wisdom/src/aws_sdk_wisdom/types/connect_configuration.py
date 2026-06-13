@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#ConnectConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.non_empty_string
+
 
 class ConnectConfiguration(TypedDict):
     instance_id: NotRequired["aws_sdk_wisdom.types.non_empty_string.NonEmptyString"]
     """<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConnectConfiguration) -> dict:

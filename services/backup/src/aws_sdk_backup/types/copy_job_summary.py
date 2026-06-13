@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CopyJobSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
     import aws_sdk_backup.types.copy_job_status
@@ -10,6 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.region
     import aws_sdk_backup.types.resource_type
     import aws_sdk_backup.types.timestamp
+
 
 class CopyJobSummary(TypedDict):
     region: NotRequired["aws_sdk_backup.types.region.Region"]
@@ -20,7 +23,9 @@ class CopyJobSummary(TypedDict):
     """<p>This value is job count for jobs with the specified state.</p>"""
     resource_type: NotRequired["aws_sdk_backup.types.resource_type.ResourceType"]
     """<p>This value is the job count for the specified resource type. The request <code>GetSupportedResourceTypes</code> returns strings for supported resource types</p>"""
-    message_category: NotRequired["aws_sdk_backup.types.message_category.MessageCategory"]
+    message_category: NotRequired[
+        "aws_sdk_backup.types.message_category.MessageCategory"
+    ]
     """<p>This parameter is the job count for the specified message category.</p> <p>Example strings include <code>AccessDenied</code>, <code>Success</code>, and <code>InvalidParameters</code>. See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of MessageCategory strings.</p> <p>The the value ANY returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum.</p>"""
     count: "aws_sdk_backup.types.integer.integer"
     """<p>The value as a number of jobs in a job summary.</p>"""
@@ -28,6 +33,7 @@ class CopyJobSummary(TypedDict):
     """<p>The value of time in number format of a job start time.</p> <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
     end_time: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
     """<p>The value of time in number format of a job end time.</p> <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CopyJobSummary) -> dict:
@@ -38,7 +44,10 @@ def serialize_json(value: CopyJobSummary) -> dict:
         out["AccountId"] = value["account_id"]
     if "state" in value:
         import aws_sdk_backup.types.copy_job_status
-        out["State"] = aws_sdk_backup.types.copy_job_status.serialize_json(value["state"])
+
+        out["State"] = aws_sdk_backup.types.copy_job_status.serialize_json(
+            value["state"]
+        )
     if "resource_type" in value:
         out["ResourceType"] = value["resource_type"]
     if "message_category" in value:
@@ -46,10 +55,16 @@ def serialize_json(value: CopyJobSummary) -> dict:
     out["Count"] = value.get("count", 0)
     if "start_time" in value:
         import aws_sdk_backup.types.timestamp
-        out["StartTime"] = aws_sdk_backup.types.timestamp.serialize_json(value["start_time"])
+
+        out["StartTime"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["start_time"]
+        )
     if "end_time" in value:
         import aws_sdk_backup.types.timestamp
-        out["EndTime"] = aws_sdk_backup.types.timestamp.serialize_json(value["end_time"])
+
+        out["EndTime"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["end_time"]
+        )
     return out
 
 
@@ -61,7 +76,10 @@ def deserialize_json(data: dict) -> CopyJobSummary:
         out["account_id"] = data["AccountId"]
     if "State" in data:
         import aws_sdk_backup.types.copy_job_status
-        out["state"] = aws_sdk_backup.types.copy_job_status.deserialize_json(data["State"])
+
+        out["state"] = aws_sdk_backup.types.copy_job_status.deserialize_json(
+            data["State"]
+        )
     if "ResourceType" in data:
         out["resource_type"] = data["ResourceType"]
     if "MessageCategory" in data:
@@ -72,8 +90,14 @@ def deserialize_json(data: dict) -> CopyJobSummary:
         out["count"] = 0
     if "StartTime" in data:
         import aws_sdk_backup.types.timestamp
-        out["start_time"] = aws_sdk_backup.types.timestamp.deserialize_json(data["StartTime"])
+
+        out["start_time"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["StartTime"]
+        )
     if "EndTime" in data:
         import aws_sdk_backup.types.timestamp
-        out["end_time"] = aws_sdk_backup.types.timestamp.deserialize_json(data["EndTime"])
+
+        out["end_time"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["EndTime"]
+        )
     return out

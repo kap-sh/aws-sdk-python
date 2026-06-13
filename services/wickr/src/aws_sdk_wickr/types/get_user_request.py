@@ -5,6 +5,8 @@ from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_wickr.types.network_id
     import aws_sdk_wickr.types.user_id
 

@@ -1,0 +1,120 @@
+"""Generated from Smithy shape ``com.amazonaws.pcs#CreateClusterRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_pcs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_pcs.types.cluster_name
+    import aws_sdk_pcs.types.cluster_slurm_configuration_request
+    import aws_sdk_pcs.types.networking_request
+    import aws_sdk_pcs.types.request_tag_map
+    import aws_sdk_pcs.types.sb_client_token
+    import aws_sdk_pcs.types.scheduler_request
+    import aws_sdk_pcs.types.size
+
+
+class CreateClusterRequest(TypedDict):
+    cluster_name: "aws_sdk_pcs.types.cluster_name.ClusterName"
+    """<p>A name to identify the cluster. Example: <code>MyCluster</code> </p>"""
+    scheduler: "aws_sdk_pcs.types.scheduler_request.SchedulerRequest"
+    """<p>The cluster management and job scheduling software associated with the cluster.</p>"""
+    size: "aws_sdk_pcs.types.size.Size"
+    """<p>A value that determines the maximum number of compute nodes in the cluster and the maximum number of jobs (active and queued).</p> <ul> <li> <p> <code>SMALL</code>: 32 compute nodes and 256 jobs</p> </li> <li> <p> <code>MEDIUM</code>: 512 compute nodes and 8192 jobs</p> </li> <li> <p> <code>LARGE</code>: 2048 compute nodes and 16,384 jobs</p> </li> </ul>"""
+    networking: "aws_sdk_pcs.types.networking_request.NetworkingRequest"
+    """<p>The networking configuration used to set up the cluster's control plane.</p>"""
+    slurm_configuration: NotRequired[
+        "aws_sdk_pcs.types.cluster_slurm_configuration_request.ClusterSlurmConfigurationRequest"
+    ]
+    """<p>Additional options related to the Slurm scheduler.</p>"""
+    client_token: NotRequired["aws_sdk_pcs.types.sb_client_token.SBClientToken"]
+    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>"""
+    tags: NotRequired["aws_sdk_pcs.types.request_tag_map.RequestTagMap"]
+    """<p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CreateClusterRequest) -> dict:
+    out: dict = {}
+    out["clusterName"] = value["cluster_name"]
+    import aws_sdk_pcs.types.scheduler_request
+
+    out["scheduler"] = aws_sdk_pcs.types.scheduler_request.serialize_aws_json_1_0(
+        value["scheduler"]
+    )
+    import aws_sdk_pcs.types.size
+
+    out["size"] = aws_sdk_pcs.types.size.serialize_aws_json_1_0(value["size"])
+    import aws_sdk_pcs.types.networking_request
+
+    out["networking"] = aws_sdk_pcs.types.networking_request.serialize_aws_json_1_0(
+        value["networking"]
+    )
+    if "slurm_configuration" in value:
+        import aws_sdk_pcs.types.cluster_slurm_configuration_request
+
+        out["slurmConfiguration"] = (
+            aws_sdk_pcs.types.cluster_slurm_configuration_request.serialize_aws_json_1_0(
+                value["slurm_configuration"]
+            )
+        )
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    if "tags" in value:
+        import aws_sdk_pcs.types.request_tag_map
+
+        out["tags"] = aws_sdk_pcs.types.request_tag_map.serialize_aws_json_1_0(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CreateClusterRequest:
+    out: CreateClusterRequest = {}  # type: ignore[typeddict-item]
+    if "clusterName" in data:
+        out["cluster_name"] = data["clusterName"]
+    else:
+        raise DeserializationError("CreateClusterRequest.cluster_name required")
+    if "scheduler" in data:
+        import aws_sdk_pcs.types.scheduler_request
+
+        out["scheduler"] = aws_sdk_pcs.types.scheduler_request.deserialize_aws_json_1_0(
+            data["scheduler"]
+        )
+    else:
+        raise DeserializationError("CreateClusterRequest.scheduler required")
+    if "size" in data:
+        import aws_sdk_pcs.types.size
+
+        out["size"] = aws_sdk_pcs.types.size.deserialize_aws_json_1_0(data["size"])
+    else:
+        raise DeserializationError("CreateClusterRequest.size required")
+    if "networking" in data:
+        import aws_sdk_pcs.types.networking_request
+
+        out["networking"] = (
+            aws_sdk_pcs.types.networking_request.deserialize_aws_json_1_0(
+                data["networking"]
+            )
+        )
+    else:
+        raise DeserializationError("CreateClusterRequest.networking required")
+    if "slurmConfiguration" in data:
+        import aws_sdk_pcs.types.cluster_slurm_configuration_request
+
+        out["slurm_configuration"] = (
+            aws_sdk_pcs.types.cluster_slurm_configuration_request.deserialize_aws_json_1_0(
+                data["slurmConfiguration"]
+            )
+        )
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    if "tags" in data:
+        import aws_sdk_pcs.types.request_tag_map
+
+        out["tags"] = aws_sdk_pcs.types.request_tag_map.deserialize_aws_json_1_0(
+            data["tags"]
+        )
+    return out

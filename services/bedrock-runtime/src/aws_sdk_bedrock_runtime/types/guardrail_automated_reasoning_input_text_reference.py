@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningInputTextReference``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_statement_natural_language_content
+
+
+class GuardrailAutomatedReasoningInputTextReference(TypedDict):
+    text: NotRequired[
+        "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_statement_natural_language_content.GuardrailAutomatedReasoningStatementNaturalLanguageContent"
+    ]
+    """<p>The specific text from the original input that this reference points to.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GuardrailAutomatedReasoningInputTextReference) -> dict:
+    out: dict = {}
+    if "text" in value:
+        out["text"] = value["text"]
+    return out
+
+
+def deserialize_json(data: dict) -> GuardrailAutomatedReasoningInputTextReference:
+    out: GuardrailAutomatedReasoningInputTextReference = {}  # type: ignore[typeddict-item]
+    if "text" in data:
+        out["text"] = data["text"]
+    return out

@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ProductCode``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.product_code_id
     import aws_sdk_drs.types.product_code_mode
 
+
 class ProductCode(TypedDict):
     product_code_id: NotRequired["aws_sdk_drs.types.product_code_id.ProductCodeId"]
     """<p>Id of a product code associated with a volume.</p>"""
-    product_code_mode: NotRequired["aws_sdk_drs.types.product_code_mode.ProductCodeMode"]
+    product_code_mode: NotRequired[
+        "aws_sdk_drs.types.product_code_mode.ProductCodeMode"
+    ]
     """<p>Mode of a product code associated with a volume.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ProductCode) -> dict:

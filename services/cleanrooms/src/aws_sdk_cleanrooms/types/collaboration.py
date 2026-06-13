@@ -1,0 +1,260 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#Collaboration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_cleanrooms.types.account_id
+    import aws_sdk_cleanrooms.types.allowed_result_regions
+    import aws_sdk_cleanrooms.types.analytics_engine
+    import aws_sdk_cleanrooms.types.auto_approved_change_type_list
+    import aws_sdk_cleanrooms.types.collaboration_arn
+    import aws_sdk_cleanrooms.types.collaboration_description
+    import aws_sdk_cleanrooms.types.collaboration_job_log_status
+    import aws_sdk_cleanrooms.types.collaboration_name
+    import aws_sdk_cleanrooms.types.collaboration_query_log_status
+    import aws_sdk_cleanrooms.types.data_encryption_metadata
+    import aws_sdk_cleanrooms.types.display_name
+    import aws_sdk_cleanrooms.types.member_status
+    import aws_sdk_cleanrooms.types.membership_arn
+    import aws_sdk_cleanrooms.types.uuid
+
+
+class Collaboration(TypedDict):
+    id: "aws_sdk_cleanrooms.types.uuid.UUID"
+    """<p>The unique ID for the collaboration.</p>"""
+    arn: "aws_sdk_cleanrooms.types.collaboration_arn.CollaborationArn"
+    """<p>The unique ARN for the collaboration.</p>"""
+    name: "aws_sdk_cleanrooms.types.collaboration_name.CollaborationName"
+    """<p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>"""
+    description: NotRequired[
+        "aws_sdk_cleanrooms.types.collaboration_description.CollaborationDescription"
+    ]
+    """<p>A description of the collaboration provided by the collaboration owner.</p>"""
+    creator_account_id: "aws_sdk_cleanrooms.types.account_id.AccountId"
+    """<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>"""
+    creator_display_name: "aws_sdk_cleanrooms.types.display_name.DisplayName"
+    """<p>A display name of the collaboration creator.</p>"""
+    create_time: "datetime.datetime"
+    """<p>The time when the collaboration was created.</p>"""
+    update_time: "datetime.datetime"
+    """<p>The time the collaboration metadata was last updated.</p>"""
+    member_status: "aws_sdk_cleanrooms.types.member_status.MemberStatus"
+    """<p>The status of a member in a collaboration.</p>"""
+    membership_id: NotRequired["aws_sdk_cleanrooms.types.uuid.UUID"]
+    """<p>The unique ID for your membership within the collaboration.</p>"""
+    membership_arn: NotRequired["aws_sdk_cleanrooms.types.membership_arn.MembershipArn"]
+    """<p>The unique ARN for your membership within the collaboration.</p>"""
+    data_encryption_metadata: NotRequired[
+        "aws_sdk_cleanrooms.types.data_encryption_metadata.DataEncryptionMetadata"
+    ]
+    """<p>The settings for client-side encryption for cryptographic computing.</p>"""
+    query_log_status: "aws_sdk_cleanrooms.types.collaboration_query_log_status.CollaborationQueryLogStatus"
+    """<p>An indicator as to whether query logging has been enabled or disabled for the collaboration.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>"""
+    job_log_status: NotRequired[
+        "aws_sdk_cleanrooms.types.collaboration_job_log_status.CollaborationJobLogStatus"
+    ]
+    """<p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>"""
+    analytics_engine: NotRequired[
+        "aws_sdk_cleanrooms.types.analytics_engine.AnalyticsEngine"
+    ]
+    """<p> The analytics engine for the collaboration.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>"""
+    auto_approved_change_types: NotRequired[
+        "aws_sdk_cleanrooms.types.auto_approved_change_type_list.AutoApprovedChangeTypeList"
+    ]
+    """<p>The types of change requests that are automatically approved for this collaboration.</p>"""
+    allowed_result_regions: NotRequired[
+        "aws_sdk_cleanrooms.types.allowed_result_regions.AllowedResultRegions"
+    ]
+    """<p>The Amazon Web Services Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.</p>"""
+    is_metrics_enabled: NotRequired["bool"]
+    """<p>An indicator as to whether metrics are enabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Collaboration) -> dict:
+    out: dict = {}
+    out["id"] = value["id"]
+    out["arn"] = value["arn"]
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    out["creatorAccountId"] = value["creator_account_id"]
+    out["creatorDisplayName"] = value["creator_display_name"]
+    import aws_sdk_cleanrooms.types._prelude.timestamp
+
+    out["createTime"] = aws_sdk_cleanrooms.types._prelude.timestamp.serialize_json(
+        value["create_time"]
+    )
+    import aws_sdk_cleanrooms.types._prelude.timestamp
+
+    out["updateTime"] = aws_sdk_cleanrooms.types._prelude.timestamp.serialize_json(
+        value["update_time"]
+    )
+    out["memberStatus"] = value["member_status"]
+    if "membership_id" in value:
+        out["membershipId"] = value["membership_id"]
+    if "membership_arn" in value:
+        out["membershipArn"] = value["membership_arn"]
+    if "data_encryption_metadata" in value:
+        import aws_sdk_cleanrooms.types.data_encryption_metadata
+
+        out["dataEncryptionMetadata"] = (
+            aws_sdk_cleanrooms.types.data_encryption_metadata.serialize_json(
+                value["data_encryption_metadata"]
+            )
+        )
+    import aws_sdk_cleanrooms.types.collaboration_query_log_status
+
+    out["queryLogStatus"] = (
+        aws_sdk_cleanrooms.types.collaboration_query_log_status.serialize_json(
+            value["query_log_status"]
+        )
+    )
+    if "job_log_status" in value:
+        import aws_sdk_cleanrooms.types.collaboration_job_log_status
+
+        out["jobLogStatus"] = (
+            aws_sdk_cleanrooms.types.collaboration_job_log_status.serialize_json(
+                value["job_log_status"]
+            )
+        )
+    if "analytics_engine" in value:
+        import aws_sdk_cleanrooms.types.analytics_engine
+
+        out["analyticsEngine"] = (
+            aws_sdk_cleanrooms.types.analytics_engine.serialize_json(
+                value["analytics_engine"]
+            )
+        )
+    if "auto_approved_change_types" in value:
+        import aws_sdk_cleanrooms.types.auto_approved_change_type_list
+
+        out["autoApprovedChangeTypes"] = (
+            aws_sdk_cleanrooms.types.auto_approved_change_type_list.serialize_json(
+                value["auto_approved_change_types"]
+            )
+        )
+    if "allowed_result_regions" in value:
+        import aws_sdk_cleanrooms.types.allowed_result_regions
+
+        out["allowedResultRegions"] = (
+            aws_sdk_cleanrooms.types.allowed_result_regions.serialize_json(
+                value["allowed_result_regions"]
+            )
+        )
+    if "is_metrics_enabled" in value:
+        out["isMetricsEnabled"] = value["is_metrics_enabled"]
+    return out
+
+
+def deserialize_json(data: dict) -> Collaboration:
+    out: Collaboration = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("Collaboration.id required")
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("Collaboration.arn required")
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("Collaboration.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "creatorAccountId" in data:
+        out["creator_account_id"] = data["creatorAccountId"]
+    else:
+        raise DeserializationError("Collaboration.creator_account_id required")
+    if "creatorDisplayName" in data:
+        out["creator_display_name"] = data["creatorDisplayName"]
+    else:
+        raise DeserializationError("Collaboration.creator_display_name required")
+    if "createTime" in data:
+        import aws_sdk_cleanrooms.types._prelude.timestamp
+
+        out["create_time"] = (
+            aws_sdk_cleanrooms.types._prelude.timestamp.deserialize_json(
+                data["createTime"]
+            )
+        )
+    else:
+        raise DeserializationError("Collaboration.create_time required")
+    if "updateTime" in data:
+        import aws_sdk_cleanrooms.types._prelude.timestamp
+
+        out["update_time"] = (
+            aws_sdk_cleanrooms.types._prelude.timestamp.deserialize_json(
+                data["updateTime"]
+            )
+        )
+    else:
+        raise DeserializationError("Collaboration.update_time required")
+    if "memberStatus" in data:
+        out["member_status"] = data["memberStatus"]
+    else:
+        raise DeserializationError("Collaboration.member_status required")
+    if "membershipId" in data:
+        out["membership_id"] = data["membershipId"]
+    if "membershipArn" in data:
+        out["membership_arn"] = data["membershipArn"]
+    if "dataEncryptionMetadata" in data:
+        import aws_sdk_cleanrooms.types.data_encryption_metadata
+
+        out["data_encryption_metadata"] = (
+            aws_sdk_cleanrooms.types.data_encryption_metadata.deserialize_json(
+                data["dataEncryptionMetadata"]
+            )
+        )
+    if "queryLogStatus" in data:
+        import aws_sdk_cleanrooms.types.collaboration_query_log_status
+
+        out["query_log_status"] = (
+            aws_sdk_cleanrooms.types.collaboration_query_log_status.deserialize_json(
+                data["queryLogStatus"]
+            )
+        )
+    else:
+        raise DeserializationError("Collaboration.query_log_status required")
+    if "jobLogStatus" in data:
+        import aws_sdk_cleanrooms.types.collaboration_job_log_status
+
+        out["job_log_status"] = (
+            aws_sdk_cleanrooms.types.collaboration_job_log_status.deserialize_json(
+                data["jobLogStatus"]
+            )
+        )
+    if "analyticsEngine" in data:
+        import aws_sdk_cleanrooms.types.analytics_engine
+
+        out["analytics_engine"] = (
+            aws_sdk_cleanrooms.types.analytics_engine.deserialize_json(
+                data["analyticsEngine"]
+            )
+        )
+    if "autoApprovedChangeTypes" in data:
+        import aws_sdk_cleanrooms.types.auto_approved_change_type_list
+
+        out["auto_approved_change_types"] = (
+            aws_sdk_cleanrooms.types.auto_approved_change_type_list.deserialize_json(
+                data["autoApprovedChangeTypes"]
+            )
+        )
+    if "allowedResultRegions" in data:
+        import aws_sdk_cleanrooms.types.allowed_result_regions
+
+        out["allowed_result_regions"] = (
+            aws_sdk_cleanrooms.types.allowed_result_regions.deserialize_json(
+                data["allowedResultRegions"]
+            )
+        )
+    if "isMetricsEnabled" in data:
+        out["is_metrics_enabled"] = data["isMetricsEnabled"]
+    return out

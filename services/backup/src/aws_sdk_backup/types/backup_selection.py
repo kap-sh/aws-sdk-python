@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupSelection``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_backup.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_selection_name
     import aws_sdk_backup.types.conditions
     import aws_sdk_backup.types.iam_role_arn
     import aws_sdk_backup.types.list_of_tags
     import aws_sdk_backup.types.resource_arns
+
 
 class BackupSelection(TypedDict):
     selection_name: "aws_sdk_backup.types.backup_selection_name.BackupSelectionName"
@@ -24,6 +28,7 @@ class BackupSelection(TypedDict):
     conditions: NotRequired["aws_sdk_backup.types.conditions.Conditions"]
     """<p>The conditions that you define to assign resources to your backup plans using tags. For example, <code>\"StringEquals\": { \"ConditionKey\": \"aws:ResourceTag/backup\", \"ConditionValue\": \"daily\" }</code>.</p> <p> <code>Conditions</code> supports <code>StringEquals</code>, <code>StringLike</code>, <code>StringNotEquals</code>, and <code>StringNotLike</code>. Condition operators are case sensitive.</p> <p>If you specify multiple conditions, the resources much match all conditions (AND logic).</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BackupSelection) -> dict:
     out: dict = {}
@@ -31,16 +36,28 @@ def serialize_json(value: BackupSelection) -> dict:
     out["IamRoleArn"] = value["iam_role_arn"]
     if "resources" in value:
         import aws_sdk_backup.types.resource_arns
-        out["Resources"] = aws_sdk_backup.types.resource_arns.serialize_json(value["resources"])
+
+        out["Resources"] = aws_sdk_backup.types.resource_arns.serialize_json(
+            value["resources"]
+        )
     if "list_of_tags" in value:
         import aws_sdk_backup.types.list_of_tags
-        out["ListOfTags"] = aws_sdk_backup.types.list_of_tags.serialize_json(value["list_of_tags"])
+
+        out["ListOfTags"] = aws_sdk_backup.types.list_of_tags.serialize_json(
+            value["list_of_tags"]
+        )
     if "not_resources" in value:
         import aws_sdk_backup.types.resource_arns
-        out["NotResources"] = aws_sdk_backup.types.resource_arns.serialize_json(value["not_resources"])
+
+        out["NotResources"] = aws_sdk_backup.types.resource_arns.serialize_json(
+            value["not_resources"]
+        )
     if "conditions" in value:
         import aws_sdk_backup.types.conditions
-        out["Conditions"] = aws_sdk_backup.types.conditions.serialize_json(value["conditions"])
+
+        out["Conditions"] = aws_sdk_backup.types.conditions.serialize_json(
+            value["conditions"]
+        )
     return out
 
 
@@ -56,14 +73,26 @@ def deserialize_json(data: dict) -> BackupSelection:
         raise DeserializationError("BackupSelection.iam_role_arn required")
     if "Resources" in data:
         import aws_sdk_backup.types.resource_arns
-        out["resources"] = aws_sdk_backup.types.resource_arns.deserialize_json(data["Resources"])
+
+        out["resources"] = aws_sdk_backup.types.resource_arns.deserialize_json(
+            data["Resources"]
+        )
     if "ListOfTags" in data:
         import aws_sdk_backup.types.list_of_tags
-        out["list_of_tags"] = aws_sdk_backup.types.list_of_tags.deserialize_json(data["ListOfTags"])
+
+        out["list_of_tags"] = aws_sdk_backup.types.list_of_tags.deserialize_json(
+            data["ListOfTags"]
+        )
     if "NotResources" in data:
         import aws_sdk_backup.types.resource_arns
-        out["not_resources"] = aws_sdk_backup.types.resource_arns.deserialize_json(data["NotResources"])
+
+        out["not_resources"] = aws_sdk_backup.types.resource_arns.deserialize_json(
+            data["NotResources"]
+        )
     if "Conditions" in data:
         import aws_sdk_backup.types.conditions
-        out["conditions"] = aws_sdk_backup.types.conditions.deserialize_json(data["Conditions"])
+
+        out["conditions"] = aws_sdk_backup.types.conditions.deserialize_json(
+            data["Conditions"]
+        )
     return out

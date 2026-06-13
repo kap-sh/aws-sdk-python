@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.arn
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
+
 
 class InstanceUserSummary(TypedDict):
     username: "str"
@@ -16,7 +20,9 @@ class InstanceUserSummary(TypedDict):
     """<p>The <code>IdentityProvider</code> resource specifies details about the identity provider.</p>"""
     status: "str"
     """<p>The status of a user associated with an EC2 instance.</p>"""
-    instance_user_arn: NotRequired["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"]
+    instance_user_arn: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+    ]
     """<p>The Amazon Resource Name (ARN) that identifies the instance user.</p>"""
     status_message: NotRequired["str"]
     """<p>The status message for users of an EC2 instance.</p>"""
@@ -27,13 +33,19 @@ class InstanceUserSummary(TypedDict):
     disassociation_date: NotRequired["str"]
     """<p>The date a user was disassociated from an EC2 instance.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: InstanceUserSummary) -> dict:
     out: dict = {}
     out["Username"] = value["username"]
     out["InstanceId"] = value["instance_id"]
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
-    out["IdentityProvider"] = aws_sdk_license_manager_user_subscriptions.types.identity_provider.serialize_json(value["identity_provider"])
+
+    out["IdentityProvider"] = (
+        aws_sdk_license_manager_user_subscriptions.types.identity_provider.serialize_json(
+            value["identity_provider"]
+        )
+    )
     out["Status"] = value["status"]
     if "instance_user_arn" in value:
         out["InstanceUserArn"] = value["instance_user_arn"]
@@ -60,7 +72,12 @@ def deserialize_json(data: dict) -> InstanceUserSummary:
         raise DeserializationError("InstanceUserSummary.instance_id required")
     if "IdentityProvider" in data:
         import aws_sdk_license_manager_user_subscriptions.types.identity_provider
-        out["identity_provider"] = aws_sdk_license_manager_user_subscriptions.types.identity_provider.deserialize_json(data["IdentityProvider"])
+
+        out["identity_provider"] = (
+            aws_sdk_license_manager_user_subscriptions.types.identity_provider.deserialize_json(
+                data["IdentityProvider"]
+            )
+        )
     else:
         raise DeserializationError("InstanceUserSummary.identity_provider required")
     if "Status" in data:

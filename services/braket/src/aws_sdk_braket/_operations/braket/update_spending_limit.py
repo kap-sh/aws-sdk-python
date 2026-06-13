@@ -1,21 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.braket#UpdateSpendingLimit``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_braket._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_braket._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_braket.errors import ServiceError, UnknownServiceError
-from aws_sdk_braket._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_braket._auth._signers
 import aws_sdk_braket._auth._sigv4
+from aws_sdk_braket._protocol.errors import parse_error_metadata_json
+from aws_sdk_braket._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_braket._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_braket.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.update_spending_limit_request
     import aws_sdk_braket.types.update_spending_limit_response
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,35 +26,70 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_braket.errors.access_denied_exception
-            raise aws_sdk_braket.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_braket.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "InternalServiceException":
             import aws_sdk_braket.errors.internal_service_exception
-            raise aws_sdk_braket.errors.internal_service_exception.InternalServiceException.from_json(data)
+
+            raise aws_sdk_braket.errors.internal_service_exception.InternalServiceException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_braket.errors.resource_not_found_exception
-            raise aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case "ThrottlingException":
             import aws_sdk_braket.errors.throttling_exception
-            raise aws_sdk_braket.errors.throttling_exception.ThrottlingException.from_json(data)
+
+            raise aws_sdk_braket.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_braket.errors.validation_exception
-            raise aws_sdk_braket.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_braket.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse:
     out: aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse = {}  # type: ignore[typeddict-item]
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_braket._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_braket._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_braket._auth._sigv4.build_sigv4_auth_scheme('braket', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_braket._auth._sigv4.build_sigv4_auth_scheme(
+                "braket", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_braket._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_braket._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             Region=options.region,
@@ -61,11 +99,16 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         )
     )
     url = endpoint.url.rstrip("/") + "/spending-limit/{spendingLimitArn}/update"
-    url = url.replace("{spendingLimitArn}", quote(str(input["spending_limit_arn"]), safe=""))
+    url = url.replace(
+        "{spendingLimitArn}", quote(str(input["spending_limit_arn"]), safe="")
+    )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_braket.types.update_spending_limit_request
-    body: bytes | None = json.dumps(aws_sdk_braket.types.update_spending_limit_request.serialize_json(input)).encode()
+
+    body: bytes | None = json.dumps(
+        aws_sdk_braket.types.update_spending_limit_request.serialize_json(input)
+    ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -78,7 +121,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def update_spending_limit(options: OperationOptions, input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest) -> tuple[aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse, zapros.Response]:
+
+def update_spending_limit(
+    options: OperationOptions,
+    input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest,
+) -> tuple[
+    aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -89,7 +139,14 @@ def update_spending_limit(options: OperationOptions, input: aws_sdk_braket.types
         response.close()
         raise
 
-async def async_update_spending_limit(options: AsyncOperationOptions, input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest) -> tuple[aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse, zapros.Response]:
+
+async def async_update_spending_limit(
+    options: AsyncOperationOptions,
+    input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest,
+) -> tuple[
+    aws_sdk_braket.types.update_spending_limit_response.UpdateSpendingLimitResponse,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

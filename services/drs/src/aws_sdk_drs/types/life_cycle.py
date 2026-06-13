@@ -1,23 +1,37 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LifeCycle``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
     import aws_sdk_drs.types.iso8601_duration_string
     import aws_sdk_drs.types.life_cycle_last_launch
 
+
 class LifeCycle(TypedDict):
-    added_to_service_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    added_to_service_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time of when the Source Server was added to the service.</p>"""
-    first_byte_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    first_byte_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time of the first byte that was replicated from the Source Server.</p>"""
-    elapsed_replication_duration: NotRequired["aws_sdk_drs.types.iso8601_duration_string.ISO8601DurationString"]
+    elapsed_replication_duration: NotRequired[
+        "aws_sdk_drs.types.iso8601_duration_string.ISO8601DurationString"
+    ]
     """<p>The amount of time that the Source Server has been replicating for.</p>"""
-    last_seen_by_service_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    last_seen_by_service_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time this Source Server was last seen by the service.</p>"""
-    last_launch: NotRequired["aws_sdk_drs.types.life_cycle_last_launch.LifeCycleLastLaunch"]
+    last_launch: NotRequired[
+        "aws_sdk_drs.types.life_cycle_last_launch.LifeCycleLastLaunch"
+    ]
     """<p>An object containing information regarding the last launch of the Source Server.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: LifeCycle) -> dict:
@@ -32,7 +46,10 @@ def serialize_json(value: LifeCycle) -> dict:
         out["lastSeenByServiceDateTime"] = value["last_seen_by_service_date_time"]
     if "last_launch" in value:
         import aws_sdk_drs.types.life_cycle_last_launch
-        out["lastLaunch"] = aws_sdk_drs.types.life_cycle_last_launch.serialize_json(value["last_launch"])
+
+        out["lastLaunch"] = aws_sdk_drs.types.life_cycle_last_launch.serialize_json(
+            value["last_launch"]
+        )
     return out
 
 
@@ -48,5 +65,8 @@ def deserialize_json(data: dict) -> LifeCycle:
         out["last_seen_by_service_date_time"] = data["lastSeenByServiceDateTime"]
     if "lastLaunch" in data:
         import aws_sdk_drs.types.life_cycle_last_launch
-        out["last_launch"] = aws_sdk_drs.types.life_cycle_last_launch.deserialize_json(data["lastLaunch"])
+
+        out["last_launch"] = aws_sdk_drs.types.life_cycle_last_launch.deserialize_json(
+            data["lastLaunch"]
+        )
     return out

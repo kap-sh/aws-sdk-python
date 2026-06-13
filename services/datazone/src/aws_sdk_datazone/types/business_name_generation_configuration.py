@@ -3,9 +3,11 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class BusinessNameGenerationConfiguration(TypedDict):
     enabled: NotRequired["bool"]
     """<p>Specifies whether the business name generation is enabled.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BusinessNameGenerationConfiguration) -> dict:

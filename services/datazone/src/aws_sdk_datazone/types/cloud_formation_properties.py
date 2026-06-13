@@ -3,9 +3,11 @@
 from typing import TypedDict
 from aws_sdk_datazone.errors import DeserializationError
 
+
 class CloudFormationProperties(TypedDict):
     template_url: "str"
     """<p>The template URL of the cloud formation provisioning properties of the environment blueprint.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CloudFormationProperties) -> dict:

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#OperandTwo``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:

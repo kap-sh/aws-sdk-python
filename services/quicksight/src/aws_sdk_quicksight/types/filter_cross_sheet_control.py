@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#FilterCrossSheetControl``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.cascading_control_configuration
+    import aws_sdk_quicksight.types.short_restrictive_resource_id
+
+
+class FilterCrossSheetControl(TypedDict):
+    filter_control_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
+    """<p>The ID of the <code>FilterCrossSheetControl</code>.</p>"""
+    source_filter_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
+    """<p>The source filter ID of the <code>FilterCrossSheetControl</code>.</p>"""
+    cascading_control_configuration: NotRequired[
+        "aws_sdk_quicksight.types.cascading_control_configuration.CascadingControlConfiguration"
+    ]
+    """<p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FilterCrossSheetControl) -> dict:
+    out: dict = {}
+    out["FilterControlId"] = value["filter_control_id"]
+    out["SourceFilterId"] = value["source_filter_id"]
+    if "cascading_control_configuration" in value:
+        import aws_sdk_quicksight.types.cascading_control_configuration
+
+        out["CascadingControlConfiguration"] = (
+            aws_sdk_quicksight.types.cascading_control_configuration.serialize_json(
+                value["cascading_control_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> FilterCrossSheetControl:
+    out: FilterCrossSheetControl = {}  # type: ignore[typeddict-item]
+    if "FilterControlId" in data:
+        out["filter_control_id"] = data["FilterControlId"]
+    else:
+        raise DeserializationError("FilterCrossSheetControl.filter_control_id required")
+    if "SourceFilterId" in data:
+        out["source_filter_id"] = data["SourceFilterId"]
+    else:
+        raise DeserializationError("FilterCrossSheetControl.source_filter_id required")
+    if "CascadingControlConfiguration" in data:
+        import aws_sdk_quicksight.types.cascading_control_configuration
+
+        out["cascading_control_configuration"] = (
+            aws_sdk_quicksight.types.cascading_control_configuration.deserialize_json(
+                data["CascadingControlConfiguration"]
+            )
+        )
+    return out

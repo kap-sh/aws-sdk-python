@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#GetVectorBucketPolicyInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_bucket_arn
     import aws_sdk_s3vectors.types.vector_bucket_name
 
+
 class GetVectorBucketPolicyInput(TypedDict):
-    vector_bucket_name: NotRequired["aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"]
+    vector_bucket_name: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"
+    ]
     """<p>The name of the vector bucket.</p>"""
-    vector_bucket_arn: NotRequired["aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"]
+    vector_bucket_arn: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"
+    ]
     """<p>The ARN of the vector bucket.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetVectorBucketPolicyInput) -> dict:

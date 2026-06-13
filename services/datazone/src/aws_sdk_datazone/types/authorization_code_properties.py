@@ -3,11 +3,13 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class AuthorizationCodeProperties(TypedDict):
     authorization_code: NotRequired["str"]
     """<p>The authorization code of a connection.</p>"""
     redirect_uri: NotRequired["str"]
     """<p>The redirect URI of a connection.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AuthorizationCodeProperties) -> dict:

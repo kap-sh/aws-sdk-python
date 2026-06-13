@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PutTaxExemptionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.generic_string
+
 
 class PutTaxExemptionResponse(TypedDict):
     case_id: NotRequired["aws_sdk_taxsettings.types.generic_string.GenericString"]
     """<p>The customer support case ID. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PutTaxExemptionResponse) -> dict:

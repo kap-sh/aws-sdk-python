@@ -1,12 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
-from aws_sdk_bedrock_agent_runtime.errors import DeserializationError, SerializationError
+from typing import TypeAlias, TypedDict
+
+from aws_sdk_bedrock_agent_runtime.errors import (
+    DeserializationError,
+    SerializationError,
+)
+
 
 class _ContentBlock_text(TypedDict):
     text: "str"
 
+
 ContentBlock: TypeAlias = _ContentBlock_text
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ContentBlock) -> dict:

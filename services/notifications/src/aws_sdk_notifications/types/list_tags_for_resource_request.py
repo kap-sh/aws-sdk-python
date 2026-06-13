@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListTagsForResourceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.notification_configuration_arn
+
 
 class ListTagsForResourceRequest(TypedDict):
     arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"
     """<p>The Amazon Resource Name (ARN) to use to list tags.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListTagsForResourceRequest) -> dict:

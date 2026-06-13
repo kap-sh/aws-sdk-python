@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ConflictException``."""
 
 from typing import TypedDict
-from aws_sdk_connectcases.errors import DeserializationError
-from aws_sdk_connectcases.errors import ServiceError
+
+from aws_sdk_connectcases.errors import DeserializationError, ServiceError
 
 
 class ConflictException_(TypedDict):

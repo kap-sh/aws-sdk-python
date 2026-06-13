@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.rum#QueryFilterValueList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.query_filter_value
 
-QueryFilterValueList: TypeAlias = list["aws_sdk_rum.types.query_filter_value.QueryFilterValue"]
+QueryFilterValueList: TypeAlias = list[
+    "aws_sdk_rum.types.query_filter_value.QueryFilterValue"
+]
 
 
 # --- restJson1 ser/de ---

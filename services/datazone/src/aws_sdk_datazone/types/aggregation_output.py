@@ -2,18 +2,25 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aggregation_display_value
     import aws_sdk_datazone.types.aggregation_output_items
     import aws_sdk_datazone.types.attribute
 
+
 class AggregationOutput(TypedDict):
     attribute: NotRequired["aws_sdk_datazone.types.attribute.Attribute"]
     """<p>The attribute for this aggregation.</p>"""
-    display_value: NotRequired["aws_sdk_datazone.types.aggregation_display_value.AggregationDisplayValue"]
+    display_value: NotRequired[
+        "aws_sdk_datazone.types.aggregation_display_value.AggregationDisplayValue"
+    ]
     """<p>The display value of the aggregation output item.</p>"""
-    items: NotRequired["aws_sdk_datazone.types.aggregation_output_items.AggregationOutputItems"]
+    items: NotRequired[
+        "aws_sdk_datazone.types.aggregation_output_items.AggregationOutputItems"
+    ]
     """<p>A list of aggregation output items.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AggregationOutput) -> dict:
@@ -24,7 +31,10 @@ def serialize_json(value: AggregationOutput) -> dict:
         out["displayValue"] = value["display_value"]
     if "items" in value:
         import aws_sdk_datazone.types.aggregation_output_items
-        out["items"] = aws_sdk_datazone.types.aggregation_output_items.serialize_json(value["items"])
+
+        out["items"] = aws_sdk_datazone.types.aggregation_output_items.serialize_json(
+            value["items"]
+        )
     return out
 
 
@@ -36,5 +46,8 @@ def deserialize_json(data: dict) -> AggregationOutput:
         out["display_value"] = data["displayValue"]
     if "items" in data:
         import aws_sdk_datazone.types.aggregation_output_items
-        out["items"] = aws_sdk_datazone.types.aggregation_output_items.deserialize_json(data["items"])
+
+        out["items"] = aws_sdk_datazone.types.aggregation_output_items.deserialize_json(
+            data["items"]
+        )
     return out

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitorDomainList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_domain
 
-AppMonitorDomainList: TypeAlias = list["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"]
+AppMonitorDomainList: TypeAlias = list[
+    "aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"
+]
 
 
 # --- restJson1 ser/de ---

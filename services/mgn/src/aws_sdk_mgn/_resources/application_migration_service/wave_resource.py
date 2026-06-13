@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_mgn._services.async_mgn import ensure_async_iterator
-from aws_sdk_mgn._services.mgn import ensure_sync_iterator
-from aws_sdk_mgn._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_mgn._auth._signers
 import aws_sdk_mgn._auth._sigv4
+from aws_sdk_mgn._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
-    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.application_i_ds
     import aws_sdk_mgn.types.archive_wave_request
@@ -29,11 +34,25 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.wave_description
     import aws_sdk_mgn.types.wave_id
     import aws_sdk_mgn.types.wave_name
+    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
+    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
+
 
 class WaveResource:
     def __init__(self, service: mgnClient) -> None:
         self._service = service
-    def create(self, name: "aws_sdk_mgn.types.wave_name.WaveName", *, config_overrides: Optional[mgnClientConfig] = None, description: Optional["aws_sdk_mgn.types.wave_description.WaveDescription"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    def create(
+        self,
+        name: "aws_sdk_mgn.types.wave_name.WaveName",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.wave_description.WaveDescription"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Create wave.</p>
 
         Args:
@@ -42,9 +61,17 @@ class WaveResource:
             tags: <p>Wave tags.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.create_wave_request.CreateWaveRequest]') -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.create_wave_request.CreateWaveRequest]",
+        ) -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.create_wave
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.create_wave.create_wave(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.create_wave.create_wave(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -57,18 +84,39 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[mgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse":
+
+    def delete(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse":
         """<p>Delete wave.</p>
 
         Args:
             wave_id: <p>Wave ID.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest]') -> OperationResponse["aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.delete_wave
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.delete_wave.delete_wave(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.delete_wave.delete_wave(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -77,9 +125,28 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_waves_request_filters.ListWavesRequestFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.list_waves_response.ListWavesResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_waves_request_filters.ListWavesRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.list_waves_response.ListWavesResponse":
         """<p>Retrieves all waves or multiple waves by ID.</p>
 
         Args:
@@ -88,9 +155,19 @@ class WaveResource:
             next_token: <p>Request next token.</p>
             account_id: <p>Request account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_waves_request.ListWavesRequest]') -> OperationResponse["aws_sdk_mgn.types.list_waves_response.ListWavesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_waves_request.ListWavesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_waves_response.ListWavesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_waves
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_waves.list_waves(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_waves.list_waves(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -104,18 +181,37 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def archive_wave(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[mgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    def archive_wave(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Archive wave.</p>
 
         Args:
             wave_id: <p>Wave ID.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest]') -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest]",
+        ) -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.archive_wave
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.archive_wave.archive_wave(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.archive_wave.archive_wave(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -124,9 +220,21 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_applications(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs", *, config_overrides: Optional[mgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse":
+
+    def associate_applications(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse":
         """<p>Associate applications to wave.</p>
 
         Args:
@@ -134,9 +242,19 @@ class WaveResource:
             application_i_ds: <p>Application IDs list.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest]') -> OperationResponse["aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.associate_applications
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.associate_applications.associate_applications(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.associate_applications.associate_applications(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -146,9 +264,21 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_applications(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs", *, config_overrides: Optional[mgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse":
+
+    def disassociate_applications(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse":
         """<p>Disassociate applications from wave.</p>
 
         Args:
@@ -156,9 +286,19 @@ class WaveResource:
             application_i_ds: <p>Application IDs list.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest]') -> OperationResponse["aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.disassociate_applications
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.disassociate_applications.disassociate_applications(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.disassociate_applications.disassociate_applications(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -168,18 +308,37 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def unarchive_wave(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[mgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    def unarchive_wave(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Unarchive wave.</p>
 
         Args:
             wave_id: <p>Wave ID.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest]') -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest]",
+        ) -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.unarchive_wave
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.unarchive_wave.unarchive_wave(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.unarchive_wave.unarchive_wave(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -188,9 +347,24 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_wave(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[mgnClientConfig] = None, name: Optional["aws_sdk_mgn.types.wave_name.WaveName"] = None, description: Optional["aws_sdk_mgn.types.wave_description.WaveDescription"] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    def update_wave(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        name: Optional["aws_sdk_mgn.types.wave_name.WaveName"] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.wave_description.WaveDescription"
+        ] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Update wave.</p>
 
         Args:
@@ -199,9 +373,17 @@ class WaveResource:
             description: <p>Wave description.</p>
             account_id: <p>Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest]') -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest]",
+        ) -> OperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.update_wave
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.update_wave.update_wave(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.update_wave.update_wave(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -214,13 +396,29 @@ class WaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncWaveResource:
     def __init__(self, service: AsyncmgnClient) -> None:
         self._service = service
-    async def create(self, name: "aws_sdk_mgn.types.wave_name.WaveName", *, config_overrides: Optional[AsyncmgnClientConfig] = None, description: Optional["aws_sdk_mgn.types.wave_description.WaveDescription"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    async def create(
+        self,
+        name: "aws_sdk_mgn.types.wave_name.WaveName",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.wave_description.WaveDescription"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Create wave.</p>
 
         Args:
@@ -229,9 +427,18 @@ class AsyncWaveResource:
             tags: <p>Wave tags.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.create_wave_request.CreateWaveRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.create_wave_request.CreateWaveRequest]",
+        ) -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.create_wave
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.create_wave.async_create_wave(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.create_wave.async_create_wave(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -244,18 +451,40 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse":
+
+    async def delete(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse":
         """<p>Delete wave.</p>
 
         Args:
             wave_id: <p>Wave ID.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.delete_wave_response.DeleteWaveResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.delete_wave
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.delete_wave.async_delete_wave(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.delete_wave.async_delete_wave(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -264,9 +493,28 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_waves_request_filters.ListWavesRequestFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.list_waves_response.ListWavesResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_waves_request_filters.ListWavesRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.list_waves_response.ListWavesResponse":
         """<p>Retrieves all waves or multiple waves by ID.</p>
 
         Args:
@@ -275,9 +523,20 @@ class AsyncWaveResource:
             next_token: <p>Request next token.</p>
             account_id: <p>Request account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_waves_request.ListWavesRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_waves_response.ListWavesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_waves_request.ListWavesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_waves_response.ListWavesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_waves
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_waves.async_list_waves(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_waves.async_list_waves(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -291,18 +550,38 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def archive_wave(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    async def archive_wave(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Archive wave.</p>
 
         Args:
             wave_id: <p>Wave ID.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest]",
+        ) -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.archive_wave
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.archive_wave.async_archive_wave(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.archive_wave.async_archive_wave(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -311,9 +590,21 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_applications(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs", *, config_overrides: Optional[AsyncmgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse":
+
+    async def associate_applications(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse":
         """<p>Associate applications to wave.</p>
 
         Args:
@@ -321,9 +612,20 @@ class AsyncWaveResource:
             application_i_ds: <p>Application IDs list.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.associate_applications_response.AssociateApplicationsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.associate_applications
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.associate_applications.async_associate_applications(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.associate_applications.async_associate_applications(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -333,9 +635,21 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_applications(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs", *, config_overrides: Optional[AsyncmgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse":
+
+    async def disassociate_applications(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse":
         """<p>Disassociate applications from wave.</p>
 
         Args:
@@ -343,9 +657,20 @@ class AsyncWaveResource:
             application_i_ds: <p>Application IDs list.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.disassociate_applications_response.DisassociateApplicationsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.disassociate_applications
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.disassociate_applications.async_disassociate_applications(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.disassociate_applications.async_disassociate_applications(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -355,18 +680,38 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def unarchive_wave(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    async def unarchive_wave(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Unarchive wave.</p>
 
         Args:
             wave_id: <p>Wave ID.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest]",
+        ) -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.unarchive_wave
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.unarchive_wave.async_unarchive_wave(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.unarchive_wave.async_unarchive_wave(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -375,9 +720,24 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_wave(self, wave_id: "aws_sdk_mgn.types.wave_id.WaveID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, name: Optional["aws_sdk_mgn.types.wave_name.WaveName"] = None, description: Optional["aws_sdk_mgn.types.wave_description.WaveDescription"] = None, account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None) -> "aws_sdk_mgn.types.wave.Wave":
+
+    async def update_wave(
+        self,
+        wave_id: "aws_sdk_mgn.types.wave_id.WaveID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        name: Optional["aws_sdk_mgn.types.wave_name.WaveName"] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.wave_description.WaveDescription"
+        ] = None,
+        account_id: Optional["aws_sdk_mgn.types.account_id.AccountID"] = None,
+    ) -> "aws_sdk_mgn.types.wave.Wave":
         """<p>Update wave.</p>
 
         Args:
@@ -386,9 +746,18 @@ class AsyncWaveResource:
             description: <p>Wave description.</p>
             account_id: <p>Account ID.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest]",
+        ) -> AsyncOperationResponse["aws_sdk_mgn.types.wave.Wave"]:
             import aws_sdk_mgn._operations.application_migration_service.update_wave
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.update_wave.async_update_wave(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.update_wave.async_update_wave(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -401,5 +770,9 @@ class AsyncWaveResource:
         if account_id is not None:
             input["account_id"] = account_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

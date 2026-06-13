@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_mgn._services.async_mgn import ensure_async_iterator
-from aws_sdk_mgn._services.mgn import ensure_sync_iterator
-from aws_sdk_mgn._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_mgn._auth._signers
 import aws_sdk_mgn._auth._sigv4
+from aws_sdk_mgn._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
-    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
     import aws_sdk_mgn.types.code_generation_output_format_types
     import aws_sdk_mgn.types.construct_id
     import aws_sdk_mgn.types.create_network_migration_definition_request
@@ -93,11 +98,33 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.target_s3_configuration_update
     import aws_sdk_mgn.types.update_network_migration_definition_request
     import aws_sdk_mgn.types.update_network_migration_mapper_segment_request
+    from aws_sdk_mgn._services.async_mgn import AsyncmgnClient, AsyncmgnClientConfig
+    from aws_sdk_mgn._services.mgn import mgnClient, mgnClientConfig
+
 
 class NetworkMigrationDefinitionResource:
     def __init__(self, service: mgnClient) -> None:
         self._service = service
-    def create(self, name: "aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName", target_s3_configuration: "aws_sdk_mgn.types.target_s3_configuration.TargetS3Configuration", target_network: "aws_sdk_mgn.types.target_network.TargetNetwork", *, config_overrides: Optional[mgnClientConfig] = None, description: Optional["aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"] = None, source_configurations: Optional["aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"] = None, target_deployment: Optional["aws_sdk_mgn.types.target_deployment.TargetDeployment"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None, scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
+
+    def create(
+        self,
+        name: "aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName",
+        target_s3_configuration: "aws_sdk_mgn.types.target_s3_configuration.TargetS3Configuration",
+        target_network: "aws_sdk_mgn.types.target_network.TargetNetwork",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"
+        ] = None,
+        source_configurations: Optional[
+            "aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"
+        ] = None,
+        target_deployment: Optional[
+            "aws_sdk_mgn.types.target_deployment.TargetDeployment"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+        scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
         """<p>Creates a new network migration definition that specifies the source and target network configuration for a migration.</p>
 
         Args:
@@ -115,9 +142,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.create(name='network1', description='network 1 description', target_deployment='SINGLE_ACCOUNT', source_configurations=[{'sourceEnvironment': 'NSX', 'sourceS3Configuration': {'s3Bucket': 'source_bucket', 's3Key': 'source_key', 's3BucketOwner': '012345678901'}}], target_s3_configuration={'s3Bucket': 'target_bucket', 's3BucketOwner': '012345678901'}, target_network={'topology': 'ISOLATED_VPC', 'inboundCidr': '192.168.1.0/24'})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.create_network_migration_definition_request.CreateNetworkMigrationDefinitionRequest]') -> OperationResponse["aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.create_network_migration_definition_request.CreateNetworkMigrationDefinitionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.create_network_migration_definition
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.create_network_migration_definition.create_network_migration_definition(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.create_network_migration_definition.create_network_migration_definition(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -136,9 +173,38 @@ class NetworkMigrationDefinitionResource:
         if scope_tags is not None:
             input["scope_tags"] = scope_tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, name: Optional["aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName"] = None, description: Optional["aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"] = None, source_configurations: Optional["aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"] = None, target_s3_configuration: Optional["aws_sdk_mgn.types.target_s3_configuration_update.TargetS3ConfigurationUpdate"] = None, target_network: Optional["aws_sdk_mgn.types.target_network_update.TargetNetworkUpdate"] = None, target_deployment: Optional["aws_sdk_mgn.types.target_deployment.TargetDeployment"] = None, scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
+
+    def update(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        name: Optional[
+            "aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName"
+        ] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"
+        ] = None,
+        source_configurations: Optional[
+            "aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"
+        ] = None,
+        target_s3_configuration: Optional[
+            "aws_sdk_mgn.types.target_s3_configuration_update.TargetS3ConfigurationUpdate"
+        ] = None,
+        target_network: Optional[
+            "aws_sdk_mgn.types.target_network_update.TargetNetworkUpdate"
+        ] = None,
+        target_deployment: Optional[
+            "aws_sdk_mgn.types.target_deployment.TargetDeployment"
+        ] = None,
+        scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
         """<p>Updates an existing network migration definition with new source or target configurations.</p>
 
         Args:
@@ -156,9 +222,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.update(network_migration_definition_id='nmd-01234567891234567', name='network1', description='network 1 description', source_configurations=[{'sourceEnvironment': 'NSX', 'sourceS3Configuration': {'s3Bucket': 'source_bucket', 's3Key': 'source_key', 's3BucketOwner': '012345678901'}}], target_s3_configuration={'s3Bucket': 'target_bucket', 's3BucketOwner': '012345678901'}, target_network={'topology': 'ISOLATED_VPC', 'inboundCidr': '192.168.1.0/24'})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.update_network_migration_definition_request.UpdateNetworkMigrationDefinitionRequest]') -> OperationResponse["aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.update_network_migration_definition_request.UpdateNetworkMigrationDefinitionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.update_network_migration_definition
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.update_network_migration_definition.update_network_migration_definition(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.update_network_migration_definition.update_network_migration_definition(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -179,9 +255,19 @@ class NetworkMigrationDefinitionResource:
         if scope_tags is not None:
             input["scope_tags"] = scope_tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse":
+
+    def delete(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse":
         """<p>Deletes a network migration definition. This operation removes the migration definition and all associated metadata.</p>
 
         Args:
@@ -192,18 +278,46 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.delete(network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.delete_network_migration_definition_request.DeleteNetworkMigrationDefinitionRequest]') -> OperationResponse["aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.delete_network_migration_definition_request.DeleteNetworkMigrationDefinitionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.delete_network_migration_definition
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.delete_network_migration_definition.delete_network_migration_definition(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.delete_network_migration_definition.delete_network_migration_definition(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.delete_network_migration_definition_request.DeleteNetworkMigrationDefinitionRequest = {}  # type: ignore[typeddict-item]
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_definitions_request_filters.ListNetworkMigrationDefinitionsRequestFilters"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None) -> "aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_definitions_request_filters.ListNetworkMigrationDefinitionsRequestFilters"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse":
         """<p>Lists all network migration definitions in the account, with optional filtering.</p>
 
         Args:
@@ -216,9 +330,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list(filters={'networkMigrationDefinitionIDs': ['nmd-01234567891234567']})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_definitions_request.ListNetworkMigrationDefinitionsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_definitions_request.ListNetworkMigrationDefinitionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_definitions
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_definitions.list_network_migration_definitions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_definitions.list_network_migration_definitions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -230,9 +354,19 @@ class NetworkMigrationDefinitionResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_network_migration_definition(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
+
+    def get_network_migration_definition(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
         """<p>Retrieves the details of a network migration definition including source and target configurations.</p>
 
         Args:
@@ -243,18 +377,41 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.get_network_migration_definition(network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.get_network_migration_definition_request.GetNetworkMigrationDefinitionRequest]') -> OperationResponse["aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.get_network_migration_definition_request.GetNetworkMigrationDefinitionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.get_network_migration_definition
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.get_network_migration_definition.get_network_migration_definition(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.get_network_migration_definition.get_network_migration_definition(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.get_network_migration_definition_request.GetNetworkMigrationDefinitionRequest = {}  # type: ignore[typeddict-item]
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_network_migration_mapper_segment_construct(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", segment_id: "aws_sdk_mgn.types.segment_id.SegmentID", construct_id: "aws_sdk_mgn.types.construct_id.ConstructID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse":
+
+    def get_network_migration_mapper_segment_construct(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        segment_id: "aws_sdk_mgn.types.segment_id.SegmentID",
+        construct_id: "aws_sdk_mgn.types.construct_id.ConstructID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse":
         """<p>Retrieves detailed information about a specific construct within a mapper segment, including its properties and configuration data.</p>
 
         Args:
@@ -268,9 +425,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.get_network_migration_mapper_segment_construct(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', segment_id='12345678-abcd-abcd-efab-0123456789ab', construct_id='abc45678-abcd-abcd-efab-012345678abc')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_request.GetNetworkMigrationMapperSegmentConstructRequest]') -> OperationResponse["aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_request.GetNetworkMigrationMapperSegmentConstructRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.get_network_migration_mapper_segment_construct
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.get_network_migration_mapper_segment_construct.get_network_migration_mapper_segment_construct(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.get_network_migration_mapper_segment_construct.get_network_migration_mapper_segment_construct(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -280,9 +447,29 @@ class NetworkMigrationDefinitionResource:
         input["segment_id"] = segment_id
         input["construct_id"] = construct_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_analyses(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_analyses_filters.ListNetworkMigrationAnalysesFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse":
+
+    def list_network_migration_analyses(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_analyses_filters.ListNetworkMigrationAnalysesFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse":
         """<p>Lists network migration analysis jobs for a specified execution. Returns information about analysis job status and results.</p>
 
         Args:
@@ -297,9 +484,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_analyses(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_analyses_request.ListNetworkMigrationAnalysesRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_analyses_request.ListNetworkMigrationAnalysesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_analyses
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_analyses.list_network_migration_analyses(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_analyses.list_network_migration_analyses(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -313,9 +510,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_analysis_results(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_analysis_results_filters.ListNetworkMigrationAnalysisResultsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse":
+
+    def list_network_migration_analysis_results(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_analysis_results_filters.ListNetworkMigrationAnalysisResultsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse":
         """<p>Lists the results of network migration analyses, showing connectivity and compatibility findings for migrated resources.</p>
 
         Args:
@@ -330,9 +547,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_analysis_results(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_analysis_results_request.ListNetworkMigrationAnalysisResultsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_analysis_results_request.ListNetworkMigrationAnalysisResultsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_analysis_results
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_analysis_results.list_network_migration_analysis_results(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_analysis_results.list_network_migration_analysis_results(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -346,9 +573,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_code_generations(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_code_generations_filters.ListNetworkMigrationCodeGenerationsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse":
+
+    def list_network_migration_code_generations(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_code_generations_filters.ListNetworkMigrationCodeGenerationsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse":
         """<p>Lists network migration code generation jobs, which convert network mappings into infrastructure-as-code templates.</p>
 
         Args:
@@ -363,9 +610,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_code_generations(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_code_generations_request.ListNetworkMigrationCodeGenerationsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_code_generations_request.ListNetworkMigrationCodeGenerationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generations
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generations.list_network_migration_code_generations(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generations.list_network_migration_code_generations(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -379,9 +636,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_code_generation_segments(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_code_generation_segments_filters.ListNetworkMigrationCodeGenerationSegmentsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse":
+
+    def list_network_migration_code_generation_segments(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_code_generation_segments_filters.ListNetworkMigrationCodeGenerationSegmentsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse":
         """<p>Lists code generation segments, which represent individual infrastructure components generated as code templates.</p>
 
         Args:
@@ -396,9 +673,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_code_generation_segments(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_code_generation_segments_request.ListNetworkMigrationCodeGenerationSegmentsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_code_generation_segments_request.ListNetworkMigrationCodeGenerationSegmentsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generation_segments
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generation_segments.list_network_migration_code_generation_segments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generation_segments.list_network_migration_code_generation_segments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -412,9 +699,26 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_deployed_stacks(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse":
+
+    def list_network_migration_deployed_stacks(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse":
         """<p>Lists CloudFormation stacks that have been deployed as part of the network migration.</p>
 
         Args:
@@ -428,9 +732,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_deployed_stacks(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_deployed_stacks_request.ListNetworkMigrationDeployedStacksRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_deployed_stacks_request.ListNetworkMigrationDeployedStacksRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployed_stacks
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployed_stacks.list_network_migration_deployed_stacks(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployed_stacks.list_network_migration_deployed_stacks(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -442,9 +756,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_deployments(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_deployer_job_filters.ListNetworkMigrationDeployerJobFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse":
+
+    def list_network_migration_deployments(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_deployer_job_filters.ListNetworkMigrationDeployerJobFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse":
         """<p>Lists network migration deployment jobs and their current status.</p>
 
         Args:
@@ -459,9 +793,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_deployments(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_deployments_request.ListNetworkMigrationDeploymentsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_deployments_request.ListNetworkMigrationDeploymentsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployments
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployments.list_network_migration_deployments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployments.list_network_migration_deployments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -475,9 +819,28 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_executions(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_execution_request_filters.ListNetworkMigrationExecutionRequestFilters"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None) -> "aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse":
+
+    def list_network_migration_executions(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_execution_request_filters.ListNetworkMigrationExecutionRequestFilters"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse":
         """<p>Lists network migration execution instances for a given definition, showing the status and progress of each execution.</p>
 
         Args:
@@ -491,9 +854,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_executions(network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_executions_request.ListNetworkMigrationExecutionsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_executions_request.ListNetworkMigrationExecutionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_executions
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_executions.list_network_migration_executions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_executions.list_network_migration_executions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -506,9 +879,30 @@ class NetworkMigrationDefinitionResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_mapper_segment_constructs(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", segment_id: "aws_sdk_mgn.types.segment_id.SegmentID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_filters.ListNetworkMigrationMapperSegmentConstructsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse":
+
+    def list_network_migration_mapper_segment_constructs(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        segment_id: "aws_sdk_mgn.types.segment_id.SegmentID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_filters.ListNetworkMigrationMapperSegmentConstructsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse":
         """<p>Lists constructs within a mapper segment, representing individual infrastructure components like VPCs, subnets, or security groups.</p>
 
         Args:
@@ -527,9 +921,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_mapper_segment_constructs(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', segment_id='12345678-abcd-abcd-efab-0123456789ab')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_request.ListNetworkMigrationMapperSegmentConstructsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_request.ListNetworkMigrationMapperSegmentConstructsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segment_constructs
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segment_constructs.list_network_migration_mapper_segment_constructs(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segment_constructs.list_network_migration_mapper_segment_constructs(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -544,9 +948,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_mapper_segments(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mapper_segments_filters.ListNetworkMigrationMapperSegmentsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse":
+
+    def list_network_migration_mapper_segments(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segments_filters.ListNetworkMigrationMapperSegmentsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse":
         """<p>Lists mapper segments, which represent logical groupings of network resources to be migrated together.</p>
 
         Args:
@@ -561,9 +985,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_mapper_segments(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segments_request.ListNetworkMigrationMapperSegmentsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segments_request.ListNetworkMigrationMapperSegmentsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segments
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segments.list_network_migration_mapper_segments(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segments.list_network_migration_mapper_segments(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -577,9 +1011,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_mappings(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mappings_filters.ListNetworkMigrationMappingsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse":
+
+    def list_network_migration_mappings(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mappings_filters.ListNetworkMigrationMappingsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse":
         """<p>Lists network migration mapping jobs, which analyze and create relationships between source and target network resources.</p>
 
         Args:
@@ -594,9 +1048,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_mappings(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_mappings_request.ListNetworkMigrationMappingsRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_mappings_request.ListNetworkMigrationMappingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mappings
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_mappings.list_network_migration_mappings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_mappings.list_network_migration_mappings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -610,9 +1074,29 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_network_migration_mapping_updates(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mapping_updates_filters.ListNetworkMigrationMappingUpdatesFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse":
+
+    def list_network_migration_mapping_updates(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mapping_updates_filters.ListNetworkMigrationMappingUpdatesFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse":
         """<p>Lists mapping update jobs, which apply customer modifications to the generated network mappings.</p>
 
         Args:
@@ -627,9 +1111,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.list_network_migration_mapping_updates(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.list_network_migration_mapping_updates_request.ListNetworkMigrationMappingUpdatesRequest]') -> OperationResponse["aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.list_network_migration_mapping_updates_request.ListNetworkMigrationMappingUpdatesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapping_updates
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapping_updates.list_network_migration_mapping_updates(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapping_updates.list_network_migration_mapping_updates(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -643,9 +1137,20 @@ class NetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_network_migration_analysis(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse":
+
+    def start_network_migration_analysis(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse":
         """<p>Starts a network migration analysis job to evaluate connectivity and compatibility of the migration mappings.</p>
 
         Args:
@@ -657,9 +1162,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.start_network_migration_analysis(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.start_network_migration_analysis_request.StartNetworkMigrationAnalysisRequest]') -> OperationResponse["aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.start_network_migration_analysis_request.StartNetworkMigrationAnalysisRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_analysis
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.start_network_migration_analysis.start_network_migration_analysis(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.start_network_migration_analysis.start_network_migration_analysis(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -667,9 +1182,23 @@ class NetworkMigrationDefinitionResource:
         input["network_migration_execution_id"] = network_migration_execution_id
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_network_migration_code_generation(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, code_generation_output_format_types: Optional["aws_sdk_mgn.types.code_generation_output_format_types.CodeGenerationOutputFormatTypes"] = None) -> "aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse":
+
+    def start_network_migration_code_generation(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        code_generation_output_format_types: Optional[
+            "aws_sdk_mgn.types.code_generation_output_format_types.CodeGenerationOutputFormatTypes"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse":
         """<p>Starts a code generation job to convert network migration mappings into infrastructure-as-code templates.</p>
 
         Args:
@@ -682,9 +1211,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.start_network_migration_code_generation(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.start_network_migration_code_generation_request.StartNetworkMigrationCodeGenerationRequest]') -> OperationResponse["aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.start_network_migration_code_generation_request.StartNetworkMigrationCodeGenerationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_code_generation
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.start_network_migration_code_generation.start_network_migration_code_generation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.start_network_migration_code_generation.start_network_migration_code_generation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -692,11 +1231,24 @@ class NetworkMigrationDefinitionResource:
         input["network_migration_execution_id"] = network_migration_execution_id
         input["network_migration_definition_id"] = network_migration_definition_id
         if code_generation_output_format_types is not None:
-            input["code_generation_output_format_types"] = code_generation_output_format_types
+            input["code_generation_output_format_types"] = (
+                code_generation_output_format_types
+            )
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_network_migration_deployment(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None) -> "aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse":
+
+    def start_network_migration_deployment(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse":
         """<p>Starts a deployment job to create the target network infrastructure based on the generated code templates.</p>
 
         Args:
@@ -708,9 +1260,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.start_network_migration_deployment(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.start_network_migration_deployment_request.StartNetworkMigrationDeploymentRequest]') -> OperationResponse["aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.start_network_migration_deployment_request.StartNetworkMigrationDeploymentRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_deployment
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.start_network_migration_deployment.start_network_migration_deployment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.start_network_migration_deployment.start_network_migration_deployment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -718,9 +1280,23 @@ class NetworkMigrationDefinitionResource:
         input["network_migration_execution_id"] = network_migration_execution_id
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_network_migration_mapping(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, security_group_mapping_strategy: Optional["aws_sdk_mgn.types.security_group_mapping_strategy.SecurityGroupMappingStrategy"] = None) -> "aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse":
+
+    def start_network_migration_mapping(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        security_group_mapping_strategy: Optional[
+            "aws_sdk_mgn.types.security_group_mapping_strategy.SecurityGroupMappingStrategy"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse":
         """<p>Starts the network migration mapping process for a given network migration execution.</p>
 
         Args:
@@ -733,9 +1309,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.start_network_migration_mapping(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_request.StartNetworkMigrationMappingRequest]') -> OperationResponse["aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_request.StartNetworkMigrationMappingRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping.start_network_migration_mapping(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping.start_network_migration_mapping(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -745,9 +1331,26 @@ class NetworkMigrationDefinitionResource:
         if security_group_mapping_strategy is not None:
             input["security_group_mapping_strategy"] = security_group_mapping_strategy
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_network_migration_mapping_update(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[mgnClientConfig] = None, constructs: Optional["aws_sdk_mgn.types.start_network_migration_mapping_update_constructs.StartNetworkMigrationMappingUpdateConstructs"] = None, segments: Optional["aws_sdk_mgn.types.start_network_migration_mapping_update_segments.StartNetworkMigrationMappingUpdateSegments"] = None) -> "aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse":
+
+    def start_network_migration_mapping_update(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        constructs: Optional[
+            "aws_sdk_mgn.types.start_network_migration_mapping_update_constructs.StartNetworkMigrationMappingUpdateConstructs"
+        ] = None,
+        segments: Optional[
+            "aws_sdk_mgn.types.start_network_migration_mapping_update_segments.StartNetworkMigrationMappingUpdateSegments"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse":
         """<p>Starts a job to apply customer modifications to network migration mappings, such as changing properties.</p>
 
         Args:
@@ -761,9 +1364,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.start_network_migration_mapping_update(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', constructs=[{'segmentID': '12345678-abcd-abcd-efab-0123456789ab', 'constructID': 'abc45678-abcd-abcd-efab-012345678abc', 'constructType': 'AWS::EC2::VPC', 'operation': {'update': {'properties': {'CidrBlock': '10.31.0.0/22'}}}}], segments=[{'segmentID': '12345678-abcd-abcd-efab-0123456789ab', 'targetAccount': '234567890123', 'scopeTags': {'key1': 'val1', 'key2': 'val2'}}])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_update_request.StartNetworkMigrationMappingUpdateRequest]') -> OperationResponse["aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_update_request.StartNetworkMigrationMappingUpdateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping_update
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping_update.start_network_migration_mapping_update(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping_update.start_network_migration_mapping_update(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -775,9 +1388,22 @@ class NetworkMigrationDefinitionResource:
         if segments is not None:
             input["segments"] = segments
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_network_migration_mapper_segment(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", segment_id: "aws_sdk_mgn.types.segment_id.SegmentID", *, config_overrides: Optional[mgnClientConfig] = None, scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None) -> "aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment":
+
+    def update_network_migration_mapper_segment(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        segment_id: "aws_sdk_mgn.types.segment_id.SegmentID",
+        *,
+        config_overrides: Optional[mgnClientConfig] = None,
+        scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment":
         """<p>Updates a mapper segment's configuration, such as changing its scope tags.</p>
 
         Args:
@@ -791,9 +1417,19 @@ class NetworkMigrationDefinitionResource:
 
             >>> client.update_network_migration_mapper_segment(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', segment_id='12345678-abcd-abcd-efab-0123456789ab')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_mgn.types.update_network_migration_mapper_segment_request.UpdateNetworkMigrationMapperSegmentRequest]') -> OperationResponse["aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_mgn.types.update_network_migration_mapper_segment_request.UpdateNetworkMigrationMapperSegmentRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.update_network_migration_mapper_segment
-            output, http_response = aws_sdk_mgn._operations.application_migration_service.update_network_migration_mapper_segment.update_network_migration_mapper_segment(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_mgn._operations.application_migration_service.update_network_migration_mapper_segment.update_network_migration_mapper_segment(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -804,13 +1440,37 @@ class NetworkMigrationDefinitionResource:
         if scope_tags is not None:
             input["scope_tags"] = scope_tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncNetworkMigrationDefinitionResource:
     def __init__(self, service: AsyncmgnClient) -> None:
         self._service = service
-    async def create(self, name: "aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName", target_s3_configuration: "aws_sdk_mgn.types.target_s3_configuration.TargetS3Configuration", target_network: "aws_sdk_mgn.types.target_network.TargetNetwork", *, config_overrides: Optional[AsyncmgnClientConfig] = None, description: Optional["aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"] = None, source_configurations: Optional["aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"] = None, target_deployment: Optional["aws_sdk_mgn.types.target_deployment.TargetDeployment"] = None, tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None, scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
+
+    async def create(
+        self,
+        name: "aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName",
+        target_s3_configuration: "aws_sdk_mgn.types.target_s3_configuration.TargetS3Configuration",
+        target_network: "aws_sdk_mgn.types.target_network.TargetNetwork",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"
+        ] = None,
+        source_configurations: Optional[
+            "aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"
+        ] = None,
+        target_deployment: Optional[
+            "aws_sdk_mgn.types.target_deployment.TargetDeployment"
+        ] = None,
+        tags: Optional["aws_sdk_mgn.types.tags_map.TagsMap"] = None,
+        scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
         """<p>Creates a new network migration definition that specifies the source and target network configuration for a migration.</p>
 
         Args:
@@ -828,9 +1488,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.create(name='network1', description='network 1 description', target_deployment='SINGLE_ACCOUNT', source_configurations=[{'sourceEnvironment': 'NSX', 'sourceS3Configuration': {'s3Bucket': 'source_bucket', 's3Key': 'source_key', 's3BucketOwner': '012345678901'}}], target_s3_configuration={'s3Bucket': 'target_bucket', 's3BucketOwner': '012345678901'}, target_network={'topology': 'ISOLATED_VPC', 'inboundCidr': '192.168.1.0/24'})
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.create_network_migration_definition_request.CreateNetworkMigrationDefinitionRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.create_network_migration_definition_request.CreateNetworkMigrationDefinitionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.create_network_migration_definition
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.create_network_migration_definition.async_create_network_migration_definition(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.create_network_migration_definition.async_create_network_migration_definition(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -849,9 +1520,38 @@ class AsyncNetworkMigrationDefinitionResource:
         if scope_tags is not None:
             input["scope_tags"] = scope_tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, name: Optional["aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName"] = None, description: Optional["aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"] = None, source_configurations: Optional["aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"] = None, target_s3_configuration: Optional["aws_sdk_mgn.types.target_s3_configuration_update.TargetS3ConfigurationUpdate"] = None, target_network: Optional["aws_sdk_mgn.types.target_network_update.TargetNetworkUpdate"] = None, target_deployment: Optional["aws_sdk_mgn.types.target_deployment.TargetDeployment"] = None, scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
+
+    async def update(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        name: Optional[
+            "aws_sdk_mgn.types.network_migration_definition_name.NetworkMigrationDefinitionName"
+        ] = None,
+        description: Optional[
+            "aws_sdk_mgn.types.network_migration_definition_description.NetworkMigrationDefinitionDescription"
+        ] = None,
+        source_configurations: Optional[
+            "aws_sdk_mgn.types.source_configuration_list.SourceConfigurationList"
+        ] = None,
+        target_s3_configuration: Optional[
+            "aws_sdk_mgn.types.target_s3_configuration_update.TargetS3ConfigurationUpdate"
+        ] = None,
+        target_network: Optional[
+            "aws_sdk_mgn.types.target_network_update.TargetNetworkUpdate"
+        ] = None,
+        target_deployment: Optional[
+            "aws_sdk_mgn.types.target_deployment.TargetDeployment"
+        ] = None,
+        scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
         """<p>Updates an existing network migration definition with new source or target configurations.</p>
 
         Args:
@@ -869,9 +1569,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.update(network_migration_definition_id='nmd-01234567891234567', name='network1', description='network 1 description', source_configurations=[{'sourceEnvironment': 'NSX', 'sourceS3Configuration': {'s3Bucket': 'source_bucket', 's3Key': 'source_key', 's3BucketOwner': '012345678901'}}], target_s3_configuration={'s3Bucket': 'target_bucket', 's3BucketOwner': '012345678901'}, target_network={'topology': 'ISOLATED_VPC', 'inboundCidr': '192.168.1.0/24'})
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.update_network_migration_definition_request.UpdateNetworkMigrationDefinitionRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.update_network_migration_definition_request.UpdateNetworkMigrationDefinitionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.update_network_migration_definition
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.update_network_migration_definition.async_update_network_migration_definition(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.update_network_migration_definition.async_update_network_migration_definition(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -892,9 +1603,19 @@ class AsyncNetworkMigrationDefinitionResource:
         if scope_tags is not None:
             input["scope_tags"] = scope_tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse":
+
+    async def delete(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse":
         """<p>Deletes a network migration definition. This operation removes the migration definition and all associated metadata.</p>
 
         Args:
@@ -905,18 +1626,47 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.delete(network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.delete_network_migration_definition_request.DeleteNetworkMigrationDefinitionRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.delete_network_migration_definition_request.DeleteNetworkMigrationDefinitionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.delete_network_migration_definition_response.DeleteNetworkMigrationDefinitionResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.delete_network_migration_definition
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.delete_network_migration_definition.async_delete_network_migration_definition(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.delete_network_migration_definition.async_delete_network_migration_definition(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.delete_network_migration_definition_request.DeleteNetworkMigrationDefinitionRequest = {}  # type: ignore[typeddict-item]
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_definitions_request_filters.ListNetworkMigrationDefinitionsRequestFilters"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None) -> "aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_definitions_request_filters.ListNetworkMigrationDefinitionsRequestFilters"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse":
         """<p>Lists all network migration definitions in the account, with optional filtering.</p>
 
         Args:
@@ -929,9 +1679,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list(filters={'networkMigrationDefinitionIDs': ['nmd-01234567891234567']})
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_definitions_request.ListNetworkMigrationDefinitionsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_definitions_request.ListNetworkMigrationDefinitionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_definitions_response.ListNetworkMigrationDefinitionsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_definitions
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_definitions.async_list_network_migration_definitions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_definitions.async_list_network_migration_definitions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -943,9 +1704,19 @@ class AsyncNetworkMigrationDefinitionResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_network_migration_definition(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
+
+    async def get_network_migration_definition(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition":
         """<p>Retrieves the details of a network migration definition including source and target configurations.</p>
 
         Args:
@@ -956,18 +1727,42 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.get_network_migration_definition(network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.get_network_migration_definition_request.GetNetworkMigrationDefinitionRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.get_network_migration_definition_request.GetNetworkMigrationDefinitionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.network_migration_definition.NetworkMigrationDefinition"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.get_network_migration_definition
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.get_network_migration_definition.async_get_network_migration_definition(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.get_network_migration_definition.async_get_network_migration_definition(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_mgn.types.get_network_migration_definition_request.GetNetworkMigrationDefinitionRequest = {}  # type: ignore[typeddict-item]
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_network_migration_mapper_segment_construct(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", segment_id: "aws_sdk_mgn.types.segment_id.SegmentID", construct_id: "aws_sdk_mgn.types.construct_id.ConstructID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse":
+
+    async def get_network_migration_mapper_segment_construct(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        segment_id: "aws_sdk_mgn.types.segment_id.SegmentID",
+        construct_id: "aws_sdk_mgn.types.construct_id.ConstructID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse":
         """<p>Retrieves detailed information about a specific construct within a mapper segment, including its properties and configuration data.</p>
 
         Args:
@@ -981,9 +1776,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.get_network_migration_mapper_segment_construct(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', segment_id='12345678-abcd-abcd-efab-0123456789ab', construct_id='abc45678-abcd-abcd-efab-012345678abc')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_request.GetNetworkMigrationMapperSegmentConstructRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_request.GetNetworkMigrationMapperSegmentConstructRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_response.GetNetworkMigrationMapperSegmentConstructResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.get_network_migration_mapper_segment_construct
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.get_network_migration_mapper_segment_construct.async_get_network_migration_mapper_segment_construct(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.get_network_migration_mapper_segment_construct.async_get_network_migration_mapper_segment_construct(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -993,9 +1799,29 @@ class AsyncNetworkMigrationDefinitionResource:
         input["segment_id"] = segment_id
         input["construct_id"] = construct_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_analyses(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_analyses_filters.ListNetworkMigrationAnalysesFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse":
+
+    async def list_network_migration_analyses(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_analyses_filters.ListNetworkMigrationAnalysesFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse":
         """<p>Lists network migration analysis jobs for a specified execution. Returns information about analysis job status and results.</p>
 
         Args:
@@ -1010,9 +1836,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_analyses(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_analyses_request.ListNetworkMigrationAnalysesRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_analyses_request.ListNetworkMigrationAnalysesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_analyses_response.ListNetworkMigrationAnalysesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_analyses
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_analyses.async_list_network_migration_analyses(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_analyses.async_list_network_migration_analyses(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1026,9 +1863,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_analysis_results(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_analysis_results_filters.ListNetworkMigrationAnalysisResultsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse":
+
+    async def list_network_migration_analysis_results(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_analysis_results_filters.ListNetworkMigrationAnalysisResultsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse":
         """<p>Lists the results of network migration analyses, showing connectivity and compatibility findings for migrated resources.</p>
 
         Args:
@@ -1043,9 +1900,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_analysis_results(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_analysis_results_request.ListNetworkMigrationAnalysisResultsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_analysis_results_request.ListNetworkMigrationAnalysisResultsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_analysis_results_response.ListNetworkMigrationAnalysisResultsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_analysis_results
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_analysis_results.async_list_network_migration_analysis_results(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_analysis_results.async_list_network_migration_analysis_results(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1059,9 +1927,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_code_generations(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_code_generations_filters.ListNetworkMigrationCodeGenerationsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse":
+
+    async def list_network_migration_code_generations(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_code_generations_filters.ListNetworkMigrationCodeGenerationsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse":
         """<p>Lists network migration code generation jobs, which convert network mappings into infrastructure-as-code templates.</p>
 
         Args:
@@ -1076,9 +1964,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_code_generations(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_code_generations_request.ListNetworkMigrationCodeGenerationsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_code_generations_request.ListNetworkMigrationCodeGenerationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_code_generations_response.ListNetworkMigrationCodeGenerationsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generations
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generations.async_list_network_migration_code_generations(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generations.async_list_network_migration_code_generations(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1092,9 +1991,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_code_generation_segments(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_code_generation_segments_filters.ListNetworkMigrationCodeGenerationSegmentsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse":
+
+    async def list_network_migration_code_generation_segments(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_code_generation_segments_filters.ListNetworkMigrationCodeGenerationSegmentsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse":
         """<p>Lists code generation segments, which represent individual infrastructure components generated as code templates.</p>
 
         Args:
@@ -1109,9 +2028,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_code_generation_segments(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_code_generation_segments_request.ListNetworkMigrationCodeGenerationSegmentsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_code_generation_segments_request.ListNetworkMigrationCodeGenerationSegmentsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_code_generation_segments_response.ListNetworkMigrationCodeGenerationSegmentsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generation_segments
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generation_segments.async_list_network_migration_code_generation_segments(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_code_generation_segments.async_list_network_migration_code_generation_segments(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1125,9 +2055,26 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_deployed_stacks(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse":
+
+    async def list_network_migration_deployed_stacks(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse":
         """<p>Lists CloudFormation stacks that have been deployed as part of the network migration.</p>
 
         Args:
@@ -1141,9 +2088,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_deployed_stacks(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_deployed_stacks_request.ListNetworkMigrationDeployedStacksRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_deployed_stacks_request.ListNetworkMigrationDeployedStacksRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_deployed_stacks_response.ListNetworkMigrationDeployedStacksResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployed_stacks
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployed_stacks.async_list_network_migration_deployed_stacks(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployed_stacks.async_list_network_migration_deployed_stacks(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1155,9 +2113,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_deployments(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_deployer_job_filters.ListNetworkMigrationDeployerJobFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse":
+
+    async def list_network_migration_deployments(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_deployer_job_filters.ListNetworkMigrationDeployerJobFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse":
         """<p>Lists network migration deployment jobs and their current status.</p>
 
         Args:
@@ -1172,9 +2150,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_deployments(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_deployments_request.ListNetworkMigrationDeploymentsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_deployments_request.ListNetworkMigrationDeploymentsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_deployer_job_response.ListNetworkMigrationDeployerJobResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployments
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployments.async_list_network_migration_deployments(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_deployments.async_list_network_migration_deployments(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1188,9 +2177,28 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_executions(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_execution_request_filters.ListNetworkMigrationExecutionRequestFilters"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None) -> "aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse":
+
+    async def list_network_migration_executions(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_execution_request_filters.ListNetworkMigrationExecutionRequestFilters"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse":
         """<p>Lists network migration execution instances for a given definition, showing the status and progress of each execution.</p>
 
         Args:
@@ -1204,9 +2212,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_executions(network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_executions_request.ListNetworkMigrationExecutionsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_executions_request.ListNetworkMigrationExecutionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_executions_response.ListNetworkMigrationExecutionsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_executions
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_executions.async_list_network_migration_executions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_executions.async_list_network_migration_executions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1219,9 +2238,30 @@ class AsyncNetworkMigrationDefinitionResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_mapper_segment_constructs(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", segment_id: "aws_sdk_mgn.types.segment_id.SegmentID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_filters.ListNetworkMigrationMapperSegmentConstructsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse":
+
+    async def list_network_migration_mapper_segment_constructs(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        segment_id: "aws_sdk_mgn.types.segment_id.SegmentID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_filters.ListNetworkMigrationMapperSegmentConstructsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse":
         """<p>Lists constructs within a mapper segment, representing individual infrastructure components like VPCs, subnets, or security groups.</p>
 
         Args:
@@ -1240,9 +2280,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_mapper_segment_constructs(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', segment_id='12345678-abcd-abcd-efab-0123456789ab')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_request.ListNetworkMigrationMapperSegmentConstructsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_request.ListNetworkMigrationMapperSegmentConstructsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_response.ListNetworkMigrationMapperSegmentConstructsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segment_constructs
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segment_constructs.async_list_network_migration_mapper_segment_constructs(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segment_constructs.async_list_network_migration_mapper_segment_constructs(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1257,9 +2308,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_mapper_segments(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mapper_segments_filters.ListNetworkMigrationMapperSegmentsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse":
+
+    async def list_network_migration_mapper_segments(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segments_filters.ListNetworkMigrationMapperSegmentsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse":
         """<p>Lists mapper segments, which represent logical groupings of network resources to be migrated together.</p>
 
         Args:
@@ -1274,9 +2345,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_mapper_segments(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segments_request.ListNetworkMigrationMapperSegmentsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mapper_segments_request.ListNetworkMigrationMapperSegmentsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mapper_segments_response.ListNetworkMigrationMapperSegmentsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segments
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segments.async_list_network_migration_mapper_segments(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapper_segments.async_list_network_migration_mapper_segments(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1290,9 +2372,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_mappings(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mappings_filters.ListNetworkMigrationMappingsFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse":
+
+    async def list_network_migration_mappings(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mappings_filters.ListNetworkMigrationMappingsFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse":
         """<p>Lists network migration mapping jobs, which analyze and create relationships between source and target network resources.</p>
 
         Args:
@@ -1307,9 +2409,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_mappings(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mappings_request.ListNetworkMigrationMappingsRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mappings_request.ListNetworkMigrationMappingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mappings_response.ListNetworkMigrationMappingsResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mappings
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mappings.async_list_network_migration_mappings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mappings.async_list_network_migration_mappings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1323,9 +2436,29 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_network_migration_mapping_updates(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, filters: Optional["aws_sdk_mgn.types.list_network_migration_mapping_updates_filters.ListNetworkMigrationMappingUpdatesFilters"] = None, max_results: Optional["aws_sdk_mgn.types.max_results_type.MaxResultsType"] = None, next_token: Optional["aws_sdk_mgn.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse":
+
+    async def list_network_migration_mapping_updates(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_mgn.types.list_network_migration_mapping_updates_filters.ListNetworkMigrationMappingUpdatesFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_mgn.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_mgn.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse":
         """<p>Lists mapping update jobs, which apply customer modifications to the generated network mappings.</p>
 
         Args:
@@ -1340,9 +2473,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.list_network_migration_mapping_updates(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mapping_updates_request.ListNetworkMigrationMappingUpdatesRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.list_network_migration_mapping_updates_request.ListNetworkMigrationMappingUpdatesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.list_network_migration_mapping_updates_response.ListNetworkMigrationMappingUpdatesResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapping_updates
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapping_updates.async_list_network_migration_mapping_updates(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.list_network_migration_mapping_updates.async_list_network_migration_mapping_updates(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1356,9 +2500,20 @@ class AsyncNetworkMigrationDefinitionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_network_migration_analysis(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse":
+
+    async def start_network_migration_analysis(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse":
         """<p>Starts a network migration analysis job to evaluate connectivity and compatibility of the migration mappings.</p>
 
         Args:
@@ -1370,9 +2525,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.start_network_migration_analysis(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_analysis_request.StartNetworkMigrationAnalysisRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_analysis_request.StartNetworkMigrationAnalysisRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_analysis_response.StartNetworkMigrationAnalysisResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_analysis
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_analysis.async_start_network_migration_analysis(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_analysis.async_start_network_migration_analysis(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1380,9 +2546,23 @@ class AsyncNetworkMigrationDefinitionResource:
         input["network_migration_execution_id"] = network_migration_execution_id
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_network_migration_code_generation(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, code_generation_output_format_types: Optional["aws_sdk_mgn.types.code_generation_output_format_types.CodeGenerationOutputFormatTypes"] = None) -> "aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse":
+
+    async def start_network_migration_code_generation(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        code_generation_output_format_types: Optional[
+            "aws_sdk_mgn.types.code_generation_output_format_types.CodeGenerationOutputFormatTypes"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse":
         """<p>Starts a code generation job to convert network migration mappings into infrastructure-as-code templates.</p>
 
         Args:
@@ -1395,9 +2575,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.start_network_migration_code_generation(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_code_generation_request.StartNetworkMigrationCodeGenerationRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_code_generation_request.StartNetworkMigrationCodeGenerationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_code_generation_response.StartNetworkMigrationCodeGenerationResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_code_generation
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_code_generation.async_start_network_migration_code_generation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_code_generation.async_start_network_migration_code_generation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1405,11 +2596,24 @@ class AsyncNetworkMigrationDefinitionResource:
         input["network_migration_execution_id"] = network_migration_execution_id
         input["network_migration_definition_id"] = network_migration_definition_id
         if code_generation_output_format_types is not None:
-            input["code_generation_output_format_types"] = code_generation_output_format_types
+            input["code_generation_output_format_types"] = (
+                code_generation_output_format_types
+            )
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_network_migration_deployment(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None) -> "aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse":
+
+    async def start_network_migration_deployment(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse":
         """<p>Starts a deployment job to create the target network infrastructure based on the generated code templates.</p>
 
         Args:
@@ -1421,9 +2625,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.start_network_migration_deployment(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_deployment_request.StartNetworkMigrationDeploymentRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_deployment_request.StartNetworkMigrationDeploymentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_deployer_job_response.StartNetworkMigrationDeployerJobResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_deployment
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_deployment.async_start_network_migration_deployment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_deployment.async_start_network_migration_deployment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1431,9 +2646,23 @@ class AsyncNetworkMigrationDefinitionResource:
         input["network_migration_execution_id"] = network_migration_execution_id
         input["network_migration_definition_id"] = network_migration_definition_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_network_migration_mapping(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, security_group_mapping_strategy: Optional["aws_sdk_mgn.types.security_group_mapping_strategy.SecurityGroupMappingStrategy"] = None) -> "aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse":
+
+    async def start_network_migration_mapping(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        security_group_mapping_strategy: Optional[
+            "aws_sdk_mgn.types.security_group_mapping_strategy.SecurityGroupMappingStrategy"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse":
         """<p>Starts the network migration mapping process for a given network migration execution.</p>
 
         Args:
@@ -1446,9 +2675,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.start_network_migration_mapping(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_request.StartNetworkMigrationMappingRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_request.StartNetworkMigrationMappingRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_mapping_response.StartNetworkMigrationMappingResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping.async_start_network_migration_mapping(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping.async_start_network_migration_mapping(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1458,9 +2698,26 @@ class AsyncNetworkMigrationDefinitionResource:
         if security_group_mapping_strategy is not None:
             input["security_group_mapping_strategy"] = security_group_mapping_strategy
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_network_migration_mapping_update(self, network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, constructs: Optional["aws_sdk_mgn.types.start_network_migration_mapping_update_constructs.StartNetworkMigrationMappingUpdateConstructs"] = None, segments: Optional["aws_sdk_mgn.types.start_network_migration_mapping_update_segments.StartNetworkMigrationMappingUpdateSegments"] = None) -> "aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse":
+
+    async def start_network_migration_mapping_update(
+        self,
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        constructs: Optional[
+            "aws_sdk_mgn.types.start_network_migration_mapping_update_constructs.StartNetworkMigrationMappingUpdateConstructs"
+        ] = None,
+        segments: Optional[
+            "aws_sdk_mgn.types.start_network_migration_mapping_update_segments.StartNetworkMigrationMappingUpdateSegments"
+        ] = None,
+    ) -> "aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse":
         """<p>Starts a job to apply customer modifications to network migration mappings, such as changing properties.</p>
 
         Args:
@@ -1474,9 +2731,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.start_network_migration_mapping_update(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', constructs=[{'segmentID': '12345678-abcd-abcd-efab-0123456789ab', 'constructID': 'abc45678-abcd-abcd-efab-012345678abc', 'constructType': 'AWS::EC2::VPC', 'operation': {'update': {'properties': {'CidrBlock': '10.31.0.0/22'}}}}], segments=[{'segmentID': '12345678-abcd-abcd-efab-0123456789ab', 'targetAccount': '234567890123', 'scopeTags': {'key1': 'val1', 'key2': 'val2'}}])
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_update_request.StartNetworkMigrationMappingUpdateRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.start_network_migration_mapping_update_request.StartNetworkMigrationMappingUpdateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.start_network_migration_mapping_update_response.StartNetworkMigrationMappingUpdateResponse"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping_update
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping_update.async_start_network_migration_mapping_update(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.start_network_migration_mapping_update.async_start_network_migration_mapping_update(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1488,9 +2756,22 @@ class AsyncNetworkMigrationDefinitionResource:
         if segments is not None:
             input["segments"] = segments
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_network_migration_mapper_segment(self, network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID", network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID", segment_id: "aws_sdk_mgn.types.segment_id.SegmentID", *, config_overrides: Optional[AsyncmgnClientConfig] = None, scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None) -> "aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment":
+
+    async def update_network_migration_mapper_segment(
+        self,
+        network_migration_definition_id: "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID",
+        network_migration_execution_id: "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID",
+        segment_id: "aws_sdk_mgn.types.segment_id.SegmentID",
+        *,
+        config_overrides: Optional[AsyncmgnClientConfig] = None,
+        scope_tags: Optional["aws_sdk_mgn.types.scope_tags_map.ScopeTagsMap"] = None,
+    ) -> "aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment":
         """<p>Updates a mapper segment's configuration, such as changing its scope tags.</p>
 
         Args:
@@ -1504,9 +2785,20 @@ class AsyncNetworkMigrationDefinitionResource:
 
             >>> await client.update_network_migration_mapper_segment(network_migration_execution_id='01234567-abcd-abcd-abcd-0123456789ab', network_migration_definition_id='nmd-01234567891234567', segment_id='12345678-abcd-abcd-efab-0123456789ab')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_mgn.types.update_network_migration_mapper_segment_request.UpdateNetworkMigrationMapperSegmentRequest]') -> AsyncOperationResponse["aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_mgn.types.update_network_migration_mapper_segment_request.UpdateNetworkMigrationMapperSegmentRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_mgn.types.network_migration_mapper_segment.NetworkMigrationMapperSegment"
+        ]:
             import aws_sdk_mgn._operations.application_migration_service.update_network_migration_mapper_segment
-            output, http_response = await aws_sdk_mgn._operations.application_migration_service.update_network_migration_mapper_segment.async_update_network_migration_mapper_segment(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_mgn._operations.application_migration_service.update_network_migration_mapper_segment.async_update_network_migration_mapper_segment(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -1517,5 +2809,9 @@ class AsyncNetworkMigrationDefinitionResource:
         if scope_tags is not None:
             input["scope_tags"] = scope_tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

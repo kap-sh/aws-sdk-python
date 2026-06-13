@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreateFileSystemRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_s3files.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.bucket_arn
     import aws_sdk_s3files.types.creation_token
     import aws_sdk_s3files.types.kms_key_id
     import aws_sdk_s3files.types.role_arn
     import aws_sdk_s3files.types.tag_list
+
 
 class CreateFileSystemRequest(TypedDict):
     bucket: "aws_sdk_s3files.types.bucket_arn.BucketArn"
@@ -26,6 +30,7 @@ class CreateFileSystemRequest(TypedDict):
     accept_bucket_warning: NotRequired["bool"]
     """<p>Set to true to acknowledge and accept any warnings about the bucket configuration. If not specified, the operation may fail if there are bucket configuration warnings.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateFileSystemRequest) -> dict:
     out: dict = {}
@@ -39,6 +44,7 @@ def serialize_json(value: CreateFileSystemRequest) -> dict:
     out["roleArn"] = value["role_arn"]
     if "tags" in value:
         import aws_sdk_s3files.types.tag_list
+
         out["tags"] = aws_sdk_s3files.types.tag_list.serialize_json(value["tags"])
     if "accept_bucket_warning" in value:
         out["acceptBucketWarning"] = value["accept_bucket_warning"]
@@ -63,6 +69,7 @@ def deserialize_json(data: dict) -> CreateFileSystemRequest:
         raise DeserializationError("CreateFileSystemRequest.role_arn required")
     if "tags" in data:
         import aws_sdk_s3files.types.tag_list
+
         out["tags"] = aws_sdk_s3files.types.tag_list.deserialize_json(data["tags"])
     if "acceptBucketWarning" in data:
         out["accept_bucket_warning"] = data["acceptBucketWarning"]

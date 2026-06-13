@@ -1,9 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssociateEnvironmentRoleInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.environment_id
+
 
 class AssociateEnvironmentRoleInput(TypedDict):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
@@ -12,6 +14,7 @@ class AssociateEnvironmentRoleInput(TypedDict):
     """<p>The ID of the Amazon DataZone environment.</p>"""
     environment_role_arn: "str"
     """<p>The ARN of the environment role.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociateEnvironmentRoleInput) -> dict:

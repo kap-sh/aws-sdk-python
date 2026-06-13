@@ -1,10 +1,15 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_proton._services.async_proton import ensure_async_iterator
-from aws_sdk_proton._services.proton import ensure_sync_iterator
-from aws_sdk_proton._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_proton._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
-    from aws_sdk_proton._services.async_proton import AsyncProtonClient, AsyncProtonClientConfig
     import aws_sdk_proton.types.client_token
     import aws_sdk_proton.types.compatible_environment_template_input_list
     import aws_sdk_proton.types.create_service_template_version_input
@@ -27,11 +32,34 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_status
     import aws_sdk_proton.types.update_service_template_version_input
     import aws_sdk_proton.types.update_service_template_version_output
+    from aws_sdk_proton._services.async_proton import (
+        AsyncProtonClient,
+        AsyncProtonClientConfig,
+    )
+    from aws_sdk_proton._services.proton import ProtonClient, ProtonClientConfig
+
 
 class ServiceTemplateVersionResource:
     def __init__(self, service: ProtonClient) -> None:
         self._service = service
-    def create(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput", compatible_environment_templates: "aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList", *, config_overrides: Optional[ProtonClientConfig] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None, supported_component_sources: Optional["aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"] = None) -> "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput":
+
+    def create(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput",
+        compatible_environment_templates: "aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+        supported_component_sources: Optional[
+            "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
+        ] = None,
+    ) -> "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput":
         """<p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
 
         Args:
@@ -44,9 +72,19 @@ class ServiceTemplateVersionResource:
             tags: <p>An optional list of metadata items that you can associate with the Proton service template version. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
             supported_component_sources: <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template version.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_service_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.create_service_template_version.create_service_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.create_service_template_version.create_service_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -65,9 +103,21 @@ class ServiceTemplateVersionResource:
         if supported_component_sources is not None:
             input["supported_component_sources"] = supported_component_sources
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput":
+
+    def read(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput":
         """<p>Get detailed data for a major or minor version of a service template.</p>
 
         Args:
@@ -75,9 +125,19 @@ class ServiceTemplateVersionResource:
             major_version: <p>To get service template major version detail data, include <code>major Version</code>.</p>
             minor_version: <p>To get service template minor version detail data, include <code>minorVersion</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_service_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.get_service_template_version.get_service_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.get_service_template_version.get_service_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -86,9 +146,31 @@ class ServiceTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[ProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, status: Optional["aws_sdk_proton.types.template_version_status.TemplateVersionStatus"] = None, compatible_environment_templates: Optional["aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList"] = None, supported_component_sources: Optional["aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"] = None) -> "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput":
+
+    def update(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        status: Optional[
+            "aws_sdk_proton.types.template_version_status.TemplateVersionStatus"
+        ] = None,
+        compatible_environment_templates: Optional[
+            "aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList"
+        ] = None,
+        supported_component_sources: Optional[
+            "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
+        ] = None,
+    ) -> "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput":
         """<p>Update a major or minor version of a service template.</p>
 
         Args:
@@ -100,9 +182,19 @@ class ServiceTemplateVersionResource:
             compatible_environment_templates: <p>An array of environment template objects that are compatible with this service template version. A service instance based on this service template version can run in environments based on compatible templates.</p>
             supported_component_sources: <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template version.</p> <note> <p>A change to <code>supportedComponentSources</code> doesn't impact existing component attachments to instances based on this template version. A change only affects later associations.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_service_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.update_service_template_version.update_service_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.update_service_template_version.update_service_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -119,9 +211,21 @@ class ServiceTemplateVersionResource:
         if supported_component_sources is not None:
             input["supported_component_sources"] = supported_component_sources
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[ProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput":
+
+    def delete(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput":
         """<p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code> version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A major version of a service template is a version that <i>isn't</i> backwards compatible.</p> <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the service template if no other minor versions of the service template exist. A minor version of a service template is a version that's backwards compatible.</p>
 
         Args:
@@ -129,9 +233,19 @@ class ServiceTemplateVersionResource:
             major_version: <p>The service template major version to delete.</p>
             minor_version: <p>The service template minor version to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput]') -> OperationResponse["aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_service_template_version
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.delete_service_template_version.delete_service_template_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.delete_service_template_version.delete_service_template_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -140,9 +254,26 @@ class ServiceTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[ProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None) -> "aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput":
+
+    def list(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[ProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput":
         """<p>List major or minor versions of a service template with detail data.</p>
 
         Args:
@@ -151,9 +282,19 @@ class ServiceTemplateVersionResource:
             template_name: <p>The name of the service template.</p>
             major_version: <p>To view a list of minor of versions under a major version of a service template, include <code>major Version</code>.</p> <p>To view a list of major versions of a service template, <i>exclude</i> <code>major Version</code>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput]') -> OperationResponse["aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_service_template_versions
-            output, http_response = aws_sdk_proton._operations.aws_proton20200720.list_service_template_versions.list_service_template_versions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_proton._operations.aws_proton20200720.list_service_template_versions.list_service_template_versions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -166,13 +307,35 @@ class ServiceTemplateVersionResource:
         if major_version is not None:
             input["major_version"] = major_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncServiceTemplateVersionResource:
     def __init__(self, service: AsyncProtonClient) -> None:
         self._service = service
-    async def create(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput", compatible_environment_templates: "aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList", *, config_overrides: Optional[AsyncProtonClientConfig] = None, client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None, tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None, supported_component_sources: Optional["aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"] = None) -> "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput":
+
+    async def create(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        source: "aws_sdk_proton.types.template_version_source_input.TemplateVersionSourceInput",
+        compatible_environment_templates: "aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+        tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
+        supported_component_sources: Optional[
+            "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
+        ] = None,
+    ) -> "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput":
         """<p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
 
         Args:
@@ -185,9 +348,20 @@ class AsyncServiceTemplateVersionResource:
             tags: <p>An optional list of metadata items that you can associate with the Proton service template version. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
             supported_component_sources: <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template version.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.create_service_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.create_service_template_version.async_create_service_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.create_service_template_version.async_create_service_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -206,9 +380,21 @@ class AsyncServiceTemplateVersionResource:
         if supported_component_sources is not None:
             input["supported_component_sources"] = supported_component_sources
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput":
+
+    async def read(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput":
         """<p>Get detailed data for a major or minor version of a service template.</p>
 
         Args:
@@ -216,9 +402,20 @@ class AsyncServiceTemplateVersionResource:
             major_version: <p>To get service template major version detail data, include <code>major Version</code>.</p>
             minor_version: <p>To get service template minor version detail data, include <code>minorVersion</code>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.get_service_template_version_output.GetServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.get_service_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.get_service_template_version.async_get_service_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.get_service_template_version.async_get_service_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -227,9 +424,31 @@ class AsyncServiceTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[AsyncProtonClientConfig] = None, description: Optional["aws_sdk_proton.types.description.Description"] = None, status: Optional["aws_sdk_proton.types.template_version_status.TemplateVersionStatus"] = None, compatible_environment_templates: Optional["aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList"] = None, supported_component_sources: Optional["aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"] = None) -> "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput":
+
+    async def update(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        description: Optional["aws_sdk_proton.types.description.Description"] = None,
+        status: Optional[
+            "aws_sdk_proton.types.template_version_status.TemplateVersionStatus"
+        ] = None,
+        compatible_environment_templates: Optional[
+            "aws_sdk_proton.types.compatible_environment_template_input_list.CompatibleEnvironmentTemplateInputList"
+        ] = None,
+        supported_component_sources: Optional[
+            "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
+        ] = None,
+    ) -> "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput":
         """<p>Update a major or minor version of a service template.</p>
 
         Args:
@@ -241,9 +460,20 @@ class AsyncServiceTemplateVersionResource:
             compatible_environment_templates: <p>An array of environment template objects that are compatible with this service template version. A service instance based on this service template version can run in environments based on compatible templates.</p>
             supported_component_sources: <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template version.</p> <note> <p>A change to <code>supportedComponentSources</code> doesn't impact existing component attachments to instances based on this template version. A change only affects later associations.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.update_service_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.update_service_template_version.async_update_service_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.update_service_template_version.async_update_service_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -260,9 +490,21 @@ class AsyncServiceTemplateVersionResource:
         if supported_component_sources is not None:
             input["supported_component_sources"] = supported_component_sources
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart", *, config_overrides: Optional[AsyncProtonClientConfig] = None) -> "aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput":
+
+    async def delete(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        minor_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+    ) -> "aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput":
         """<p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code> version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A major version of a service template is a version that <i>isn't</i> backwards compatible.</p> <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the service template if no other minor versions of the service template exist. A minor version of a service template is a version that's backwards compatible.</p>
 
         Args:
@@ -270,9 +512,20 @@ class AsyncServiceTemplateVersionResource:
             major_version: <p>The service template major version to delete.</p>
             minor_version: <p>The service template minor version to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput]') -> AsyncOperationResponse["aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.delete_service_template_version_output.DeleteServiceTemplateVersionOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.delete_service_template_version
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.delete_service_template_version.async_delete_service_template_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.delete_service_template_version.async_delete_service_template_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -281,9 +534,26 @@ class AsyncServiceTemplateVersionResource:
         input["major_version"] = major_version
         input["minor_version"] = minor_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, template_name: "aws_sdk_proton.types.resource_name.ResourceName", *, config_overrides: Optional[AsyncProtonClientConfig] = None, next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_proton.types.max_page_results.MaxPageResults"] = None, major_version: Optional["aws_sdk_proton.types.template_version_part.TemplateVersionPart"] = None) -> "aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput":
+
+    async def list(
+        self,
+        template_name: "aws_sdk_proton.types.resource_name.ResourceName",
+        *,
+        config_overrides: Optional[AsyncProtonClientConfig] = None,
+        next_token: Optional["aws_sdk_proton.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "aws_sdk_proton.types.max_page_results.MaxPageResults"
+        ] = None,
+        major_version: Optional[
+            "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
+        ] = None,
+    ) -> "aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput":
         """<p>List major or minor versions of a service template with detail data.</p>
 
         Args:
@@ -292,9 +562,20 @@ class AsyncServiceTemplateVersionResource:
             template_name: <p>The name of the service template.</p>
             major_version: <p>To view a list of minor of versions under a major version of a service template, include <code>major Version</code>.</p> <p>To view a list of major versions of a service template, <i>exclude</i> <code>major Version</code>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput]') -> AsyncOperationResponse["aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_proton.types.list_service_template_versions_output.ListServiceTemplateVersionsOutput"
+        ]:
             import aws_sdk_proton._operations.aws_proton20200720.list_service_template_versions
-            output, http_response = await aws_sdk_proton._operations.aws_proton20200720.list_service_template_versions.async_list_service_template_versions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_proton._operations.aws_proton20200720.list_service_template_versions.async_list_service_template_versions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -307,5 +588,9 @@ class AsyncServiceTemplateVersionResource:
         if major_version is not None:
             input["major_version"] = major_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetDevicePositionHistoryRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.id
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.timestamp
     import aws_sdk_location.types.token
+
 
 class GetDevicePositionHistoryRequest(TypedDict):
     tracker_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -22,6 +25,7 @@ class GetDevicePositionHistoryRequest(TypedDict):
     max_results: NotRequired["int"]
     """<p>An optional limit for the number of device positions returned in a single call.</p> <p>Default value: <code>100</code> </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: GetDevicePositionHistoryRequest) -> dict:
     out: dict = {}
@@ -29,10 +33,16 @@ def serialize_json(value: GetDevicePositionHistoryRequest) -> dict:
         out["NextToken"] = value["next_token"]
     if "start_time_inclusive" in value:
         import aws_sdk_location.types.timestamp
-        out["StartTimeInclusive"] = aws_sdk_location.types.timestamp.serialize_json(value["start_time_inclusive"])
+
+        out["StartTimeInclusive"] = aws_sdk_location.types.timestamp.serialize_json(
+            value["start_time_inclusive"]
+        )
     if "end_time_exclusive" in value:
         import aws_sdk_location.types.timestamp
-        out["EndTimeExclusive"] = aws_sdk_location.types.timestamp.serialize_json(value["end_time_exclusive"])
+
+        out["EndTimeExclusive"] = aws_sdk_location.types.timestamp.serialize_json(
+            value["end_time_exclusive"]
+        )
     if "max_results" in value:
         out["MaxResults"] = value["max_results"]
     return out
@@ -44,10 +54,16 @@ def deserialize_json(data: dict) -> GetDevicePositionHistoryRequest:
         out["next_token"] = data["NextToken"]
     if "StartTimeInclusive" in data:
         import aws_sdk_location.types.timestamp
-        out["start_time_inclusive"] = aws_sdk_location.types.timestamp.deserialize_json(data["StartTimeInclusive"])
+
+        out["start_time_inclusive"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["StartTimeInclusive"]
+        )
     if "EndTimeExclusive" in data:
         import aws_sdk_location.types.timestamp
-        out["end_time_exclusive"] = aws_sdk_location.types.timestamp.deserialize_json(data["EndTimeExclusive"])
+
+        out["end_time_exclusive"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["EndTimeExclusive"]
+        )
     if "MaxResults" in data:
         out["max_results"] = data["MaxResults"]
     return out

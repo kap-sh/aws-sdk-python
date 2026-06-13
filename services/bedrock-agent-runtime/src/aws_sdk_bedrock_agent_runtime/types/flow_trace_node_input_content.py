@@ -1,12 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceNodeInputContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
-from aws_sdk_bedrock_agent_runtime.errors import DeserializationError, SerializationError
+from typing import TypeAlias, TypedDict
+
+from aws_sdk_bedrock_agent_runtime.errors import (
+    DeserializationError,
+    SerializationError,
+)
+
 
 class _FlowTraceNodeInputContent_document(TypedDict):
     document: "object"
 
+
 FlowTraceNodeInputContent: TypeAlias = _FlowTraceNodeInputContent_document
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FlowTraceNodeInputContent) -> dict:
@@ -20,4 +27,6 @@ def deserialize_json(data: dict) -> FlowTraceNodeInputContent:
     if "document" in data:
         return {"document": data["document"]}
     else:
-        raise DeserializationError("FlowTraceNodeInputContent: no recognized variant key")
+        raise DeserializationError(
+            "FlowTraceNodeInputContent: no recognized variant key"
+        )

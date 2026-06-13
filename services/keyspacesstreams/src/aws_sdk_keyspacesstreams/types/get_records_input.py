@@ -1,16 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#GetRecordsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_keyspacesstreams.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.shard_iterator
+
 
 class GetRecordsInput(TypedDict):
     shard_iterator: "aws_sdk_keyspacesstreams.types.shard_iterator.ShardIterator"
     """<p> The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the <code>GetShardIterator </code> operation. Each shard iterator is valid for 15 minutes after creation. </p>"""
     max_results: NotRequired["int"]
     """<p> The maximum number of records to return in a single <code>GetRecords</code> request. The default value is 100. You can specify a limit between 1 and 1000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: GetRecordsInput) -> dict:

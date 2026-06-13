@@ -2,12 +2,14 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
     import aws_sdk_datazone.types.created_at
     import aws_sdk_datazone.types.created_by
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.revision
+
 
 class AssetRevision(TypedDict):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
@@ -20,6 +22,7 @@ class AssetRevision(TypedDict):
     """<p>The Amazon DataZone user who created the asset revision.</p>"""
     created_at: NotRequired["aws_sdk_datazone.types.created_at.CreatedAt"]
     """<p>The timestamp of when an inventory asset revison was created.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssetRevision) -> dict:
@@ -34,7 +37,10 @@ def serialize_json(value: AssetRevision) -> dict:
         out["createdBy"] = value["created_by"]
     if "created_at" in value:
         import aws_sdk_datazone.types.created_at
-        out["createdAt"] = aws_sdk_datazone.types.created_at.serialize_json(value["created_at"])
+
+        out["createdAt"] = aws_sdk_datazone.types.created_at.serialize_json(
+            value["created_at"]
+        )
     return out
 
 
@@ -50,5 +56,8 @@ def deserialize_json(data: dict) -> AssetRevision:
         out["created_by"] = data["createdBy"]
     if "createdAt" in data:
         import aws_sdk_datazone.types.created_at
-        out["created_at"] = aws_sdk_datazone.types.created_at.deserialize_json(data["createdAt"])
+
+        out["created_at"] = aws_sdk_datazone.types.created_at.deserialize_json(
+            data["createdAt"]
+        )
     return out

@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrieveAndGenerateSessionConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agent_runtime.types.kms_key_arn
+
+
+class RetrieveAndGenerateSessionConfiguration(TypedDict):
+    kms_key_arn: "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
+    """<p>The ARN of the KMS key encrypting the session.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RetrieveAndGenerateSessionConfiguration) -> dict:
+    out: dict = {}
+    out["kmsKeyArn"] = value["kms_key_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> RetrieveAndGenerateSessionConfiguration:
+    out: RetrieveAndGenerateSessionConfiguration = {}  # type: ignore[typeddict-item]
+    if "kmsKeyArn" in data:
+        out["kms_key_arn"] = data["kmsKeyArn"]
+    else:
+        raise DeserializationError(
+            "RetrieveAndGenerateSessionConfiguration.kms_key_arn required"
+        )
+    return out

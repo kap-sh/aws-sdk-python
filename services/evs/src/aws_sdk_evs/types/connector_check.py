@@ -1,0 +1,87 @@
+"""Generated from Smithy shape ``com.amazonaws.evs#ConnectorCheck``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_evs.types.check_result
+    import aws_sdk_evs.types.check_type
+
+
+class ConnectorCheck(TypedDict):
+    type: NotRequired["aws_sdk_evs.types.check_type.CheckType"]
+    """<p>The check type.</p>"""
+    result: NotRequired["aws_sdk_evs.types.check_result.CheckResult"]
+    """<p>The check result.</p>"""
+    last_check_attempt: NotRequired["datetime.datetime"]
+    """<p>The date and time of the last check attempt.</p>"""
+    impaired_since: NotRequired["datetime.datetime"]
+    """<p>The time when connector health began to be impaired.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ConnectorCheck) -> dict:
+    out: dict = {}
+    if "type" in value:
+        import aws_sdk_evs.types.check_type
+
+        out["type"] = aws_sdk_evs.types.check_type.serialize_aws_json_1_0(value["type"])
+    if "result" in value:
+        import aws_sdk_evs.types.check_result
+
+        out["result"] = aws_sdk_evs.types.check_result.serialize_aws_json_1_0(
+            value["result"]
+        )
+    if "last_check_attempt" in value:
+        import aws_sdk_evs.types._prelude.timestamp
+
+        out["lastCheckAttempt"] = (
+            aws_sdk_evs.types._prelude.timestamp.serialize_aws_json_1_0(
+                value["last_check_attempt"]
+            )
+        )
+    if "impaired_since" in value:
+        import aws_sdk_evs.types._prelude.timestamp
+
+        out["impairedSince"] = (
+            aws_sdk_evs.types._prelude.timestamp.serialize_aws_json_1_0(
+                value["impaired_since"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ConnectorCheck:
+    out: ConnectorCheck = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_evs.types.check_type
+
+        out["type"] = aws_sdk_evs.types.check_type.deserialize_aws_json_1_0(
+            data["type"]
+        )
+    if "result" in data:
+        import aws_sdk_evs.types.check_result
+
+        out["result"] = aws_sdk_evs.types.check_result.deserialize_aws_json_1_0(
+            data["result"]
+        )
+    if "lastCheckAttempt" in data:
+        import aws_sdk_evs.types._prelude.timestamp
+
+        out["last_check_attempt"] = (
+            aws_sdk_evs.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["lastCheckAttempt"]
+            )
+        )
+    if "impairedSince" in data:
+        import aws_sdk_evs.types._prelude.timestamp
+
+        out["impaired_since"] = (
+            aws_sdk_evs.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["impairedSince"]
+            )
+        )
+    return out

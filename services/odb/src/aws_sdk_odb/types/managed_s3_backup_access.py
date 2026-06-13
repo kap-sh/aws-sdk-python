@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.odb#ManagedS3BackupAccess``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_odb.types.managed_resource_status
+    import aws_sdk_odb.types.string_list
+
+
+class ManagedS3BackupAccess(TypedDict):
+    status: NotRequired[
+        "aws_sdk_odb.types.managed_resource_status.ManagedResourceStatus"
+    ]
+    """<p>The status of the managed Amazon S3 backup access.</p>"""
+    ipv4_addresses: NotRequired["aws_sdk_odb.types.string_list.StringList"]
+    """<p>The IPv4 addresses for the managed Amazon S3 backup access.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ManagedS3BackupAccess) -> dict:
+    out: dict = {}
+    if "status" in value:
+        import aws_sdk_odb.types.managed_resource_status
+
+        out["status"] = (
+            aws_sdk_odb.types.managed_resource_status.serialize_aws_json_1_0(
+                value["status"]
+            )
+        )
+    if "ipv4_addresses" in value:
+        import aws_sdk_odb.types.string_list
+
+        out["ipv4Addresses"] = aws_sdk_odb.types.string_list.serialize_aws_json_1_0(
+            value["ipv4_addresses"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ManagedS3BackupAccess:
+    out: ManagedS3BackupAccess = {}  # type: ignore[typeddict-item]
+    if "status" in data:
+        import aws_sdk_odb.types.managed_resource_status
+
+        out["status"] = (
+            aws_sdk_odb.types.managed_resource_status.deserialize_aws_json_1_0(
+                data["status"]
+            )
+        )
+    if "ipv4Addresses" in data:
+        import aws_sdk_odb.types.string_list
+
+        out["ipv4_addresses"] = aws_sdk_odb.types.string_list.deserialize_aws_json_1_0(
+            data["ipv4Addresses"]
+        )
+    return out

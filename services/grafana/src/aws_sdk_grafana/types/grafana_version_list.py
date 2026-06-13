@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#GrafanaVersionList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.grafana_version
 
-GrafanaVersionList: TypeAlias = list["aws_sdk_grafana.types.grafana_version.GrafanaVersion"]
+GrafanaVersionList: TypeAlias = list[
+    "aws_sdk_grafana.types.grafana_version.GrafanaVersion"
+]
 
 
 # --- restJson1 ser/de ---

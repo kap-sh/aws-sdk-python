@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateBackupSelectionOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
     import aws_sdk_backup.types.timestamp
+
 
 class CreateBackupSelectionOutput(TypedDict):
     selection_id: NotRequired["aws_sdk_backup.types.string.string"]
@@ -13,6 +16,7 @@ class CreateBackupSelectionOutput(TypedDict):
     """<p>The ID of the backup plan.</p>"""
     creation_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
     """<p>The date and time a backup selection is created, in Unix format and Coordinated Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateBackupSelectionOutput) -> dict:
@@ -23,7 +27,10 @@ def serialize_json(value: CreateBackupSelectionOutput) -> dict:
         out["BackupPlanId"] = value["backup_plan_id"]
     if "creation_date" in value:
         import aws_sdk_backup.types.timestamp
-        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(value["creation_date"])
+
+        out["CreationDate"] = aws_sdk_backup.types.timestamp.serialize_json(
+            value["creation_date"]
+        )
     return out
 
 
@@ -35,5 +42,8 @@ def deserialize_json(data: dict) -> CreateBackupSelectionOutput:
         out["backup_plan_id"] = data["BackupPlanId"]
     if "CreationDate" in data:
         import aws_sdk_backup.types.timestamp
-        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(data["CreationDate"])
+
+        out["creation_date"] = aws_sdk_backup.types.timestamp.deserialize_json(
+            data["CreationDate"]
+        )
     return out

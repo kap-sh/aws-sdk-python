@@ -1,17 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#Column``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.generic_string
+
 
 class Column(TypedDict):
     name: NotRequired["aws_sdk_bcm_data_exports.types.generic_string.GenericString"]
     """<p>The column name.</p>"""
     type: NotRequired["aws_sdk_bcm_data_exports.types.generic_string.GenericString"]
     """<p>The kind of data a column stores.</p>"""
-    description: NotRequired["aws_sdk_bcm_data_exports.types.generic_string.GenericString"]
+    description: NotRequired[
+        "aws_sdk_bcm_data_exports.types.generic_string.GenericString"
+    ]
     """<p>The description for a column.</p>"""
+
 
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: Column) -> dict:

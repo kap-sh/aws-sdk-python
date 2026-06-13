@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#DataArtifact``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_marketplace_discovery.errors import DeserializationError
+
 
 class DataArtifact(TypedDict):
     description: NotRequired["str"]
@@ -13,6 +16,7 @@ class DataArtifact(TypedDict):
     """<p>The type of the data artifact resource.</p>"""
     data_classification: "str"
     """<p>The classification of sensitive data contained in the dataset.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataArtifact) -> dict:

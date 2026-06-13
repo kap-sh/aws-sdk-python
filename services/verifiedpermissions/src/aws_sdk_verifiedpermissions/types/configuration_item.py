@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 if TYPE_CHECKING:
-    import aws_sdk_verifiedpermissions.types.open_id_connect_configuration_item
     import aws_sdk_verifiedpermissions.types.cognito_user_pool_configuration_item
+    import aws_sdk_verifiedpermissions.types.open_id_connect_configuration_item
 
 class _ConfigurationItem_cognitoUserPoolConfiguration(TypedDict):
     cognitoUserPoolConfiguration: "aws_sdk_verifiedpermissions.types.cognito_user_pool_configuration_item.CognitoUserPoolConfigurationItem"

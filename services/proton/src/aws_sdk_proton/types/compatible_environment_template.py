@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CompatibleEnvironmentTemplate``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_proton.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name
     import aws_sdk_proton.types.template_version_part
+
 
 class CompatibleEnvironmentTemplate(TypedDict):
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The compatible environment template name.</p>"""
     major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart"
     """<p>The major version of the compatible environment template.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CompatibleEnvironmentTemplate) -> dict:
@@ -25,9 +29,13 @@ def deserialize_aws_json_1_0(data: dict) -> CompatibleEnvironmentTemplate:
     if "templateName" in data:
         out["template_name"] = data["templateName"]
     else:
-        raise DeserializationError("CompatibleEnvironmentTemplate.template_name required")
+        raise DeserializationError(
+            "CompatibleEnvironmentTemplate.template_name required"
+        )
     if "majorVersion" in data:
         out["major_version"] = data["majorVersion"]
     else:
-        raise DeserializationError("CompatibleEnvironmentTemplate.major_version required")
+        raise DeserializationError(
+            "CompatibleEnvironmentTemplate.major_version required"
+        )
     return out

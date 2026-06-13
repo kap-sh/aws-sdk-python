@@ -1,13 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#AccessDeniedException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mailmanager.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.error_message
 
+
 class AccessDeniedException_(TypedDict):
     message: NotRequired["aws_sdk_mailmanager.types.error_message.ErrorMessage"]
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AccessDeniedException_) -> dict:
@@ -26,10 +31,16 @@ def deserialize_aws_json_1_0(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.mailmanager#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

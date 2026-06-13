@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BillEstimateLineItemSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.account_id
     import aws_sdk_bcm_pricing_calculator.types.availability_zone
@@ -14,6 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.usage_quantity_result
     import aws_sdk_bcm_pricing_calculator.types.usage_type
 
+
 class BillEstimateLineItemSummary(TypedDict):
     service_code: "aws_sdk_bcm_pricing_calculator.types.service_code.ServiceCode"
     """<p> The Amazon Web Services service code associated with this line item. </p>"""
@@ -23,7 +27,9 @@ class BillEstimateLineItemSummary(TypedDict):
     """<p> The specific operation associated with this line item. </p>"""
     location: NotRequired["str"]
     """<p> The location associated with this line item. </p>"""
-    availability_zone: NotRequired["aws_sdk_bcm_pricing_calculator.types.availability_zone.AvailabilityZone"]
+    availability_zone: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.availability_zone.AvailabilityZone"
+    ]
     """<p> The availability zone associated with this line item, if applicable. </p>"""
     id: NotRequired["aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"]
     """<p> The unique identifier of this line item. </p>"""
@@ -31,20 +37,35 @@ class BillEstimateLineItemSummary(TypedDict):
     """<p> The line item identifier from the original bill. </p>"""
     line_item_type: NotRequired["str"]
     """<p> The type of this line item (e.g., Usage, Tax, Credit). </p>"""
-    payer_account_id: NotRequired["aws_sdk_bcm_pricing_calculator.types.account_id.AccountId"]
+    payer_account_id: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.account_id.AccountId"
+    ]
     """<p> The Amazon Web Services account ID of the payer for this line item. </p>"""
-    usage_account_id: NotRequired["aws_sdk_bcm_pricing_calculator.types.account_id.AccountId"]
+    usage_account_id: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.account_id.AccountId"
+    ]
     """<p> The Amazon Web Services account ID associated with the usage for this line item. </p>"""
-    estimated_usage_quantity: NotRequired["aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.UsageQuantityResult"]
+    estimated_usage_quantity: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.UsageQuantityResult"
+    ]
     """<p> The estimated usage quantity for this line item. </p>"""
-    estimated_cost: NotRequired["aws_sdk_bcm_pricing_calculator.types.cost_amount.CostAmount"]
+    estimated_cost: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.cost_amount.CostAmount"
+    ]
     """<p> The estimated cost for this line item. </p>"""
-    historical_usage_quantity: NotRequired["aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.UsageQuantityResult"]
+    historical_usage_quantity: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.UsageQuantityResult"
+    ]
     """<p> The historical usage quantity for this line item. </p>"""
-    historical_cost: NotRequired["aws_sdk_bcm_pricing_calculator.types.cost_amount.CostAmount"]
+    historical_cost: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.cost_amount.CostAmount"
+    ]
     """<p> The historical cost for this line item. </p>"""
-    savings_plan_arns: NotRequired["aws_sdk_bcm_pricing_calculator.types.savings_plan_arns.SavingsPlanArns"]
+    savings_plan_arns: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.savings_plan_arns.SavingsPlanArns"
+    ]
     """<p> The Amazon Resource Names (ARNs) of any Savings Plans applied to this line item. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: BillEstimateLineItemSummary) -> dict:
@@ -68,19 +89,44 @@ def serialize_aws_json_1_0(value: BillEstimateLineItemSummary) -> dict:
         out["usageAccountId"] = value["usage_account_id"]
     if "estimated_usage_quantity" in value:
         import aws_sdk_bcm_pricing_calculator.types.usage_quantity_result
-        out["estimatedUsageQuantity"] = aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.serialize_aws_json_1_0(value["estimated_usage_quantity"])
+
+        out["estimatedUsageQuantity"] = (
+            aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.serialize_aws_json_1_0(
+                value["estimated_usage_quantity"]
+            )
+        )
     if "estimated_cost" in value:
         import aws_sdk_bcm_pricing_calculator.types.cost_amount
-        out["estimatedCost"] = aws_sdk_bcm_pricing_calculator.types.cost_amount.serialize_aws_json_1_0(value["estimated_cost"])
+
+        out["estimatedCost"] = (
+            aws_sdk_bcm_pricing_calculator.types.cost_amount.serialize_aws_json_1_0(
+                value["estimated_cost"]
+            )
+        )
     if "historical_usage_quantity" in value:
         import aws_sdk_bcm_pricing_calculator.types.usage_quantity_result
-        out["historicalUsageQuantity"] = aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.serialize_aws_json_1_0(value["historical_usage_quantity"])
+
+        out["historicalUsageQuantity"] = (
+            aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.serialize_aws_json_1_0(
+                value["historical_usage_quantity"]
+            )
+        )
     if "historical_cost" in value:
         import aws_sdk_bcm_pricing_calculator.types.cost_amount
-        out["historicalCost"] = aws_sdk_bcm_pricing_calculator.types.cost_amount.serialize_aws_json_1_0(value["historical_cost"])
+
+        out["historicalCost"] = (
+            aws_sdk_bcm_pricing_calculator.types.cost_amount.serialize_aws_json_1_0(
+                value["historical_cost"]
+            )
+        )
     if "savings_plan_arns" in value:
         import aws_sdk_bcm_pricing_calculator.types.savings_plan_arns
-        out["savingsPlanArns"] = aws_sdk_bcm_pricing_calculator.types.savings_plan_arns.serialize_aws_json_1_0(value["savings_plan_arns"])
+
+        out["savingsPlanArns"] = (
+            aws_sdk_bcm_pricing_calculator.types.savings_plan_arns.serialize_aws_json_1_0(
+                value["savings_plan_arns"]
+            )
+        )
     return out
 
 
@@ -114,17 +160,42 @@ def deserialize_aws_json_1_0(data: dict) -> BillEstimateLineItemSummary:
         out["usage_account_id"] = data["usageAccountId"]
     if "estimatedUsageQuantity" in data:
         import aws_sdk_bcm_pricing_calculator.types.usage_quantity_result
-        out["estimated_usage_quantity"] = aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.deserialize_aws_json_1_0(data["estimatedUsageQuantity"])
+
+        out["estimated_usage_quantity"] = (
+            aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.deserialize_aws_json_1_0(
+                data["estimatedUsageQuantity"]
+            )
+        )
     if "estimatedCost" in data:
         import aws_sdk_bcm_pricing_calculator.types.cost_amount
-        out["estimated_cost"] = aws_sdk_bcm_pricing_calculator.types.cost_amount.deserialize_aws_json_1_0(data["estimatedCost"])
+
+        out["estimated_cost"] = (
+            aws_sdk_bcm_pricing_calculator.types.cost_amount.deserialize_aws_json_1_0(
+                data["estimatedCost"]
+            )
+        )
     if "historicalUsageQuantity" in data:
         import aws_sdk_bcm_pricing_calculator.types.usage_quantity_result
-        out["historical_usage_quantity"] = aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.deserialize_aws_json_1_0(data["historicalUsageQuantity"])
+
+        out["historical_usage_quantity"] = (
+            aws_sdk_bcm_pricing_calculator.types.usage_quantity_result.deserialize_aws_json_1_0(
+                data["historicalUsageQuantity"]
+            )
+        )
     if "historicalCost" in data:
         import aws_sdk_bcm_pricing_calculator.types.cost_amount
-        out["historical_cost"] = aws_sdk_bcm_pricing_calculator.types.cost_amount.deserialize_aws_json_1_0(data["historicalCost"])
+
+        out["historical_cost"] = (
+            aws_sdk_bcm_pricing_calculator.types.cost_amount.deserialize_aws_json_1_0(
+                data["historicalCost"]
+            )
+        )
     if "savingsPlanArns" in data:
         import aws_sdk_bcm_pricing_calculator.types.savings_plan_arns
-        out["savings_plan_arns"] = aws_sdk_bcm_pricing_calculator.types.savings_plan_arns.deserialize_aws_json_1_0(data["savingsPlanArns"])
+
+        out["savings_plan_arns"] = (
+            aws_sdk_bcm_pricing_calculator.types.savings_plan_arns.deserialize_aws_json_1_0(
+                data["savingsPlanArns"]
+            )
+        )
     return out

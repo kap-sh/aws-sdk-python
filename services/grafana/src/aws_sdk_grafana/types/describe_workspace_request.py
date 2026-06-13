@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DescribeWorkspaceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
+
 
 class DescribeWorkspaceRequest(TypedDict):
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace to display information about.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeWorkspaceRequest) -> dict:

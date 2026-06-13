@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.ssmincidents#DeleteResourcePolicyInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_ssm_incidents.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm_incidents.types.arn
+    import aws_sdk_ssm_incidents.types.policy_id
+
+
+class DeleteResourcePolicyInput(TypedDict):
+    resource_arn: "aws_sdk_ssm_incidents.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the resource you're deleting the policy from.</p>"""
+    policy_id: "aws_sdk_ssm_incidents.types.policy_id.PolicyId"
+    """<p>The ID of the resource policy you're deleting.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteResourcePolicyInput) -> dict:
+    out: dict = {}
+    out["resourceArn"] = value["resource_arn"]
+    out["policyId"] = value["policy_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteResourcePolicyInput:
+    out: DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
+    if "resourceArn" in data:
+        out["resource_arn"] = data["resourceArn"]
+    else:
+        raise DeserializationError("DeleteResourcePolicyInput.resource_arn required")
+    if "policyId" in data:
+        out["policy_id"] = data["policyId"]
+    else:
+        raise DeserializationError("DeleteResourcePolicyInput.policy_id required")
+    return out

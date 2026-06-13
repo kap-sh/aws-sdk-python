@@ -1,16 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ResourceNotFoundException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_taxsettings.errors import DeserializationError
-from aws_sdk_taxsettings.errors import ServiceError
+
+from aws_sdk_taxsettings.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.error_code
     import aws_sdk_taxsettings.types.error_message
+
 
 class ResourceNotFoundException_(TypedDict):
     message: "aws_sdk_taxsettings.types.error_message.ErrorMessage"
     error_code: "aws_sdk_taxsettings.types.error_code.ErrorCode"
     """<p>404</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ResourceNotFoundException_) -> dict:
@@ -35,10 +38,16 @@ def deserialize_json(data: dict) -> ResourceNotFoundException_:
 
 class ResourceNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.taxsettings#ResourceNotFoundException``."""
-    code: str | None = 'ResourceNotFoundException'
+
+    code: str | None = "ResourceNotFoundException"
 
     def __init__(self, data: ResourceNotFoundException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ResourceNotFoundException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ResourceNotFoundException",
+        )
         self.data = data
 
     @classmethod

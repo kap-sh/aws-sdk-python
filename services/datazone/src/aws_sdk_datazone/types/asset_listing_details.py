@@ -2,9 +2,11 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.listing_id
     import aws_sdk_datazone.types.listing_status
+
 
 class AssetListingDetails(TypedDict):
     listing_id: "aws_sdk_datazone.types.listing_id.ListingId"
@@ -12,12 +14,16 @@ class AssetListingDetails(TypedDict):
     listing_status: "aws_sdk_datazone.types.listing_status.ListingStatus"
     """<p>The status of an asset published in an Amazon DataZone catalog. </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AssetListingDetails) -> dict:
     out: dict = {}
     out["listingId"] = value["listing_id"]
     import aws_sdk_datazone.types.listing_status
-    out["listingStatus"] = aws_sdk_datazone.types.listing_status.serialize_json(value["listing_status"])
+
+    out["listingStatus"] = aws_sdk_datazone.types.listing_status.serialize_json(
+        value["listing_status"]
+    )
     return out
 
 
@@ -29,7 +35,10 @@ def deserialize_json(data: dict) -> AssetListingDetails:
         raise DeserializationError("AssetListingDetails.listing_id required")
     if "listingStatus" in data:
         import aws_sdk_datazone.types.listing_status
-        out["listing_status"] = aws_sdk_datazone.types.listing_status.deserialize_json(data["listingStatus"])
+
+        out["listing_status"] = aws_sdk_datazone.types.listing_status.deserialize_json(
+            data["listingStatus"]
+        )
     else:
         raise DeserializationError("AssetListingDetails.listing_status required")
     return out

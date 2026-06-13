@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEksWorkloadInfo``."""
 
 from typing import TypedDict
+
 from aws_sdk_inspector2.errors import DeserializationError
+
 
 class AwsEksWorkloadInfo(TypedDict):
     name: "str"
     """<p>The name of the workload.</p>"""
     type: "str"
     """<p>The workload type.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsEksWorkloadInfo) -> dict:

@@ -9,11 +9,19 @@ import base64
 from email.utils import format_datetime as _fmt_http
 from email.utils import parsedate_to_datetime as _parse_http
 
-AuthType: TypeAlias = Literal["IAM_IDC", "DISABLED",]
+AuthType: TypeAlias = Literal[
+    "IAM_IDC",
+    "DISABLED",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("IAM_IDC", "DISABLED",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "IAM_IDC",
+        "DISABLED",
+    )
+)
 
 
 def serialize_json(value: AuthType) -> str:

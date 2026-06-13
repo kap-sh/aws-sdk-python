@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#CreateVectorBucketOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_bucket_arn
 
+
 class CreateVectorBucketOutput(TypedDict):
-    vector_bucket_arn: NotRequired["aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"]
+    vector_bucket_arn: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"
+    ]
     """<p>The Amazon Resource Name (ARN) of the newly created vector bucket.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateVectorBucketOutput) -> dict:

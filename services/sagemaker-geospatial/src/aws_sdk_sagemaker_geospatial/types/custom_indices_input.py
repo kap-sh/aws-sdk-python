@@ -1,20 +1,31 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#CustomIndicesInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.operations_list_input
 
+
 class CustomIndicesInput(TypedDict):
-    operations: NotRequired["aws_sdk_sagemaker_geospatial.types.operations_list_input.OperationsListInput"]
+    operations: NotRequired[
+        "aws_sdk_sagemaker_geospatial.types.operations_list_input.OperationsListInput"
+    ]
     """<p>A list of BandMath indices to compute.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomIndicesInput) -> dict:
     out: dict = {}
     if "operations" in value:
         import aws_sdk_sagemaker_geospatial.types.operations_list_input
-        out["Operations"] = aws_sdk_sagemaker_geospatial.types.operations_list_input.serialize_json(value["operations"])
+
+        out["Operations"] = (
+            aws_sdk_sagemaker_geospatial.types.operations_list_input.serialize_json(
+                value["operations"]
+            )
+        )
     return out
 
 
@@ -22,5 +33,10 @@ def deserialize_json(data: dict) -> CustomIndicesInput:
     out: CustomIndicesInput = {}  # type: ignore[typeddict-item]
     if "Operations" in data:
         import aws_sdk_sagemaker_geospatial.types.operations_list_input
-        out["operations"] = aws_sdk_sagemaker_geospatial.types.operations_list_input.deserialize_json(data["Operations"])
+
+        out["operations"] = (
+            aws_sdk_sagemaker_geospatial.types.operations_list_input.deserialize_json(
+                data["Operations"]
+            )
+        )
     return out

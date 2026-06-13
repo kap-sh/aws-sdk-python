@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#NumericSeparatorConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.numeric_separator_symbol
+    import aws_sdk_quicksight.types.thousand_separator_options
+
+
+class NumericSeparatorConfiguration(TypedDict):
+    decimal_separator: NotRequired[
+        "aws_sdk_quicksight.types.numeric_separator_symbol.NumericSeparatorSymbol"
+    ]
+    """<p>Determines the decimal separator.</p>"""
+    thousands_separator: NotRequired[
+        "aws_sdk_quicksight.types.thousand_separator_options.ThousandSeparatorOptions"
+    ]
+    """<p>The options that determine the thousands separator configuration.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: NumericSeparatorConfiguration) -> dict:
+    out: dict = {}
+    if "decimal_separator" in value:
+        import aws_sdk_quicksight.types.numeric_separator_symbol
+
+        out["DecimalSeparator"] = (
+            aws_sdk_quicksight.types.numeric_separator_symbol.serialize_json(
+                value["decimal_separator"]
+            )
+        )
+    if "thousands_separator" in value:
+        import aws_sdk_quicksight.types.thousand_separator_options
+
+        out["ThousandsSeparator"] = (
+            aws_sdk_quicksight.types.thousand_separator_options.serialize_json(
+                value["thousands_separator"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> NumericSeparatorConfiguration:
+    out: NumericSeparatorConfiguration = {}  # type: ignore[typeddict-item]
+    if "DecimalSeparator" in data:
+        import aws_sdk_quicksight.types.numeric_separator_symbol
+
+        out["decimal_separator"] = (
+            aws_sdk_quicksight.types.numeric_separator_symbol.deserialize_json(
+                data["DecimalSeparator"]
+            )
+        )
+    if "ThousandsSeparator" in data:
+        import aws_sdk_quicksight.types.thousand_separator_options
+
+        out["thousands_separator"] = (
+            aws_sdk_quicksight.types.thousand_separator_options.deserialize_json(
+                data["ThousandsSeparator"]
+            )
+        )
+    return out

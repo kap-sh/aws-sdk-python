@@ -26,39 +26,37 @@ class _ResponseStream_output(TypedDict):
 
 class _ResponseStream_accessDeniedException(TypedDict):
     accessDeniedException: (
-        "aws_sdk_iotsitewise.errors.access_denied_exception.AccessDeniedException"
+        "aws_sdk_iotsitewise.errors.access_denied_exception.AccessDeniedException_"
     )
 
 
 class _ResponseStream_conflictingOperationException(TypedDict):
-    conflictingOperationException: "aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException"
+    conflictingOperationException: "aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException_"
 
 
 class _ResponseStream_internalFailureException(TypedDict):
-    internalFailureException: (
-        "aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException"
-    )
+    internalFailureException: "aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException_"
 
 
 class _ResponseStream_invalidRequestException(TypedDict):
     invalidRequestException: (
-        "aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException"
+        "aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException_"
     )
 
 
 class _ResponseStream_limitExceededException(TypedDict):
     limitExceededException: (
-        "aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException"
+        "aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException_"
     )
 
 
 class _ResponseStream_resourceNotFoundException(TypedDict):
-    resourceNotFoundException: "aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException"
+    resourceNotFoundException: "aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
 class _ResponseStream_throttlingException(TypedDict):
     throttlingException: (
-        "aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException"
+        "aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException_"
     )
 
 

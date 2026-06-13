@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ConversionMap``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.ebs_snapshot
 
-ConversionMap: TypeAlias = dict["aws_sdk_drs.types.ebs_snapshot.EbsSnapshot", "aws_sdk_drs.types.ebs_snapshot.EbsSnapshot"]
+ConversionMap: TypeAlias = dict[
+    "aws_sdk_drs.types.ebs_snapshot.EbsSnapshot",
+    "aws_sdk_drs.types.ebs_snapshot.EbsSnapshot",
+]
 
 
 # --- restJson1 ser/de ---

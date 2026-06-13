@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CustomizationConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.custom_css_url
     import aws_sdk_qbusiness.types.favicon_url
     import aws_sdk_qbusiness.types.font_url
     import aws_sdk_qbusiness.types.logo_url
+
 
 class CustomizationConfiguration(TypedDict):
     custom_css_url: NotRequired["aws_sdk_qbusiness.types.custom_css_url.CustomCSSUrl"]
@@ -17,6 +20,7 @@ class CustomizationConfiguration(TypedDict):
     """<p>Provides the URL where the custom font file is hosted for an Amazon Q web experience.</p>"""
     favicon_url: NotRequired["aws_sdk_qbusiness.types.favicon_url.FaviconUrl"]
     """<p>Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomizationConfiguration) -> dict:

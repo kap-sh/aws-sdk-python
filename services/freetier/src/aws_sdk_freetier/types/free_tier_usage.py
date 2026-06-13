@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#FreeTierUsage``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_freetier.types.generic_double
     import aws_sdk_freetier.types.generic_string
+
 
 class FreeTierUsage(TypedDict):
     service: NotRequired["aws_sdk_freetier.types.generic_string.GenericString"]
@@ -27,6 +30,7 @@ class FreeTierUsage(TypedDict):
     """<p>The description of the Free Tier offer.</p>"""
     free_tier_type: NotRequired["aws_sdk_freetier.types.generic_string.GenericString"]
     """<p>Describes the type of the Free Tier offer. For example, the offer can be <code>\"12 Months Free\"</code>, <code>\"Always Free\"</code>, and <code>\"Free Trial\"</code>.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: FreeTierUsage) -> dict:

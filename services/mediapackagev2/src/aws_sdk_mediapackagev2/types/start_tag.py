@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.mediapackagev2#StartTag``."""
+
+from typing import TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_mediapackagev2.errors import DeserializationError
+
+
+class StartTag(TypedDict):
+    time_offset: "float"
+    """<p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>"""
+    precise: NotRequired["bool"]
+    """<p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartTag) -> dict:
+    out: dict = {}
+    out["TimeOffset"] = value["time_offset"]
+    if "precise" in value:
+        out["Precise"] = value["precise"]
+    return out
+
+
+def deserialize_json(data: dict) -> StartTag:
+    out: StartTag = {}  # type: ignore[typeddict-item]
+    if "TimeOffset" in data:
+        out["time_offset"] = data["TimeOffset"]
+    else:
+        raise DeserializationError("StartTag.time_offset required")
+    if "Precise" in data:
+        out["precise"] = data["Precise"]
+    return out

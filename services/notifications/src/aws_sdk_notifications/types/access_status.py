@@ -1,19 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AccessStatus``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_notifications.errors import DeserializationError
-from aws_sdk_notifications._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import Literal, TypeAlias, cast
 
-AccessStatus: TypeAlias = Literal["ENABLED", "DISABLED", "PENDING", "FAILED",]
+from aws_sdk_notifications.errors import DeserializationError
+
+AccessStatus: TypeAlias = Literal[
+    "ENABLED",
+    "DISABLED",
+    "PENDING",
+    "FAILED",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("ENABLED", "DISABLED", "PENDING", "FAILED",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ENABLED",
+        "DISABLED",
+        "PENDING",
+        "FAILED",
+    )
+)
 
 
 def serialize_json(value: AccessStatus) -> str:

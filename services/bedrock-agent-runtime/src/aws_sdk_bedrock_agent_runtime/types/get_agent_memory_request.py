@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetAgentMemoryRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_id
     import aws_sdk_bedrock_agent_runtime.types.agent_id
@@ -9,6 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.memory_id
     import aws_sdk_bedrock_agent_runtime.types.memory_type
     import aws_sdk_bedrock_agent_runtime.types.next_token
+
 
 class GetAgentMemoryRequest(TypedDict):
     next_token: NotRequired["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"]
@@ -23,6 +26,7 @@ class GetAgentMemoryRequest(TypedDict):
     """<p>The type of memory.</p>"""
     memory_id: "aws_sdk_bedrock_agent_runtime.types.memory_id.MemoryId"
     """<p>The unique identifier of the memory. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetAgentMemoryRequest) -> dict:

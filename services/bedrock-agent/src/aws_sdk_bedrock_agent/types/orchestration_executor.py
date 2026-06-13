@@ -5,12 +5,14 @@ from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    pass
+    import aws_sdk_bedrock_agent.types.lambda_arn
 
-
-class _OrchestrationExecutor_lambda(TypedDict):
-    lambda: "aws_sdk_bedrock_agent.types.lambda_arn.LambdaArn"
-
+_OrchestrationExecutor_lambda = TypedDict(
+    "_OrchestrationExecutor_lambda",
+    {
+        "lambda": "aws_sdk_bedrock_agent.types.lambda_arn.LambdaArn",
+    },
+)
 
 OrchestrationExecutor: TypeAlias = _OrchestrationExecutor_lambda
 

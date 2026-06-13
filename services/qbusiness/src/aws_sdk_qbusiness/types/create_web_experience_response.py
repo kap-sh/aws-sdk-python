@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateWebExperienceResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.web_experience_arn
     import aws_sdk_qbusiness.types.web_experience_id
 
+
 class CreateWebExperienceResponse(TypedDict):
-    web_experience_id: NotRequired["aws_sdk_qbusiness.types.web_experience_id.WebExperienceId"]
+    web_experience_id: NotRequired[
+        "aws_sdk_qbusiness.types.web_experience_id.WebExperienceId"
+    ]
     """<p>The identifier of the Amazon Q Business web experience.</p>"""
-    web_experience_arn: NotRequired["aws_sdk_qbusiness.types.web_experience_arn.WebExperienceArn"]
+    web_experience_arn: NotRequired[
+        "aws_sdk_qbusiness.types.web_experience_arn.WebExperienceArn"
+    ]
     """<p> The Amazon Resource Name (ARN) of an Amazon Q Business web experience.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateWebExperienceResponse) -> dict:

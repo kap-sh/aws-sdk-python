@@ -1,19 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AutoSubscriptionStatus``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_qbusiness.errors import DeserializationError
-from aws_sdk_qbusiness._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import Literal, TypeAlias, cast
 
-AutoSubscriptionStatus: TypeAlias = Literal["ENABLED", "DISABLED",]
+from aws_sdk_qbusiness.errors import DeserializationError
+
+AutoSubscriptionStatus: TypeAlias = Literal[
+    "ENABLED",
+    "DISABLED",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("ENABLED", "DISABLED",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "ENABLED",
+        "DISABLED",
+    )
+)
 
 
 def serialize_json(value: AutoSubscriptionStatus) -> str:

@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_braket._services.async_braket import ensure_async_iterator
-from aws_sdk_braket._services.braket import ensure_sync_iterator
-from aws_sdk_braket._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_braket._auth._signers
 import aws_sdk_braket._auth._sigv4
+from aws_sdk_braket._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_braket._services.braket import BraketClient, BraketClientConfig
-    from aws_sdk_braket._services.async_braket import AsyncBraketClient, AsyncBraketClientConfig
     import aws_sdk_braket.types.associations
     import aws_sdk_braket.types.cancel_quantum_task_request
     import aws_sdk_braket.types.cancel_quantum_task_response
@@ -26,11 +31,35 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.search_quantum_tasks_response
     import aws_sdk_braket.types.string64
     import aws_sdk_braket.types.tags_map
+    from aws_sdk_braket._services.async_braket import (
+        AsyncBraketClient,
+        AsyncBraketClientConfig,
+    )
+    from aws_sdk_braket._services.braket import BraketClient, BraketClientConfig
+
 
 class QuantumTaskResource:
     def __init__(self, service: BraketClient) -> None:
         self._service = service
-    def create(self, client_token: "aws_sdk_braket.types.string64.String64", device_arn: "aws_sdk_braket.types.device_arn.DeviceArn", shots: int, output_s3_bucket: str, output_s3_key_prefix: str, action: "aws_sdk_braket.types.json_value.JsonValue", *, config_overrides: Optional[BraketClientConfig] = None, device_parameters: Optional["aws_sdk_braket.types.json_value.JsonValue"] = None, tags: Optional["aws_sdk_braket.types.tags_map.TagsMap"] = None, job_token: Optional["aws_sdk_braket.types.job_token.JobToken"] = None, associations: Optional["aws_sdk_braket.types.associations.Associations"] = None, experimental_capabilities: Optional["aws_sdk_braket.types.experimental_capabilities.ExperimentalCapabilities"] = None) -> "aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse":
+
+    def create(
+        self,
+        client_token: "aws_sdk_braket.types.string64.String64",
+        device_arn: "aws_sdk_braket.types.device_arn.DeviceArn",
+        shots: int,
+        output_s3_bucket: str,
+        output_s3_key_prefix: str,
+        action: "aws_sdk_braket.types.json_value.JsonValue",
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+        device_parameters: Optional["aws_sdk_braket.types.json_value.JsonValue"] = None,
+        tags: Optional["aws_sdk_braket.types.tags_map.TagsMap"] = None,
+        job_token: Optional["aws_sdk_braket.types.job_token.JobToken"] = None,
+        associations: Optional["aws_sdk_braket.types.associations.Associations"] = None,
+        experimental_capabilities: Optional[
+            "aws_sdk_braket.types.experimental_capabilities.ExperimentalCapabilities"
+        ] = None,
+    ) -> "aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse":
         """<p>Creates a quantum task.</p>
 
         Args:
@@ -46,9 +75,19 @@ class QuantumTaskResource:
             associations: <p>The list of Amazon Braket resources associated with the quantum task.</p>
             experimental_capabilities: <p>Enable experimental capabilities for the quantum task.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest]') -> OperationResponse["aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse"
+        ]:
             import aws_sdk_braket._operations.braket.create_quantum_task
-            output, http_response = aws_sdk_braket._operations.braket.create_quantum_task.create_quantum_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.create_quantum_task.create_quantum_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -70,18 +109,41 @@ class QuantumTaskResource:
         if experimental_capabilities is not None:
             input["experimental_capabilities"] = experimental_capabilities
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn", *, config_overrides: Optional[BraketClientConfig] = None, additional_attribute_names: Optional["aws_sdk_braket.types.quantum_task_additional_attribute_names_list.QuantumTaskAdditionalAttributeNamesList"] = None) -> "aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse":
+
+    def read(
+        self,
+        quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn",
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+        additional_attribute_names: Optional[
+            "aws_sdk_braket.types.quantum_task_additional_attribute_names_list.QuantumTaskAdditionalAttributeNamesList"
+        ] = None,
+    ) -> "aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse":
         """<p>Retrieves the specified quantum task.</p>
 
         Args:
             quantum_task_arn: <p>The ARN of the quantum task to retrieve.</p>
             additional_attribute_names: <p>A list of attributes to return additional information for. Only the QueueInfo additional attribute name is currently supported.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest]') -> OperationResponse["aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse"
+        ]:
             import aws_sdk_braket._operations.braket.get_quantum_task
-            output, http_response = aws_sdk_braket._operations.braket.get_quantum_task.get_quantum_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.get_quantum_task.get_quantum_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -90,18 +152,39 @@ class QuantumTaskResource:
         if additional_attribute_names is not None:
             input["additional_attribute_names"] = additional_attribute_names
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn", client_token: "aws_sdk_braket.types.string64.String64", *, config_overrides: Optional[BraketClientConfig] = None) -> "aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse":
+
+    def update(
+        self,
+        quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn",
+        client_token: "aws_sdk_braket.types.string64.String64",
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+    ) -> "aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse":
         """<p>Cancels the specified task.</p>
 
         Args:
             quantum_task_arn: <p>The ARN of the quantum task to cancel.</p>
             client_token: <p>The client token associated with the cancellation request.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest]') -> OperationResponse["aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse"
+        ]:
             import aws_sdk_braket._operations.braket.cancel_quantum_task
-            output, http_response = aws_sdk_braket._operations.braket.cancel_quantum_task.cancel_quantum_task(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.cancel_quantum_task.cancel_quantum_task(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -109,9 +192,23 @@ class QuantumTaskResource:
         input["quantum_task_arn"] = quantum_task_arn
         input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, filters: "aws_sdk_braket.types.search_quantum_tasks_filter_list.SearchQuantumTasksFilterList", *, config_overrides: Optional[BraketClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse":
+
+    def list(
+        self,
+        filters: "aws_sdk_braket.types.search_quantum_tasks_filter_list.SearchQuantumTasksFilterList",
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> (
+        "aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse"
+    ):
         """<p>Searches for tasks that match the specified filter values.</p>
 
         Args:
@@ -119,9 +216,19 @@ class QuantumTaskResource:
             max_results: <p>Maximum number of results to return in the response.</p>
             filters: <p>Array of <code>SearchQuantumTasksFilter</code> objects to use when searching for quantum tasks.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest]') -> OperationResponse["aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse"
+        ]:
             import aws_sdk_braket._operations.braket.search_quantum_tasks
-            output, http_response = aws_sdk_braket._operations.braket.search_quantum_tasks.search_quantum_tasks(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.search_quantum_tasks.search_quantum_tasks(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -132,13 +239,36 @@ class QuantumTaskResource:
             input["max_results"] = max_results
         input["filters"] = filters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncQuantumTaskResource:
     def __init__(self, service: AsyncBraketClient) -> None:
         self._service = service
-    async def create(self, client_token: "aws_sdk_braket.types.string64.String64", device_arn: "aws_sdk_braket.types.device_arn.DeviceArn", shots: int, output_s3_bucket: str, output_s3_key_prefix: str, action: "aws_sdk_braket.types.json_value.JsonValue", *, config_overrides: Optional[AsyncBraketClientConfig] = None, device_parameters: Optional["aws_sdk_braket.types.json_value.JsonValue"] = None, tags: Optional["aws_sdk_braket.types.tags_map.TagsMap"] = None, job_token: Optional["aws_sdk_braket.types.job_token.JobToken"] = None, associations: Optional["aws_sdk_braket.types.associations.Associations"] = None, experimental_capabilities: Optional["aws_sdk_braket.types.experimental_capabilities.ExperimentalCapabilities"] = None) -> "aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse":
+
+    async def create(
+        self,
+        client_token: "aws_sdk_braket.types.string64.String64",
+        device_arn: "aws_sdk_braket.types.device_arn.DeviceArn",
+        shots: int,
+        output_s3_bucket: str,
+        output_s3_key_prefix: str,
+        action: "aws_sdk_braket.types.json_value.JsonValue",
+        *,
+        config_overrides: Optional[AsyncBraketClientConfig] = None,
+        device_parameters: Optional["aws_sdk_braket.types.json_value.JsonValue"] = None,
+        tags: Optional["aws_sdk_braket.types.tags_map.TagsMap"] = None,
+        job_token: Optional["aws_sdk_braket.types.job_token.JobToken"] = None,
+        associations: Optional["aws_sdk_braket.types.associations.Associations"] = None,
+        experimental_capabilities: Optional[
+            "aws_sdk_braket.types.experimental_capabilities.ExperimentalCapabilities"
+        ] = None,
+    ) -> "aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse":
         """<p>Creates a quantum task.</p>
 
         Args:
@@ -154,9 +284,20 @@ class AsyncQuantumTaskResource:
             associations: <p>The list of Amazon Braket resources associated with the quantum task.</p>
             experimental_capabilities: <p>Enable experimental capabilities for the quantum task.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest]') -> AsyncOperationResponse["aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_braket.types.create_quantum_task_response.CreateQuantumTaskResponse"
+        ]:
             import aws_sdk_braket._operations.braket.create_quantum_task
-            output, http_response = await aws_sdk_braket._operations.braket.create_quantum_task.async_create_quantum_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_braket._operations.braket.create_quantum_task.async_create_quantum_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -178,18 +319,42 @@ class AsyncQuantumTaskResource:
         if experimental_capabilities is not None:
             input["experimental_capabilities"] = experimental_capabilities
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn", *, config_overrides: Optional[AsyncBraketClientConfig] = None, additional_attribute_names: Optional["aws_sdk_braket.types.quantum_task_additional_attribute_names_list.QuantumTaskAdditionalAttributeNamesList"] = None) -> "aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse":
+
+    async def read(
+        self,
+        quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn",
+        *,
+        config_overrides: Optional[AsyncBraketClientConfig] = None,
+        additional_attribute_names: Optional[
+            "aws_sdk_braket.types.quantum_task_additional_attribute_names_list.QuantumTaskAdditionalAttributeNamesList"
+        ] = None,
+    ) -> "aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse":
         """<p>Retrieves the specified quantum task.</p>
 
         Args:
             quantum_task_arn: <p>The ARN of the quantum task to retrieve.</p>
             additional_attribute_names: <p>A list of attributes to return additional information for. Only the QueueInfo additional attribute name is currently supported.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest]') -> AsyncOperationResponse["aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_braket.types.get_quantum_task_response.GetQuantumTaskResponse"
+        ]:
             import aws_sdk_braket._operations.braket.get_quantum_task
-            output, http_response = await aws_sdk_braket._operations.braket.get_quantum_task.async_get_quantum_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_braket._operations.braket.get_quantum_task.async_get_quantum_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -198,18 +363,40 @@ class AsyncQuantumTaskResource:
         if additional_attribute_names is not None:
             input["additional_attribute_names"] = additional_attribute_names
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn", client_token: "aws_sdk_braket.types.string64.String64", *, config_overrides: Optional[AsyncBraketClientConfig] = None) -> "aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse":
+
+    async def update(
+        self,
+        quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn",
+        client_token: "aws_sdk_braket.types.string64.String64",
+        *,
+        config_overrides: Optional[AsyncBraketClientConfig] = None,
+    ) -> "aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse":
         """<p>Cancels the specified task.</p>
 
         Args:
             quantum_task_arn: <p>The ARN of the quantum task to cancel.</p>
             client_token: <p>The client token associated with the cancellation request.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest]') -> AsyncOperationResponse["aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_braket.types.cancel_quantum_task_response.CancelQuantumTaskResponse"
+        ]:
             import aws_sdk_braket._operations.braket.cancel_quantum_task
-            output, http_response = await aws_sdk_braket._operations.braket.cancel_quantum_task.async_cancel_quantum_task(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_braket._operations.braket.cancel_quantum_task.async_cancel_quantum_task(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -217,9 +404,23 @@ class AsyncQuantumTaskResource:
         input["quantum_task_arn"] = quantum_task_arn
         input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, filters: "aws_sdk_braket.types.search_quantum_tasks_filter_list.SearchQuantumTasksFilterList", *, config_overrides: Optional[AsyncBraketClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse":
+
+    async def list(
+        self,
+        filters: "aws_sdk_braket.types.search_quantum_tasks_filter_list.SearchQuantumTasksFilterList",
+        *,
+        config_overrides: Optional[AsyncBraketClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> (
+        "aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse"
+    ):
         """<p>Searches for tasks that match the specified filter values.</p>
 
         Args:
@@ -227,9 +428,20 @@ class AsyncQuantumTaskResource:
             max_results: <p>Maximum number of results to return in the response.</p>
             filters: <p>Array of <code>SearchQuantumTasksFilter</code> objects to use when searching for quantum tasks.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest]') -> AsyncOperationResponse["aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_braket.types.search_quantum_tasks_response.SearchQuantumTasksResponse"
+        ]:
             import aws_sdk_braket._operations.braket.search_quantum_tasks
-            output, http_response = await aws_sdk_braket._operations.braket.search_quantum_tasks.async_search_quantum_tasks(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_braket._operations.braket.search_quantum_tasks.async_search_quantum_tasks(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -240,5 +452,9 @@ class AsyncQuantumTaskResource:
             input["max_results"] = max_results
         input["filters"] = filters
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

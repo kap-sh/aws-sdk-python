@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#CgroupCustomSettings``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.cgroup_custom_setting
 
-CgroupCustomSettings: TypeAlias = list["aws_sdk_pcs.types.cgroup_custom_setting.CgroupCustomSetting"]
+CgroupCustomSettings: TypeAlias = list[
+    "aws_sdk_pcs.types.cgroup_custom_setting.CgroupCustomSetting"
+]
 
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CgroupCustomSettings) -> list:
     import aws_sdk_pcs.types.cgroup_custom_setting
+
     out: list = []
     for item in value:
         out.append(aws_sdk_pcs.types.cgroup_custom_setting.serialize_aws_json_1_0(item))
@@ -18,7 +22,10 @@ def serialize_aws_json_1_0(value: CgroupCustomSettings) -> list:
 
 def deserialize_aws_json_1_0(data: list) -> CgroupCustomSettings:
     import aws_sdk_pcs.types.cgroup_custom_setting
+
     out: CgroupCustomSettings = []
     for item in data:
-        out.append(aws_sdk_pcs.types.cgroup_custom_setting.deserialize_aws_json_1_0(item))
+        out.append(
+            aws_sdk_pcs.types.cgroup_custom_setting.deserialize_aws_json_1_0(item)
+        )
     return out

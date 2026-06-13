@@ -1,17 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.rum#JavaScriptSourceMaps``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_rum.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_rum.types.deobfuscation_s3_uri
     import aws_sdk_rum.types.deobfuscation_status
+
 
 class JavaScriptSourceMaps(TypedDict):
     status: "aws_sdk_rum.types.deobfuscation_status.DeobfuscationStatus"
     """<p> Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be <code>DISABLED</code>. </p>"""
     s3_uri: NotRequired["aws_sdk_rum.types.deobfuscation_s3_uri.DeobfuscationS3Uri"]
     """<p> The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: JavaScriptSourceMaps) -> dict:

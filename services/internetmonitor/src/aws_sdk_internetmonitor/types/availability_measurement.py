@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#AvailabilityMeasurement``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class AvailabilityMeasurement(TypedDict):
     experience_score: NotRequired["float"]
@@ -11,15 +13,20 @@ class AvailabilityMeasurement(TypedDict):
     percent_of_client_location_impacted: NotRequired["float"]
     """<p>The percentage of impact caused by a health event for client location traffic globally.</p> <p>For information about how Internet Monitor calculates impact, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html\">Inside Internet Monitor</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User Guide.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AvailabilityMeasurement) -> dict:
     out: dict = {}
     if "experience_score" in value:
         out["ExperienceScore"] = value["experience_score"]
     if "percent_of_total_traffic_impacted" in value:
-        out["PercentOfTotalTrafficImpacted"] = value["percent_of_total_traffic_impacted"]
+        out["PercentOfTotalTrafficImpacted"] = value[
+            "percent_of_total_traffic_impacted"
+        ]
     if "percent_of_client_location_impacted" in value:
-        out["PercentOfClientLocationImpacted"] = value["percent_of_client_location_impacted"]
+        out["PercentOfClientLocationImpacted"] = value[
+            "percent_of_client_location_impacted"
+        ]
     return out
 
 
@@ -30,5 +37,7 @@ def deserialize_json(data: dict) -> AvailabilityMeasurement:
     if "PercentOfTotalTrafficImpacted" in data:
         out["percent_of_total_traffic_impacted"] = data["PercentOfTotalTrafficImpacted"]
     if "PercentOfClientLocationImpacted" in data:
-        out["percent_of_client_location_impacted"] = data["PercentOfClientLocationImpacted"]
+        out["percent_of_client_location_impacted"] = data[
+            "PercentOfClientLocationImpacted"
+        ]
     return out

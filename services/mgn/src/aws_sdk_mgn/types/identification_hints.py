@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#IdentificationHints``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.ec2_instance_id
+
 
 class IdentificationHints(TypedDict):
     fqdn: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
@@ -17,6 +20,7 @@ class IdentificationHints(TypedDict):
     """<p>AWS Instance ID identification hint.</p>"""
     vm_path: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
     """<p>vCenter VM path identification hint.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: IdentificationHints) -> dict:

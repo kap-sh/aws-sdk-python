@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#NumericEqualityDrillDownFilter``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.column_identifier
+    import aws_sdk_quicksight.types.double
+
+
+class NumericEqualityDrillDownFilter(TypedDict):
+    column: "aws_sdk_quicksight.types.column_identifier.ColumnIdentifier"
+    """<p>The column that the filter is applied to.</p>"""
+    value: "aws_sdk_quicksight.types.double.Double"
+    """<p>The value of the double input numeric drill down filter.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: NumericEqualityDrillDownFilter) -> dict:
+    out: dict = {}
+    import aws_sdk_quicksight.types.column_identifier
+
+    out["Column"] = aws_sdk_quicksight.types.column_identifier.serialize_json(
+        value["column"]
+    )
+    out["Value"] = value.get("value", 0)
+    return out
+
+
+def deserialize_json(data: dict) -> NumericEqualityDrillDownFilter:
+    out: NumericEqualityDrillDownFilter = {}  # type: ignore[typeddict-item]
+    if "Column" in data:
+        import aws_sdk_quicksight.types.column_identifier
+
+        out["column"] = aws_sdk_quicksight.types.column_identifier.deserialize_json(
+            data["Column"]
+        )
+    else:
+        raise DeserializationError("NumericEqualityDrillDownFilter.column required")
+    if "Value" in data:
+        out["value"] = data["Value"]
+    else:
+        out["value"] = 0
+    return out

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AzElEphemeris``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_groundstation.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.az_el_segments_data
     import aws_sdk_groundstation.types.ground_station_name
+
 
 class AzElEphemeris(TypedDict):
     ground_station: "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
@@ -12,12 +15,16 @@ class AzElEphemeris(TypedDict):
     data: "aws_sdk_groundstation.types.az_el_segments_data.AzElSegmentsData"
     """<p>Azimuth elevation segment data.</p> <p>You can provide data inline in the request or through an Amazon S3 object reference.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AzElEphemeris) -> dict:
     out: dict = {}
     out["groundStation"] = value["ground_station"]
     import aws_sdk_groundstation.types.az_el_segments_data
-    out["data"] = aws_sdk_groundstation.types.az_el_segments_data.serialize_json(value["data"])
+
+    out["data"] = aws_sdk_groundstation.types.az_el_segments_data.serialize_json(
+        value["data"]
+    )
     return out
 
 
@@ -29,7 +36,10 @@ def deserialize_json(data: dict) -> AzElEphemeris:
         raise DeserializationError("AzElEphemeris.ground_station required")
     if "data" in data:
         import aws_sdk_groundstation.types.az_el_segments_data
-        out["data"] = aws_sdk_groundstation.types.az_el_segments_data.deserialize_json(data["data"])
+
+        out["data"] = aws_sdk_groundstation.types.az_el_segments_data.deserialize_json(
+            data["data"]
+        )
     else:
         raise DeserializationError("AzElEphemeris.data required")
     return out

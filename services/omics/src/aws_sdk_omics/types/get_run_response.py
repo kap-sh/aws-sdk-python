@@ -1,0 +1,384 @@
+"""Generated from Smithy shape ``com.amazonaws.omics#GetRunResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_omics.types.accelerators
+    import aws_sdk_omics.types.batch_id
+    import aws_sdk_omics.types.cache_behavior
+    import aws_sdk_omics.types.configuration_details
+    import aws_sdk_omics.types.engine_settings
+    import aws_sdk_omics.types.engine_version
+    import aws_sdk_omics.types.networking_mode
+    import aws_sdk_omics.types.numeric_id_in_arn
+    import aws_sdk_omics.types.run_arn
+    import aws_sdk_omics.types.run_failure_reason
+    import aws_sdk_omics.types.run_group_id
+    import aws_sdk_omics.types.run_id
+    import aws_sdk_omics.types.run_log_level
+    import aws_sdk_omics.types.run_log_location
+    import aws_sdk_omics.types.run_name
+    import aws_sdk_omics.types.run_output_uri
+    import aws_sdk_omics.types.run_parameters
+    import aws_sdk_omics.types.run_resource_digests
+    import aws_sdk_omics.types.run_retention_mode
+    import aws_sdk_omics.types.run_role_arn
+    import aws_sdk_omics.types.run_started_by
+    import aws_sdk_omics.types.run_status
+    import aws_sdk_omics.types.run_status_message
+    import aws_sdk_omics.types.run_timestamp
+    import aws_sdk_omics.types.run_uuid
+    import aws_sdk_omics.types.storage_type
+    import aws_sdk_omics.types.tag_map
+    import aws_sdk_omics.types.vpc_config_response
+    import aws_sdk_omics.types.workflow_definition
+    import aws_sdk_omics.types.workflow_digest
+    import aws_sdk_omics.types.workflow_id
+    import aws_sdk_omics.types.workflow_owner_id
+    import aws_sdk_omics.types.workflow_type
+    import aws_sdk_omics.types.workflow_uuid
+    import aws_sdk_omics.types.workflow_version_name
+
+
+class GetRunResponse(TypedDict):
+    arn: NotRequired["aws_sdk_omics.types.run_arn.RunArn"]
+    """<p>The run's ARN.</p>"""
+    id: NotRequired["aws_sdk_omics.types.run_id.RunId"]
+    """<p>The run's ID.</p>"""
+    cache_id: NotRequired["aws_sdk_omics.types.numeric_id_in_arn.NumericIdInArn"]
+    """<p>The run cache associated with the run.</p>"""
+    cache_behavior: NotRequired["aws_sdk_omics.types.cache_behavior.CacheBehavior"]
+    """<p>The run cache behavior for the run.</p>"""
+    engine_version: NotRequired["aws_sdk_omics.types.engine_version.EngineVersion"]
+    """<p>The actual Nextflow engine version that Amazon Web Services HealthOmics used for the run. The other workflow definition languages don't provide a value for this field.</p>"""
+    status: NotRequired["aws_sdk_omics.types.run_status.RunStatus"]
+    """<p>The run's status.</p>"""
+    workflow_id: NotRequired["aws_sdk_omics.types.workflow_id.WorkflowId"]
+    """<p>The run's workflow ID.</p>"""
+    workflow_type: NotRequired["aws_sdk_omics.types.workflow_type.WorkflowType"]
+    """<p>The run's workflow type.</p>"""
+    run_id: NotRequired["aws_sdk_omics.types.run_id.RunId"]
+    """<p>The run's ID.</p>"""
+    role_arn: NotRequired["aws_sdk_omics.types.run_role_arn.RunRoleArn"]
+    """<p>The run's service role ARN.</p>"""
+    name: NotRequired["aws_sdk_omics.types.run_name.RunName"]
+    """<p>The run's name.</p>"""
+    run_group_id: NotRequired["aws_sdk_omics.types.run_group_id.RunGroupId"]
+    """<p>The run's group ID.</p>"""
+    batch_id: NotRequired["aws_sdk_omics.types.batch_id.BatchId"]
+    """<p>The run's batch ID.</p>"""
+    priority: NotRequired["int"]
+    """<p>The run's priority.</p>"""
+    definition: NotRequired[
+        "aws_sdk_omics.types.workflow_definition.WorkflowDefinition"
+    ]
+    """<p>The run's definition.</p>"""
+    digest: NotRequired["aws_sdk_omics.types.workflow_digest.WorkflowDigest"]
+    """<p>The run's digest.</p>"""
+    parameters: NotRequired["aws_sdk_omics.types.run_parameters.RunParameters"]
+    """<p>The run's parameters.</p>"""
+    storage_capacity: NotRequired["int"]
+    """<p>The run's storage capacity in gibibytes. For dynamic storage, after the run has completed, this value is the maximum amount of storage used during the run.</p>"""
+    output_uri: NotRequired["aws_sdk_omics.types.run_output_uri.RunOutputUri"]
+    """<p>The run's output URI.</p>"""
+    log_level: NotRequired["aws_sdk_omics.types.run_log_level.RunLogLevel"]
+    """<p>The run's log level.</p>"""
+    resource_digests: NotRequired[
+        "aws_sdk_omics.types.run_resource_digests.RunResourceDigests"
+    ]
+    """<p>The run's resource digests.</p>"""
+    started_by: NotRequired["aws_sdk_omics.types.run_started_by.RunStartedBy"]
+    """<p>Who started the run.</p>"""
+    creation_time: NotRequired["aws_sdk_omics.types.run_timestamp.RunTimestamp"]
+    """<p>When the run was created.</p>"""
+    start_time: NotRequired["aws_sdk_omics.types.run_timestamp.RunTimestamp"]
+    """<p>When the run started.</p>"""
+    stop_time: NotRequired["aws_sdk_omics.types.run_timestamp.RunTimestamp"]
+    """<p>The run's stop time.</p>"""
+    status_message: NotRequired[
+        "aws_sdk_omics.types.run_status_message.RunStatusMessage"
+    ]
+    """<p>The run's status message.</p>"""
+    tags: NotRequired["aws_sdk_omics.types.tag_map.TagMap"]
+    """<p>The run's tags.</p>"""
+    accelerators: NotRequired["aws_sdk_omics.types.accelerators.Accelerators"]
+    """<p>The computational accelerator used to run the workflow.</p>"""
+    retention_mode: NotRequired[
+        "aws_sdk_omics.types.run_retention_mode.RunRetentionMode"
+    ]
+    """<p>The run's retention mode.</p>"""
+    failure_reason: NotRequired[
+        "aws_sdk_omics.types.run_failure_reason.RunFailureReason"
+    ]
+    """<p>The reason a run has failed.</p>"""
+    log_location: NotRequired["aws_sdk_omics.types.run_log_location.RunLogLocation"]
+    """<p>The location of the run log.</p>"""
+    uuid: NotRequired["aws_sdk_omics.types.run_uuid.RunUuid"]
+    """<p>The universally unique identifier for a run.</p>"""
+    run_output_uri: NotRequired["aws_sdk_omics.types.run_output_uri.RunOutputUri"]
+    """<p>The destination for workflow outputs.</p>"""
+    storage_type: NotRequired["aws_sdk_omics.types.storage_type.StorageType"]
+    """<p>The run's storage type.</p>"""
+    workflow_owner_id: NotRequired[
+        "aws_sdk_omics.types.workflow_owner_id.WorkflowOwnerId"
+    ]
+    """<p>The ID of the workflow owner.</p>"""
+    workflow_version_name: NotRequired[
+        "aws_sdk_omics.types.workflow_version_name.WorkflowVersionName"
+    ]
+    """<p>The workflow version name.</p>"""
+    workflow_uuid: NotRequired["aws_sdk_omics.types.workflow_uuid.WorkflowUuid"]
+    """<p>The universally unique identifier (UUID) value for the workflow.</p>"""
+    networking_mode: NotRequired["aws_sdk_omics.types.networking_mode.NetworkingMode"]
+    """<p>Configuration for run networking behavior. If absent, this will default to RESTRICTED.</p>"""
+    configuration: NotRequired[
+        "aws_sdk_omics.types.configuration_details.ConfigurationDetails"
+    ]
+    """<p>Configuration details for the workflow run.</p>"""
+    vpc_config: NotRequired["aws_sdk_omics.types.vpc_config_response.VpcConfigResponse"]
+    """<p>VPC configuration for the workflow run.</p>"""
+    engine_settings: NotRequired["aws_sdk_omics.types.engine_settings.EngineSettings"]
+    """<p>The engine-specific settings for the workflow run.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetRunResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "id" in value:
+        out["id"] = value["id"]
+    if "cache_id" in value:
+        out["cacheId"] = value["cache_id"]
+    if "cache_behavior" in value:
+        out["cacheBehavior"] = value["cache_behavior"]
+    if "engine_version" in value:
+        out["engineVersion"] = value["engine_version"]
+    if "status" in value:
+        out["status"] = value["status"]
+    if "workflow_id" in value:
+        out["workflowId"] = value["workflow_id"]
+    if "workflow_type" in value:
+        out["workflowType"] = value["workflow_type"]
+    if "run_id" in value:
+        out["runId"] = value["run_id"]
+    if "role_arn" in value:
+        out["roleArn"] = value["role_arn"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "run_group_id" in value:
+        out["runGroupId"] = value["run_group_id"]
+    if "batch_id" in value:
+        out["batchId"] = value["batch_id"]
+    if "priority" in value:
+        out["priority"] = value["priority"]
+    if "definition" in value:
+        out["definition"] = value["definition"]
+    if "digest" in value:
+        out["digest"] = value["digest"]
+    if "parameters" in value:
+        out["parameters"] = value["parameters"]
+    if "storage_capacity" in value:
+        out["storageCapacity"] = value["storage_capacity"]
+    if "output_uri" in value:
+        out["outputUri"] = value["output_uri"]
+    if "log_level" in value:
+        out["logLevel"] = value["log_level"]
+    if "resource_digests" in value:
+        import aws_sdk_omics.types.run_resource_digests
+
+        out["resourceDigests"] = (
+            aws_sdk_omics.types.run_resource_digests.serialize_json(
+                value["resource_digests"]
+            )
+        )
+    if "started_by" in value:
+        out["startedBy"] = value["started_by"]
+    if "creation_time" in value:
+        import aws_sdk_omics.types.run_timestamp
+
+        out["creationTime"] = aws_sdk_omics.types.run_timestamp.serialize_json(
+            value["creation_time"]
+        )
+    if "start_time" in value:
+        import aws_sdk_omics.types.run_timestamp
+
+        out["startTime"] = aws_sdk_omics.types.run_timestamp.serialize_json(
+            value["start_time"]
+        )
+    if "stop_time" in value:
+        import aws_sdk_omics.types.run_timestamp
+
+        out["stopTime"] = aws_sdk_omics.types.run_timestamp.serialize_json(
+            value["stop_time"]
+        )
+    if "status_message" in value:
+        out["statusMessage"] = value["status_message"]
+    if "tags" in value:
+        import aws_sdk_omics.types.tag_map
+
+        out["tags"] = aws_sdk_omics.types.tag_map.serialize_json(value["tags"])
+    if "accelerators" in value:
+        out["accelerators"] = value["accelerators"]
+    if "retention_mode" in value:
+        out["retentionMode"] = value["retention_mode"]
+    if "failure_reason" in value:
+        out["failureReason"] = value["failure_reason"]
+    if "log_location" in value:
+        import aws_sdk_omics.types.run_log_location
+
+        out["logLocation"] = aws_sdk_omics.types.run_log_location.serialize_json(
+            value["log_location"]
+        )
+    if "uuid" in value:
+        out["uuid"] = value["uuid"]
+    if "run_output_uri" in value:
+        out["runOutputUri"] = value["run_output_uri"]
+    if "storage_type" in value:
+        out["storageType"] = value["storage_type"]
+    if "workflow_owner_id" in value:
+        out["workflowOwnerId"] = value["workflow_owner_id"]
+    if "workflow_version_name" in value:
+        out["workflowVersionName"] = value["workflow_version_name"]
+    if "workflow_uuid" in value:
+        out["workflowUuid"] = value["workflow_uuid"]
+    if "networking_mode" in value:
+        out["networkingMode"] = value["networking_mode"]
+    if "configuration" in value:
+        import aws_sdk_omics.types.configuration_details
+
+        out["configuration"] = aws_sdk_omics.types.configuration_details.serialize_json(
+            value["configuration"]
+        )
+    if "vpc_config" in value:
+        import aws_sdk_omics.types.vpc_config_response
+
+        out["vpcConfig"] = aws_sdk_omics.types.vpc_config_response.serialize_json(
+            value["vpc_config"]
+        )
+    if "engine_settings" in value:
+        out["engineSettings"] = value["engine_settings"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetRunResponse:
+    out: GetRunResponse = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "cacheId" in data:
+        out["cache_id"] = data["cacheId"]
+    if "cacheBehavior" in data:
+        out["cache_behavior"] = data["cacheBehavior"]
+    if "engineVersion" in data:
+        out["engine_version"] = data["engineVersion"]
+    if "status" in data:
+        out["status"] = data["status"]
+    if "workflowId" in data:
+        out["workflow_id"] = data["workflowId"]
+    if "workflowType" in data:
+        out["workflow_type"] = data["workflowType"]
+    if "runId" in data:
+        out["run_id"] = data["runId"]
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "runGroupId" in data:
+        out["run_group_id"] = data["runGroupId"]
+    if "batchId" in data:
+        out["batch_id"] = data["batchId"]
+    if "priority" in data:
+        out["priority"] = data["priority"]
+    if "definition" in data:
+        out["definition"] = data["definition"]
+    if "digest" in data:
+        out["digest"] = data["digest"]
+    if "parameters" in data:
+        out["parameters"] = data["parameters"]
+    if "storageCapacity" in data:
+        out["storage_capacity"] = data["storageCapacity"]
+    if "outputUri" in data:
+        out["output_uri"] = data["outputUri"]
+    if "logLevel" in data:
+        out["log_level"] = data["logLevel"]
+    if "resourceDigests" in data:
+        import aws_sdk_omics.types.run_resource_digests
+
+        out["resource_digests"] = (
+            aws_sdk_omics.types.run_resource_digests.deserialize_json(
+                data["resourceDigests"]
+            )
+        )
+    if "startedBy" in data:
+        out["started_by"] = data["startedBy"]
+    if "creationTime" in data:
+        import aws_sdk_omics.types.run_timestamp
+
+        out["creation_time"] = aws_sdk_omics.types.run_timestamp.deserialize_json(
+            data["creationTime"]
+        )
+    if "startTime" in data:
+        import aws_sdk_omics.types.run_timestamp
+
+        out["start_time"] = aws_sdk_omics.types.run_timestamp.deserialize_json(
+            data["startTime"]
+        )
+    if "stopTime" in data:
+        import aws_sdk_omics.types.run_timestamp
+
+        out["stop_time"] = aws_sdk_omics.types.run_timestamp.deserialize_json(
+            data["stopTime"]
+        )
+    if "statusMessage" in data:
+        out["status_message"] = data["statusMessage"]
+    if "tags" in data:
+        import aws_sdk_omics.types.tag_map
+
+        out["tags"] = aws_sdk_omics.types.tag_map.deserialize_json(data["tags"])
+    if "accelerators" in data:
+        out["accelerators"] = data["accelerators"]
+    if "retentionMode" in data:
+        out["retention_mode"] = data["retentionMode"]
+    if "failureReason" in data:
+        out["failure_reason"] = data["failureReason"]
+    if "logLocation" in data:
+        import aws_sdk_omics.types.run_log_location
+
+        out["log_location"] = aws_sdk_omics.types.run_log_location.deserialize_json(
+            data["logLocation"]
+        )
+    if "uuid" in data:
+        out["uuid"] = data["uuid"]
+    if "runOutputUri" in data:
+        out["run_output_uri"] = data["runOutputUri"]
+    if "storageType" in data:
+        out["storage_type"] = data["storageType"]
+    if "workflowOwnerId" in data:
+        out["workflow_owner_id"] = data["workflowOwnerId"]
+    if "workflowVersionName" in data:
+        out["workflow_version_name"] = data["workflowVersionName"]
+    if "workflowUuid" in data:
+        out["workflow_uuid"] = data["workflowUuid"]
+    if "networkingMode" in data:
+        out["networking_mode"] = data["networkingMode"]
+    if "configuration" in data:
+        import aws_sdk_omics.types.configuration_details
+
+        out["configuration"] = (
+            aws_sdk_omics.types.configuration_details.deserialize_json(
+                data["configuration"]
+            )
+        )
+    if "vpcConfig" in data:
+        import aws_sdk_omics.types.vpc_config_response
+
+        out["vpc_config"] = aws_sdk_omics.types.vpc_config_response.deserialize_json(
+            data["vpcConfig"]
+        )
+    if "engineSettings" in data:
+        out["engine_settings"] = data["engineSettings"]
+    return out

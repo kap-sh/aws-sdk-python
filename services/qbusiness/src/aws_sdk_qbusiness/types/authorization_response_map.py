@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AuthorizationResponseMap``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.auth_response_key
     import aws_sdk_qbusiness.types.auth_response_value
 
-AuthorizationResponseMap: TypeAlias = dict["aws_sdk_qbusiness.types.auth_response_key.AuthResponseKey", "aws_sdk_qbusiness.types.auth_response_value.AuthResponseValue"]
+AuthorizationResponseMap: TypeAlias = dict[
+    "aws_sdk_qbusiness.types.auth_response_key.AuthResponseKey",
+    "aws_sdk_qbusiness.types.auth_response_value.AuthResponseValue",
+]
 
 
 # --- restJson1 ser/de ---

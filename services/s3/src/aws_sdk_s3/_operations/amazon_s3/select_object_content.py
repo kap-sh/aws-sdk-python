@@ -13,13 +13,6 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.select_object_content_request
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.select_object_content_request.SelectObjectContentRequest,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def select_object_content(
     options: OperationOptions,
     input: aws_sdk_s3.types.select_object_content_request.SelectObjectContentRequest,

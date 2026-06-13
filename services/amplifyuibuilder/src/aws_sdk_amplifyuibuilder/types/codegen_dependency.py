@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenDependency``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CodegenDependency(TypedDict):
     name: NotRequired["str"]
@@ -12,6 +14,7 @@ class CodegenDependency(TypedDict):
     """<p>Determines if the dependency package is using Semantic versioning. If set to true, it indicates that the dependency package uses Semantic versioning.</p>"""
     reason: NotRequired["str"]
     """<p>Indicates the reason to include the dependency package in your project code.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CodegenDependency) -> dict:

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#AccountIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_id
 

@@ -3,11 +3,13 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class BasicAuthenticationCredentials(TypedDict):
     user_name: NotRequired["str"]
     """<p>The user name for the connecion.</p>"""
     password: NotRequired["str"]
     """<p>The password for a connection.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BasicAuthenticationCredentials) -> dict:

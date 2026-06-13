@@ -1,15 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteCarModeOptions``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_boolean
 
+
 class CalculateRouteCarModeOptions(TypedDict):
-    avoid_ferries: NotRequired["aws_sdk_location.types.sensitive_boolean.SensitiveBoolean"]
+    avoid_ferries: NotRequired[
+        "aws_sdk_location.types.sensitive_boolean.SensitiveBoolean"
+    ]
     """<p>Avoids ferries when calculating routes.</p> <p>Default Value: <code>false</code> </p> <p>Valid Values: <code>false</code> | <code>true</code> </p>"""
-    avoid_tolls: NotRequired["aws_sdk_location.types.sensitive_boolean.SensitiveBoolean"]
+    avoid_tolls: NotRequired[
+        "aws_sdk_location.types.sensitive_boolean.SensitiveBoolean"
+    ]
     """<p>Avoids tolls when calculating routes.</p> <p>Default Value: <code>false</code> </p> <p>Valid Values: <code>false</code> | <code>true</code> </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CalculateRouteCarModeOptions) -> dict:

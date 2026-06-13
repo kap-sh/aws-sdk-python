@@ -1,15 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeRecoverySnapshotsRequestFilters``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
 
+
 class DescribeRecoverySnapshotsRequestFilters(TypedDict):
-    from_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    from_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The start date in a date range query.</p>"""
-    to_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    to_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The end date in a date range query.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DescribeRecoverySnapshotsRequestFilters) -> dict:

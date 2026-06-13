@@ -1,0 +1,280 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#Membership``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_cleanrooms.types.account_id
+    import aws_sdk_cleanrooms.types.collaboration_arn
+    import aws_sdk_cleanrooms.types.collaboration_name
+    import aws_sdk_cleanrooms.types.display_name
+    import aws_sdk_cleanrooms.types.member_abilities
+    import aws_sdk_cleanrooms.types.membership_arn
+    import aws_sdk_cleanrooms.types.membership_job_log_status
+    import aws_sdk_cleanrooms.types.membership_payment_configuration
+    import aws_sdk_cleanrooms.types.membership_protected_job_result_configuration
+    import aws_sdk_cleanrooms.types.membership_protected_query_result_configuration
+    import aws_sdk_cleanrooms.types.membership_query_log_status
+    import aws_sdk_cleanrooms.types.membership_status
+    import aws_sdk_cleanrooms.types.ml_member_abilities
+    import aws_sdk_cleanrooms.types.uuid
+
+
+class Membership(TypedDict):
+    id: "aws_sdk_cleanrooms.types.uuid.UUID"
+    """<p>The unique ID of the membership.</p>"""
+    arn: "aws_sdk_cleanrooms.types.membership_arn.MembershipArn"
+    """<p>The unique ARN for the membership.</p>"""
+    collaboration_arn: "aws_sdk_cleanrooms.types.collaboration_arn.CollaborationArn"
+    """<p>The unique ARN for the membership's associated collaboration.</p>"""
+    collaboration_id: "aws_sdk_cleanrooms.types.uuid.UUID"
+    """<p>The unique ID for the membership's collaboration.</p>"""
+    collaboration_creator_account_id: "aws_sdk_cleanrooms.types.account_id.AccountId"
+    """<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>"""
+    collaboration_creator_display_name: (
+        "aws_sdk_cleanrooms.types.display_name.DisplayName"
+    )
+    """<p>The display name of the collaboration creator.</p>"""
+    collaboration_name: "aws_sdk_cleanrooms.types.collaboration_name.CollaborationName"
+    """<p>The name of the membership's collaboration.</p>"""
+    create_time: "datetime.datetime"
+    """<p>The time when the membership was created.</p>"""
+    update_time: "datetime.datetime"
+    """<p>The time the membership metadata was last updated.</p>"""
+    status: "aws_sdk_cleanrooms.types.membership_status.MembershipStatus"
+    """<p>The status of the membership.</p>"""
+    member_abilities: "aws_sdk_cleanrooms.types.member_abilities.MemberAbilities"
+    """<p>The abilities granted to the collaboration member.</p>"""
+    ml_member_abilities: NotRequired[
+        "aws_sdk_cleanrooms.types.ml_member_abilities.MLMemberAbilities"
+    ]
+    """<p>Specifies the ML member abilities that are granted to a collaboration member.</p>"""
+    query_log_status: (
+        "aws_sdk_cleanrooms.types.membership_query_log_status.MembershipQueryLogStatus"
+    )
+    """<p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>"""
+    job_log_status: NotRequired[
+        "aws_sdk_cleanrooms.types.membership_job_log_status.MembershipJobLogStatus"
+    ]
+    """<p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>"""
+    default_result_configuration: NotRequired[
+        "aws_sdk_cleanrooms.types.membership_protected_query_result_configuration.MembershipProtectedQueryResultConfiguration"
+    ]
+    """<p>The default protected query result configuration as specified by the member who can receive results.</p>"""
+    default_job_result_configuration: NotRequired[
+        "aws_sdk_cleanrooms.types.membership_protected_job_result_configuration.MembershipProtectedJobResultConfiguration"
+    ]
+    """<p> The default job result configuration for the membership.</p>"""
+    payment_configuration: "aws_sdk_cleanrooms.types.membership_payment_configuration.MembershipPaymentConfiguration"
+    """<p>The payment responsibilities accepted by the collaboration member.</p>"""
+    is_metrics_enabled: NotRequired["bool"]
+    """<p>An indicator as to whether Amazon CloudWatch metrics are enabled for the membership.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Membership) -> dict:
+    out: dict = {}
+    out["id"] = value["id"]
+    out["arn"] = value["arn"]
+    out["collaborationArn"] = value["collaboration_arn"]
+    out["collaborationId"] = value["collaboration_id"]
+    out["collaborationCreatorAccountId"] = value["collaboration_creator_account_id"]
+    out["collaborationCreatorDisplayName"] = value["collaboration_creator_display_name"]
+    out["collaborationName"] = value["collaboration_name"]
+    import aws_sdk_cleanrooms.types._prelude.timestamp
+
+    out["createTime"] = aws_sdk_cleanrooms.types._prelude.timestamp.serialize_json(
+        value["create_time"]
+    )
+    import aws_sdk_cleanrooms.types._prelude.timestamp
+
+    out["updateTime"] = aws_sdk_cleanrooms.types._prelude.timestamp.serialize_json(
+        value["update_time"]
+    )
+    out["status"] = value["status"]
+    import aws_sdk_cleanrooms.types.member_abilities
+
+    out["memberAbilities"] = aws_sdk_cleanrooms.types.member_abilities.serialize_json(
+        value["member_abilities"]
+    )
+    if "ml_member_abilities" in value:
+        import aws_sdk_cleanrooms.types.ml_member_abilities
+
+        out["mlMemberAbilities"] = (
+            aws_sdk_cleanrooms.types.ml_member_abilities.serialize_json(
+                value["ml_member_abilities"]
+            )
+        )
+    import aws_sdk_cleanrooms.types.membership_query_log_status
+
+    out["queryLogStatus"] = (
+        aws_sdk_cleanrooms.types.membership_query_log_status.serialize_json(
+            value["query_log_status"]
+        )
+    )
+    if "job_log_status" in value:
+        import aws_sdk_cleanrooms.types.membership_job_log_status
+
+        out["jobLogStatus"] = (
+            aws_sdk_cleanrooms.types.membership_job_log_status.serialize_json(
+                value["job_log_status"]
+            )
+        )
+    if "default_result_configuration" in value:
+        import aws_sdk_cleanrooms.types.membership_protected_query_result_configuration
+
+        out["defaultResultConfiguration"] = (
+            aws_sdk_cleanrooms.types.membership_protected_query_result_configuration.serialize_json(
+                value["default_result_configuration"]
+            )
+        )
+    if "default_job_result_configuration" in value:
+        import aws_sdk_cleanrooms.types.membership_protected_job_result_configuration
+
+        out["defaultJobResultConfiguration"] = (
+            aws_sdk_cleanrooms.types.membership_protected_job_result_configuration.serialize_json(
+                value["default_job_result_configuration"]
+            )
+        )
+    import aws_sdk_cleanrooms.types.membership_payment_configuration
+
+    out["paymentConfiguration"] = (
+        aws_sdk_cleanrooms.types.membership_payment_configuration.serialize_json(
+            value["payment_configuration"]
+        )
+    )
+    if "is_metrics_enabled" in value:
+        out["isMetricsEnabled"] = value["is_metrics_enabled"]
+    return out
+
+
+def deserialize_json(data: dict) -> Membership:
+    out: Membership = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("Membership.id required")
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("Membership.arn required")
+    if "collaborationArn" in data:
+        out["collaboration_arn"] = data["collaborationArn"]
+    else:
+        raise DeserializationError("Membership.collaboration_arn required")
+    if "collaborationId" in data:
+        out["collaboration_id"] = data["collaborationId"]
+    else:
+        raise DeserializationError("Membership.collaboration_id required")
+    if "collaborationCreatorAccountId" in data:
+        out["collaboration_creator_account_id"] = data["collaborationCreatorAccountId"]
+    else:
+        raise DeserializationError(
+            "Membership.collaboration_creator_account_id required"
+        )
+    if "collaborationCreatorDisplayName" in data:
+        out["collaboration_creator_display_name"] = data[
+            "collaborationCreatorDisplayName"
+        ]
+    else:
+        raise DeserializationError(
+            "Membership.collaboration_creator_display_name required"
+        )
+    if "collaborationName" in data:
+        out["collaboration_name"] = data["collaborationName"]
+    else:
+        raise DeserializationError("Membership.collaboration_name required")
+    if "createTime" in data:
+        import aws_sdk_cleanrooms.types._prelude.timestamp
+
+        out["create_time"] = (
+            aws_sdk_cleanrooms.types._prelude.timestamp.deserialize_json(
+                data["createTime"]
+            )
+        )
+    else:
+        raise DeserializationError("Membership.create_time required")
+    if "updateTime" in data:
+        import aws_sdk_cleanrooms.types._prelude.timestamp
+
+        out["update_time"] = (
+            aws_sdk_cleanrooms.types._prelude.timestamp.deserialize_json(
+                data["updateTime"]
+            )
+        )
+    else:
+        raise DeserializationError("Membership.update_time required")
+    if "status" in data:
+        out["status"] = data["status"]
+    else:
+        raise DeserializationError("Membership.status required")
+    if "memberAbilities" in data:
+        import aws_sdk_cleanrooms.types.member_abilities
+
+        out["member_abilities"] = (
+            aws_sdk_cleanrooms.types.member_abilities.deserialize_json(
+                data["memberAbilities"]
+            )
+        )
+    else:
+        raise DeserializationError("Membership.member_abilities required")
+    if "mlMemberAbilities" in data:
+        import aws_sdk_cleanrooms.types.ml_member_abilities
+
+        out["ml_member_abilities"] = (
+            aws_sdk_cleanrooms.types.ml_member_abilities.deserialize_json(
+                data["mlMemberAbilities"]
+            )
+        )
+    if "queryLogStatus" in data:
+        import aws_sdk_cleanrooms.types.membership_query_log_status
+
+        out["query_log_status"] = (
+            aws_sdk_cleanrooms.types.membership_query_log_status.deserialize_json(
+                data["queryLogStatus"]
+            )
+        )
+    else:
+        raise DeserializationError("Membership.query_log_status required")
+    if "jobLogStatus" in data:
+        import aws_sdk_cleanrooms.types.membership_job_log_status
+
+        out["job_log_status"] = (
+            aws_sdk_cleanrooms.types.membership_job_log_status.deserialize_json(
+                data["jobLogStatus"]
+            )
+        )
+    if "defaultResultConfiguration" in data:
+        import aws_sdk_cleanrooms.types.membership_protected_query_result_configuration
+
+        out["default_result_configuration"] = (
+            aws_sdk_cleanrooms.types.membership_protected_query_result_configuration.deserialize_json(
+                data["defaultResultConfiguration"]
+            )
+        )
+    if "defaultJobResultConfiguration" in data:
+        import aws_sdk_cleanrooms.types.membership_protected_job_result_configuration
+
+        out["default_job_result_configuration"] = (
+            aws_sdk_cleanrooms.types.membership_protected_job_result_configuration.deserialize_json(
+                data["defaultJobResultConfiguration"]
+            )
+        )
+    if "paymentConfiguration" in data:
+        import aws_sdk_cleanrooms.types.membership_payment_configuration
+
+        out["payment_configuration"] = (
+            aws_sdk_cleanrooms.types.membership_payment_configuration.deserialize_json(
+                data["paymentConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError("Membership.payment_configuration required")
+    if "isMetricsEnabled" in data:
+        out["is_metrics_enabled"] = data["isMetricsEnabled"]
+    return out

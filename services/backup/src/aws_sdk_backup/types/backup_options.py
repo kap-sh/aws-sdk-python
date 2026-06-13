@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupOptions``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_option_key
     import aws_sdk_backup.types.backup_option_value
 
-BackupOptions: TypeAlias = dict["aws_sdk_backup.types.backup_option_key.BackupOptionKey", "aws_sdk_backup.types.backup_option_value.BackupOptionValue"]
+BackupOptions: TypeAlias = dict[
+    "aws_sdk_backup.types.backup_option_key.BackupOptionKey",
+    "aws_sdk_backup.types.backup_option_value.BackupOptionValue",
+]
 
 
 # --- restJson1 ser/de ---

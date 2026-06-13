@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstance``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.agent_version
     import aws_sdk_drs.types.arn
@@ -19,14 +21,19 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_id
     import aws_sdk_drs.types.tags_map
 
+
 class RecoveryInstance(TypedDict):
     ec2_instance_id: NotRequired["aws_sdk_drs.types.ec2_instance_id.EC2InstanceID"]
     """<p>The EC2 instance ID of the Recovery Instance.</p>"""
-    ec2_instance_state: NotRequired["aws_sdk_drs.types.ec2_instance_state.EC2InstanceState"]
+    ec2_instance_state: NotRequired[
+        "aws_sdk_drs.types.ec2_instance_state.EC2InstanceState"
+    ]
     """<p>The state of the EC2 instance for this Recovery Instance.</p>"""
     job_id: NotRequired["aws_sdk_drs.types.job_id.JobID"]
     """<p>The ID of the Job that created the Recovery Instance.</p>"""
-    recovery_instance_id: NotRequired["aws_sdk_drs.types.recovery_instance_id.RecoveryInstanceID"]
+    recovery_instance_id: NotRequired[
+        "aws_sdk_drs.types.recovery_instance_id.RecoveryInstanceID"
+    ]
     """<p>The ID of the Recovery Instance.</p>"""
     source_server_id: NotRequired["aws_sdk_drs.types.source_server_id.SourceServerID"]
     """<p>The Source Server ID that this Recovery Instance is associated with.</p>"""
@@ -34,24 +41,37 @@ class RecoveryInstance(TypedDict):
     """<p>The ARN of the Recovery Instance.</p>"""
     tags: NotRequired["aws_sdk_drs.types.tags_map.TagsMap"]
     """<p>An array of tags that are associated with the Recovery Instance.</p>"""
-    failback: NotRequired["aws_sdk_drs.types.recovery_instance_failback.RecoveryInstanceFailback"]
+    failback: NotRequired[
+        "aws_sdk_drs.types.recovery_instance_failback.RecoveryInstanceFailback"
+    ]
     """<p>An object representing failback related information of the Recovery Instance.</p>"""
-    data_replication_info: NotRequired["aws_sdk_drs.types.recovery_instance_data_replication_info.RecoveryInstanceDataReplicationInfo"]
+    data_replication_info: NotRequired[
+        "aws_sdk_drs.types.recovery_instance_data_replication_info.RecoveryInstanceDataReplicationInfo"
+    ]
     """<p>The Data Replication Info of the Recovery Instance.</p>"""
-    recovery_instance_properties: NotRequired["aws_sdk_drs.types.recovery_instance_properties.RecoveryInstanceProperties"]
+    recovery_instance_properties: NotRequired[
+        "aws_sdk_drs.types.recovery_instance_properties.RecoveryInstanceProperties"
+    ]
     """<p>Properties of the Recovery Instance machine.</p>"""
-    point_in_time_snapshot_date_time: NotRequired["aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    point_in_time_snapshot_date_time: NotRequired[
+        "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>The date and time of the Point in Time (PIT) snapshot that this Recovery Instance was launched from.</p>"""
     is_drill: NotRequired["bool"]
     """<p>Whether this Recovery Instance was created for a drill or for an actual Recovery event.</p>"""
-    origin_environment: NotRequired["aws_sdk_drs.types.origin_environment.OriginEnvironment"]
+    origin_environment: NotRequired[
+        "aws_sdk_drs.types.origin_environment.OriginEnvironment"
+    ]
     """<p>Environment (On Premises / AWS) of the instance that the recovery instance originated from.</p>"""
-    origin_availability_zone: NotRequired["aws_sdk_drs.types.aws_availability_zone.AwsAvailabilityZone"]
+    origin_availability_zone: NotRequired[
+        "aws_sdk_drs.types.aws_availability_zone.AwsAvailabilityZone"
+    ]
     """<p>AWS availability zone associated with the recovery instance.</p>"""
     agent_version: NotRequired["aws_sdk_drs.types.agent_version.AgentVersion"]
     """<p>The version of the DRS agent installed on the recovery instance</p>"""
     source_outpost_arn: NotRequired["aws_sdk_drs.types.outpost_arn.OutpostARN"]
     """<p>The ARN of the source Outpost</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: RecoveryInstance) -> dict:
@@ -70,16 +90,30 @@ def serialize_json(value: RecoveryInstance) -> dict:
         out["arn"] = value["arn"]
     if "tags" in value:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.serialize_json(value["tags"])
     if "failback" in value:
         import aws_sdk_drs.types.recovery_instance_failback
-        out["failback"] = aws_sdk_drs.types.recovery_instance_failback.serialize_json(value["failback"])
+
+        out["failback"] = aws_sdk_drs.types.recovery_instance_failback.serialize_json(
+            value["failback"]
+        )
     if "data_replication_info" in value:
         import aws_sdk_drs.types.recovery_instance_data_replication_info
-        out["dataReplicationInfo"] = aws_sdk_drs.types.recovery_instance_data_replication_info.serialize_json(value["data_replication_info"])
+
+        out["dataReplicationInfo"] = (
+            aws_sdk_drs.types.recovery_instance_data_replication_info.serialize_json(
+                value["data_replication_info"]
+            )
+        )
     if "recovery_instance_properties" in value:
         import aws_sdk_drs.types.recovery_instance_properties
-        out["recoveryInstanceProperties"] = aws_sdk_drs.types.recovery_instance_properties.serialize_json(value["recovery_instance_properties"])
+
+        out["recoveryInstanceProperties"] = (
+            aws_sdk_drs.types.recovery_instance_properties.serialize_json(
+                value["recovery_instance_properties"]
+            )
+        )
     if "point_in_time_snapshot_date_time" in value:
         out["pointInTimeSnapshotDateTime"] = value["point_in_time_snapshot_date_time"]
     if "is_drill" in value:
@@ -111,16 +145,30 @@ def deserialize_json(data: dict) -> RecoveryInstance:
         out["arn"] = data["arn"]
     if "tags" in data:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.deserialize_json(data["tags"])
     if "failback" in data:
         import aws_sdk_drs.types.recovery_instance_failback
-        out["failback"] = aws_sdk_drs.types.recovery_instance_failback.deserialize_json(data["failback"])
+
+        out["failback"] = aws_sdk_drs.types.recovery_instance_failback.deserialize_json(
+            data["failback"]
+        )
     if "dataReplicationInfo" in data:
         import aws_sdk_drs.types.recovery_instance_data_replication_info
-        out["data_replication_info"] = aws_sdk_drs.types.recovery_instance_data_replication_info.deserialize_json(data["dataReplicationInfo"])
+
+        out["data_replication_info"] = (
+            aws_sdk_drs.types.recovery_instance_data_replication_info.deserialize_json(
+                data["dataReplicationInfo"]
+            )
+        )
     if "recoveryInstanceProperties" in data:
         import aws_sdk_drs.types.recovery_instance_properties
-        out["recovery_instance_properties"] = aws_sdk_drs.types.recovery_instance_properties.deserialize_json(data["recoveryInstanceProperties"])
+
+        out["recovery_instance_properties"] = (
+            aws_sdk_drs.types.recovery_instance_properties.deserialize_json(
+                data["recoveryInstanceProperties"]
+            )
+        )
     if "pointInTimeSnapshotDateTime" in data:
         out["point_in_time_snapshot_date_time"] = data["pointInTimeSnapshotDateTime"]
     if "isDrill" in data:

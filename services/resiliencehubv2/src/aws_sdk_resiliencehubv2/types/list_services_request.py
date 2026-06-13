@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListServicesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_resiliencehubv2.types.account_id
+    import aws_sdk_resiliencehubv2.types.arn
+    import aws_sdk_resiliencehubv2.types.assessment_status
+    import aws_sdk_resiliencehubv2.types.max_results
+    import aws_sdk_resiliencehubv2.types.next_token
+    import aws_sdk_resiliencehubv2.types.ou_id
+    import aws_sdk_resiliencehubv2.types.user_journey_id
+
+
+class ListServicesRequest(TypedDict):
+    system_arn: NotRequired["aws_sdk_resiliencehubv2.types.arn.Arn"]
+    user_journey_id: NotRequired[
+        "aws_sdk_resiliencehubv2.types.user_journey_id.UserJourneyId"
+    ]
+    """<p>Filter services by user journey identifier.</p>"""
+    ou_id: NotRequired["aws_sdk_resiliencehubv2.types.ou_id.OuId"]
+    """<p>Filter services by organizational unit (OU) identifier.</p>"""
+    account_id: NotRequired["aws_sdk_resiliencehubv2.types.account_id.AccountId"]
+    """<p>Filter services by AWS account ID.</p>"""
+    assessment_status: NotRequired[
+        "aws_sdk_resiliencehubv2.types.assessment_status.AssessmentStatus"
+    ]
+    """<p>Filter services by assessment status.</p>"""
+    policy_arn: NotRequired["aws_sdk_resiliencehubv2.types.arn.Arn"]
+    max_results: "aws_sdk_resiliencehubv2.types.max_results.MaxResults"
+    next_token: NotRequired["aws_sdk_resiliencehubv2.types.next_token.NextToken"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListServicesRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListServicesRequest:
+    out: ListServicesRequest = {}  # type: ignore[typeddict-item]
+    return out

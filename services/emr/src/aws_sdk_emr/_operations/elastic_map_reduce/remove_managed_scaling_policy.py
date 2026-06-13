@@ -1,18 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.emr#RemoveManagedScalingPolicy``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_emr._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_emr._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_emr.errors import ServiceError, UnknownServiceError
-from aws_sdk_emr._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
 import aws_sdk_emr._auth._signers
 import aws_sdk_emr._auth._sigv4
+from aws_sdk_emr._protocol.errors import parse_error_metadata_json
+from aws_sdk_emr._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_emr._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_emr.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.remove_managed_scaling_policy_input

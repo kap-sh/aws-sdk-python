@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CreateJobResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_braket.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.job_arn
+
 
 class CreateJobResponse(TypedDict):
     job_arn: "aws_sdk_braket.types.job_arn.JobArn"
     """<p>The ARN of the Amazon Braket hybrid job created.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateJobResponse) -> dict:

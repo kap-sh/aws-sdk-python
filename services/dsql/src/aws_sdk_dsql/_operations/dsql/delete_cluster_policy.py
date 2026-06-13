@@ -1,21 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#DeleteClusterPolicy``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_dsql._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_dsql._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_dsql.errors import ServiceError, UnknownServiceError
-from aws_sdk_dsql._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_dsql._auth._signers
 import aws_sdk_dsql._auth._sigv4
+from aws_sdk_dsql._protocol.errors import parse_error_metadata_json
+from aws_sdk_dsql._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dsql._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_dsql.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.delete_cluster_policy_input
     import aws_sdk_dsql.types.delete_cluster_policy_output
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,39 +26,80 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_dsql.errors.access_denied_exception
-            raise aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "InternalServerException":
             import aws_sdk_dsql.errors.internal_server_exception
-            raise aws_sdk_dsql.errors.internal_server_exception.InternalServerException.from_json(data)
+
+            raise aws_sdk_dsql.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
         case "ThrottlingException":
             import aws_sdk_dsql.errors.throttling_exception
-            raise aws_sdk_dsql.errors.throttling_exception.ThrottlingException.from_json(data)
+
+            raise aws_sdk_dsql.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_dsql.errors.validation_exception
-            raise aws_sdk_dsql.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_dsql.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case "ConflictException":
             import aws_sdk_dsql.errors.conflict_exception
-            raise aws_sdk_dsql.errors.conflict_exception.ConflictException.from_json(data)
+
+            raise aws_sdk_dsql.errors.conflict_exception.ConflictException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_dsql.errors.resource_not_found_exception
-            raise aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput:
     import aws_sdk_dsql.types.delete_cluster_policy_output
-    out: aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput = aws_sdk_dsql.types.delete_cluster_policy_output.deserialize_json(json.loads(response.read()))
+
+    out: aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput = (
+        aws_sdk_dsql.types.delete_cluster_policy_output.deserialize_json(
+            json.loads(response.read())
+        )
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_dsql._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_dsql._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_dsql._auth._sigv4.build_sigv4_auth_scheme('dsql', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_dsql._auth._sigv4.build_sigv4_auth_scheme("dsql", options.region)
+        )
         if sigv4_config is not None:
-            return aws_sdk_dsql._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_dsql._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             UseFIPS=options.use_fips,
@@ -83,7 +127,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def delete_cluster_policy(options: OperationOptions, input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput) -> tuple[aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput, zapros.Response]:
+
+def delete_cluster_policy(
+    options: OperationOptions,
+    input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput,
+) -> tuple[
+    aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -94,7 +145,14 @@ def delete_cluster_policy(options: OperationOptions, input: aws_sdk_dsql.types.d
         response.close()
         raise
 
-async def async_delete_cluster_policy(options: AsyncOperationOptions, input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput) -> tuple[aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput, zapros.Response]:
+
+async def async_delete_cluster_policy(
+    options: AsyncOperationOptions,
+    input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput,
+) -> tuple[
+    aws_sdk_dsql.types.delete_cluster_policy_output.DeleteClusterPolicyOutput,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CreateSessionResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
     import aws_sdk_bedrock_agent_runtime.types.session_arn
     import aws_sdk_bedrock_agent_runtime.types.session_status
     import aws_sdk_bedrock_agent_runtime.types.uuid
+
 
 class CreateSessionResponse(TypedDict):
     session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
@@ -18,15 +21,26 @@ class CreateSessionResponse(TypedDict):
     created_at: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"
     """<p>The timestamp for when the session was created.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateSessionResponse) -> dict:
     out: dict = {}
     out["sessionId"] = value["session_id"]
     out["sessionArn"] = value["session_arn"]
     import aws_sdk_bedrock_agent_runtime.types.session_status
-    out["sessionStatus"] = aws_sdk_bedrock_agent_runtime.types.session_status.serialize_json(value["session_status"])
+
+    out["sessionStatus"] = (
+        aws_sdk_bedrock_agent_runtime.types.session_status.serialize_json(
+            value["session_status"]
+        )
+    )
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     return out
 
 
@@ -42,12 +56,22 @@ def deserialize_json(data: dict) -> CreateSessionResponse:
         raise DeserializationError("CreateSessionResponse.session_arn required")
     if "sessionStatus" in data:
         import aws_sdk_bedrock_agent_runtime.types.session_status
-        out["session_status"] = aws_sdk_bedrock_agent_runtime.types.session_status.deserialize_json(data["sessionStatus"])
+
+        out["session_status"] = (
+            aws_sdk_bedrock_agent_runtime.types.session_status.deserialize_json(
+                data["sessionStatus"]
+            )
+        )
     else:
         raise DeserializationError("CreateSessionResponse.session_status required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agent_runtime.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreateSessionResponse.created_at required")
     return out

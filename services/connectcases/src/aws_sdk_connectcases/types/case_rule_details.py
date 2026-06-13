@@ -1,12 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CaseRuleDetails``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_options_case_rule
-    import aws_sdk_connectcases.types.required_case_rule
     import aws_sdk_connectcases.types.hidden_case_rule
+    import aws_sdk_connectcases.types.required_case_rule
 
 
 class _CaseRuleDetails_required(TypedDict):

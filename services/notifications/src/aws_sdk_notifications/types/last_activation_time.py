@@ -1,13 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#LastActivationTime``."""
 
 import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_notifications.errors import DeserializationError
-from aws_sdk_notifications._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import TypeAlias
 
 LastActivationTime: TypeAlias = datetime.datetime
 

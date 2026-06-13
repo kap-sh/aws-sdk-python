@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateLaunchConfigurationTemplateRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.arn
     import aws_sdk_drs.types.launch_disposition
@@ -9,12 +11,17 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
     import aws_sdk_drs.types.target_instance_type_right_sizing_method
 
+
 class CreateLaunchConfigurationTemplateRequest(TypedDict):
     tags: NotRequired["aws_sdk_drs.types.tags_map.TagsMap"]
     """<p>Request to associate tags during creation of a Launch Configuration Template.</p>"""
-    launch_disposition: NotRequired["aws_sdk_drs.types.launch_disposition.LaunchDisposition"]
+    launch_disposition: NotRequired[
+        "aws_sdk_drs.types.launch_disposition.LaunchDisposition"
+    ]
     """<p>Launch disposition.</p>"""
-    target_instance_type_right_sizing_method: NotRequired["aws_sdk_drs.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"]
+    target_instance_type_right_sizing_method: NotRequired[
+        "aws_sdk_drs.types.target_instance_type_right_sizing_method.TargetInstanceTypeRightSizingMethod"
+    ]
     """<p>Target instance type right-sizing method.</p>"""
     copy_private_ip: NotRequired["bool"]
     """<p>Copy private IP.</p>"""
@@ -29,23 +36,30 @@ class CreateLaunchConfigurationTemplateRequest(TypedDict):
     launch_into_source_instance: NotRequired["bool"]
     """<p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateLaunchConfigurationTemplateRequest) -> dict:
     out: dict = {}
     if "tags" in value:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.serialize_json(value["tags"])
     if "launch_disposition" in value:
         out["launchDisposition"] = value["launch_disposition"]
     if "target_instance_type_right_sizing_method" in value:
-        out["targetInstanceTypeRightSizingMethod"] = value["target_instance_type_right_sizing_method"]
+        out["targetInstanceTypeRightSizingMethod"] = value[
+            "target_instance_type_right_sizing_method"
+        ]
     if "copy_private_ip" in value:
         out["copyPrivateIp"] = value["copy_private_ip"]
     if "copy_tags" in value:
         out["copyTags"] = value["copy_tags"]
     if "licensing" in value:
         import aws_sdk_drs.types.licensing
-        out["licensing"] = aws_sdk_drs.types.licensing.serialize_json(value["licensing"])
+
+        out["licensing"] = aws_sdk_drs.types.licensing.serialize_json(
+            value["licensing"]
+        )
     if "export_bucket_arn" in value:
         out["exportBucketArn"] = value["export_bucket_arn"]
     if "post_launch_enabled" in value:
@@ -59,18 +73,24 @@ def deserialize_json(data: dict) -> CreateLaunchConfigurationTemplateRequest:
     out: CreateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
     if "tags" in data:
         import aws_sdk_drs.types.tags_map
+
         out["tags"] = aws_sdk_drs.types.tags_map.deserialize_json(data["tags"])
     if "launchDisposition" in data:
         out["launch_disposition"] = data["launchDisposition"]
     if "targetInstanceTypeRightSizingMethod" in data:
-        out["target_instance_type_right_sizing_method"] = data["targetInstanceTypeRightSizingMethod"]
+        out["target_instance_type_right_sizing_method"] = data[
+            "targetInstanceTypeRightSizingMethod"
+        ]
     if "copyPrivateIp" in data:
         out["copy_private_ip"] = data["copyPrivateIp"]
     if "copyTags" in data:
         out["copy_tags"] = data["copyTags"]
     if "licensing" in data:
         import aws_sdk_drs.types.licensing
-        out["licensing"] = aws_sdk_drs.types.licensing.deserialize_json(data["licensing"])
+
+        out["licensing"] = aws_sdk_drs.types.licensing.deserialize_json(
+            data["licensing"]
+        )
     if "exportBucketArn" in data:
         out["export_bucket_arn"] = data["exportBucketArn"]
     if "postLaunchEnabled" in data:

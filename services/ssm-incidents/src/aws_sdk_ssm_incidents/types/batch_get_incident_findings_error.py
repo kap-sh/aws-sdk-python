@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#BatchGetIncidentFindingsError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_ssm_incidents.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.finding_id
+
 
 class BatchGetIncidentFindingsError(TypedDict):
     finding_id: "aws_sdk_ssm_incidents.types.finding_id.FindingId"
@@ -12,6 +15,7 @@ class BatchGetIncidentFindingsError(TypedDict):
     """<p>The code associated with an error that was returned for a <code>BatchGetIncidentFindings</code> operation.</p>"""
     message: "str"
     """<p>The description for an error that was returned for a <code>BatchGetIncidentFindings</code> operation.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchGetIncidentFindingsError) -> dict:

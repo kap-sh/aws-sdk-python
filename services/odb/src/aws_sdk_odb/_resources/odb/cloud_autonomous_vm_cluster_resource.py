@@ -1,0 +1,589 @@
+from typing import TYPE_CHECKING, Optional
+
+from aws_sdk_odb._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_odb.types.autonomous_virtual_machine_summary
+    import aws_sdk_odb.types.cloud_autonomous_vm_cluster_summary
+    import aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input
+    import aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_output
+    import aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input
+    import aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_output
+    import aws_sdk_odb.types.general_input_string
+    import aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input
+    import aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_output
+    import aws_sdk_odb.types.license_model
+    import aws_sdk_odb.types.list_autonomous_virtual_machines_input
+    import aws_sdk_odb.types.list_autonomous_virtual_machines_output
+    import aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input
+    import aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_output
+    import aws_sdk_odb.types.maintenance_window
+    import aws_sdk_odb.types.request_tag_map
+    import aws_sdk_odb.types.resource_display_name
+    import aws_sdk_odb.types.resource_id
+    import aws_sdk_odb.types.resource_id_or_arn
+    import aws_sdk_odb.types.string_list
+    from aws_sdk_odb._services.async_odb import AsyncodbClient, AsyncodbClientConfig
+    from aws_sdk_odb._services.odb import odbClient, odbClientConfig
+
+
+class CloudAutonomousVmClusterResource:
+    def __init__(self, service: odbClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        cloud_exadata_infrastructure_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn",
+        odb_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn",
+        display_name: "aws_sdk_odb.types.resource_display_name.ResourceDisplayName",
+        autonomous_data_storage_size_in_t_bs: float,
+        cpu_core_count_per_node: int,
+        memory_per_oracle_compute_unit_in_g_bs: int,
+        total_container_databases: int,
+        *,
+        config_overrides: Optional[odbClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_odb.types.general_input_string.GeneralInputString"
+        ] = None,
+        db_servers: Optional["aws_sdk_odb.types.string_list.StringList"] = None,
+        description: Optional[str] = None,
+        is_mtls_enabled_vm_cluster: Optional[bool] = None,
+        license_model: Optional["aws_sdk_odb.types.license_model.LicenseModel"] = None,
+        maintenance_window: Optional[
+            "aws_sdk_odb.types.maintenance_window.MaintenanceWindow"
+        ] = None,
+        scan_listener_port_non_tls: Optional[int] = None,
+        scan_listener_port_tls: Optional[int] = None,
+        tags: Optional["aws_sdk_odb.types.request_tag_map.RequestTagMap"] = None,
+        time_zone: Optional[str] = None,
+    ) -> "aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_output.CreateCloudAutonomousVmClusterOutput":
+        """<p>Creates a new Autonomous VM cluster in the specified Exadata infrastructure.</p>
+
+        Args:
+            cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure where the VM cluster will be created.</p>
+            odb_network_id: <p>The unique identifier of the ODB network to be used for the VM cluster.</p>
+            display_name: <p>The display name for the Autonomous VM cluster. The name does not need to be unique.</p>
+            client_token: <p>A client-provided token to ensure idempotency of the request.</p>
+            autonomous_data_storage_size_in_t_bs: <p>The data disk group size to be allocated for Autonomous Databases, in terabytes (TB).</p>
+            cpu_core_count_per_node: <p>The number of CPU cores to be enabled per VM cluster node.</p>
+            db_servers: <p>The list of database servers to be used for the Autonomous VM cluster.</p>
+            description: <p>A user-provided description of the Autonomous VM cluster.</p>
+            is_mtls_enabled_vm_cluster: <p>Specifies whether to enable mutual TLS (mTLS) authentication for the Autonomous VM cluster.</p>
+            license_model: <p>The Oracle license model to apply to the Autonomous VM cluster.</p>
+            maintenance_window: <p>The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.</p>
+            memory_per_oracle_compute_unit_in_g_bs: <p>The amount of memory to be allocated per OCPU, in GB.</p>
+            scan_listener_port_non_tls: <p>The SCAN listener port for non-TLS (TCP) protocol.</p>
+            scan_listener_port_tls: <p>The SCAN listener port for TLS (TCP) protocol.</p>
+            tags: <p>Free-form tags for this resource. Each tag is a key-value pair with no predefined name, type, or namespace.</p>
+            time_zone: <p>The time zone to use for the Autonomous VM cluster.</p>
+            total_container_databases: <p>The total number of Autonomous CDBs that you can create in the Autonomous VM cluster.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput]",
+        ) -> OperationResponse[
+            "aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_output.CreateCloudAutonomousVmClusterOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.create_cloud_autonomous_vm_cluster
+
+            output, http_response = (
+                aws_sdk_odb._operations.odb.create_cloud_autonomous_vm_cluster.create_cloud_autonomous_vm_cluster(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input["odb_network_id"] = odb_network_id
+        input["display_name"] = display_name
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["autonomous_data_storage_size_in_t_bs"] = (
+            autonomous_data_storage_size_in_t_bs
+        )
+        input["cpu_core_count_per_node"] = cpu_core_count_per_node
+        if db_servers is not None:
+            input["db_servers"] = db_servers
+        if description is not None:
+            input["description"] = description
+        if is_mtls_enabled_vm_cluster is not None:
+            input["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
+        if license_model is not None:
+            input["license_model"] = license_model
+        if maintenance_window is not None:
+            input["maintenance_window"] = maintenance_window
+        input["memory_per_oracle_compute_unit_in_g_bs"] = (
+            memory_per_oracle_compute_unit_in_g_bs
+        )
+        if scan_listener_port_non_tls is not None:
+            input["scan_listener_port_non_tls"] = scan_listener_port_non_tls
+        if scan_listener_port_tls is not None:
+            input["scan_listener_port_tls"] = scan_listener_port_tls
+        if tags is not None:
+            input["tags"] = tags
+        if time_zone is not None:
+            input["time_zone"] = time_zone
+        input["total_container_databases"] = total_container_databases
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[odbClientConfig] = None,
+    ) -> "aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_output.GetCloudAutonomousVmClusterOutput":
+        """<p>Gets information about a specific Autonomous VM cluster.</p>
+
+        Args:
+            cloud_autonomous_vm_cluster_id: <p>The unique identifier of the Autonomous VM cluster to retrieve information about.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput]",
+        ) -> OperationResponse[
+            "aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_output.GetCloudAutonomousVmClusterOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.get_cloud_autonomous_vm_cluster
+
+            output, http_response = (
+                aws_sdk_odb._operations.odb.get_cloud_autonomous_vm_cluster.get_cloud_autonomous_vm_cluster(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[odbClientConfig] = None,
+    ) -> "aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_output.DeleteCloudAutonomousVmClusterOutput":
+        """<p>Deletes an Autonomous VM cluster.</p>
+
+        Args:
+            cloud_autonomous_vm_cluster_id: <p>The unique identifier of the Autonomous VM cluster to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput]",
+        ) -> OperationResponse[
+            "aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_output.DeleteCloudAutonomousVmClusterOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.delete_cloud_autonomous_vm_cluster
+
+            output, http_response = (
+                aws_sdk_odb._operations.odb.delete_cloud_autonomous_vm_cluster.delete_cloud_autonomous_vm_cluster(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[odbClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+        cloud_exadata_infrastructure_id: Optional[
+            "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
+        ] = None,
+    ) -> "aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_output.ListCloudAutonomousVmClustersOutput":
+        """<p>Lists all Autonomous VM clusters in a specified Cloud Exadata infrastructure.</p>
+
+        Args:
+            max_results: <p>The maximum number of items to return per page.</p>
+            next_token: <p>The pagination token to continue listing from.</p>
+            cloud_exadata_infrastructure_id: <p>The unique identifier of the Cloud Exadata Infrastructure that hosts the Autonomous VM clusters to be listed.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput]",
+        ) -> OperationResponse[
+            "aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_output.ListCloudAutonomousVmClustersOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.list_cloud_autonomous_vm_clusters
+
+            output, http_response = (
+                aws_sdk_odb._operations.odb.list_cloud_autonomous_vm_clusters.list_cloud_autonomous_vm_clusters(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if cloud_exadata_infrastructure_id is not None:
+            input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_autonomous_virtual_machines(
+        self,
+        cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[odbClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_odb.types.list_autonomous_virtual_machines_output.ListAutonomousVirtualMachinesOutput":
+        """<p>Lists all Autonomous VMs in an Autonomous VM cluster.</p>
+
+        Args:
+            max_results: <p>The maximum number of items to return per page.</p>
+            next_token: <p>The pagination token to continue listing from.</p>
+            cloud_autonomous_vm_cluster_id: <p>The unique identifier of the Autonomous VM cluster whose virtual machines you're listing.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_odb.types.list_autonomous_virtual_machines_output.ListAutonomousVirtualMachinesOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.list_autonomous_virtual_machines
+
+            output, http_response = (
+                aws_sdk_odb._operations.odb.list_autonomous_virtual_machines.list_autonomous_virtual_machines(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncCloudAutonomousVmClusterResource:
+    def __init__(self, service: AsyncodbClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        cloud_exadata_infrastructure_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn",
+        odb_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn",
+        display_name: "aws_sdk_odb.types.resource_display_name.ResourceDisplayName",
+        autonomous_data_storage_size_in_t_bs: float,
+        cpu_core_count_per_node: int,
+        memory_per_oracle_compute_unit_in_g_bs: int,
+        total_container_databases: int,
+        *,
+        config_overrides: Optional[AsyncodbClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_odb.types.general_input_string.GeneralInputString"
+        ] = None,
+        db_servers: Optional["aws_sdk_odb.types.string_list.StringList"] = None,
+        description: Optional[str] = None,
+        is_mtls_enabled_vm_cluster: Optional[bool] = None,
+        license_model: Optional["aws_sdk_odb.types.license_model.LicenseModel"] = None,
+        maintenance_window: Optional[
+            "aws_sdk_odb.types.maintenance_window.MaintenanceWindow"
+        ] = None,
+        scan_listener_port_non_tls: Optional[int] = None,
+        scan_listener_port_tls: Optional[int] = None,
+        tags: Optional["aws_sdk_odb.types.request_tag_map.RequestTagMap"] = None,
+        time_zone: Optional[str] = None,
+    ) -> "aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_output.CreateCloudAutonomousVmClusterOutput":
+        """<p>Creates a new Autonomous VM cluster in the specified Exadata infrastructure.</p>
+
+        Args:
+            cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure where the VM cluster will be created.</p>
+            odb_network_id: <p>The unique identifier of the ODB network to be used for the VM cluster.</p>
+            display_name: <p>The display name for the Autonomous VM cluster. The name does not need to be unique.</p>
+            client_token: <p>A client-provided token to ensure idempotency of the request.</p>
+            autonomous_data_storage_size_in_t_bs: <p>The data disk group size to be allocated for Autonomous Databases, in terabytes (TB).</p>
+            cpu_core_count_per_node: <p>The number of CPU cores to be enabled per VM cluster node.</p>
+            db_servers: <p>The list of database servers to be used for the Autonomous VM cluster.</p>
+            description: <p>A user-provided description of the Autonomous VM cluster.</p>
+            is_mtls_enabled_vm_cluster: <p>Specifies whether to enable mutual TLS (mTLS) authentication for the Autonomous VM cluster.</p>
+            license_model: <p>The Oracle license model to apply to the Autonomous VM cluster.</p>
+            maintenance_window: <p>The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.</p>
+            memory_per_oracle_compute_unit_in_g_bs: <p>The amount of memory to be allocated per OCPU, in GB.</p>
+            scan_listener_port_non_tls: <p>The SCAN listener port for non-TLS (TCP) protocol.</p>
+            scan_listener_port_tls: <p>The SCAN listener port for TLS (TCP) protocol.</p>
+            tags: <p>Free-form tags for this resource. Each tag is a key-value pair with no predefined name, type, or namespace.</p>
+            time_zone: <p>The time zone to use for the Autonomous VM cluster.</p>
+            total_container_databases: <p>The total number of Autonomous CDBs that you can create in the Autonomous VM cluster.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_output.CreateCloudAutonomousVmClusterOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.create_cloud_autonomous_vm_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_odb._operations.odb.create_cloud_autonomous_vm_cluster.async_create_cloud_autonomous_vm_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input["odb_network_id"] = odb_network_id
+        input["display_name"] = display_name
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["autonomous_data_storage_size_in_t_bs"] = (
+            autonomous_data_storage_size_in_t_bs
+        )
+        input["cpu_core_count_per_node"] = cpu_core_count_per_node
+        if db_servers is not None:
+            input["db_servers"] = db_servers
+        if description is not None:
+            input["description"] = description
+        if is_mtls_enabled_vm_cluster is not None:
+            input["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
+        if license_model is not None:
+            input["license_model"] = license_model
+        if maintenance_window is not None:
+            input["maintenance_window"] = maintenance_window
+        input["memory_per_oracle_compute_unit_in_g_bs"] = (
+            memory_per_oracle_compute_unit_in_g_bs
+        )
+        if scan_listener_port_non_tls is not None:
+            input["scan_listener_port_non_tls"] = scan_listener_port_non_tls
+        if scan_listener_port_tls is not None:
+            input["scan_listener_port_tls"] = scan_listener_port_tls
+        if tags is not None:
+            input["tags"] = tags
+        if time_zone is not None:
+            input["time_zone"] = time_zone
+        input["total_container_databases"] = total_container_databases
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncodbClientConfig] = None,
+    ) -> "aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_output.GetCloudAutonomousVmClusterOutput":
+        """<p>Gets information about a specific Autonomous VM cluster.</p>
+
+        Args:
+            cloud_autonomous_vm_cluster_id: <p>The unique identifier of the Autonomous VM cluster to retrieve information about.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_output.GetCloudAutonomousVmClusterOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.get_cloud_autonomous_vm_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_odb._operations.odb.get_cloud_autonomous_vm_cluster.async_get_cloud_autonomous_vm_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncodbClientConfig] = None,
+    ) -> "aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_output.DeleteCloudAutonomousVmClusterOutput":
+        """<p>Deletes an Autonomous VM cluster.</p>
+
+        Args:
+            cloud_autonomous_vm_cluster_id: <p>The unique identifier of the Autonomous VM cluster to delete.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_output.DeleteCloudAutonomousVmClusterOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.delete_cloud_autonomous_vm_cluster
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_odb._operations.odb.delete_cloud_autonomous_vm_cluster.async_delete_cloud_autonomous_vm_cluster(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncodbClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+        cloud_exadata_infrastructure_id: Optional[
+            "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
+        ] = None,
+    ) -> "aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_output.ListCloudAutonomousVmClustersOutput":
+        """<p>Lists all Autonomous VM clusters in a specified Cloud Exadata infrastructure.</p>
+
+        Args:
+            max_results: <p>The maximum number of items to return per page.</p>
+            next_token: <p>The pagination token to continue listing from.</p>
+            cloud_exadata_infrastructure_id: <p>The unique identifier of the Cloud Exadata Infrastructure that hosts the Autonomous VM clusters to be listed.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_output.ListCloudAutonomousVmClustersOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.list_cloud_autonomous_vm_clusters
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_odb._operations.odb.list_cloud_autonomous_vm_clusters.async_list_cloud_autonomous_vm_clusters(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        if cloud_exadata_infrastructure_id is not None:
+            input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_autonomous_virtual_machines(
+        self,
+        cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[AsyncodbClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_odb.types.list_autonomous_virtual_machines_output.ListAutonomousVirtualMachinesOutput":
+        """<p>Lists all Autonomous VMs in an Autonomous VM cluster.</p>
+
+        Args:
+            max_results: <p>The maximum number of items to return per page.</p>
+            next_token: <p>The pagination token to continue listing from.</p>
+            cloud_autonomous_vm_cluster_id: <p>The unique identifier of the Autonomous VM cluster whose virtual machines you're listing.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_odb.types.list_autonomous_virtual_machines_output.ListAutonomousVirtualMachinesOutput"
+        ]:
+            import aws_sdk_odb._operations.odb.list_autonomous_virtual_machines
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_odb._operations.odb.list_autonomous_virtual_machines.async_list_autonomous_virtual_machines(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

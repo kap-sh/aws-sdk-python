@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class CreateUserResponse(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateUserResponse) -> dict:

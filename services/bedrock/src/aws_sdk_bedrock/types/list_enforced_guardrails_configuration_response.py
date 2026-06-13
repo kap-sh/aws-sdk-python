@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListEnforcedGuardrailsConfigurationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock.errors import DeserializationError
 
 if TYPE_CHECKING:

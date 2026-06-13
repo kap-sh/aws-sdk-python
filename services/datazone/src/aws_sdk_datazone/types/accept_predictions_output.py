@@ -2,10 +2,12 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.revision
+
 
 class AcceptPredictionsOutput(TypedDict):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
@@ -14,6 +16,7 @@ class AcceptPredictionsOutput(TypedDict):
     """<p>The ID of the asset.</p>"""
     revision: "aws_sdk_datazone.types.revision.Revision"
     """<p>The revision that is to be made to the asset.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AcceptPredictionsOutput) -> dict:

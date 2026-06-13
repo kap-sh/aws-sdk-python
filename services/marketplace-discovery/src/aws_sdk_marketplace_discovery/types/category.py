@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#Category``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_marketplace_discovery.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.non_empty_string
+
 
 class Category(TypedDict):
     category_id: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"
     """<p>The machine-readable identifier of the category.</p>"""
     display_name: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"
     """<p>The human-readable name of the category.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Category) -> dict:

@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class DeleteChatControlsConfigurationResponse(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteChatControlsConfigurationResponse) -> dict:

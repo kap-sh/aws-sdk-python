@@ -1,0 +1,1184 @@
+"""Generated from Smithy shape ``com.amazonaws.s3files#S3Files``."""
+
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
+import aws_sdk_s3files._auth._signers
+import aws_sdk_s3files._auth._sigv4
+from aws_sdk_s3files._auth._identity import Credentials
+from aws_sdk_s3files._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_s3files._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3files._pagination import resolve_path as _resolve_path
+from aws_sdk_s3files._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_s3files.types.access_point_id
+    import aws_sdk_s3files.types.bucket_arn
+    import aws_sdk_s3files.types.client_token
+    import aws_sdk_s3files.types.create_access_point_request
+    import aws_sdk_s3files.types.create_access_point_response
+    import aws_sdk_s3files.types.create_file_system_request
+    import aws_sdk_s3files.types.create_file_system_response
+    import aws_sdk_s3files.types.create_mount_target_request
+    import aws_sdk_s3files.types.create_mount_target_response
+    import aws_sdk_s3files.types.creation_token
+    import aws_sdk_s3files.types.delete_access_point_request
+    import aws_sdk_s3files.types.delete_file_system_policy_request
+    import aws_sdk_s3files.types.delete_file_system_request
+    import aws_sdk_s3files.types.delete_mount_target_request
+    import aws_sdk_s3files.types.expiration_data_rule_list
+    import aws_sdk_s3files.types.file_system_id
+    import aws_sdk_s3files.types.get_access_point_request
+    import aws_sdk_s3files.types.get_access_point_response
+    import aws_sdk_s3files.types.get_file_system_policy_request
+    import aws_sdk_s3files.types.get_file_system_policy_response
+    import aws_sdk_s3files.types.get_file_system_request
+    import aws_sdk_s3files.types.get_file_system_response
+    import aws_sdk_s3files.types.get_mount_target_request
+    import aws_sdk_s3files.types.get_mount_target_response
+    import aws_sdk_s3files.types.get_synchronization_configuration_request
+    import aws_sdk_s3files.types.get_synchronization_configuration_response
+    import aws_sdk_s3files.types.import_data_rule_list
+    import aws_sdk_s3files.types.ip_address_type
+    import aws_sdk_s3files.types.ipv4_address
+    import aws_sdk_s3files.types.ipv6_address
+    import aws_sdk_s3files.types.kms_key_id
+    import aws_sdk_s3files.types.list_access_points_description
+    import aws_sdk_s3files.types.list_access_points_request
+    import aws_sdk_s3files.types.list_access_points_response
+    import aws_sdk_s3files.types.list_file_systems_description
+    import aws_sdk_s3files.types.list_file_systems_request
+    import aws_sdk_s3files.types.list_file_systems_response
+    import aws_sdk_s3files.types.list_mount_targets_description
+    import aws_sdk_s3files.types.list_mount_targets_request
+    import aws_sdk_s3files.types.list_mount_targets_response
+    import aws_sdk_s3files.types.list_tags_for_resource_request
+    import aws_sdk_s3files.types.list_tags_for_resource_response
+    import aws_sdk_s3files.types.mount_target_id
+    import aws_sdk_s3files.types.posix_user
+    import aws_sdk_s3files.types.put_file_system_policy_request
+    import aws_sdk_s3files.types.put_file_system_policy_response
+    import aws_sdk_s3files.types.put_synchronization_configuration_request
+    import aws_sdk_s3files.types.put_synchronization_configuration_response
+    import aws_sdk_s3files.types.resource_id
+    import aws_sdk_s3files.types.role_arn
+    import aws_sdk_s3files.types.root_directory
+    import aws_sdk_s3files.types.security_groups
+    import aws_sdk_s3files.types.subnet_id
+    import aws_sdk_s3files.types.tag
+    import aws_sdk_s3files.types.tag_keys
+    import aws_sdk_s3files.types.tag_list
+    import aws_sdk_s3files.types.tag_resource_request
+    import aws_sdk_s3files.types.untag_resource_request
+    import aws_sdk_s3files.types.update_mount_target_request
+    import aws_sdk_s3files.types.update_mount_target_response
+
+
+class S3FilesClientConfig(TypedDict, total=False):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int
+    use_fips: bool | None
+    endpoint: str | None
+    region: str | None
+    credentials_provider: CredentialsProvider | None
+
+
+DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
+
+def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
+    if isinstance(it, bytes):
+        yield it
+    else:
+        for chunk in it:
+            yield chunk
+
+
+class S3FilesClient:
+    """A client for the ``S3Files`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        if credentials_provider is None and credentials is not None:
+            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        self.config = S3FilesClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[S3FilesClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: S3FilesClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            region=overrides.get("region", self.config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def create_access_point(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        client_token: Optional["aws_sdk_s3files.types.client_token.ClientToken"] = None,
+        tags: Optional["aws_sdk_s3files.types.tag_list.TagList"] = None,
+        posix_user: Optional["aws_sdk_s3files.types.posix_user.PosixUser"] = None,
+        root_directory: Optional[
+            "aws_sdk_s3files.types.root_directory.RootDirectory"
+        ] = None,
+    ) -> "aws_sdk_s3files.types.create_access_point_response.CreateAccessPointResponse":
+        """<p>Creates an S3 File System Access Point for application-specific access with POSIX user identity and root directory enforcement. Access points provide a way to manage access to shared datasets in multi-tenant scenarios.</p>
+
+        Args:
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Web Services ignores the request, but does not return an error.</p>
+            tags: <p>An array of key-value pairs to apply to the access point for resource tagging.</p>
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System.</p>
+            posix_user: <p>The POSIX identity with uid, gid, and secondary group IDs for user enforcement when accessing the file system through this access point.</p>
+            root_directory: <p>The root directory path for the access point, with optional creation permissions for newly created directories.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.create_access_point_request.CreateAccessPointRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.create_access_point_response.CreateAccessPointResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.create_access_point
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.create_access_point.create_access_point(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.create_access_point_request.CreateAccessPointRequest = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+        input["file_system_id"] = file_system_id
+        if posix_user is not None:
+            input["posix_user"] = posix_user
+        if root_directory is not None:
+            input["root_directory"] = root_directory
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_file_system(
+        self,
+        bucket: "aws_sdk_s3files.types.bucket_arn.BucketArn",
+        role_arn: "aws_sdk_s3files.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        prefix: Optional[str] = None,
+        client_token: Optional[
+            "aws_sdk_s3files.types.creation_token.CreationToken"
+        ] = None,
+        kms_key_id: Optional["aws_sdk_s3files.types.kms_key_id.KmsKeyId"] = None,
+        tags: Optional["aws_sdk_s3files.types.tag_list.TagList"] = None,
+        accept_bucket_warning: Optional[bool] = None,
+    ) -> "aws_sdk_s3files.types.create_file_system_response.CreateFileSystemResponse":
+        """<p>Creates an S3 File System resource scoped to a bucket or prefix within a bucket, enabling file system access to S3 data. To create a file system, you need an S3 bucket and an IAM role that grants the service permission to access the bucket.</p>
+
+        Args:
+            bucket: <p>The Amazon Resource Name (ARN) of the S3 bucket that will be accessible through the file system. The bucket must exist and be in the same Amazon Web Services Region as the file system.</p>
+            prefix: <p>An optional prefix within the S3 bucket to scope the file system access. If specified, the file system provides access only to objects with keys that begin with this prefix. If not specified, the file system provides access to the entire bucket.</p>
+            client_token: <p>A unique, case-sensitive identifier that you provide to ensure idempotent creation. Up to 64 ASCII characters are allowed. If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+            kms_key_id: <p>The ARN, key ID, or alias of the KMS key to use for encryption. If not specified, the service uses a service-owned key for encryption. You can specify a KMS key using the following formats: key ID, ARN, key alias, or key alias ARN. If you use <code>KmsKeyId</code>, the file system will be encrypted.</p>
+            role_arn: <p>The ARN of the IAM role that grants the S3 Files service permission to read and write data between the file system and the S3 bucket. This role must have the necessary permissions to access the specified bucket and prefix.</p>
+            tags: <p>An array of key-value pairs to apply as tags to the file system resource. Each tag is a user-defined key-value pair. You can use tags to categorize and manage your file systems. Each key must be unique for the resource.</p>
+            accept_bucket_warning: <p>Set to true to acknowledge and accept any warnings about the bucket configuration. If not specified, the operation may fail if there are bucket configuration warnings.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.create_file_system_request.CreateFileSystemRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.create_file_system_response.CreateFileSystemResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.create_file_system
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.create_file_system.create_file_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input["bucket"] = bucket
+        if prefix is not None:
+            input["prefix"] = prefix
+        if client_token is not None:
+            input["client_token"] = client_token
+        if kms_key_id is not None:
+            input["kms_key_id"] = kms_key_id
+        input["role_arn"] = role_arn
+        if tags is not None:
+            input["tags"] = tags
+        if accept_bucket_warning is not None:
+            input["accept_bucket_warning"] = accept_bucket_warning
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_mount_target(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        subnet_id: "aws_sdk_s3files.types.subnet_id.SubnetId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        ipv4_address: Optional["aws_sdk_s3files.types.ipv4_address.Ipv4Address"] = None,
+        ipv6_address: Optional["aws_sdk_s3files.types.ipv6_address.Ipv6Address"] = None,
+        ip_address_type: Optional[
+            "aws_sdk_s3files.types.ip_address_type.IpAddressType"
+        ] = None,
+        security_groups: Optional[
+            "aws_sdk_s3files.types.security_groups.SecurityGroups"
+        ] = None,
+    ) -> "aws_sdk_s3files.types.create_mount_target_response.CreateMountTargetResponse":
+        """<p>Creates a mount target resource as an endpoint for mounting the S3 File System from compute resources in a specific Availability Zone and VPC. Mount targets provide network access to the file system.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to create the mount target for.</p>
+            subnet_id: <p>The ID of the subnet where the mount target will be created. The subnet must be in the same Amazon Web Services Region as the file system. For file systems with regional availability, you can create mount targets in any subnet within the Region. The subnet determines the Availability Zone where the mount target will be located.</p>
+            ipv4_address: <p>A specific IPv4 address to assign to the mount target. If not specified and the IP address type supports IPv4, an address is automatically assigned from the subnet's available IPv4 address range. The address must be within the subnet's CIDR block and not already in use.</p>
+            ipv6_address: <p>A specific IPv6 address to assign to the mount target. If not specified and the IP address type supports IPv6, an address is automatically assigned from the subnet's available IPv6 address range. The address must be within the subnet's IPv6 CIDR block and not already in use.</p>
+            ip_address_type: <p>The IP address type for the mount target. If not specified, <code>IPV4_ONLY</code> is used. The IP address type must match the IP configuration of the specified subnet.</p>
+            security_groups: <p>An array of VPC security group IDs to associate with the mount target's network interface. These security groups control network access to the mount target. If not specified, the default security group for the subnet's VPC is used. All security groups must belong to the same VPC as the subnet.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.create_mount_target_request.CreateMountTargetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.create_mount_target_response.CreateMountTargetResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.create_mount_target
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.create_mount_target.create_mount_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.create_mount_target_request.CreateMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+        input["subnet_id"] = subnet_id
+        if ipv4_address is not None:
+            input["ipv4_address"] = ipv4_address
+        if ipv6_address is not None:
+            input["ipv6_address"] = ipv6_address
+        if ip_address_type is not None:
+            input["ip_address_type"] = ip_address_type
+        if security_groups is not None:
+            input["security_groups"] = security_groups
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_access_point(
+        self,
+        access_point_id: "aws_sdk_s3files.types.access_point_id.AccessPointId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> None:
+        """<p>Deletes an S3 File System Access Point. This operation is irreversible.</p>
+
+        Args:
+            access_point_id: <p>The ID or Amazon Resource Name (ARN) of the access point to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.delete_access_point_request.DeleteAccessPointRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3files._operations.s3_files.delete_access_point
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.delete_access_point.delete_access_point(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.delete_access_point_request.DeleteAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input["access_point_id"] = access_point_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_file_system(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        force_delete: Optional[bool] = None,
+    ) -> None:
+        """<p>Deletes an S3 File System. You can optionally force deletion of a file system that has pending export data.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to delete.</p>
+            force_delete: <p>If true, allows deletion of a file system that contains data pending export to S3. If false (the default), the deletion will fail if there is data that has not yet been exported to the S3 bucket. Use this parameter with caution as it may result in data loss.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.delete_file_system_request.DeleteFileSystemRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3files._operations.s3_files.delete_file_system
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.delete_file_system.delete_file_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+        if force_delete is not None:
+            input["force_delete"] = force_delete
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_file_system_policy(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the IAM resource policy of an S3 File System.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System whose resource policy to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.delete_file_system_policy_request.DeleteFileSystemPolicyRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3files._operations.s3_files.delete_file_system_policy
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.delete_file_system_policy.delete_file_system_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.delete_file_system_policy_request.DeleteFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_mount_target(
+        self,
+        mount_target_id: "aws_sdk_s3files.types.mount_target_id.MountTargetId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> None:
+        """<p>Deletes the specified mount target. This operation is irreversible.</p>
+
+        Args:
+            mount_target_id: <p>The ID of the mount target to delete.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.delete_mount_target_request.DeleteMountTargetRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3files._operations.s3_files.delete_mount_target
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.delete_mount_target.delete_mount_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.delete_mount_target_request.DeleteMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input["mount_target_id"] = mount_target_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_access_point(
+        self,
+        access_point_id: "aws_sdk_s3files.types.access_point_id.AccessPointId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.get_access_point_response.GetAccessPointResponse":
+        """<p>Returns resource information for an S3 File System Access Point.</p>
+
+        Args:
+            access_point_id: <p>The ID or Amazon Resource Name (ARN) of the access point to retrieve information for.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.get_access_point_request.GetAccessPointRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.get_access_point_response.GetAccessPointResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.get_access_point
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.get_access_point.get_access_point(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.get_access_point_request.GetAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input["access_point_id"] = access_point_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_file_system(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.get_file_system_response.GetFileSystemResponse":
+        """<p>Returns resource information for the specified S3 File System including status, configuration, and metadata.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to retrieve information for.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.get_file_system_request.GetFileSystemRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.get_file_system_response.GetFileSystemResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.get_file_system
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.get_file_system.get_file_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.get_file_system_request.GetFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_file_system_policy(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.get_file_system_policy_response.GetFileSystemPolicyResponse":
+        """<p>Returns the IAM resource policy of an S3 File System.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System whose resource policy to retrieve.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.get_file_system_policy_request.GetFileSystemPolicyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.get_file_system_policy_response.GetFileSystemPolicyResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.get_file_system_policy
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.get_file_system_policy.get_file_system_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.get_file_system_policy_request.GetFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_mount_target(
+        self,
+        mount_target_id: "aws_sdk_s3files.types.mount_target_id.MountTargetId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.get_mount_target_response.GetMountTargetResponse":
+        """<p>Returns detailed resource information for the specified mount target including network configuration.</p>
+
+        Args:
+            mount_target_id: <p>The ID of the mount target to retrieve information for.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.get_mount_target_request.GetMountTargetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.get_mount_target_response.GetMountTargetResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.get_mount_target
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.get_mount_target.get_mount_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.get_mount_target_request.GetMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input["mount_target_id"] = mount_target_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_synchronization_configuration(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.get_synchronization_configuration_response.GetSynchronizationConfigurationResponse":
+        """<p>Returns the synchronization configuration for the specified S3 File System, including import data rules and expiration data rules.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to retrieve the synchronization configuration for.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.get_synchronization_configuration_request.GetSynchronizationConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.get_synchronization_configuration_response.GetSynchronizationConfigurationResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.get_synchronization_configuration
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.get_synchronization_configuration.get_synchronization_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.get_synchronization_configuration_request.GetSynchronizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_access_points(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_s3files.types.list_access_points_response.ListAccessPointsResponse":
+        """<p>Returns resource information for all S3 File System Access Points associated with the specified S3 File System.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to list access points for.</p>
+            max_results: <p>The maximum number of access points to return in a single response.</p>
+            next_token: <p>A pagination token returned from a previous call to continue listing access points.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.list_access_points_request.ListAccessPointsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.list_access_points_response.ListAccessPointsResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.list_access_points
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.list_access_points.list_access_points(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.list_access_points_request.ListAccessPointsRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_access_points(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "Iterator[aws_sdk_s3files.types.list_access_points_description.ListAccessPointsDescription]":
+        _token = next_token
+        while True:
+            _response = self.list_access_points(
+                file_system_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("access_points",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_file_systems(
+        self,
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        bucket: Optional["aws_sdk_s3files.types.bucket_arn.BucketArn"] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_s3files.types.list_file_systems_response.ListFileSystemsResponse":
+        """<p>Returns a list of all S3 File Systems owned by the account with optional filtering by bucket.</p>
+
+        Args:
+            bucket: <p>Optional filter to list only file systems associated with the specified S3 bucket Amazon Resource Name (ARN). If provided, only file systems that provide access to this bucket will be returned in the response.</p>
+            max_results: <p>The maximum number of file systems to return in a single response. If not specified, up to 100 file systems are returned.</p>
+            next_token: <p>A pagination token returned from a previous call to continue listing file systems.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.list_file_systems_request.ListFileSystemsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.list_file_systems_response.ListFileSystemsResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.list_file_systems
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.list_file_systems.list_file_systems(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.list_file_systems_request.ListFileSystemsRequest = {}  # type: ignore[typeddict-item]
+        if bucket is not None:
+            input["bucket"] = bucket
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_file_systems(
+        self,
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        bucket: Optional["aws_sdk_s3files.types.bucket_arn.BucketArn"] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "Iterator[aws_sdk_s3files.types.list_file_systems_description.ListFileSystemsDescription]":
+        _token = next_token
+        while True:
+            _response = self.list_file_systems(
+                config_overrides=config_overrides,
+                bucket=bucket,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("file_systems",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_mount_targets(
+        self,
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        file_system_id: Optional[
+            "aws_sdk_s3files.types.file_system_id.FileSystemId"
+        ] = None,
+        access_point_id: Optional[
+            "aws_sdk_s3files.types.access_point_id.AccessPointId"
+        ] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_s3files.types.list_mount_targets_response.ListMountTargetsResponse":
+        """<p>Returns resource information for all mount targets with optional filtering by file system, access point, and VPC.</p>
+
+        Args:
+            file_system_id: <p>Optional filter to list only mount targets associated with the specified S3 File System ID or Amazon Resource Name (ARN). If provided, only mount targets for this file system will be returned in the response.</p>
+            access_point_id: <p>Optional filter to list only mount targets associated with the specified access point ID or Amazon Resource Name (ARN).</p>
+            max_results: <p>The maximum number of mount targets to return in a single response.</p>
+            next_token: <p>A pagination token returned from a previous call to continue listing mount targets.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.list_mount_targets_request.ListMountTargetsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.list_mount_targets_response.ListMountTargetsResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.list_mount_targets
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.list_mount_targets.list_mount_targets(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.list_mount_targets_request.ListMountTargetsRequest = {}  # type: ignore[typeddict-item]
+        if file_system_id is not None:
+            input["file_system_id"] = file_system_id
+        if access_point_id is not None:
+            input["access_point_id"] = access_point_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_mount_targets(
+        self,
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        file_system_id: Optional[
+            "aws_sdk_s3files.types.file_system_id.FileSystemId"
+        ] = None,
+        access_point_id: Optional[
+            "aws_sdk_s3files.types.access_point_id.AccessPointId"
+        ] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "Iterator[aws_sdk_s3files.types.list_mount_targets_description.ListMountTargetsDescription]":
+        _token = next_token
+        while True:
+            _response = self.list_mount_targets(
+                config_overrides=config_overrides,
+                file_system_id=file_system_id,
+                access_point_id=access_point_id,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("mount_targets",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_tags_for_resource(
+        self,
+        resource_id: "aws_sdk_s3files.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_s3files.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists all tags for S3 Files resources.</p>
+
+        Args:
+            resource_id: <p>The ID or Amazon Resource Name (ARN) of the resource to list tags for.</p>
+            max_results: <p>The maximum number of tags to return in a single response.</p>
+            next_token: <p>A pagination token returned from a previous call to continue listing tags.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.list_tags_for_resource
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_tags_for_resource(
+        self,
+        resource_id: "aws_sdk_s3files.types.resource_id.ResourceId",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "Iterator[aws_sdk_s3files.types.tag.Tag]":
+        _token = next_token
+        while True:
+            _response = self.list_tags_for_resource(
+                resource_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("tags",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def put_file_system_policy(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        policy: str,
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.put_file_system_policy_response.PutFileSystemPolicyResponse":
+        """<p>Creates or replaces the IAM resource policy for an S3 File System to control access permissions.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to apply the resource policy to.</p>
+            policy: <p>The JSON-formatted resource policy to apply to the file system. The policy defines the permissions for accessing the file system. The policy must be a valid JSON document that follows IAM policy syntax.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.put_file_system_policy_request.PutFileSystemPolicyRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.put_file_system_policy_response.PutFileSystemPolicyResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.put_file_system_policy
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.put_file_system_policy.put_file_system_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.put_file_system_policy_request.PutFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+        input["policy"] = policy
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def put_synchronization_configuration(
+        self,
+        file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId",
+        import_data_rules: "aws_sdk_s3files.types.import_data_rule_list.ImportDataRuleList",
+        expiration_data_rules: "aws_sdk_s3files.types.expiration_data_rule_list.ExpirationDataRuleList",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+        latest_version_number: Optional[int] = None,
+    ) -> "aws_sdk_s3files.types.put_synchronization_configuration_response.PutSynchronizationConfigurationResponse":
+        """<p>Creates or updates the synchronization configuration for the specified S3 File System, including import data rules and expiration data rules.</p>
+
+        Args:
+            file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to configure synchronization for.</p>
+            latest_version_number: <p>The version number of the current synchronization configuration. Omit this value when creating a synchronization configuration for the first time. For subsequent updates, provide this value for optimistic concurrency control. If the version number does not match the current configuration, the request fails with a <code>ConflictException</code>.</p>
+            import_data_rules: <p>An array of import data rules that control how data is imported from S3 into the file system.</p>
+            expiration_data_rules: <p>An array of expiration data rules that control when cached data expires from the file system.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.put_synchronization_configuration_request.PutSynchronizationConfigurationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.put_synchronization_configuration_response.PutSynchronizationConfigurationResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.put_synchronization_configuration
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.put_synchronization_configuration.put_synchronization_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.put_synchronization_configuration_request.PutSynchronizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input["file_system_id"] = file_system_id
+        if latest_version_number is not None:
+            input["latest_version_number"] = latest_version_number
+        input["import_data_rules"] = import_data_rules
+        input["expiration_data_rules"] = expiration_data_rules
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_id: "aws_sdk_s3files.types.resource_id.ResourceId",
+        tags: "aws_sdk_s3files.types.tag_list.TagList",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> None:
+        """<p>Creates tags for S3 Files resources using standard Amazon Web Services tagging APIs.</p>
+
+        Args:
+            resource_id: <p>The ID or Amazon Resource Name (ARN) of the resource to add tags to.</p>
+            tags: <p>An array of key-value pairs to add as tags to the resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3files._operations.s3_files.tag_resource
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_id: "aws_sdk_s3files.types.resource_id.ResourceId",
+        tag_keys: "aws_sdk_s3files.types.tag_keys.TagKeys",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> None:
+        """<p>Removes tags from S3 Files resources.</p>
+
+        Args:
+            resource_id: <p>The ID or Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+            tag_keys: <p>An array of tag keys to remove from the resource.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_s3files._operations.s3_files.untag_resource
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input["resource_id"] = resource_id
+        input["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_mount_target(
+        self,
+        mount_target_id: "aws_sdk_s3files.types.mount_target_id.MountTargetId",
+        security_groups: "aws_sdk_s3files.types.security_groups.SecurityGroups",
+        *,
+        config_overrides: Optional[S3FilesClientConfig] = None,
+    ) -> "aws_sdk_s3files.types.update_mount_target_response.UpdateMountTargetResponse":
+        """<p>Updates the mount target resource, specifically security group configurations.</p>
+
+        Args:
+            mount_target_id: <p>The ID of the mount target to update.</p>
+            security_groups: <p>An array of VPC security group IDs to associate with the mount target's network interface. This replaces the existing security groups. All security groups must belong to the same VPC as the mount target's subnet.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_s3files.types.update_mount_target_request.UpdateMountTargetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_s3files.types.update_mount_target_response.UpdateMountTargetResponse"
+        ]:
+            import aws_sdk_s3files._operations.s3_files.update_mount_target
+
+            output, http_response = (
+                aws_sdk_s3files._operations.s3_files.update_mount_target.update_mount_target(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input: aws_sdk_s3files.types.update_mount_target_request.UpdateMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input["mount_target_id"] = mount_target_id
+        input["security_groups"] = security_groups
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.drs#NetworkInterface``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
     import aws_sdk_drs.types.i_ps_list
+
 
 class NetworkInterface(TypedDict):
     mac_address: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
@@ -14,6 +17,7 @@ class NetworkInterface(TypedDict):
     is_primary: NotRequired["bool"]
     """<p>Whether this is the primary network interface.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: NetworkInterface) -> dict:
     out: dict = {}
@@ -21,6 +25,7 @@ def serialize_json(value: NetworkInterface) -> dict:
         out["macAddress"] = value["mac_address"]
     if "ips" in value:
         import aws_sdk_drs.types.i_ps_list
+
         out["ips"] = aws_sdk_drs.types.i_ps_list.serialize_json(value["ips"])
     if "is_primary" in value:
         out["isPrimary"] = value["is_primary"]
@@ -33,6 +38,7 @@ def deserialize_json(data: dict) -> NetworkInterface:
         out["mac_address"] = data["macAddress"]
     if "ips" in data:
         import aws_sdk_drs.types.i_ps_list
+
         out["ips"] = aws_sdk_drs.types.i_ps_list.deserialize_json(data["ips"])
     if "isPrimary" in data:
         out["is_primary"] = data["isPrimary"]

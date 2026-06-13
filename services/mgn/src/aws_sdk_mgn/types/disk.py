@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#Disk``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.positive_integer
+
 
 class Disk(TypedDict):
     device_name: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
     """<p>The disk or device name.</p>"""
     bytes: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>The amount of storage on the disk in bytes.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Disk) -> dict:

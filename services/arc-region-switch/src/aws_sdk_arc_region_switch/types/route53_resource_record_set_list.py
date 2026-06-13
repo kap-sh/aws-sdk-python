@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.arcregionswitch#Route53ResourceRecordSetList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_arc_region_switch.types.route53_resource_record_set
+
+Route53ResourceRecordSetList: TypeAlias = list[
+    "aws_sdk_arc_region_switch.types.route53_resource_record_set.Route53ResourceRecordSet"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Route53ResourceRecordSetList) -> list:
+    import aws_sdk_arc_region_switch.types.route53_resource_record_set
+
+    out: list = []
+    for item in value:
+        out.append(
+            aws_sdk_arc_region_switch.types.route53_resource_record_set.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> Route53ResourceRecordSetList:
+    import aws_sdk_arc_region_switch.types.route53_resource_record_set
+
+    out: Route53ResourceRecordSetList = []
+    for item in data:
+        out.append(
+            aws_sdk_arc_region_switch.types.route53_resource_record_set.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

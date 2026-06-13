@@ -1,21 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceServiceAccountToken``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_grafana._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_grafana._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_grafana.errors import ServiceError, UnknownServiceError
-from aws_sdk_grafana._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_grafana._auth._signers
 import aws_sdk_grafana._auth._sigv4
+from aws_sdk_grafana._protocol.errors import parse_error_metadata_json
+from aws_sdk_grafana._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_grafana._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_grafana.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.create_workspace_service_account_token_request
     import aws_sdk_grafana.types.create_workspace_service_account_token_response
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,42 +26,86 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_grafana.errors.access_denied_exception
-            raise aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "ConflictException":
             import aws_sdk_grafana.errors.conflict_exception
-            raise aws_sdk_grafana.errors.conflict_exception.ConflictException.from_json(data)
+
+            raise aws_sdk_grafana.errors.conflict_exception.ConflictException.from_json(
+                data
+            )
         case "InternalServerException":
             import aws_sdk_grafana.errors.internal_server_exception
-            raise aws_sdk_grafana.errors.internal_server_exception.InternalServerException.from_json(data)
+
+            raise aws_sdk_grafana.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_grafana.errors.resource_not_found_exception
-            raise aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case "ServiceQuotaExceededException":
             import aws_sdk_grafana.errors.service_quota_exceeded_exception
-            raise aws_sdk_grafana.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(data)
+
+            raise aws_sdk_grafana.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data
+            )
         case "ThrottlingException":
             import aws_sdk_grafana.errors.throttling_exception
-            raise aws_sdk_grafana.errors.throttling_exception.ThrottlingException.from_json(data)
+
+            raise aws_sdk_grafana.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_grafana.errors.validation_exception
-            raise aws_sdk_grafana.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_grafana.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse:
     import aws_sdk_grafana.types.create_workspace_service_account_token_response
-    out: aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse = aws_sdk_grafana.types.create_workspace_service_account_token_response.deserialize_json(json.loads(response.read()))
+
+    out: aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse = aws_sdk_grafana.types.create_workspace_service_account_token_response.deserialize_json(
+        json.loads(response.read())
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_grafana._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_grafana._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_grafana._auth._sigv4.build_sigv4_auth_scheme('grafana', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_grafana._auth._sigv4.build_sigv4_auth_scheme(
+                "grafana", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_grafana._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_grafana._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             Region=options.region,
@@ -67,13 +114,23 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
             Endpoint=options.endpoint,
         )
     )
-    url = endpoint.url.rstrip("/") + "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens"
-    url = url.replace("{serviceAccountId}", quote(str(input["service_account_id"]), safe=""))
+    url = (
+        endpoint.url.rstrip("/")
+        + "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens"
+    )
+    url = url.replace(
+        "{serviceAccountId}", quote(str(input["service_account_id"]), safe="")
+    )
     url = url.replace("{workspaceId}", quote(str(input["workspace_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_grafana.types.create_workspace_service_account_token_request
-    body: bytes | None = json.dumps(aws_sdk_grafana.types.create_workspace_service_account_token_request.serialize_json(input)).encode()
+
+    body: bytes | None = json.dumps(
+        aws_sdk_grafana.types.create_workspace_service_account_token_request.serialize_json(
+            input
+        )
+    ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -86,7 +143,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def create_workspace_service_account_token(options: OperationOptions, input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest) -> tuple[aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse, zapros.Response]:
+
+def create_workspace_service_account_token(
+    options: OperationOptions,
+    input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest,
+) -> tuple[
+    aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -97,7 +161,14 @@ def create_workspace_service_account_token(options: OperationOptions, input: aws
         response.close()
         raise
 
-async def async_create_workspace_service_account_token(options: AsyncOperationOptions, input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest) -> tuple[aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse, zapros.Response]:
+
+async def async_create_workspace_service_account_token(
+    options: AsyncOperationOptions,
+    input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest,
+) -> tuple[
+    aws_sdk_grafana.types.create_workspace_service_account_token_response.CreateWorkspaceServiceAccountTokenResponse,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AccessDeniedException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_notifications.errors import DeserializationError
-from aws_sdk_notifications.errors import ServiceError
+
+from aws_sdk_notifications.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.error_message
 
+
 class AccessDeniedException_(TypedDict):
     message: "aws_sdk_notifications.types.error_message.ErrorMessage"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccessDeniedException_) -> dict:
@@ -27,10 +30,16 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.notifications#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

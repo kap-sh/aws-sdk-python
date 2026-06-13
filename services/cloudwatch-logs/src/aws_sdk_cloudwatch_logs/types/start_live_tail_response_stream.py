@@ -5,9 +5,9 @@ from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationEr
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.live_tail_session_start
-    import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
-    import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
     import aws_sdk_cloudwatch_logs.types.live_tail_session_update
+    import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
+    import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
 
 
 class _StartLiveTailResponseStream_sessionStart(TypedDict):
@@ -23,11 +23,11 @@ class _StartLiveTailResponseStream_sessionUpdate(TypedDict):
 
 
 class _StartLiveTailResponseStream_SessionTimeoutException(TypedDict):
-    SessionTimeoutException: "aws_sdk_cloudwatch_logs.errors.session_timeout_exception.SessionTimeoutException"
+    SessionTimeoutException: "aws_sdk_cloudwatch_logs.errors.session_timeout_exception.SessionTimeoutException_"
 
 
 class _StartLiveTailResponseStream_SessionStreamingException(TypedDict):
-    SessionStreamingException: "aws_sdk_cloudwatch_logs.errors.session_streaming_exception.SessionStreamingException"
+    SessionStreamingException: "aws_sdk_cloudwatch_logs.errors.session_streaming_exception.SessionStreamingException_"
 
 
 StartLiveTailResponseStream: TypeAlias = (

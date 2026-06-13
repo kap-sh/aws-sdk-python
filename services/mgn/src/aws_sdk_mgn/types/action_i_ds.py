@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ActionIDs``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.action_id
 

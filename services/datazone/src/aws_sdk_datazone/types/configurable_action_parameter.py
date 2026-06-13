@@ -3,11 +3,13 @@
 from typing import TypedDict
 from typing_extensions import NotRequired
 
+
 class ConfigurableActionParameter(TypedDict):
     key: NotRequired["str"]
     """<p>The key of the configurable action parameter.</p>"""
     value: NotRequired["str"]
     """<p>The value of the configurable action parameter.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConfigurableActionParameter) -> dict:

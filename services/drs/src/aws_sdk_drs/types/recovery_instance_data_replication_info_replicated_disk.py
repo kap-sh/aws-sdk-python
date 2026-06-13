@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDataReplicationInfoReplicatedDisk``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
     import aws_sdk_drs.types.positive_integer
+
 
 class RecoveryInstanceDataReplicationInfoReplicatedDisk(TypedDict):
     device_name: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
@@ -17,6 +20,7 @@ class RecoveryInstanceDataReplicationInfoReplicatedDisk(TypedDict):
     """<p>The amount of data to be rescanned in bytes.</p>"""
     backlogged_storage_bytes: "aws_sdk_drs.types.positive_integer.PositiveInteger"
     """<p>The size of the replication backlog in bytes.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: RecoveryInstanceDataReplicationInfoReplicatedDisk) -> dict:

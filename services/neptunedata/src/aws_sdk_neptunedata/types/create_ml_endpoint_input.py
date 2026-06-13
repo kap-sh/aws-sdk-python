@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CreateMLEndpointInput``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class CreateMLEndpointInput(TypedDict):
     id: NotRequired["str"]
@@ -22,6 +24,7 @@ class CreateMLEndpointInput(TypedDict):
     """<p>The minimum number of Amazon EC2 instances to deploy to an endpoint for prediction. The default is 1</p>"""
     volume_encryption_kms_key: NotRequired["str"]
     """<p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateMLEndpointInput) -> dict:

@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobS3Output``."""
+
+from typing import TypedDict
+
+from aws_sdk_cleanrooms.errors import DeserializationError
+
+
+class ProtectedJobS3Output(TypedDict):
+    location: "str"
+    """<p> The S3 location for the protected job output.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ProtectedJobS3Output) -> dict:
+    out: dict = {}
+    out["location"] = value["location"]
+    return out
+
+
+def deserialize_json(data: dict) -> ProtectedJobS3Output:
+    out: ProtectedJobS3Output = {}  # type: ignore[typeddict-item]
+    if "location" in data:
+        out["location"] = data["location"]
+    else:
+        raise DeserializationError("ProtectedJobS3Output.location required")
+    return out

@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#CreateLicenseServerEndpointRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.arn
     import aws_sdk_license_manager_user_subscriptions.types.license_server_settings
     import aws_sdk_license_manager_user_subscriptions.types.tags
+
 
 class CreateLicenseServerEndpointRequest(TypedDict):
     identity_provider_arn: "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
@@ -16,15 +20,26 @@ class CreateLicenseServerEndpointRequest(TypedDict):
     tags: NotRequired["aws_sdk_license_manager_user_subscriptions.types.tags.Tags"]
     """<p>The tags that apply for the license server endpoint.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateLicenseServerEndpointRequest) -> dict:
     out: dict = {}
     out["IdentityProviderArn"] = value["identity_provider_arn"]
     import aws_sdk_license_manager_user_subscriptions.types.license_server_settings
-    out["LicenseServerSettings"] = aws_sdk_license_manager_user_subscriptions.types.license_server_settings.serialize_json(value["license_server_settings"])
+
+    out["LicenseServerSettings"] = (
+        aws_sdk_license_manager_user_subscriptions.types.license_server_settings.serialize_json(
+            value["license_server_settings"]
+        )
+    )
     if "tags" in value:
         import aws_sdk_license_manager_user_subscriptions.types.tags
-        out["Tags"] = aws_sdk_license_manager_user_subscriptions.types.tags.serialize_json(value["tags"])
+
+        out["Tags"] = (
+            aws_sdk_license_manager_user_subscriptions.types.tags.serialize_json(
+                value["tags"]
+            )
+        )
     return out
 
 
@@ -33,13 +48,27 @@ def deserialize_json(data: dict) -> CreateLicenseServerEndpointRequest:
     if "IdentityProviderArn" in data:
         out["identity_provider_arn"] = data["IdentityProviderArn"]
     else:
-        raise DeserializationError("CreateLicenseServerEndpointRequest.identity_provider_arn required")
+        raise DeserializationError(
+            "CreateLicenseServerEndpointRequest.identity_provider_arn required"
+        )
     if "LicenseServerSettings" in data:
         import aws_sdk_license_manager_user_subscriptions.types.license_server_settings
-        out["license_server_settings"] = aws_sdk_license_manager_user_subscriptions.types.license_server_settings.deserialize_json(data["LicenseServerSettings"])
+
+        out["license_server_settings"] = (
+            aws_sdk_license_manager_user_subscriptions.types.license_server_settings.deserialize_json(
+                data["LicenseServerSettings"]
+            )
+        )
     else:
-        raise DeserializationError("CreateLicenseServerEndpointRequest.license_server_settings required")
+        raise DeserializationError(
+            "CreateLicenseServerEndpointRequest.license_server_settings required"
+        )
     if "Tags" in data:
         import aws_sdk_license_manager_user_subscriptions.types.tags
-        out["tags"] = aws_sdk_license_manager_user_subscriptions.types.tags.deserialize_json(data["Tags"])
+
+        out["tags"] = (
+            aws_sdk_license_manager_user_subscriptions.types.tags.deserialize_json(
+                data["Tags"]
+            )
+        )
     return out

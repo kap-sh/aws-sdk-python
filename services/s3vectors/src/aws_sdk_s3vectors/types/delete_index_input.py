@@ -1,19 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#DeleteIndexInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.index_arn
     import aws_sdk_s3vectors.types.index_name
     import aws_sdk_s3vectors.types.vector_bucket_name
 
+
 class DeleteIndexInput(TypedDict):
-    vector_bucket_name: NotRequired["aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"]
+    vector_bucket_name: NotRequired[
+        "aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"
+    ]
     """<p>The name of the vector bucket that contains the vector index. </p>"""
     index_name: NotRequired["aws_sdk_s3vectors.types.index_name.IndexName"]
     """<p>The name of the vector index to delete. </p>"""
     index_arn: NotRequired["aws_sdk_s3vectors.types.index_arn.IndexArn"]
     """<p>The ARN of the vector index to delete.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteIndexInput) -> dict:

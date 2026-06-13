@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ExportTask``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.arn
@@ -12,6 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.s3_bucket_name
     import aws_sdk_mgn.types.s3_key
     import aws_sdk_mgn.types.tags_map
+
 
 class ExportTask(TypedDict):
     export_id: NotRequired["aws_sdk_mgn.types.export_id.ExportID"]
@@ -24,9 +27,13 @@ class ExportTask(TypedDict):
     """<p>Export task s3 key.</p>"""
     s3_bucket_owner: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Export task s3 bucket owner.</p>"""
-    creation_date_time: NotRequired["aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    creation_date_time: NotRequired[
+        "aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>Export task creation datetime.</p>"""
-    end_date_time: NotRequired["aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"]
+    end_date_time: NotRequired[
+        "aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"
+    ]
     """<p>Export task end datetime.</p>"""
     status: NotRequired["aws_sdk_mgn.types.export_status.ExportStatus"]
     """<p>Export task status.</p>"""
@@ -36,6 +43,7 @@ class ExportTask(TypedDict):
     """<p>Export task summary.</p>"""
     tags: NotRequired["aws_sdk_mgn.types.tags_map.TagsMap"]
     """<p>Export task tags.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ExportTask) -> dict:
@@ -60,9 +68,13 @@ def serialize_json(value: ExportTask) -> dict:
         out["progressPercentage"] = value["progress_percentage"]
     if "summary" in value:
         import aws_sdk_mgn.types.export_task_summary
-        out["summary"] = aws_sdk_mgn.types.export_task_summary.serialize_json(value["summary"])
+
+        out["summary"] = aws_sdk_mgn.types.export_task_summary.serialize_json(
+            value["summary"]
+        )
     if "tags" in value:
         import aws_sdk_mgn.types.tags_map
+
         out["tags"] = aws_sdk_mgn.types.tags_map.serialize_json(value["tags"])
     return out
 
@@ -89,8 +101,12 @@ def deserialize_json(data: dict) -> ExportTask:
         out["progress_percentage"] = data["progressPercentage"]
     if "summary" in data:
         import aws_sdk_mgn.types.export_task_summary
-        out["summary"] = aws_sdk_mgn.types.export_task_summary.deserialize_json(data["summary"])
+
+        out["summary"] = aws_sdk_mgn.types.export_task_summary.deserialize_json(
+            data["summary"]
+        )
     if "tags" in data:
         import aws_sdk_mgn.types.tags_map
+
         out["tags"] = aws_sdk_mgn.types.tags_map.deserialize_json(data["tags"])
     return out

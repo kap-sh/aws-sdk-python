@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.securityir#GetMembershipAccountDetailItem``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_security_ir.types.aws_account_id
+    import aws_sdk_security_ir.types.membership_account_relationship_status
+    import aws_sdk_security_ir.types.membership_account_relationship_type
+
+
+class GetMembershipAccountDetailItem(TypedDict):
+    account_id: NotRequired["aws_sdk_security_ir.types.aws_account_id.AWSAccountId"]
+    """<p/>"""
+    relationship_status: NotRequired[
+        "aws_sdk_security_ir.types.membership_account_relationship_status.MembershipAccountRelationshipStatus"
+    ]
+    """<p/>"""
+    relationship_type: NotRequired[
+        "aws_sdk_security_ir.types.membership_account_relationship_type.MembershipAccountRelationshipType"
+    ]
+    """<p/>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMembershipAccountDetailItem) -> dict:
+    out: dict = {}
+    if "account_id" in value:
+        out["accountId"] = value["account_id"]
+    if "relationship_status" in value:
+        import aws_sdk_security_ir.types.membership_account_relationship_status
+
+        out["relationshipStatus"] = (
+            aws_sdk_security_ir.types.membership_account_relationship_status.serialize_json(
+                value["relationship_status"]
+            )
+        )
+    if "relationship_type" in value:
+        import aws_sdk_security_ir.types.membership_account_relationship_type
+
+        out["relationshipType"] = (
+            aws_sdk_security_ir.types.membership_account_relationship_type.serialize_json(
+                value["relationship_type"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetMembershipAccountDetailItem:
+    out: GetMembershipAccountDetailItem = {}  # type: ignore[typeddict-item]
+    if "accountId" in data:
+        out["account_id"] = data["accountId"]
+    if "relationshipStatus" in data:
+        import aws_sdk_security_ir.types.membership_account_relationship_status
+
+        out["relationship_status"] = (
+            aws_sdk_security_ir.types.membership_account_relationship_status.deserialize_json(
+                data["relationshipStatus"]
+            )
+        )
+    if "relationshipType" in data:
+        import aws_sdk_security_ir.types.membership_account_relationship_type
+
+        out["relationship_type"] = (
+            aws_sdk_security_ir.types.membership_account_relationship_type.deserialize_json(
+                data["relationshipType"]
+            )
+        )
+    return out

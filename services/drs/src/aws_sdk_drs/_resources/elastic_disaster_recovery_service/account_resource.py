@@ -1,13 +1,14 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_drs._services.async_drs import ensure_async_iterator
-from aws_sdk_drs._services.drs import ensure_sync_iterator
+from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from aws_sdk_drs._services.drs import drsClient, drsClientConfig
-    from aws_sdk_drs._services.async_drs import AsyncdrsClient, AsyncdrsClientConfig
+    from aws_sdk_drs._services.async_drs import AsyncdrsClient
+    from aws_sdk_drs._services.drs import drsClient
+
 
 class AccountResource:
     def __init__(self, service: drsClient) -> None:
         self._service = service
+
 
 class AsyncAccountResource:
     def __init__(self, service: AsyncdrsClient) -> None:

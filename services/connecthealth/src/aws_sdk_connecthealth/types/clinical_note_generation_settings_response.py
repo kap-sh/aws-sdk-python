@@ -1,20 +1,31 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ClinicalNoteGenerationSettingsResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.note_template_settings_response
 
+
 class ClinicalNoteGenerationSettingsResponse(TypedDict):
-    note_template_settings: NotRequired["aws_sdk_connecthealth.types.note_template_settings_response.NoteTemplateSettingsResponse"]
+    note_template_settings: NotRequired[
+        "aws_sdk_connecthealth.types.note_template_settings_response.NoteTemplateSettingsResponse"
+    ]
     """<p>Settings for the note template used</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ClinicalNoteGenerationSettingsResponse) -> dict:
     out: dict = {}
     if "note_template_settings" in value:
         import aws_sdk_connecthealth.types.note_template_settings_response
-        out["noteTemplateSettings"] = aws_sdk_connecthealth.types.note_template_settings_response.serialize_json(value["note_template_settings"])
+
+        out["noteTemplateSettings"] = (
+            aws_sdk_connecthealth.types.note_template_settings_response.serialize_json(
+                value["note_template_settings"]
+            )
+        )
     return out
 
 
@@ -22,5 +33,10 @@ def deserialize_json(data: dict) -> ClinicalNoteGenerationSettingsResponse:
     out: ClinicalNoteGenerationSettingsResponse = {}  # type: ignore[typeddict-item]
     if "noteTemplateSettings" in data:
         import aws_sdk_connecthealth.types.note_template_settings_response
-        out["note_template_settings"] = aws_sdk_connecthealth.types.note_template_settings_response.deserialize_json(data["noteTemplateSettings"])
+
+        out["note_template_settings"] = (
+            aws_sdk_connecthealth.types.note_template_settings_response.deserialize_json(
+                data["noteTemplateSettings"]
+            )
+        )
     return out

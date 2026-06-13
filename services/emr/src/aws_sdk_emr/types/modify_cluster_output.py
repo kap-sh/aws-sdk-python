@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ModifyClusterOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

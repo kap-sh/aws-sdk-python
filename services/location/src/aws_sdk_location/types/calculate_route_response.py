@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.calculate_route_summary
     import aws_sdk_location.types.leg_list
+
 
 class CalculateRouteResponse(TypedDict):
     legs: "aws_sdk_location.types.leg_list.LegList"
@@ -12,13 +15,18 @@ class CalculateRouteResponse(TypedDict):
     summary: "aws_sdk_location.types.calculate_route_summary.CalculateRouteSummary"
     """<p>Contains information about the whole route, such as: <code>RouteBBox</code>, <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and <code>DurationSeconds</code>.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CalculateRouteResponse) -> dict:
     out: dict = {}
     import aws_sdk_location.types.leg_list
+
     out["Legs"] = aws_sdk_location.types.leg_list.serialize_json(value["legs"])
     import aws_sdk_location.types.calculate_route_summary
-    out["Summary"] = aws_sdk_location.types.calculate_route_summary.serialize_json(value["summary"])
+
+    out["Summary"] = aws_sdk_location.types.calculate_route_summary.serialize_json(
+        value["summary"]
+    )
     return out
 
 
@@ -26,12 +34,18 @@ def deserialize_json(data: dict) -> CalculateRouteResponse:
     out: CalculateRouteResponse = {}  # type: ignore[typeddict-item]
     if "Legs" in data:
         import aws_sdk_location.types.leg_list
+
         out["legs"] = aws_sdk_location.types.leg_list.deserialize_json(data["Legs"])
     else:
         raise DeserializationError("CalculateRouteResponse.legs required")
     if "Summary" in data:
         import aws_sdk_location.types.calculate_route_summary
-        out["summary"] = aws_sdk_location.types.calculate_route_summary.deserialize_json(data["Summary"])
+
+        out["summary"] = (
+            aws_sdk_location.types.calculate_route_summary.deserialize_json(
+                data["Summary"]
+            )
+        )
     else:
         raise DeserializationError("CalculateRouteResponse.summary required")
     return out

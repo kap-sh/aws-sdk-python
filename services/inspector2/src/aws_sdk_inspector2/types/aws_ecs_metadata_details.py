@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEcsMetadataDetails``."""
 
 from typing import TypedDict
+
 from aws_sdk_inspector2.errors import DeserializationError
+
 
 class AwsEcsMetadataDetails(TypedDict):
     details_group: "str"
     """<p>The details group information for a task in a cluster.</p>"""
     task_definition_arn: "str"
     """<p>The task definition ARN.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AwsEcsMetadataDetails) -> dict:

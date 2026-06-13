@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.wisdom#QuickResponseQueryField``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_wisdom.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_wisdom.types.non_empty_string
+    import aws_sdk_wisdom.types.priority
+    import aws_sdk_wisdom.types.quick_response_query_operator
+    import aws_sdk_wisdom.types.quick_response_query_value_list
+
+
+class QuickResponseQueryField(TypedDict):
+    name: "aws_sdk_wisdom.types.non_empty_string.NonEmptyString"
+    """<p>The name of the attribute to query the quick responses by.</p>"""
+    values: "aws_sdk_wisdom.types.quick_response_query_value_list.QuickResponseQueryValueList"
+    """<p>The values of the attribute to query the quick responses by.</p>"""
+    operator: (
+        "aws_sdk_wisdom.types.quick_response_query_operator.QuickResponseQueryOperator"
+    )
+    """<p>The operator to use for matching attribute field values in the query.</p>"""
+    allow_fuzziness: NotRequired["bool"]
+    """<p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>"""
+    priority: NotRequired["aws_sdk_wisdom.types.priority.Priority"]
+    """<p>The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: QuickResponseQueryField) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    import aws_sdk_wisdom.types.quick_response_query_value_list
+
+    out["values"] = aws_sdk_wisdom.types.quick_response_query_value_list.serialize_json(
+        value["values"]
+    )
+    out["operator"] = value["operator"]
+    if "allow_fuzziness" in value:
+        out["allowFuzziness"] = value["allow_fuzziness"]
+    if "priority" in value:
+        out["priority"] = value["priority"]
+    return out
+
+
+def deserialize_json(data: dict) -> QuickResponseQueryField:
+    out: QuickResponseQueryField = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("QuickResponseQueryField.name required")
+    if "values" in data:
+        import aws_sdk_wisdom.types.quick_response_query_value_list
+
+        out["values"] = (
+            aws_sdk_wisdom.types.quick_response_query_value_list.deserialize_json(
+                data["values"]
+            )
+        )
+    else:
+        raise DeserializationError("QuickResponseQueryField.values required")
+    if "operator" in data:
+        out["operator"] = data["operator"]
+    else:
+        raise DeserializationError("QuickResponseQueryField.operator required")
+    if "allowFuzziness" in data:
+        out["allow_fuzziness"] = data["allowFuzziness"]
+    if "priority" in data:
+        out["priority"] = data["priority"]
+    return out

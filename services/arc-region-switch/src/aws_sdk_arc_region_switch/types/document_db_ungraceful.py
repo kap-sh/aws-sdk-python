@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.arcregionswitch#DocumentDbUngraceful``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_arc_region_switch.types.document_db_ungraceful_behavior
+
+
+class DocumentDbUngraceful(TypedDict):
+    ungraceful: NotRequired[
+        "aws_sdk_arc_region_switch.types.document_db_ungraceful_behavior.DocumentDbUngracefulBehavior"
+    ]
+    """<p>The settings for ungraceful execution.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DocumentDbUngraceful) -> dict:
+    out: dict = {}
+    if "ungraceful" in value:
+        import aws_sdk_arc_region_switch.types.document_db_ungraceful_behavior
+
+        out["ungraceful"] = (
+            aws_sdk_arc_region_switch.types.document_db_ungraceful_behavior.serialize_aws_json_1_0(
+                value["ungraceful"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DocumentDbUngraceful:
+    out: DocumentDbUngraceful = {}  # type: ignore[typeddict-item]
+    if "ungraceful" in data:
+        import aws_sdk_arc_region_switch.types.document_db_ungraceful_behavior
+
+        out["ungraceful"] = (
+            aws_sdk_arc_region_switch.types.document_db_ungraceful_behavior.deserialize_aws_json_1_0(
+                data["ungraceful"]
+            )
+        )
+    return out

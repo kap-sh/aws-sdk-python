@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#SpanMessage``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_qconnect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_qconnect.types.participant
+    import aws_sdk_qconnect.types.span_message_value_list
+    import aws_sdk_qconnect.types.uuid
+
+
+class SpanMessage(TypedDict):
+    message_id: "aws_sdk_qconnect.types.uuid.Uuid"
+    """<p>Unique message identifier</p>"""
+    participant: "aws_sdk_qconnect.types.participant.Participant"
+    """<p>Message source role</p>"""
+    timestamp: "datetime.datetime"
+    """<p>Message timestamp</p>"""
+    values: "aws_sdk_qconnect.types.span_message_value_list.SpanMessageValueList"
+    """<p>Message content values (text, tool use, tool result, reasoning)</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SpanMessage) -> dict:
+    out: dict = {}
+    out["messageId"] = value["message_id"]
+    out["participant"] = value["participant"]
+    import aws_sdk_qconnect.types._prelude.timestamp
+
+    out["timestamp"] = aws_sdk_qconnect.types._prelude.timestamp.serialize_json(
+        value["timestamp"]
+    )
+    import aws_sdk_qconnect.types.span_message_value_list
+
+    out["values"] = aws_sdk_qconnect.types.span_message_value_list.serialize_json(
+        value["values"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> SpanMessage:
+    out: SpanMessage = {}  # type: ignore[typeddict-item]
+    if "messageId" in data:
+        out["message_id"] = data["messageId"]
+    else:
+        raise DeserializationError("SpanMessage.message_id required")
+    if "participant" in data:
+        out["participant"] = data["participant"]
+    else:
+        raise DeserializationError("SpanMessage.participant required")
+    if "timestamp" in data:
+        import aws_sdk_qconnect.types._prelude.timestamp
+
+        out["timestamp"] = aws_sdk_qconnect.types._prelude.timestamp.deserialize_json(
+            data["timestamp"]
+        )
+    else:
+        raise DeserializationError("SpanMessage.timestamp required")
+    if "values" in data:
+        import aws_sdk_qconnect.types.span_message_value_list
+
+        out["values"] = aws_sdk_qconnect.types.span_message_value_list.deserialize_json(
+            data["values"]
+        )
+    else:
+        raise DeserializationError("SpanMessage.values required")
+    return out

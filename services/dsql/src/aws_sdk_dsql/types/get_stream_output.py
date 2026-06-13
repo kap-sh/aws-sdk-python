@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#GetStreamOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_dsql.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_id
     import aws_sdk_dsql.types.status_reason
@@ -14,6 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.stream_status
     import aws_sdk_dsql.types.tag_map
     import aws_sdk_dsql.types.target_definition
+
 
 class GetStreamOutput(TypedDict):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
@@ -30,12 +34,15 @@ class GetStreamOutput(TypedDict):
     """<p>The ordering mode of the stream.</p>"""
     format: "aws_sdk_dsql.types.stream_format.StreamFormat"
     """<p>The format of the stream records.</p>"""
-    target_definition: NotRequired["aws_sdk_dsql.types.target_definition.TargetDefinition"]
+    target_definition: NotRequired[
+        "aws_sdk_dsql.types.target_definition.TargetDefinition"
+    ]
     """<p>The target definition for the stream destination.</p>"""
     status_reason: NotRequired["aws_sdk_dsql.types.status_reason.StatusReason"]
     """<p>Stream status reason with error code and timestamp (if applicable).</p>"""
     tags: NotRequired["aws_sdk_dsql.types.tag_map.TagMap"]
     """<p>A map of tags associated with the stream.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetStreamOutput) -> dict:
@@ -44,21 +51,36 @@ def serialize_json(value: GetStreamOutput) -> dict:
     out["streamIdentifier"] = value["stream_identifier"]
     out["arn"] = value["arn"]
     import aws_sdk_dsql.types.stream_status
+
     out["status"] = aws_sdk_dsql.types.stream_status.serialize_json(value["status"])
     import aws_sdk_dsql.types.stream_creation_time
-    out["creationTime"] = aws_sdk_dsql.types.stream_creation_time.serialize_json(value["creation_time"])
+
+    out["creationTime"] = aws_sdk_dsql.types.stream_creation_time.serialize_json(
+        value["creation_time"]
+    )
     import aws_sdk_dsql.types.stream_ordering
-    out["ordering"] = aws_sdk_dsql.types.stream_ordering.serialize_json(value["ordering"])
+
+    out["ordering"] = aws_sdk_dsql.types.stream_ordering.serialize_json(
+        value["ordering"]
+    )
     import aws_sdk_dsql.types.stream_format
+
     out["format"] = aws_sdk_dsql.types.stream_format.serialize_json(value["format"])
     if "target_definition" in value:
         import aws_sdk_dsql.types.target_definition
-        out["targetDefinition"] = aws_sdk_dsql.types.target_definition.serialize_json(value["target_definition"])
+
+        out["targetDefinition"] = aws_sdk_dsql.types.target_definition.serialize_json(
+            value["target_definition"]
+        )
     if "status_reason" in value:
         import aws_sdk_dsql.types.status_reason
-        out["statusReason"] = aws_sdk_dsql.types.status_reason.serialize_json(value["status_reason"])
+
+        out["statusReason"] = aws_sdk_dsql.types.status_reason.serialize_json(
+            value["status_reason"]
+        )
     if "tags" in value:
         import aws_sdk_dsql.types.tag_map
+
         out["tags"] = aws_sdk_dsql.types.tag_map.serialize_json(value["tags"])
     return out
 
@@ -79,31 +101,52 @@ def deserialize_json(data: dict) -> GetStreamOutput:
         raise DeserializationError("GetStreamOutput.arn required")
     if "status" in data:
         import aws_sdk_dsql.types.stream_status
-        out["status"] = aws_sdk_dsql.types.stream_status.deserialize_json(data["status"])
+
+        out["status"] = aws_sdk_dsql.types.stream_status.deserialize_json(
+            data["status"]
+        )
     else:
         raise DeserializationError("GetStreamOutput.status required")
     if "creationTime" in data:
         import aws_sdk_dsql.types.stream_creation_time
-        out["creation_time"] = aws_sdk_dsql.types.stream_creation_time.deserialize_json(data["creationTime"])
+
+        out["creation_time"] = aws_sdk_dsql.types.stream_creation_time.deserialize_json(
+            data["creationTime"]
+        )
     else:
         raise DeserializationError("GetStreamOutput.creation_time required")
     if "ordering" in data:
         import aws_sdk_dsql.types.stream_ordering
-        out["ordering"] = aws_sdk_dsql.types.stream_ordering.deserialize_json(data["ordering"])
+
+        out["ordering"] = aws_sdk_dsql.types.stream_ordering.deserialize_json(
+            data["ordering"]
+        )
     else:
         raise DeserializationError("GetStreamOutput.ordering required")
     if "format" in data:
         import aws_sdk_dsql.types.stream_format
-        out["format"] = aws_sdk_dsql.types.stream_format.deserialize_json(data["format"])
+
+        out["format"] = aws_sdk_dsql.types.stream_format.deserialize_json(
+            data["format"]
+        )
     else:
         raise DeserializationError("GetStreamOutput.format required")
     if "targetDefinition" in data:
         import aws_sdk_dsql.types.target_definition
-        out["target_definition"] = aws_sdk_dsql.types.target_definition.deserialize_json(data["targetDefinition"])
+
+        out["target_definition"] = (
+            aws_sdk_dsql.types.target_definition.deserialize_json(
+                data["targetDefinition"]
+            )
+        )
     if "statusReason" in data:
         import aws_sdk_dsql.types.status_reason
-        out["status_reason"] = aws_sdk_dsql.types.status_reason.deserialize_json(data["statusReason"])
+
+        out["status_reason"] = aws_sdk_dsql.types.status_reason.deserialize_json(
+            data["statusReason"]
+        )
     if "tags" in data:
         import aws_sdk_dsql.types.tag_map
+
         out["tags"] = aws_sdk_dsql.types.tag_map.deserialize_json(data["tags"])
     return out

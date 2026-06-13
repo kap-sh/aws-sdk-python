@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#CreateRestoreTestingPlanOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_backup.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+
+class CreateRestoreTestingPlanOutput(TypedDict):
+    creation_time: "datetime.datetime"
+    """<p>The date and time a restore testing plan was created, in Unix format and Coordinated Universal Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087AM.</p>"""
+    restore_testing_plan_arn: "str"
+    """<p>An Amazon Resource Name (ARN) that uniquely identifies the created restore testing plan.</p>"""
+    restore_testing_plan_name: "str"
+    """<p>This unique string is the name of the restore testing plan.</p> <p>The name cannot be changed after creation. The name consists of only alphanumeric characters and underscores. Maximum length is 50.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateRestoreTestingPlanOutput) -> dict:
+    out: dict = {}
+    import aws_sdk_backup.types._prelude.timestamp
+
+    out["CreationTime"] = aws_sdk_backup.types._prelude.timestamp.serialize_json(
+        value["creation_time"]
+    )
+    out["RestoreTestingPlanArn"] = value["restore_testing_plan_arn"]
+    out["RestoreTestingPlanName"] = value["restore_testing_plan_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateRestoreTestingPlanOutput:
+    out: CreateRestoreTestingPlanOutput = {}  # type: ignore[typeddict-item]
+    if "CreationTime" in data:
+        import aws_sdk_backup.types._prelude.timestamp
+
+        out["creation_time"] = aws_sdk_backup.types._prelude.timestamp.deserialize_json(
+            data["CreationTime"]
+        )
+    else:
+        raise DeserializationError(
+            "CreateRestoreTestingPlanOutput.creation_time required"
+        )
+    if "RestoreTestingPlanArn" in data:
+        out["restore_testing_plan_arn"] = data["RestoreTestingPlanArn"]
+    else:
+        raise DeserializationError(
+            "CreateRestoreTestingPlanOutput.restore_testing_plan_arn required"
+        )
+    if "RestoreTestingPlanName" in data:
+        out["restore_testing_plan_name"] = data["RestoreTestingPlanName"]
+    else:
+        raise DeserializationError(
+            "CreateRestoreTestingPlanOutput.restore_testing_plan_name required"
+        )
+    return out

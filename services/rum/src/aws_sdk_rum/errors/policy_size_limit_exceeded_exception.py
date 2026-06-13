@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.rum#PolicySizeLimitExceededException``."""
 
 from typing import TypedDict
-from aws_sdk_rum.errors import DeserializationError
-from aws_sdk_rum.errors import ServiceError
+
+from aws_sdk_rum.errors import DeserializationError, ServiceError
+
 
 class PolicySizeLimitExceededException_(TypedDict):
     message: "str"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PolicySizeLimitExceededException_) -> dict:
@@ -25,10 +27,16 @@ def deserialize_json(data: dict) -> PolicySizeLimitExceededException_:
 
 class PolicySizeLimitExceededException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.rum#PolicySizeLimitExceededException``."""
-    code: str | None = 'PolicySizeLimitExceededException'
+
+    code: str | None = "PolicySizeLimitExceededException"
 
     def __init__(self, data: PolicySizeLimitExceededException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='PolicySizeLimitExceededException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="PolicySizeLimitExceededException",
+        )
         self.data = data
 
     @classmethod

@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Conversational``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from aws_sdk_bedrock_agentcore.errors import DeserializationError
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.content
+    import aws_sdk_bedrock_agentcore.types.role
+
+class Conversational(TypedDict):
+    content: "aws_sdk_bedrock_agentcore.types.content.Content"
+    """<p>The content of the conversation message.</p>"""
+    role: "aws_sdk_bedrock_agentcore.types.role.Role"
+    """<p>The role of the participant in the conversation (for example, \"user\" or \"assistant\").</p>"""
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Conversational) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock_agentcore.types.content
+    out["content"] = aws_sdk_bedrock_agentcore.types.content.serialize_json(value["content"])
+    import aws_sdk_bedrock_agentcore.types.role
+    out["role"] = aws_sdk_bedrock_agentcore.types.role.serialize_json(value["role"])
+    return out
+
+
+def deserialize_json(data: dict) -> Conversational:
+    out: Conversational = {}  # type: ignore[typeddict-item]
+    if "content" in data:
+        import aws_sdk_bedrock_agentcore.types.content
+        out["content"] = aws_sdk_bedrock_agentcore.types.content.deserialize_json(data["content"])
+    else:
+        raise DeserializationError("Conversational.content required")
+    if "role" in data:
+        import aws_sdk_bedrock_agentcore.types.role
+        out["role"] = aws_sdk_bedrock_agentcore.types.role.deserialize_json(data["role"])
+    else:
+        raise DeserializationError("Conversational.role required")
+    return out

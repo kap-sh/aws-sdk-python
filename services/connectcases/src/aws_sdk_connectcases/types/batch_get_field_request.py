@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BatchGetFieldRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError
 
 if TYPE_CHECKING:

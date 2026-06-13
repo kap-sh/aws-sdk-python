@@ -13,13 +13,6 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.start_speech_synthesis_stream_output
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_polly.types.start_speech_synthesis_stream_input.StartSpeechSynthesisStreamInput,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def start_speech_synthesis_stream(
     options: OperationOptions,
     input: aws_sdk_polly.types.start_speech_synthesis_stream_input.StartSpeechSynthesisStreamInput,

@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#AddReservedInstanceAction``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.reserved_instance_instance_count
     import aws_sdk_bcm_pricing_calculator.types.uuid
 
+
 class AddReservedInstanceAction(TypedDict):
-    reserved_instances_offering_id: NotRequired["aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"]
+    reserved_instances_offering_id: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"
+    ]
     """<p> The ID of the Reserved Instance offering to add. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeReservedInstancesOfferings.html\"> DescribeReservedInstancesOfferings</a>. </p>"""
-    instance_count: NotRequired["aws_sdk_bcm_pricing_calculator.types.reserved_instance_instance_count.ReservedInstanceInstanceCount"]
+    instance_count: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.reserved_instance_instance_count.ReservedInstanceInstanceCount"
+    ]
     """<p> The number of instances to add for this Reserved Instance offering. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AddReservedInstanceAction) -> dict:

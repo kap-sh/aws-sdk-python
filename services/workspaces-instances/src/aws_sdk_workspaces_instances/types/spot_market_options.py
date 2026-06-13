@@ -1,0 +1,99 @@
+"""Generated from Smithy shape ``com.amazonaws.workspacesinstances#SpotMarketOptions``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import datetime
+
+    import aws_sdk_workspaces_instances.types.instance_interruption_behavior_enum
+    import aws_sdk_workspaces_instances.types.non_negative_integer
+    import aws_sdk_workspaces_instances.types.spot_instance_type_enum
+    import aws_sdk_workspaces_instances.types.string64
+
+
+class SpotMarketOptions(TypedDict):
+    block_duration_minutes: NotRequired[
+        "aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"
+    ]
+    """<p>Duration of spot instance block reservation.</p>"""
+    instance_interruption_behavior: NotRequired[
+        "aws_sdk_workspaces_instances.types.instance_interruption_behavior_enum.InstanceInterruptionBehaviorEnum"
+    ]
+    """<p>Specifies behavior when spot instance is interrupted.</p>"""
+    max_price: NotRequired["aws_sdk_workspaces_instances.types.string64.String64"]
+    """<p>Maximum hourly price for spot instance.</p>"""
+    spot_instance_type: NotRequired[
+        "aws_sdk_workspaces_instances.types.spot_instance_type_enum.SpotInstanceTypeEnum"
+    ]
+    """<p>Defines the type of spot instance request.</p>"""
+    valid_until_utc: NotRequired["datetime.datetime"]
+    """<p>Timestamp until which spot instance request is valid.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: SpotMarketOptions) -> dict:
+    out: dict = {}
+    if "block_duration_minutes" in value:
+        out["BlockDurationMinutes"] = value["block_duration_minutes"]
+    if "instance_interruption_behavior" in value:
+        import aws_sdk_workspaces_instances.types.instance_interruption_behavior_enum
+
+        out["InstanceInterruptionBehavior"] = (
+            aws_sdk_workspaces_instances.types.instance_interruption_behavior_enum.serialize_aws_json_1_0(
+                value["instance_interruption_behavior"]
+            )
+        )
+    if "max_price" in value:
+        out["MaxPrice"] = value["max_price"]
+    if "spot_instance_type" in value:
+        import aws_sdk_workspaces_instances.types.spot_instance_type_enum
+
+        out["SpotInstanceType"] = (
+            aws_sdk_workspaces_instances.types.spot_instance_type_enum.serialize_aws_json_1_0(
+                value["spot_instance_type"]
+            )
+        )
+    if "valid_until_utc" in value:
+        import aws_sdk_workspaces_instances.types._prelude.timestamp
+
+        out["ValidUntilUtc"] = (
+            aws_sdk_workspaces_instances.types._prelude.timestamp.serialize_aws_json_1_0(
+                value["valid_until_utc"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> SpotMarketOptions:
+    out: SpotMarketOptions = {}  # type: ignore[typeddict-item]
+    if "BlockDurationMinutes" in data:
+        out["block_duration_minutes"] = data["BlockDurationMinutes"]
+    if "InstanceInterruptionBehavior" in data:
+        import aws_sdk_workspaces_instances.types.instance_interruption_behavior_enum
+
+        out["instance_interruption_behavior"] = (
+            aws_sdk_workspaces_instances.types.instance_interruption_behavior_enum.deserialize_aws_json_1_0(
+                data["InstanceInterruptionBehavior"]
+            )
+        )
+    if "MaxPrice" in data:
+        out["max_price"] = data["MaxPrice"]
+    if "SpotInstanceType" in data:
+        import aws_sdk_workspaces_instances.types.spot_instance_type_enum
+
+        out["spot_instance_type"] = (
+            aws_sdk_workspaces_instances.types.spot_instance_type_enum.deserialize_aws_json_1_0(
+                data["SpotInstanceType"]
+            )
+        )
+    if "ValidUntilUtc" in data:
+        import aws_sdk_workspaces_instances.types._prelude.timestamp
+
+        out["valid_until_utc"] = (
+            aws_sdk_workspaces_instances.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["ValidUntilUtc"]
+            )
+        )
+    return out

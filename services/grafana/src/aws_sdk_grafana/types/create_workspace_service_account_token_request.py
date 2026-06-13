@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceServiceAccountTokenRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_grafana.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.service_account_token_name
     import aws_sdk_grafana.types.workspace_id
+
 
 class CreateWorkspaceServiceAccountTokenRequest(TypedDict):
     name: "aws_sdk_grafana.types.service_account_token_name.ServiceAccountTokenName"
@@ -15,6 +18,7 @@ class CreateWorkspaceServiceAccountTokenRequest(TypedDict):
     """<p>The ID of the service account for which to create a token.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace the service account resides within.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateWorkspaceServiceAccountTokenRequest) -> dict:
@@ -29,9 +33,13 @@ def deserialize_json(data: dict) -> CreateWorkspaceServiceAccountTokenRequest:
     if "name" in data:
         out["name"] = data["name"]
     else:
-        raise DeserializationError("CreateWorkspaceServiceAccountTokenRequest.name required")
+        raise DeserializationError(
+            "CreateWorkspaceServiceAccountTokenRequest.name required"
+        )
     if "secondsToLive" in data:
         out["seconds_to_live"] = data["secondsToLive"]
     else:
-        raise DeserializationError("CreateWorkspaceServiceAccountTokenRequest.seconds_to_live required")
+        raise DeserializationError(
+            "CreateWorkspaceServiceAccountTokenRequest.seconds_to_live required"
+        )
     return out

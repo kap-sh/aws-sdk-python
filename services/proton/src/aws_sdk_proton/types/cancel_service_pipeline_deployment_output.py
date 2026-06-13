@@ -1,19 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CancelServicePipelineDeploymentOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_proton.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_proton.types.service_pipeline
+
 
 class CancelServicePipelineDeploymentOutput(TypedDict):
     pipeline: "aws_sdk_proton.types.service_pipeline.ServicePipeline"
     """<p>The service pipeline detail data that's returned by Proton.</p>"""
 
+
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CancelServicePipelineDeploymentOutput) -> dict:
     out: dict = {}
     import aws_sdk_proton.types.service_pipeline
-    out["pipeline"] = aws_sdk_proton.types.service_pipeline.serialize_aws_json_1_0(value["pipeline"])
+
+    out["pipeline"] = aws_sdk_proton.types.service_pipeline.serialize_aws_json_1_0(
+        value["pipeline"]
+    )
     return out
 
 
@@ -21,7 +28,14 @@ def deserialize_aws_json_1_0(data: dict) -> CancelServicePipelineDeploymentOutpu
     out: CancelServicePipelineDeploymentOutput = {}  # type: ignore[typeddict-item]
     if "pipeline" in data:
         import aws_sdk_proton.types.service_pipeline
-        out["pipeline"] = aws_sdk_proton.types.service_pipeline.deserialize_aws_json_1_0(data["pipeline"])
+
+        out["pipeline"] = (
+            aws_sdk_proton.types.service_pipeline.deserialize_aws_json_1_0(
+                data["pipeline"]
+            )
+        )
     else:
-        raise DeserializationError("CancelServicePipelineDeploymentOutput.pipeline required")
+        raise DeserializationError(
+            "CancelServicePipelineDeploymentOutput.pipeline required"
+        )
     return out

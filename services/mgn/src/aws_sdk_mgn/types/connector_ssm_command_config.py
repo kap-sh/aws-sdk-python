@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ConnectorSsmCommandConfig``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_mgn.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.cloud_watch_log_group_name
     import aws_sdk_mgn.types.s3_bucket_name
+
 
 class ConnectorSsmCommandConfig(TypedDict):
     s3_output_enabled: "bool"
@@ -14,8 +18,11 @@ class ConnectorSsmCommandConfig(TypedDict):
     """<p>Connector SSM command config output S3 bucket name.</p>"""
     cloud_watch_output_enabled: "bool"
     """<p>Connector SSM command config CloudWatch output enabled.</p>"""
-    cloud_watch_log_group_name: NotRequired["aws_sdk_mgn.types.cloud_watch_log_group_name.CloudWatchLogGroupName"]
+    cloud_watch_log_group_name: NotRequired[
+        "aws_sdk_mgn.types.cloud_watch_log_group_name.CloudWatchLogGroupName"
+    ]
     """<p>Connector SSM command config CloudWatch log group name.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConnectorSsmCommandConfig) -> dict:
@@ -34,13 +41,17 @@ def deserialize_json(data: dict) -> ConnectorSsmCommandConfig:
     if "s3OutputEnabled" in data:
         out["s3_output_enabled"] = data["s3OutputEnabled"]
     else:
-        raise DeserializationError("ConnectorSsmCommandConfig.s3_output_enabled required")
+        raise DeserializationError(
+            "ConnectorSsmCommandConfig.s3_output_enabled required"
+        )
     if "outputS3BucketName" in data:
         out["output_s3_bucket_name"] = data["outputS3BucketName"]
     if "cloudWatchOutputEnabled" in data:
         out["cloud_watch_output_enabled"] = data["cloudWatchOutputEnabled"]
     else:
-        raise DeserializationError("ConnectorSsmCommandConfig.cloud_watch_output_enabled required")
+        raise DeserializationError(
+            "ConnectorSsmCommandConfig.cloud_watch_output_enabled required"
+        )
     if "cloudWatchLogGroupName" in data:
         out["cloud_watch_log_group_name"] = data["cloudWatchLogGroupName"]
     return out

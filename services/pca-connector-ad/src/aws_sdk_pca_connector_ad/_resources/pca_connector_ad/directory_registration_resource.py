@@ -1,0 +1,380 @@
+from typing import TYPE_CHECKING, Optional
+
+import aws_sdk_pca_connector_ad._auth._signers
+import aws_sdk_pca_connector_ad._auth._sigv4
+from aws_sdk_pca_connector_ad._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import aws_sdk_pca_connector_ad.types.client_token
+    import aws_sdk_pca_connector_ad.types.create_directory_registration_request
+    import aws_sdk_pca_connector_ad.types.create_directory_registration_response
+    import aws_sdk_pca_connector_ad.types.delete_directory_registration_request
+    import aws_sdk_pca_connector_ad.types.directory_id
+    import aws_sdk_pca_connector_ad.types.directory_registration_arn
+    import aws_sdk_pca_connector_ad.types.directory_registration_summary
+    import aws_sdk_pca_connector_ad.types.get_directory_registration_request
+    import aws_sdk_pca_connector_ad.types.get_directory_registration_response
+    import aws_sdk_pca_connector_ad.types.list_directory_registrations_request
+    import aws_sdk_pca_connector_ad.types.list_directory_registrations_response
+    import aws_sdk_pca_connector_ad.types.max_results
+    import aws_sdk_pca_connector_ad.types.next_token
+    import aws_sdk_pca_connector_ad.types.tags
+    from aws_sdk_pca_connector_ad._services.async_pca_connector_ad import (
+        AsyncPcaConnectorAdClient,
+        AsyncPcaConnectorAdClientConfig,
+    )
+    from aws_sdk_pca_connector_ad._services.pca_connector_ad import (
+        PcaConnectorAdClient,
+        PcaConnectorAdClientConfig,
+    )
+
+
+class DirectoryRegistrationResource:
+    def __init__(self, service: PcaConnectorAdClient) -> None:
+        self._service = service
+
+    def create(
+        self,
+        directory_id: "aws_sdk_pca_connector_ad.types.directory_id.DirectoryId",
+        *,
+        config_overrides: Optional[PcaConnectorAdClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_pca_connector_ad.types.client_token.ClientToken"
+        ] = None,
+        tags: Optional["aws_sdk_pca_connector_ad.types.tags.Tags"] = None,
+    ) -> "aws_sdk_pca_connector_ad.types.create_directory_registration_response.CreateDirectoryRegistrationResponse":
+        """<p>Creates a directory registration that authorizes communication between Amazon Web Services Private CA and an Active Directory</p>
+
+        Args:
+            directory_id: <p> The identifier of the Active Directory.</p>
+            client_token: <p>Idempotency token.</p>
+            tags: <p>Metadata assigned to a directory registration consisting of a key-value pair.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_pca_connector_ad.types.create_directory_registration_request.CreateDirectoryRegistrationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_pca_connector_ad.types.create_directory_registration_response.CreateDirectoryRegistrationResponse"
+        ]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.create_directory_registration
+
+            output, http_response = (
+                aws_sdk_pca_connector_ad._operations.pca_connector_ad.create_directory_registration.create_directory_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.create_directory_registration_request.CreateDirectoryRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["directory_id"] = directory_id
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        directory_registration_arn: "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn",
+        *,
+        config_overrides: Optional[PcaConnectorAdClientConfig] = None,
+    ) -> "aws_sdk_pca_connector_ad.types.get_directory_registration_response.GetDirectoryRegistrationResponse":
+        """<p>A structure that contains information about your directory registration.</p>
+
+        Args:
+            directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_pca_connector_ad.types.get_directory_registration_request.GetDirectoryRegistrationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_pca_connector_ad.types.get_directory_registration_response.GetDirectoryRegistrationResponse"
+        ]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.get_directory_registration
+
+            output, http_response = (
+                aws_sdk_pca_connector_ad._operations.pca_connector_ad.get_directory_registration.get_directory_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.get_directory_registration_request.GetDirectoryRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["directory_registration_arn"] = directory_registration_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        directory_registration_arn: "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn",
+        *,
+        config_overrides: Optional[PcaConnectorAdClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a directory registration. Deleting a directory registration deauthorizes Amazon Web Services Private CA with the directory. </p>
+
+        Args:
+            directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_pca_connector_ad.types.delete_directory_registration_request.DeleteDirectoryRegistrationRequest]",
+        ) -> OperationResponse[None]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.delete_directory_registration
+
+            output, http_response = (
+                aws_sdk_pca_connector_ad._operations.pca_connector_ad.delete_directory_registration.delete_directory_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.delete_directory_registration_request.DeleteDirectoryRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["directory_registration_arn"] = directory_registration_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[PcaConnectorAdClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_pca_connector_ad.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_pca_connector_ad.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_pca_connector_ad.types.list_directory_registrations_response.ListDirectoryRegistrationsResponse":
+        """<p>Lists the directory registrations that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a> action.</p>
+
+        Args:
+            max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
+            next_token: <p>Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the <code>NextToken</code> parameter from the response you just received.</p>
+        """
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_pca_connector_ad.types.list_directory_registrations_request.ListDirectoryRegistrationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_pca_connector_ad.types.list_directory_registrations_response.ListDirectoryRegistrationsResponse"
+        ]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.list_directory_registrations
+
+            output, http_response = (
+                aws_sdk_pca_connector_ad._operations.pca_connector_ad.list_directory_registrations.list_directory_registrations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.list_directory_registrations_request.ListDirectoryRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncDirectoryRegistrationResource:
+    def __init__(self, service: AsyncPcaConnectorAdClient) -> None:
+        self._service = service
+
+    async def create(
+        self,
+        directory_id: "aws_sdk_pca_connector_ad.types.directory_id.DirectoryId",
+        *,
+        config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_pca_connector_ad.types.client_token.ClientToken"
+        ] = None,
+        tags: Optional["aws_sdk_pca_connector_ad.types.tags.Tags"] = None,
+    ) -> "aws_sdk_pca_connector_ad.types.create_directory_registration_response.CreateDirectoryRegistrationResponse":
+        """<p>Creates a directory registration that authorizes communication between Amazon Web Services Private CA and an Active Directory</p>
+
+        Args:
+            directory_id: <p> The identifier of the Active Directory.</p>
+            client_token: <p>Idempotency token.</p>
+            tags: <p>Metadata assigned to a directory registration consisting of a key-value pair.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_pca_connector_ad.types.create_directory_registration_request.CreateDirectoryRegistrationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_pca_connector_ad.types.create_directory_registration_response.CreateDirectoryRegistrationResponse"
+        ]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.create_directory_registration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_pca_connector_ad._operations.pca_connector_ad.create_directory_registration.async_create_directory_registration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.create_directory_registration_request.CreateDirectoryRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["directory_id"] = directory_id
+        if client_token is not None:
+            input["client_token"] = client_token
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        directory_registration_arn: "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn",
+        *,
+        config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
+    ) -> "aws_sdk_pca_connector_ad.types.get_directory_registration_response.GetDirectoryRegistrationResponse":
+        """<p>A structure that contains information about your directory registration.</p>
+
+        Args:
+            directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_pca_connector_ad.types.get_directory_registration_request.GetDirectoryRegistrationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_pca_connector_ad.types.get_directory_registration_response.GetDirectoryRegistrationResponse"
+        ]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.get_directory_registration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_pca_connector_ad._operations.pca_connector_ad.get_directory_registration.async_get_directory_registration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.get_directory_registration_request.GetDirectoryRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["directory_registration_arn"] = directory_registration_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        directory_registration_arn: "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn",
+        *,
+        config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
+    ) -> None:
+        """<p>Deletes a directory registration. Deleting a directory registration deauthorizes Amazon Web Services Private CA with the directory. </p>
+
+        Args:
+            directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_pca_connector_ad.types.delete_directory_registration_request.DeleteDirectoryRegistrationRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.delete_directory_registration
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_pca_connector_ad._operations.pca_connector_ad.delete_directory_registration.async_delete_directory_registration(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.delete_directory_registration_request.DeleteDirectoryRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input["directory_registration_arn"] = directory_registration_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_pca_connector_ad.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_pca_connector_ad.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_pca_connector_ad.types.list_directory_registrations_response.ListDirectoryRegistrationsResponse":
+        """<p>Lists the directory registrations that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a> action.</p>
+
+        Args:
+            max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
+            next_token: <p>Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the <code>NextToken</code> parameter from the response you just received.</p>
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_pca_connector_ad.types.list_directory_registrations_request.ListDirectoryRegistrationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_pca_connector_ad.types.list_directory_registrations_response.ListDirectoryRegistrationsResponse"
+        ]:
+            import aws_sdk_pca_connector_ad._operations.pca_connector_ad.list_directory_registrations
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_pca_connector_ad._operations.pca_connector_ad.list_directory_registrations.async_list_directory_registrations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_pca_connector_ad.types.list_directory_registrations_request.ListDirectoryRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

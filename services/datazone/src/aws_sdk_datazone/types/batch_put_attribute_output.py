@@ -2,12 +2,17 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from aws_sdk_datazone.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute_identifier
 
+
 class BatchPutAttributeOutput(TypedDict):
-    attribute_identifier: "aws_sdk_datazone.types.attribute_identifier.AttributeIdentifier"
+    attribute_identifier: (
+        "aws_sdk_datazone.types.attribute_identifier.AttributeIdentifier"
+    )
     """<p>The attribute ID.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BatchPutAttributeOutput) -> dict:
@@ -21,5 +26,7 @@ def deserialize_json(data: dict) -> BatchPutAttributeOutput:
     if "attributeIdentifier" in data:
         out["attribute_identifier"] = data["attributeIdentifier"]
     else:
-        raise DeserializationError("BatchPutAttributeOutput.attribute_identifier required")
+        raise DeserializationError(
+            "BatchPutAttributeOutput.attribute_identifier required"
+        )
     return out

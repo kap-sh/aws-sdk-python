@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#EmailMessageTemplateContentBody``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_qconnect.types.message_template_body_content_provider
+
+
+class EmailMessageTemplateContentBody(TypedDict):
+    plain_text: NotRequired[
+        "aws_sdk_qconnect.types.message_template_body_content_provider.MessageTemplateBodyContentProvider"
+    ]
+    """<p>The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.</p>"""
+    html: NotRequired[
+        "aws_sdk_qconnect.types.message_template_body_content_provider.MessageTemplateBodyContentProvider"
+    ]
+    """<p>The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EmailMessageTemplateContentBody) -> dict:
+    out: dict = {}
+    if "plain_text" in value:
+        import aws_sdk_qconnect.types.message_template_body_content_provider
+
+        out["plainText"] = (
+            aws_sdk_qconnect.types.message_template_body_content_provider.serialize_json(
+                value["plain_text"]
+            )
+        )
+    if "html" in value:
+        import aws_sdk_qconnect.types.message_template_body_content_provider
+
+        out["html"] = (
+            aws_sdk_qconnect.types.message_template_body_content_provider.serialize_json(
+                value["html"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EmailMessageTemplateContentBody:
+    out: EmailMessageTemplateContentBody = {}  # type: ignore[typeddict-item]
+    if "plainText" in data:
+        import aws_sdk_qconnect.types.message_template_body_content_provider
+
+        out["plain_text"] = (
+            aws_sdk_qconnect.types.message_template_body_content_provider.deserialize_json(
+                data["plainText"]
+            )
+        )
+    if "html" in data:
+        import aws_sdk_qconnect.types.message_template_body_content_provider
+
+        out["html"] = (
+            aws_sdk_qconnect.types.message_template_body_content_provider.deserialize_json(
+                data["html"]
+            )
+        )
+    return out

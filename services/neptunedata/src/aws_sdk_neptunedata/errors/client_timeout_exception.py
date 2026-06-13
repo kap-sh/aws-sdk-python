@@ -1,8 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ClientTimeoutException``."""
 
 from typing import TypedDict
-from aws_sdk_neptunedata.errors import DeserializationError
-from aws_sdk_neptunedata.errors import ServiceError
+
+from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
+
 
 class ClientTimeoutException_(TypedDict):
     detailed_message: "str"
@@ -11,6 +12,7 @@ class ClientTimeoutException_(TypedDict):
     """<p>The ID of the request in question.</p>"""
     code: "str"
     """<p>The HTTP status code returned with the exception.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ClientTimeoutException_) -> dict:
@@ -40,10 +42,16 @@ def deserialize_json(data: dict) -> ClientTimeoutException_:
 
 class ClientTimeoutException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.neptunedata#ClientTimeoutException``."""
-    code: str | None = 'ClientTimeoutException'
+
+    code: str | None = "ClientTimeoutException"
 
     def __init__(self, data: ClientTimeoutException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=True, code='ClientTimeoutException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=True,
+            code="ClientTimeoutException",
+        )
         self.data = data
 
     @classmethod

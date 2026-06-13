@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#ClusterConfiguration``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class ClusterConfiguration(TypedDict):
     ingest_query_instances: NotRequired["int"]
@@ -10,6 +12,7 @@ class ClusterConfiguration(TypedDict):
     """<p>The number of instances in the DbCluster which can only query.</p>"""
     dedicated_compactor: NotRequired["bool"]
     """<p>Indicates if the compactor instance is a standalone instance or not.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: ClusterConfiguration) -> dict:

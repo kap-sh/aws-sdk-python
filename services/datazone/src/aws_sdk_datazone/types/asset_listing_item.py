@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
     import aws_sdk_datazone.types.asset_listing_item_additional_attributes
@@ -15,6 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
     import aws_sdk_datazone.types.type_name
     import aws_sdk_datazone.types.updated_by
+
 
 class AssetListingItem(TypedDict):
     listing_id: NotRequired["aws_sdk_datazone.types.listing_id.ListingId"]
@@ -37,14 +39,21 @@ class AssetListingItem(TypedDict):
     """<p>The Amazon DataZone user who created the listing.</p>"""
     listing_updated_by: NotRequired["aws_sdk_datazone.types.updated_by.UpdatedBy"]
     """<p>The Amazon DataZone user who updated the listing.</p>"""
-    glossary_terms: NotRequired["aws_sdk_datazone.types.detailed_glossary_terms.DetailedGlossaryTerms"]
+    glossary_terms: NotRequired[
+        "aws_sdk_datazone.types.detailed_glossary_terms.DetailedGlossaryTerms"
+    ]
     """<p>Glossary terms attached to the inventory asset.</p>"""
-    governed_glossary_terms: NotRequired["aws_sdk_datazone.types.detailed_glossary_terms.DetailedGlossaryTerms"]
+    governed_glossary_terms: NotRequired[
+        "aws_sdk_datazone.types.detailed_glossary_terms.DetailedGlossaryTerms"
+    ]
     """<p>The restricted glossary terms associated with an asset.</p>"""
     owning_project_id: NotRequired["aws_sdk_datazone.types.project_id.ProjectId"]
     """<p>The identifier of the project that owns the inventory asset.</p>"""
-    additional_attributes: NotRequired["aws_sdk_datazone.types.asset_listing_item_additional_attributes.AssetListingItemAdditionalAttributes"]
+    additional_attributes: NotRequired[
+        "aws_sdk_datazone.types.asset_listing_item_additional_attributes.AssetListingItemAdditionalAttributes"
+    ]
     """<p>The additional attributes of an asset published in an Amazon DataZone catalog.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssetListingItem) -> dict:
@@ -65,22 +74,40 @@ def serialize_json(value: AssetListingItem) -> dict:
         out["description"] = value["description"]
     if "created_at" in value:
         import aws_sdk_datazone.types.created_at
-        out["createdAt"] = aws_sdk_datazone.types.created_at.serialize_json(value["created_at"])
+
+        out["createdAt"] = aws_sdk_datazone.types.created_at.serialize_json(
+            value["created_at"]
+        )
     if "listing_created_by" in value:
         out["listingCreatedBy"] = value["listing_created_by"]
     if "listing_updated_by" in value:
         out["listingUpdatedBy"] = value["listing_updated_by"]
     if "glossary_terms" in value:
         import aws_sdk_datazone.types.detailed_glossary_terms
-        out["glossaryTerms"] = aws_sdk_datazone.types.detailed_glossary_terms.serialize_json(value["glossary_terms"])
+
+        out["glossaryTerms"] = (
+            aws_sdk_datazone.types.detailed_glossary_terms.serialize_json(
+                value["glossary_terms"]
+            )
+        )
     if "governed_glossary_terms" in value:
         import aws_sdk_datazone.types.detailed_glossary_terms
-        out["governedGlossaryTerms"] = aws_sdk_datazone.types.detailed_glossary_terms.serialize_json(value["governed_glossary_terms"])
+
+        out["governedGlossaryTerms"] = (
+            aws_sdk_datazone.types.detailed_glossary_terms.serialize_json(
+                value["governed_glossary_terms"]
+            )
+        )
     if "owning_project_id" in value:
         out["owningProjectId"] = value["owning_project_id"]
     if "additional_attributes" in value:
         import aws_sdk_datazone.types.asset_listing_item_additional_attributes
-        out["additionalAttributes"] = aws_sdk_datazone.types.asset_listing_item_additional_attributes.serialize_json(value["additional_attributes"])
+
+        out["additionalAttributes"] = (
+            aws_sdk_datazone.types.asset_listing_item_additional_attributes.serialize_json(
+                value["additional_attributes"]
+            )
+        )
     return out
 
 
@@ -102,20 +129,38 @@ def deserialize_json(data: dict) -> AssetListingItem:
         out["description"] = data["description"]
     if "createdAt" in data:
         import aws_sdk_datazone.types.created_at
-        out["created_at"] = aws_sdk_datazone.types.created_at.deserialize_json(data["createdAt"])
+
+        out["created_at"] = aws_sdk_datazone.types.created_at.deserialize_json(
+            data["createdAt"]
+        )
     if "listingCreatedBy" in data:
         out["listing_created_by"] = data["listingCreatedBy"]
     if "listingUpdatedBy" in data:
         out["listing_updated_by"] = data["listingUpdatedBy"]
     if "glossaryTerms" in data:
         import aws_sdk_datazone.types.detailed_glossary_terms
-        out["glossary_terms"] = aws_sdk_datazone.types.detailed_glossary_terms.deserialize_json(data["glossaryTerms"])
+
+        out["glossary_terms"] = (
+            aws_sdk_datazone.types.detailed_glossary_terms.deserialize_json(
+                data["glossaryTerms"]
+            )
+        )
     if "governedGlossaryTerms" in data:
         import aws_sdk_datazone.types.detailed_glossary_terms
-        out["governed_glossary_terms"] = aws_sdk_datazone.types.detailed_glossary_terms.deserialize_json(data["governedGlossaryTerms"])
+
+        out["governed_glossary_terms"] = (
+            aws_sdk_datazone.types.detailed_glossary_terms.deserialize_json(
+                data["governedGlossaryTerms"]
+            )
+        )
     if "owningProjectId" in data:
         out["owning_project_id"] = data["owningProjectId"]
     if "additionalAttributes" in data:
         import aws_sdk_datazone.types.asset_listing_item_additional_attributes
-        out["additional_attributes"] = aws_sdk_datazone.types.asset_listing_item_additional_attributes.deserialize_json(data["additionalAttributes"])
+
+        out["additional_attributes"] = (
+            aws_sdk_datazone.types.asset_listing_item_additional_attributes.deserialize_json(
+                data["additionalAttributes"]
+            )
+        )
     return out

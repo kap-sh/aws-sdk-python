@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#DeletePlaceIndexRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
+
 
 class DeletePlaceIndexRequest(TypedDict):
     index_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the place index resource to be deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeletePlaceIndexRequest) -> dict:

@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateTrackerResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.arn
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.timestamp
+
 
 class CreateTrackerResponse(TypedDict):
     tracker_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -15,13 +18,17 @@ class CreateTrackerResponse(TypedDict):
     create_time: "aws_sdk_location.types.timestamp.Timestamp"
     """<p>The timestamp for when the tracker resource was created in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateTrackerResponse) -> dict:
     out: dict = {}
     out["TrackerName"] = value["tracker_name"]
     out["TrackerArn"] = value["tracker_arn"]
     import aws_sdk_location.types.timestamp
-    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(value["create_time"])
+
+    out["CreateTime"] = aws_sdk_location.types.timestamp.serialize_json(
+        value["create_time"]
+    )
     return out
 
 
@@ -37,7 +44,10 @@ def deserialize_json(data: dict) -> CreateTrackerResponse:
         raise DeserializationError("CreateTrackerResponse.tracker_arn required")
     if "CreateTime" in data:
         import aws_sdk_location.types.timestamp
-        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(data["CreateTime"])
+
+        out["create_time"] = aws_sdk_location.types.timestamp.deserialize_json(
+            data["CreateTime"]
+        )
     else:
         raise DeserializationError("CreateTrackerResponse.create_time required")
     return out

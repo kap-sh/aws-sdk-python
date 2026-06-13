@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.ssmsap#RegisterApplicationOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_ssm_sap.types.application
+    import aws_sdk_ssm_sap.types.operation_id
+
+
+class RegisterApplicationOutput(TypedDict):
+    application: NotRequired["aws_sdk_ssm_sap.types.application.Application"]
+    """<p>The application registered with AWS Systems Manager for SAP.</p>"""
+    operation_id: NotRequired["aws_sdk_ssm_sap.types.operation_id.OperationId"]
+    """<p>The ID of the operation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RegisterApplicationOutput) -> dict:
+    out: dict = {}
+    if "application" in value:
+        import aws_sdk_ssm_sap.types.application
+
+        out["Application"] = aws_sdk_ssm_sap.types.application.serialize_json(
+            value["application"]
+        )
+    if "operation_id" in value:
+        out["OperationId"] = value["operation_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> RegisterApplicationOutput:
+    out: RegisterApplicationOutput = {}  # type: ignore[typeddict-item]
+    if "Application" in data:
+        import aws_sdk_ssm_sap.types.application
+
+        out["application"] = aws_sdk_ssm_sap.types.application.deserialize_json(
+            data["Application"]
+        )
+    if "OperationId" in data:
+        out["operation_id"] = data["OperationId"]
+    return out

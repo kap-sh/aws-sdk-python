@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#IndiaAdditionalInfo``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.pan
+
 
 class IndiaAdditionalInfo(TypedDict):
     pan: NotRequired["aws_sdk_taxsettings.types.pan.Pan"]
     """<p> India pan information associated with the account. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: IndiaAdditionalInfo) -> dict:

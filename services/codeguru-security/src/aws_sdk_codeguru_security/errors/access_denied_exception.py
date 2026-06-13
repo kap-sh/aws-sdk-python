@@ -1,9 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#AccessDeniedException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
-from aws_sdk_codeguru_security.errors import DeserializationError
-from aws_sdk_codeguru_security.errors import ServiceError
+
+from aws_sdk_codeguru_security.errors import DeserializationError, ServiceError
+
 
 class AccessDeniedException_(TypedDict):
     error_code: "str"
@@ -14,6 +16,7 @@ class AccessDeniedException_(TypedDict):
     """<p>The identifier for the resource you don't have access to.</p>"""
     resource_type: NotRequired["str"]
     """<p>The type of resource you don't have access to.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccessDeniedException_) -> dict:
@@ -46,10 +49,16 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.codegurusecurity#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

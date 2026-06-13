@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.rum#PolicyNotFoundException``."""
 
 from typing import TypedDict
-from aws_sdk_rum.errors import DeserializationError
-from aws_sdk_rum.errors import ServiceError
+
+from aws_sdk_rum.errors import DeserializationError, ServiceError
+
 
 class PolicyNotFoundException_(TypedDict):
     message: "str"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PolicyNotFoundException_) -> dict:
@@ -25,10 +27,16 @@ def deserialize_json(data: dict) -> PolicyNotFoundException_:
 
 class PolicyNotFoundException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.rum#PolicyNotFoundException``."""
-    code: str | None = 'PolicyNotFoundException'
+
+    code: str | None = "PolicyNotFoundException"
 
     def __init__(self, data: PolicyNotFoundException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='PolicyNotFoundException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="PolicyNotFoundException",
+        )
         self.data = data
 
     @classmethod

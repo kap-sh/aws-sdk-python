@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeleteRouterNetworkInterfaceResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_mediaconnect.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
     import aws_sdk_mediaconnect.types.router_network_interface_state
+
 
 class DeleteRouterNetworkInterfaceResponse(TypedDict):
     arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
@@ -14,13 +17,19 @@ class DeleteRouterNetworkInterfaceResponse(TypedDict):
     state: "aws_sdk_mediaconnect.types.router_network_interface_state.RouterNetworkInterfaceState"
     """<p>The current state of the deleted router network interface, indicating where it is in the deletion process.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteRouterNetworkInterfaceResponse) -> dict:
     out: dict = {}
     out["arn"] = value["arn"]
     out["name"] = value["name"]
     import aws_sdk_mediaconnect.types.router_network_interface_state
-    out["state"] = aws_sdk_mediaconnect.types.router_network_interface_state.serialize_json(value["state"])
+
+    out["state"] = (
+        aws_sdk_mediaconnect.types.router_network_interface_state.serialize_json(
+            value["state"]
+        )
+    )
     return out
 
 
@@ -36,7 +45,14 @@ def deserialize_json(data: dict) -> DeleteRouterNetworkInterfaceResponse:
         raise DeserializationError("DeleteRouterNetworkInterfaceResponse.name required")
     if "state" in data:
         import aws_sdk_mediaconnect.types.router_network_interface_state
-        out["state"] = aws_sdk_mediaconnect.types.router_network_interface_state.deserialize_json(data["state"])
+
+        out["state"] = (
+            aws_sdk_mediaconnect.types.router_network_interface_state.deserialize_json(
+                data["state"]
+            )
+        )
     else:
-        raise DeserializationError("DeleteRouterNetworkInterfaceResponse.state required")
+        raise DeserializationError(
+            "DeleteRouterNetworkInterfaceResponse.state required"
+        )
     return out

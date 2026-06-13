@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_drs._services.async_drs import ensure_async_iterator
-from aws_sdk_drs._services.drs import ensure_sync_iterator
-from aws_sdk_drs._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_drs._auth._signers
 import aws_sdk_drs._auth._sigv4
+from aws_sdk_drs._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_drs._services.drs import drsClient, drsClientConfig
-    from aws_sdk_drs._services.async_drs import AsyncdrsClient, AsyncdrsClientConfig
     import aws_sdk_drs.types.account_id
     import aws_sdk_drs.types.associate_source_network_stack_request
     import aws_sdk_drs.types.associate_source_network_stack_response
@@ -34,11 +39,23 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.strictly_positive_integer
     import aws_sdk_drs.types.tags_map
     import aws_sdk_drs.types.vpc_id
+    from aws_sdk_drs._services.async_drs import AsyncdrsClient, AsyncdrsClientConfig
+    from aws_sdk_drs._services.drs import drsClient, drsClientConfig
+
 
 class SourceNetworkResource:
     def __init__(self, service: drsClient) -> None:
         self._service = service
-    def create(self, vpc_id: "aws_sdk_drs.types.vpc_id.VpcID", origin_account_id: "aws_sdk_drs.types.account_id.AccountID", origin_region: "aws_sdk_drs.types.aws_region.AwsRegion", *, config_overrides: Optional[drsClientConfig] = None, tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None) -> "aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse":
+
+    def create(
+        self,
+        vpc_id: "aws_sdk_drs.types.vpc_id.VpcID",
+        origin_account_id: "aws_sdk_drs.types.account_id.AccountID",
+        origin_region: "aws_sdk_drs.types.aws_region.AwsRegion",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+        tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None,
+    ) -> "aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse":
         """<p>Create a new Source Network resource for a provided VPC ID.</p>
 
         Args:
@@ -47,9 +64,19 @@ class SourceNetworkResource:
             origin_region: <p>Region containing the VPC to protect.</p>
             tags: <p>A set of tags to be associated with the Source Network resource.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest]') -> OperationResponse["aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.create_source_network
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.create_source_network.create_source_network(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.create_source_network.create_source_network(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -60,26 +87,64 @@ class SourceNetworkResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[drsClientConfig] = None) -> "aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse":
+
+    def delete(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse":
         """<p>Delete Source Network resource.</p>
 
         Args:
             source_network_id: <p>ID of the Source Network to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest]') -> OperationResponse["aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.delete_source_network
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.delete_source_network.delete_source_network(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.delete_source_network.delete_source_network(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[drsClientConfig] = None, filters: Optional["aws_sdk_drs.types.describe_source_networks_request_filters.DescribeSourceNetworksRequestFilters"] = None, max_results: Optional["aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"] = None, next_token: Optional["aws_sdk_drs.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_drs.types.describe_source_networks_request_filters.DescribeSourceNetworksRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_drs.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse":
         """<p>Lists all Source Networks or multiple Source Networks filtered by ID.</p>
 
         Args:
@@ -87,9 +152,19 @@ class SourceNetworkResource:
             max_results: <p>Maximum number of Source Networks to retrieve.</p>
             next_token: <p>The token of the next Source Networks to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest]') -> OperationResponse["aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.describe_source_networks
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.describe_source_networks.describe_source_networks(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.describe_source_networks.describe_source_networks(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -101,18 +176,39 @@ class SourceNetworkResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_source_network_stack(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", cfn_stack_name: "aws_sdk_drs.types.cfn_stack_name.CfnStackName", *, config_overrides: Optional[drsClientConfig] = None) -> "aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse":
+
+    def associate_source_network_stack(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        cfn_stack_name: "aws_sdk_drs.types.cfn_stack_name.CfnStackName",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse":
         """<p>Associate a Source Network to an existing CloudFormation Stack and modify launch templates to use this network. Can be used for reverting to previously deployed CloudFormation stacks.</p>
 
         Args:
             source_network_id: <p>The Source Network ID to associate with CloudFormation template.</p>
             cfn_stack_name: <p>CloudFormation template to associate with a Source Network.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest]') -> OperationResponse["aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.associate_source_network_stack
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.associate_source_network_stack.associate_source_network_stack(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.associate_source_network_stack.associate_source_network_stack(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -120,60 +216,132 @@ class SourceNetworkResource:
         input["source_network_id"] = source_network_id
         input["cfn_stack_name"] = cfn_stack_name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def export_source_network_cfn_template(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[drsClientConfig] = None) -> "aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse":
+
+    def export_source_network_cfn_template(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse":
         """<p>Export the Source Network CloudFormation template to an S3 bucket.</p>
 
         Args:
             source_network_id: <p>The Source Network ID to export its CloudFormation template to an S3 bucket.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest]') -> OperationResponse["aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.export_source_network_cfn_template
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.export_source_network_cfn_template.export_source_network_cfn_template(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.export_source_network_cfn_template.export_source_network_cfn_template(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_source_network_replication(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[drsClientConfig] = None) -> "aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse":
+
+    def start_source_network_replication(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse":
         """<p>Starts replication for a Source Network. This action would make the Source Network protected.</p>
 
         Args:
             source_network_id: <p>ID of the Source Network to replicate.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest]') -> OperationResponse["aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_replication
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_replication.start_source_network_replication(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_replication.start_source_network_replication(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def stop_source_network_replication(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[drsClientConfig] = None) -> "aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse":
+
+    def stop_source_network_replication(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse":
         """<p>Stops replication for a Source Network. This action would make the Source Network unprotected.</p>
 
         Args:
             source_network_id: <p>ID of the Source Network to stop replication.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest]') -> OperationResponse["aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.stop_source_network_replication
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.stop_source_network_replication.stop_source_network_replication(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.stop_source_network_replication.stop_source_network_replication(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_source_network_recovery(self, source_networks: "aws_sdk_drs.types.start_source_network_recovery_request_network_entries.StartSourceNetworkRecoveryRequestNetworkEntries", *, config_overrides: Optional[drsClientConfig] = None, deploy_as_new: Optional[bool] = None, tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None) -> "aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse":
+
+    def start_source_network_recovery(
+        self,
+        source_networks: "aws_sdk_drs.types.start_source_network_recovery_request_network_entries.StartSourceNetworkRecoveryRequestNetworkEntries",
+        *,
+        config_overrides: Optional[drsClientConfig] = None,
+        deploy_as_new: Optional[bool] = None,
+        tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None,
+    ) -> "aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse":
         """<p>Deploy VPC for the specified Source Network and modify launch templates to use this network. The VPC will be deployed using a dedicated CloudFormation stack.</p>
 
         Args:
@@ -181,9 +349,19 @@ class SourceNetworkResource:
             deploy_as_new: <p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>
             tags: <p>The tags to be associated with the Source Network recovery Job.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest]') -> OperationResponse["aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_recovery
-            output, http_response = aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_recovery.start_source_network_recovery(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_recovery.start_source_network_recovery(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -194,13 +372,27 @@ class SourceNetworkResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncSourceNetworkResource:
     def __init__(self, service: AsyncdrsClient) -> None:
         self._service = service
-    async def create(self, vpc_id: "aws_sdk_drs.types.vpc_id.VpcID", origin_account_id: "aws_sdk_drs.types.account_id.AccountID", origin_region: "aws_sdk_drs.types.aws_region.AwsRegion", *, config_overrides: Optional[AsyncdrsClientConfig] = None, tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None) -> "aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse":
+
+    async def create(
+        self,
+        vpc_id: "aws_sdk_drs.types.vpc_id.VpcID",
+        origin_account_id: "aws_sdk_drs.types.account_id.AccountID",
+        origin_region: "aws_sdk_drs.types.aws_region.AwsRegion",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+        tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None,
+    ) -> "aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse":
         """<p>Create a new Source Network resource for a provided VPC ID.</p>
 
         Args:
@@ -209,9 +401,20 @@ class AsyncSourceNetworkResource:
             origin_region: <p>Region containing the VPC to protect.</p>
             tags: <p>A set of tags to be associated with the Source Network resource.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.create_source_network_response.CreateSourceNetworkResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.create_source_network
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.create_source_network.async_create_source_network(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.create_source_network.async_create_source_network(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -222,26 +425,65 @@ class AsyncSourceNetworkResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[AsyncdrsClientConfig] = None) -> "aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse":
+
+    async def delete(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse":
         """<p>Delete Source Network resource.</p>
 
         Args:
             source_network_id: <p>ID of the Source Network to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.delete_source_network_response.DeleteSourceNetworkResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.delete_source_network
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.delete_source_network.async_delete_source_network(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.delete_source_network.async_delete_source_network(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncdrsClientConfig] = None, filters: Optional["aws_sdk_drs.types.describe_source_networks_request_filters.DescribeSourceNetworksRequestFilters"] = None, max_results: Optional["aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"] = None, next_token: Optional["aws_sdk_drs.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+        filters: Optional[
+            "aws_sdk_drs.types.describe_source_networks_request_filters.DescribeSourceNetworksRequestFilters"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_drs.types.pagination_token.PaginationToken"
+        ] = None,
+    ) -> "aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse":
         """<p>Lists all Source Networks or multiple Source Networks filtered by ID.</p>
 
         Args:
@@ -249,9 +491,20 @@ class AsyncSourceNetworkResource:
             max_results: <p>Maximum number of Source Networks to retrieve.</p>
             next_token: <p>The token of the next Source Networks to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.describe_source_networks_response.DescribeSourceNetworksResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.describe_source_networks
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.describe_source_networks.async_describe_source_networks(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.describe_source_networks.async_describe_source_networks(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -263,18 +516,40 @@ class AsyncSourceNetworkResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_source_network_stack(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", cfn_stack_name: "aws_sdk_drs.types.cfn_stack_name.CfnStackName", *, config_overrides: Optional[AsyncdrsClientConfig] = None) -> "aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse":
+
+    async def associate_source_network_stack(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        cfn_stack_name: "aws_sdk_drs.types.cfn_stack_name.CfnStackName",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse":
         """<p>Associate a Source Network to an existing CloudFormation Stack and modify launch templates to use this network. Can be used for reverting to previously deployed CloudFormation stacks.</p>
 
         Args:
             source_network_id: <p>The Source Network ID to associate with CloudFormation template.</p>
             cfn_stack_name: <p>CloudFormation template to associate with a Source Network.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.associate_source_network_stack_response.AssociateSourceNetworkStackResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.associate_source_network_stack
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.associate_source_network_stack.async_associate_source_network_stack(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.associate_source_network_stack.async_associate_source_network_stack(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -282,60 +557,135 @@ class AsyncSourceNetworkResource:
         input["source_network_id"] = source_network_id
         input["cfn_stack_name"] = cfn_stack_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def export_source_network_cfn_template(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[AsyncdrsClientConfig] = None) -> "aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse":
+
+    async def export_source_network_cfn_template(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse":
         """<p>Export the Source Network CloudFormation template to an S3 bucket.</p>
 
         Args:
             source_network_id: <p>The Source Network ID to export its CloudFormation template to an S3 bucket.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.export_source_network_cfn_template_response.ExportSourceNetworkCfnTemplateResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.export_source_network_cfn_template
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.export_source_network_cfn_template.async_export_source_network_cfn_template(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.export_source_network_cfn_template.async_export_source_network_cfn_template(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_source_network_replication(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[AsyncdrsClientConfig] = None) -> "aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse":
+
+    async def start_source_network_replication(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse":
         """<p>Starts replication for a Source Network. This action would make the Source Network protected.</p>
 
         Args:
             source_network_id: <p>ID of the Source Network to replicate.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.start_source_network_replication_response.StartSourceNetworkReplicationResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_replication
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_replication.async_start_source_network_replication(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_replication.async_start_source_network_replication(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def stop_source_network_replication(self, source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID", *, config_overrides: Optional[AsyncdrsClientConfig] = None) -> "aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse":
+
+    async def stop_source_network_replication(
+        self,
+        source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+    ) -> "aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse":
         """<p>Stops replication for a Source Network. This action would make the Source Network unprotected.</p>
 
         Args:
             source_network_id: <p>ID of the Source Network to stop replication.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.stop_source_network_replication_response.StopSourceNetworkReplicationResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.stop_source_network_replication
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.stop_source_network_replication.async_stop_source_network_replication(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.stop_source_network_replication.async_stop_source_network_replication(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
         input["source_network_id"] = source_network_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_source_network_recovery(self, source_networks: "aws_sdk_drs.types.start_source_network_recovery_request_network_entries.StartSourceNetworkRecoveryRequestNetworkEntries", *, config_overrides: Optional[AsyncdrsClientConfig] = None, deploy_as_new: Optional[bool] = None, tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None) -> "aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse":
+
+    async def start_source_network_recovery(
+        self,
+        source_networks: "aws_sdk_drs.types.start_source_network_recovery_request_network_entries.StartSourceNetworkRecoveryRequestNetworkEntries",
+        *,
+        config_overrides: Optional[AsyncdrsClientConfig] = None,
+        deploy_as_new: Optional[bool] = None,
+        tags: Optional["aws_sdk_drs.types.tags_map.TagsMap"] = None,
+    ) -> "aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse":
         """<p>Deploy VPC for the specified Source Network and modify launch templates to use this network. The VPC will be deployed using a dedicated CloudFormation stack.</p>
 
         Args:
@@ -343,9 +693,20 @@ class AsyncSourceNetworkResource:
             deploy_as_new: <p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>
             tags: <p>The tags to be associated with the Source Network recovery Job.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest]') -> AsyncOperationResponse["aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_drs.types.start_source_network_recovery_response.StartSourceNetworkRecoveryResponse"
+        ]:
             import aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_recovery
-            output, http_response = await aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_recovery.async_start_source_network_recovery(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_drs._operations.elastic_disaster_recovery_service.start_source_network_recovery.async_start_source_network_recovery(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -356,5 +717,9 @@ class AsyncSourceNetworkResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

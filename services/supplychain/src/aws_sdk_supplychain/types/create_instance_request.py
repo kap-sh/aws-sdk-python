@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#CreateInstanceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.client_token
     import aws_sdk_supplychain.types.instance_description
@@ -10,19 +12,25 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.kms_key_arn
     import aws_sdk_supplychain.types.tag_map
 
+
 class CreateInstanceRequest(TypedDict):
     instance_name: NotRequired["aws_sdk_supplychain.types.instance_name.InstanceName"]
     """<p>The AWS Supply Chain instance name.</p>"""
-    instance_description: NotRequired["aws_sdk_supplychain.types.instance_description.InstanceDescription"]
+    instance_description: NotRequired[
+        "aws_sdk_supplychain.types.instance_description.InstanceDescription"
+    ]
     """<p>The AWS Supply Chain instance description.</p>"""
     kms_key_arn: NotRequired["aws_sdk_supplychain.types.kms_key_arn.KmsKeyArn"]
     """<p>The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon Web Services owned KMS key. If you don't provide anything here, AWS Supply Chain uses the Amazon Web Services owned KMS key.</p>"""
-    web_app_dns_domain: NotRequired["aws_sdk_supplychain.types.instance_web_app_dns_domain.InstanceWebAppDnsDomain"]
+    web_app_dns_domain: NotRequired[
+        "aws_sdk_supplychain.types.instance_web_app_dns_domain.InstanceWebAppDnsDomain"
+    ]
     """<p>The DNS subdomain of the web app. This would be \"example\" in the URL \"example.scn.global.on.aws\". You can set this to a custom value, as long as the domain isn't already being used by someone else. The name may only include alphanumeric characters and hyphens.</p>"""
     tags: NotRequired["aws_sdk_supplychain.types.tag_map.TagMap"]
     """<p>The Amazon Web Services tags of an instance to be created.</p>"""
     client_token: NotRequired["aws_sdk_supplychain.types.client_token.ClientToken"]
     """<p>The client token for idempotency.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateInstanceRequest) -> dict:
@@ -37,6 +45,7 @@ def serialize_json(value: CreateInstanceRequest) -> dict:
         out["webAppDnsDomain"] = value["web_app_dns_domain"]
     if "tags" in value:
         import aws_sdk_supplychain.types.tag_map
+
         out["tags"] = aws_sdk_supplychain.types.tag_map.serialize_json(value["tags"])
     if "client_token" in value:
         out["clientToken"] = value["client_token"]
@@ -55,6 +64,7 @@ def deserialize_json(data: dict) -> CreateInstanceRequest:
         out["web_app_dns_domain"] = data["webAppDnsDomain"]
     if "tags" in data:
         import aws_sdk_supplychain.types.tag_map
+
         out["tags"] = aws_sdk_supplychain.types.tag_map.deserialize_json(data["tags"])
     if "clientToken" in data:
         out["client_token"] = data["clientToken"]

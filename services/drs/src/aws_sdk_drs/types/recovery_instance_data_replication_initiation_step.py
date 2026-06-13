@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDataReplicationInitiationStep``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_instance_data_replication_initiation_step_name
     import aws_sdk_drs.types.recovery_instance_data_replication_initiation_step_status
 
+
 class RecoveryInstanceDataReplicationInitiationStep(TypedDict):
-    name: NotRequired["aws_sdk_drs.types.recovery_instance_data_replication_initiation_step_name.RecoveryInstanceDataReplicationInitiationStepName"]
+    name: NotRequired[
+        "aws_sdk_drs.types.recovery_instance_data_replication_initiation_step_name.RecoveryInstanceDataReplicationInitiationStepName"
+    ]
     """<p>The name of the step.</p>"""
-    status: NotRequired["aws_sdk_drs.types.recovery_instance_data_replication_initiation_step_status.RecoveryInstanceDataReplicationInitiationStepStatus"]
+    status: NotRequired[
+        "aws_sdk_drs.types.recovery_instance_data_replication_initiation_step_status.RecoveryInstanceDataReplicationInitiationStepStatus"
+    ]
     """<p>The status of the step.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: RecoveryInstanceDataReplicationInitiationStep) -> dict:

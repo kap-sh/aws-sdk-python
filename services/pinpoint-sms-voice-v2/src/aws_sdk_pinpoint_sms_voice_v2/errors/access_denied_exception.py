@@ -1,15 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#AccessDeniedException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_pinpoint_sms_voice_v2.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.access_denied_exception_reason
 
+
 class AccessDeniedException_(TypedDict):
     message: NotRequired["str"]
-    reason: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.access_denied_exception_reason.AccessDeniedExceptionReason"]
+    reason: NotRequired[
+        "aws_sdk_pinpoint_sms_voice_v2.types.access_denied_exception_reason.AccessDeniedExceptionReason"
+    ]
     """<p>The reason for the exception.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AccessDeniedException_) -> dict:
@@ -32,10 +39,16 @@ def deserialize_aws_json_1_0(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.pinpointsmsvoicev2#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

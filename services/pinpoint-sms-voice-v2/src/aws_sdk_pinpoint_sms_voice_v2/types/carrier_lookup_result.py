@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CarrierLookupResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.dialing_country_code_type
     import aws_sdk_pinpoint_sms_voice_v2.types.e164_phone_number_type
@@ -11,12 +14,19 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.mnc_type
     import aws_sdk_pinpoint_sms_voice_v2.types.phone_number_type
 
+
 class CarrierLookupResult(TypedDict):
-    e164_phone_number: "aws_sdk_pinpoint_sms_voice_v2.types.e164_phone_number_type.E164PhoneNumberType"
+    e164_phone_number: (
+        "aws_sdk_pinpoint_sms_voice_v2.types.e164_phone_number_type.E164PhoneNumberType"
+    )
     """<p>The phone number in E164 format, sanitized from the original input by removing any formatting characters.</p>"""
-    dialing_country_code: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.dialing_country_code_type.DialingCountryCodeType"]
+    dialing_country_code: NotRequired[
+        "aws_sdk_pinpoint_sms_voice_v2.types.dialing_country_code_type.DialingCountryCodeType"
+    ]
     """<p>The country or region numeric dialing code for the phone number.</p>"""
-    iso_country_code: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.iso_country_code.IsoCountryCode"]
+    iso_country_code: NotRequired[
+        "aws_sdk_pinpoint_sms_voice_v2.types.iso_country_code.IsoCountryCode"
+    ]
     """<p>The two-character country or region code, in ISO 3166-1 alpha-2 format, for the phone number.</p>"""
     country: NotRequired["str"]
     """<p>The name of the country or region for the phone number.</p>"""
@@ -26,8 +36,11 @@ class CarrierLookupResult(TypedDict):
     """<p>The phone number's mobile network code, for mobile phone number types.</p>"""
     carrier: NotRequired["str"]
     """<p>The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.</p>"""
-    phone_number_type: "aws_sdk_pinpoint_sms_voice_v2.types.phone_number_type.PhoneNumberType"
+    phone_number_type: (
+        "aws_sdk_pinpoint_sms_voice_v2.types.phone_number_type.PhoneNumberType"
+    )
     """<p>Describes the type of phone number. Valid values are: MOBILE, LANDLINE, OTHER, and INVALID. Avoid sending SMS or voice messages to INVALID phone numbers, as these numbers are unlikely to belong to actual recipients.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CarrierLookupResult) -> dict:

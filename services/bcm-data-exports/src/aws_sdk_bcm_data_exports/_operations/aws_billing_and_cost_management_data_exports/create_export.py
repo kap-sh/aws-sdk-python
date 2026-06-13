@@ -1,21 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#CreateExport``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any
-from typing import cast
-from aws_sdk_bcm_data_exports._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_bcm_data_exports._rule_engine._endpoint_runtime import apply_label
-import zapros
-from urllib.parse import quote
-from aws_sdk_bcm_data_exports.errors import ServiceError, UnknownServiceError
-from aws_sdk_bcm_data_exports._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
 import aws_sdk_bcm_data_exports._auth._signers
 import aws_sdk_bcm_data_exports._auth._sigv4
-from aws_sdk_bcm_data_exports._services._pipeline import AsyncOperationOptions, OperationOptions
+from aws_sdk_bcm_data_exports._protocol.errors import parse_error_metadata_json
+from aws_sdk_bcm_data_exports._rule_engine._endpoint_rule_set import (
+    EndpointParams,
+    resolve,
+)
+from aws_sdk_bcm_data_exports._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_bcm_data_exports.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.create_export_request
     import aws_sdk_bcm_data_exports.types.create_export_response
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -23,36 +31,76 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_bcm_data_exports.errors.access_denied_exception
-            raise aws_sdk_bcm_data_exports.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(data)
+
+            raise aws_sdk_bcm_data_exports.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
+                data
+            )
         case "InternalServerException":
             import aws_sdk_bcm_data_exports.errors.internal_server_exception
-            raise aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException.from_aws_json_1_1(data)
+
+            raise aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException.from_aws_json_1_1(
+                data
+            )
         case "ServiceQuotaExceededException":
             import aws_sdk_bcm_data_exports.errors.service_quota_exceeded_exception
-            raise aws_sdk_bcm_data_exports.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_aws_json_1_1(data)
+
+            raise aws_sdk_bcm_data_exports.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_aws_json_1_1(
+                data
+            )
         case "ThrottlingException":
             import aws_sdk_bcm_data_exports.errors.throttling_exception
-            raise aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(data)
+
+            raise aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
+                data
+            )
         case "ValidationException":
             import aws_sdk_bcm_data_exports.errors.validation_exception
-            raise aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException.from_aws_json_1_1(data)
+
+            raise aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException.from_aws_json_1_1(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse:
     import aws_sdk_bcm_data_exports.types.create_export_response
-    out: aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse = aws_sdk_bcm_data_exports.types.create_export_response.deserialize_aws_json_1_1(json.loads(response.read()))
+
+    out: aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse = (
+        aws_sdk_bcm_data_exports.types.create_export_response.deserialize_aws_json_1_1(
+            json.loads(response.read())
+        )
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_bcm_data_exports._auth._signers.Signer | None:
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_bcm_data_exports._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_bcm_data_exports._auth._sigv4.build_sigv4_auth_scheme('bcm-data-exports', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_bcm_data_exports._auth._sigv4.build_sigv4_auth_scheme(
+                "bcm-data-exports", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_bcm_data_exports._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_bcm_data_exports._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest) -> zapros.Request:
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest,
+) -> zapros.Request:
     endpoint = resolve(  # noqa: F841
         EndpointParams(
             UseFIPS=options.use_fips,
@@ -65,7 +113,12 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSBillingAndCostManagementDataExports.CreateExport"
     import aws_sdk_bcm_data_exports.types.create_export_request
-    body: bytes | None = json.dumps(aws_sdk_bcm_data_exports.types.create_export_request.serialize_aws_json_1_1(input)).encode()
+
+    body: bytes | None = json.dumps(
+        aws_sdk_bcm_data_exports.types.create_export_request.serialize_aws_json_1_1(
+            input
+        )
+    ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -78,7 +131,14 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_
         context={"signer": signer},
     )
 
-def create_export(options: OperationOptions, input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest) -> tuple[aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse, zapros.Response]:
+
+def create_export(
+    options: OperationOptions,
+    input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest,
+) -> tuple[
+    aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input))
     try:
         if response.status >= 400:
@@ -89,7 +149,14 @@ def create_export(options: OperationOptions, input: aws_sdk_bcm_data_exports.typ
         response.close()
         raise
 
-async def async_create_export(options: AsyncOperationOptions, input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest) -> tuple[aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse, zapros.Response]:
+
+async def async_create_export(
+    options: AsyncOperationOptions,
+    input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest,
+) -> tuple[
+    aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input))
     try:
         if response.status >= 400:

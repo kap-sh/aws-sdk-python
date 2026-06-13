@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceNodeOutputNext``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_node_input_name
     import aws_sdk_bedrock_agent_runtime.types.node_name
 
+
 class FlowTraceNodeOutputNext(TypedDict):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
     """<p>The name of the next node that receives the output data.</p>"""
-    input_field_name: "aws_sdk_bedrock_agent_runtime.types.flow_node_input_name.FlowNodeInputName"
+    input_field_name: (
+        "aws_sdk_bedrock_agent_runtime.types.flow_node_input_name.FlowNodeInputName"
+    )
     """<p>The name of the input field in the next node that receives the data.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: FlowTraceNodeOutputNext) -> dict:

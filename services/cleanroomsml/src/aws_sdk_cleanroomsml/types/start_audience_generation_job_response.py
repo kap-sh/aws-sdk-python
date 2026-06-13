@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanroomsml#StartAudienceGenerationJobResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_cleanroomsml.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_cleanroomsml.types.audience_generation_job_arn
+
+
+class StartAudienceGenerationJobResponse(TypedDict):
+    audience_generation_job_arn: "aws_sdk_cleanroomsml.types.audience_generation_job_arn.AudienceGenerationJobArn"
+    """<p>The Amazon Resource Name (ARN) of the audience generation job.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartAudienceGenerationJobResponse) -> dict:
+    out: dict = {}
+    out["audienceGenerationJobArn"] = value["audience_generation_job_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> StartAudienceGenerationJobResponse:
+    out: StartAudienceGenerationJobResponse = {}  # type: ignore[typeddict-item]
+    if "audienceGenerationJobArn" in data:
+        out["audience_generation_job_arn"] = data["audienceGenerationJobArn"]
+    else:
+        raise DeserializationError(
+            "StartAudienceGenerationJobResponse.audience_generation_job_arn required"
+        )
+    return out

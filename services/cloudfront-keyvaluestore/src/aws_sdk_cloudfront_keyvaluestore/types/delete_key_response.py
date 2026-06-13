@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#DeleteKeyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_cloudfront_keyvaluestore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.etag
+
 
 class DeleteKeyResponse(TypedDict):
     item_count: "int"
@@ -12,6 +15,7 @@ class DeleteKeyResponse(TypedDict):
     """<p>Total size of the Key Value Store after the successful delete, in bytes.</p>"""
     e_tag: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag"
     """<p>The current version identifier of the Key Value Store after the successful delete.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteKeyResponse) -> dict:

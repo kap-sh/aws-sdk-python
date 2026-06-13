@@ -1,15 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#CreateLicenseServerEndpointResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.arn
 
+
 class CreateLicenseServerEndpointResponse(TypedDict):
-    identity_provider_arn: NotRequired["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"]
+    identity_provider_arn: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+    ]
     """<p>The Amazon Resource Name (ARN) of the identity provider specified in the request.</p>"""
-    license_server_endpoint_arn: NotRequired["aws_sdk_license_manager_user_subscriptions.types.arn.Arn"]
+    license_server_endpoint_arn: NotRequired[
+        "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
+    ]
     """<p>The ARN of the <code>LicenseServerEndpoint</code> resource.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateLicenseServerEndpointResponse) -> dict:

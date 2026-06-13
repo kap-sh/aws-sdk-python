@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.braket#GetDeviceResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_braket.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.device_arn
     import aws_sdk_braket.types.device_queue_info_list
     import aws_sdk_braket.types.device_status
     import aws_sdk_braket.types.device_type
     import aws_sdk_braket.types.json_value
+
 
 class GetDeviceResponse(TypedDict):
     device_arn: "aws_sdk_braket.types.device_arn.DeviceArn"
@@ -23,8 +27,11 @@ class GetDeviceResponse(TypedDict):
     """<p>The status of the device.</p>"""
     device_capabilities: "aws_sdk_braket.types.json_value.JsonValue"
     """<p>Details about the capabilities of the device.</p>"""
-    device_queue_info: NotRequired["aws_sdk_braket.types.device_queue_info_list.DeviceQueueInfoList"]
+    device_queue_info: NotRequired[
+        "aws_sdk_braket.types.device_queue_info_list.DeviceQueueInfoList"
+    ]
     """<p>The number of quantum tasks and hybrid jobs currently queued on the device.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetDeviceResponse) -> dict:
@@ -37,7 +44,12 @@ def serialize_json(value: GetDeviceResponse) -> dict:
     out["deviceCapabilities"] = value["device_capabilities"]
     if "device_queue_info" in value:
         import aws_sdk_braket.types.device_queue_info_list
-        out["deviceQueueInfo"] = aws_sdk_braket.types.device_queue_info_list.serialize_json(value["device_queue_info"])
+
+        out["deviceQueueInfo"] = (
+            aws_sdk_braket.types.device_queue_info_list.serialize_json(
+                value["device_queue_info"]
+            )
+        )
     return out
 
 
@@ -69,5 +81,10 @@ def deserialize_json(data: dict) -> GetDeviceResponse:
         raise DeserializationError("GetDeviceResponse.device_capabilities required")
     if "deviceQueueInfo" in data:
         import aws_sdk_braket.types.device_queue_info_list
-        out["device_queue_info"] = aws_sdk_braket.types.device_queue_info_list.deserialize_json(data["deviceQueueInfo"])
+
+        out["device_queue_info"] = (
+            aws_sdk_braket.types.device_queue_info_list.deserialize_json(
+                data["deviceQueueInfo"]
+            )
+        )
     return out

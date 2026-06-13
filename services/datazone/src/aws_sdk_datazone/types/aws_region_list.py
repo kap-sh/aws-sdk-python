@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AwsRegionList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_region
 

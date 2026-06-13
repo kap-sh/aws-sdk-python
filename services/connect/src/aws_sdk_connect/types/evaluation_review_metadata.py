@@ -41,10 +41,14 @@ def serialize_json(value: EvaluationReviewMetadata) -> dict:
         )
     if "requested_by" in value:
         out["RequestedBy"] = value["requested_by"]
+    import datetime
+
     import aws_sdk_connect.types.timestamp
 
     out["CreatedTime"] = aws_sdk_connect.types.timestamp.serialize_json(
-        value.get("created_time", 0)
+        value.get(
+            "created_time", datetime.datetime.fromtimestamp(0, tz=datetime.timezone.utc)
+        )
     )
     out["CreatedBy"] = value.get("created_by", "n/a")
     import aws_sdk_connect.types.evaluation_review_request_comment_list
@@ -76,7 +80,11 @@ def deserialize_json(data: dict) -> EvaluationReviewMetadata:
             data["CreatedTime"]
         )
     else:
-        out["created_time"] = 0
+        import datetime
+
+        out["created_time"] = datetime.datetime.fromtimestamp(
+            0, tz=datetime.timezone.utc
+        )
     if "CreatedBy" in data:
         out["created_by"] = data["CreatedBy"]
     else:

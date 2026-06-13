@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import ensure_async_iterator
-from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import ensure_sync_iterator
-from aws_sdk_bedrock_agent_runtime._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agent_runtime._auth._signers
 import aws_sdk_bedrock_agent_runtime._auth._sigv4
+from aws_sdk_bedrock_agent_runtime._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import BedrockAgentRuntimeClient, BedrockAgentRuntimeClientConfig
-    from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import AsyncBedrockAgentRuntimeClient, AsyncBedrockAgentRuntimeClientConfig
     import aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier
     import aws_sdk_bedrock_agent_runtime.types.flow_execution_event
     import aws_sdk_bedrock_agent_runtime.types.flow_execution_event_type
@@ -30,11 +35,28 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response
     import aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_request
     import aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response
+    from aws_sdk_bedrock_agent_runtime._services.async_bedrock_agent_runtime import (
+        AsyncBedrockAgentRuntimeClient,
+        AsyncBedrockAgentRuntimeClientConfig,
+    )
+    from aws_sdk_bedrock_agent_runtime._services.bedrock_agent_runtime import (
+        BedrockAgentRuntimeClient,
+        BedrockAgentRuntimeClientConfig,
+    )
+
 
 class FlowExecutionResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
-    def get_execution_flow_snapshot(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None) -> "aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse":
+
+    def get_execution_flow_snapshot(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse":
         """<p>Retrieves the flow definition snapshot used for a flow execution. The snapshot represents the flow metadata and definition as it existed at the time the execution was started. Note that even if the flow is edited after an execution starts, the snapshot connected to the execution remains unchanged.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -42,9 +64,19 @@ class FlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the flow execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_execution_flow_snapshot
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_execution_flow_snapshot.get_execution_flow_snapshot(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_execution_flow_snapshot.get_execution_flow_snapshot(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -53,9 +85,21 @@ class FlowExecutionResource:
         input["flow_alias_identifier"] = flow_alias_identifier
         input["execution_identifier"] = execution_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_flow_execution(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None) -> "aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse":
+
+    def get_flow_execution(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse":
         """<p>Retrieves details about a specific flow execution, including its status, start and end times, and any errors that occurred during execution.</p>
 
         Args:
@@ -63,9 +107,19 @@ class FlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_flow_execution
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_flow_execution.get_flow_execution(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_flow_execution.get_flow_execution(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -74,9 +128,28 @@ class FlowExecutionResource:
         input["flow_alias_identifier"] = flow_alias_identifier
         input["execution_identifier"] = execution_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_flow_execution_events(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", event_type: "aws_sdk_bedrock_agent_runtime.types.flow_execution_event_type.FlowExecutionEventType", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse":
+
+    def list_flow_execution_events(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        event_type: "aws_sdk_bedrock_agent_runtime.types.flow_execution_event_type.FlowExecutionEventType",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse":
         """<p>Lists events that occurred during a flow execution. Events provide detailed information about the execution progress, including node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -87,9 +160,19 @@ class FlowExecutionResource:
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
             event_type: <p>The type of events to retrieve. Specify <code>Node</code> for node-level events or <code>Flow</code> for flow-level events.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_execution_events
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_execution_events.list_flow_execution_events(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_execution_events.list_flow_execution_events(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -103,9 +186,28 @@ class FlowExecutionResource:
             input["next_token"] = next_token
         input["event_type"] = event_type
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_flow_executions(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None, flow_alias_identifier: Optional["aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier"] = None, max_results: Optional["aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse":
+
+    def list_flow_executions(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+        flow_alias_identifier: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse":
         """<p>Lists all executions of a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -114,9 +216,19 @@ class FlowExecutionResource:
             max_results: <p>The maximum number of flow executions to return in a single response. If more executions exist than the specified <code>maxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_executions
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_executions.list_flow_executions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_executions.list_flow_executions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -129,9 +241,27 @@ class FlowExecutionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_flow_execution(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None, flow_execution_name: Optional["aws_sdk_bedrock_agent_runtime.types.flow_execution_name.FlowExecutionName"] = None, model_performance_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"] = None) -> "aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse":
+
+    def start_flow_execution(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+        flow_execution_name: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.flow_execution_name.FlowExecutionName"
+        ] = None,
+        model_performance_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse":
         """<p>Starts an execution of an Amazon Bedrock flow. Unlike flows that run until completion or time out after five minutes, flow executions let you run flows asynchronously for longer durations. Flow executions also yield control so that your application can perform other tasks.</p> <p>This operation returns an Amazon Resource Name (ARN) that you can use to track and manage your flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -141,9 +271,19 @@ class FlowExecutionResource:
             inputs: <p>The input data required for the flow execution. This must match the input schema defined in the flow.</p>
             model_performance_configuration: <p>The performance settings for the foundation model used in the flow execution.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.start_flow_execution
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.start_flow_execution.start_flow_execution(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.start_flow_execution.start_flow_execution(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -156,9 +296,21 @@ class FlowExecutionResource:
         if model_performance_configuration is not None:
             input["model_performance_configuration"] = model_performance_configuration
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def stop_flow_execution(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", *, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None) -> "aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse":
+
+    def stop_flow_execution(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        *,
+        config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse":
         """<p>Stops an Amazon Bedrock flow's execution. This operation prevents further processing of the flow and changes the execution status to <code>Aborted</code>.</p>
 
         Args:
@@ -166,9 +318,19 @@ class FlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to stop.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest]') -> OperationResponse["aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.stop_flow_execution
-            output, http_response = aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.stop_flow_execution.stop_flow_execution(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.stop_flow_execution.stop_flow_execution(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -177,13 +339,26 @@ class FlowExecutionResource:
         input["flow_alias_identifier"] = flow_alias_identifier
         input["execution_identifier"] = execution_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncFlowExecutionResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
-    async def get_execution_flow_snapshot(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None) -> "aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse":
+
+    async def get_execution_flow_snapshot(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse":
         """<p>Retrieves the flow definition snapshot used for a flow execution. The snapshot represents the flow metadata and definition as it existed at the time the execution was started. Note that even if the flow is edited after an execution starts, the snapshot connected to the execution remains unchanged.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -191,9 +366,20 @@ class AsyncFlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the flow execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.get_execution_flow_snapshot_response.GetExecutionFlowSnapshotResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_execution_flow_snapshot
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_execution_flow_snapshot.async_get_execution_flow_snapshot(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_execution_flow_snapshot.async_get_execution_flow_snapshot(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -202,9 +388,21 @@ class AsyncFlowExecutionResource:
         input["flow_alias_identifier"] = flow_alias_identifier
         input["execution_identifier"] = execution_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_flow_execution(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None) -> "aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse":
+
+    async def get_flow_execution(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse":
         """<p>Retrieves details about a specific flow execution, including its status, start and end times, and any errors that occurred during execution.</p>
 
         Args:
@@ -212,9 +410,20 @@ class AsyncFlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.get_flow_execution_response.GetFlowExecutionResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_flow_execution
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_flow_execution.async_get_flow_execution(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.get_flow_execution.async_get_flow_execution(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -223,9 +432,28 @@ class AsyncFlowExecutionResource:
         input["flow_alias_identifier"] = flow_alias_identifier
         input["execution_identifier"] = execution_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_flow_execution_events(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", event_type: "aws_sdk_bedrock_agent_runtime.types.flow_execution_event_type.FlowExecutionEventType", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse":
+
+    async def list_flow_execution_events(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        event_type: "aws_sdk_bedrock_agent_runtime.types.flow_execution_event_type.FlowExecutionEventType",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse":
         """<p>Lists events that occurred during a flow execution. Events provide detailed information about the execution progress, including node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -236,9 +464,20 @@ class AsyncFlowExecutionResource:
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
             event_type: <p>The type of events to retrieve. Specify <code>Node</code> for node-level events or <code>Flow</code> for flow-level events.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.list_flow_execution_events_response.ListFlowExecutionEventsResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_execution_events
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_execution_events.async_list_flow_execution_events(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_execution_events.async_list_flow_execution_events(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -252,9 +491,28 @@ class AsyncFlowExecutionResource:
             input["next_token"] = next_token
         input["event_type"] = event_type
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_flow_executions(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None, flow_alias_identifier: Optional["aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier"] = None, max_results: Optional["aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse":
+
+    async def list_flow_executions(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+        flow_alias_identifier: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse":
         """<p>Lists all executions of a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -263,9 +521,20 @@ class AsyncFlowExecutionResource:
             max_results: <p>The maximum number of flow executions to return in a single response. If more executions exist than the specified <code>maxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_executions
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_executions.async_list_flow_executions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.list_flow_executions.async_list_flow_executions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -278,9 +547,27 @@ class AsyncFlowExecutionResource:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_flow_execution(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None, flow_execution_name: Optional["aws_sdk_bedrock_agent_runtime.types.flow_execution_name.FlowExecutionName"] = None, model_performance_configuration: Optional["aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"] = None) -> "aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse":
+
+    async def start_flow_execution(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        inputs: "aws_sdk_bedrock_agent_runtime.types.flow_inputs.FlowInputs",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+        flow_execution_name: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.flow_execution_name.FlowExecutionName"
+        ] = None,
+        model_performance_configuration: Optional[
+            "aws_sdk_bedrock_agent_runtime.types.model_performance_configuration.ModelPerformanceConfiguration"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse":
         """<p>Starts an execution of an Amazon Bedrock flow. Unlike flows that run until completion or time out after five minutes, flow executions let you run flows asynchronously for longer durations. Flow executions also yield control so that your application can perform other tasks.</p> <p>This operation returns an Amazon Resource Name (ARN) that you can use to track and manage your flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
 
         Args:
@@ -290,9 +577,20 @@ class AsyncFlowExecutionResource:
             inputs: <p>The input data required for the flow execution. This must match the input schema defined in the flow.</p>
             model_performance_configuration: <p>The performance settings for the foundation model used in the flow execution.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.start_flow_execution_response.StartFlowExecutionResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.start_flow_execution
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.start_flow_execution.async_start_flow_execution(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.start_flow_execution.async_start_flow_execution(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -305,9 +603,21 @@ class AsyncFlowExecutionResource:
         if model_performance_configuration is not None:
             input["model_performance_configuration"] = model_performance_configuration
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def stop_flow_execution(self, flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier", flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier", execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier", *, config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None) -> "aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse":
+
+    async def stop_flow_execution(
+        self,
+        flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
+        flow_alias_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier.FlowAliasIdentifier",
+        execution_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse":
         """<p>Stops an Amazon Bedrock flow's execution. This operation prevents further processing of the flow and changes the execution status to <code>Aborted</code>.</p>
 
         Args:
@@ -315,9 +625,20 @@ class AsyncFlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to stop.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agent_runtime.types.stop_flow_execution_response.StopFlowExecutionResponse"
+        ]:
             import aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.stop_flow_execution
-            output, http_response = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.stop_flow_execution.async_stop_flow_execution(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agent_runtime._operations.amazon_bedrock_agent_run_time_service.stop_flow_execution.async_stop_flow_execution(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -326,5 +647,9 @@ class AsyncFlowExecutionResource:
         input["flow_alias_identifier"] = flow_alias_identifier
         input["execution_identifier"] = execution_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

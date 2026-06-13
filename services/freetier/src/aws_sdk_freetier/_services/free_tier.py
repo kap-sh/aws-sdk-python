@@ -1,20 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#AWSFreeTierService``."""
 
-from aws_sdk_freetier._auth._signers import SigV4Signer
-from aws_sdk_freetier._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from aws_sdk_freetier._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_freetier._auth._zapros_handler import AuthMiddleware
-from aws_sdk_freetier._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_freetier.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 from aws_sdk_freetier._auth._identity import Credentials
-from aws_sdk_freetier._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_freetier._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_freetier._auth._zapros_handler import AuthMiddleware
+from aws_sdk_freetier._pagination import resolve_path as _resolve_path
+from aws_sdk_freetier._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_freetier.types.account_plan_type
     import aws_sdk_freetier.types.activity_id
@@ -36,6 +44,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.upgrade_account_plan_request
     import aws_sdk_freetier.types.upgrade_account_plan_response
 
+
 class FreeTierClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -44,7 +53,9 @@ class FreeTierClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -52,6 +63,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class FreeTierClient:
     """A client for the ``FreeTier`` service.
@@ -66,19 +78,74 @@ class FreeTierClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = FreeTierClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[FreeTierClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = FreeTierClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[FreeTierClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: FreeTierClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def get_account_activity(self, activity_id: "aws_sdk_freetier.types.activity_id.ActivityId", *, config_overrides: Optional[FreeTierClientConfig] = None, language_code: Optional["aws_sdk_freetier.types.language_code.LanguageCode"] = None) -> "aws_sdk_freetier.types.get_account_activity_response.GetAccountActivityResponse":
+
+    def get_account_activity(
+        self,
+        activity_id: "aws_sdk_freetier.types.activity_id.ActivityId",
+        *,
+        config_overrides: Optional[FreeTierClientConfig] = None,
+        language_code: Optional[
+            "aws_sdk_freetier.types.language_code.LanguageCode"
+        ] = None,
+    ) -> "aws_sdk_freetier.types.get_account_activity_response.GetAccountActivityResponse":
         """<p> Returns a specific activity record that is available to the customer. </p>
 
         Args:
@@ -90,9 +157,19 @@ class FreeTierClient:
 
             >>> client.get_account_activity(activity_id='d622f48bf4014286a2686ab10cacfb2e', language_code='en-US')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_freetier.types.get_account_activity_request.GetAccountActivityRequest]') -> OperationResponse["aws_sdk_freetier.types.get_account_activity_response.GetAccountActivityResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_freetier.types.get_account_activity_request.GetAccountActivityRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_freetier.types.get_account_activity_response.GetAccountActivityResponse"
+        ]:
             import aws_sdk_freetier._operations.aws_free_tier_service.get_account_activity
-            output, http_response = aws_sdk_freetier._operations.aws_free_tier_service.get_account_activity.get_account_activity(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_freetier._operations.aws_free_tier_service.get_account_activity.get_account_activity(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -101,9 +178,16 @@ class FreeTierClient:
         if language_code is not None:
             input["language_code"] = language_code
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_account_plan_state(self, *, config_overrides: Optional[FreeTierClientConfig] = None) -> "aws_sdk_freetier.types.get_account_plan_state_response.GetAccountPlanStateResponse":
+
+    def get_account_plan_state(
+        self, *, config_overrides: Optional[FreeTierClientConfig] = None
+    ) -> "aws_sdk_freetier.types.get_account_plan_state_response.GetAccountPlanStateResponse":
         """<p> This returns all of the information related to the state of the account plan related to Free Tier. </p>
 
         Examples:
@@ -123,17 +207,41 @@ class FreeTierClient:
 
             >>> client.get_account_plan_state()
         """
-        def _handler(req: 'OperationRequest[aws_sdk_freetier.types.get_account_plan_state_request.GetAccountPlanStateRequest]') -> OperationResponse["aws_sdk_freetier.types.get_account_plan_state_response.GetAccountPlanStateResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_freetier.types.get_account_plan_state_request.GetAccountPlanStateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_freetier.types.get_account_plan_state_response.GetAccountPlanStateResponse"
+        ]:
             import aws_sdk_freetier._operations.aws_free_tier_service.get_account_plan_state
-            output, http_response = aws_sdk_freetier._operations.aws_free_tier_service.get_account_plan_state.get_account_plan_state(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_freetier._operations.aws_free_tier_service.get_account_plan_state.get_account_plan_state(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_freetier.types.get_account_plan_state_request.GetAccountPlanStateRequest = {}  # type: ignore[typeddict-item]
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_free_tier_usage(self, *, config_overrides: Optional[FreeTierClientConfig] = None, filter: Optional["aws_sdk_freetier.types.expression.Expression"] = None, max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_freetier.types.next_page_token.NextPageToken"] = None) -> "aws_sdk_freetier.types.get_free_tier_usage_response.GetFreeTierUsageResponse":
+
+    def get_free_tier_usage(
+        self,
+        *,
+        config_overrides: Optional[FreeTierClientConfig] = None,
+        filter: Optional["aws_sdk_freetier.types.expression.Expression"] = None,
+        max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_freetier.types.next_page_token.NextPageToken"
+        ] = None,
+    ) -> "aws_sdk_freetier.types.get_free_tier_usage_response.GetFreeTierUsageResponse":
         """<p>Returns a list of all Free Tier usage objects that match your filters.</p>
 
         Args:
@@ -141,9 +249,19 @@ class FreeTierClient:
             max_results: <p>The maximum number of results to return in the response. <code>MaxResults</code> means that there can be up to the specified number of values, but there might be fewer results based on your filters.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_freetier.types.get_free_tier_usage_request.GetFreeTierUsageRequest]') -> OperationResponse["aws_sdk_freetier.types.get_free_tier_usage_response.GetFreeTierUsageResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_freetier.types.get_free_tier_usage_request.GetFreeTierUsageRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_freetier.types.get_free_tier_usage_response.GetFreeTierUsageResponse"
+        ]:
             import aws_sdk_freetier._operations.aws_free_tier_service.get_free_tier_usage
-            output, http_response = aws_sdk_freetier._operations.aws_free_tier_service.get_free_tier_usage.get_free_tier_usage(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_freetier._operations.aws_free_tier_service.get_free_tier_usage.get_free_tier_usage(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -155,9 +273,23 @@ class FreeTierClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_get_free_tier_usage(self, *, config_overrides: Optional[FreeTierClientConfig] = None, filter: Optional["aws_sdk_freetier.types.expression.Expression"] = None, max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_freetier.types.next_page_token.NextPageToken"] = None) -> "Iterator[aws_sdk_freetier.types.free_tier_usage.FreeTierUsage]":
+
+    def iter_get_free_tier_usage(
+        self,
+        *,
+        config_overrides: Optional[FreeTierClientConfig] = None,
+        filter: Optional["aws_sdk_freetier.types.expression.Expression"] = None,
+        max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None,
+        next_token: Optional[
+            "aws_sdk_freetier.types.next_page_token.NextPageToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_freetier.types.free_tier_usage.FreeTierUsage]":
         _token = next_token
         while True:
             _response = self.get_free_tier_usage(
@@ -166,13 +298,28 @@ class FreeTierClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('free_tier_usages',))
+            _page = _resolve_path(_response, ("free_tier_usages",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_account_activities(self, *, config_overrides: Optional[FreeTierClientConfig] = None, filter_activity_statuses: Optional["aws_sdk_freetier.types.filter_activity_statuses.FilterActivityStatuses"] = None, next_token: Optional["aws_sdk_freetier.types.next_page_token.NextPageToken"] = None, max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None, language_code: Optional["aws_sdk_freetier.types.language_code.LanguageCode"] = None) -> "aws_sdk_freetier.types.list_account_activities_response.ListAccountActivitiesResponse":
+
+    def list_account_activities(
+        self,
+        *,
+        config_overrides: Optional[FreeTierClientConfig] = None,
+        filter_activity_statuses: Optional[
+            "aws_sdk_freetier.types.filter_activity_statuses.FilterActivityStatuses"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_freetier.types.next_page_token.NextPageToken"
+        ] = None,
+        max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None,
+        language_code: Optional[
+            "aws_sdk_freetier.types.language_code.LanguageCode"
+        ] = None,
+    ) -> "aws_sdk_freetier.types.list_account_activities_response.ListAccountActivitiesResponse":
         """<p> Returns a list of activities that are available. This operation supports pagination and filtering by status. </p>
 
         Args:
@@ -186,9 +333,19 @@ class FreeTierClient:
 
             >>> client.list_account_activities(filter_activity_statuses=['COMPLETED'], max_results=1, language_code='en-US')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_freetier.types.list_account_activities_request.ListAccountActivitiesRequest]') -> OperationResponse["aws_sdk_freetier.types.list_account_activities_response.ListAccountActivitiesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_freetier.types.list_account_activities_request.ListAccountActivitiesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_freetier.types.list_account_activities_response.ListAccountActivitiesResponse"
+        ]:
             import aws_sdk_freetier._operations.aws_free_tier_service.list_account_activities
-            output, http_response = aws_sdk_freetier._operations.aws_free_tier_service.list_account_activities.list_account_activities(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_freetier._operations.aws_free_tier_service.list_account_activities.list_account_activities(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -202,9 +359,28 @@ class FreeTierClient:
         if language_code is not None:
             input["language_code"] = language_code
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_account_activities(self, *, config_overrides: Optional[FreeTierClientConfig] = None, filter_activity_statuses: Optional["aws_sdk_freetier.types.filter_activity_statuses.FilterActivityStatuses"] = None, next_token: Optional["aws_sdk_freetier.types.next_page_token.NextPageToken"] = None, max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None, language_code: Optional["aws_sdk_freetier.types.language_code.LanguageCode"] = None) -> "Iterator[aws_sdk_freetier.types.activity_summary.ActivitySummary]":
+
+    def iter_list_account_activities(
+        self,
+        *,
+        config_overrides: Optional[FreeTierClientConfig] = None,
+        filter_activity_statuses: Optional[
+            "aws_sdk_freetier.types.filter_activity_statuses.FilterActivityStatuses"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_freetier.types.next_page_token.NextPageToken"
+        ] = None,
+        max_results: Optional["aws_sdk_freetier.types.max_results.MaxResults"] = None,
+        language_code: Optional[
+            "aws_sdk_freetier.types.language_code.LanguageCode"
+        ] = None,
+    ) -> "Iterator[aws_sdk_freetier.types.activity_summary.ActivitySummary]":
         _token = next_token
         while True:
             _response = self.list_account_activities(
@@ -214,13 +390,19 @@ class FreeTierClient:
                 max_results=max_results,
                 language_code=language_code,
             )
-            _page = _resolve_path(_response, ('activities',))
+            _page = _resolve_path(_response, ("activities",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def upgrade_account_plan(self, account_plan_type: "aws_sdk_freetier.types.account_plan_type.AccountPlanType", *, config_overrides: Optional[FreeTierClientConfig] = None) -> "aws_sdk_freetier.types.upgrade_account_plan_response.UpgradeAccountPlanResponse":
+
+    def upgrade_account_plan(
+        self,
+        account_plan_type: "aws_sdk_freetier.types.account_plan_type.AccountPlanType",
+        *,
+        config_overrides: Optional[FreeTierClientConfig] = None,
+    ) -> "aws_sdk_freetier.types.upgrade_account_plan_response.UpgradeAccountPlanResponse":
         """<p> The account plan type for the Amazon Web Services account. </p>
 
         Args:
@@ -246,18 +428,34 @@ class FreeTierClient:
 
             >>> client.upgrade_account_plan(account_plan_type='PAID')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_freetier.types.upgrade_account_plan_request.UpgradeAccountPlanRequest]') -> OperationResponse["aws_sdk_freetier.types.upgrade_account_plan_response.UpgradeAccountPlanResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_freetier.types.upgrade_account_plan_request.UpgradeAccountPlanRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_freetier.types.upgrade_account_plan_response.UpgradeAccountPlanResponse"
+        ]:
             import aws_sdk_freetier._operations.aws_free_tier_service.upgrade_account_plan
-            output, http_response = aws_sdk_freetier._operations.aws_free_tier_service.upgrade_account_plan.upgrade_account_plan(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_freetier._operations.aws_free_tier_service.upgrade_account_plan.upgrade_account_plan(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_freetier.types.upgrade_account_plan_request.UpgradeAccountPlanRequest = {}  # type: ignore[typeddict-item]
         input["account_plan_type"] = account_plan_type
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

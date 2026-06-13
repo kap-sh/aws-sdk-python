@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DataReplicationInfoReplicatedDisk``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
     import aws_sdk_drs.types.positive_integer
     import aws_sdk_drs.types.volume_status
+
 
 class DataReplicationInfoReplicatedDisk(TypedDict):
     device_name: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
@@ -20,6 +23,7 @@ class DataReplicationInfoReplicatedDisk(TypedDict):
     """<p>The size of the replication backlog in bytes.</p>"""
     volume_status: NotRequired["aws_sdk_drs.types.volume_status.VolumeStatus"]
     """<p>The status of the volume.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataReplicationInfoReplicatedDisk) -> dict:

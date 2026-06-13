@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateRetrieverResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.retriever_arn
     import aws_sdk_qbusiness.types.retriever_id
+
 
 class CreateRetrieverResponse(TypedDict):
     retriever_id: NotRequired["aws_sdk_qbusiness.types.retriever_id.RetrieverId"]
     """<p>The identifier of the retriever you are using.</p>"""
     retriever_arn: NotRequired["aws_sdk_qbusiness.types.retriever_arn.RetrieverArn"]
     """<p>The Amazon Resource Name (ARN) of an IAM role associated with a retriever.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateRetrieverResponse) -> dict:

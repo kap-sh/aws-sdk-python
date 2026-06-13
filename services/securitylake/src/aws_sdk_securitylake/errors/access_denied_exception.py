@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#AccessDeniedException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_securitylake.errors import ServiceError
+
 
 class AccessDeniedException_(TypedDict):
     message: NotRequired["str"]
     error_code: NotRequired["str"]
     """<p>A coded string to provide more information about the access denied exception. You can use the error code to check the exception type.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccessDeniedException_) -> dict:
@@ -30,10 +34,16 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.securitylake#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

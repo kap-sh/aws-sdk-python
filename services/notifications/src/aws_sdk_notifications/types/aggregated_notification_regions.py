@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AggregatedNotificationRegions``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.region
 
-AggregatedNotificationRegions: TypeAlias = list["aws_sdk_notifications.types.region.Region"]
+AggregatedNotificationRegions: TypeAlias = list[
+    "aws_sdk_notifications.types.region.Region"
+]
 
 
 # --- restJson1 ser/de ---

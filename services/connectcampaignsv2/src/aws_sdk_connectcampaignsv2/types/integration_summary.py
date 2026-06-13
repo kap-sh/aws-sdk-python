@@ -18,11 +18,12 @@ class _IntegrationSummary_qConnect(TypedDict):
     qConnect: "aws_sdk_connectcampaignsv2.types.q_connect_integration_summary.QConnectIntegrationSummary"
 
 
-class _IntegrationSummary_lambda(TypedDict):
-    lambda: (
-        "aws_sdk_connectcampaignsv2.types.lambda_integration_summary.LambdaIntegrationSummary"
-    )
-
+_IntegrationSummary_lambda = TypedDict(
+    "_IntegrationSummary_lambda",
+    {
+        "lambda": "aws_sdk_connectcampaignsv2.types.lambda_integration_summary.LambdaIntegrationSummary",
+    },
+)
 
 IntegrationSummary: TypeAlias = (
     _IntegrationSummary_customerProfiles

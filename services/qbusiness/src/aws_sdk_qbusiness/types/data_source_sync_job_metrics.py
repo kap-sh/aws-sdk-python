@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataSourceSyncJobMetrics``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.metric_value
+
 
 class DataSourceSyncJobMetrics(TypedDict):
     documents_added: NotRequired["aws_sdk_qbusiness.types.metric_value.MetricValue"]
@@ -16,6 +19,7 @@ class DataSourceSyncJobMetrics(TypedDict):
     """<p>The current count of documents that failed to sync from the data source during the data source sync.</p>"""
     documents_scanned: NotRequired["aws_sdk_qbusiness.types.metric_value.MetricValue"]
     """<p>The current count of documents crawled by the ongoing sync job in the data source.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DataSourceSyncJobMetrics) -> dict:

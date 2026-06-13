@@ -1,17 +1,27 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CustomLogSourceAttributes``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.amazon_resource_name
 
+
 class CustomLogSourceAttributes(TypedDict):
-    crawler_arn: NotRequired["aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"]
+    crawler_arn: NotRequired[
+        "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"
+    ]
     """<p>The ARN of the Glue crawler.</p>"""
-    database_arn: NotRequired["aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"]
+    database_arn: NotRequired[
+        "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"
+    ]
     """<p>The ARN of the Glue database where results are written, such as: <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>"""
-    table_arn: NotRequired["aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"]
+    table_arn: NotRequired[
+        "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"
+    ]
     """<p>The ARN of the Glue table.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomLogSourceAttributes) -> dict:

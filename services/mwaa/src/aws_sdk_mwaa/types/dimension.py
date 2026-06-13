@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#Dimension``."""
 
 from typing import TypedDict
+
 from aws_sdk_mwaa.errors import DeserializationError
+
 
 class Dimension(TypedDict):
     name: "str"
     """<p> <b>Internal only</b>. The name of the dimension.</p>"""
     value: "str"
     """<p> <b>Internal only</b>. The value of the dimension.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Dimension) -> dict:

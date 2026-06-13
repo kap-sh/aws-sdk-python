@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#ContactAttributes``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.contact_attribute_key
     import aws_sdk_wisdom.types.contact_attribute_value
 
-ContactAttributes: TypeAlias = dict["aws_sdk_wisdom.types.contact_attribute_key.ContactAttributeKey", "aws_sdk_wisdom.types.contact_attribute_value.ContactAttributeValue"]
+ContactAttributes: TypeAlias = dict[
+    "aws_sdk_wisdom.types.contact_attribute_key.ContactAttributeKey",
+    "aws_sdk_wisdom.types.contact_attribute_value.ContactAttributeValue",
+]
 
 
 # --- restJson1 ser/de ---

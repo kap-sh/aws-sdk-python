@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListPermissionsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.pagination_token
     import aws_sdk_grafana.types.sso_id
     import aws_sdk_grafana.types.user_type
     import aws_sdk_grafana.types.workspace_id
+
 
 class ListPermissionsRequest(TypedDict):
     max_results: NotRequired["int"]
@@ -21,6 +24,7 @@ class ListPermissionsRequest(TypedDict):
     """<p>(Optional) Limits the results to only the group that matches this ID.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace to list permissions for. This parameter is required.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListPermissionsRequest) -> dict:

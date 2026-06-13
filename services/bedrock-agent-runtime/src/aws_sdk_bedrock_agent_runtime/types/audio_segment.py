@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AudioSegment``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
+
 
 class AudioSegment(TypedDict):
     s3_uri: "str"
     """<p>The S3 URI where this specific audio segment is stored in the multimodal storage destination.</p>"""
     transcription: NotRequired["str"]
     """<p>The text transcription of the audio segment content.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AudioSegment) -> dict:

@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.backupsearch#ResultItem``."""
+
+from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
+from aws_sdk_backupsearch.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_backupsearch.types.ebs_result_item
+    import aws_sdk_backupsearch.types.s3_result_item
+
+
+class _ResultItem_S3ResultItem(TypedDict):
+    S3ResultItem: "aws_sdk_backupsearch.types.s3_result_item.S3ResultItem"
+
+
+class _ResultItem_EBSResultItem(TypedDict):
+    EBSResultItem: "aws_sdk_backupsearch.types.ebs_result_item.EBSResultItem"
+
+
+ResultItem: TypeAlias = _ResultItem_S3ResultItem | _ResultItem_EBSResultItem
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ResultItem) -> dict:
+    if "S3ResultItem" in value:
+        import aws_sdk_backupsearch.types.s3_result_item
+
+        return {
+            "S3ResultItem": aws_sdk_backupsearch.types.s3_result_item.serialize_json(
+                value["S3ResultItem"]
+            )
+        }
+    elif "EBSResultItem" in value:
+        import aws_sdk_backupsearch.types.ebs_result_item
+
+        return {
+            "EBSResultItem": aws_sdk_backupsearch.types.ebs_result_item.serialize_json(
+                value["EBSResultItem"]
+            )
+        }
+    else:
+        raise SerializationError("ResultItem: no variant present")
+
+
+def deserialize_json(data: dict) -> ResultItem:
+    if "S3ResultItem" in data:
+        import aws_sdk_backupsearch.types.s3_result_item
+
+        return {
+            "S3ResultItem": aws_sdk_backupsearch.types.s3_result_item.deserialize_json(
+                data["S3ResultItem"]
+            )
+        }
+    elif "EBSResultItem" in data:
+        import aws_sdk_backupsearch.types.ebs_result_item
+
+        return {
+            "EBSResultItem": aws_sdk_backupsearch.types.ebs_result_item.deserialize_json(
+                data["EBSResultItem"]
+            )
+        }
+    else:
+        raise DeserializationError("ResultItem: no recognized variant key")

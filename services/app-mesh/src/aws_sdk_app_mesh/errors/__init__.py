@@ -1,20 +1,36 @@
-"""Error types raised by generated service clients."""
 from __future__ import annotations
 
 from ._base import (
     DeserializationError as DeserializationError,
+)
+from ._base import (
     SerializationError as SerializationError,
+)
+from ._base import (
     ServiceError as ServiceError,
+)
+from ._base import (
     UnknownServiceError as UnknownServiceError,
+)
+from ._base import (
     WaiterFailedError as WaiterFailedError,
+)
+from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
-
-__all__ = [
-    "DeserializationError",
-    "SerializationError",
-    "ServiceError",
-    "UnknownServiceError",
-    "WaiterFailedError",
-    "WaiterTimeoutError",
-]
+from .bad_request_exception import BadRequestException as BadRequestException
+from .conflict_exception import ConflictException as ConflictException
+from .forbidden_exception import ForbiddenException as ForbiddenException
+from .internal_server_error_exception import (
+    InternalServerErrorException as InternalServerErrorException,
+)
+from .limit_exceeded_exception import LimitExceededException as LimitExceededException
+from .not_found_exception import NotFoundException as NotFoundException
+from .resource_in_use_exception import ResourceInUseException as ResourceInUseException
+from .service_unavailable_exception import (
+    ServiceUnavailableException as ServiceUnavailableException,
+)
+from .too_many_requests_exception import (
+    TooManyRequestsException as TooManyRequestsException,
+)
+from .too_many_tags_exception import TooManyTagsException as TooManyTagsException

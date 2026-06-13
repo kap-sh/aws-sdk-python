@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class DisassociateChannelResponse(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DisassociateChannelResponse) -> dict:

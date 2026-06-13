@@ -1,21 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.braket#Braket``."""
 
-from aws_sdk_braket._auth._signers import SigV4Signer
-from aws_sdk_braket._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_braket._auth._zapros_handler import AuthMiddleware
-from aws_sdk_braket._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_braket.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_braket._auth._signers
 import aws_sdk_braket._auth._sigv4
 from aws_sdk_braket._auth._identity import Credentials
-from aws_sdk_braket._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_braket._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_braket._auth._zapros_handler import AuthMiddleware
+from aws_sdk_braket._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_braket.types.list_tags_for_resource_request
     import aws_sdk_braket.types.list_tags_for_resource_response
@@ -26,6 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.untag_resource_request
     import aws_sdk_braket.types.untag_resource_response
 
+
 class BraketClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -35,7 +44,9 @@ class BraketClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -43,6 +54,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class BraketClient:
     """A client for the ``Braket`` service.
@@ -58,45 +70,133 @@ class BraketClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = BraketClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[BraketClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = BraketClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[BraketClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: BraketClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self.config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def list_tags_for_resource(self, resource_arn: str, *, config_overrides: Optional[BraketClientConfig] = None) -> "aws_sdk_braket.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: str,
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+    ) -> "aws_sdk_braket.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         """<p>Shows the tags associated with this resource.</p>
 
         Args:
             resource_arn: <p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.list_tags_for_resource_request.ListTagsForResourceRequest]') -> OperationResponse["aws_sdk_braket.types.list_tags_for_resource_response.ListTagsForResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
             import aws_sdk_braket._operations.braket.list_tags_for_resource
-            output, http_response = aws_sdk_braket._operations.braket.list_tags_for_resource.list_tags_for_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_braket.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def tag_resource(self, resource_arn: str, tags: "aws_sdk_braket.types.tags_map.TagsMap", *, config_overrides: Optional[BraketClientConfig] = None) -> "aws_sdk_braket.types.tag_resource_response.TagResourceResponse":
+
+    def tag_resource(
+        self,
+        resource_arn: str,
+        tags: "aws_sdk_braket.types.tags_map.TagsMap",
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+    ) -> "aws_sdk_braket.types.tag_resource_response.TagResourceResponse":
         """<p>Add a tag to the specified resource.</p>
 
         Args:
             resource_arn: <p>Specify the <code>resourceArn</code> of the resource to which a tag will be added.</p>
             tags: <p>Specify the tags to add to the resource. Tags can be specified as a key-value map.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.tag_resource_request.TagResourceRequest]') -> OperationResponse["aws_sdk_braket.types.tag_resource_response.TagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.tag_resource_response.TagResourceResponse"
+        ]:
             import aws_sdk_braket._operations.braket.tag_resource
-            output, http_response = aws_sdk_braket._operations.braket.tag_resource.tag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -104,18 +204,39 @@ class BraketClient:
         input["resource_arn"] = resource_arn
         input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def untag_resource(self, resource_arn: str, tag_keys: "aws_sdk_braket.types.tag_keys.TagKeys", *, config_overrides: Optional[BraketClientConfig] = None) -> "aws_sdk_braket.types.untag_resource_response.UntagResourceResponse":
+
+    def untag_resource(
+        self,
+        resource_arn: str,
+        tag_keys: "aws_sdk_braket.types.tag_keys.TagKeys",
+        *,
+        config_overrides: Optional[BraketClientConfig] = None,
+    ) -> "aws_sdk_braket.types.untag_resource_response.UntagResourceResponse":
         """<p>Remove tags from a resource.</p>
 
         Args:
             resource_arn: <p>Specify the <code>resourceArn</code> for the resource from which to remove the tags.</p>
             tag_keys: <p>Specify the keys for the tags to remove from the resource.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_braket.types.untag_resource_request.UntagResourceRequest]') -> OperationResponse["aws_sdk_braket.types.untag_resource_response.UntagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_braket.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_braket.types.untag_resource_response.UntagResourceResponse"
+        ]:
             import aws_sdk_braket._operations.braket.untag_resource
-            output, http_response = aws_sdk_braket._operations.braket.untag_resource.untag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_braket._operations.braket.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -123,9 +244,15 @@ class BraketClient:
         input["resource_arn"] = resource_arn
         input["tag_keys"] = tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

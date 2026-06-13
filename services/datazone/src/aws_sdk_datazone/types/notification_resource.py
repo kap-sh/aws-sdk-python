@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#NotificationResource``."""
+
+from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import NotRequired
+from aws_sdk_datazone.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_datazone.types.notification_resource_type
+
+
+class NotificationResource(TypedDict):
+    type: "aws_sdk_datazone.types.notification_resource_type.NotificationResourceType"
+    """<p>The type of the resource mentioned in a notification.</p>"""
+    id: "str"
+    """<p>The ID of the resource mentioned in a notification.</p>"""
+    name: NotRequired["str"]
+    """<p>The name of the resource mentioned in a notification.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: NotificationResource) -> dict:
+    out: dict = {}
+    import aws_sdk_datazone.types.notification_resource_type
+
+    out["type"] = aws_sdk_datazone.types.notification_resource_type.serialize_json(
+        value["type"]
+    )
+    out["id"] = value["id"]
+    if "name" in value:
+        out["name"] = value["name"]
+    return out
+
+
+def deserialize_json(data: dict) -> NotificationResource:
+    out: NotificationResource = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        import aws_sdk_datazone.types.notification_resource_type
+
+        out["type"] = (
+            aws_sdk_datazone.types.notification_resource_type.deserialize_json(
+                data["type"]
+            )
+        )
+    else:
+        raise DeserializationError("NotificationResource.type required")
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("NotificationResource.id required")
+    if "name" in data:
+        out["name"] = data["name"]
+    return out

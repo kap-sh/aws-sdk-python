@@ -1,0 +1,425 @@
+from typing import Optional, TYPE_CHECKING
+from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import ensure_async_iterator
+from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import ensure_sync_iterator
+from aws_sdk_bedrock_agentcore_control._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+import aws_sdk_bedrock_agentcore_control._auth._signers
+import aws_sdk_bedrock_agentcore_control._auth._sigv4
+if TYPE_CHECKING:
+    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import BedrockAgentCoreControlClient, BedrockAgentCoreControlClientConfig
+    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import AsyncBedrockAgentCoreControlClient, AsyncBedrockAgentCoreControlClientConfig
+    import aws_sdk_bedrock_agentcore_control.types.authorizer_configuration
+    import aws_sdk_bedrock_agentcore_control.types.client_token
+    import aws_sdk_bedrock_agentcore_control.types.create_harness_request
+    import aws_sdk_bedrock_agentcore_control.types.create_harness_response
+    import aws_sdk_bedrock_agentcore_control.types.delete_harness_request
+    import aws_sdk_bedrock_agentcore_control.types.delete_harness_response
+    import aws_sdk_bedrock_agentcore_control.types.environment_variables_map
+    import aws_sdk_bedrock_agentcore_control.types.get_harness_request
+    import aws_sdk_bedrock_agentcore_control.types.get_harness_response
+    import aws_sdk_bedrock_agentcore_control.types.harness_allowed_tools
+    import aws_sdk_bedrock_agentcore_control.types.harness_environment_artifact
+    import aws_sdk_bedrock_agentcore_control.types.harness_environment_provider_request
+    import aws_sdk_bedrock_agentcore_control.types.harness_id
+    import aws_sdk_bedrock_agentcore_control.types.harness_memory_configuration
+    import aws_sdk_bedrock_agentcore_control.types.harness_model_configuration
+    import aws_sdk_bedrock_agentcore_control.types.harness_name
+    import aws_sdk_bedrock_agentcore_control.types.harness_skills
+    import aws_sdk_bedrock_agentcore_control.types.harness_summary
+    import aws_sdk_bedrock_agentcore_control.types.harness_system_prompt
+    import aws_sdk_bedrock_agentcore_control.types.harness_tools
+    import aws_sdk_bedrock_agentcore_control.types.harness_truncation_configuration
+    import aws_sdk_bedrock_agentcore_control.types.list_harnesses_request
+    import aws_sdk_bedrock_agentcore_control.types.list_harnesses_response
+    import aws_sdk_bedrock_agentcore_control.types.max_results
+    import aws_sdk_bedrock_agentcore_control.types.next_token
+    import aws_sdk_bedrock_agentcore_control.types.role_arn
+    import aws_sdk_bedrock_agentcore_control.types.tags_map
+    import aws_sdk_bedrock_agentcore_control.types.update_harness_request
+    import aws_sdk_bedrock_agentcore_control.types.update_harness_response
+    import aws_sdk_bedrock_agentcore_control.types.updated_authorizer_configuration
+    import aws_sdk_bedrock_agentcore_control.types.updated_harness_environment_artifact
+    import aws_sdk_bedrock_agentcore_control.types.updated_harness_memory_configuration
+
+class HarnessResource:
+    def __init__(self, service: BedrockAgentCoreControlClient) -> None:
+        self._service = service
+    def create_harness(self, harness_name: "aws_sdk_bedrock_agentcore_control.types.harness_name.HarnessName", execution_role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, environment: Optional["aws_sdk_bedrock_agentcore_control.types.harness_environment_provider_request.HarnessEnvironmentProviderRequest"] = None, environment_artifact: Optional["aws_sdk_bedrock_agentcore_control.types.harness_environment_artifact.HarnessEnvironmentArtifact"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"] = None, model: Optional["aws_sdk_bedrock_agentcore_control.types.harness_model_configuration.HarnessModelConfiguration"] = None, system_prompt: Optional["aws_sdk_bedrock_agentcore_control.types.harness_system_prompt.HarnessSystemPrompt"] = None, tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_tools.HarnessTools"] = None, skills: Optional["aws_sdk_bedrock_agentcore_control.types.harness_skills.HarnessSkills"] = None, allowed_tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_allowed_tools.HarnessAllowedTools"] = None, memory: Optional["aws_sdk_bedrock_agentcore_control.types.harness_memory_configuration.HarnessMemoryConfiguration"] = None, truncation: Optional["aws_sdk_bedrock_agentcore_control.types.harness_truncation_configuration.HarnessTruncationConfiguration"] = None, max_iterations: Optional[int] = None, max_tokens: Optional[int] = None, timeout_seconds: Optional[int] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_harness_response.CreateHarnessResponse":
+        """<p>Operation to create a Harness.</p>
+
+        Args:
+            harness_name: <p>The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+            execution_role_arn: <p>The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.</p>
+            environment: <p>The compute environment configuration for the harness, including network and lifecycle settings.</p>
+            environment_artifact: <p>The environment artifact for the harness, such as a custom container image containing additional dependencies.</p>
+            environment_variables: <p>Environment variables to set in the harness runtime environment.</p>
+            model: <p>The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.</p>
+            system_prompt: <p>The system prompt that defines the agent's behavior and instructions.</p>
+            tools: <p>The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.</p>
+            skills: <p>The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.</p>
+            allowed_tools: <p>The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.</p>
+            memory: <p>The AgentCore Memory configuration for persisting conversation context across sessions.</p>
+            truncation: <p>The truncation configuration for managing conversation context when it exceeds model limits.</p>
+            max_iterations: <p>The maximum number of iterations the agent loop can execute per invocation.</p>
+            max_tokens: <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
+            timeout_seconds: <p>The maximum duration in seconds for the agent loop execution per invocation.</p>
+            tags: <p>Tags to apply to the harness resource.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.create_harness_response.CreateHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_harness
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_harness.create_harness(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_name"] = harness_name
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["execution_role_arn"] = execution_role_arn
+        if environment is not None:
+            input["environment"] = environment
+        if environment_artifact is not None:
+            input["environment_artifact"] = environment_artifact
+        if environment_variables is not None:
+            input["environment_variables"] = environment_variables
+        if authorizer_configuration is not None:
+            input["authorizer_configuration"] = authorizer_configuration
+        if model is not None:
+            input["model"] = model
+        if system_prompt is not None:
+            input["system_prompt"] = system_prompt
+        if tools is not None:
+            input["tools"] = tools
+        if skills is not None:
+            input["skills"] = skills
+        if allowed_tools is not None:
+            input["allowed_tools"] = allowed_tools
+        if memory is not None:
+            input["memory"] = memory
+        if truncation is not None:
+            input["truncation"] = truncation
+        if max_iterations is not None:
+            input["max_iterations"] = max_iterations
+        if max_tokens is not None:
+            input["max_tokens"] = max_tokens
+        if timeout_seconds is not None:
+            input["timeout_seconds"] = timeout_seconds
+        if tags is not None:
+            input["tags"] = tags
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def delete_harness(self, harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_harness_response.DeleteHarnessResponse":
+        """<p>Operation to delete a Harness.</p>
+
+        Args:
+            harness_id: <p>The ID of the harness to delete.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_harness_response.DeleteHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_harness
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_harness.delete_harness(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_id"] = harness_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def get_harness(self, harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_harness_response.GetHarnessResponse":
+        """<p>Operation to get a single Harness.</p>
+
+        Args:
+            harness_id: <p>The ID of the harness to retrieve.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.get_harness_response.GetHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_harness
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_harness.get_harness(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_id"] = harness_id
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def list_harnesses(self, *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_harnesses_response.ListHarnessesResponse":
+        """<p>Operation to list Harnesses.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to return in a single call.</p>
+            next_token: <p>The token for the next set of results.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_harnesses_response.ListHarnessesResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_harnesses
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_harnesses.list_harnesses(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    def update_harness(self, harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, execution_role_arn: Optional["aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn"] = None, environment: Optional["aws_sdk_bedrock_agentcore_control.types.harness_environment_provider_request.HarnessEnvironmentProviderRequest"] = None, environment_artifact: Optional["aws_sdk_bedrock_agentcore_control.types.updated_harness_environment_artifact.UpdatedHarnessEnvironmentArtifact"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.updated_authorizer_configuration.UpdatedAuthorizerConfiguration"] = None, model: Optional["aws_sdk_bedrock_agentcore_control.types.harness_model_configuration.HarnessModelConfiguration"] = None, system_prompt: Optional["aws_sdk_bedrock_agentcore_control.types.harness_system_prompt.HarnessSystemPrompt"] = None, tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_tools.HarnessTools"] = None, skills: Optional["aws_sdk_bedrock_agentcore_control.types.harness_skills.HarnessSkills"] = None, allowed_tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_allowed_tools.HarnessAllowedTools"] = None, memory: Optional["aws_sdk_bedrock_agentcore_control.types.updated_harness_memory_configuration.UpdatedHarnessMemoryConfiguration"] = None, truncation: Optional["aws_sdk_bedrock_agentcore_control.types.harness_truncation_configuration.HarnessTruncationConfiguration"] = None, max_iterations: Optional[int] = None, max_tokens: Optional[int] = None, timeout_seconds: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_harness_response.UpdateHarnessResponse":
+        """<p>Operation to update a Harness.</p>
+
+        Args:
+            harness_id: <p>The ID of the harness to update.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+            execution_role_arn: <p>The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.</p>
+            environment: <p>The compute environment configuration for the harness. If not specified, the existing value is retained.</p>
+            environment_artifact: <p>The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+            environment_variables: <p>Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.</p>
+            model: <p>The model configuration for the harness. If not specified, the existing value is retained.</p>
+            system_prompt: <p>The system prompt that defines the agent's behavior. If not specified, the existing value is retained.</p>
+            tools: <p>The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.</p>
+            skills: <p>The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.</p>
+            allowed_tools: <p>The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.</p>
+            memory: <p>The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+            truncation: <p>The truncation configuration for managing conversation context. If not specified, the existing value is retained.</p>
+            max_iterations: <p>The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.</p>
+            max_tokens: <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.</p>
+            timeout_seconds: <p>The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.</p>
+        """
+        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.update_harness_response.UpdateHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_harness
+            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_harness.update_harness(req.options, req.input)
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_id"] = harness_id
+        if client_token is not None:
+            input["client_token"] = client_token
+        if execution_role_arn is not None:
+            input["execution_role_arn"] = execution_role_arn
+        if environment is not None:
+            input["environment"] = environment
+        if environment_artifact is not None:
+            input["environment_artifact"] = environment_artifact
+        if environment_variables is not None:
+            input["environment_variables"] = environment_variables
+        if authorizer_configuration is not None:
+            input["authorizer_configuration"] = authorizer_configuration
+        if model is not None:
+            input["model"] = model
+        if system_prompt is not None:
+            input["system_prompt"] = system_prompt
+        if tools is not None:
+            input["tools"] = tools
+        if skills is not None:
+            input["skills"] = skills
+        if allowed_tools is not None:
+            input["allowed_tools"] = allowed_tools
+        if memory is not None:
+            input["memory"] = memory
+        if truncation is not None:
+            input["truncation"] = truncation
+        if max_iterations is not None:
+            input["max_iterations"] = max_iterations
+        if max_tokens is not None:
+            input["max_tokens"] = max_tokens
+        if timeout_seconds is not None:
+            input["timeout_seconds"] = timeout_seconds
+
+        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+
+class AsyncHarnessResource:
+    def __init__(self, service: AsyncBedrockAgentCoreControlClient) -> None:
+        self._service = service
+    async def create_harness(self, harness_name: "aws_sdk_bedrock_agentcore_control.types.harness_name.HarnessName", execution_role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, environment: Optional["aws_sdk_bedrock_agentcore_control.types.harness_environment_provider_request.HarnessEnvironmentProviderRequest"] = None, environment_artifact: Optional["aws_sdk_bedrock_agentcore_control.types.harness_environment_artifact.HarnessEnvironmentArtifact"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"] = None, model: Optional["aws_sdk_bedrock_agentcore_control.types.harness_model_configuration.HarnessModelConfiguration"] = None, system_prompt: Optional["aws_sdk_bedrock_agentcore_control.types.harness_system_prompt.HarnessSystemPrompt"] = None, tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_tools.HarnessTools"] = None, skills: Optional["aws_sdk_bedrock_agentcore_control.types.harness_skills.HarnessSkills"] = None, allowed_tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_allowed_tools.HarnessAllowedTools"] = None, memory: Optional["aws_sdk_bedrock_agentcore_control.types.harness_memory_configuration.HarnessMemoryConfiguration"] = None, truncation: Optional["aws_sdk_bedrock_agentcore_control.types.harness_truncation_configuration.HarnessTruncationConfiguration"] = None, max_iterations: Optional[int] = None, max_tokens: Optional[int] = None, timeout_seconds: Optional[int] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_harness_response.CreateHarnessResponse":
+        """<p>Operation to create a Harness.</p>
+
+        Args:
+            harness_name: <p>The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+            execution_role_arn: <p>The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.</p>
+            environment: <p>The compute environment configuration for the harness, including network and lifecycle settings.</p>
+            environment_artifact: <p>The environment artifact for the harness, such as a custom container image containing additional dependencies.</p>
+            environment_variables: <p>Environment variables to set in the harness runtime environment.</p>
+            model: <p>The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.</p>
+            system_prompt: <p>The system prompt that defines the agent's behavior and instructions.</p>
+            tools: <p>The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.</p>
+            skills: <p>The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.</p>
+            allowed_tools: <p>The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.</p>
+            memory: <p>The AgentCore Memory configuration for persisting conversation context across sessions.</p>
+            truncation: <p>The truncation configuration for managing conversation context when it exceeds model limits.</p>
+            max_iterations: <p>The maximum number of iterations the agent loop can execute per invocation.</p>
+            max_tokens: <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
+            timeout_seconds: <p>The maximum duration in seconds for the agent loop execution per invocation.</p>
+            tags: <p>Tags to apply to the harness resource.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.create_harness_response.CreateHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_harness
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_harness.async_create_harness(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_name"] = harness_name
+        if client_token is not None:
+            input["client_token"] = client_token
+        input["execution_role_arn"] = execution_role_arn
+        if environment is not None:
+            input["environment"] = environment
+        if environment_artifact is not None:
+            input["environment_artifact"] = environment_artifact
+        if environment_variables is not None:
+            input["environment_variables"] = environment_variables
+        if authorizer_configuration is not None:
+            input["authorizer_configuration"] = authorizer_configuration
+        if model is not None:
+            input["model"] = model
+        if system_prompt is not None:
+            input["system_prompt"] = system_prompt
+        if tools is not None:
+            input["tools"] = tools
+        if skills is not None:
+            input["skills"] = skills
+        if allowed_tools is not None:
+            input["allowed_tools"] = allowed_tools
+        if memory is not None:
+            input["memory"] = memory
+        if truncation is not None:
+            input["truncation"] = truncation
+        if max_iterations is not None:
+            input["max_iterations"] = max_iterations
+        if max_tokens is not None:
+            input["max_tokens"] = max_tokens
+        if timeout_seconds is not None:
+            input["timeout_seconds"] = timeout_seconds
+        if tags is not None:
+            input["tags"] = tags
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def delete_harness(self, harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_harness_response.DeleteHarnessResponse":
+        """<p>Operation to delete a Harness.</p>
+
+        Args:
+            harness_id: <p>The ID of the harness to delete.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_harness_response.DeleteHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_harness
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_harness.async_delete_harness(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_id"] = harness_id
+        if client_token is not None:
+            input["client_token"] = client_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def get_harness(self, harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_harness_response.GetHarnessResponse":
+        """<p>Operation to get a single Harness.</p>
+
+        Args:
+            harness_id: <p>The ID of the harness to retrieve.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.get_harness_response.GetHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_harness
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_harness.async_get_harness(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_id"] = harness_id
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def list_harnesses(self, *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_harnesses_response.ListHarnessesResponse":
+        """<p>Operation to list Harnesses.</p>
+
+        Args:
+            max_results: <p>The maximum number of results to return in a single call.</p>
+            next_token: <p>The token for the next set of results.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_harnesses_response.ListHarnessesResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_harnesses
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_harnesses.async_list_harnesses(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input["max_results"] = max_results
+        if next_token is not None:
+            input["next_token"] = next_token
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output
+    async def update_harness(self, harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, execution_role_arn: Optional["aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn"] = None, environment: Optional["aws_sdk_bedrock_agentcore_control.types.harness_environment_provider_request.HarnessEnvironmentProviderRequest"] = None, environment_artifact: Optional["aws_sdk_bedrock_agentcore_control.types.updated_harness_environment_artifact.UpdatedHarnessEnvironmentArtifact"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.updated_authorizer_configuration.UpdatedAuthorizerConfiguration"] = None, model: Optional["aws_sdk_bedrock_agentcore_control.types.harness_model_configuration.HarnessModelConfiguration"] = None, system_prompt: Optional["aws_sdk_bedrock_agentcore_control.types.harness_system_prompt.HarnessSystemPrompt"] = None, tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_tools.HarnessTools"] = None, skills: Optional["aws_sdk_bedrock_agentcore_control.types.harness_skills.HarnessSkills"] = None, allowed_tools: Optional["aws_sdk_bedrock_agentcore_control.types.harness_allowed_tools.HarnessAllowedTools"] = None, memory: Optional["aws_sdk_bedrock_agentcore_control.types.updated_harness_memory_configuration.UpdatedHarnessMemoryConfiguration"] = None, truncation: Optional["aws_sdk_bedrock_agentcore_control.types.harness_truncation_configuration.HarnessTruncationConfiguration"] = None, max_iterations: Optional[int] = None, max_tokens: Optional[int] = None, timeout_seconds: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_harness_response.UpdateHarnessResponse":
+        """<p>Operation to update a Harness.</p>
+
+        Args:
+            harness_id: <p>The ID of the harness to update.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+            execution_role_arn: <p>The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.</p>
+            environment: <p>The compute environment configuration for the harness. If not specified, the existing value is retained.</p>
+            environment_artifact: <p>The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+            environment_variables: <p>Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.</p>
+            model: <p>The model configuration for the harness. If not specified, the existing value is retained.</p>
+            system_prompt: <p>The system prompt that defines the agent's behavior. If not specified, the existing value is retained.</p>
+            tools: <p>The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.</p>
+            skills: <p>The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.</p>
+            allowed_tools: <p>The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.</p>
+            memory: <p>The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+            truncation: <p>The truncation configuration for managing conversation context. If not specified, the existing value is retained.</p>
+            max_iterations: <p>The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.</p>
+            max_tokens: <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.</p>
+            timeout_seconds: <p>The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.</p>
+        """
+        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.update_harness_response.UpdateHarnessResponse"]:
+            import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_harness
+            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_harness.async_update_harness(req.options, req.input)
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input: aws_sdk_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest = {}  # type: ignore[typeddict-item]
+        input["harness_id"] = harness_id
+        if client_token is not None:
+            input["client_token"] = client_token
+        if execution_role_arn is not None:
+            input["execution_role_arn"] = execution_role_arn
+        if environment is not None:
+            input["environment"] = environment
+        if environment_artifact is not None:
+            input["environment_artifact"] = environment_artifact
+        if environment_variables is not None:
+            input["environment_variables"] = environment_variables
+        if authorizer_configuration is not None:
+            input["authorizer_configuration"] = authorizer_configuration
+        if model is not None:
+            input["model"] = model
+        if system_prompt is not None:
+            input["system_prompt"] = system_prompt
+        if tools is not None:
+            input["tools"] = tools
+        if skills is not None:
+            input["skills"] = skills
+        if allowed_tools is not None:
+            input["allowed_tools"] = allowed_tools
+        if memory is not None:
+            input["memory"] = memory
+        if truncation is not None:
+            input["truncation"] = truncation
+        if max_iterations is not None:
+            input["max_iterations"] = max_iterations
+        if max_tokens is not None:
+            input["max_tokens"] = max_tokens
+        if timeout_seconds is not None:
+            input["timeout_seconds"] = timeout_seconds
+
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        return response.output

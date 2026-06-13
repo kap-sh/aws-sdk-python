@@ -3,16 +3,16 @@
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 if TYPE_CHECKING:
-    import aws_sdk_verifiedpermissions.types.record_attribute
     import aws_sdk_verifiedpermissions.types.boolean_attribute
-    import aws_sdk_verifiedpermissions.types.datetime_attribute
     import aws_sdk_verifiedpermissions.types.entity_identifier
-    import aws_sdk_verifiedpermissions.types.string_attribute
     import aws_sdk_verifiedpermissions.types.long_attribute
+    import aws_sdk_verifiedpermissions.types.string_attribute
     import aws_sdk_verifiedpermissions.types.set_attribute
-    import aws_sdk_verifiedpermissions.types.duration
-    import aws_sdk_verifiedpermissions.types.decimal
+    import aws_sdk_verifiedpermissions.types.record_attribute
     import aws_sdk_verifiedpermissions.types.ip_addr
+    import aws_sdk_verifiedpermissions.types.decimal
+    import aws_sdk_verifiedpermissions.types.datetime_attribute
+    import aws_sdk_verifiedpermissions.types.duration
 
 class _AttributeValue_boolean(TypedDict):
     boolean: "aws_sdk_verifiedpermissions.types.boolean_attribute.BooleanAttribute"

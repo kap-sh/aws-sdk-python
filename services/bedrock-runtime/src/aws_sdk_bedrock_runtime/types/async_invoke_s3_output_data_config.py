@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#AsyncInvokeS3OutputDataConfig``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_runtime.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.account_id
     import aws_sdk_bedrock_runtime.types.kms_key_id
     import aws_sdk_bedrock_runtime.types.s3_uri
+
 
 class AsyncInvokeS3OutputDataConfig(TypedDict):
     s3_uri: "aws_sdk_bedrock_runtime.types.s3_uri.S3Uri"
@@ -15,6 +19,7 @@ class AsyncInvokeS3OutputDataConfig(TypedDict):
     """<p>A KMS encryption key ID.</p>"""
     bucket_owner: NotRequired["aws_sdk_bedrock_runtime.types.account_id.AccountId"]
     """<p>If the bucket belongs to another AWS account, specify that account's ID.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AsyncInvokeS3OutputDataConfig) -> dict:

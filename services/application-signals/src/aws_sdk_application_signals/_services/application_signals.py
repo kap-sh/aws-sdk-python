@@ -1,22 +1,31 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ApplicationSignals``."""
 
-from aws_sdk_application_signals._auth._signers import SigV4Signer
-from aws_sdk_application_signals._auth._sigv4 import presign_sigv4
-from collections.abc import Iterator
-from aws_sdk_application_signals._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_application_signals._auth._zapros_handler import AuthMiddleware
-from aws_sdk_application_signals._services._pipeline import Interceptor, OperationOptions, OperationRequest, OperationResponse, execute_pipeline, retry
-import time
-from aws_sdk_application_signals.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
+import datetime
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_application_signals._auth._signers
 import aws_sdk_application_signals._auth._sigv4
 from aws_sdk_application_signals._auth._identity import Credentials
-from aws_sdk_application_signals._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_application_signals._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_application_signals._auth._zapros_handler import AuthMiddleware
+from aws_sdk_application_signals._pagination import resolve_path as _resolve_path
+from aws_sdk_application_signals._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.amazon_resource_name
     import aws_sdk_application_signals.types.attribute_filters
@@ -83,6 +92,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.untag_resource_request
     import aws_sdk_application_signals.types.untag_resource_response
 
+
 class ApplicationSignalsClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int
@@ -91,7 +101,9 @@ class ApplicationSignalsClientConfig(TypedDict, total=False):
     region: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
+
 
 def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     if isinstance(it, bytes):
@@ -99,6 +111,7 @@ def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
     else:
         for chunk in it:
             yield chunk
+
 
 class ApplicationSignalsClient:
     """A client for the ``ApplicationSignals`` service.
@@ -113,28 +126,91 @@ class ApplicationSignalsClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: BaseHandler | None = None, operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, use_fips: bool | None = None, endpoint: str | None = None, region: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = Client(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ApplicationSignalsClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "use_fips": use_fips, "endpoint": endpoint, "region": region, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        self.config = ApplicationSignalsClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[ApplicationSignalsClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: ApplicationSignalsClientConfig = config_overrides or {}
-        interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
-        options_: OperationOptions = OperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), region=overrides.get("region", self.config.get("region")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            region=overrides.get("region", self.config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    def batch_get_service_level_objective_budget_report(self, timestamp: datetime.datetime, slo_ids: "aws_sdk_application_signals.types.service_level_objective_ids.ServiceLevelObjectiveIds", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_output.BatchGetServiceLevelObjectiveBudgetReportOutput":
+
+    def batch_get_service_level_objective_budget_report(
+        self,
+        timestamp: datetime.datetime,
+        slo_ids: "aws_sdk_application_signals.types.service_level_objective_ids.ServiceLevelObjectiveIds",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_output.BatchGetServiceLevelObjectiveBudgetReportOutput":
         """<p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p> <p>An <i>error budget</i> is the amount of time or requests in an unhealthy state that your service can accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be unmet. For example, an SLO with a threshold of 99.95% and a monthly interval translates to an error budget of 21.9 minutes of downtime in a 30-day month.</p> <p>Budget reports include a health indicator, the attainment value, and remaining budget.</p> <p>For more information about SLO error budgets, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts\"> SLO concepts</a>.</p>
 
         Args:
             timestamp: <p>The date and time that you want the report to be for. It is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
             slo_ids: <p>An array containing the IDs of the service level objectives that you want to include in the report.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_input.BatchGetServiceLevelObjectiveBudgetReportInput]') -> OperationResponse["aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_output.BatchGetServiceLevelObjectiveBudgetReportOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_input.BatchGetServiceLevelObjectiveBudgetReportInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_output.BatchGetServiceLevelObjectiveBudgetReportOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.batch_get_service_level_objective_budget_report
-            output, http_response = aws_sdk_application_signals._operations.application_signals.batch_get_service_level_objective_budget_report.batch_get_service_level_objective_budget_report(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.batch_get_service_level_objective_budget_report.batch_get_service_level_objective_budget_report(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -142,9 +218,25 @@ class ApplicationSignalsClient:
         input["timestamp"] = timestamp
         input["slo_ids"] = slo_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def batch_update_exclusion_windows(self, slo_ids: "aws_sdk_application_signals.types.service_level_objective_ids.ServiceLevelObjectiveIds", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, add_exclusion_windows: Optional["aws_sdk_application_signals.types.exclusion_windows.ExclusionWindows"] = None, remove_exclusion_windows: Optional["aws_sdk_application_signals.types.exclusion_windows.ExclusionWindows"] = None) -> "aws_sdk_application_signals.types.batch_update_exclusion_windows_output.BatchUpdateExclusionWindowsOutput":
+
+    def batch_update_exclusion_windows(
+        self,
+        slo_ids: "aws_sdk_application_signals.types.service_level_objective_ids.ServiceLevelObjectiveIds",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        add_exclusion_windows: Optional[
+            "aws_sdk_application_signals.types.exclusion_windows.ExclusionWindows"
+        ] = None,
+        remove_exclusion_windows: Optional[
+            "aws_sdk_application_signals.types.exclusion_windows.ExclusionWindows"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.batch_update_exclusion_windows_output.BatchUpdateExclusionWindowsOutput":
         """<p>Add or remove time window exclusions for one or more Service Level Objectives (SLOs).</p>
 
         Args:
@@ -152,9 +244,19 @@ class ApplicationSignalsClient:
             add_exclusion_windows: <p>A list of exclusion windows to add to the specified SLOs. You can add up to 10 exclusion windows per SLO.</p>
             remove_exclusion_windows: <p>A list of exclusion windows to remove from the specified SLOs. The window configuration must match an existing exclusion window.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.batch_update_exclusion_windows_input.BatchUpdateExclusionWindowsInput]') -> OperationResponse["aws_sdk_application_signals.types.batch_update_exclusion_windows_output.BatchUpdateExclusionWindowsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.batch_update_exclusion_windows_input.BatchUpdateExclusionWindowsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.batch_update_exclusion_windows_output.BatchUpdateExclusionWindowsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.batch_update_exclusion_windows
-            output, http_response = aws_sdk_application_signals._operations.application_signals.batch_update_exclusion_windows.batch_update_exclusion_windows(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.batch_update_exclusion_windows.batch_update_exclusion_windows(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -165,21 +267,49 @@ class ApplicationSignalsClient:
         if remove_exclusion_windows is not None:
             input["remove_exclusion_windows"] = remove_exclusion_windows
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_grouping_configuration(self, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.delete_grouping_configuration_output.DeleteGroupingConfigurationOutput":
-        """<p>Deletes the grouping configuration for this account. This removes all custom grouping attribute definitions that were previously configured.</p>
-        """
-        def _handler(req: 'OperationRequest[None]') -> OperationResponse["aws_sdk_application_signals.types.delete_grouping_configuration_output.DeleteGroupingConfigurationOutput"]:
+
+    def delete_grouping_configuration(
+        self, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None
+    ) -> "aws_sdk_application_signals.types.delete_grouping_configuration_output.DeleteGroupingConfigurationOutput":
+        """<p>Deletes the grouping configuration for this account. This removes all custom grouping attribute definitions that were previously configured.</p>"""
+
+        def _handler(
+            req: "OperationRequest[None]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.delete_grouping_configuration_output.DeleteGroupingConfigurationOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.delete_grouping_configuration
-            output, http_response = aws_sdk_application_signals._operations.application_signals.delete_grouping_configuration.delete_grouping_configuration(req.options)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.delete_grouping_configuration.delete_grouping_configuration(
+                    req.options
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
 
-        response = execute_pipeline(OperationRequest(input=None, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=None, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_service(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.get_service_output.GetServiceOutput":
+
+    def get_service(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.get_service_output.GetServiceOutput":
         """<p>Returns information about a service discovered by Application Signals.</p>
 
         Args:
@@ -187,9 +317,19 @@ class ApplicationSignalsClient:
             end_time: <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
             key_attributes: <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.get_service_input.GetServiceInput]') -> OperationResponse["aws_sdk_application_signals.types.get_service_output.GetServiceOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.get_service_input.GetServiceInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.get_service_output.GetServiceOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.get_service
-            output, http_response = aws_sdk_application_signals._operations.application_signals.get_service.get_service(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.get_service.get_service(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -198,9 +338,33 @@ class ApplicationSignalsClient:
         input["end_time"] = end_time
         input["key_attributes"] = key_attributes
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_audit_findings(self, start_time: datetime.datetime, end_time: datetime.datetime, audit_targets: "aws_sdk_application_signals.types.audit_targets.AuditTargets", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, auditors: Optional["aws_sdk_application_signals.types.auditors.Auditors"] = None, detail_level: Optional["aws_sdk_application_signals.types.detail_level.DetailLevel"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, max_results: Optional["aws_sdk_application_signals.types.list_audit_finding_max_results.ListAuditFindingMaxResults"] = None) -> "aws_sdk_application_signals.types.list_audit_findings_output.ListAuditFindingsOutput":
+
+    def list_audit_findings(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        audit_targets: "aws_sdk_application_signals.types.audit_targets.AuditTargets",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        auditors: Optional[
+            "aws_sdk_application_signals.types.auditors.Auditors"
+        ] = None,
+        detail_level: Optional[
+            "aws_sdk_application_signals.types.detail_level.DetailLevel"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_audit_finding_max_results.ListAuditFindingMaxResults"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_audit_findings_output.ListAuditFindingsOutput":
         """<p>Returns a list of audit findings that provide automated analysis of service behavior and root cause analysis. These findings help identify the most significant observations about your services, including performance issues, anomalies, and potential problems. The findings are generated using heuristic algorithms based on established troubleshooting patterns.</p>
 
         Args:
@@ -212,9 +376,19 @@ class ApplicationSignalsClient:
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of audit findings.</p>
             max_results: <p>The maximum number of audit findings to return in one operation. If you omit this parameter, the default of 10 is used.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_audit_findings_input.ListAuditFindingsInput]') -> OperationResponse["aws_sdk_application_signals.types.list_audit_findings_output.ListAuditFindingsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_audit_findings_input.ListAuditFindingsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_audit_findings_output.ListAuditFindingsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_audit_findings
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_audit_findings.list_audit_findings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_audit_findings.list_audit_findings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -231,9 +405,27 @@ class ApplicationSignalsClient:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_entity_events(self, entity: "aws_sdk_application_signals.types.attributes.Attributes", start_time: datetime.datetime, end_time: datetime.datetime, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_entity_events_max_results.ListEntityEventsMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput":
+
+    def list_entity_events(
+        self,
+        entity: "aws_sdk_application_signals.types.attributes.Attributes",
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_entity_events_max_results.ListEntityEventsMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput":
         """<p>Returns a list of change events for a specific entity, such as deployments, configuration changes, or other state-changing activities. This operation helps track the history of changes that may have affected service performance.</p>
 
         Args:
@@ -243,9 +435,19 @@ class ApplicationSignalsClient:
             max_results: <p>The maximum number of change events to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of change events.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput]') -> OperationResponse["aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_entity_events
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_entity_events.list_entity_events(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_entity_events.list_entity_events(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -258,9 +460,27 @@ class ApplicationSignalsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_entity_events(self, entity: "aws_sdk_application_signals.types.attributes.Attributes", start_time: datetime.datetime, end_time: datetime.datetime, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_entity_events_max_results.ListEntityEventsMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "Iterator[aws_sdk_application_signals.types.change_event.ChangeEvent]":
+
+    def iter_list_entity_events(
+        self,
+        entity: "aws_sdk_application_signals.types.attributes.Attributes",
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_entity_events_max_results.ListEntityEventsMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_application_signals.types.change_event.ChangeEvent]":
         _token = next_token
         while True:
             _response = self.list_entity_events(
@@ -271,13 +491,25 @@ class ApplicationSignalsClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('change_events',))
+            _page = _resolve_path(_response, ("change_events",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_grouping_attribute_definitions(self, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None, include_linked_accounts: Optional[bool] = None) -> "aws_sdk_application_signals.types.list_grouping_attribute_definitions_output.ListGroupingAttributeDefinitionsOutput":
+
+    def list_grouping_attribute_definitions(
+        self,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+    ) -> "aws_sdk_application_signals.types.list_grouping_attribute_definitions_output.ListGroupingAttributeDefinitionsOutput":
         """<p>Returns the current grouping configuration for this account, including all custom grouping attribute definitions that have been configured. These definitions determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.</p>
 
         Args:
@@ -285,9 +517,19 @@ class ApplicationSignalsClient:
             aws_account_id: <p>The Amazon Web Services account ID to retrieve grouping attribute definitions for. Use this when accessing grouping configurations from a different account in cross-account monitoring scenarios.</p>
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include grouping attributes from source accounts in the returned data.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_grouping_attribute_definitions_input.ListGroupingAttributeDefinitionsInput]') -> OperationResponse["aws_sdk_application_signals.types.list_grouping_attribute_definitions_output.ListGroupingAttributeDefinitionsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_grouping_attribute_definitions_input.ListGroupingAttributeDefinitionsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_grouping_attribute_definitions_output.ListGroupingAttributeDefinitionsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_grouping_attribute_definitions
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_grouping_attribute_definitions.list_grouping_attribute_definitions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_grouping_attribute_definitions.list_grouping_attribute_definitions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -299,9 +541,27 @@ class ApplicationSignalsClient:
         if include_linked_accounts is not None:
             input["include_linked_accounts"] = include_linked_accounts
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_service_dependencies(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_dependencies_max_results.ListServiceDependenciesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "aws_sdk_application_signals.types.list_service_dependencies_output.ListServiceDependenciesOutput":
+
+    def list_service_dependencies(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_dependencies_max_results.ListServiceDependenciesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_dependencies_output.ListServiceDependenciesOutput":
         """<p>Returns a list of service dependencies of the service that you specify. A dependency is an infrastructure component that an operation of this service connects with. Dependencies can include Amazon Web Services services, Amazon Web Services resources, and third-party services. </p>
 
         Args:
@@ -311,9 +571,19 @@ class ApplicationSignalsClient:
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service dependencies.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_service_dependencies_input.ListServiceDependenciesInput]') -> OperationResponse["aws_sdk_application_signals.types.list_service_dependencies_output.ListServiceDependenciesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_service_dependencies_input.ListServiceDependenciesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_service_dependencies_output.ListServiceDependenciesOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_dependencies
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_service_dependencies.list_service_dependencies(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_service_dependencies.list_service_dependencies(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -326,9 +596,27 @@ class ApplicationSignalsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_service_dependencies(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_dependencies_max_results.ListServiceDependenciesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "Iterator[aws_sdk_application_signals.types.service_dependency.ServiceDependency]":
+
+    def iter_list_service_dependencies(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_dependencies_max_results.ListServiceDependenciesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_application_signals.types.service_dependency.ServiceDependency]":
         _token = next_token
         while True:
             _response = self.list_service_dependencies(
@@ -339,13 +627,27 @@ class ApplicationSignalsClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('service_dependencies',))
+            _page = _resolve_path(_response, ("service_dependencies",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_service_dependents(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_dependents_max_results.ListServiceDependentsMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "aws_sdk_application_signals.types.list_service_dependents_output.ListServiceDependentsOutput":
+
+    def list_service_dependents(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_dependents_max_results.ListServiceDependentsMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_dependents_output.ListServiceDependentsOutput":
         """<p>Returns the list of dependents that invoked the specified service during the provided time range. Dependents include other services, CloudWatch Synthetics canaries, and clients that are instrumented with CloudWatch RUM app monitors.</p>
 
         Args:
@@ -355,9 +657,19 @@ class ApplicationSignalsClient:
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service dependents.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_service_dependents_input.ListServiceDependentsInput]') -> OperationResponse["aws_sdk_application_signals.types.list_service_dependents_output.ListServiceDependentsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_service_dependents_input.ListServiceDependentsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_service_dependents_output.ListServiceDependentsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_dependents
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_service_dependents.list_service_dependents(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_service_dependents.list_service_dependents(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -370,9 +682,29 @@ class ApplicationSignalsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_service_dependents(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_dependents_max_results.ListServiceDependentsMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "Iterator[aws_sdk_application_signals.types.service_dependent.ServiceDependent]":
+
+    def iter_list_service_dependents(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_dependents_max_results.ListServiceDependentsMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> (
+        "Iterator[aws_sdk_application_signals.types.service_dependent.ServiceDependent]"
+    ):
         _token = next_token
         while True:
             _response = self.list_service_dependents(
@@ -383,13 +715,25 @@ class ApplicationSignalsClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('service_dependents',))
+            _page = _resolve_path(_response, ("service_dependents",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_service_level_objective_exclusion_windows(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_max_results.ListServiceLevelObjectiveExclusionWindowsMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_output.ListServiceLevelObjectiveExclusionWindowsOutput":
+
+    def list_service_level_objective_exclusion_windows(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_max_results.ListServiceLevelObjectiveExclusionWindowsMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_output.ListServiceLevelObjectiveExclusionWindowsOutput":
         """<p>Retrieves all exclusion windows configured for a specific SLO.</p>
 
         Args:
@@ -397,9 +741,19 @@ class ApplicationSignalsClient:
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used. </p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_input.ListServiceLevelObjectiveExclusionWindowsInput]') -> OperationResponse["aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_output.ListServiceLevelObjectiveExclusionWindowsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_input.ListServiceLevelObjectiveExclusionWindowsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_output.ListServiceLevelObjectiveExclusionWindowsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_level_objective_exclusion_windows
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_service_level_objective_exclusion_windows.list_service_level_objective_exclusion_windows(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_service_level_objective_exclusion_windows.list_service_level_objective_exclusion_windows(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -410,9 +764,25 @@ class ApplicationSignalsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_service_level_objective_exclusion_windows(self, id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_max_results.ListServiceLevelObjectiveExclusionWindowsMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "Iterator[aws_sdk_application_signals.types.exclusion_window.ExclusionWindow]":
+
+    def iter_list_service_level_objective_exclusion_windows(
+        self,
+        id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_max_results.ListServiceLevelObjectiveExclusionWindowsMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "Iterator[aws_sdk_application_signals.types.exclusion_window.ExclusionWindow]":
         _token = next_token
         while True:
             _response = self.list_service_level_objective_exclusion_windows(
@@ -421,13 +791,27 @@ class ApplicationSignalsClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('exclusion_windows',))
+            _page = _resolve_path(_response, ("exclusion_windows",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_service_operations(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_operation_max_results.ListServiceOperationMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "aws_sdk_application_signals.types.list_service_operations_output.ListServiceOperationsOutput":
+
+    def list_service_operations(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_operation_max_results.ListServiceOperationMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_operations_output.ListServiceOperationsOutput":
         """<p>Returns a list of the <i>operations</i> of this service that have been discovered by Application Signals. Only the operations that were invoked during the specified time range are returned.</p>
 
         Args:
@@ -437,9 +821,19 @@ class ApplicationSignalsClient:
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service operations.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_service_operations_input.ListServiceOperationsInput]') -> OperationResponse["aws_sdk_application_signals.types.list_service_operations_output.ListServiceOperationsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_service_operations_input.ListServiceOperationsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_service_operations_output.ListServiceOperationsOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_operations
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_service_operations.list_service_operations(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_service_operations.list_service_operations(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -452,9 +846,29 @@ class ApplicationSignalsClient:
         if next_token is not None:
             input["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_service_operations(self, start_time: datetime.datetime, end_time: datetime.datetime, key_attributes: "aws_sdk_application_signals.types.attributes.Attributes", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_operation_max_results.ListServiceOperationMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None) -> "Iterator[aws_sdk_application_signals.types.service_operation.ServiceOperation]":
+
+    def iter_list_service_operations(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        key_attributes: "aws_sdk_application_signals.types.attributes.Attributes",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_operation_max_results.ListServiceOperationMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+    ) -> (
+        "Iterator[aws_sdk_application_signals.types.service_operation.ServiceOperation]"
+    ):
         _token = next_token
         while True:
             _response = self.list_service_operations(
@@ -465,13 +879,30 @@ class ApplicationSignalsClient:
                 max_results=max_results,
                 next_token=_token,
             )
-            _page = _resolve_path(_response, ('service_operations',))
+            _page = _resolve_path(_response, ("service_operations",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_services(self, start_time: datetime.datetime, end_time: datetime.datetime, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_services_max_results.ListServicesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, include_linked_accounts: Optional[bool] = None, aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None) -> "aws_sdk_application_signals.types.list_services_output.ListServicesOutput":
+
+    def list_services(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_services_max_results.ListServicesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+        aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_services_output.ListServicesOutput":
         """<p>Returns a list of services that have been discovered by Application Signals. A service represents a minimum logical and transactional unit that completes a business function. Services are discovered through Application Signals instrumentation.</p>
 
         Args:
@@ -482,9 +913,19 @@ class ApplicationSignalsClient:
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data. </p>
             aws_account_id: <p>Amazon Web Services Account ID.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_services_input.ListServicesInput]') -> OperationResponse["aws_sdk_application_signals.types.list_services_output.ListServicesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_services_input.ListServicesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_services_output.ListServicesOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_services
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_services.list_services(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_services.list_services(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -500,9 +941,30 @@ class ApplicationSignalsClient:
         if aws_account_id is not None:
             input["aws_account_id"] = aws_account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_services(self, start_time: datetime.datetime, end_time: datetime.datetime, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_services_max_results.ListServicesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, include_linked_accounts: Optional[bool] = None, aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None) -> "Iterator[aws_sdk_application_signals.types.service_summary.ServiceSummary]":
+
+    def iter_list_services(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_services_max_results.ListServicesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+        aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+    ) -> "Iterator[aws_sdk_application_signals.types.service_summary.ServiceSummary]":
         _token = next_token
         while True:
             _response = self.list_services(
@@ -514,13 +976,33 @@ class ApplicationSignalsClient:
                 include_linked_accounts=include_linked_accounts,
                 aws_account_id=aws_account_id,
             )
-            _page = _resolve_path(_response, ('service_summaries',))
+            _page = _resolve_path(_response, ("service_summaries",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_service_states(self, start_time: datetime.datetime, end_time: datetime.datetime, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_states_max_results.ListServiceStatesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, include_linked_accounts: Optional[bool] = None, aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None, attribute_filters: Optional["aws_sdk_application_signals.types.attribute_filters.AttributeFilters"] = None) -> "aws_sdk_application_signals.types.list_service_states_output.ListServiceStatesOutput":
+
+    def list_service_states(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_states_max_results.ListServiceStatesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+        aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+        attribute_filters: Optional[
+            "aws_sdk_application_signals.types.attribute_filters.AttributeFilters"
+        ] = None,
+    ) -> "aws_sdk_application_signals.types.list_service_states_output.ListServiceStatesOutput":
         """<p>Returns information about the last deployment and other change states of services. This API provides visibility into recent changes that may have affected service performance, helping with troubleshooting and change correlation.</p>
 
         Args:
@@ -532,9 +1014,19 @@ class ApplicationSignalsClient:
             aws_account_id: <p>The Amazon Web Services account ID to filter service states by. Use this to limit results to services from a specific account.</p>
             attribute_filters: <p>A list of attribute filters to narrow down the services. You can filter by platform, environment, or other service attributes.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_service_states_input.ListServiceStatesInput]') -> OperationResponse["aws_sdk_application_signals.types.list_service_states_output.ListServiceStatesOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_service_states_input.ListServiceStatesInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_service_states_output.ListServiceStatesOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_service_states
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_service_states.list_service_states(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_service_states.list_service_states(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -552,9 +1044,33 @@ class ApplicationSignalsClient:
         if attribute_filters is not None:
             input["attribute_filters"] = attribute_filters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def iter_list_service_states(self, start_time: datetime.datetime, end_time: datetime.datetime, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None, max_results: Optional["aws_sdk_application_signals.types.list_service_states_max_results.ListServiceStatesMaxResults"] = None, next_token: Optional["aws_sdk_application_signals.types.next_token.NextToken"] = None, include_linked_accounts: Optional[bool] = None, aws_account_id: Optional["aws_sdk_application_signals.types.aws_account_id.AwsAccountId"] = None, attribute_filters: Optional["aws_sdk_application_signals.types.attribute_filters.AttributeFilters"] = None) -> "Iterator[aws_sdk_application_signals.types.service_state.ServiceState]":
+
+    def iter_list_service_states(
+        self,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_application_signals.types.list_service_states_max_results.ListServiceStatesMaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_application_signals.types.next_token.NextToken"
+        ] = None,
+        include_linked_accounts: Optional[bool] = None,
+        aws_account_id: Optional[
+            "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"
+        ] = None,
+        attribute_filters: Optional[
+            "aws_sdk_application_signals.types.attribute_filters.AttributeFilters"
+        ] = None,
+    ) -> "Iterator[aws_sdk_application_signals.types.service_state.ServiceState]":
         _token = next_token
         while True:
             _response = self.list_service_states(
@@ -567,69 +1083,144 @@ class ApplicationSignalsClient:
                 aws_account_id=aws_account_id,
                 attribute_filters=attribute_filters,
             )
-            _page = _resolve_path(_response, ('service_states',))
+            _page = _resolve_path(_response, ("service_states",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    def list_tags_for_resource(self, resource_arn: "aws_sdk_application_signals.types.amazon_resource_name.AmazonResourceName", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "aws_sdk_application_signals.types.amazon_resource_name.AmazonResourceName",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         """<p>Displays the tags associated with a CloudWatch resource. Tags can be assigned to service level objectives.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to view tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest]') -> OperationResponse["aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.list_tags_for_resource
-            output, http_response = aws_sdk_application_signals._operations.application_signals.list_tags_for_resource.list_tags_for_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         input["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def put_grouping_configuration(self, grouping_attribute_definitions: "aws_sdk_application_signals.types.grouping_attribute_definitions.GroupingAttributeDefinitions", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.put_grouping_configuration_output.PutGroupingConfigurationOutput":
+
+    def put_grouping_configuration(
+        self,
+        grouping_attribute_definitions: "aws_sdk_application_signals.types.grouping_attribute_definitions.GroupingAttributeDefinitions",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.put_grouping_configuration_output.PutGroupingConfigurationOutput":
         """<p>Creates or updates the grouping configuration for this account. This operation allows you to define custom grouping attributes that determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings. These grouping attributes can then be used to organize and filter services in the Application Signals console and APIs.</p>
 
         Args:
             grouping_attribute_definitions: <p>An array of grouping attribute definitions that specify how services should be grouped. Each definition includes a friendly name, source keys to derive the grouping value from, and an optional default value.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.put_grouping_configuration_input.PutGroupingConfigurationInput]') -> OperationResponse["aws_sdk_application_signals.types.put_grouping_configuration_output.PutGroupingConfigurationOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.put_grouping_configuration_input.PutGroupingConfigurationInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.put_grouping_configuration_output.PutGroupingConfigurationOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.put_grouping_configuration
-            output, http_response = aws_sdk_application_signals._operations.application_signals.put_grouping_configuration.put_grouping_configuration(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.put_grouping_configuration.put_grouping_configuration(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.put_grouping_configuration_input.PutGroupingConfigurationInput = {}  # type: ignore[typeddict-item]
         input["grouping_attribute_definitions"] = grouping_attribute_definitions
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_discovery(self, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.start_discovery_output.StartDiscoveryOutput":
-        """<p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>A service-linked CloudTrail event channel is created to process CloudTrail events and return change event information. This includes last deployment time, userName, eventName, and other event metadata.</p> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html\"> Enabling Application Signals</a>.</p>
-        """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput]') -> OperationResponse["aws_sdk_application_signals.types.start_discovery_output.StartDiscoveryOutput"]:
+
+    def start_discovery(
+        self, *, config_overrides: Optional[ApplicationSignalsClientConfig] = None
+    ) -> (
+        "aws_sdk_application_signals.types.start_discovery_output.StartDiscoveryOutput"
+    ):
+        """<p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>A service-linked CloudTrail event channel is created to process CloudTrail events and return change event information. This includes last deployment time, userName, eventName, and other event metadata.</p> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html\"> Enabling Application Signals</a>.</p>"""
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.start_discovery_output.StartDiscoveryOutput"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.start_discovery
-            output, http_response = aws_sdk_application_signals._operations.application_signals.start_discovery.start_discovery(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.start_discovery.start_discovery(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput = {}  # type: ignore[typeddict-item]
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def tag_resource(self, resource_arn: "aws_sdk_application_signals.types.amazon_resource_name.AmazonResourceName", tags: "aws_sdk_application_signals.types.tag_list.TagList", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.tag_resource_response.TagResourceResponse":
+
+    def tag_resource(
+        self,
+        resource_arn: "aws_sdk_application_signals.types.amazon_resource_name.AmazonResourceName",
+        tags: "aws_sdk_application_signals.types.tag_list.TagList",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.tag_resource_response.TagResourceResponse":
         """<p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource, such as a service level objective.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with an alarm that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to set tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tags: <p>The list of key-value pairs to associate with the alarm.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.tag_resource_request.TagResourceRequest]') -> OperationResponse["aws_sdk_application_signals.types.tag_resource_response.TagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.tag_resource_response.TagResourceResponse"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.tag_resource
-            output, http_response = aws_sdk_application_signals._operations.application_signals.tag_resource.tag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -637,18 +1228,39 @@ class ApplicationSignalsClient:
         input["resource_arn"] = resource_arn
         input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def untag_resource(self, resource_arn: "aws_sdk_application_signals.types.amazon_resource_name.AmazonResourceName", tag_keys: "aws_sdk_application_signals.types.tag_key_list.TagKeyList", *, config_overrides: Optional[ApplicationSignalsClientConfig] = None) -> "aws_sdk_application_signals.types.untag_resource_response.UntagResourceResponse":
+
+    def untag_resource(
+        self,
+        resource_arn: "aws_sdk_application_signals.types.amazon_resource_name.AmazonResourceName",
+        tag_keys: "aws_sdk_application_signals.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[ApplicationSignalsClientConfig] = None,
+    ) -> "aws_sdk_application_signals.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes one or more tags from the specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to delete tags from.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_application_signals.types.untag_resource_request.UntagResourceRequest]') -> OperationResponse["aws_sdk_application_signals.types.untag_resource_response.UntagResourceResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_application_signals.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_application_signals.types.untag_resource_response.UntagResourceResponse"
+        ]:
             import aws_sdk_application_signals._operations.application_signals.untag_resource
-            output, http_response = aws_sdk_application_signals._operations.application_signals.untag_resource.untag_resource(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_application_signals._operations.application_signals.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -656,9 +1268,15 @@ class ApplicationSignalsClient:
         input["resource_arn"] = resource_arn
         input["tag_keys"] = tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     def __enter__(self) -> Self:
         return self
+
     def __exit__(self, exc_type: Any, exc: Any, tb: Any):
         self._client.close()

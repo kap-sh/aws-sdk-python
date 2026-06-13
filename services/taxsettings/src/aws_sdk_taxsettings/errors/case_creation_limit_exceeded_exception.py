@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#CaseCreationLimitExceededException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_taxsettings.errors import DeserializationError
-from aws_sdk_taxsettings.errors import ServiceError
+
+from aws_sdk_taxsettings.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.error_message
 
+
 class CaseCreationLimitExceededException_(TypedDict):
     message: "aws_sdk_taxsettings.types.error_message.ErrorMessage"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CaseCreationLimitExceededException_) -> dict:
@@ -21,16 +24,24 @@ def deserialize_json(data: dict) -> CaseCreationLimitExceededException_:
     if "message" in data:
         out["message"] = data["message"]
     else:
-        raise DeserializationError("CaseCreationLimitExceededException_.message required")
+        raise DeserializationError(
+            "CaseCreationLimitExceededException_.message required"
+        )
     return out
 
 
 class CaseCreationLimitExceededException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.taxsettings#CaseCreationLimitExceededException``."""
-    code: str | None = 'CaseCreationLimitExceededException'
+
+    code: str | None = "CaseCreationLimitExceededException"
 
     def __init__(self, data: CaseCreationLimitExceededException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='CaseCreationLimitExceededException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="CaseCreationLimitExceededException",
+        )
         self.data = data
 
     @classmethod

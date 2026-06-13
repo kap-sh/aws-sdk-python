@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ListBillingAdjustmentRequestsOutput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_marketplace_agreement.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_marketplace_agreement.types.billing_adjustment_summary_list
+    import aws_sdk_marketplace_agreement.types.next_token
+
+
+class ListBillingAdjustmentRequestsOutput(TypedDict):
+    next_token: NotRequired["aws_sdk_marketplace_agreement.types.next_token.NextToken"]
+    """<p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>"""
+    items: "aws_sdk_marketplace_agreement.types.billing_adjustment_summary_list.BillingAdjustmentSummaryList"
+    """<p>An array of <code>BillingAdjustmentSummary</code> objects containing summary information about each billing adjustment request.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListBillingAdjustmentRequestsOutput) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    import aws_sdk_marketplace_agreement.types.billing_adjustment_summary_list
+
+    out["items"] = (
+        aws_sdk_marketplace_agreement.types.billing_adjustment_summary_list.serialize_aws_json_1_0(
+            value["items"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListBillingAdjustmentRequestsOutput:
+    out: ListBillingAdjustmentRequestsOutput = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "items" in data:
+        import aws_sdk_marketplace_agreement.types.billing_adjustment_summary_list
+
+        out["items"] = (
+            aws_sdk_marketplace_agreement.types.billing_adjustment_summary_list.deserialize_aws_json_1_0(
+                data["items"]
+            )
+        )
+    else:
+        raise DeserializationError("ListBillingAdjustmentRequestsOutput.items required")
+    return out

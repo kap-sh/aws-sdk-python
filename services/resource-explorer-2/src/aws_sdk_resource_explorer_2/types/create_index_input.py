@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#CreateIndexInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.tag_map
+
 
 class CreateIndexInput(TypedDict):
     client_token: NotRequired["str"]
     """<p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type value</a> to ensure the uniqueness of your index.</p>"""
     tags: NotRequired["aws_sdk_resource_explorer_2.types.tag_map.TagMap"]
     """<p>The specified tags are attached only to the index created in this Amazon Web Services Region. The tags aren't attached to any of the resources listed in the index.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateIndexInput) -> dict:
@@ -18,7 +22,10 @@ def serialize_json(value: CreateIndexInput) -> dict:
         out["ClientToken"] = value["client_token"]
     if "tags" in value:
         import aws_sdk_resource_explorer_2.types.tag_map
-        out["Tags"] = aws_sdk_resource_explorer_2.types.tag_map.serialize_json(value["tags"])
+
+        out["Tags"] = aws_sdk_resource_explorer_2.types.tag_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -28,5 +35,8 @@ def deserialize_json(data: dict) -> CreateIndexInput:
         out["client_token"] = data["ClientToken"]
     if "Tags" in data:
         import aws_sdk_resource_explorer_2.types.tag_map
-        out["tags"] = aws_sdk_resource_explorer_2.types.tag_map.deserialize_json(data["Tags"])
+
+        out["tags"] = aws_sdk_resource_explorer_2.types.tag_map.deserialize_json(
+            data["Tags"]
+        )
     return out

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataSourceIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_id
 

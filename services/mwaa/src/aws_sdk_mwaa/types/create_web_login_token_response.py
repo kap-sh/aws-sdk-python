@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#CreateWebLoginTokenResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.airflow_identity
     import aws_sdk_mwaa.types.hostname
     import aws_sdk_mwaa.types.iam_identity
     import aws_sdk_mwaa.types.token
+
 
 class CreateWebLoginTokenResponse(TypedDict):
     web_token: NotRequired["aws_sdk_mwaa.types.token.Token"]
@@ -17,6 +20,7 @@ class CreateWebLoginTokenResponse(TypedDict):
     """<p>The name of the IAM identity creating the web login token. This might be an IAM user, or an assumed or federated identity. For example, <code>assumed-role/Admin/your-name</code>.</p>"""
     airflow_identity: NotRequired["aws_sdk_mwaa.types.airflow_identity.AirflowIdentity"]
     """<p>The user name of the Apache Airflow identity creating the web login token.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateWebLoginTokenResponse) -> dict:

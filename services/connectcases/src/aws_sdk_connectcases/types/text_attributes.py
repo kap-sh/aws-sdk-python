@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#TextAttributes``."""
 
 from typing import TypedDict
+
 from aws_sdk_connectcases.errors import DeserializationError
 
 

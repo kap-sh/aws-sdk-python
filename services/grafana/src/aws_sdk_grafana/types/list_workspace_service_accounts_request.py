@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListWorkspaceServiceAccountsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.pagination_token
     import aws_sdk_grafana.types.workspace_id
+
 
 class ListWorkspaceServiceAccountsRequest(TypedDict):
     max_results: NotRequired["int"]
@@ -13,6 +16,7 @@ class ListWorkspaceServiceAccountsRequest(TypedDict):
     """<p>The token for the next set of service accounts to return. (You receive this token from a previous <code>ListWorkspaceServiceAccounts</code> operation.)</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The workspace for which to list service accounts.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListWorkspaceServiceAccountsRequest) -> dict:

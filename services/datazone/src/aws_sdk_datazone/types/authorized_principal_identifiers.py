@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AuthorizedPrincipalIdentifiers``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.authorized_principal_identifier
 
-AuthorizedPrincipalIdentifiers: TypeAlias = list["aws_sdk_datazone.types.authorized_principal_identifier.AuthorizedPrincipalIdentifier"]
+AuthorizedPrincipalIdentifiers: TypeAlias = list[
+    "aws_sdk_datazone.types.authorized_principal_identifier.AuthorizedPrincipalIdentifier"
+]
 
 
 # --- restJson1 ser/de ---

@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.drs#PITPolicyRule``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_drs.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_drs.types.pit_policy_rule_units
     import aws_sdk_drs.types.positive_integer
     import aws_sdk_drs.types.strictly_positive_integer
+
 
 class PITPolicyRule(TypedDict):
     rule_id: "aws_sdk_drs.types.positive_integer.PositiveInteger"
@@ -15,10 +19,13 @@ class PITPolicyRule(TypedDict):
     """<p>The units used to measure the interval and retentionDuration.</p>"""
     interval: "aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"
     """<p>How often, in the chosen units, a snapshot should be taken.</p>"""
-    retention_duration: "aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"
+    retention_duration: (
+        "aws_sdk_drs.types.strictly_positive_integer.StrictlyPositiveInteger"
+    )
     """<p>The duration to retain a snapshot for, in the chosen units.</p>"""
     enabled: NotRequired["bool"]
     """<p>Whether this rule is enabled or not.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: PITPolicyRule) -> dict:

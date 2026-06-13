@@ -1,17 +1,27 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ConnectionTrackingSpecificationRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.non_negative_integer
 
+
 class ConnectionTrackingSpecificationRequest(TypedDict):
-    tcp_established_timeout: NotRequired["aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"]
+    tcp_established_timeout: NotRequired[
+        "aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"
+    ]
     """<p>Timeout for established TCP connections.</p>"""
-    udp_stream_timeout: NotRequired["aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"]
+    udp_stream_timeout: NotRequired[
+        "aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"
+    ]
     """<p>Timeout for UDP stream connections.</p>"""
-    udp_timeout: NotRequired["aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"]
+    udp_timeout: NotRequired[
+        "aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"
+    ]
     """<p>General timeout for UDP connections.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: ConnectionTrackingSpecificationRequest) -> dict:

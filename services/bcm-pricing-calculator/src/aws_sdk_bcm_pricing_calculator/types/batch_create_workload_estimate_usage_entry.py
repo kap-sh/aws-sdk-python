@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateWorkloadEstimateUsageEntry``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.account_id
     import aws_sdk_bcm_pricing_calculator.types.historical_usage_entity
@@ -11,6 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.service_code
     import aws_sdk_bcm_pricing_calculator.types.usage_group
     import aws_sdk_bcm_pricing_calculator.types.usage_type
+
 
 class BatchCreateWorkloadEstimateUsageEntry(TypedDict):
     service_code: "aws_sdk_bcm_pricing_calculator.types.service_code.ServiceCode"
@@ -27,8 +31,11 @@ class BatchCreateWorkloadEstimateUsageEntry(TypedDict):
     """<p> The Amazon Web Services account ID associated with this usage estimate. </p>"""
     amount: "float"
     """<p> The estimated usage amount. </p>"""
-    historical_usage: NotRequired["aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.HistoricalUsageEntity"]
+    historical_usage: NotRequired[
+        "aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.HistoricalUsageEntity"
+    ]
     """<p> Historical usage data associated with this estimate, if available. </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: BatchCreateWorkloadEstimateUsageEntry) -> dict:
@@ -43,7 +50,12 @@ def serialize_aws_json_1_0(value: BatchCreateWorkloadEstimateUsageEntry) -> dict
     out["amount"] = value["amount"]
     if "historical_usage" in value:
         import aws_sdk_bcm_pricing_calculator.types.historical_usage_entity
-        out["historicalUsage"] = aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.serialize_aws_json_1_0(value["historical_usage"])
+
+        out["historicalUsage"] = (
+            aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.serialize_aws_json_1_0(
+                value["historical_usage"]
+            )
+        )
     return out
 
 
@@ -52,15 +64,21 @@ def deserialize_aws_json_1_0(data: dict) -> BatchCreateWorkloadEstimateUsageEntr
     if "serviceCode" in data:
         out["service_code"] = data["serviceCode"]
     else:
-        raise DeserializationError("BatchCreateWorkloadEstimateUsageEntry.service_code required")
+        raise DeserializationError(
+            "BatchCreateWorkloadEstimateUsageEntry.service_code required"
+        )
     if "usageType" in data:
         out["usage_type"] = data["usageType"]
     else:
-        raise DeserializationError("BatchCreateWorkloadEstimateUsageEntry.usage_type required")
+        raise DeserializationError(
+            "BatchCreateWorkloadEstimateUsageEntry.usage_type required"
+        )
     if "operation" in data:
         out["operation"] = data["operation"]
     else:
-        raise DeserializationError("BatchCreateWorkloadEstimateUsageEntry.operation required")
+        raise DeserializationError(
+            "BatchCreateWorkloadEstimateUsageEntry.operation required"
+        )
     if "key" in data:
         out["key"] = data["key"]
     else:
@@ -70,12 +88,21 @@ def deserialize_aws_json_1_0(data: dict) -> BatchCreateWorkloadEstimateUsageEntr
     if "usageAccountId" in data:
         out["usage_account_id"] = data["usageAccountId"]
     else:
-        raise DeserializationError("BatchCreateWorkloadEstimateUsageEntry.usage_account_id required")
+        raise DeserializationError(
+            "BatchCreateWorkloadEstimateUsageEntry.usage_account_id required"
+        )
     if "amount" in data:
         out["amount"] = data["amount"]
     else:
-        raise DeserializationError("BatchCreateWorkloadEstimateUsageEntry.amount required")
+        raise DeserializationError(
+            "BatchCreateWorkloadEstimateUsageEntry.amount required"
+        )
     if "historicalUsage" in data:
         import aws_sdk_bcm_pricing_calculator.types.historical_usage_entity
-        out["historical_usage"] = aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.deserialize_aws_json_1_0(data["historicalUsage"])
+
+        out["historical_usage"] = (
+            aws_sdk_bcm_pricing_calculator.types.historical_usage_entity.deserialize_aws_json_1_0(
+                data["historicalUsage"]
+            )
+        )
     return out

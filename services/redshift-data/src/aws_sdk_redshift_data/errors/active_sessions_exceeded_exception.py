@@ -1,13 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#ActiveSessionsExceededException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_redshift_data.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.string
 
+
 class ActiveSessionsExceededException_(TypedDict):
     message: NotRequired["aws_sdk_redshift_data.types.string.String"]
+
 
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: ActiveSessionsExceededException_) -> dict:
@@ -26,10 +31,16 @@ def deserialize_aws_json_1_1(data: dict) -> ActiveSessionsExceededException_:
 
 class ActiveSessionsExceededException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.redshiftdata#ActiveSessionsExceededException``."""
-    code: str | None = 'ActiveSessionsExceededException'
+
+    code: str | None = "ActiveSessionsExceededException"
 
     def __init__(self, data: ActiveSessionsExceededException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ActiveSessionsExceededException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ActiveSessionsExceededException",
+        )
         self.data = data
 
     @classmethod

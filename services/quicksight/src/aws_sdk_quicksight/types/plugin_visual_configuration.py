@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#PluginVisualConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_quicksight.types.plugin_visual_field_wells
+    import aws_sdk_quicksight.types.plugin_visual_options
+    import aws_sdk_quicksight.types.plugin_visual_sort_configuration
+
+
+class PluginVisualConfiguration(TypedDict):
+    field_wells: NotRequired[
+        "aws_sdk_quicksight.types.plugin_visual_field_wells.PluginVisualFieldWells"
+    ]
+    """<p>The field wells configuration of the plugin visual.</p>"""
+    visual_options: NotRequired[
+        "aws_sdk_quicksight.types.plugin_visual_options.PluginVisualOptions"
+    ]
+    """<p>The persisted properties of the plugin visual.</p>"""
+    sort_configuration: NotRequired[
+        "aws_sdk_quicksight.types.plugin_visual_sort_configuration.PluginVisualSortConfiguration"
+    ]
+    """<p>The sort configuration of the plugin visual.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PluginVisualConfiguration) -> dict:
+    out: dict = {}
+    if "field_wells" in value:
+        import aws_sdk_quicksight.types.plugin_visual_field_wells
+
+        out["FieldWells"] = (
+            aws_sdk_quicksight.types.plugin_visual_field_wells.serialize_json(
+                value["field_wells"]
+            )
+        )
+    if "visual_options" in value:
+        import aws_sdk_quicksight.types.plugin_visual_options
+
+        out["VisualOptions"] = (
+            aws_sdk_quicksight.types.plugin_visual_options.serialize_json(
+                value["visual_options"]
+            )
+        )
+    if "sort_configuration" in value:
+        import aws_sdk_quicksight.types.plugin_visual_sort_configuration
+
+        out["SortConfiguration"] = (
+            aws_sdk_quicksight.types.plugin_visual_sort_configuration.serialize_json(
+                value["sort_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PluginVisualConfiguration:
+    out: PluginVisualConfiguration = {}  # type: ignore[typeddict-item]
+    if "FieldWells" in data:
+        import aws_sdk_quicksight.types.plugin_visual_field_wells
+
+        out["field_wells"] = (
+            aws_sdk_quicksight.types.plugin_visual_field_wells.deserialize_json(
+                data["FieldWells"]
+            )
+        )
+    if "VisualOptions" in data:
+        import aws_sdk_quicksight.types.plugin_visual_options
+
+        out["visual_options"] = (
+            aws_sdk_quicksight.types.plugin_visual_options.deserialize_json(
+                data["VisualOptions"]
+            )
+        )
+    if "SortConfiguration" in data:
+        import aws_sdk_quicksight.types.plugin_visual_sort_configuration
+
+        out["sort_configuration"] = (
+            aws_sdk_quicksight.types.plugin_visual_sort_configuration.deserialize_json(
+                data["SortConfiguration"]
+            )
+        )
+    return out

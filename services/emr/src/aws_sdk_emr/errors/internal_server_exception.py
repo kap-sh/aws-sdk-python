@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InternalServerException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_emr.errors import ServiceError
 
 if TYPE_CHECKING:

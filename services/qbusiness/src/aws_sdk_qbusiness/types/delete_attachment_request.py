@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteAttachmentRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.attachment_id
     import aws_sdk_qbusiness.types.conversation_id
     import aws_sdk_qbusiness.types.user_id
+
 
 class DeleteAttachmentRequest(TypedDict):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
@@ -17,6 +20,7 @@ class DeleteAttachmentRequest(TypedDict):
     """<p>The unique identifier for the attachment.</p>"""
     user_id: NotRequired["aws_sdk_qbusiness.types.user_id.UserId"]
     """<p>The unique identifier of the user involved in the conversation.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteAttachmentRequest) -> dict:

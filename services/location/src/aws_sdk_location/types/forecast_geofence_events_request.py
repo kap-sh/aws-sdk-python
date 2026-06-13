@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.location#ForecastGeofenceEventsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_location.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_location.types.distance_unit
     import aws_sdk_location.types.forecast_geofence_events_device_state
     import aws_sdk_location.types.large_token
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.speed_unit
+
 
 class ForecastGeofenceEventsRequest(TypedDict):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
@@ -26,11 +30,17 @@ class ForecastGeofenceEventsRequest(TypedDict):
     max_results: NotRequired["int"]
     """<p>An optional limit for the number of resources returned in a single call.</p> <p>Default value: <code>20</code> </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ForecastGeofenceEventsRequest) -> dict:
     out: dict = {}
     import aws_sdk_location.types.forecast_geofence_events_device_state
-    out["DeviceState"] = aws_sdk_location.types.forecast_geofence_events_device_state.serialize_json(value["device_state"])
+
+    out["DeviceState"] = (
+        aws_sdk_location.types.forecast_geofence_events_device_state.serialize_json(
+            value["device_state"]
+        )
+    )
     if "time_horizon_minutes" in value:
         out["TimeHorizonMinutes"] = value["time_horizon_minutes"]
     if "distance_unit" in value:
@@ -48,9 +58,16 @@ def deserialize_json(data: dict) -> ForecastGeofenceEventsRequest:
     out: ForecastGeofenceEventsRequest = {}  # type: ignore[typeddict-item]
     if "DeviceState" in data:
         import aws_sdk_location.types.forecast_geofence_events_device_state
-        out["device_state"] = aws_sdk_location.types.forecast_geofence_events_device_state.deserialize_json(data["DeviceState"])
+
+        out["device_state"] = (
+            aws_sdk_location.types.forecast_geofence_events_device_state.deserialize_json(
+                data["DeviceState"]
+            )
+        )
     else:
-        raise DeserializationError("ForecastGeofenceEventsRequest.device_state required")
+        raise DeserializationError(
+            "ForecastGeofenceEventsRequest.device_state required"
+        )
     if "TimeHorizonMinutes" in data:
         out["time_horizon_minutes"] = data["TimeHorizonMinutes"]
     if "DistanceUnit" in data:

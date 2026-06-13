@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.location#GetMapStyleDescriptorRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_location.types.api_key
+    import aws_sdk_location.types.resource_name
+
+
+class GetMapStyleDescriptorRequest(TypedDict):
+    map_name: "aws_sdk_location.types.resource_name.ResourceName"
+    """<p>The map resource to retrieve the style descriptor from.</p>"""
+    key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]
+    """<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMapStyleDescriptorRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetMapStyleDescriptorRequest:
+    out: GetMapStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
+    return out

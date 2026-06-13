@@ -1,23 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#CloudFrontKeyValueStore``."""
 
-from aws_sdk_cloudfront_keyvaluestore._auth._signers import SigV4Signer
-from aws_sdk_cloudfront_keyvaluestore._auth._sigv4 import presign_sigv4
-from collections.abc import AsyncIterator
-from aws_sdk_cloudfront_keyvaluestore._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, AsyncBaseHandler, AsyncClient
-from aws_sdk_cloudfront_keyvaluestore._auth._zapros_handler import AuthMiddleware
-from aws_sdk_cloudfront_keyvaluestore._services._pipeline import AsyncInterceptor, AsyncOperationOptions, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline, aretry
-from aws_sdk_cloudfront_keyvaluestore._async import anysleep
-import time
-from aws_sdk_cloudfront_keyvaluestore.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
 import aws_sdk_cloudfront_keyvaluestore._auth._signers
 import aws_sdk_cloudfront_keyvaluestore._auth._sigv4
 from aws_sdk_cloudfront_keyvaluestore._auth._identity import Credentials
-from aws_sdk_cloudfront_keyvaluestore._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
+from aws_sdk_cloudfront_keyvaluestore._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_cloudfront_keyvaluestore._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cloudfront_keyvaluestore._pagination import resolve_path as _resolve_path
+from aws_sdk_cloudfront_keyvaluestore._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.delete_key_request
     import aws_sdk_cloudfront_keyvaluestore.types.delete_key_requests_list
@@ -39,6 +46,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.update_keys_response
     import aws_sdk_cloudfront_keyvaluestore.types.value
 
+
 class AsyncCloudFrontKeyValueStoreClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int
@@ -47,14 +55,19 @@ class AsyncCloudFrontKeyValueStoreClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
-async def ensure_async_iterator(it: AsyncIterator[bytes] | bytes) -> AsyncIterator[bytes]:
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
     if isinstance(it, bytes):
         yield it
     else:
         async for chunk in it:
             yield chunk
+
 
 class AsyncCloudFrontKeyValueStoreClient:
     """A client for the ``CloudFrontKeyValueStore`` service.
@@ -69,19 +82,74 @@ class AsyncCloudFrontKeyValueStoreClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: AsyncBaseHandler | None = None, operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = AsyncClient(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncCloudFrontKeyValueStoreClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        self.config = AsyncCloudFrontKeyValueStoreClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
         overrides: AsyncCloudFrontKeyValueStoreClientConfig = config_overrides or {}
-        interceptors_: list[AsyncInterceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), aretry()]
-        options_: AsyncOperationOptions = AsyncOperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self.config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self.config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    async def delete_key(self, kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key", if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None) -> "aws_sdk_cloudfront_keyvaluestore.types.delete_key_response.DeleteKeyResponse":
+
+    async def delete_key(
+        self,
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key",
+        if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+    ) -> "aws_sdk_cloudfront_keyvaluestore.types.delete_key_response.DeleteKeyResponse":
         """<p>Deletes the key value pair specified by the key.</p>
 
         Args:
@@ -94,9 +162,20 @@ class AsyncCloudFrontKeyValueStoreClient:
 
             >>> await client.delete_key(key='key1', kvs_arn='arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58', if_match='KV0AB12C3DEF456')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest]') -> AsyncOperationResponse["aws_sdk_cloudfront_keyvaluestore.types.delete_key_response.DeleteKeyResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudfront_keyvaluestore.types.delete_key_response.DeleteKeyResponse"
+        ]:
             import aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.delete_key
-            output, http_response = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.delete_key.async_delete_key(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.delete_key.async_delete_key(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -105,9 +184,19 @@ class AsyncCloudFrontKeyValueStoreClient:
         input["key"] = key
         input["if_match"] = if_match
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def describe_key_value_store(self, kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None) -> "aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_response.DescribeKeyValueStoreResponse":
+
+    async def describe_key_value_store(
+        self,
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+    ) -> "aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_response.DescribeKeyValueStoreResponse":
         """<p>Returns metadata information about Key Value Store.</p>
 
         Args:
@@ -121,18 +210,40 @@ class AsyncCloudFrontKeyValueStoreClient:
 
             >>> await client.describe_key_value_store(kvs_arn='arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-1234a9d35678')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_request.DescribeKeyValueStoreRequest]') -> AsyncOperationResponse["aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_response.DescribeKeyValueStoreResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_request.DescribeKeyValueStoreRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_response.DescribeKeyValueStoreResponse"
+        ]:
             import aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.describe_key_value_store
-            output, http_response = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.describe_key_value_store.async_describe_key_value_store(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.describe_key_value_store.async_describe_key_value_store(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input: aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
         input["kvs_arn"] = kvs_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_key(self, kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None) -> "aws_sdk_cloudfront_keyvaluestore.types.get_key_response.GetKeyResponse":
+
+    async def get_key(
+        self,
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+    ) -> "aws_sdk_cloudfront_keyvaluestore.types.get_key_response.GetKeyResponse":
         """<p>Returns a key value pair.</p>
 
         Args:
@@ -144,9 +255,20 @@ class AsyncCloudFrontKeyValueStoreClient:
 
             >>> await client.get_key(key='key1', kvs_arn='arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.get_key_request.GetKeyRequest]') -> AsyncOperationResponse["aws_sdk_cloudfront_keyvaluestore.types.get_key_response.GetKeyResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.get_key_request.GetKeyRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudfront_keyvaluestore.types.get_key_response.GetKeyResponse"
+        ]:
             import aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.get_key
-            output, http_response = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.get_key.async_get_key(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.get_key.async_get_key(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -154,9 +276,21 @@ class AsyncCloudFrontKeyValueStoreClient:
         input["kvs_arn"] = kvs_arn
         input["key"] = key
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_keys(self, kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_cloudfront_keyvaluestore.types.list_keys_response.ListKeysResponse":
+
+    async def list_keys(
+        self,
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_cloudfront_keyvaluestore.types.list_keys_response.ListKeysResponse":
         """<p>Returns a list of key value pairs.</p>
 
         Args:
@@ -172,9 +306,20 @@ class AsyncCloudFrontKeyValueStoreClient:
 
             >>> await client.list_keys(kvs_arn='arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58', max_results=3, next_token='hVTTZndkpBZ0VRZ0R1RF')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.list_keys_request.ListKeysRequest]') -> AsyncOperationResponse["aws_sdk_cloudfront_keyvaluestore.types.list_keys_response.ListKeysResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.list_keys_request.ListKeysRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudfront_keyvaluestore.types.list_keys_response.ListKeysResponse"
+        ]:
             import aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.list_keys
-            output, http_response = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.list_keys.async_list_keys(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.list_keys.async_list_keys(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -185,9 +330,21 @@ class AsyncCloudFrontKeyValueStoreClient:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def iter_list_keys(self, kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "AsyncIterator[aws_sdk_cloudfront_keyvaluestore.types.list_keys_response_list_item.ListKeysResponseListItem]":
+
+    async def iter_list_keys(
+        self,
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "AsyncIterator[aws_sdk_cloudfront_keyvaluestore.types.list_keys_response_list_item.ListKeysResponseListItem]":
         _token = next_token
         while True:
             _response = await self.list_keys(
@@ -196,13 +353,22 @@ class AsyncCloudFrontKeyValueStoreClient:
                 next_token=_token,
                 max_results=max_results,
             )
-            _page = _resolve_path(_response, ('items',))
+            _page = _resolve_path(_response, ("items",))
             for _item in _page or []:
                 yield _item
-            _token = _resolve_path(_response, ('next_token',))
+            _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
-    async def put_key(self, key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key", value: "aws_sdk_cloudfront_keyvaluestore.types.value.Value", kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None) -> "aws_sdk_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse":
+
+    async def put_key(
+        self,
+        key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key",
+        value: "aws_sdk_cloudfront_keyvaluestore.types.value.Value",
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+    ) -> "aws_sdk_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse":
         """<p>Creates a new key value pair or replaces the value of an existing key.</p>
 
         Args:
@@ -216,9 +382,20 @@ class AsyncCloudFrontKeyValueStoreClient:
 
             >>> await client.put_key(key='key1', value='value1', kvs_arn='arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58', if_match='KV0AB12C3DEF456')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest]') -> AsyncOperationResponse["aws_sdk_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse"
+        ]:
             import aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.put_key
-            output, http_response = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.put_key.async_put_key(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.put_key.async_put_key(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -228,9 +405,28 @@ class AsyncCloudFrontKeyValueStoreClient:
         input["kvs_arn"] = kvs_arn
         input["if_match"] = if_match
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_keys(self, kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN", if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag", *, config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None, puts: Optional["aws_sdk_cloudfront_keyvaluestore.types.put_key_requests_list.PutKeyRequestsList"] = None, deletes: Optional["aws_sdk_cloudfront_keyvaluestore.types.delete_key_requests_list.DeleteKeyRequestsList"] = None) -> "aws_sdk_cloudfront_keyvaluestore.types.update_keys_response.UpdateKeysResponse":
+
+    async def update_keys(
+        self,
+        kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN",
+        if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag",
+        *,
+        config_overrides: Optional[AsyncCloudFrontKeyValueStoreClientConfig] = None,
+        puts: Optional[
+            "aws_sdk_cloudfront_keyvaluestore.types.put_key_requests_list.PutKeyRequestsList"
+        ] = None,
+        deletes: Optional[
+            "aws_sdk_cloudfront_keyvaluestore.types.delete_key_requests_list.DeleteKeyRequestsList"
+        ] = None,
+    ) -> (
+        "aws_sdk_cloudfront_keyvaluestore.types.update_keys_response.UpdateKeysResponse"
+    ):
         """<p>Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.</p>
 
         Args:
@@ -250,9 +446,20 @@ class AsyncCloudFrontKeyValueStoreClient:
 
             >>> await client.update_keys(kvs_arn='arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58', if_match='KV0AB12C3DEF456', puts=[{'Key': 'key1', 'Value': 'value1'}, {'Key': 'key2', 'Value': 'value2'}], deletes=[{'Key': 'key3'}, {'Key': 'key4'}])
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest]') -> AsyncOperationResponse["aws_sdk_cloudfront_keyvaluestore.types.update_keys_response.UpdateKeysResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudfront_keyvaluestore.types.update_keys_response.UpdateKeysResponse"
+        ]:
             import aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.update_keys
-            output, http_response = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.update_keys.async_update_keys(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudfront_keyvaluestore._operations.cloud_front_key_value_store.update_keys.async_update_keys(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -264,9 +471,15 @@ class AsyncCloudFrontKeyValueStoreClient:
         if deletes is not None:
             input["deletes"] = deletes
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     async def __aenter__(self) -> Self:
         return self
+
     async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
         await self._client.aclose()

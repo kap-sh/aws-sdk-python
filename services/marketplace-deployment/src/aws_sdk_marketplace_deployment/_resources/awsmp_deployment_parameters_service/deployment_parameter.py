@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_marketplace_deployment._services.async_marketplace_deployment import ensure_async_iterator
-from aws_sdk_marketplace_deployment._services.marketplace_deployment import ensure_sync_iterator
-from aws_sdk_marketplace_deployment._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_marketplace_deployment._auth._signers
 import aws_sdk_marketplace_deployment._auth._sigv4
+from aws_sdk_marketplace_deployment._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_marketplace_deployment._services.marketplace_deployment import MarketplaceDeploymentClient, MarketplaceDeploymentClientConfig
-    from aws_sdk_marketplace_deployment._services.async_marketplace_deployment import AsyncMarketplaceDeploymentClient, AsyncMarketplaceDeploymentClientConfig
     import aws_sdk_marketplace_deployment.types.catalog
     import aws_sdk_marketplace_deployment.types.client_token
     import aws_sdk_marketplace_deployment.types.deployment_parameter_input
@@ -14,11 +19,34 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.put_deployment_parameter_response
     import aws_sdk_marketplace_deployment.types.resource_id
     import aws_sdk_marketplace_deployment.types.tags_map
+    from aws_sdk_marketplace_deployment._services.async_marketplace_deployment import (
+        AsyncMarketplaceDeploymentClient,
+        AsyncMarketplaceDeploymentClientConfig,
+    )
+    from aws_sdk_marketplace_deployment._services.marketplace_deployment import (
+        MarketplaceDeploymentClient,
+        MarketplaceDeploymentClientConfig,
+    )
+
 
 class DeploymentParameter:
     def __init__(self, service: MarketplaceDeploymentClient) -> None:
         self._service = service
-    def create(self, catalog: "aws_sdk_marketplace_deployment.types.catalog.Catalog", product_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId", agreement_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId", deployment_parameter: "aws_sdk_marketplace_deployment.types.deployment_parameter_input.DeploymentParameterInput", *, config_overrides: Optional[MarketplaceDeploymentClientConfig] = None, tags: Optional["aws_sdk_marketplace_deployment.types.tags_map.TagsMap"] = None, expiration_date: Optional[datetime.datetime] = None, client_token: Optional["aws_sdk_marketplace_deployment.types.client_token.ClientToken"] = None) -> "aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse":
+
+    def create(
+        self,
+        catalog: "aws_sdk_marketplace_deployment.types.catalog.Catalog",
+        product_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId",
+        agreement_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId",
+        deployment_parameter: "aws_sdk_marketplace_deployment.types.deployment_parameter_input.DeploymentParameterInput",
+        *,
+        config_overrides: Optional[MarketplaceDeploymentClientConfig] = None,
+        tags: Optional["aws_sdk_marketplace_deployment.types.tags_map.TagsMap"] = None,
+        expiration_date: Optional[datetime.datetime] = None,
+        client_token: Optional[
+            "aws_sdk_marketplace_deployment.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse":
         """<p>Creates or updates a deployment parameter and is targeted by <code>catalog</code> and <code>agreementId</code>.</p>
 
         Args:
@@ -40,9 +68,19 @@ class DeploymentParameter:
 
             >>> client.create(agreement_id='agmt-1234', catalog='AWSMarketplace', product_id='product-1234', deployment_parameter={'name': 'ExampleSimpleDeploymentParameterName', 'secretString': 'MySimpleValue'}, client_token='some-unique-uuid-between-32-and-64-characters', expiration_date='2099-11-18T08:52:46.397Z', tags={'FooKey': 'BarValue', 'HelloKey': 'WorldValue'})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest]') -> OperationResponse["aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse"
+        ]:
             import aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.put_deployment_parameter
-            output, http_response = aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.put_deployment_parameter.put_deployment_parameter(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.put_deployment_parameter.put_deployment_parameter(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -58,13 +96,32 @@ class DeploymentParameter:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncDeploymentParameter:
     def __init__(self, service: AsyncMarketplaceDeploymentClient) -> None:
         self._service = service
-    async def create(self, catalog: "aws_sdk_marketplace_deployment.types.catalog.Catalog", product_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId", agreement_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId", deployment_parameter: "aws_sdk_marketplace_deployment.types.deployment_parameter_input.DeploymentParameterInput", *, config_overrides: Optional[AsyncMarketplaceDeploymentClientConfig] = None, tags: Optional["aws_sdk_marketplace_deployment.types.tags_map.TagsMap"] = None, expiration_date: Optional[datetime.datetime] = None, client_token: Optional["aws_sdk_marketplace_deployment.types.client_token.ClientToken"] = None) -> "aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse":
+
+    async def create(
+        self,
+        catalog: "aws_sdk_marketplace_deployment.types.catalog.Catalog",
+        product_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId",
+        agreement_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId",
+        deployment_parameter: "aws_sdk_marketplace_deployment.types.deployment_parameter_input.DeploymentParameterInput",
+        *,
+        config_overrides: Optional[AsyncMarketplaceDeploymentClientConfig] = None,
+        tags: Optional["aws_sdk_marketplace_deployment.types.tags_map.TagsMap"] = None,
+        expiration_date: Optional[datetime.datetime] = None,
+        client_token: Optional[
+            "aws_sdk_marketplace_deployment.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse":
         """<p>Creates or updates a deployment parameter and is targeted by <code>catalog</code> and <code>agreementId</code>.</p>
 
         Args:
@@ -86,9 +143,20 @@ class AsyncDeploymentParameter:
 
             >>> await client.create(agreement_id='agmt-1234', catalog='AWSMarketplace', product_id='product-1234', deployment_parameter={'name': 'ExampleSimpleDeploymentParameterName', 'secretString': 'MySimpleValue'}, client_token='some-unique-uuid-between-32-and-64-characters', expiration_date='2099-11-18T08:52:46.397Z', tags={'FooKey': 'BarValue', 'HelloKey': 'WorldValue'})
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest]') -> AsyncOperationResponse["aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_marketplace_deployment.types.put_deployment_parameter_response.PutDeploymentParameterResponse"
+        ]:
             import aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.put_deployment_parameter
-            output, http_response = await aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.put_deployment_parameter.async_put_deployment_parameter(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_marketplace_deployment._operations.awsmp_deployment_parameters_service.put_deployment_parameter.async_put_deployment_parameter(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -104,5 +172,9 @@ class AsyncDeploymentParameter:
         if client_token is not None:
             input["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

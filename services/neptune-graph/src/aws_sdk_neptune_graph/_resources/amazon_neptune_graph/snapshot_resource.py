@@ -1,12 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_neptune_graph._services.async_neptune_graph import ensure_async_iterator
-from aws_sdk_neptune_graph._services.neptune_graph import ensure_sync_iterator
-from aws_sdk_neptune_graph._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_neptune_graph._auth._signers
 import aws_sdk_neptune_graph._auth._sigv4
+from aws_sdk_neptune_graph._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_neptune_graph._services.neptune_graph import NeptuneGraphClient, NeptuneGraphClientConfig
-    from aws_sdk_neptune_graph._services.async_neptune_graph import AsyncNeptuneGraphClient, AsyncNeptuneGraphClientConfig
     import aws_sdk_neptune_graph.types.create_graph_snapshot_input
     import aws_sdk_neptune_graph.types.create_graph_snapshot_output
     import aws_sdk_neptune_graph.types.delete_graph_snapshot_input
@@ -22,11 +27,28 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.snapshot_identifier
     import aws_sdk_neptune_graph.types.snapshot_name
     import aws_sdk_neptune_graph.types.tag_map
+    from aws_sdk_neptune_graph._services.async_neptune_graph import (
+        AsyncNeptuneGraphClient,
+        AsyncNeptuneGraphClientConfig,
+    )
+    from aws_sdk_neptune_graph._services.neptune_graph import (
+        NeptuneGraphClient,
+        NeptuneGraphClientConfig,
+    )
+
 
 class SnapshotResource:
     def __init__(self, service: NeptuneGraphClient) -> None:
         self._service = service
-    def create_graph_snapshot(self, graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier", snapshot_name: "aws_sdk_neptune_graph.types.snapshot_name.SnapshotName", *, config_overrides: Optional[NeptuneGraphClientConfig] = None, tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None) -> "aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput":
+
+    def create_graph_snapshot(
+        self,
+        graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier",
+        snapshot_name: "aws_sdk_neptune_graph.types.snapshot_name.SnapshotName",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput":
         """<p>Creates a snapshot of the specific graph.</p>
 
         Args:
@@ -34,9 +56,19 @@ class SnapshotResource:
             snapshot_name: <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
             tags: <p>Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput]') -> OperationResponse["aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_snapshot
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_snapshot.create_graph_snapshot(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_snapshot.create_graph_snapshot(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -46,43 +78,101 @@ class SnapshotResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_graph_snapshot(self, snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier", *, config_overrides: Optional[NeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput":
+
+    def delete_graph_snapshot(
+        self,
+        snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput":
         """<p>Deletes the specified graph snapshot.</p>
 
         Args:
             snapshot_identifier: <p>ID of the graph snapshot to be deleted.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput]') -> OperationResponse["aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.delete_graph_snapshot
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.delete_graph_snapshot.delete_graph_snapshot(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.delete_graph_snapshot.delete_graph_snapshot(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput = {}  # type: ignore[typeddict-item]
         input["snapshot_identifier"] = snapshot_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_graph_snapshot(self, snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier", *, config_overrides: Optional[NeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput":
+
+    def get_graph_snapshot(
+        self,
+        snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier",
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput":
         """<p>Retrieves a specified graph snapshot.</p>
 
         Args:
             snapshot_identifier: <p>The ID of the snapshot to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput]') -> OperationResponse["aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_graph_snapshot
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_graph_snapshot.get_graph_snapshot(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_graph_snapshot.get_graph_snapshot(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput = {}  # type: ignore[typeddict-item]
         input["snapshot_identifier"] = snapshot_identifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_graph_snapshots(self, *, config_overrides: Optional[NeptuneGraphClientConfig] = None, graph_identifier: Optional["aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"] = None, next_token: Optional["aws_sdk_neptune_graph.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_neptune_graph.types.max_results.MaxResults"] = None) -> "aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput":
+
+    def list_graph_snapshots(
+        self,
+        *,
+        config_overrides: Optional[NeptuneGraphClientConfig] = None,
+        graph_identifier: Optional[
+            "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_neptune_graph.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_neptune_graph.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput":
         """<p>Lists available snapshots of a specified Neptune Analytics graph.</p>
 
         Args:
@@ -90,9 +180,19 @@ class SnapshotResource:
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput]') -> OperationResponse["aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput]",
+        ) -> OperationResponse[
+            "aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_graph_snapshots
-            output, http_response = aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_graph_snapshots.list_graph_snapshots(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_graph_snapshots.list_graph_snapshots(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -104,13 +204,26 @@ class SnapshotResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncSnapshotResource:
     def __init__(self, service: AsyncNeptuneGraphClient) -> None:
         self._service = service
-    async def create_graph_snapshot(self, graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier", snapshot_name: "aws_sdk_neptune_graph.types.snapshot_name.SnapshotName", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None) -> "aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput":
+
+    async def create_graph_snapshot(
+        self,
+        graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier",
+        snapshot_name: "aws_sdk_neptune_graph.types.snapshot_name.SnapshotName",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        tags: Optional["aws_sdk_neptune_graph.types.tag_map.TagMap"] = None,
+    ) -> "aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput":
         """<p>Creates a snapshot of the specific graph.</p>
 
         Args:
@@ -118,9 +231,20 @@ class AsyncSnapshotResource:
             snapshot_name: <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
             tags: <p>Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.create_graph_snapshot_output.CreateGraphSnapshotOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_snapshot
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_snapshot.async_create_graph_snapshot(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.create_graph_snapshot.async_create_graph_snapshot(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -130,43 +254,103 @@ class AsyncSnapshotResource:
         if tags is not None:
             input["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_graph_snapshot(self, snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput":
+
+    async def delete_graph_snapshot(
+        self,
+        snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput":
         """<p>Deletes the specified graph snapshot.</p>
 
         Args:
             snapshot_identifier: <p>ID of the graph snapshot to be deleted.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.delete_graph_snapshot_output.DeleteGraphSnapshotOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.delete_graph_snapshot
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.delete_graph_snapshot.async_delete_graph_snapshot(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.delete_graph_snapshot.async_delete_graph_snapshot(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput = {}  # type: ignore[typeddict-item]
         input["snapshot_identifier"] = snapshot_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_graph_snapshot(self, snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier", *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None) -> "aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput":
+
+    async def get_graph_snapshot(
+        self,
+        snapshot_identifier: "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier",
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+    ) -> "aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput":
         """<p>Retrieves a specified graph snapshot.</p>
 
         Args:
             snapshot_identifier: <p>The ID of the snapshot to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.get_graph_snapshot_output.GetGraphSnapshotOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_graph_snapshot
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_graph_snapshot.async_get_graph_snapshot(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.get_graph_snapshot.async_get_graph_snapshot(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input: aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput = {}  # type: ignore[typeddict-item]
         input["snapshot_identifier"] = snapshot_identifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_graph_snapshots(self, *, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None, graph_identifier: Optional["aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"] = None, next_token: Optional["aws_sdk_neptune_graph.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_neptune_graph.types.max_results.MaxResults"] = None) -> "aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput":
+
+    async def list_graph_snapshots(
+        self,
+        *,
+        config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
+        graph_identifier: Optional[
+            "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_neptune_graph.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_neptune_graph.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput":
         """<p>Lists available snapshots of a specified Neptune Analytics graph.</p>
 
         Args:
@@ -174,9 +358,20 @@ class AsyncSnapshotResource:
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput]') -> AsyncOperationResponse["aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_neptune_graph.types.list_graph_snapshots_output.ListGraphSnapshotsOutput"
+        ]:
             import aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_graph_snapshots
-            output, http_response = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_graph_snapshots.async_list_graph_snapshots(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_neptune_graph._operations.amazon_neptune_graph.list_graph_snapshots.async_list_graph_snapshots(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -188,5 +383,9 @@ class AsyncSnapshotResource:
         if max_results is not None:
             input["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

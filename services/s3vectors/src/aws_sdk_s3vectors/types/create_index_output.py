@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#CreateIndexOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.index_arn
+
 
 class CreateIndexOutput(TypedDict):
     index_arn: NotRequired["aws_sdk_s3vectors.types.index_arn.IndexArn"]
     """<p>The Amazon Resource Name (ARN) of the newly created vector index.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateIndexOutput) -> dict:

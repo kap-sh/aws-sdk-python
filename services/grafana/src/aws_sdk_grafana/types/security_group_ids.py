@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#SecurityGroupIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.security_group_id
 
-SecurityGroupIds: TypeAlias = list["aws_sdk_grafana.types.security_group_id.SecurityGroupId"]
+SecurityGroupIds: TypeAlias = list[
+    "aws_sdk_grafana.types.security_group_id.SecurityGroupId"
+]
 
 
 # --- restJson1 ser/de ---
