@@ -1,0 +1,23 @@
+{
+  "packages": {
+    "services/*": {
+      "release-type": "python",
+      "package-name": "aws-sdk-${name}",
+      "changelog-path": "CHANGELOG.md",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": false
+    }
+  },
+  "changelog-sections": [
+    {"type": "feat", "section": "Features"},
+    {"type": "fix", "section": "Bug Fixes"},
+    {"type": "chore", "section": "Miscellaneous"},
+    {"type": "docs", "section": "Documentation"},
+    {"type": "refactor", "section": "Code Refactoring"},
+    {"type": "test", "section": "Tests"},
+    {"type": "revert", "section": "Reverts"}
+  ],
+  "release-as": "simple",
+  "skip-github-release": true,
+  "skip-tag": true
+}

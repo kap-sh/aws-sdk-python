@@ -1,0 +1,74 @@
+name: Auto-Publish to PyPI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.release-please-manifest.json'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.detect.outputs.packages }}
+      has-changes: ${{ steps.detect.outputs.has-changes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed packages
+        id: detect
+        run: |
+          # Get manifest diff
+          if ! git diff HEAD~1 HEAD -- .release-please-manifest.json | grep -q '^[+-]'; then
+            echo "has-changes=false" >> $GITHUB_OUTPUT
+            echo "packages=[]" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Extract changed service names
+          CHANGED=$(git diff HEAD~1 HEAD -- .release-please-manifest.json | \
+            grep '^[+-]  "services/' | \
+            grep -v '^---' | \
+            sed 's/^[+-]  "services\///; s/":.*//' | \
+            sort -u)
+
+          # Convert to JSON array
+          PACKAGES=$(echo "$CHANGED" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+
+          echo "has-changes=true" >> $GITHUB_OUTPUT
+          echo "packages=$PACKAGES" >> $GITHUB_OUTPUT
+
+          echo "Changed packages: $PACKAGES"
+
+  # Note: GitHub Actions supports max 256 concurrent matrix jobs.
+  # If >256 packages changed, this will batch automatically.
+  # All packages will publish, just in sequential batches.
+  publish:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.has-changes == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 256
+      matrix:
+        service: ${{ fromJson(needs.detect-changes.outputs.packages) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Build package
+        run: uv build
+        working-directory: services/${{ matrix.service }}
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: services/${{ matrix.service }}/dist/
