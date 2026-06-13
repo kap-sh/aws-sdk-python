@@ -74,7 +74,7 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Bucket=input.get("bucket"),
             Region=options.region,
@@ -94,7 +94,7 @@ def build_request(
             UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}"
     url = apply_label(url, "{Bucket}", str(input["bucket"]))
     params: dict[str, str] = {}
@@ -122,11 +122,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 

@@ -49,7 +49,7 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_s3.types.write_get_object_response_request.WriteGetObjectResponseRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Bucket=options.bucket,
             Region=options.region,
@@ -69,7 +69,7 @@ def build_request(
             UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/WriteGetObjectResponse"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -202,11 +202,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 

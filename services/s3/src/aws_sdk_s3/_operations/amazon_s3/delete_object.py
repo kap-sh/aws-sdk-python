@@ -69,7 +69,7 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_s3.types.delete_object_request.DeleteObjectRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Bucket=input.get("bucket"),
             Region=options.region,
@@ -89,7 +89,7 @@ def build_request(
             UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=DeleteObject"
     url = apply_label(url, "{Bucket}", str(input["bucket"]))
     url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
@@ -120,11 +120,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
