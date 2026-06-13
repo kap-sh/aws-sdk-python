@@ -8,6 +8,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_dynamodb._auth._signers
+import aws_sdk_dynamodb._auth._sigv4
 from aws_sdk_dynamodb._async import anysleep
 from aws_sdk_dynamodb._auth._identity import Credentials
 from aws_sdk_dynamodb._auth._providers import (
