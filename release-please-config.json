@@ -2985,7 +2985,6 @@
       "section": "Reverts"
     }
   ],
-  "release-as": "simple",
   "skip-github-release": true,
   "skip-tag": true
 }
